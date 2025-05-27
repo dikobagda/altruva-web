@@ -132,7 +132,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-serif font-semibold transition-colors duration-200 px-3 py-2 rounded-md",
+                "text-sm font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md",
                 "hover:bg-primary/10 hover:text-primary",
                 pathname === item.href ? "text-primary bg-primary/5" : "text-foreground/70" 
               )}
@@ -162,7 +162,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "block text-base font-serif font-semibold transition-colors duration-200 py-2 px-3 rounded-md", 
+                  "block text-base font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md", 
                   "hover:bg-primary/10 hover:text-primary",
                   pathname === item.href ? "text-primary bg-primary/5" : "text-foreground/80"
                 )}
