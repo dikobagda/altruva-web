@@ -6,39 +6,31 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
-import { ArrowRight, CheckCircle, Star } from 'lucide-react'; // Removed Sparkles as AltruvaLogoIcon will be used or another specific icon
-import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon'; // Import the new logo icon
+import { ArrowRight, CheckCircle } from 'lucide-react';
+import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon'; 
 
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <SectionWrapper className="bg-gradient-to-br from-background to-secondary/30 !pt-20 !pb-20 md:!pt-32 md:!pb-32">
+      <SectionWrapper className="bg-background !pt-28 md:!pt-32 !pb-20 md:!pb-32 min-h-screen flex items-center">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-6 leading-tight">
-              Embrace Your Authentic Beauty.
+          <div className="md:pr-8">
+            <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-8 leading-tight">
+              Empower Yourself – Professionals In Fillers, Acne Scar Removal, Hair Transplant And More
             </h1>
-            <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl">
-              At Altruva, we blend artistry with advanced aesthetic science to help you achieve your most beautiful self. Experience personalized care in a serene and luxurious environment.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="font-semibold">
-                <Link href="/book-appointment">Book a Consultation</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="font-semibold border-primary text-primary hover:bg-primary/10">
-                <Link href="/services">Explore Services</Link>
-              </Button>
-            </div>
+            <Button asChild variant="outline" size="lg" className="font-semibold border-primary text-primary hover:bg-primary/10 hover:text-primary text-base px-10 py-6 rounded-full">
+              <Link href="/book-appointment">Book an Appointment</Link>
+            </Button>
           </div>
-          <div className="hidden md:block rounded-lg overflow-hidden shadow-xl">
+          <div className="flex justify-center md:justify-end mt-8 md:mt-0">
             <Image
-              src="https://placehold.co/600x400.png"
-              alt="Serene clinic interior"
+              src="https://placehold.co/600x800.png" 
+              alt="Woman's face close-up, representing beauty and aesthetic treatments"
               width={600}
-              height={400}
-              className="object-cover aspect-[3/2]"
-              data-ai-hint="serene clinic interior"
+              height={800}
+              className="object-cover rounded-lg shadow-2xl max-w-full h-auto md:max-w-md lg:max-w-lg"
+              data-ai-hint="woman face beauty"
               priority
             />
           </div>
@@ -150,7 +142,7 @@ export default function HomePage() {
                 <p className="text-foreground/80 italic">"{testimonial.text}"</p>
                 <div className="flex mt-2">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className={`h-5 w-5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`} />
+                    <CheckCircle key={i} className={`h-5 w-5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`} />
                   ))}
                 </div>
               </CardContent>

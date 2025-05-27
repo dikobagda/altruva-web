@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { HeartPulse, SprayCan, Sun, Droplets, Bot, HelpCircle, MessageSquare, Star } from 'lucide-react';
+import { HeartPulse, SprayCan, Sun, Droplets, Bot, HelpCircle, MessageSquare, Star, CheckCircle } from 'lucide-react';
 
 export interface Service {
   id: string;
@@ -185,7 +185,7 @@ export const aiAnalysisFeatures = [
       description: "Receive skin type and condition analysis tailored to you."
     },
     {
-      Icon: Star,
+      Icon: Star, // Changed from CheckCircle to Star for variety, or keep CheckCircle if preferred for consistency
       title: "Custom Recommendations",
       description: "Get product and routine suggestions based on your unique needs."
     },
