@@ -46,8 +46,8 @@ export default function Header() {
   }
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 group">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6 group-hover:bg-background/80 transition-colors duration-300 ease-in-out">
+    <header className="absolute top-0 left-0 right-0 z-50 group hover:bg-background/80 transition-colors duration-300 ease-in-out">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" prefetch={false}>
           <AltruvaLogoIcon className="h-10 w-10 text-primary" /> {/* Slightly larger logo */}
           <span className="font-serif text-3xl font-bold text-primary">Altruva</span>
