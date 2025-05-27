@@ -83,7 +83,7 @@ export default function Header() {
         <Button variant="ghost" className={cn("flex items-center space-x-1.5 px-2 py-1 h-auto group-hover:bg-primary/10", inMobileMenu ? "w-full justify-start" : "")}>
           <selectedLanguage.Icon className="h-4 w-auto" />
           {!inMobileMenu && <span className="text-xs text-foreground/70 group-hover:text-primary">{selectedLanguage.code.toUpperCase()}</span>}
-          {inMobileMenu && <span className="text-base font-medium text-foreground/80 group-hover:text-primary">{selectedLanguage.label}</span>}
+          {inMobileMenu && <span className="text-base font-semibold text-foreground/80 group-hover:text-primary">{selectedLanguage.label}</span>}
           <ChevronDown className="h-4 w-4 text-foreground/70 group-hover:text-primary" />
         </Button>
       </DropdownMenuTrigger>
@@ -101,7 +101,7 @@ export default function Header() {
   return (
     <header 
       className={cn(
-        "top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300 ease-in-out", // Changed transition-all
+        "top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300 ease-in-out",
         isScrolled 
           ? "fixed bg-background shadow-lg" 
           : "absolute group hover:bg-background/80" 
@@ -119,9 +119,9 @@ export default function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-md",
+                "text-sm font-semibold transition-colors duration-200 px-3 py-2 rounded-md", // Changed font-medium to font-semibold
                 "hover:bg-primary/10 hover:text-primary",
-                pathname === item.href ? "text-primary font-semibold bg-primary/5" : "text-foreground/70" 
+                pathname === item.href ? "text-primary bg-primary/5" : "text-foreground/70" 
               )}
               prefetch={false}
             >
@@ -149,7 +149,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "block text-base font-medium transition-colors duration-200 py-2 px-3 rounded-md",
+                  "block text-base font-semibold transition-colors duration-200 py-2 px-3 rounded-md", // Changed font-medium to font-semibold
                   "hover:bg-primary/10 hover:text-primary",
                   pathname === item.href ? "text-primary bg-primary/5" : "text-foreground/80"
                 )}
