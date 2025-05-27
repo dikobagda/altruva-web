@@ -1,6 +1,7 @@
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import FloatingAISkinAnalysisButton from '@/components/layout/FloatingAISkinAnalysisButton';
 
 export default function MainLayout({
   children,
@@ -12,6 +13,7 @@ export default function MainLayout({
       <Header />
       <main className="flex-grow">{children}</main>
       <Footer />
+      <FloatingAISkinAnalysisButton />
     </div>
   );
 }
