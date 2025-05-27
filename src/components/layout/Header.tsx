@@ -15,7 +15,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
 import { UkFlagIcon } from '@/components/icons/UkFlagIcon';
-import { IdFlagIcon } from '@/components/icons/IdFlagIcon'; // New Indonesian Flag
+import { IdFlagIcon } from '@/components/icons/IdFlagIcon';
 
 const navItems = [
   { href: '/about', label: 'About' },
@@ -101,10 +101,10 @@ export default function Header() {
   return (
     <header 
       className={cn(
-        "top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out group hover:bg-background/80",
+        "top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
         isScrolled 
-          ? "fixed bg-background/95 shadow-lg" 
-          : "absolute"
+          ? "fixed bg-background shadow-lg" // Fully opaque background when scrolled
+          : "absolute group hover:bg-background/80" // Transparent with hover effect when not scrolled
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
@@ -135,7 +135,7 @@ export default function Header() {
         </div>
 
         <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" className="text-primary">
+          <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" className={cn("text-primary", isScrolled && "text-primary")}>
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
