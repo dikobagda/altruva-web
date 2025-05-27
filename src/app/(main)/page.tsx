@@ -6,17 +6,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
-import { ArrowRight, CheckCircle, Star } from 'lucide-react'; // Star was added in a previous step
+import { ArrowRight, CheckCircle, Star } from 'lucide-react'; 
 import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon'; 
 
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      {/* Background image from Unsplash: beauty, spa, wellness */}
       <SectionWrapper 
         className="relative !pt-28 md:!pt-32 !pb-20 md:!pb-32 min-h-screen flex items-center bg-cover bg-center"
-        style={{ backgroundImage: "url('https://source.unsplash.com/random/1920x1080/?beauty,spa,wellness')" }}
+        style={{ backgroundImage: "url('https://storage.googleapis.com/monite-images/public/altruva-hero.png')" }}
       >
         <div className="absolute inset-0 bg-black/30 z-0" data-ai-hint="dark overlay"></div>
         <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
