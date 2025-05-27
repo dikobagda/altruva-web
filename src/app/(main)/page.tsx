@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
-import { ArrowRight, CheckCircle, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle, Star } from 'lucide-react'; // Star was missing, added based on previous error
 import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
 
 export default function HomePage() {
@@ -15,7 +15,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section
         className="relative !pt-28 md:!pt-32 !pb-20 md:!pb-32 min-h-screen flex items-center bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero_background.png')" }}
+        style={{ backgroundImage: "url('https://placehold.co/1920x1080.png')" }} //诊断的占位符图像
       >
         <div className="absolute inset-0 bg-black/30 z-0" data-ai-hint="dark overlay"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
