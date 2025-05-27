@@ -80,11 +80,24 @@ export default function Header() {
   const LanguageSelector = ({ inMobileMenu = false }: { inMobileMenu?: boolean }) => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className={cn("flex items-center space-x-1.5 px-2 py-1 h-auto group-hover:bg-primary/10", inMobileMenu ? "w-full justify-start" : "")}>
-          <selectedLanguage.Icon className="h-4 w-auto" />
-          {!inMobileMenu && <span className="text-xs text-foreground/70 group-hover:text-primary">{selectedLanguage.code.toUpperCase()}</span>}
-          {inMobileMenu && <span className="text-base font-semibold text-foreground/80 group-hover:text-primary">{selectedLanguage.label}</span>}
-          <ChevronDown className="h-4 w-4 text-foreground/70 group-hover:text-primary" />
+        <Button 
+          variant={inMobileMenu ? "ghost" : "default"}
+          className={cn(
+            "flex items-center space-x-1.5 h-auto transition-none", // Added transition-none to prevent interference with other transitions
+            inMobileMenu 
+              ? "w-full justify-start px-2 py-1" 
+              : "px-4 py-2 rounded-full hover:bg-primary text-primary-foreground" 
+          )}
+        >
+          <selectedLanguage.Icon className={cn("h-4 w-auto", !inMobileMenu && "text-primary-foreground" )} />
+          {!inMobileMenu && <span className="text-xs text-primary-foreground">{selectedLanguage.code.toUpperCase()}</span>}
+          {inMobileMenu && <span className="text-base font-semibold text-foreground/80">{selectedLanguage.label}</span>}
+          <ChevronDown 
+            className={cn(
+              "h-4 w-4",
+              inMobileMenu ? "text-foreground/70" : "text-primary-foreground"
+            )} 
+          />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -119,7 +132,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-semibold transition-colors duration-200 px-3 py-2 rounded-md", // Changed font-medium to font-semibold
+                "text-sm font-semibold transition-colors duration-200 px-3 py-2 rounded-md",
                 "hover:bg-primary/10 hover:text-primary",
                 pathname === item.href ? "text-primary bg-primary/5" : "text-foreground/70" 
               )}
@@ -149,7 +162,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "block text-base font-semibold transition-colors duration-200 py-2 px-3 rounded-md", // Changed font-medium to font-semibold
+                  "block text-base font-semibold transition-colors duration-200 py-2 px-3 rounded-md", 
                   "hover:bg-primary/10 hover:text-primary",
                   pathname === item.href ? "text-primary bg-primary/5" : "text-foreground/80"
                 )}
