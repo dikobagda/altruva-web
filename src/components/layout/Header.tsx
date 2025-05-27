@@ -123,7 +123,6 @@ export default function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" prefetch={false}>
           <AltruvaLogoIcon className="h-10 w-10 text-primary" />
-          <span className="font-serif text-3xl font-bold text-primary">Altruva</span>
         </Link>
         
         <nav className="hidden md:flex flex-grow items-center justify-center space-x-1">

@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
-import { ArrowRight, CheckCircle, Star } from 'lucide-react'; // Star was missing, added based on previous error
+import { ArrowRight, Star } from 'lucide-react'; 
 import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
 
 export default function HomePage() {
@@ -15,16 +15,16 @@ export default function HomePage() {
       {/* Hero Section */}
       <section
         className="relative !pt-28 md:!pt-32 !pb-20 md:!pb-32 min-h-screen flex items-center bg-cover bg-center"
-        style={{ backgroundImage: "url('https://placehold.co/1920x1080.png')" }} //诊断的占位符图像
+        style={{ backgroundImage: "url('/images/hero_background.png')" }}
       >
         <div className="absolute inset-0 bg-black/30 z-0" data-ai-hint="dark overlay"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8">
-              <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
-                Empower Yourself – Professionals In Fillers, Acne Scar Removal, Hair Transplant And More
+              <h1 className="font-sans text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
+              Jakarta’s 1st Regenerative Contouring Clinic. Reveal the True You
               </h1>
-              <Button asChild variant="outline" size="lg" className="font-semibold border-white text-white hover:bg-white/10 hover:text-white text-base px-10 py-6 rounded-full">
+              <Button asChild variant="outline" size="lg" className="font-semibold border-black text-white hover:bg-black/10 hover:text-white text-base px-10 py-6 rounded-full">
                 <Link href="/book-appointment">Book an Appointment</Link>
               </Button>
             </div>
