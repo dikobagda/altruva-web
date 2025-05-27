@@ -6,34 +6,29 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, Star } from 'lucide-react'; // Star was added in a previous step
 import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon'; 
 
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <SectionWrapper className="bg-background !pt-28 md:!pt-32 !pb-20 md:!pb-32 min-h-screen flex items-center">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+      {/* Background image from Unsplash: beauty, spa, wellness */}
+      <SectionWrapper 
+        className="relative !pt-28 md:!pt-32 !pb-20 md:!pb-32 min-h-screen flex items-center bg-cover bg-center"
+        style={{ backgroundImage: "url('https://source.unsplash.com/random/1920x1080/?beauty,spa,wellness')" }}
+      >
+        <div className="absolute inset-0 bg-black/30 z-0" data-ai-hint="dark overlay"></div>
+        <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
           <div className="md:pr-8">
-            <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-8 leading-tight">
+            <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
               Empower Yourself – Professionals In Fillers, Acne Scar Removal, Hair Transplant And More
             </h1>
-            <Button asChild variant="outline" size="lg" className="font-semibold border-primary text-primary hover:bg-primary/10 hover:text-primary text-base px-10 py-6 rounded-full">
+            <Button asChild variant="outline" size="lg" className="font-semibold border-white text-white hover:bg-white/10 hover:text-white text-base px-10 py-6 rounded-full">
               <Link href="/book-appointment">Book an Appointment</Link>
             </Button>
           </div>
-          <div className="flex justify-center md:justify-end mt-8 md:mt-0">
-            <Image
-              src="https://placehold.co/600x800.png" 
-              alt="Woman's face close-up, representing beauty and aesthetic treatments"
-              width={600}
-              height={800}
-              className="object-cover rounded-lg shadow-2xl max-w-full h-auto md:max-w-md lg:max-w-lg"
-              data-ai-hint="woman face beauty"
-              priority
-            />
-          </div>
+          {/* Removed placeholder image div */}
         </div>
       </SectionWrapper>
 
@@ -142,7 +137,7 @@ export default function HomePage() {
                 <p className="text-foreground/80 italic">"{testimonial.text}"</p>
                 <div className="flex mt-2">
                   {[...Array(5)].map((_, i) => (
-                    <CheckCircle key={i} className={`h-5 w-5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`} />
+                    <Star key={i} className={`h-5 w-5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`} />
                   ))}
                 </div>
               </CardContent>
