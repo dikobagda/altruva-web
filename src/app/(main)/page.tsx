@@ -24,7 +24,11 @@ export default function HomePage() {
               <h1 className="font-sans text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
               Jakarta’s 1st Regenerative Contouring Clinic. Reveal the True You
               </h1>
-              <Button asChild variant="outline" size="lg" className="font-semibold border-black text-white hover:bg-black/10 hover:text-white text-base px-10 py-6 rounded-full">
+              <Button
+                asChild
+                size="lg"
+                className="bg-primary-foreground text-white border border-black hover:bg-primary-foreground/90 font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
+              >
                 <Link href="/book-appointment">Book an Appointment</Link>
               </Button>
             </div>
