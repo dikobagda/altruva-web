@@ -14,7 +14,6 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
-import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
 import SkinAnalysisForm from '@/components/skin-analysis/SkinAnalysisForm';
 import AnalysisResultCard from '@/components/skin-analysis/AnalysisResultCard';
 import type { SkinAnalysisOutput } from '@/ai/flows/skin-analysis';
@@ -70,14 +69,14 @@ export default function FloatingAISkinAnalysisButton() {
                 variant="default"
                 size="icon"
                 className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-xl z-50 animate-pulse hover:animate-none"
-                aria-label="Open AI Skin Analysis"
+                aria-label="Open AI Assistant"
               >
-                <AltruvaLogoIcon className="h-7 w-7" />
+                <Bot className="h-7 w-7" />
               </Button>
             </DialogTrigger>
           </TooltipTrigger>
           <TooltipContent side="left" className="bg-primary text-primary-foreground">
-            <p>AI Skin Analysis</p>
+            <p>AI Assistant</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
