@@ -3,15 +3,13 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, ShoppingCart } from 'lucide-react'; // Removed Instagram, Facebook, Youtube
+import { Menu, X } from 'lucide-react'; // Removed ShoppingCart
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
 import { UkFlagIcon } from '@/components/icons/UkFlagIcon';
 import { CnFlagIcon } from '@/components/icons/CnFlagIcon';
-// Removed import for TikTokIcon as it's no longer used
-
 
 const navItems = [
   { href: '/about', label: 'About' },
@@ -66,10 +64,10 @@ export default function Header() {
   return (
     <header 
       className={cn(
-        "top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out group",
+        "top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out group hover:bg-background/80",
         isScrolled 
           ? "fixed bg-background/95 shadow-lg" 
-          : "absolute hover:bg-background/80"
+          : "absolute"
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
@@ -96,10 +94,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center space-x-3">
-          <Link href="/cart" aria-label="Shopping Cart" className="text-primary hover:text-accent transition-colors p-2 hover:bg-primary/10 rounded-md">
-            <ShoppingCart size={20} />
-          </Link>
-          {/* Social media icons removed */}
+          {/* Shopping cart icon removed */}
           <UkFlagIcon className="h-4 w-auto cursor-pointer hover:opacity-80 transition-opacity" />
           <CnFlagIcon className="h-4 w-auto cursor-pointer hover:opacity-80 transition-opacity" />
         </div>
@@ -130,10 +125,7 @@ export default function Header() {
               </Link>
             ))}
             <div className="border-t border-border pt-4 mt-2 space-y-2">
-                 <Link href="/cart" className="flex items-center text-foreground/80 hover:text-primary py-2 px-3 rounded-md hover:bg-primary/10" onClick={() => setIsMobileMenuOpen(false)}>
-                    <ShoppingCart size={20} className="mr-2"/> Shopping Cart
-                 </Link>
-                 {/* Social media icons section removed from mobile menu */}
+                 {/* Shopping cart link removed from mobile menu */}
                  <div className="flex space-x-3 py-2 px-3">
                     <UkFlagIcon className="h-5 w-auto cursor-pointer hover:opacity-80" />
                     <CnFlagIcon className="h-5 w-auto cursor-pointer hover:opacity-80" />
