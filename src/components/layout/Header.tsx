@@ -53,14 +53,15 @@ export default function Header() {
           <span className="font-serif text-3xl font-bold text-primary">Altruva</span>
         </Link>
         
-        <nav className="hidden md:flex flex-grow items-center justify-center space-x-6">
+        <nav className="hidden md:flex flex-grow items-center justify-center space-x-1"> {/* Adjusted space-x for padding */}
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                pathname === item.href ? "text-primary font-semibold" : "text-foreground/70"
+                "text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-md",
+                "hover:bg-primary/10 hover:text-primary",
+                pathname === item.href ? "text-primary font-semibold bg-primary/5" : "text-foreground/70" 
               )}
               prefetch={false}
             >
@@ -70,19 +71,19 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center space-x-3">
-          <Link href="/cart" aria-label="Shopping Cart" className="text-primary hover:text-accent transition-colors">
+          <Link href="/cart" aria-label="Shopping Cart" className="text-primary hover:text-accent transition-colors p-2 hover:bg-primary/10 rounded-md">
             <ShoppingCart size={20} />
           </Link>
-          <Link href="#" aria-label="Instagram" className="text-primary hover:text-accent transition-colors">
+          <Link href="#" aria-label="Instagram" className="text-primary hover:text-accent transition-colors p-2 hover:bg-primary/10 rounded-md">
             <Instagram size={20} />
           </Link>
-          <Link href="#" aria-label="Facebook" className="text-primary hover:text-accent transition-colors">
+          <Link href="#" aria-label="Facebook" className="text-primary hover:text-accent transition-colors p-2 hover:bg-primary/10 rounded-md">
             <Facebook size={20} />
           </Link>
-          <Link href="#" aria-label="YouTube" className="text-primary hover:text-accent transition-colors">
+          <Link href="#" aria-label="YouTube" className="text-primary hover:text-accent transition-colors p-2 hover:bg-primary/10 rounded-md">
             <Youtube size={20} />
           </Link>
-          <Link href="#" aria-label="TikTok" className="text-primary hover:text-accent transition-colors">
+          <Link href="#" aria-label="TikTok" className="text-primary hover:text-accent transition-colors p-2 hover:bg-primary/10 rounded-md">
             <TikTokIcon className="h-5 w-5" />
           </Link>
           <UkFlagIcon className="h-4 w-auto cursor-pointer hover:opacity-80 transition-opacity" />
@@ -98,14 +99,15 @@ export default function Header() {
 
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-background shadow-lg py-4 animate-accordion-down">
-          <nav className="flex flex-col space-y-2 px-4">
+          <nav className="flex flex-col space-y-1 px-4"> {/* Adjusted space-y */}
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "block text-base font-medium transition-colors hover:text-primary py-2",
-                  pathname === item.href ? "text-primary" : "text-foreground/80"
+                  "block text-base font-medium transition-colors duration-200 py-2 px-3 rounded-md",
+                  "hover:bg-primary/10 hover:text-primary",
+                  pathname === item.href ? "text-primary bg-primary/5" : "text-foreground/80"
                 )}
                 onClick={() => setIsMobileMenuOpen(false)}
                 prefetch={false}
@@ -114,16 +116,16 @@ export default function Header() {
               </Link>
             ))}
             <div className="border-t border-border pt-4 mt-2 space-y-2">
-                 <Link href="/cart" className="flex items-center text-foreground/80 hover:text-primary py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                 <Link href="/cart" className="flex items-center text-foreground/80 hover:text-primary py-2 px-3 rounded-md hover:bg-primary/10" onClick={() => setIsMobileMenuOpen(false)}>
                     <ShoppingCart size={20} className="mr-2"/> Shopping Cart
                  </Link>
-                 <div className="flex space-x-3 py-2">
-                    <Link href="#" aria-label="Instagram" className="text-primary hover:text-accent"><Instagram size={20} /></Link>
-                    <Link href="#" aria-label="Facebook" className="text-primary hover:text-accent"><Facebook size={20} /></Link>
-                    <Link href="#" aria-label="YouTube" className="text-primary hover:text-accent"><Youtube size={20} /></Link>
-                    <Link href="#" aria-label="TikTok" className="text-primary hover:text-accent"><TikTokIcon className="h-5 w-5" /></Link>
+                 <div className="flex space-x-3 py-2 px-3">
+                    <Link href="#" aria-label="Instagram" className="text-primary hover:text-accent p-2 hover:bg-primary/10 rounded-md"><Instagram size={20} /></Link>
+                    <Link href="#" aria-label="Facebook" className="text-primary hover:text-accent p-2 hover:bg-primary/10 rounded-md"><Facebook size={20} /></Link>
+                    <Link href="#" aria-label="YouTube" className="text-primary hover:text-accent p-2 hover:bg-primary/10 rounded-md"><Youtube size={20} /></Link>
+                    <Link href="#" aria-label="TikTok" className="text-primary hover:text-accent p-2 hover:bg-primary/10 rounded-md"><TikTokIcon className="h-5 w-5" /></Link>
                  </div>
-                 <div className="flex space-x-3 py-2">
+                 <div className="flex space-x-3 py-2 px-3">
                     <UkFlagIcon className="h-5 w-auto cursor-pointer hover:opacity-80" />
                     <CnFlagIcon className="h-5 w-auto cursor-pointer hover:opacity-80" />
                  </div>
