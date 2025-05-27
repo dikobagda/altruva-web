@@ -15,7 +15,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <SectionWrapper 
         className="relative !pt-28 md:!pt-32 !pb-20 md:!pb-32 min-h-screen flex items-center bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/bgwomen.png')" }}
+        style={{ backgroundImage: "url('/images/hero_background.png')" }}
       >
         <div className="absolute inset-0 bg-black/30 z-0" data-ai-hint="dark overlay"></div>
         <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
