@@ -3,13 +3,19 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react'; // Removed ShoppingCart
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
 import { UkFlagIcon } from '@/components/icons/UkFlagIcon';
-import { CnFlagIcon } from '@/components/icons/CnFlagIcon';
+import { IdFlagIcon } from '@/components/icons/IdFlagIcon'; // New Indonesian Flag
 
 const navItems = [
   { href: '/about', label: 'About' },
@@ -23,11 +29,23 @@ const navItems = [
   { href: '/contact', label: 'Contact' },
 ];
 
+type Language = {
+  code: 'en' | 'id';
+  label: string;
+  Icon: React.ElementType;
+};
+
+const languages: Language[] = [
+  { code: 'en', label: 'English', Icon: UkFlagIcon },
+  { code: 'id', label: 'Bahasa Indonesia', Icon: IdFlagIcon },
+];
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(languages[0]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -40,7 +58,6 @@ export default function Header() {
 
     if (isMounted) {
       window.addEventListener('scroll', handleScroll);
-      // Call handleScroll once to set initial state based on current scroll position
       handleScroll(); 
     }
 
@@ -57,9 +74,29 @@ export default function Header() {
   };
 
   if (!isMounted) {
-    // Prevent rendering on the server or before hydration to avoid mismatches
     return null; 
   }
+
+  const LanguageSelector = ({ inMobileMenu = false }: { inMobileMenu?: boolean }) => (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className={cn("flex items-center space-x-1.5 px-2 py-1 h-auto group-hover:bg-primary/10", inMobileMenu ? "w-full justify-start" : "")}>
+          <selectedLanguage.Icon className="h-4 w-auto" />
+          {!inMobileMenu && <span className="text-xs text-foreground/70 group-hover:text-primary">{selectedLanguage.code.toUpperCase()}</span>}
+          {inMobileMenu && <span className="text-base font-medium text-foreground/80 group-hover:text-primary">{selectedLanguage.label}</span>}
+          <ChevronDown className="h-4 w-4 text-foreground/70 group-hover:text-primary" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {languages.map((lang) => (
+          <DropdownMenuItem key={lang.code} onSelect={() => setSelectedLanguage(lang)} className="space-x-2">
+            <lang.Icon className="h-4 w-auto" />
+            <span>{lang.label}</span>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 
   return (
     <header 
@@ -94,9 +131,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center space-x-3">
-          {/* Shopping cart icon removed */}
-          <UkFlagIcon className="h-4 w-auto cursor-pointer hover:opacity-80 transition-opacity" />
-          <CnFlagIcon className="h-4 w-auto cursor-pointer hover:opacity-80 transition-opacity" />
+          <LanguageSelector />
         </div>
 
         <div className="md:hidden">
@@ -125,10 +160,8 @@ export default function Header() {
               </Link>
             ))}
             <div className="border-t border-border pt-4 mt-2 space-y-2">
-                 {/* Shopping cart link removed from mobile menu */}
-                 <div className="flex space-x-3 py-2 px-3">
-                    <UkFlagIcon className="h-5 w-auto cursor-pointer hover:opacity-80" />
-                    <CnFlagIcon className="h-5 w-auto cursor-pointer hover:opacity-80" />
+                 <div className="py-2 px-3">
+                    <LanguageSelector inMobileMenu={true} />
                  </div>
             </div>
           </nav>
