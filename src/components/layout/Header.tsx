@@ -27,12 +27,31 @@ const navItems = [
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    if (isMounted) {
+      window.addEventListener('scroll', handleScroll);
+      // Call handleScroll once to set initial state based on current scroll position
+      handleScroll(); 
+    }
+
+    return () => {
+      if (isMounted) {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [isMounted]);
 
 
   const toggleMobileMenu = () => {
@@ -41,19 +60,25 @@ export default function Header() {
 
   if (!isMounted) {
     // Prevent rendering on the server or before hydration to avoid mismatches
-    // A loading skeleton or null could be returned here if preferred for SSR
     return null; 
   }
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 group hover:bg-background/80 transition-colors duration-300 ease-in-out">
+    <header 
+      className={cn(
+        "top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
+        isScrolled 
+          ? "fixed bg-background/95 shadow-lg" 
+          : "absolute group hover:bg-background/80"
+      )}
+    >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" prefetch={false}>
-          <AltruvaLogoIcon className="h-10 w-10 text-primary" /> {/* Slightly larger logo */}
+          <AltruvaLogoIcon className="h-10 w-10 text-primary" />
           <span className="font-serif text-3xl font-bold text-primary">Altruva</span>
         </Link>
         
-        <nav className="hidden md:flex flex-grow items-center justify-center space-x-1"> {/* Adjusted space-x for padding */}
+        <nav className="hidden md:flex flex-grow items-center justify-center space-x-1">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -91,7 +116,7 @@ export default function Header() {
         </div>
 
         <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
+          <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" className="text-primary">
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
@@ -99,7 +124,7 @@ export default function Header() {
 
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-background shadow-lg py-4 animate-accordion-down">
-          <nav className="flex flex-col space-y-1 px-4"> {/* Adjusted space-y */}
+          <nav className="flex flex-col space-y-1 px-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
