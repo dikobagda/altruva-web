@@ -18,7 +18,7 @@ import SkinAnalysisForm from '@/components/skin-analysis/SkinAnalysisForm';
 import AnalysisResultCard from '@/components/skin-analysis/AnalysisResultCard';
 import type { SkinAnalysisOutput } from '@/ai/flows/skin-analysis';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Bot, RefreshCw } from 'lucide-react';
+import { Bot, RefreshCw, Sparkles } from 'lucide-react'; // Added Sparkles
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 export default function FloatingAISkinAnalysisButton() {
@@ -71,7 +71,7 @@ export default function FloatingAISkinAnalysisButton() {
                 className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-xl z-50 animate-pulse hover:animate-none"
                 aria-label="Open AI Assistant"
               >
-                <Bot className="h-7 w-7" />
+                <Sparkles className="h-7 w-7" /> {/* Changed from Bot to Sparkles */}
               </Button>
             </DialogTrigger>
           </TooltipTrigger>
@@ -83,7 +83,7 @@ export default function FloatingAISkinAnalysisButton() {
       <DialogContent className="sm:max-w-2xl max-h-[90vh] flex flex-col">
         <DialogHeader className="flex-shrink-0">
           <DialogTitle className="font-serif text-2xl text-primary flex items-center">
-            <Bot className="h-6 w-6 mr-2 text-accent" />
+            <Bot className="h-6 w-6 mr-2 text-accent" /> {/* Bot icon remains for title */}
             AI Skin Analysis
           </DialogTitle>
           {!analysisResult && !isLoading && (
