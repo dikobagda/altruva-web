@@ -101,10 +101,10 @@ export default function Header() {
   return (
     <header 
       className={cn(
-        "top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
+        "top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300 ease-in-out", // Changed transition-all
         isScrolled 
-          ? "fixed bg-background shadow-lg" // Fully opaque background when scrolled
-          : "absolute group hover:bg-background/80" // Transparent with hover effect when not scrolled
+          ? "fixed bg-background shadow-lg" 
+          : "absolute group hover:bg-background/80" 
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
