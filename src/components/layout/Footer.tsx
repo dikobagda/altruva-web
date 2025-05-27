@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
-import { Sparkles, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Instagram, Facebook, Twitter } from 'lucide-react';
+import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,11 +12,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <Sparkles className="h-8 w-8 text-primary" />
-              <span className="font-serif text-2xl font-bold text-primary">Radiant Renewal</span>
+              <AltruvaLogoIcon className="h-8 w-8 text-primary" />
+              <span className="font-serif text-2xl font-bold text-primary">Altruva</span>
             </Link>
             <p className="text-sm text-center md:text-left max-w-xs">
-              Embrace your beauty. Discover personalized aesthetic care at Radiant Renewal.
+              Embrace your beauty. Discover personalized aesthetic care at Altruva.
             </p>
           </div>
           
@@ -41,7 +42,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Radiant Renewal. All rights reserved.</p>
+          <p>&copy; {currentYear} Altruva. All rights reserved.</p>
         </div>
       </div>
     </footer>

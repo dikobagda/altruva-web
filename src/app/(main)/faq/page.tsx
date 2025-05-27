@@ -11,8 +11,8 @@ import { faqItems } from '@/lib/constants';
 import { HelpCircle } from 'lucide-react';
 
 export const metadata = {
-  title: 'Frequently Asked Questions - Radiant Renewal',
-  description: 'Find answers to common questions about our services, procedures, and clinic policies.',
+  title: 'Frequently Asked Questions - Altruva',
+  description: 'Find answers to common questions about our services, procedures, and clinic policies at Altruva.',
 };
 
 export default function FAQPage() {

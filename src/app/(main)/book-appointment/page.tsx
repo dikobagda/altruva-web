@@ -7,8 +7,8 @@ import { CalendarDays, Clock, Phone } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Book an Appointment - Radiant Renewal',
-  description: 'Schedule your consultation or treatment at Radiant Renewal. Easy online booking coming soon.',
+  title: 'Book an Appointment - Altruva',
+  description: 'Schedule your consultation or treatment at Altruva. Easy online booking coming soon.',
 };
 
 export default function BookAppointmentPage() {
@@ -16,7 +16,7 @@ export default function BookAppointmentPage() {
     <SectionWrapper>
       <PageTitle
         title="Book Your Appointment"
-        subtitle="Take the first step towards your radiant transformation. We're excited to welcome you to our clinic."
+        subtitle="Take the first step towards your aesthetic transformation. We're excited to welcome you to our clinic."
       />
       <div className="max-w-2xl mx-auto">
         <Card className="shadow-xl">

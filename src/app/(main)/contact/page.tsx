@@ -10,8 +10,8 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Contact Us - Radiant Renewal',
-  description: 'Get in touch with Radiant Renewal. Find our contact details, address, and send us a message.',
+  title: 'Contact Us - Altruva',
+  description: 'Get in touch with Altruva. Find our contact details, address, and send us a message.',
 };
 
 // Placeholder for form submission handler
@@ -31,7 +31,7 @@ export default function ContactPage() {
     <SectionWrapper>
       <PageTitle
         title="Get In Touch"
-        subtitle="We're here to answer your questions and help you start your journey to radiance. Reach out to us through any of the methods below."
+        subtitle="We're here to answer your questions and help you start your journey. Reach out to us through any of the methods below."
       />
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <Card className="shadow-xl">
@@ -74,7 +74,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center">
                 <Mail className="h-6 w-6 text-accent mr-3" />
-                <Link href="mailto:info@radiantrenewal.com" className="text-foreground/80 hover:text-primary">info@radiantrenewal.com</Link>
+                <Link href="mailto:info@altruva.com" className="text-foreground/80 hover:text-primary">info@altruva.com</Link>
               </div>
             </CardContent>
           </Card>

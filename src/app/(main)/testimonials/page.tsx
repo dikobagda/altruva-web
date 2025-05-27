@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Client Testimonials - Radiant Renewal',
-  description: 'Read what our clients say about their experiences at Radiant Renewal.',
+  title: 'Client Testimonials - Altruva',
+  description: 'Read what our clients say about their experiences at Altruva.',
 };
 
 export default function TestimonialsPage() {
@@ -16,7 +16,7 @@ export default function TestimonialsPage() {
     <SectionWrapper>
       <PageTitle
         title="Client Testimonials"
-        subtitle="We are proud of the positive impact we've made. Hear directly from our valued clients about their experiences and transformations at Radiant Renewal."
+        subtitle="We are proud of the positive impact we've made. Hear directly from our valued clients about their experiences and transformations at Altruva."
       />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {testimonials.map((testimonial) => (

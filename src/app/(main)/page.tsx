@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
-import { ArrowRight, CheckCircle, Sparkles, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle, Star } from 'lucide-react'; // Removed Sparkles as AltruvaLogoIcon will be used or another specific icon
+import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon'; // Import the new logo icon
 
 export default function HomePage() {
   return (
@@ -16,10 +17,10 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-6 leading-tight">
-              Rediscover Your Radiance.
+              Embrace Your Authentic Beauty.
             </h1>
             <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl">
-              At Radiant Renewal, we blend artistry with advanced aesthetic science to help you achieve your most beautiful self. Experience personalized care in a serene and luxurious environment.
+              At Altruva, we blend artistry with advanced aesthetic science to help you achieve your most beautiful self. Experience personalized care in a serene and luxurious environment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="font-semibold">
@@ -93,7 +94,7 @@ export default function HomePage() {
               data-ai-hint="futuristic skin analysis"
             />
              <div className="absolute -top-4 -left-4 bg-primary p-3 rounded-full shadow-lg animate-pulse">
-              <Sparkles className="h-8 w-8 text-primary-foreground" />
+              <AltruvaLogoIcon className="h-8 w-8 text-primary-foreground" />
             </div>
           </div>
           <div>
@@ -123,7 +124,7 @@ export default function HomePage() {
 
       {/* Testimonials Preview Section */}
       <SectionWrapper id="testimonials-preview">
-        <PageTitle title="Hear From Our Clients" subtitle="Real stories from those who've experienced the Radiant Renewal difference." />
+        <PageTitle title="Hear From Our Clients" subtitle="Real stories from those who've experienced the Altruva difference." />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.slice(0,3).map((testimonial) => (
             <Card key={testimonial.id} className="bg-card shadow-lg hover:shadow-xl transition-shadow duration-300">

@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Our Services - Radiant Renewal',
-  description: 'Explore the wide range of aesthetic services offered at Radiant Renewal clinic.',
+  title: 'Our Services - Altruva',
+  description: 'Explore the wide range of aesthetic services offered at Altruva clinic.',
 };
 
 export default function ServicesPage() {

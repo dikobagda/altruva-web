@@ -3,10 +3,11 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -41,8 +42,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" prefetch={false}>
-          <Sparkles className="h-8 w-8 text-primary" />
-          <span className="font-serif text-2xl font-bold text-primary">Radiant Renewal</span>
+          <AltruvaLogoIcon className="h-8 w-8 text-primary" />
+          <span className="font-serif text-2xl font-bold text-primary">Altruva</span>
         </Link>
         
         <nav className="hidden md:flex space-x-6 items-center">

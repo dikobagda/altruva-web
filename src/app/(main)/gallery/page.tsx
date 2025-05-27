@@ -5,8 +5,8 @@ import GalleryItem from '@/components/gallery/GalleryItem';
 import { galleryImages } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Before & After Gallery - Radiant Renewal',
-  description: 'See the stunning transformations achieved at Radiant Renewal. View our before and after gallery.',
+  title: 'Before & After Gallery - Altruva',
+  description: 'See the stunning transformations achieved at Altruva. View our before and after gallery.',
 };
 
 export default function GalleryPage() {

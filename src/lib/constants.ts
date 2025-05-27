@@ -119,7 +119,7 @@ export const testimonials: Testimonial[] = [
   {
     id: '1',
     name: 'Sarah L.',
-    text: 'Radiant Renewal has completely transformed my skin! The staff is incredibly knowledgeable and caring. I highly recommend their Divine Glow Facial.',
+    text: 'Altruva has completely transformed my skin! The staff is incredibly knowledgeable and caring. I highly recommend their Divine Glow Facial.',
     procedure: 'Divine Glow Facial',
     avatarSrc: 'https://placehold.co/100x100.png',
     rating: 5,
@@ -128,7 +128,7 @@ export const testimonials: Testimonial[] = [
   {
     id: '2',
     name: 'John B.',
-    text: 'I was hesitant about injections, but the results from Age-Defy are amazing and look so natural. The team made me feel comfortable throughout the process.',
+    text: 'I was hesitant about injections, but the results from Age-Defy are amazing and look so natural. The team at Altruva made me feel comfortable throughout the process.',
     procedure: 'Age-Defy Injections',
     rating: 5,
     avatarHint: 'man portrait'
@@ -136,7 +136,7 @@ export const testimonials: Testimonial[] = [
   {
     id: '3',
     name: 'Emily K.',
-    text: 'The laser rejuvenation treatments have done wonders for my sun damage. My skin looks years younger. Thank you, Radiant Renewal!',
+    text: 'The laser rejuvenation treatments have done wonders for my sun damage. My skin looks years younger. Thank you, Altruva!',
     procedure: 'Laser Rejuvenation',
     avatarSrc: 'https://placehold.co/100x100.png',
     rating: 4,

@@ -17,11 +17,9 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Radiant Renewal - Aesthetic Clinic',
-  description: 'Welcome to Radiant Renewal, your partner in aesthetic transformations.',
-  icons: {
-    icon: '/favicon.ico', // Placeholder, actual favicon not generated
-  }
+  title: 'Altruva - Aesthetic Clinic',
+  description: 'Welcome to Altruva, your partner in aesthetic transformations.',
+  // Removed placeholder favicon
 };
 
 export default function RootLayout({
