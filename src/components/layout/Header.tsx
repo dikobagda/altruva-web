@@ -13,10 +13,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon'; // Assuming this exists if branding was applied
+import Image from 'next/image';
 import { UkFlagIcon } from '@/components/icons/UkFlagIcon';
 import { IdFlagIcon } from '@/components/icons/IdFlagIcon';
-import Image from 'next/image';
 
 export interface NavSubItem {
   href: string;
@@ -80,7 +79,7 @@ export default function Header() {
 
     if (isMounted) {
       window.addEventListener('scroll', handleScroll);
-      handleScroll();
+      handleScroll(); // Call on mount to set initial state
     }
 
     return () => {
@@ -96,7 +95,27 @@ export default function Header() {
   };
 
   if (!isMounted) {
-    return null;
+    // To prevent hydration mismatch and ensure smooth client-side rendering of dynamic parts.
+    // You can return a placeholder or null. A common pattern is to return a static version or null.
+    return (
+      <header className="absolute top-0 left-0 right-0 z-50 group">
+        <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+          <Link href="/" className="flex items-center space-x-2" prefetch={false}>
+            <Image
+              src="/images/altruva_logo.png"
+              width={90}
+              height={90}
+              alt="Altruva Logo"
+            />
+          </Link>
+          <div className="md:hidden">
+            <Button variant="ghost" size="icon" aria-label="Toggle mobile menu" className="text-white group-hover:text-primary">
+              <Menu className="h-6 w-6" />
+            </Button>
+          </div>
+        </div>
+      </header>
+    );
   }
 
   const LanguageSelector = ({ inMobileMenu = false }: { inMobileMenu?: boolean }) => (
@@ -108,7 +127,8 @@ export default function Header() {
             "flex items-center space-x-1.5 h-auto transition-none",
             inMobileMenu
               ? "w-full justify-start px-2 py-1"
-              : "px-4 py-2 rounded-full hover:bg-primary text-primary-foreground"
+              : "px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary", // No hover change for desktop
+             !inMobileMenu && "border-none" // Explicitly no border for desktop
           )}
         >
           <selectedLanguage.Icon className={cn("h-4 w-auto", !inMobileMenu && "text-primary-foreground" )} />
@@ -138,14 +158,14 @@ export default function Header() {
       className={cn(
         "top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300 ease-in-out group",
         isScrolled
-          ? "fixed bg-background shadow-lg"
-          : "absolute group-hover:bg-background/80"
+          ? "fixed bg-background shadow-lg" // Opaque background when scrolled
+          : "absolute group-hover:bg-background/80" // Semi-transparent on hover when not scrolled
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" prefetch={false}>
            <Image
-            src="/images/altruva_logo.png" // Ensure this path is correct
+            src="/images/altruva_logo.png"
             width={90}
             height={90}
             alt="Altruva Logo"
@@ -154,16 +174,17 @@ export default function Header() {
 
         <nav className="hidden md:flex flex-grow items-center justify-start space-x-3">
           {navItems.map((item) => {
-            const isActive = pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href || pathname.startsWith(sub.href)));
+            const isActive = pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href || pathname.startsWith(sub.href!)));
             const baseLinkClasses = "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto";
             const hoverClasses = "hover:bg-primary/10 hover:text-primary";
             
             let currentTextColorClasses;
             if (isActive) {
-              currentTextColorClasses = "text-primary bg-primary/5";
+              currentTextColorClasses = "text-primary"; // Active: primary text, no background
             } else if (isScrolled) {
-              currentTextColorClasses = "text-foreground/80";
+              currentTextColorClasses = "text-foreground/80"; // Scrolled, not active: muted foreground
             } else {
+              // Not scrolled, not active
               currentTextColorClasses = "text-white group-hover:text-foreground/80";
             }
 
@@ -179,7 +200,7 @@ export default function Header() {
                       <ChevronDown
                         className={cn(
                           "ml-1 h-4 w-4 transition-transform group-data-[state=open]:rotate-180",
-                           isActive ? "opacity-100" : "opacity-70" // Chevron matches text emphasis better
+                           isActive ? "opacity-100" : "opacity-70"
                         )}
                       />
                     </Button>
@@ -220,7 +241,7 @@ export default function Header() {
 
             return (
               <Link
-                key={item.href}
+                key={item.label} // Use item.label as key if href might be undefined initially
                 href={item.href!}
                 className={cn(baseLinkClasses, currentTextColorClasses, hoverClasses)}
                 prefetch={false}
@@ -236,7 +257,13 @@ export default function Header() {
         </div>
 
         <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" className={cn(isScrolled ? "text-primary" : "text-white group-hover:text-primary")}>
+          <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" 
+            className={cn(
+              // When not scrolled, text is white, on header hover it becomes primary.
+              // When scrolled, text is primary (to contrast with header's bg-background).
+              isScrolled ? "text-primary" : "text-white group-hover:text-primary"
+            )}
+          >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
@@ -246,7 +273,7 @@ export default function Header() {
         <div className="md:hidden absolute top-20 left-0 w-full bg-background shadow-lg py-4 animate-accordion-down">
           <nav className="flex flex-col space-y-1 px-4">
             {navItems.map((item) => {
-              const isActiveMobile = pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href || pathname.startsWith(sub.href)));
+              const isActiveMobile = pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href || pathname.startsWith(sub.href!)));
               
               if (item.subItems) {
                 return (
@@ -258,7 +285,7 @@ export default function Header() {
                           "w-full justify-between font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md flex items-center h-auto text-left",
                           "hover:bg-primary/10 hover:text-primary",
                           isActiveMobile
-                            ? "text-primary bg-primary/5"
+                            ? "text-primary" // Active: primary text, no background
                             : "text-foreground/80"
                         )}
                       >
@@ -266,7 +293,7 @@ export default function Header() {
                         <ChevronDown className="h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
                       </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-background shadow-lg mt-1"> {/* Adjusted width and margin */}
+                    <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-background shadow-lg mt-1">
                       {item.href && (
                          <DropdownMenuItem asChild>
                           <Link
@@ -303,12 +330,12 @@ export default function Header() {
               }
               return (
                 <Link
-                  key={item.href}
+                  key={item.label} // Use item.label as key if href might be undefined initially
                   href={item.href!}
                   className={cn(
                     "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md",
                     "hover:bg-primary/10 hover:text-primary",
-                    isActiveMobile ? "text-primary bg-primary/5" : "text-foreground/80"
+                    isActiveMobile ? "text-primary" : "text-foreground/80" // Active: primary text
                   )}
                   onClick={() => setIsMobileMenuOpen(false)}
                   prefetch={false}
@@ -328,5 +355,4 @@ export default function Header() {
     </header>
   );
 }
-
     
