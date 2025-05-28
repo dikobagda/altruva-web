@@ -125,13 +125,13 @@ export default function Header() {
           <AltruvaLogoIcon className="h-10 w-10 text-primary" />
         </Link>
         
-        <nav className="hidden md:flex flex-grow items-center justify-center space-x-1">
+        <nav className="hidden md:flex flex-grow items-center justify-start space-x-3">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md",
+                "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md",
                 "hover:bg-primary/10 hover:text-primary",
                 pathname === item.href ? "text-primary bg-primary/5" : "text-foreground/70" 
               )}
@@ -161,7 +161,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "block text-base font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md", 
+                  "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md", 
                   "hover:bg-primary/10 hover:text-primary",
                   pathname === item.href ? "text-primary bg-primary/5" : "text-foreground/80"
                 )}
