@@ -180,7 +180,7 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden md:flex flex-grow items-center justify-start space-x-3">
+        <nav className="hidden md:flex flex-grow items-center justify-start ml-10 space-x-3">
           {navItems.map((item) => {
             const isActive = pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href || pathname.startsWith(sub.href!)));
             const baseLinkClasses = "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto";
