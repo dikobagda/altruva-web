@@ -16,6 +16,7 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { UkFlagIcon } from '@/components/icons/UkFlagIcon';
 import { IdFlagIcon } from '@/components/icons/IdFlagIcon';
+import { CnFlagIcon } from '@/components/icons/CnFlagIcon';
 
 export interface NavSubItem {
   href: string;
@@ -29,11 +30,17 @@ export interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { href: '/about', label: 'About' },
+  {
+    label: 'About',
+    subItems: [
+      { href: '/about-us', label: 'About us' },
+      { href: '/our-story', label: 'Our Story' },
+      { href: '/news-media', label: 'News & Media' },
+    ],
+  },
   { href: '/skin', label: 'Skin' },
   {
     label: 'Face',
-    href: '/face',
     subItems: [
       { href: '/face/non-surgical-facelift', label: 'Non-surgical facelift' },
       { href: '/face/wrinkle-treatments', label: 'Wrinkle treatments' },
@@ -45,13 +52,12 @@ const navItems: NavItem[] = [
   { href: '/hair', label: 'Hair' },
   { href: '/body', label: 'Body' },
   { href: '/prices', label: 'Prices' },
-  { href: '/shop', label: 'Shop' },
   { href: '/insights', label: 'Insights' },
   { href: '/contact', label: 'Contact' },
 ];
 
 type Language = {
-  code: 'en' | 'id';
+  code: 'en' | 'id' | 'cn';
   label: string;
   Icon: React.ElementType;
 };
@@ -59,6 +65,7 @@ type Language = {
 const languages: Language[] = [
   { code: 'en', label: 'English', Icon: UkFlagIcon },
   { code: 'id', label: 'Bahasa Indonesia', Icon: IdFlagIcon },
+  { code: 'cn', label: '中文', Icon: CnFlagIcon },
 ];
 
 export default function Header() {
@@ -156,10 +163,11 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300 ease-in-out group",
+        "top-0 left-0 right-0 z-50 transition-shadow duration-300 ease-in-out group",
         isScrolled
           ? "fixed bg-background shadow-lg" // Opaque background when scrolled
-          : "absolute group-hover:bg-background/80" // Semi-transparent on hover when not scrolled
+          : "absolute group-hover:bg-background/80", // Semi-transparent on hover when not scrolled
+        isScrolled ? "bg-background" : "bg-transparent group-hover:bg-background/80"
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
@@ -180,13 +188,11 @@ export default function Header() {
             
             let currentTextColorClasses;
             if (isActive) {
-              currentTextColorClasses = "text-primary"; // Active: primary text, no background
-            } else if (isScrolled) {
-              currentTextColorClasses = "text-foreground/80"; // Scrolled, not active: muted foreground
+              currentTextColorClasses = "text-primary";
             } else {
-              // Not scrolled, not active
-              currentTextColorClasses = "text-foreground/80 group-hover:text-primary";
+              currentTextColorClasses = "text-foreground/80";
             }
+
 
             if (item.subItems) {
               return (
@@ -206,20 +212,6 @@ export default function Header() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start" className="bg-background shadow-lg mt-1">
-                    {item.href && (
-                      <DropdownMenuItem asChild>
-                        <Link
-                          href={item.href}
-                          prefetch={false}
-                          className={cn(
-                            "w-full font-medium cursor-pointer",
-                            pathname === item.href ? "bg-primary/10 text-primary font-semibold" : "hover:bg-primary/5"
-                          )}
-                        >
-                          {item.label} Overview
-                        </Link>
-                      </DropdownMenuItem>
-                    )}
                     {item.subItems.map((subItem) => (
                       <DropdownMenuItem key={subItem.href} asChild>
                         <Link
@@ -227,7 +219,7 @@ export default function Header() {
                           prefetch={false}
                           className={cn(
                             "w-full font-medium cursor-pointer",
-                            pathname === subItem.href ? "bg-primary/10 text-primary font-semibold" : "hover:bg-primary/5"
+                            pathname === subItem.href ? "text-primary font-semibold" : "hover:bg-primary/5"
                           )}
                         >
                           {subItem.label}
@@ -241,7 +233,7 @@ export default function Header() {
 
             return (
               <Link
-                key={item.label} // Use item.label as key if href might be undefined initially
+                key={item.label} 
                 href={item.href!}
                 className={cn(baseLinkClasses, currentTextColorClasses, hoverClasses)}
                 prefetch={false}
@@ -259,8 +251,6 @@ export default function Header() {
         <div className="md:hidden">
           <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" 
             className={cn(
-              // When not scrolled, text is white, on header hover it becomes primary.
-              // When scrolled, text is primary (to contrast with header's bg-background).
               isScrolled ? "text-primary" : "text-foreground/80 group-hover:text-primary"
             )}
           >
@@ -285,7 +275,7 @@ export default function Header() {
                           "w-full justify-between font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md flex items-center h-auto text-left",
                           "hover:bg-primary/10 hover:text-primary",
                           isActiveMobile
-                            ? "text-primary" // Active: primary text, no background
+                            ? "text-primary"
                             : "text-foreground/80"
                         )}
                       >
@@ -294,21 +284,6 @@ export default function Header() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-background shadow-lg mt-1">
-                      {item.href && (
-                         <DropdownMenuItem asChild>
-                          <Link
-                            href={item.href}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            prefetch={false}
-                            className={cn(
-                              "w-full font-medium cursor-pointer",
-                              pathname === item.href ? "bg-primary/10 text-primary font-semibold" : "hover:bg-primary/5"
-                            )}
-                          >
-                            {item.label} Overview
-                          </Link>
-                        </DropdownMenuItem>
-                      )}
                       {item.subItems.map((subItem) => (
                         <DropdownMenuItem key={subItem.href} asChild>
                           <Link
@@ -317,7 +292,7 @@ export default function Header() {
                             prefetch={false}
                             className={cn(
                               "w-full font-medium cursor-pointer",
-                              pathname === subItem.href ? "bg-primary/10 text-primary font-semibold" : "hover:bg-primary/5"
+                              pathname === subItem.href ? "text-primary font-semibold" : "hover:bg-primary/5"
                             )}
                           >
                             {subItem.label}
@@ -330,12 +305,12 @@ export default function Header() {
               }
               return (
                 <Link
-                  key={item.label} // Use item.label as key if href might be undefined initially
+                  key={item.label}
                   href={item.href!}
                   className={cn(
                     "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md",
                     "hover:bg-primary/10 hover:text-primary",
-                    isActiveMobile ? "text-primary" : "text-foreground/80" // Active: primary text
+                    isActiveMobile ? "text-primary" : "text-foreground/80"
                   )}
                   onClick={() => setIsMobileMenuOpen(false)}
                   prefetch={false}

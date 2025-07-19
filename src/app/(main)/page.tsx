@@ -27,7 +27,7 @@ export default function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-primary-foreground text-white border border-black hover:bg-primary-foreground/90 font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
+                className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
               >
                 <Link href="/book-appointment">Book an Appointment</Link>
               </Button>
