@@ -36,6 +36,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Intro Description Section */}
+      <SectionWrapper className="bg-secondary/30">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-lg md:text-xl text-foreground/80">
+            Altruva Aesthetic Clinic is an aesthetic and medical clinic in Jakarta that offers a continuously-updated array of minimal to non-invasive, FDA-approved and CE-marked medical aesthetic treatments. The end goal is to empower you to become the best version of yourself.
+          </p>
+        </div>
+      </SectionWrapper>
+
       {/* Services Overview Section */}
       <SectionWrapper id="services-overview">
         <PageTitle title="Our Signature Services" subtitle="Crafted to enhance your natural beauty and well-being." />
