@@ -7,7 +7,6 @@ import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
 import { ArrowRight, Star } from 'lucide-react'; 
-import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
 
 export default function HomePage() {
   return (
@@ -85,8 +84,8 @@ export default function HomePage() {
               className="rounded-lg shadow-xl object-cover"
               data-ai-hint="futuristic skin analysis"
             />
-             <div className="absolute -top-4 -left-4 bg-primary p-3 rounded-full shadow-lg animate-pulse">
-              <AltruvaLogoIcon className="h-8 w-8 text-primary-foreground" />
+             <div className="absolute -top-4 -left-4 bg-primary p-3 rounded-full shadow-lg">
+                <Image src="/images/altruva_logo.png" alt="Altruva Logo" width={40} height={40} />
             </div>
           </div>
           <div>

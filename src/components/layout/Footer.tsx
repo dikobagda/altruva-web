@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { Instagram, Facebook, Twitter } from 'lucide-react';
-import { AltruvaLogoIcon } from '@/components/icons/AltruvaLogoIcon';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,8 +12,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <AltruvaLogoIcon className="h-8 w-8 text-primary" />
-              <span className="font-serif text-2xl font-bold text-primary">Altruva</span>
+              <Image
+                src="/images/altruva_logo.png"
+                width={120}
+                height={120}
+                alt="Altruva Logo"
+              />
             </Link>
             <p className="text-sm text-center md:text-left max-w-xs">
               Embrace your beauty. Discover personalized aesthetic care at Altruva.
