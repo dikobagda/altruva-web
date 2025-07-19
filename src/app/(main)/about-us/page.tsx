@@ -74,8 +74,8 @@ export default function AboutUsPage() {
               <li className="flex items-start">
                 <ShieldCheck className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-primary">Uncompromising Safety</h4>
-                  <p className="text-foreground/70">We adhere to the strictest medical standards in a state-of-the-art, sterile environment.</p>
+                  <h4 className="font-semibold text-primary">Friend first, patient second</h4>
+                  <p className="text-foreground/70">We build relationships based on trust and understanding, ensuring you feel heard and valued.</p>
                 </div>
               </li>
               <li className="flex items-start">
