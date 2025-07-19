@@ -29,10 +29,7 @@ async function handleSubmit(formData: FormData) {
 export default function ContactPage() {
   return (
     <SectionWrapper>
-      <PageTitle
-        title="Get In Touch"
-        subtitle="We're here to answer your questions and help you start your journey. Reach out to us through any of the methods below."
-      />
+      
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <Card className="shadow-xl">
           <CardHeader>

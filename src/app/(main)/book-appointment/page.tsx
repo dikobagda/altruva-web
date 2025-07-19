@@ -14,10 +14,7 @@ export const metadata = {
 export default function BookAppointmentPage() {
   return (
     <SectionWrapper>
-      <PageTitle
-        title="Book Your Appointment"
-        subtitle="Take the first step towards your aesthetic transformation. We're excited to welcome you to our clinic."
-      />
+      
       <div className="max-w-2xl mx-auto">
         <Card className="shadow-xl">
           <CardHeader>

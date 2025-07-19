@@ -20,15 +20,7 @@ export default function SkinAnalysisPage() {
 
   return (
     <SectionWrapper>
-      <PageTitle
-        title="AI Skin Analysis"
-        subtitle={
-          <div className="flex items-center justify-center space-x-2">
-            <Bot className="h-7 w-7 text-primary" />
-            <span>Powered by Advanced AI Technology</span>
-          </div>
-        }
-      />
+      
       {!analysisResult && (
         <SkinAnalysisForm onAnalysisComplete={handleAnalysisComplete} setIsLoading={setIsLoading} />
       )}

@@ -14,10 +14,7 @@ export const metadata = {
 export default function TestimonialsPage() {
   return (
     <SectionWrapper>
-      <PageTitle
-        title="Client Testimonials"
-        subtitle="We are proud of the positive impact we've made. Hear directly from our valued clients about their experiences and transformations at Altruva."
-      />
+      
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {testimonials.map((testimonial) => (
           <TestimonialCard key={testimonial.id} testimonial={testimonial} />

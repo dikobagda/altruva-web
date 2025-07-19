@@ -18,10 +18,7 @@ export const metadata = {
 export default function FAQPage() {
   return (
     <SectionWrapper>
-      <PageTitle
-        title="Frequently Asked Questions"
-        subtitle="Have questions? We've got answers. Find information about our treatments, policies, and what to expect during your visit."
-      />
+      
       <div className="max-w-3xl mx-auto">
         <Accordion type="single" collapsible className="w-full">
           {faqItems.map((item) => (

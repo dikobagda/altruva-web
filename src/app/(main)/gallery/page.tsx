@@ -12,10 +12,7 @@ export const metadata = {
 export default function GalleryPage() {
   return (
     <SectionWrapper>
-      <PageTitle
-        title="Transformations Gallery"
-        subtitle="Witness the remarkable results our clients have achieved. Each image showcases the skill and artistry of our dedicated team."
-      />
+      
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {galleryImages.map((item) => (
           <GalleryItem key={item.id} item={item} />

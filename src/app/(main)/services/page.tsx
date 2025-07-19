@@ -14,10 +14,7 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <SectionWrapper>
-      <PageTitle
-        title="Our Aesthetic Services"
-        subtitle="Discover a comprehensive range of treatments designed to rejuvenate, enhance, and renew. Our expert team is dedicated to providing personalized care and achieving beautiful, natural-looking results."
-      />
+      
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {services.map((service) => (
           <ServiceCard key={service.id} service={service} />

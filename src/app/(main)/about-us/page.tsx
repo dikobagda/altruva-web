@@ -40,10 +40,7 @@ export default function AboutUsPage() {
   return (
     <>
       <SectionWrapper>
-        <PageTitle
-          title="Pioneering Regenerative Aesthetics"
-          subtitle="At Altruva, we believe in enhancing your natural beauty through science, artistry, and personalized care. Our mission is to reveal the true you, fostering confidence that radiates from within."
-        />
+        
       </SectionWrapper>
 
       {/* Mission and Vision Section */}

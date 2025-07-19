@@ -37,10 +37,7 @@ export default function OurClinicPage() {
   return (
     <>
       <SectionWrapper>
-        <PageTitle
-          title="Our State-of-the-Art Clinic"
-          subtitle="Designed with your comfort and well-being in mind, our clinic combines serene aesthetics with cutting-edge medical technology."
-        />
+        
       </SectionWrapper>
 
       <SectionWrapper className="pt-0">
