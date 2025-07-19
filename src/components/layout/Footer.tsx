@@ -14,8 +14,8 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image
                 src="/images/altruva_logo.png"
-                width={120}
-                height={120}
+                width={90}
+                height={90}
                 alt="Altruva Logo"
               />
             </Link>
