@@ -1,5 +1,6 @@
 
 import type { ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 interface PageTitleProps {
   title: string;
@@ -9,7 +10,7 @@ interface PageTitleProps {
 
 export default function PageTitle({ title, subtitle, className }: PageTitleProps) {
   return (
-    <div className={`mb-8 md:mb-12 text-center ${className}`}>
+    <div className={cn("pt-8 mb-8 md:mb-12 text-center", className)}>
       <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-2 md:mb-3">
         {title}
       </h1>
