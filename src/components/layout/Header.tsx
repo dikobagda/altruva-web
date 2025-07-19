@@ -34,7 +34,7 @@ const navItems: NavItem[] = [
     label: 'About',
     subItems: [
       { href: '/about-us', label: 'About us' },
-      { href: '/our-story', label: 'Our Story' },
+      { href: '/our-clinic', label: 'Our Clinic' },
       { href: '/news-media', label: 'News & Media' },
     ],
   },
