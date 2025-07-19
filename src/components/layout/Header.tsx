@@ -185,7 +185,7 @@ export default function Header() {
               currentTextColorClasses = "text-foreground/80"; // Scrolled, not active: muted foreground
             } else {
               // Not scrolled, not active
-              currentTextColorClasses = "text-white group-hover:text-foreground/80";
+              currentTextColorClasses = "text-foreground/80 group-hover:text-primary";
             }
 
             if (item.subItems) {
@@ -261,7 +261,7 @@ export default function Header() {
             className={cn(
               // When not scrolled, text is white, on header hover it becomes primary.
               // When scrolled, text is primary (to contrast with header's bg-background).
-              isScrolled ? "text-primary" : "text-white group-hover:text-primary"
+              isScrolled ? "text-primary" : "text-foreground/80 group-hover:text-primary"
             )}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
