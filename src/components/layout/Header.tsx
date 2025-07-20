@@ -36,6 +36,7 @@ const navItems: NavItem[] = [
       { href: '/about-us', label: 'About us' },
       { href: '/our-clinic', label: 'Our Clinic' },
       { href: '/news-media', label: 'News & Media' },
+      { href: '/about-us/369-harmony', label: '369 Harmony™' },
     ],
   },
   { href: '/skin', label: 'Skin' },
