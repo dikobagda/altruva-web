@@ -121,7 +121,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
                 className={cn(
                     "w-full text-left",
                     "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary",
-                    isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:bg-primary/10 hover:text-primary"
+                    isActive ? "text-primary bg-primary/5" : "text-foreground/80"
                 )}
                 onClick={closeMobileMenu}
                 prefetch={false}
@@ -233,8 +233,8 @@ const NavSubMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, is
                     href={item.href}
                     className={cn(
                         "w-full h-full text-left",
-                        "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start",
-                        isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:bg-primary/10 hover:text-primary"
+                        "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start hover:bg-primary/10",
+                        isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:text-primary"
                     )}
                     onClick={closeMobileMenu}
                     prefetch={false}
@@ -250,9 +250,8 @@ const NavSubMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, is
             <DropdownMenuSub>
                 <DropdownMenuSubTrigger className={cn(
                     "w-full cursor-pointer flex justify-between items-center",
-                    "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md h-auto",
-                    "text-foreground/80 hover:bg-primary/10 hover:text-primary",
-                    isActive && "text-primary bg-primary/5"
+                    "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md h-auto hover:bg-primary/10",
+                    isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:text-primary"
                 )}>
                     <span>{item.label}</span>
                 </DropdownMenuSubTrigger>
