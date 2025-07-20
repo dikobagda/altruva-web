@@ -43,11 +43,10 @@ const navItems: NavItem[] = [
   {
     label: 'Face',
     subItems: [
-      { href: '/face/non-surgical-facelift', label: 'Non-surgical facelift' },
-      { href: '/face/wrinkle-treatments', label: 'Wrinkle treatments' },
-      { href: '/face/soft-tissue-filler', label: 'Soft tissue filler' },
-      { href: '/face/fat-reduction', label: 'Fat reduction' },
-      { href: '/face/skin-quality', label: 'Skin quality' },
+      { href: '/face/altruva-signature-facial', label: 'Altruva Signature Facial (Pore Clean Facial)' },
+      { href: '/face/altruva-hydraglow-facial', label: 'Altruva HydraGlow Facial' },
+      { href: '/face/prejuvenation', label: 'Prejuvenation' },
+      { href: '/face/rejuvenation', label: 'Rejuvenation' },
     ],
   },
   {
