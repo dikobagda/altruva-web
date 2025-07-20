@@ -53,10 +53,10 @@ export const services: Service[] = [
   },
   {
     id: 'dna-repair',
-    title: 'DNA Repair',
+    title: 'DNA Repair Pro',
     description: 'Environmental damage repair & skin barrier fortification.',
-    longDescription: `Think of Altruva's DNA Repair treatment as your skin's essential defense system. Using the power of Polynucleotides (PN), this treatment works at a cellular level to fortify your skin against daily environmental stressors like pollution and UV exposure. It's designed not just to repair early signs of damage but to build a stronger, more resilient skin barrier for the future, ensuring your skin stays healthy, hydrated, and vibrant.`,
-    subtitle: "Fortify Your Skin's Future with Polynucleotides",
+    longDescription: `Altruva DNA Repair Pro is a next-generation regenerative protocol powered by Polynucleotides (PN) — clinically purified DNA fragments that stimulate deep dermal healing, reverse cellular fatigue, and restore skin architecture from the inside out. Far beyond hydration, this treatment reactivates fibroblasts, encourages collagen remodeling, and reestablishes skin homeostasis — making it a cornerstone for age-related skin degeneration, post-acne scarring, and periocular rejuvenation.`,
+    subtitle: "Advanced Polynucleotide Skin Regeneration by dr. Aldisa",
     price: '5,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Shield,
@@ -67,7 +67,7 @@ export const services: Service[] = [
     subgroup: 'Skin-geneering Boosters',
     whatIsIt: {
       title: 'What is DNA Repair for Prejuvenation?',
-      description: 'This treatment uses Polynucleotides (PN), which are biocompatible DNA fragments, to send signals to your skin cells. These signals boost your skin’s natural ability to repair itself and produce collagen, strengthening its core structure and preventing premature aging before it starts.',
+      description: 'Polynucleotides are DNA-derived biopolymers extracted and purified from fish sources (with high biocompatibility). When injected into the skin, they act as powerful biomodulators, awakening fibroblasts and enhancing microcirculation — laying the foundation for true skin renewal, not just temporary glow.',
     },
     mechanism: [
       { title: 'Barrier Fortification', description: 'Strengthens the skin’s natural defense system, making it more resilient to environmental damage.' },
@@ -97,7 +97,7 @@ export const services: Service[] = [
       { label: 'Maintenance', value: 'Every 6 months' },
       { label: 'Ideal For', value: 'Ages 20-40 focused on prevention' },
     ],
-    howItDiffers: 'While many treatments focus on the surface, DNA Repair works from within to build a stronger foundation. It’s not about adding volume, but about enhancing your skin’s own natural ability to stay healthy and youthful.',
+    howItDiffers: 'Unlike hyaluronic acid fillers that volumize, Altruva DNA Repair Pro works at the cellular and structural level — healing, rebuilding, and reviving skin tissues. Think foundation first, not just finishing touch.',
     whyLoveIt: [
       'It’s the ultimate preventative step for long-term skin health.',
       'Results in a natural, "lit-from-within" glow.',

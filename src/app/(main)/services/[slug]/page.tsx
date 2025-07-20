@@ -6,7 +6,7 @@ import { services } from '@/lib/constants';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, ArrowRight, Microscope, Shield, Dna, Activity, Star, Clock, Repeat, Syringe, Info, Users, BookOpen, Layers } from 'lucide-react';
+import { CheckCircle, ArrowRight, Microscope, Info, BookOpen, Layers, Star, Dna } from 'lucide-react';
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -83,6 +83,12 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               </CardContent>
             </Card>
 
+            {service.whatIsIt && (
+              <DetailSection title={service.whatIsIt.title} Icon={Microscope}>
+                <div className="prose max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: service.whatIsIt.description }} />
+              </DetailSection>
+            )}
+
             {service.mechanism && (
               <DetailSection title="Mechanism of Action" Icon={Dna}>
                 <ul className="space-y-4">
@@ -111,12 +117,6 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 </ul>
               </DetailSection>
             )}
-            
-            {service.whatIsIt && (
-              <DetailSection title={service.whatIsIt.title} Icon={Microscope}>
-                <div className="prose max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: service.whatIsIt.description }} />
-              </DetailSection>
-            )}
 
             {service.howItDiffers && (
                <DetailSection title="How It Differs" Icon={Layers}>
@@ -124,6 +124,18 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                </DetailSection>
             )}
 
+            {service.whyLoveIt && (
+               <DetailSection title="Why Patients Love It" Icon={Info}>
+                 <ul className="space-y-2">
+                  {service.whyLoveIt.map((item, index) => (
+                     <li key={index} className="flex items-start">
+                      <CheckCircle className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
+                      <span className="text-sm text-foreground/80">{item}</span>
+                    </li>
+                  ))}
+                 </ul>
+               </DetailSection>
+            )}
           </div>
 
           {/* Sidebar - Right/Bottom Column */}
@@ -156,31 +168,6 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                </DetailSection>
             )}
 
-            {service.indications && (
-              <DetailSection title="Ideal Candidates" Icon={Users}>
-                 <ul className="space-y-2">
-                  {service.indications.map((indication, index) => (
-                    <li key={index} className="flex items-start">
-                      <Activity className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
-                      <span className="text-sm text-foreground/80">{indication}</span>
-                    </li>
-                  ))}
-                </ul>
-              </DetailSection>
-            )}
-
-            {service.whyLoveIt && (
-               <DetailSection title="Why Patients Love It" Icon={Info}>
-                 <ul className="space-y-2">
-                  {service.whyLoveIt.map((item, index) => (
-                     <li key={index} className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
-                      <span className="text-sm text-foreground/80">{item}</span>
-                    </li>
-                  ))}
-                 </ul>
-               </DetailSection>
-            )}
           </aside>
 
         </div>
