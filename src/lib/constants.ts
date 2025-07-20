@@ -685,6 +685,7 @@ export interface Insight {
   imageHint: string;
   date: string;
   href: string;
+  content?: string;
 }
 
 export const insights: Insight[] = [
@@ -695,7 +696,13 @@ export const insights: Insight[] = [
     imageSrc: 'https://placehold.co/600x400.png',
     imageHint: 'dna helix science',
     date: 'August 5, 2024',
-    href: '/insights/truth-about-polynucleotides'
+    href: '/insights/truth-about-polynucleotides',
+    content: `
+      <h2>The Science of Cellular Regeneration</h2>
+      <p>Polynucleotides, often referred to as PN, are more than just a trend in aesthetic medicine; they represent a significant leap forward in how we approach skin health. Derived from purified fragments of fish DNA, these biostimulators work in harmony with our own bodies to awaken the skin's natural regenerative processes. Unlike treatments that simply add volume or mask imperfections, PN works at the cellular level to repair damage and rebuild the very foundation of healthy skin.</p>
+      <h3>How Do They Work?</h3>
+      <p>When introduced into the skin, Polynucleotides signal our fibroblasts—the cells responsible for producing collagen and elastin—to get back to work. This results in firmer, denser, and more resilient skin over time. They also improve microcirculation, bringing more oxygen and nutrients to the skin, which contributes to a brighter, more vibrant complexion. It's a holistic approach that fosters true, long-lasting rejuvenation from within.</p>
+    `
   },
   {
     id: '2',
@@ -704,7 +711,11 @@ export const insights: Insight[] = [
     imageSrc: 'https://placehold.co/600x400.png',
     imageHint: 'youthful glowing skin',
     date: 'July 28, 2024',
-    href: '/insights/prejuvenation-philosophy'
+    href: '/insights/prejuvenation-philosophy',
+    content: `
+      <h2>An Investment in Your Future Self</h2>
+      <p>Prejuvenation is a proactive approach to skincare and aesthetics that focuses on preventing the signs of aging before they become prominent. Instead of waiting to correct wrinkles, sagging, and volume loss, prejuvenation uses targeted, minimally invasive treatments to maintain the skin's structural integrity and youthful function. This might include treatments that boost collagen production, protect against environmental damage, and optimize skin hydration. By starting early, you can significantly slow down the aging process, ensuring your skin stays healthier and more vibrant for longer.</p>
+    `
   },
   {
     id: '3',
@@ -713,7 +724,11 @@ export const insights: Insight[] = [
     imageSrc: 'https://placehold.co/600x400.png',
     imageHint: 'ultrasound facial treatment',
     date: 'July 21, 2024',
-    href: '/insights/art-lyft-sofwave'
+    href: '/insights/art-lyft-sofwave',
+    content: `
+      <h2>Lifting, Redefined</h2>
+      <p>For those seeking a noticeable lift without the surgery, A.R.T Lyft by Sofwave offers a groundbreaking solution. Using SUPERB™ (Synchronous Ultrasound Parallel Beam) technology, this treatment delivers controlled thermal energy to the mid-dermis, the precise depth where collagen production is most critical. This process stimulates a powerful healing response, leading to the creation of new collagen and elastin. The result is a significant reduction in fine lines and wrinkles and a visible lifting and tightening of the skin, all with minimal to no downtime.</p>
+    `
   },
   {
     id: '4',
@@ -722,6 +737,10 @@ export const insights: Insight[] = [
     imageSrc: 'https://placehold.co/600x400.png',
     imageHint: 'ai skin analysis technology',
     date: 'July 14, 2024',
-    href: '/insights/ai-skin-analysis'
+    href: '/insights/ai-skin-analysis',
+    content: `
+      <h2>Personalization Through Technology</h2>
+      <p>The one-size-fits-all approach to skincare is a thing of the past. To achieve the best results, you need to understand your skin's unique characteristics and concerns. Our AI Skin Analysis tool takes the guesswork out of the equation. By analyzing a photo of your skin and your answers to a brief questionnaire, our advanced algorithm can identify your skin type, detect underlying conditions, and provide personalized recommendations for both at-home products and in-clinic treatments. It's the first step toward a truly effective, data-driven skincare journey.</p>
+    `
   },
 ];
