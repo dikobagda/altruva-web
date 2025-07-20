@@ -133,9 +133,9 @@ export default function OurClinicPage() {
           <p className="text-lg md:text-xl mb-8 opacity-90">
             We invite you to experience the Altruva difference firsthand. Our clinic is conveniently located and ready to welcome you.
           </p>
-           <div className="flex justify-center items-center text-lg mb-8 bg-black/10 p-3 rounded-lg">
-             <MapPin className="h-6 w-6 mr-3"/> 
-             <span>123 Beauty Lane, Serenity City, SC 12345</span>
+           <div className="flex justify-center items-center text-lg mb-8 bg-black/10 p-3 rounded-lg text-center">
+             <MapPin className="h-6 w-6 mr-3 flex-shrink-0"/> 
+             <span>Jl. Ciasem I No.2, RT.2/RW.4, Rw. Bar, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</span>
            </div>
           <Button asChild size="lg" variant="secondary" className="font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
             <Link href="/book-appointment">Schedule Your Visit</Link>

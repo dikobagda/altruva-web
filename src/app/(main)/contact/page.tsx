@@ -61,9 +61,9 @@ export default function ContactPage() {
           <Card className="shadow-lg">
             <CardContent className="pt-6 space-y-4">
               <h3 className="font-serif text-xl text-primary mb-3">Contact Details</h3>
-              <div className="flex items-center">
-                <MapPin className="h-6 w-6 text-accent mr-3" />
-                <p className="text-foreground/80">123 Beauty Lane, Serenity City, SC 12345</p>
+              <div className="flex items-start">
+                <MapPin className="h-6 w-6 text-accent mr-3 flex-shrink-0" />
+                <p className="text-foreground/80">Jl. Ciasem I No.2, RT.2/RW.4, Rw. Bar, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</p>
               </div>
               <div className="flex items-center">
                 <Phone className="h-6 w-6 text-accent mr-3" />

@@ -52,7 +52,7 @@ export default function Footer() {
               <Link href="#" aria-label="Twitter" className="text-primary hover:text-accent transition-colors"><Twitter size={24} /></Link>
             </div>
             <div className="mt-4 text-sm text-center sm:text-left">
-              <p>123 Beauty Lane, Serenity City, SC 12345</p>
+              <p>Jl. Ciasem I No.2, RT.2/RW.4, Rw. Bar, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</p>
               <p>(123) 456-7890</p>
             </div>
           </div>
