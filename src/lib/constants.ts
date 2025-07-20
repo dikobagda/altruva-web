@@ -12,6 +12,9 @@ export interface Service {
   imageSrc: string;
   imageHint: string;
   category: 'Prejuvenation' | 'Rejuvenation';
+  group: 'Altruva Glow' | 'Altruva Lift';
+  groupDescription: string;
+  subgroup: string;
 }
 
 export const services: Service[] = [
@@ -19,214 +22,277 @@ export const services: Service[] = [
   {
     id: 'glacier-skin',
     title: 'Glacier Skin',
-    description: 'Pore refining & oil control for a smooth, matte finish. From Altruva Glow for skin quality optimization.',
+    description: 'Pore refining & oil control for a smooth, matte finish.',
     price: '4,000,000 IDR',
     category: 'Prejuvenation',
     Icon: Droplets,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'refined skin texture'
+    imageHint: 'refined skin texture',
+    group: 'Altruva Glow',
+    groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'dna-repair',
     title: 'DNA Repair',
-    description: 'Environmental damage repair & skin barrier fortification. From Altruva Glow for skin quality optimization.',
+    description: 'Environmental damage repair & skin barrier fortification.',
     price: '5,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Shield,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'skin barrier protection'
+    imageHint: 'skin barrier protection',
+    group: 'Altruva Glow',
+    groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'purifying-booster',
     title: 'Purifying Booster',
-    description: 'Therapy for anti-inflammatory and reduced acne marks. From Altruva Glow for skin quality optimization.',
+    description: 'Therapy for anti-inflammatory and reduced acne marks.',
     price: '2,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Sparkles,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'clear skin'
+    imageHint: 'clear skin',
+    group: 'Altruva Glow',
+    groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'dark-spot-booster',
     title: 'Dark Spot Booster',
-    description: 'Targeted hyperpigmentation correction. From Altruva Glow for skin quality optimization.',
+    description: 'Targeted hyperpigmentation correction.',
     price: '3,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Sun,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'even skin tone'
+    imageHint: 'even skin tone',
+    group: 'Altruva Glow',
+    groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'bio-prf',
     title: 'Bio-PRF',
-    description: 'Platelet-rich fibrin therapy for deep tissue regeneration. From Altruva Glow for skin quality optimization.',
+    description: 'Platelet-rich fibrin therapy for deep tissue regeneration.',
     price: '2,500,000 IDR',
     category: 'Prejuvenation',
     Icon: HeartPulse,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'regenerative therapy'
+    imageHint: 'regenerative therapy',
+    group: 'Altruva Glow',
+    groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'clarify-peel',
     title: 'Clarify Peel',
-    description: 'Breakout-prone skin detox & renewal. From Altruva Glow\'s Signature Peels.',
+    description: 'Breakout-prone skin detox & renewal.',
     price: '500,000 IDR',
     category: 'Prejuvenation',
     Icon: Sparkles,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'chemical peel'
+    imageHint: 'chemical peel',
+    group: 'Altruva Glow',
+    groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
+    subgroup: 'Signature Peels'
   },
   {
     id: 'korean-luminous-peel',
     title: 'Korean Luminous Peel',
-    description: 'Smoothes & brightens for a luminous glow. From Altruva Glow\'s Signature Peels.',
+    description: 'Smoothes & brightens for a luminous glow.',
     price: '700,000 IDR',
     category: 'Prejuvenation',
     Icon: Star,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'glowing skin'
+    imageHint: 'glowing skin',
+    group: 'Altruva Glow',
+    groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
+    subgroup: 'Signature Peels'
   },
   {
     id: 'exion-lumi-laser',
     title: 'Exion Lumi Laser',
-    description: 'Targets light pigmentation, PIH, and mild acne marks. From Altruva Glow\'s Signature Laser.',
+    description: 'Targets light pigmentation, PIH, and mild acne marks.',
     price: 'Price on consultation',
     category: 'Prejuvenation',
     Icon: Zap,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'laser treatment'
+    imageHint: 'laser treatment',
+    group: 'Altruva Glow',
+    groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
+    subgroup: 'Signature Laser'
   },
   {
     id: 'exion-scar-solver',
     title: 'Exion Scar Solver',
-    description: 'Smooths textural irregularities and early acne scarring. From Altruva Glow\'s Signature Laser.',
+    description: 'Smooths textural irregularities and early acne scarring.',
     price: 'Price on consultation',
     category: 'Prejuvenation',
     Icon: Zap,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'acne scar treatment'
+    imageHint: 'acne scar treatment',
+    group: 'Altruva Glow',
+    groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
+    subgroup: 'Signature Laser'
   },
   {
     id: 'art-lyft-lite',
     title: 'A.R.T Lyft Lite by Sofwave',
-    description: 'Up to 300 shots. Personalized SUPERB Ultrasound-powered deep tissue tightening. From Altruva Lift.',
+    description: '(up to 300 shots) Personalized SUPERB Ultrasound-powered deep tissue tightening.',
     price: '20,000,000 IDR',
     category: 'Prejuvenation',
     Icon: Zap,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'ultrasound facelift'
+    imageHint: 'ultrasound facelift',
+    group: 'Altruva Lift',
+    groupDescription: 'A sculpted face begins with structural integrity.',
+    subgroup: 'Tightening & Contouring'
   },
   {
     id: 'gorgeous-lyft-prejuvenation',
     title: 'Gorgeous Lyft',
-    description: 'Injectable liquid type biostimulators for structural longevity. From Altruva Lift.',
+    description: 'Injectable liquid type biostimulators for structural longevity.',
     price: '6,000,000 IDR',
     category: 'Prejuvenation',
     Icon: HeartPulse,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'biostimulator injection'
+    imageHint: 'biostimulator injection',
+    group: 'Altruva Lift',
+    groupDescription: 'A sculpted face begins with structural integrity.',
+    subgroup: 'Tightening & Contouring'
   },
   {
     id: 'exion-lumi-rf',
     title: 'Exion Lumi-RF (RF Face)',
-    description: 'Fusion of RF and Ultrasound Technology. Best for maintenance after A.R.T Lyft. From Altruva Lift.',
+    description: 'Fusion of RF and Ultrasound Technology. Best for maintenance after A.R.T Lyft.',
     price: 'Price on consultation',
     category: 'Prejuvenation',
     Icon: Zap,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'rf skin tightening'
+    imageHint: 'rf skin tightening',
+    group: 'Altruva Lift',
+    groupDescription: 'A sculpted face begins with structural integrity.',
+    subgroup: 'Tightening & Contouring'
   },
   {
     id: 'slim-contour-injection',
     title: 'Slim Contour Injection',
-    description: 'Facial fat detox & contouring. From Altruva Lift\'s Signature Contouring.',
+    description: 'Facial fat detox & contouring.',
     price: '2,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Droplets,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'facial contouring'
+    imageHint: 'facial contouring',
+    group: 'Altruva Lift',
+    groupDescription: 'A sculpted face begins with structural integrity.',
+    subgroup: 'Signature Contouring'
   },
   {
     id: 'face-modulator-half',
     title: 'Face Modulator Half Dose',
-    description: 'Subtle wrinkle softening while preserving natural expression. From Altruva Lift\'s Signature Contouring.',
+    description: 'Subtle wrinkle softening while preserving natural expression.',
     price: '5,000,000 IDR',
     category: 'Prejuvenation',
     Icon: Sparkles,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'wrinkle treatment'
+    imageHint: 'wrinkle treatment',
+    group: 'Altruva Lift',
+    groupDescription: 'A sculpted face begins with structural integrity.',
+    subgroup: 'Signature Contouring'
   },
   {
     id: 'dermal-fillers',
     title: 'Dermal Fillers',
-    description: 'Minimalist volume enhancement for refined definition. From Altruva Lift\'s Signature Contouring.',
+    description: 'Minimalist volume enhancement for refined definition.',
     price: '6,000,000 IDR',
     category: 'Prejuvenation',
     Icon: Star,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'dermal filler'
+    imageHint: 'dermal filler',
+    group: 'Altruva Lift',
+    groupDescription: 'A sculpted face begins with structural integrity.',
+    subgroup: 'Signature Contouring'
   },
 
   // --- Rejuvenation (> 40) ---
   {
     id: 'exoprime-pro',
     title: 'Exoprime Pro',
-    description: 'Deep regenerative exosome therapy. From Altruva Glow for regenerative rejuvenation.',
+    description: 'Deep regenerative exosome therapy.',
     price: '4,500,000 IDR',
     category: 'Rejuvenation',
     Icon: HeartPulse,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'exosome therapy'
+    imageHint: 'exosome therapy',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'dna-repair-pro',
     title: 'DNA Repair Pro',
-    description: 'Reinforces skin’s cellular repair system. From Altruva Glow for regenerative rejuvenation.',
+    description: 'Reinforces skin’s cellular repair system.',
     price: '7,500,000 IDR',
     category: 'Rejuvenation',
     Icon: Shield,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'cellular repair'
+    imageHint: 'cellular repair',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'dna-repair-eye',
     title: 'DNA Repair Eye',
-    description: 'Reinforces skin’s cellular repair system for undereye area. From Altruva Glow for regenerative rejuvenation.',
+    description: 'Reinforces skin’s cellular repair system for undereye area.',
     price: '5,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Shield,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'eye treatment'
+    imageHint: 'eye treatment',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'amino-booster',
     title: 'Amino Booster',
-    description: 'Dermal protein replenishment for enhanced density. From Altruva Glow for regenerative rejuvenation.',
+    description: 'Dermal protein replenishment for enhanced density.',
     price: '6,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Droplets,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'skin density'
+    imageHint: 'skin density',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'melabooster',
     title: 'MelaBooster',
-    description: 'Powerful melanin modulation. From Altruva Glow for regenerative rejuvenation.',
+    description: 'Powerful melanin modulation.',
     price: '4,500,000 IDR',
     category: 'Rejuvenation',
     Icon: Sun,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'pigmentation treatment'
+    imageHint: 'pigmentation treatment',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'bio-prf-rejuvenation',
     title: 'Bio-PRF',
-    description: 'Comprehensive regenerative healing. From Altruva Glow for regenerative rejuvenation.',
+    description: 'Comprehensive regenerative healing.',
     price: '3,000,000 IDR',
     category: 'Rejuvenation',
     Icon: HeartPulse,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'regenerative healing'
+    imageHint: 'regenerative healing',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'altruva-youth-elixir',
@@ -236,17 +302,23 @@ export const services: Service[] = [
     category: 'Rejuvenation',
     Icon: Star,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'advanced anti-aging'
+    imageHint: 'advanced anti-aging',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Skin-geneering Boosters'
   },
   {
     id: 'radiant-advanced-peel',
     title: 'Radiant Advanced Peel',
-    description: 'Bio-stimulatory resurfacing for skin renewal. From Altruva Glow\'s Signature Peels.',
+    description: 'Bio-stimulatory resurfacing for skin renewal.',
     price: '1,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Sparkles,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'advanced chemical peel'
+    imageHint: 'advanced chemical peel',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Signature Peels'
   },
   {
     id: 'exion-regen-laser',
@@ -256,7 +328,10 @@ export const services: Service[] = [
     category: 'Rejuvenation',
     Icon: Zap,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'no-downtime laser'
+    imageHint: 'no-downtime laser',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Signature Laser'
   },
   {
     id: 'exion-fractiopro',
@@ -266,77 +341,101 @@ export const services: Service[] = [
     category: 'Rejuvenation',
     Icon: Zap,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'fractional laser'
+    imageHint: 'fractional laser',
+    group: 'Altruva Glow',
+    groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
+    subgroup: 'Signature Laser'
   },
   {
     id: 'art-lyft',
     title: 'A.R.T Lyft by Sofwave',
-    description: 'Up to 500 shots. Personalized SUPERB Ultrasound for deep dermal firming. From Altruva Lift.',
+    description: '(up to 500 shots) Personalized SUPERB Ultrasound for deep dermal firming.',
     price: '30,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Zap,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'advanced ultrasound lift'
+    imageHint: 'advanced ultrasound lift',
+    group: 'Altruva Lift',
+    groupDescription: 'Aging is an evolution. Let’s refine the process.',
+    subgroup: 'Restoration & Lifting'
   },
   {
     id: 'gorgeous-lyft-rejuvenation',
     title: 'Gorgeous Lyft',
-    description: 'Liquid type biostimulators for strong collagen restoration. From Altruva Lift.',
+    description: 'Liquid type biostimulators for strong collagen restoration.',
     price: '11,000,000 IDR',
     category: 'Rejuvenation',
     Icon: HeartPulse,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'collagen biostimulator'
+    imageHint: 'collagen biostimulator',
+    group: 'Altruva Lift',
+    groupDescription: 'Aging is an evolution. Let’s refine the process.',
+    subgroup: 'Restoration & Lifting'
   },
   {
     id: 'radiance-lyft',
     title: 'Radiance Lyft',
-    description: 'Comprehensive deep skin tightening. From Altruva Lift.',
+    description: 'Comprehensive deep skin tightening.',
     price: '9,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Star,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'deep skin tightening'
+    imageHint: 'deep skin tightening',
+    group: 'Altruva Lift',
+    groupDescription: 'Aging is an evolution. Let’s refine the process.',
+    subgroup: 'Restoration & Lifting'
   },
   {
     id: 'cocktail-contouring',
     title: 'Cocktail Contouring',
-    description: 'Personalized bio-stimulator & selected filler fusion. From Altruva Lift\'s Signature Restoration.',
+    description: 'Personalized bio-stimulator & selected filler fusion.',
     price: '15,500,000 IDR',
     category: 'Rejuvenation',
     Icon: Sparkles,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'custom contouring'
+    imageHint: 'custom contouring',
+    group: 'Altruva Lift',
+    groupDescription: 'Aging is an evolution. Let’s refine the process.',
+    subgroup: 'Signature Restoration'
   },
   {
     id: 'dermal-fillers-pro',
     title: 'Dermal Fillers Pro',
-    description: 'Precision volumization for facial balance. From Altruva Lift\'s Signature Restoration.',
+    description: 'Precision volumization for facial balance.',
     price: '6,500,000 IDR',
     category: 'Rejuvenation',
     Icon: Star,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'advanced dermal filler'
+    imageHint: 'advanced dermal filler',
+    group: 'Altruva Lift',
+    groupDescription: 'Aging is an evolution. Let’s refine the process.',
+    subgroup: 'Signature Restoration'
   },
   {
     id: 'face-modulator-full',
     title: 'Face Modulator Full Dose',
-    description: 'Dynamic wrinkle refinement. From Altruva Lift\'s Signature Restoration.',
+    description: 'Dynamic wrinkle refinement.',
     price: '9,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Sparkles,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'full wrinkle treatment'
+    imageHint: 'full wrinkle treatment',
+    group: 'Altruva Lift',
+    groupDescription: 'Aging is an evolution. Let’s refine the process.',
+    subgroup: 'Signature Restoration'
   },
   {
     id: 'sculpt-lift-plus',
     title: 'Sculpt Lift +',
-    description: 'Facial contour sculpting & detoxification. From Altruva Lift\'s Signature Restoration.',
+    description: 'Facial contour sculpting & detoxification.',
     price: '4,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Zap,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'face sculpting'
+    imageHint: 'face sculpting',
+    group: 'Altruva Lift',
+    groupDescription: 'Aging is an evolution. Let’s refine the process.',
+    subgroup: 'Signature Restoration'
   },
 ];
 

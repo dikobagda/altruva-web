@@ -11,6 +11,8 @@ import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
 import { ArrowRight, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageTitle from '@/components/shared/PageTitle';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import React from 'react';
 
 type ServiceCategory = 'Prejuvenation' | 'Rejuvenation';
 
@@ -23,12 +25,32 @@ export default function HomePage() {
     Prejuvenation: {
       title: '< 40 years old',
       subtitle: 'Prejuvenation (Preserve & Enhance)',
+      servicesTitle: 'Prejuvenation Services',
     },
     Rejuvenation: {
       title: '> 40 years old',
       subtitle: 'Rejuvenation (Restore & Lift)',
+      servicesTitle: 'Rejuvenation Services',
     },
   };
+
+  const groupedServices = filteredServices.reduce((acc, service) => {
+    const groupName = service.group;
+    if (!acc[groupName]) {
+      acc[groupName] = {
+        description: service.groupDescription,
+        subgroups: {},
+      };
+    }
+    
+    const subgroupName = service.subgroup;
+    if (!acc[groupName].subgroups[subgroupName]) {
+      acc[groupName].subgroups[subgroupName] = [];
+    }
+    
+    acc[groupName].subgroups[subgroupName].push(service);
+    return acc;
+  }, {} as Record<string, { description: string; subgroups: Record<string, typeof services> }>);
 
   return (
     <>
@@ -90,43 +112,55 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* Services Overview Section */}
-      <SectionWrapper id="services-overview" className="!pt-0">
+      <SectionWrapper id="services-overview">
         <PageTitle 
-          title="Our Signature Services" 
-          subtitle={`Discover our top treatments for ${activeCategory.toLowerCase()}.`} 
+          title={categoryDetails[activeCategory].servicesTitle}
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredServices.map((service) => (
-            <Card key={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src={service.imageSrc}
-                alt={service.title}
-                width={600}
-                height={400}
-                className="object-cover aspect-video w-full"
-                data-ai-hint={service.imageHint}
-              />
-              <CardHeader>
-                <CardTitle className="font-serif text-2xl text-primary">{service.title}</CardTitle>
-                <CardDescription className="text-foreground/70">{service.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-lg font-semibold text-accent mb-4">{service.price}</p>
-              </CardContent>
-              <div className="p-6 pt-0">
-                <Button asChild variant="link" className="text-primary p-0 h-auto">
-                  <Link href={`/services#${service.id}`}>Learn More <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                </Button>
-              </div>
-            </Card>
+        <div className="space-y-12">
+          {Object.entries(groupedServices).map(([groupName, groupData]) => (
+            <div key={groupName}>
+              <h3 className="font-serif text-2xl md:text-3xl font-bold text-primary mb-2">{groupName}</h3>
+              <p className="text-md md:text-lg text-foreground/80 mb-6">{groupData.description}</p>
+              
+              <Card className="shadow-lg">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-1/3 font-semibold text-primary/90">Service</TableHead>
+                      <TableHead className="w-1/2 font-semibold text-primary/90">Description</TableHead>
+                      <TableHead className="text-right font-semibold text-primary/90">Price</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {Object.entries(groupData.subgroups).map(([subgroupName, subgroupServices]) => (
+                       <React.Fragment key={subgroupName}>
+                         <TableRow className="bg-secondary/30">
+                           <TableCell colSpan={3} className="font-bold text-secondary-foreground text-base py-3">
+                             {subgroupName}
+                           </TableCell>
+                         </TableRow>
+                         {subgroupServices.map((service) => (
+                          <TableRow key={service.id}>
+                            <TableCell className="font-semibold text-primary">{service.title}</TableCell>
+                            <TableCell className="text-foreground/80">{service.description}</TableCell>
+                            <TableCell className="text-right font-semibold text-accent">{service.price}</TableCell>
+                          </TableRow>
+                         ))}
+                       </React.Fragment>
+                    ))}
+                  </TableBody>
+                </Table>
+              </Card>
+            </div>
           ))}
         </div>
         <div className="text-center mt-12">
-          <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
-            <Link href="/services">View All Services</Link>
+          <Button asChild size="lg" variant="default">
+            <Link href="/book-appointment">Book a Consultation</Link>
           </Button>
         </div>
       </SectionWrapper>
+
 
       {/* AI Skin Analysis Teaser Section */}
       <SectionWrapper id="ai-skin-analysis-teaser" className="bg-secondary/30">
