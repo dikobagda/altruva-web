@@ -49,7 +49,14 @@ const navItems: NavItem[] = [
       { href: '/face/skin-quality', label: 'Skin quality' },
     ],
   },
-  { href: '/hair', label: 'Hair' },
+  {
+    label: 'Hair',
+    subItems: [
+        { href: '/hair/altruva-micrograft-technology', label: 'Altruva Micrograft Technology' },
+        { href: '/hair/altruva-hair-prf', label: 'Altruva Hair PRF' },
+        { href: '/hair/altruva-hair-booster', label: 'Altruva Hair Booster' },
+    ]
+  },
   {
     label: 'Body',
     subItems: [
