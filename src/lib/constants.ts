@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { HeartPulse, SprayCan, Sun, Droplets, Bot, HelpCircle, MessageSquare, Star, CheckCircle } from 'lucide-react';
+import { HeartPulse, Droplets, Bot, HelpCircle, MessageSquare, Star, CheckCircle, Shield, Sparkles, Zap, Sun } from 'lucide-react';
 
 export interface Service {
   id: string;
@@ -15,51 +15,331 @@ export interface Service {
 }
 
 export const services: Service[] = [
+  // --- Prejuvenation (< 40) ---
   {
-    id: 'facial',
-    title: 'Divine Glow Facial',
-    description: 'Rejuvenate your skin with our signature facial treatment.',
-    longDescription: 'Our Divine Glow Facial is a luxurious experience designed to cleanse, exfoliate, and nourish your skin, leaving it radiant and refreshed. Tailored to your specific skin type and concerns, this treatment includes a deep cleanse, gentle exfoliation, extractions if needed, a customized mask, and a relaxing facial massage. Ideal for all skin types seeking a healthy, luminous complexion.',
-    price: '$150',
-    Icon: HeartPulse,
-    imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'facial treatment',
+    id: 'glacier-skin',
+    title: 'Glacier Skin',
+    description: 'Pore refining & oil control for a smooth, matte finish. From Altruva Glow for skin quality optimization.',
+    price: '4,000,000 IDR',
     category: 'Prejuvenation',
-  },
-  {
-    id: 'injections',
-    title: 'Age-Defy Injections',
-    description: 'Smooth fine lines and wrinkles for a youthful appearance.',
-    longDescription: 'Combat the signs of aging with our expertly administered Age-Defy Injections. Using premium neurotoxins or dermal fillers, we target fine lines, wrinkles, and volume loss to restore a smoother, more youthful contour to your face. Our experienced practitioners ensure natural-looking results with minimal downtime. Consultation required to determine the best approach for your goals.',
-    price: 'Starting at $300',
-    Icon: SprayCan,
-    imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'cosmetic injection',
-    category: 'Rejuvenation',
-  },
-  {
-    id: 'laser',
-    title: 'Laser Rejuvenation',
-    description: 'Advanced laser treatments for skin resurfacing and tightening.',
-    longDescription: 'Experience the transformative power of laser technology with our Laser Rejuvenation services. We offer a range of treatments to address concerns such as sun damage, uneven skin tone, texture irregularities, and skin laxity. Our state-of-the-art lasers stimulate collagen production and promote cellular renewal for firmer, smoother, and more even-toned skin. A series of treatments may be recommended for optimal results.',
-    price: 'Varies',
-    Icon: Sun,
-    imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'laser treatment',
-    category: 'Rejuvenation',
-  },
-  {
-    id: 'hydration',
-    title: 'AquaBoost Hydration Therapy',
-    description: 'Deeply hydrate and plump your skin for a dewy finish.',
-    longDescription: 'Quench your skin\'s thirst with our AquaBoost Hydration Therapy. This intensive treatment infuses your skin with vital moisture and nutrients, improving elasticity, reducing the appearance of fine lines, and leaving your skin feeling soft, supple, and dewy. Perfect for dry, dehydrated, or travel-weary skin.',
-    price: '$180',
     Icon: Droplets,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'skin hydration',
+    imageHint: 'refined skin texture'
+  },
+  {
+    id: 'dna-repair',
+    title: 'DNA Repair',
+    description: 'Environmental damage repair & skin barrier fortification. From Altruva Glow for skin quality optimization.',
+    price: '5,500,000 IDR',
     category: 'Prejuvenation',
+    Icon: Shield,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'skin barrier protection'
+  },
+  {
+    id: 'purifying-booster',
+    title: 'Purifying Booster',
+    description: 'Therapy for anti-inflammatory and reduced acne marks. From Altruva Glow for skin quality optimization.',
+    price: '2,500,000 IDR',
+    category: 'Prejuvenation',
+    Icon: Sparkles,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'clear skin'
+  },
+  {
+    id: 'dark-spot-booster',
+    title: 'Dark Spot Booster',
+    description: 'Targeted hyperpigmentation correction. From Altruva Glow for skin quality optimization.',
+    price: '3,500,000 IDR',
+    category: 'Prejuvenation',
+    Icon: Sun,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'even skin tone'
+  },
+  {
+    id: 'bio-prf',
+    title: 'Bio-PRF',
+    description: 'Platelet-rich fibrin therapy for deep tissue regeneration. From Altruva Glow for skin quality optimization.',
+    price: '2,500,000 IDR',
+    category: 'Prejuvenation',
+    Icon: HeartPulse,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'regenerative therapy'
+  },
+  {
+    id: 'clarify-peel',
+    title: 'Clarify Peel',
+    description: 'Breakout-prone skin detox & renewal. From Altruva Glow\'s Signature Peels.',
+    price: '500,000 IDR',
+    category: 'Prejuvenation',
+    Icon: Sparkles,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'chemical peel'
+  },
+  {
+    id: 'korean-luminous-peel',
+    title: 'Korean Luminous Peel',
+    description: 'Smoothes & brightens for a luminous glow. From Altruva Glow\'s Signature Peels.',
+    price: '700,000 IDR',
+    category: 'Prejuvenation',
+    Icon: Star,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'glowing skin'
+  },
+  {
+    id: 'exion-lumi-laser',
+    title: 'Exion Lumi Laser',
+    description: 'Targets light pigmentation, PIH, and mild acne marks. From Altruva Glow\'s Signature Laser.',
+    price: 'Price on consultation',
+    category: 'Prejuvenation',
+    Icon: Zap,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'laser treatment'
+  },
+  {
+    id: 'exion-scar-solver',
+    title: 'Exion Scar Solver',
+    description: 'Smooths textural irregularities and early acne scarring. From Altruva Glow\'s Signature Laser.',
+    price: 'Price on consultation',
+    category: 'Prejuvenation',
+    Icon: Zap,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'acne scar treatment'
+  },
+  {
+    id: 'art-lyft-lite',
+    title: 'A.R.T Lyft Lite by Sofwave',
+    description: 'Up to 300 shots. Personalized SUPERB Ultrasound-powered deep tissue tightening. From Altruva Lift.',
+    price: '20,000,000 IDR',
+    category: 'Prejuvenation',
+    Icon: Zap,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'ultrasound facelift'
+  },
+  {
+    id: 'gorgeous-lyft-prejuvenation',
+    title: 'Gorgeous Lyft',
+    description: 'Injectable liquid type biostimulators for structural longevity. From Altruva Lift.',
+    price: '6,000,000 IDR',
+    category: 'Prejuvenation',
+    Icon: HeartPulse,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'biostimulator injection'
+  },
+  {
+    id: 'exion-lumi-rf',
+    title: 'Exion Lumi-RF (RF Face)',
+    description: 'Fusion of RF and Ultrasound Technology. Best for maintenance after A.R.T Lyft. From Altruva Lift.',
+    price: 'Price on consultation',
+    category: 'Prejuvenation',
+    Icon: Zap,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'rf skin tightening'
+  },
+  {
+    id: 'slim-contour-injection',
+    title: 'Slim Contour Injection',
+    description: 'Facial fat detox & contouring. From Altruva Lift\'s Signature Contouring.',
+    price: '2,500,000 IDR',
+    category: 'Prejuvenation',
+    Icon: Droplets,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'facial contouring'
+  },
+  {
+    id: 'face-modulator-half',
+    title: 'Face Modulator Half Dose',
+    description: 'Subtle wrinkle softening while preserving natural expression. From Altruva Lift\'s Signature Contouring.',
+    price: '5,000,000 IDR',
+    category: 'Prejuvenation',
+    Icon: Sparkles,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'wrinkle treatment'
+  },
+  {
+    id: 'dermal-fillers',
+    title: 'Dermal Fillers',
+    description: 'Minimalist volume enhancement for refined definition. From Altruva Lift\'s Signature Contouring.',
+    price: '6,000,000 IDR',
+    category: 'Prejuvenation',
+    Icon: Star,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'dermal filler'
+  },
+
+  // --- Rejuvenation (> 40) ---
+  {
+    id: 'exoprime-pro',
+    title: 'Exoprime Pro',
+    description: 'Deep regenerative exosome therapy. From Altruva Glow for regenerative rejuvenation.',
+    price: '4,500,000 IDR',
+    category: 'Rejuvenation',
+    Icon: HeartPulse,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'exosome therapy'
+  },
+  {
+    id: 'dna-repair-pro',
+    title: 'DNA Repair Pro',
+    description: 'Reinforces skin’s cellular repair system. From Altruva Glow for regenerative rejuvenation.',
+    price: '7,500,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Shield,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'cellular repair'
+  },
+  {
+    id: 'dna-repair-eye',
+    title: 'DNA Repair Eye',
+    description: 'Reinforces skin’s cellular repair system for undereye area. From Altruva Glow for regenerative rejuvenation.',
+    price: '5,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Shield,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'eye treatment'
+  },
+  {
+    id: 'amino-booster',
+    title: 'Amino Booster',
+    description: 'Dermal protein replenishment for enhanced density. From Altruva Glow for regenerative rejuvenation.',
+    price: '6,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Droplets,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'skin density'
+  },
+  {
+    id: 'melabooster',
+    title: 'MelaBooster',
+    description: 'Powerful melanin modulation. From Altruva Glow for regenerative rejuvenation.',
+    price: '4,500,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Sun,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'pigmentation treatment'
+  },
+  {
+    id: 'bio-prf-rejuvenation',
+    title: 'Bio-PRF',
+    description: 'Comprehensive regenerative healing. From Altruva Glow for regenerative rejuvenation.',
+    price: '3,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: HeartPulse,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'regenerative healing'
+  },
+  {
+    id: 'altruva-youth-elixir',
+    title: 'Altruva Youth Elixir',
+    description: 'The highest form of regenerative complexes combining polynucleotides, exosomes, HA, amino acids, and micronutrients.',
+    price: '6,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Star,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'advanced anti-aging'
+  },
+  {
+    id: 'radiant-advanced-peel',
+    title: 'Radiant Advanced Peel',
+    description: 'Bio-stimulatory resurfacing for skin renewal. From Altruva Glow\'s Signature Peels.',
+    price: '1,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Sparkles,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'advanced chemical peel'
+  },
+  {
+    id: 'exion-regen-laser',
+    title: 'Exion Regen Laser',
+    description: 'Lunchtime laser targeting deep pigmentation, restoring skin luminosity without downtime.',
+    price: 'Price on consultation',
+    category: 'Rejuvenation',
+    Icon: Zap,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'no-downtime laser'
+  },
+  {
+    id: 'exion-fractiopro',
+    title: 'Exion FractioPro',
+    description: 'Deeper fractionated resurfacing for pronounced pigment and texture correction.',
+    price: 'Price on consultation',
+    category: 'Rejuvenation',
+    Icon: Zap,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'fractional laser'
+  },
+  {
+    id: 'art-lyft',
+    title: 'A.R.T Lyft by Sofwave',
+    description: 'Up to 500 shots. Personalized SUPERB Ultrasound for deep dermal firming. From Altruva Lift.',
+    price: '30,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Zap,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'advanced ultrasound lift'
+  },
+  {
+    id: 'gorgeous-lyft-rejuvenation',
+    title: 'Gorgeous Lyft',
+    description: 'Liquid type biostimulators for strong collagen restoration. From Altruva Lift.',
+    price: '11,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: HeartPulse,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'collagen biostimulator'
+  },
+  {
+    id: 'radiance-lyft',
+    title: 'Radiance Lyft',
+    description: 'Comprehensive deep skin tightening. From Altruva Lift.',
+    price: '9,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Star,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'deep skin tightening'
+  },
+  {
+    id: 'cocktail-contouring',
+    title: 'Cocktail Contouring',
+    description: 'Personalized bio-stimulator & selected filler fusion. From Altruva Lift\'s Signature Restoration.',
+    price: '15,500,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Sparkles,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'custom contouring'
+  },
+  {
+    id: 'dermal-fillers-pro',
+    title: 'Dermal Fillers Pro',
+    description: 'Precision volumization for facial balance. From Altruva Lift\'s Signature Restoration.',
+    price: '6,500,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Star,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'advanced dermal filler'
+  },
+  {
+    id: 'face-modulator-full',
+    title: 'Face Modulator Full Dose',
+    description: 'Dynamic wrinkle refinement. From Altruva Lift\'s Signature Restoration.',
+    price: '9,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Sparkles,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'full wrinkle treatment'
+  },
+  {
+    id: 'sculpt-lift-plus',
+    title: 'Sculpt Lift +',
+    description: 'Facial contour sculpting & detoxification. From Altruva Lift\'s Signature Restoration.',
+    price: '4,000,000 IDR',
+    category: 'Rejuvenation',
+    Icon: Zap,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'face sculpting'
   },
 ];
+
 
 export interface GalleryImage {
   id: string;
