@@ -50,7 +50,15 @@ const navItems: NavItem[] = [
     ],
   },
   { href: '/hair', label: 'Hair' },
-  { href: '/body', label: 'Body' },
+  {
+    label: 'Body',
+    subItems: [
+      { href: '/body/altruva-neocurve', label: 'Altruva NeoCurve by EmSculpt Neo' },
+      { href: '/body/altruva-lipo-elixir', label: 'Altruva Lipo Elixir' },
+      { href: '/body/altruva-regenerative-rf', label: 'Altruva Regenerative RF (Body)' },
+      { href: '/body/altruva-lipofreeze', label: 'Altruva LipoFreeze by CoolSculpting®' },
+    ],
+  },
   { href: '/insights', label: 'Insights' },
   { href: '/contact', label: 'Contact' },
 ];
