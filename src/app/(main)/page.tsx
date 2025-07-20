@@ -122,7 +122,7 @@ export default function HomePage() {
               <h3 className="font-serif text-2xl md:text-3xl font-bold text-primary mb-2">{groupName}</h3>
               <p className="text-md md:text-lg text-foreground/80 mb-6">{groupData.description}</p>
               
-              <Card className="shadow-lg">
+              <Card className="shadow-lg p-4 md:p-6">
                 <Table>
                   <TableHeader>
                     <TableRow>
