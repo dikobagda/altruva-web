@@ -1,4 +1,5 @@
 
+
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import ServiceCard from '@/components/services/ServiceCard';
@@ -14,7 +15,7 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <SectionWrapper>
-      
+      <PageTitle title="Our Services" subtitle="Discover our comprehensive range of regenerative and aesthetic treatments, tailored to your unique needs." />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {services.map((service) => (
           <ServiceCard key={service.id} service={service} />

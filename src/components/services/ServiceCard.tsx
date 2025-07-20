@@ -12,34 +12,36 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <Card id={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
-      <div className="relative w-full aspect-video">
-        <Image
-          src={service.imageSrc}
-          alt={service.title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          data-ai-hint={service.imageHint}
-        />
-      </div>
-      <CardHeader>
-        <div className="flex items-center space-x-3 mb-2">
-          {service.Icon && <service.Icon className="h-8 w-8 text-accent" />}
-          <CardTitle className="font-serif text-2xl text-primary">{service.title}</CardTitle>
+    <Link href={`/services/${service.id}`} className="flex h-full">
+      <Card id={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">
+        <div className="relative w-full aspect-video overflow-hidden">
+          <Image
+            src={service.imageSrc}
+            alt={service.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            data-ai-hint={service.imageHint}
+          />
         </div>
-        <CardDescription className="text-foreground/70 h-20 overflow-hidden text-ellipsis"> 
-          {service.longDescription || service.description}
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="flex-grow">
-        <p className="text-xl font-semibold text-accent">{service.price}</p>
-      </CardContent>
-      <CardFooter>
-        <Button asChild variant="default" className="w-full font-semibold">
-          <Link href="/book-appointment">Book Now <ArrowRight className="ml-2 h-4 w-4" /></Link>
-        </Button>
-      </CardFooter>
-    </Card>
+        <CardHeader>
+          <div className="flex items-center space-x-3 mb-2">
+            {service.Icon && <service.Icon className="h-8 w-8 text-accent" />}
+            <CardTitle className="font-serif text-2xl text-primary">{service.title}</CardTitle>
+          </div>
+          <CardDescription className="text-foreground/70 h-20 overflow-hidden text-ellipsis"> 
+            {service.longDescription || service.description}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex-grow">
+          <p className="text-xl font-semibold text-accent">{service.price}</p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" className="w-full font-semibold group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+            View Details <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </CardFooter>
+      </Card>
+    </Link>
   );
 }

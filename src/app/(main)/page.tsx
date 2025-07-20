@@ -144,7 +144,7 @@ export default function HomePage() {
                              {subgroupServices.map((service) => (
                               <TableRow key={service.id}>
                                 <TableCell className="font-semibold text-primary">
-                                  <Link href="/services" className="hover:underline">{service.title}</Link>
+                                  <Link href={`/services/${service.id}`} className="hover:underline">{service.title}</Link>
                                 </TableCell>
                                 <TableCell className="text-foreground/80">{service.description}</TableCell>
                                 <TableCell className="text-right font-semibold text-accent">{service.price}</TableCell>
