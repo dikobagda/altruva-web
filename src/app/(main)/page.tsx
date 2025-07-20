@@ -7,12 +7,13 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import SectionWrapper from '@/components/shared/SectionWrapper';
-import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
+import { services, testimonials, aiAnalysisFeatures, insights } from '@/lib/constants';
 import { ArrowRight, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageTitle from '@/components/shared/PageTitle';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import React from 'react';
+import InsightCard from '@/components/insights/InsightCard';
 
 type ServiceCategory = 'Prejuvenation' | 'Rejuvenation';
 
@@ -256,6 +257,21 @@ export default function HomePage() {
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
             <Link href="/testimonials">Read More Testimonials</Link>
+          </Button>
+        </div>
+      </SectionWrapper>
+
+      {/* Featured Insights Section */}
+      <SectionWrapper id="featured-insights" className="bg-secondary/30">
+        <PageTitle title="Featured Insights" subtitle="Explore the latest in aesthetic science and wellness from our experts." />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {insights.slice(0, 4).map((insight) => (
+            <InsightCard key={insight.id} insight={insight} />
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <Button asChild size="lg" variant="default">
+            <Link href="/insights">Explore All Insights</Link>
           </Button>
         </div>
       </SectionWrapper>

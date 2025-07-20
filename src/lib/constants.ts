@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { HeartPulse, Droplets, Bot, HelpCircle, MessageSquare, Star, CheckCircle, Shield, Sparkles, Zap, Sun } from 'lucide-react';
+import { HeartPulse, Droplets, Bot, HelpCircle, MessageSquare, Star, CheckCircle, Shield, Sparkles, Zap, Sun, Dna, Microscope, BookOpen, Layers, Info } from 'lucide-react';
 
 export interface Service {
   id: string;
@@ -53,10 +53,10 @@ export const services: Service[] = [
   },
   {
     id: 'dna-repair',
-    title: 'DNA Repair Pro',
+    title: 'DNA Repair',
     description: 'Environmental damage repair & skin barrier fortification.',
-    longDescription: `Altruva DNA Repair Pro is a next-generation regenerative protocol powered by Polynucleotides (PN) — clinically purified DNA fragments that stimulate deep dermal healing, reverse cellular fatigue, and restore skin architecture from the inside out. Far beyond hydration, this treatment reactivates fibroblasts, encourages collagen remodeling, and reestablishes skin homeostasis — making it a cornerstone for age-related skin degeneration, post-acne scarring, and periocular rejuvenation.`,
-    subtitle: "Advanced Polynucleotide Skin Regeneration by dr. Aldisa",
+    longDescription: `Altruva DNA Repair is a specialized prejuvenation protocol utilizing Polynucleotides (PN) to proactively strengthen your skin's core structures. This treatment focuses on fortifying the skin barrier, preserving healthy collagen, and boosting resilience against the first signs of aging caused by environmental stressors. It's an investment in your skin's future, ensuring it remains vibrant, hydrated, and strong.`,
+    subtitle: "Protective Polynucleotide Skin Fortification",
     price: '5,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Shield,
@@ -67,7 +67,7 @@ export const services: Service[] = [
     subgroup: 'Skin-geneering Boosters',
     whatIsIt: {
       title: 'What is DNA Repair for Prejuvenation?',
-      description: 'Polynucleotides are DNA-derived biopolymers extracted and purified from fish sources (with high biocompatibility). When injected into the skin, they act as powerful biomodulators, awakening fibroblasts and enhancing microcirculation — laying the foundation for true skin renewal, not just temporary glow.',
+      description: 'For prejuvenation, Polynucleotides act as a biological shield and personal trainer for your skin. These DNA-derived biostimulators coach your skin cells to function optimally, enhancing their ability to resist damage from UV rays, pollution, and stress. It is not about changing your appearance, but about fortifying your skin’s natural defenses for long-term health and a sustained glow.',
     },
     mechanism: [
       { title: 'Barrier Fortification', description: 'Strengthens the skin’s natural defense system, making it more resilient to environmental damage.' },
@@ -83,21 +83,13 @@ export const services: Service[] = [
       'Reduces redness and sensitivity',
       'Strengthens the skin barrier for long-term health'
     ],
-    indications: [
-      'Dull, tired-looking skin',
-      'Early signs of fine lines',
-      'Uneven skin texture or tone',
-      'Skin prone to redness or sensitivity',
-      'Individuals with high exposure to sun or pollution',
-      'Anyone looking to proactively invest in their skin’s future'
-    ],
     protocol: [
       { label: 'Session Time', value: '20 minutes' },
       { label: 'Protocol', value: '2–3 sessions spaced 3 weeks apart' },
       { label: 'Maintenance', value: 'Every 6 months' },
       { label: 'Ideal For', value: 'Ages 20-40 focused on prevention' },
     ],
-    howItDiffers: 'Unlike hyaluronic acid fillers that volumize, Altruva DNA Repair Pro works at the cellular and structural level — healing, rebuilding, and reviving skin tissues. Think foundation first, not just finishing touch.',
+    howItDiffers: 'Unlike hydrating skin boosters, which primarily add moisture, DNA Repair works deeper to improve the fundamental health and resilience of your skin cells, providing benefits that are structural and long-lasting.',
     whyLoveIt: [
       'It’s the ultimate preventative step for long-term skin health.',
       'Results in a natural, "lit-from-within" glow.',
@@ -683,4 +675,53 @@ export const aiAnalysisFeatures = [
       title: "Targeted Treatments",
       description: "Discover suitable treatments for your specific skin concerns."
     }
+];
+
+export interface Insight {
+  id: string;
+  title: string;
+  excerpt: string;
+  imageSrc: string;
+  imageHint: string;
+  date: string;
+  href: string;
+}
+
+export const insights: Insight[] = [
+  {
+    id: '1',
+    title: 'The Truth About Polynucleotides: Beyond the Hype',
+    excerpt: 'We dive deep into the science of Polynucleotides (PN), exploring how these DNA-derived biopolymers are revolutionizing skin regeneration from a cellular level.',
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'dna helix science',
+    date: 'August 5, 2024',
+    href: '/insights/truth-about-polynucleotides'
+  },
+  {
+    id: '2',
+    title: 'Prejuvenation: The Philosophy of "Future-Proofing" Your Skin',
+    excerpt: 'Discover why the best anti-aging strategy is starting early. We explain the concept of prejuvenation and how it preserves your skin\'s youthful vitality.',
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'youthful glowing skin',
+    date: 'July 28, 2024',
+    href: '/insights/prejuvenation-philosophy'
+  },
+  {
+    id: '3',
+    title: 'A.R.T Lyft by Sofwave: The Future of Non-Surgical Lifting',
+    excerpt: 'Learn how SUPERB™ (Synchronous Ultrasound Parallel Beam) technology is setting a new standard for non-invasive facelifts, delivering natural results without the downtime.',
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'ultrasound facial treatment',
+    date: 'July 21, 2024',
+    href: '/insights/art-lyft-sofwave'
+  },
+  {
+    id: '4',
+    title: 'Understanding Your Skin Type: An AI-Powered Approach',
+    excerpt: 'Our AI Skin Analysis tool demystifies your unique skin needs. Find out how technology can guide you to your most effective skincare routine ever.',
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'ai skin analysis technology',
+    date: 'July 14, 2024',
+    href: '/insights/ai-skin-analysis'
+  },
 ];
