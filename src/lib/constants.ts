@@ -55,6 +55,8 @@ export const services: Service[] = [
     id: 'dna-repair',
     title: 'DNA Repair',
     description: 'Environmental damage repair & skin barrier fortification.',
+    longDescription: `Think of Altruva's DNA Repair treatment as your skin's essential defense system. Using the power of Polynucleotides (PN), this treatment works at a cellular level to fortify your skin against daily environmental stressors like pollution and UV exposure. It's designed not just to repair early signs of damage but to build a stronger, more resilient skin barrier for the future, ensuring your skin stays healthy, hydrated, and vibrant.`,
+    subtitle: "Fortify Your Skin's Future with Polynucleotides",
     price: '5,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Shield,
@@ -62,7 +64,47 @@ export const services: Service[] = [
     imageHint: 'skin barrier protection',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    whatIsIt: {
+      title: 'What is DNA Repair for Prejuvenation?',
+      description: 'This treatment uses Polynucleotides (PN), which are biocompatible DNA fragments, to send signals to your skin cells. These signals boost your skin’s natural ability to repair itself and produce collagen, strengthening its core structure and preventing premature aging before it starts.',
+    },
+    mechanism: [
+      { title: 'Barrier Fortification', description: 'Strengthens the skin’s natural defense system, making it more resilient to environmental damage.' },
+      { title: 'Collagen Preservation', description: 'Stimulates fibroblasts to maintain healthy collagen and elastin levels, preserving skin’s firmness and bounce.' },
+      { title: 'Deep Hydration', description: 'Improves the skin’s ability to retain moisture, preventing dryness and maintaining a healthy glow.' },
+      { title: 'Oxidative Stress Reduction', description: 'Helps neutralize free radicals from pollution and UV rays, preventing them from causing cellular damage.' },
+    ],
+    benefits: [
+      'Reduces early signs of sun damage',
+      'Improves skin texture and smoothness',
+      'Enhances skin hydration and radiance',
+      'Minimizes the appearance of large pores',
+      'Reduces redness and sensitivity',
+      'Strengthens the skin barrier for long-term health'
+    ],
+    indications: [
+      'Dull, tired-looking skin',
+      'Early signs of fine lines',
+      'Uneven skin texture or tone',
+      'Skin prone to redness or sensitivity',
+      'Individuals with high exposure to sun or pollution',
+      'Anyone looking to proactively invest in their skin’s future'
+    ],
+    protocol: [
+      { label: 'Session Time', value: '20 minutes' },
+      { label: 'Protocol', value: '2–3 sessions spaced 3 weeks apart' },
+      { label: 'Maintenance', value: 'Every 6 months' },
+      { label: 'Ideal For', value: 'Ages 20-40 focused on prevention' },
+    ],
+    howItDiffers: 'While many treatments focus on the surface, DNA Repair works from within to build a stronger foundation. It’s not about adding volume, but about enhancing your skin’s own natural ability to stay healthy and youthful.',
+    whyLoveIt: [
+      'It’s the ultimate preventative step for long-term skin health.',
+      'Results in a natural, "lit-from-within" glow.',
+      'Minimal to no downtime.',
+      'Improves overall skin resilience.',
+      'A scientifically-backed approach to "future-proofing" your skin.'
+    ]
   },
   {
     id: 'purifying-booster',
@@ -468,7 +510,7 @@ export const services: Service[] = [
     price: '6,500,000 IDR',
     category: 'Rejuvenation',
     Icon: Star,
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: 'https://placehold.co/600x400.p_ng',
     imageHint: 'advanced dermal filler',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
