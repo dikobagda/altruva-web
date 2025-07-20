@@ -1,14 +1,35 @@
 
+"use client";
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services, testimonials, aiAnalysisFeatures } from '@/lib/constants';
-import { ArrowRight, Star } from 'lucide-react'; 
+import { ArrowRight, Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import PageTitle from '@/components/shared/PageTitle';
+
+type ServiceCategory = 'Prejuvenation' | 'Rejuvenation';
 
 export default function HomePage() {
+  const [activeCategory, setActiveCategory] = useState<ServiceCategory>('Prejuvenation');
+
+  const filteredServices = services.filter(service => service.category === activeCategory);
+
+  const categoryDetails = {
+    Prejuvenation: {
+      title: '< 40 years old',
+      subtitle: 'Prejuvenation (Preserve & Enhance)',
+    },
+    Rejuvenation: {
+      title: '> 40 years old',
+      subtitle: 'Rejuvenation (Restore & Lift)',
+    },
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -21,8 +42,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
               <h1 className="font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
-              Jakarta’s 1st Regenerative Contouring Clinic. Reveal the True You
+              Altruva – Jakarta’s 1st Regenerative Contouring Clinic
               </h1>
+              <h4 className="font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">Your Beauty, Engineered for the Future</h4>
               <Button
                 asChild
                 size="lg"
@@ -31,7 +53,6 @@ export default function HomePage() {
                 <Link href="/book-appointment">Book an Appointment</Link>
               </Button>
             </div>
-            {/* Removed placeholder image div */}
           </div>
         </div>
       </section>
@@ -40,16 +61,42 @@ export default function HomePage() {
       <SectionWrapper className="bg-secondary/30">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-lg md:text-xl text-foreground/80">
-            Altruva Aesthetic Clinic is an aesthetic and medical clinic in Jakarta that offers a continuously-updated array of minimal to non-invasive, FDA-approved and CE-marked medical aesthetic treatments. The end goal is to empower you to become the best version of yourself.
+          Welcome to Altruva, where science and artistry converge to redefine beauty. As Jakarta’s first Regenerative Contouring Clinic, we go beyond aesthetics—merging cutting-edge skin-geneering technology, bio-stimulators, and advanced non-surgical contouring to restore, refine, and future-proof your skin.
           </p>
+        </div>
+      </SectionWrapper>
+      
+      {/* Age-based Service Selector */}
+      <SectionWrapper className="bg-background">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">Your Regenerative Journey</h2>
+          <p className="text-lg text-foreground/80 mb-8">Select your age group to discover tailored treatments that meet your unique needs.</p>
+          <div className="flex justify-center gap-4 md:gap-8">
+            {(Object.keys(categoryDetails) as ServiceCategory[]).map(key => (
+              <button
+                key={key}
+                onClick={() => setActiveCategory(key)}
+                className={cn(
+                  "flex-1 max-w-sm p-6 rounded-lg border-2 transition-all duration-300",
+                  activeCategory === key ? 'bg-primary border-primary text-primary-foreground shadow-xl' : 'bg-card border-border hover:border-primary/50 hover:bg-card/90'
+                )}
+              >
+                <h3 className="text-xl md:text-2xl font-bold font-serif">{categoryDetails[key].title}</h3>
+                <p className={cn("text-sm md:text-base", activeCategory === key ? 'text-primary-foreground/90' : 'text-foreground/70')}>{categoryDetails[key].subtitle}</p>
+              </button>
+            ))}
+          </div>
         </div>
       </SectionWrapper>
 
       {/* Services Overview Section */}
-      <SectionWrapper id="services-overview">
-        <PageTitle title="Our Signature Services" subtitle="Crafted to enhance your natural beauty and well-being." />
+      <SectionWrapper id="services-overview" className="!pt-0">
+        <PageTitle 
+          title="Our Signature Services" 
+          subtitle={`Discover our top treatments for ${activeCategory.toLowerCase()}.`} 
+        />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.slice(0, 3).map((service) => (
+          {filteredServices.map((service) => (
             <Card key={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <Image
                 src={service.imageSrc}

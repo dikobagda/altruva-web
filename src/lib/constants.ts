@@ -11,6 +11,7 @@ export interface Service {
   Icon?: LucideIcon;
   imageSrc: string;
   imageHint: string;
+  category: 'Prejuvenation' | 'Rejuvenation';
 }
 
 export const services: Service[] = [
@@ -22,7 +23,8 @@ export const services: Service[] = [
     price: '$150',
     Icon: HeartPulse,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'facial treatment'
+    imageHint: 'facial treatment',
+    category: 'Prejuvenation',
   },
   {
     id: 'injections',
@@ -32,7 +34,8 @@ export const services: Service[] = [
     price: 'Starting at $300',
     Icon: SprayCan,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'cosmetic injection'
+    imageHint: 'cosmetic injection',
+    category: 'Rejuvenation',
   },
   {
     id: 'laser',
@@ -42,7 +45,8 @@ export const services: Service[] = [
     price: 'Varies',
     Icon: Sun,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'laser treatment'
+    imageHint: 'laser treatment',
+    category: 'Rejuvenation',
   },
   {
     id: 'hydration',
@@ -52,7 +56,8 @@ export const services: Service[] = [
     price: '$180',
     Icon: Droplets,
     imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'skin hydration'
+    imageHint: 'skin hydration',
+    category: 'Prejuvenation',
   },
 ];
 
