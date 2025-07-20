@@ -114,17 +114,14 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
   const isActive = getIsActive(item);
 
   if (item.href) {
-    const Comp = isMobile ? 'div' : DropdownMenuItem;
     if (isMobile) {
         return (
-            <Comp className={isMobile ? 'p-0' : ''}>
+            <div className='p-0'>
                 <Link
                 href={item.href}
                 className={cn(
                     "w-full text-left",
-                    isMobile
-                    ? "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary"
-                    : "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start h-auto",
+                    "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary",
                     isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:bg-primary/10 hover:text-primary"
                 )}
                 onClick={closeMobileMenu}
@@ -132,27 +129,24 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
                 >
                 {item.label}
                 </Link>
-            </Comp>
+            </div>
         );
     }
     
-    // For Desktop, links in submenus need DropdownMenuItem, top-level links do not.
-    if (!isMobile) {
-      // Top-level nav items (like "Insights", "Contact") should be buttons, not menu items.
-      return (
-        <Button
-          variant="ghost"
-          asChild
-          className={cn(
-            "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto",
-            "hover:bg-primary/10 hover:text-primary",
-            isActive ? "text-primary" : "text-foreground/80"
-          )}
-        >
-          <Link href={item.href} prefetch={false}>{item.label}</Link>
-        </Button>
-      );
-    }
+    // For Desktop, top-level links are buttons
+    return (
+      <Button
+        variant="ghost"
+        asChild
+        className={cn(
+          "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto",
+          "hover:bg-primary/10 hover:text-primary",
+          isActive ? "text-primary bg-primary/5" : "text-foreground/80"
+        )}
+      >
+        <Link href={item.href} prefetch={false}>{item.label}</Link>
+      </Button>
+    );
   }
 
   if (hasSubItems) {
@@ -258,7 +252,8 @@ const NavSubMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, is
                 <DropdownMenuSubTrigger className={cn(
                     "w-full cursor-pointer flex justify-between items-center",
                     "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md h-auto",
-                    isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:bg-primary/10 hover:text-primary"
+                    "text-foreground/80 hover:bg-primary/10 hover:text-primary",
+                    isActive && "text-primary bg-primary/5"
                 )}>
                     <span>{item.label}</span>
                 </DropdownMenuSubTrigger>
