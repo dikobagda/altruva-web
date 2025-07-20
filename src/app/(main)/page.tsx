@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -65,7 +65,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section
         className="relative pt-28 md:pt-32 pb-20 md:pb-32 min-h-[50vh] flex items-center bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/herobackground.png')" }}
+        style={{ backgroundImage: "url('/images/hero-background-new.png')" }}
       >
         <div className="absolute inset-0 bg-black/30 z-0" data-ai-hint="dark overlay"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -143,7 +143,7 @@ export default function HomePage() {
                       </TableHeader>
                       <TableBody>
                         {Object.entries(groupData.subgroups).map(([subgroupName, subgroupServices]) => (
-                           <React.Fragment key={subgroupName}>
+                           <Fragment key={subgroupName}>
                              <TableRow className="bg-secondary/30">
                                <TableCell colSpan={3} className="font-bold text-secondary-foreground text-base py-3">
                                  {subgroupName}
@@ -167,7 +167,7 @@ export default function HomePage() {
                                 </TableCell>
                               </TableRow>
                              ))}
-                           </React.Fragment>
+                           </Fragment>
                         ))}
                       </TableBody>
                     </Table>

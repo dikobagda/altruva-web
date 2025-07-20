@@ -32,8 +32,19 @@ export default function Footer() {
             <p className="text-sm text-center sm:text-left max-w-xs">
               Embrace your beauty. Discover personalized aesthetic care at Altruva.
             </p>
+            
           </div>
-          
+          <div className="flex flex-col items-center sm:items-start">
+            <h4 className="font-serif text-lg font-semibold mb-3 text-primary">Opening Hours</h4>
+            <ul className="space-y-1 text-sm text-center sm:text-left">
+              {openingHours.map(item => (
+                <li key={item.day} className="flex justify-between w-full max-w-xs sm:max-w-none">
+                  <span className="font-medium mr-2">{item.day}</span>
+                  <span className="text-right">{item.hours}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="flex flex-col items-center sm:items-start">
             <h4 className="font-serif text-lg font-semibold mb-3 text-primary">Quick Links</h4>
             <ul className="space-y-2 text-center sm:text-left">
@@ -53,20 +64,8 @@ export default function Footer() {
             </div>
             <div className="mt-4 text-sm text-center sm:text-left">
               <p>Jl. Ciasem I No.2, RT.2/RW.4, Rw. Bar, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</p>
-              <p>(123) 456-7890</p>
+              <p>0812-1611-9392</p>
             </div>
-          </div>
-
-          <div className="flex flex-col items-center sm:items-start">
-            <h4 className="font-serif text-lg font-semibold mb-3 text-primary">Opening Hours</h4>
-            <ul className="space-y-1 text-sm text-center sm:text-left">
-              {openingHours.map(item => (
-                <li key={item.day} className="flex justify-between w-full max-w-xs sm:max-w-none">
-                  <span className="font-medium mr-2">{item.day}</span>
-                  <span className="text-right">{item.hours}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
