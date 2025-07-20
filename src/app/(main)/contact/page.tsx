@@ -27,6 +27,8 @@ async function handleSubmit(formData: FormData) {
 
 
 export default function ContactPage() {
+  const mapEmbedUrl = "https://maps.google.com/maps?q=Jl.%20Ciasem%20I%20No.2,%20RT.2/RW.4,%20Rw.%20Bar,%20Kec.%20Kby.%20Baru,%20Kota%20Jakarta%20Selatan,%20Daerah%20Khusus%20Ibukota%20Jakarta%2012180&t=&z=15&ie=UTF8&iwloc=&output=embed";
+
   return (
     <SectionWrapper>
       
@@ -75,6 +77,22 @@ export default function ContactPage() {
               </div>
             </CardContent>
           </Card>
+
+          <Card className="shadow-lg overflow-hidden">
+            <div className="aspect-video w-full">
+              <iframe
+                src={mapEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Altruva Clinic Location"
+              ></iframe>
+            </div>
+          </Card>
+
            <Card className="shadow-lg">
             <CardContent className="pt-6 space-y-2">
               <h3 className="font-serif text-xl text-primary mb-3">Clinic Hours</h3>

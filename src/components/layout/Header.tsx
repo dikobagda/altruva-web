@@ -51,7 +51,6 @@ const navItems: NavItem[] = [
   },
   { href: '/hair', label: 'Hair' },
   { href: '/body', label: 'Body' },
-  { href: '/prices', label: 'Prices' },
   { href: '/insights', label: 'Insights' },
   { href: '/contact', label: 'Contact' },
 ];
