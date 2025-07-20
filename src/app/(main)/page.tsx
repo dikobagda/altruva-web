@@ -17,7 +17,7 @@ import React from 'react';
 type ServiceCategory = 'Prejuvenation' | 'Rejuvenation';
 
 export default function HomePage() {
-  const [activeCategory, setActiveCategory] = useState<ServiceCategory>('Prejuvenation');
+  const [activeCategory, setActiveCategory] = useState<ServiceCategory | null>(null);
 
   const filteredServices = services.filter(service => service.category === activeCategory);
 
@@ -112,58 +112,60 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* Services Overview Section */}
-      <SectionWrapper id="services-overview">
-        <PageTitle 
-          title={categoryDetails[activeCategory].servicesTitle}
-        />
-        <div className="max-w-6xl mx-auto">
-          <div className="space-y-12">
-            {Object.entries(groupedServices).map(([groupName, groupData]) => (
-              <div key={groupName}>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-primary mb-2">{groupName}</h3>
-                <p className="text-md md:text-lg text-foreground/80 mb-6">{groupData.description}</p>
-                
-                <Card className="shadow-lg p-4 md:p-6">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-1/3 font-semibold text-primary/90">Service</TableHead>
-                        <TableHead className="w-1/2 font-semibold text-primary/90">Description</TableHead>
-                        <TableHead className="text-right font-semibold text-primary/90">Price</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {Object.entries(groupData.subgroups).map(([subgroupName, subgroupServices]) => (
-                         <React.Fragment key={subgroupName}>
-                           <TableRow className="bg-secondary/30">
-                             <TableCell colSpan={3} className="font-bold text-secondary-foreground text-base py-3">
-                               {subgroupName}
-                             </TableCell>
-                           </TableRow>
-                           {subgroupServices.map((service) => (
-                            <TableRow key={service.id}>
-                              <TableCell className="font-semibold text-primary">
-                                <Link href="/services" className="hover:underline">{service.title}</Link>
-                              </TableCell>
-                              <TableCell className="text-foreground/80">{service.description}</TableCell>
-                              <TableCell className="text-right font-semibold text-accent">{service.price}</TableCell>
-                            </TableRow>
-                           ))}
-                         </React.Fragment>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </Card>
-              </div>
-            ))}
+      {activeCategory && (
+        <SectionWrapper id="services-overview">
+          <PageTitle 
+            title={categoryDetails[activeCategory].servicesTitle}
+          />
+          <div className="max-w-6xl mx-auto">
+            <div className="space-y-12">
+              {Object.entries(groupedServices).map(([groupName, groupData]) => (
+                <div key={groupName}>
+                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-primary mb-2">{groupName}</h3>
+                  <p className="text-md md:text-lg text-foreground/80 mb-6">{groupData.description}</p>
+                  
+                  <Card className="shadow-lg p-4 md:p-6">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="w-1/3 font-semibold text-primary/90">Service</TableHead>
+                          <TableHead className="w-1/2 font-semibold text-primary/90">Description</TableHead>
+                          <TableHead className="text-right font-semibold text-primary/90">Price</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {Object.entries(groupData.subgroups).map(([subgroupName, subgroupServices]) => (
+                           <React.Fragment key={subgroupName}>
+                             <TableRow className="bg-secondary/30">
+                               <TableCell colSpan={3} className="font-bold text-secondary-foreground text-base py-3">
+                                 {subgroupName}
+                               </TableCell>
+                             </TableRow>
+                             {subgroupServices.map((service) => (
+                              <TableRow key={service.id}>
+                                <TableCell className="font-semibold text-primary">
+                                  <Link href="/services" className="hover:underline">{service.title}</Link>
+                                </TableCell>
+                                <TableCell className="text-foreground/80">{service.description}</TableCell>
+                                <TableCell className="text-right font-semibold text-accent">{service.price}</TableCell>
+                              </TableRow>
+                             ))}
+                           </React.Fragment>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </Card>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-12">
+              <Button asChild size="lg" variant="default">
+                <Link href="/book-appointment">Book a Consultation</Link>
+              </Button>
+            </div>
           </div>
-          <div className="text-center mt-12">
-            <Button asChild size="lg" variant="default">
-              <Link href="/book-appointment">Book a Consultation</Link>
-            </Button>
-          </div>
-        </div>
-      </SectionWrapper>
+        </SectionWrapper>
+      )}
 
 
       {/* AI Skin Analysis Teaser Section */}
