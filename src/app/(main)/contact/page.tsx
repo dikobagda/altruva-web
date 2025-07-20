@@ -28,13 +28,17 @@ async function handleSubmit(formData: FormData) {
 
 export default function ContactPage() {
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.191379435602!2d106.80900997591308!3d-6.238523561088915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f165d09075d7%3A0xab2d38304a455052!2sAltruva%20Aesthetic%20Clinic!5e0!3m2!1sen!2sid!4v1721890332819!5m2!1sen!2sid";
-
+  const openingHours = [
+    { day: 'Sunday', hours: '10.00 am – 6.00 pm' },
+    { day: 'Monday', hours: '10.00 am – 6.00 pm' },
+    { day: 'Tuesday', hours: '10.00 am – 6.00 pm' },
+    { day: 'Wednesday', hours: '10.00 am – 6.00 pm' },
+    { day: 'Thursday', hours: '10.00 am – 6.00 pm' },
+    { day: 'Friday', hours: '10.00 am – 6.00 pm' },
+    { day: 'Saturday', hours: '10.00 am – 6.00 pm' },
+  ];
   return (
     <>
-      <SectionWrapper>
-        <PageTitle title="Contact Us" subtitle="Get in touch with Altruva. We're here to help." />
-      </SectionWrapper>
-      
       <SectionWrapper className="pt-0">
          <Card className="shadow-lg overflow-hidden">
           <div className="aspect-video w-full">
@@ -50,10 +54,8 @@ export default function ContactPage() {
             ></iframe>
           </div>
         </Card>
-      </SectionWrapper>
-
-      <SectionWrapper className="pt-0">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+      
+        <div className="grid md:grid-cols-2 gap-12 items-start pt-8">
           <Card className="shadow-xl">
             <CardHeader>
               <CardTitle className="font-serif text-2xl text-primary">Send Us a Message</CardTitle>
@@ -90,11 +92,11 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-6 w-6 text-accent mr-3" />
-                  <Link href="tel:+1234567890" className="text-foreground/80 hover:text-primary">(123) 456-7890</Link>
+                  <Link href="tel:+1234567890" className="text-foreground/80 hover:text-primary">+62 812 1611 9392</Link>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-6 w-6 text-accent mr-3" />
-                  <Link href="mailto:info@altruva.com" className="text-foreground/80 hover:text-primary">info@altruva.com</Link>
+                  <Link href="mailto:admin@altruva.com" className="text-foreground/80 hover:text-primary">admin@altruva.com</Link>
                 </div>
               </CardContent>
             </Card>
@@ -103,11 +105,13 @@ export default function ContactPage() {
               <CardContent className="pt-6 space-y-2">
                 <h3 className="font-serif text-xl text-primary mb-3">Clinic Hours</h3>
                 <div className="flex items-start">
-                  <Clock className="h-6 w-6 text-accent mr-3 mt-0.5" />
-                  <ul className="text-foreground/80">
-                    <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
-                    <li>Saturday: 10:00 AM - 4:00 PM</li>
-                    <li>Sunday: Closed</li>
+                  <ul className="space-y-1 text-sm text-center sm:text-left">
+                    {openingHours.map(item => (
+                      <li key={item.day} className="flex justify-between w-full max-w-xs sm:max-w-none">
+                        <span className="font-medium mr-2">{item.day}</span>
+                        <span className="text-right">{item.hours}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </CardContent>

@@ -64,41 +64,8 @@ const latestNews = [
 export default function NewsAndMediaPage() {
   return (
     <>
-      <SectionWrapper>
-        <div className="text-center">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-3">News & Media</h1>
-            <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto">
-              Follow our journey and discover our features in leading publications and our latest announcements.
-            </p>
-        </div>
-      </SectionWrapper>
-
-      {/* As Featured In Section */}
-      <SectionWrapper className="bg-secondary/30">
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl font-bold text-primary">As Featured In</h2>
-          <p className="text-lg text-foreground/80 mt-2">Altruva is proud to be recognized by leading voices in beauty and lifestyle.</p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-          {pressFeatures.map((feature) => (
-            <Link key={feature.name} href={feature.link} target="_blank" rel="noopener noreferrer" className="group">
-                <div className="p-4 bg-card rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
-                    <Image 
-                        src={feature.logo}
-                        alt={`${feature.name} Logo`}
-                        width={150}
-                        height={50}
-                        className="mx-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                        data-ai-hint={feature.hint}
-                    />
-                </div>
-            </Link>
-          ))}
-        </div>
-      </SectionWrapper>
-
       {/* Latest News Section */}
-      <SectionWrapper>
+      <SectionWrapper className="pt-24 md:pt-32">
         <div className="text-center mb-12">
           <h2 className="font-serif text-3xl font-bold text-primary">Latest From Altruva</h2>
            <p className="text-lg text-foreground/80 mt-2">Stay informed about our new treatments, events, and clinic news.</p>
