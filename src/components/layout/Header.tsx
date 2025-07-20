@@ -101,22 +101,30 @@ const languages: Language[] = [
 const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMobile: boolean, closeMobileMenu?: () => void }) => {
   const pathname = usePathname();
   const hasSubItems = item.subItems && item.subItems.length > 0;
-  const isActive = hasSubItems
-    ? item.subItems.some(sub => sub.href ? (pathname === sub.href || pathname.startsWith(sub.href)) : false)
-    : (item.href ? (pathname === item.href || pathname.startsWith(item.href)) : false);
+
+  const getIsActive = (navItem: NavItem): boolean => {
+    if (navItem.href) {
+      return pathname === navItem.href || pathname.startsWith(navItem.href + '/');
+    }
+    if (navItem.subItems) {
+      return navItem.subItems.some(sub => getIsActive(sub));
+    }
+    return false;
+  };
+  const isActive = getIsActive(item);
 
   if (item.href) {
-    // Direct link item
-    const Comp = isMobile ? 'div' : 'div';
+    const Comp = isMobile ? 'div' : DropdownMenuItem;
     return (
-      <Comp>
+      <Comp className={isMobile ? 'p-0' : ''}>
         <Link
           href={item.href}
           className={cn(
+            "w-full text-left",
             isMobile
               ? "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary"
-              : "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto hover:bg-primary/10 hover:text-primary",
-            isActive ? "text-primary" : "text-foreground/80"
+              : "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start h-auto",
+            isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:bg-primary/10 hover:text-primary"
           )}
           onClick={closeMobileMenu}
           prefetch={false}
@@ -132,8 +140,8 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
 
     // Desktop Dropdown
     if (!isMobile) {
-      if (isNestedSubmenu || item.label === 'Face' || item.label === 'About' || item.label === 'Body' || item.label === 'Hair') {
-        // Top-level dropdown with more items
+      if (item.label === 'Face' || item.label === 'About' || item.label === 'Body' || item.label === 'Hair' || isNestedSubmenu) {
+        // Top-level dropdown with more items or nested items
         return (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -149,7 +157,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
                 <ChevronDown className="ml-1 h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="bg-background shadow-lg mt-1">
+            <DropdownMenuContent align="start" className="bg-background shadow-lg mt-1 w-56">
               {item.subItems?.map((subItem) => (
                 <NavMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
               ))}
@@ -161,12 +169,15 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
       // Nested Submenu (Prejuvenation, Rejuvenation)
       return (
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger className={cn("w-full font-medium cursor-pointer flex justify-between items-center", isActive ? "text-primary font-semibold" : "hover:bg-primary/5")}>
+          <DropdownMenuSubTrigger className={cn(
+            "w-full cursor-pointer flex justify-between items-center",
+            "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md h-auto",
+            isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:bg-primary/10 hover:text-primary"
+          )}>
             <span>{item.label}</span>
-            <ChevronRight className="h-4 w-4" />
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
-            <DropdownMenuSubContent>
+            <DropdownMenuSubContent className="w-56">
               {item.subItems?.map((subItem) => (
                 <NavMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
               ))}
@@ -177,37 +188,36 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
     }
   }
 
-  // Fallback for items that are neither links nor have sub-items (e.g., categories like Prejuvenation on mobile)
-  // or for mobile submenus
-  const Comp = isMobile ? 'div' : 'div';
-  return (
-    <Comp>
-      {/* Mobile rendering for submenus */}
-      {isMobile && hasSubItems && (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="ghost"
-              className={cn(
-                "w-full justify-between font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md flex items-center h-auto text-left",
-                "hover:bg-primary/10 hover:text-primary",
-                isActive ? "text-primary" : "text-foreground/80"
-              )}
-            >
-              <span>{item.label}</span>
-              <ChevronDown className="h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-background shadow-lg mt-1">
-            {item.subItems?.map((subItem) => (
-              <NavMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      )}
-      {!hasSubItems && !item.href && <span className="px-3 py-2 text-foreground/60">{item.label}</span>}
-    </Comp>
-  )
+  // Mobile Submenus
+  if (isMobile && hasSubItems) {
+      return (
+        <div>
+           <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button
+                variant="ghost"
+                className={cn(
+                    "w-full justify-between font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md flex items-center h-auto text-left",
+                    "hover:bg-primary/10 hover:text-primary",
+                    isActive ? "text-primary" : "text-foreground/80"
+                )}
+                >
+                <span>{item.label}</span>
+                <ChevronDown className="h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-background shadow-lg mt-1">
+                {item.subItems?.map((subItem) => (
+                    <NavMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
+                ))}
+            </DropdownMenuContent>
+           </DropdownMenu>
+        </div>
+      )
+  }
+
+  // Fallback for items that are neither links nor have sub-items
+  return <span className="px-3 py-2 text-foreground/60">{item.label}</span>;
 };
 
 
