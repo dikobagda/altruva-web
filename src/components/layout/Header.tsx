@@ -34,8 +34,8 @@ const navItems: NavItem[] = [
     subItems: [
       { href: '/about-us', label: 'About us' },
       { href: '/our-clinic', label: 'Our Clinic' },
-      { href: '/news-media', label: 'News & Media' },
       { href: '/about-us/369-harmony', label: '369 Harmony™' },
+      { href: '/news-media', label: 'News & Media' },
     ],
   },
   { href: '/skin', label: 'Skin' },
@@ -95,7 +95,6 @@ type Language = {
 const languages: Language[] = [
   { code: 'en', label: 'English', Icon: UkFlagIcon },
   { code: 'id', label: 'Bahasa Indonesia', Icon: IdFlagIcon },
-  { code: 'cn', label: '中文', Icon: CnFlagIcon },
 ];
 
 const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMobile: boolean, closeMobileMenu?: () => void }) => {
@@ -345,7 +344,7 @@ export default function Header() {
             "flex items-center space-x-1.5 h-auto transition-none",
             inMobileMenu
               ? "w-full justify-start px-2 py-1"
-              : "px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary", // No hover change for desktop
+              : "px-4 py-2 rounded-full bg-primary text-primary-foreground text-foreground/80 hover:bg-primary/10", // No hover change for desktop
              !inMobileMenu && "border-none" // Explicitly no border for desktop
           )}
         >
