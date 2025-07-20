@@ -2,14 +2,18 @@
 "use client";
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { useState, useEffect, Fragment } from 'react';
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuPortal
 } from "@/components/ui/dropdown-menu";
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -18,15 +22,10 @@ import { UkFlagIcon } from '@/components/icons/UkFlagIcon';
 import { IdFlagIcon } from '@/components/icons/IdFlagIcon';
 import { CnFlagIcon } from '@/components/icons/CnFlagIcon';
 
-export interface NavSubItem {
-  href: string;
-  label: string;
-}
-
 export interface NavItem {
   href?: string;
   label: string;
-  subItems?: NavSubItem[];
+  subItems?: NavItem[];
 }
 
 const navItems: NavItem[] = [
@@ -45,8 +44,25 @@ const navItems: NavItem[] = [
     subItems: [
       { href: '/face/altruva-signature-facial', label: 'Altruva Signature Facial (Pore Clean Facial)' },
       { href: '/face/altruva-hydraglow-facial', label: 'Altruva HydraGlow Facial' },
-      { href: '/face/prejuvenation', label: 'Prejuvenation' },
-      { href: '/face/rejuvenation', label: 'Rejuvenation' },
+      {
+        label: 'Prejuvenation',
+        subItems: [
+          { href: '/face/prejuvenation/altruva-lift', label: 'Altruva Lift' },
+          { href: '/face/prejuvenation/altruva-lift-signature', label: 'Altruva Lift Signature' },
+          { href: '/face/prejuvenation/signature-laser', label: 'Signature Laser' },
+          { href: '/face/prejuvenation/signature-peels', label: 'Signature Peels' },
+        ],
+      },
+      {
+        label: 'Rejuvenation',
+        subItems: [
+          { href: '/face/rejuvenation/altruva-lift', label: 'Altruva Lift' },
+          { href: '/face/rejuvenation/altruva-lift-signature', label: 'Altruva Lift Signature' },
+          { href: '/face/rejuvenation/signature-laser', label: 'Signature Laser' },
+          { href: '/face/rejuvenation/signature-peels', label: 'Signature Peels' },
+          { href: '/face/rejuvenation/skingeneering-boosters', label: 'Skingeneering Boosters' },
+        ],
+      },
     ],
   },
   {
@@ -82,6 +98,108 @@ const languages: Language[] = [
   { code: 'cn', label: '中文', Icon: CnFlagIcon },
 ];
 
+const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMobile: boolean, closeMobileMenu?: () => void }) => {
+  const pathname = usePathname();
+  const isActive = item.href ? (pathname === item.href || pathname.startsWith(item.href)) : (item.subItems ? item.subItems.some(sub => sub.href ? (pathname === sub.href || pathname.startsWith(sub.href)) : false) : false);
+
+  if (item.subItems) {
+    if (isMobile) {
+      // Mobile rendering for submenus
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="ghost"
+              className={cn(
+                "w-full justify-between font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md flex items-center h-auto text-left",
+                "hover:bg-primary/10 hover:text-primary",
+                isActive ? "text-primary" : "text-foreground/80"
+              )}
+            >
+              <span>{item.label}</span>
+              <ChevronDown className="h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-background shadow-lg mt-1">
+            {item.subItems.map((subItem) => (
+              <NavMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      );
+    }
+    
+    // Desktop rendering for submenus
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            variant="ghost"
+            className={cn(
+              "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto",
+              "hover:bg-primary/10 hover:text-primary",
+              isActive ? "text-primary" : "text-foreground/80"
+            )}
+          >
+            {item.label}
+            <ChevronDown
+              className={cn(
+                "ml-1 h-4 w-4 transition-transform group-data-[state=open]:rotate-180",
+                isActive ? "opacity-100" : "opacity-70"
+              )}
+            />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="bg-background shadow-lg mt-1">
+          {item.subItems.map((subItem) => (
+            <NavMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu}/>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
+
+  if (item.href) {
+    return (
+      <Link
+        href={item.href}
+        className={cn(
+          isMobile
+            ? "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary"
+            : "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto hover:bg-primary/10 hover:text-primary",
+          isActive ? "text-primary" : "text-foreground/80"
+        )}
+        onClick={closeMobileMenu}
+        prefetch={false}
+      >
+        {item.label}
+      </Link>
+    );
+  }
+
+  // Nested Submenu for Desktop
+  if (!isMobile) {
+      return (
+      <DropdownMenuSub>
+        <DropdownMenuSubTrigger className={cn("w-full font-medium cursor-pointer", isActive ? "text-primary font-semibold" : "hover:bg-primary/5")}>
+          {item.label}
+          <ChevronRight className="ml-auto h-4 w-4" />
+        </DropdownMenuSubTrigger>
+        <DropdownMenuPortal>
+          <DropdownMenuSubContent>
+             {item.subItems?.map((subItem) => (
+               <NavMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu}/>
+             ))}
+          </DropdownMenuSubContent>
+        </DropdownMenuPortal>
+      </DropdownMenuSub>
+    );
+  }
+  
+  return null;
+};
+
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -114,6 +232,13 @@ export default function Header() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  
+  const closeMobileMenu = () => {
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
 
   if (!isMounted) {
     // To prevent hydration mismatch and ensure smooth client-side rendering of dynamic parts.
@@ -195,67 +320,9 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex flex-grow items-center justify-start ml-10 space-x-3">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href || pathname.startsWith(sub.href!)));
-            const baseLinkClasses = "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto";
-            const hoverClasses = "hover:bg-primary/10 hover:text-primary";
-            
-            let currentTextColorClasses;
-            if (isActive) {
-              currentTextColorClasses = "text-primary";
-            } else {
-              currentTextColorClasses = "text-foreground/80";
-            }
-
-
-            if (item.subItems) {
-              return (
-                <DropdownMenu key={item.label}>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className={cn(baseLinkClasses, currentTextColorClasses, hoverClasses)}
-                    >
-                      {item.label}
-                      <ChevronDown
-                        className={cn(
-                          "ml-1 h-4 w-4 transition-transform group-data-[state=open]:rotate-180",
-                           isActive ? "opacity-100" : "opacity-70"
-                        )}
-                      />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="bg-background shadow-lg mt-1">
-                    {item.subItems.map((subItem) => (
-                      <DropdownMenuItem key={subItem.href} asChild>
-                        <Link
-                          href={subItem.href}
-                          prefetch={false}
-                          className={cn(
-                            "w-full font-medium cursor-pointer",
-                            pathname === subItem.href ? "text-primary font-semibold" : "hover:bg-primary/5"
-                          )}
-                        >
-                          {subItem.label}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              );
-            }
-
-            return (
-              <Link
-                key={item.label} 
-                href={item.href!}
-                className={cn(baseLinkClasses, currentTextColorClasses, hoverClasses)}
-                prefetch={false}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+          {navItems.map((item) => (
+            <NavMenuItem key={item.label} item={item} isMobile={false} />
+          ))}
         </nav>
 
         <div className="hidden md:flex items-center space-x-3">
@@ -276,63 +343,9 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-background shadow-lg py-4 animate-accordion-down">
           <nav className="flex flex-col space-y-1 px-4">
-            {navItems.map((item) => {
-              const isActiveMobile = pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href || pathname.startsWith(sub.href!)));
-              
-              if (item.subItems) {
-                return (
-                  <DropdownMenu key={item.label}>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        className={cn(
-                          "w-full justify-between font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md flex items-center h-auto text-left",
-                          "hover:bg-primary/10 hover:text-primary",
-                          isActiveMobile
-                            ? "text-primary"
-                            : "text-foreground/80"
-                        )}
-                      >
-                        <span>{item.label}</span>
-                        <ChevronDown className="h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-background shadow-lg mt-1">
-                      {item.subItems.map((subItem) => (
-                        <DropdownMenuItem key={subItem.href} asChild>
-                          <Link
-                            href={subItem.href}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            prefetch={false}
-                            className={cn(
-                              "w-full font-medium cursor-pointer",
-                              pathname === subItem.href ? "text-primary font-semibold" : "hover:bg-primary/5"
-                            )}
-                          >
-                            {subItem.label}
-                          </Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                );
-              }
-              return (
-                <Link
-                  key={item.label}
-                  href={item.href!}
-                  className={cn(
-                    "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md",
-                    "hover:bg-primary/10 hover:text-primary",
-                    isActiveMobile ? "text-primary" : "text-foreground/80"
-                  )}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  prefetch={false}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+            {navItems.map((item) => (
+               <NavMenuItem key={item.label} item={item} isMobile={true} closeMobileMenu={closeMobileMenu} />
+            ))}
             <div className="border-t border-border pt-4 mt-2 space-y-2">
                  <div className="py-2 px-3">
                     <LanguageSelector inMobileMenu={true} />
