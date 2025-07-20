@@ -5,9 +5,8 @@ import Link from 'next/link';
 import { services } from '@/lib/constants';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, ArrowRight } from 'lucide-react';
-import PageTitle from '@/components/shared/PageTitle';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { CheckCircle, ArrowRight, Microscope, Shield, Dna, Activity, Star, Clock, Repeat, Syringe, Info, Users, BookOpen, Layers } from 'lucide-react';
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -30,6 +29,19 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
+const DetailSection: React.FC<{ title: string; children: React.ReactNode; Icon: React.ElementType, className?: string }> = ({ title, children, Icon, className }) => (
+  <Card className={className}>
+    <CardHeader className="flex flex-row items-center space-x-3">
+      <Icon className="h-8 w-8 text-accent" />
+      <CardTitle className="font-serif text-2xl text-primary m-0">{title}</CardTitle>
+    </CardHeader>
+    <CardContent>
+      {children}
+    </CardContent>
+  </Card>
+);
+
+
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
   const service = services.find((s) => s.id === params.slug);
 
@@ -37,83 +49,140 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
     notFound();
   }
 
-  // Placeholder for benefits, in a real app this would come from your data source
-  const benefits = [
-    'Customized treatment plan',
-    'Utilizes state-of-the-art technology',
-    'Performed by certified professionals',
-    'Focus on natural-looking results',
-  ];
-
   return (
     <>
-      <PageTitle title={service.title} />
+      <SectionWrapper className="bg-secondary/30">
+          <div className="text-center max-w-4xl mx-auto">
+            <p className="text-accent font-semibold mb-2">{service.group}</p>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">{service.title}</h1>
+            {service.subtitle && <p className="text-xl md:text-2xl text-foreground/80">{service.subtitle}</p>}
+          </div>
+      </SectionWrapper>
 
       <SectionWrapper className="pt-0">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src={service.imageSrc}
-                alt={service.title}
-                fill
-                className="object-cover"
-                data-ai-hint={service.imageHint}
-                priority
-              />
-            </div>
-             <Card>
-              <CardHeader>
-                <CardTitle className="font-serif text-2xl text-primary">Service Overview</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                 <p className="text-lg text-foreground/80">
-                  {service.longDescription || service.description}
-                </p>
-                <div>
-                    <p className="text-3xl font-bold text-accent">{service.price}</p>
-                    <p className="text-sm text-muted-foreground">Price per session</p>
-                </div>
-                <Button asChild size="lg" className="w-full font-semibold">
-                  <Link href="/book-appointment">Book This Service <ArrowRight className="ml-2" /></Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
           
-          <div className="space-y-8">
-            <Card className="shadow-lg">
-                <CardHeader>
-                    <CardTitle className="font-serif text-2xl text-primary">Key Benefits</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <ul className="space-y-4">
-                    {benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-start">
-                            <CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
-                            <span className="text-lg text-foreground/80">{benefit}</span>
-                        </li>
-                    ))}
-                    </ul>
-                </CardContent>
+          {/* Main Content - Left/Top Column */}
+          <div className="lg:col-span-2 space-y-8">
+            <Card>
+              <CardContent className="p-0">
+                 <div className="relative aspect-video rounded-t-lg overflow-hidden">
+                    <Image
+                      src={service.imageSrc}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={service.imageHint}
+                      priority
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h2 className="font-serif text-2xl text-primary mb-4">About This Treatment</h2>
+                    <div className="prose prose-lg max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: service.longDescription || service.description }} />
+                  </div>
+              </CardContent>
             </Card>
 
-            <Card className="bg-secondary/50 border-primary/20">
-              <CardHeader>
-                  <CardTitle className="font-serif text-2xl text-primary">Is This Right For You?</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                  <p className="text-lg text-foreground/80">
-                    This treatment is ideal for individuals looking to address concerns such as {' '}
-                    <span className="font-semibold text-primary">{service.description.toLowerCase()}</span>.
-                    A personalized consultation is the best way to determine if this service aligns with your aesthetic goals.
-                  </p>
-                   <Button asChild variant="default">
-                      <Link href="/book-appointment">Schedule a Consultation</Link>
-                    </Button>
-              </CardContent>
-            </Card>
+            {service.mechanism && (
+              <DetailSection title="Mechanism of Action" Icon={Dna}>
+                <ul className="space-y-4">
+                  {service.mechanism.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-primary">{item.title}</h4>
+                        <p className="text-foreground/70">{item.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </DetailSection>
+            )}
+
+             {service.benefits && (
+              <DetailSection title="Key Benefits" Icon={Star}>
+                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                  {service.benefits.map((benefit, index) => (
+                    <li key={index} className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
+                      <span className="text-foreground/80">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </DetailSection>
+            )}
+            
+            {service.whatIsIt && (
+              <DetailSection title={service.whatIsIt.title} Icon={Microscope}>
+                <div className="prose max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: service.whatIsIt.description }} />
+              </DetailSection>
+            )}
+
+            {service.howItDiffers && (
+               <DetailSection title="How It Differs" Icon={Layers}>
+                 <p className="text-foreground/80">{service.howItDiffers}</p>
+               </DetailSection>
+            )}
+
           </div>
+
+          {/* Sidebar - Right/Bottom Column */}
+          <aside className="lg:col-span-1 space-y-8 sticky top-24">
+            <Card className="shadow-lg">
+                <CardHeader>
+                  <CardTitle className="font-serif text-2xl text-primary">Service Summary</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div>
+                        <p className="text-3xl font-bold text-accent">{service.price}</p>
+                        <p className="text-sm text-muted-foreground">Price per session</p>
+                    </div>
+                    <Button asChild size="lg" className="w-full font-semibold">
+                      <Link href="/book-appointment">Book This Service <ArrowRight className="ml-2" /></Link>
+                    </Button>
+                </CardContent>
+            </Card>
+            
+            {service.protocol && (
+               <DetailSection title="Protocol Overview" Icon={BookOpen}>
+                <ul className="space-y-3">
+                  {service.protocol.map((item, index) => (
+                    <li key={index} className="flex justify-between items-center text-sm">
+                      <span className="font-semibold text-primary/90">{item.label}:</span>
+                      <span className="text-right text-foreground/80">{item.value}</span>
+                    </li>
+                  ))}
+                </ul>
+               </DetailSection>
+            )}
+
+            {service.indications && (
+              <DetailSection title="Ideal Candidates" Icon={Users}>
+                 <ul className="space-y-2">
+                  {service.indications.map((indication, index) => (
+                    <li key={index} className="flex items-start">
+                      <Activity className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
+                      <span className="text-sm text-foreground/80">{indication}</span>
+                    </li>
+                  ))}
+                </ul>
+              </DetailSection>
+            )}
+
+            {service.whyLoveIt && (
+               <DetailSection title="Why Patients Love It" Icon={Info}>
+                 <ul className="space-y-2">
+                  {service.whyLoveIt.map((item, index) => (
+                     <li key={index} className="flex items-start">
+                      <CheckCircle className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
+                      <span className="text-sm text-foreground/80">{item}</span>
+                    </li>
+                  ))}
+                 </ul>
+               </DetailSection>
+            )}
+          </aside>
+
         </div>
       </SectionWrapper>
     </>

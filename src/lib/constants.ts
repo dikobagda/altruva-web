@@ -5,6 +5,7 @@ import { HeartPulse, Droplets, Bot, HelpCircle, MessageSquare, Star, CheckCircle
 export interface Service {
   id: string;
   title: string;
+  subtitle?: string;
   description: string;
   longDescription?: string;
   price: string;
@@ -15,6 +16,24 @@ export interface Service {
   group: 'Altruva Glow' | 'Altruva Lift';
   groupDescription: string;
   subgroup: string;
+
+  // New detailed fields
+  whatIsIt?: {
+    title: string;
+    description: string;
+  };
+  mechanism?: {
+    title: string;
+    description: string;
+  }[];
+  benefits?: string[];
+  indications?: string[];
+  protocol?: {
+    label: string;
+    value: string;
+  }[];
+  howItDiffers?: string;
+  whyLoveIt?: string[];
 }
 
 export const services: Service[] = [
@@ -231,8 +250,10 @@ export const services: Service[] = [
   },
   {
     id: 'dna-repair-pro',
-    title: 'DNA Repair Pro',
+    title: 'Altruva DNA Repair Pro',
     description: 'Reinforces skin’s cellular repair system.',
+    longDescription: `Altruva DNA Repair Pro is a next-generation regenerative protocol powered by Polynucleotides (PN) — clinically purified DNA fragments that stimulate deep dermal healing, reverse cellular fatigue, and restore skin architecture from the inside out. Far beyond hydration, this treatment reactivates fibroblasts, encourages collagen remodeling, and reestablishes skin homeostasis — making it a cornerstone for age-related skin degeneration, post-acne scarring, and periocular rejuvenation.`,
+    subtitle: 'Advanced Polynucleotide Skin Regeneration by dr. Aldisa',
     price: '7,500,000 IDR',
     category: 'Rejuvenation',
     Icon: Shield,
@@ -240,7 +261,49 @@ export const services: Service[] = [
     imageHint: 'cellular repair',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    whatIsIt: {
+      title: 'What Are Polynucleotides (PN)?',
+      description: 'Polynucleotides are DNA-derived biopolymers extracted and purified from fish sources (with high biocompatibility). When injected into the skin, they act as powerful biomodulators, awakening fibroblasts and enhancing microcirculation — laying the foundation for true skin renewal, not just temporary glow.',
+    },
+    mechanism: [
+      { title: 'Fibroblast Activation', description: 'Stimulates dermal fibroblasts to enhance collagen, elastin, and extracellular matrix (ECM) synthesis.' },
+      { title: 'Tissue Repair & Remodeling', description: 'Reactivates damaged skin cells, restores cutaneous density, and accelerates wound healing at the cellular level.' },
+      { title: 'Hydration & Barrier Support', description: 'Increases water retention and strengthens the skin’s defense mechanisms against oxidative stress and pollution.' },
+      { title: 'Angiogenesis & Oxygenation', description: 'Improves microvascular perfusion, supporting brighter tone and healthier skin metabolism.' },
+    ],
+    benefits: [
+      'Smooths fine lines and early wrinkles',
+      'Improves skin laxity and firmness',
+      'Brightens dull, fatigued skin',
+      'Reduces acne scars and post-inflammatory pigmentation',
+      'Revives under-eye hollowness and crepey texture',
+      'Supports recovery post-laser or peeling',
+      'Safe for sensitive, inflamed, or barrier-compromised skin'
+    ],
+    indications: [
+      'Early to moderate signs of aging',
+      'Periorbital and perioral fine lines',
+      'Acne scarring and skin trauma',
+      'Chronically dry or sensitive skin',
+      'Preparation or recovery from energy-based treatments (laser, RF, ultrasound)',
+      'Maintenance post-fillers or threads'
+    ],
+    protocol: [
+      { label: 'Session Time', value: '20–30 minutes' },
+      { label: 'Protocol', value: '3–4 sessions spaced 2–3 weeks apart' },
+      { label: 'Maintenance', value: 'Every 4–6 months' },
+      { label: 'Delivery', value: 'Microinjections or papule technique' },
+      { label: 'Add-ons', value: 'Safe to layer with PN eye, PRF, Cellbooster, or light energy devices' },
+    ],
+    howItDiffers: 'Unlike hyaluronic acid fillers that volumize, Altruva DNA Repair Pro works at the cellular and structural level — healing, rebuilding, and reviving skin tissues. Think foundation first, not just finishing touch.',
+    whyLoveIt: [
+      'Non-volumizing, natural result',
+      'Low risk of puffiness or asymmetry',
+      'Scientifically backed with a long safety profile',
+      'Suitable for multiple areas: face, neck, under-eyes, and décolleté',
+      'Noticeably improved skin texture, bounce, and resilience within weeks'
+    ]
   },
   {
     id: 'dna-repair-eye',
