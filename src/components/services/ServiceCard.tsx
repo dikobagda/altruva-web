@@ -34,7 +34,14 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
-          <p className="text-xl font-semibold text-accent">{service.price}</p>
+          {service.price.toLowerCase() !== 'price on consultation' ? (
+            <div>
+              <span className="text-xs font-normal text-muted-foreground">start from</span>
+              <p className="text-xl font-semibold text-accent">{service.price}</p>
+            </div>
+          ) : (
+            <p className="text-lg font-semibold text-accent">{service.price}</p>
+          )}
         </CardContent>
         <CardFooter>
           <Button variant="outline" className="w-full font-semibold group-hover:bg-primary group-hover:text-primary-foreground transition-colors">

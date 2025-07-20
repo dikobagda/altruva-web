@@ -19,7 +19,7 @@ type ServiceCategory = 'Prejuvenation' | 'Rejuvenation';
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState<ServiceCategory | null>(null);
 
-  const filteredServices = services.filter(service => service.category === activeCategory);
+  const filteredServices = activeCategory ? services.filter(service => service.category === activeCategory) : [];
 
   const categoryDetails = {
     Prejuvenation: {
@@ -83,7 +83,7 @@ export default function HomePage() {
       <SectionWrapper className="bg-secondary/30">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-lg md:text-xl text-foreground/80">
-          Welcome to Altruva, where science and artistry converge to redefine beauty. As Jakarta’s first Regenerative Contouring Clinic, we go beyond aesthetics—merging cutting-edge skin-geneering technology, bio-stimulators, and advanced non-surgical contouring to restore, refine, and future-proof your skin.
+            Altruva Aesthetic Clinic is an aesthetic and medical clinic in Jakarta that offers a continuously-updated array of minimal to non-invasive, FDA-approved and CE-marked medical aesthetic treatments. The end goal is to empower you to become the best version of yourself.
           </p>
         </div>
       </SectionWrapper>
@@ -147,7 +147,16 @@ export default function HomePage() {
                                   <Link href={`/services/${service.id}`} className="hover:underline">{service.title}</Link>
                                 </TableCell>
                                 <TableCell className="text-foreground/80">{service.description}</TableCell>
-                                <TableCell className="text-right font-semibold text-accent">{service.price}</TableCell>
+                                <TableCell className="text-right font-semibold text-accent">
+                                {service.price.toLowerCase() !== 'price on consultation' ? (
+                                    <div className="flex flex-col items-end">
+                                        <span className="text-xs font-normal text-muted-foreground">start from</span>
+                                        <span>{service.price}</span>
+                                    </div>
+                                    ) : (
+                                    <span>{service.price}</span>
+                                )}
+                                </TableCell>
                               </TableRow>
                              ))}
                            </React.Fragment>

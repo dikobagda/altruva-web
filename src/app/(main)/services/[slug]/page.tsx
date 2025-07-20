@@ -146,8 +146,14 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <div>
-                        <p className="text-3xl font-bold text-accent">{service.price}</p>
-                        <p className="text-sm text-muted-foreground">Price per session</p>
+                    {service.price.toLowerCase() !== 'price on consultation' ? (
+                        <>
+                            <p className="text-sm text-muted-foreground">start from</p>
+                            <p className="text-3xl font-bold text-accent">{service.price}</p>
+                        </>
+                        ) : (
+                        <p className="text-xl font-bold text-accent">{service.price}</p>
+                    )}
                     </div>
                     <Button asChild size="lg" className="w-full font-semibold">
                       <Link href="/book-appointment">Book This Service <ArrowRight className="ml-2" /></Link>
