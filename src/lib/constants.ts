@@ -167,7 +167,7 @@ export const services: Service[] = [
   },
   {
     id: 'clarify-peel',
-    title: 'Clarify Peel',
+    title: 'Altruva Clarify Peel',
     description: 'Breakout-prone skin detox & renewal.',
     price: '500,000 IDR',
     category: 'Prejuvenation',
@@ -201,7 +201,7 @@ export const services: Service[] = [
   },
   {
     id: 'korean-luminous-peel',
-    title: 'Korean Luminous Peel',
+    title: 'Altruva Korean Luminous Peel',
     description: 'Smoothes & brightens for a luminous glow.',
     price: '700,000 IDR',
     category: 'Prejuvenation',
@@ -210,7 +210,34 @@ export const services: Service[] = [
     imageHint: 'glowing skin',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Signature Peels'
+    subgroup: 'Signature Peels',
+    subtitle: 'Effortless Radiance, Minimal Downtime',
+    longDescription: "Inspired by the elegance of Korean skin philosophy, the Altruva Korean Luminous Peel is a next-generation chemical resurfacing treatment powered by LHA (Lipo-Hydroxy Acid) and HP-Sol™ technology. This gentle yet intelligent exfoliation system is designed for those who seek brighter, smoother, and more refined skin—without irritation, flaking, or social downtime.<br/>Unlike traditional peels that rely on high-acid concentrations to force skin shedding, this protocol honors your skin’s biology by supporting natural turnover, collagen renewal, and barrier integrity—making it ideal for sensitive skin or first-time peel users.",
+    whatIsIt: {
+      title: 'How It Works',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>LHA (Lipo-Hydroxy Acid): A lipid-soluble salicylic acid derivative that penetrates slowly, targeting clogged pores and dull skin with precision while being extremely gentle on the skin barrier.</li>
+        <li>HP-Sol™ Complex: A patented alkaline complex that stimulates fibroblast activity for collagen production, balances skin pH, and supports healing—creating a glow-from-within effect.</li>
+        <li>Skin-Friendly Lipids: Incorporated to hydrate, protect, and soothe, these actives ensure skin comfort during and after exfoliation.</li>
+      </ul>`
+    },
+    benefits: [
+      'Minimizes pores and clears out congestion',
+      'Fades pigmentation, dullness, and uneven tone',
+      'Softens rough texture and smooths fine skin irregularities',
+      'Boosts collagen production for firmer, more elastic skin',
+      'Calms redness and irritation, even on reactive skin types',
+      'No downtime—just instantly luminous, makeup-optional skin'
+    ],
+    indications: [
+      'Dull, tired-looking skin',
+      'Enlarged pores and uneven tone',
+      'Mild pigmentation and early signs of aging',
+      'Patients with sensitive skin who want visible results without harshness'
+    ],
+    whyLoveIt: [
+      "This is more than a glow-up. It’s regenerative skin science delivered gently, crafted for modern skin that juggles pollution, stress, and aging. Pair it with our Exion Lumi Laser or Glacier Skin Booster for amplified glow and pore-refining synergy."
+    ]
   },
   {
     id: 'exion-lumi-laser',
@@ -256,7 +283,7 @@ export const services: Service[] = [
   },
   {
     id: 'exion-scar-solver',
-    title: 'Exion Scar Solver',
+    title: 'Altruva Scar Solver',
     description: 'Smooths textural irregularities and early acne scarring.',
     price: 'Price on consultation',
     category: 'Prejuvenation',
