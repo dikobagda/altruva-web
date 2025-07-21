@@ -1490,7 +1490,41 @@ export const services: Service[] = [
     imageHint: 'injection treatment',
     group: 'Body Contouring',
     groupDescription: 'Sculpt, tone, and refine your body with our advanced treatments.',
-    subgroup: 'Fat Reduction'
+    subgroup: 'Fat Reduction',
+    subtitle: 'Precision Fat Sculpting Through Science-Driven Apoptosis',
+    longDescription: `For patients seeking refined facial or body contouring — without surgery or inflammation — Altruva Lipo Elixir offers a cutting-edge approach to fat modulation through controlled fat cell apoptosis. Rooted in biomedical innovation and powered by Alsavique's Fat Apoptosis formulation, this treatment targets stubborn fat deposits with molecular precision, inducing natural cellular clearance without the trauma of necrosis.<br/><br/>Curated for facial debulking, double chin, lower face heaviness, and small localized body fat zones, this protocol is the epitome of non-inflammatory lipolysis — championed by doctors seeking finesse over force.`,
+    whatIsIt: {
+      title: 'How It Works: Apoptosis-Induced Fat Clearance',
+      description: `<p>Unlike aggressive fat-melting injections that cause inflammation or necrosis, Altruva Lipo Elixir induces programmed cell death (apoptosis), a clean and biologically harmonious process in which unwanted fat cells self-destruct and are metabolically cleared over time.</p>
+      <h4 class="font-semibold text-primary mt-4">Fenton’s Reaction Mechanism</h4>
+      <p>This unique injectable cocktail uses a biochemical process involving ascorbic acid + ferric iron to trigger Fenton’s Reaction, generating reactive oxygen species (ROS) that selectively target and initiate apoptosis in adipocytes (fat cells), while sparing surrounding tissues.</p>
+      <h4 class="font-semibold text-primary mt-4">No Swelling, No Necrosis, No Downtime</h4>
+      <p>This elegant mechanism avoids inflammatory breakdown and delivers controlled volume reduction — perfect for patients desiring precise sculpting without puffiness or bruising.</p>`
+    },
+    benefits: [
+      'Non-Inflammatory Fat Reduction',
+      'Facial and Body Precision',
+      'Natural Clearance Process',
+      'Stackable with Contouring Treatments'
+    ],
+    indications: [
+      'Lower cheeks (“bulldog face”)',
+      'Double chin / submental fullness',
+      'Jowls',
+      'Bra bulge / small back rolls',
+      'Under-butt / banana roll'
+    ],
+    protocol: [
+      { label: 'Duration', value: '20–30 minutes' },
+      { label: 'Injection Points', value: 'Strategic and minimal' },
+      { label: 'Sessions Needed', value: '2–4 sessions, spaced 2–3 weeks apart' },
+      { label: 'Downtime', value: 'Minimal – mild tenderness or redness only' },
+      { label: 'Visible Effects', value: 'Start from 2 weeks; peak at 6–8 weeks' },
+    ],
+    whyLoveIt: [
+      'Expertly tailored by dr. Olivia Aldisa using anatomical mapping and facial balancing protocols to ensure not only fat reduction — but facial harmony and natural regeneration.',
+      '<i>“Fat isn’t just about removal — it’s about intelligent repositioning, modulation, and preservation of facial identity. Lipo Elixir lets us sculpt — not shrink — beauty.”</i> — dr. Olivia Aldisa, Regenerative Sculpting Pioneer'
+    ]
   },
   {
     id: 'altruva-regenerative-rf-body',
@@ -1986,6 +2020,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
