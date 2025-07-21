@@ -355,7 +355,7 @@ export const services: Service[] = [
       { label: 'Protocol', value: '200–300 pulses, focused on collagen reservoirs' },
       { label: 'Pain level', value: 'Mild warmth; cooling system ensures comfort' },
       { label: 'Downtime', value: 'None' },
-      { label: 'Visible results', value: '3–4 weeks post-treatment, progressive improvement up to 12 weeks' },
+      { label: 'Visible results', value: '3–4 weeks post-treatment, with progressive improvement up to 12 weeks' },
       { label: 'Suggested frequency', value: 'Once annually for maintenance; twice yearly for visible lift' }
     ],
   },
@@ -925,7 +925,42 @@ export const services: Service[] = [
     imageHint: 'custom contouring',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Signature Restoration'
+    subgroup: 'Signature Restoration',
+    subtitle: 'Regenerative Sculpting. Intelligent Precision.',
+    longDescription: `Altruva Cocktail Contouring is an advanced, physician-personalized facial harmonization protocol that synergizes the volumizing structure of hyaluronic acid (HA) fillers with the collagen-stimulating power of calcium hydroxylapatite (CaHA). This hybrid regenerative approach is ideal for those seeking natural-looking contouring, fat repositioning, and bioactive lifting — without the heaviness or overfilled appearance often associated with traditional volumizing methods.<br/><br/>Inspired and developed from the pioneering methodologies of dr. Jani van Loghem (The Netherlands) and honed under the UMA Academy, this protocol is exclusively delivered by dr. Olivia Aldisa, reflecting her commitment to anatomical precision and cellular-level rejuvenation.`,
+    whatIsIt: {
+      title: 'What Is Cocktail Contouring?',
+      description: `Cocktail Contouring refers to the intelligent layering and combination of:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>CaHA (Calcium Hydroxylapatite):</strong> A biostimulatory filler that acts like a scaffold, triggering collagen and elastin synthesis while offering subtle structure.</li><li><strong>HA (Hyaluronic Acid):</strong> A hydrophilic volumizer that enhances facial contours, corrects asymmetries, and refines projection—delivering immediate, natural results with reversibility when needed.</li></ul><p class="mt-2">These two technologies, when blended precisely, mimic natural fat pads, reposition volume, and revitalize the dermis without excessive projection or puffiness.</p>`
+    },
+    benefits: [
+      'Repositions deep fat pads without distortion',
+      'Stimulates native collagen production for long-term lift and firmness',
+      'Contours mid-face, jawline, and temple naturally',
+      'Enhances structural integrity without overfilling',
+      'Corrects asymmetries and restores facial balance',
+      'Improves skin quality through dermal regeneration',
+      'Suitable for under 40s looking for contour with minimal filler load',
+      'Ideal for over 40s seeking regenerative contouring and volume repositioning',
+    ],
+    indications: [
+      'Subtle mid-face contouring',
+      'Jawline and chin refinement',
+      'Temple hollow correction',
+      'Volume descent or fat loss in dynamic zones',
+      'Post-weight-loss facial reshaping',
+      'Early signs of skeletal shrinkage without need for invasive lifting',
+    ],
+    protocol: [
+      { label: 'Protocol', value: '1 session with personalized mapping' },
+      { label: 'Follow-up', value: '6–12 months' },
+      { label: 'Can be stacked with', value: 'A.R.T Lift PRO, Altruva Youth Elixir, or Exion Fractio Pro' },
+      { label: 'Pre/Post Enhancers', value: 'Polynucleotide injections, Selected Skin Booster, Radiant Advanced Peel' },
+    ],
+    whyLoveIt: [
+      "Because facial harmony is not just about filling—it’s about restoring dynamic architecture and encouraging the skin to renew itself.",
+      "At Altruva, we combine the structure of HA, the intelligence of CaHA, and the artistry of anatomical design to sculpt contours that age beautifully and regenerate naturally.",
+      "This technique is refined under the mentorship of dr. Jani van Loghem—a global authority in aesthetic medicine known for developing advanced facial mapping systems, CaHA biostimulation protocols, and profile-balancing techniques. His mentorship through UMA Academy ensures that every Altruva Cocktail Contouring procedure reflects the highest international standards of safety, anatomy, and regenerative results."
+    ],
   },
   {
     id: 'dermal-fillers-pro',
@@ -1380,3 +1415,4 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
