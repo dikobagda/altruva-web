@@ -268,7 +268,7 @@ export const services: Service[] = [
         'Scars: Reduces acne and atrophic scar depth by promoting healthy tissue remodeling.'
     ],
     whyLoveIt: [
-      "In a market saturated with synthetic fillers and quick fixes, Altruva Bio-PRF offers a return to nature—backed by science. It’s biocompatible, chemical-free, and patient-specific. At Altruva, we don’t just treat symptoms—we engineer skin longevity."
+      'In a market saturated with synthetic fillers and quick fixes, Altruva Bio-PRF offers a return to nature—backed by science. It’s biocompatible, chemical-free, and patient-specific. At Altruva, we don’t just treat symptoms—we engineer skin longevity.'
     ]
   },
   {
@@ -830,10 +830,10 @@ export const services: Service[] = [
       { label: 'Layering Option', value: 'Safe to combine with PRF, skin boosters, or laser-based rejuvenation' },
     ],
     whyLoveIt: [
-      '<strong>Zero Tyndall Risk:</strong> No blue hue or light reflection',
-      '<strong>Volume-Free Approach:</strong> No risk of puffiness or overcorrection',
-      '<strong>Science-Based Safety:</strong> Derived from sterile, bio-purified DNA',
-      '<strong>Proven Regeneration:</strong> Backed by clinical evidence on dermal repair and collagen activation'
+      'Zero Tyndall Risk: No blue hue or light reflection',
+      'Volume-Free Approach: No risk of puffiness or overcorrection',
+      'Science-Based Safety: Derived from sterile, bio-purified DNA',
+      'Proven Regeneration: Backed by clinical evidence on dermal repair and collagen activation'
     ]
   },
   {
@@ -1007,7 +1007,7 @@ export const services: Service[] = [
       { label: 'Maintenance', value: '1–2 sessions every 6 months' },
     ],
     whyLoveIt: [
-      '<i>Because beauty isn’t built in a single session. It’s cultivated through cellular intelligence, tissue harmony, and precise bio-signaling. At Altruva, we don’t chase the glow — we rebuild it from the inside out.</i> — dr. Olivia Aldisa, International Trainer & Regenerative Aesthetics Expert'
+      '<i>“Because beauty isn’t built in a single session. It’s cultivated through cellular intelligence, tissue harmony, and precise bio-signaling. At Altruva, we don’t chase the glow — we rebuild it from the inside out.”</i> — dr. Olivia Aldisa, International Trainer & Regenerative Aesthetics Expert'
     ]
   },
   {
@@ -1532,7 +1532,7 @@ export const services: Service[] = [
     ],
     whyLoveIt: [
       'Each Altruva Micrograft treatment is mapped and performed by dr. Olivia Aldisa, ensuring targeted precision and optimal integration with your scalp’s vascular pattern and follicular anatomy.',
-      '<i>“We’re no longer just trying to cover thinning — we’re going upstream to biologically revive the scalp itself.” — dr. Olivia Aldisa, Regenerative Strategist & Founder of Altruva</i>'
+      '<i>“We’re no longer just trying to cover thinning — we’re going upstream to biologically revive the scalp itself.”</i> — dr. Olivia Aldisa, Regenerative Strategist & Founder of Altruva'
     ]
   },
   {
@@ -1546,7 +1546,43 @@ export const services: Service[] = [
     imageHint: 'hair growth therapy',
     group: 'Hair Restoration',
     groupDescription: 'Advanced solutions for hair thinning and loss.',
-    subgroup: 'Growth Boosters'
+    subgroup: 'Growth Boosters',
+    subtitle: "Awaken Your Follicles. Heal From Within.",
+    longDescription: `Altruva Hair PRF is a powerful regenerative scalp therapy that leverages your body’s own healing intelligence to restore thinning hair, reduce shedding, and improve scalp vitality — all without synthetic additives or foreign substances.<br/><br/>Using Platelet-Rich Fibrin (PRF) — a second-generation regenerative concentrate rich in growth factors, fibrin scaffolds, white blood cells, and stem-like cells — this treatment reactivates dormant follicles and amplifies the scalp’s microenvironment for healthy, resilient hair regrowth.<br/><br/>Curated by dr. Olivia Aldisa, this protocol is ideal for both men and women experiencing early to moderate hair thinning, especially in androgenetic alopecia.`,
+    whatIsIt: {
+      title: "What is PRF (Platelet-Rich Fibrin)?",
+      description: `Unlike traditional PRP, PRF is spun at a lower centrifugation speed and contains no anticoagulants, allowing for:
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>A natural fibrin matrix that acts as a scaffold for cell signaling</li>
+        <li>Slow, sustained release of growth factors for prolonged stimulation</li>
+        <li>Higher concentrations of platelets, leukocytes, and CD34+ cells (progenitor-like stem cells)</li>
+      </ul>`
+    },
+    howItDiffers: "PRF is spun at a lower centrifugation speed without anticoagulants, creating a natural fibrin matrix that allows for a slow, sustained release of growth factors over several days. This is in contrast to PRP, which provides a quick burst. PRF also contains a higher concentration of beneficial cells, making it a more advanced regenerative option.",
+    mechanism: [
+      { title: 'Blood Collection', description: 'A small blood sample is drawn in a special PRF tube.' },
+      { title: 'Centrifugation', description: 'The sample is spun gently to separate components while preserving cellular integrity.' },
+      { title: 'Injection Into the Scalp', description: 'The golden PRF layer is injected precisely into areas of thinning.' },
+      { title: 'Gradual Activation', description: 'The fibrin matrix releases potent growth signals over several days, rejuvenating hair follicles and improving tissue oxygenation.' }
+    ],
+    benefits: [
+      'Thicker Hair Shafts: Encourages stronger, denser regrowth',
+      'Slows Hair Loss: Reduces miniaturization and active shedding',
+      'Boosts Scalp Circulation: Enhances delivery of oxygen and nutrients',
+      'Improves Scalp Health: Anti-inflammatory and reparative for compromised scalps',
+      'Completely Natural: No foreign substances, additives, or medications'
+    ],
+    protocol: [
+      { label: 'Duration', value: '30–45 minutes' },
+      { label: 'Downtime', value: 'None (mild tenderness for 1–2 days possible)' },
+      { label: 'Sessions', value: '3–4 sessions, spaced 4–6 weeks apart' },
+      { label: 'Maintenance', value: '1–2 times yearly for sustained results' },
+      { label: 'Ideal For', value: 'Men and women with mild to moderate hair thinning' }
+    ],
+    whyLoveIt: [
+      'Each session is mapped and executed by dr. Olivia Aldisa, who applies her expertise in aesthetic regenerative medicine to ensure precision delivery and custom dosage based on the patient’s needs.',
+      '<i>“Hair loss isn’t always about genetics. Sometimes, it’s about giving your follicles the right environment to thrive. And that’s exactly what we do with PRF.”</i> — dr. Olivia Aldisa, Aesthetic Regeneration Specialist'
+    ]
   },
   {
     id: 'altruva-hair-booster',
@@ -1880,6 +1916,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
