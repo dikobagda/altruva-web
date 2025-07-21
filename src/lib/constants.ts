@@ -273,7 +273,7 @@ export const services: Service[] = [
         'Those who want non-invasive, no-downtime rejuvenation'
     ],
     whyLoveIt: [
-        "Because clear skin is more than just cosmetic—it's a sign of internal skin vitality. Lumi Laser is tailored to your skin condition, often used as a foundation before bio-stimulator treatments like Gouri or Glacier Skin. It’s clarity, engineered."
+      "Because clear skin is more than just cosmetic—it's a sign of internal skin vitality. Lumi Laser is tailored to your skin condition, often used as a foundation before bio-stimulator treatments like Gouri or Glacier Skin. It’s clarity, engineered."
     ]
   },
   {
@@ -746,7 +746,31 @@ export const services: Service[] = [
     imageHint: 'no-downtime laser',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Signature Laser'
+    subgroup: 'Signature Laser',
+    subtitle: "Resurface. Restore. Regenerate.",
+    longDescription: "The Altruva Regenerative Laser leverages smart fractional microablation technology to deliver powerful skin resurfacing while preserving the skin barrier—a rare synergy in the world of aesthetic lasers. Designed for those battling visible signs of aging, sun damage, or stubborn pigmentation, this treatment offers precision regeneration with minimal trauma, minimal downtime, and maximum results.<br/>Unlike aggressive CO₂ lasers, this intelligent device respects dermal integrity, making it a preferred choice in our Rejuvenation Program for patients over 40 or with environmentally stressed skin.",
+    whatIsIt: {
+      title: "Technology in Action",
+      description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Fractional Microablation:</strong> Targets damaged tissue zones while leaving surrounding skin intact for faster recovery and enhanced collagen remodeling.</li><li><strong>Dual Action – Resurfacing + Healing:</strong> Stimulates the skin’s own regenerative pathways, replacing damaged cells with renewed, radiant tissue.</li><li><strong>Smart Depth Control:</strong> Reaches both epidermal and dermal layers, addressing texture, tone, and structural support in one protocol.</li></ul>`
+    },
+    benefits: [
+      'Fades lentigo, sun spots, melasma, and photoaging',
+      'Smoothes rough texture and fine lines',
+      'Refines pores and boosts overall radiance',
+      'Improves redness and blotchy tone',
+      'Triggers natural collagen remodeling',
+      'Minimal downtime with no harsh peeling'
+    ],
+    indications: [
+      'Skin over 40 showing early to moderate aging',
+      'Hyperpigmentation and dullness',
+      'Uneven texture and mild to moderate wrinkling',
+      'Post-acne discoloration or photo-damaged skin',
+      'Those seeking true regenerative transformation'
+    ],
+    whyLoveIt: [
+      'Because resurfacing should be regenerative, not aggressive. At Altruva, we pair smart energy with skin-geneering principles to ensure every treatment fuels skin longevity—not just short-term glow. Ideal as a prep step before biostimulators or as a standalone renewal for aging skin.'
+    ]
   },
   {
     id: 'exion-fractiopro',
@@ -824,7 +848,7 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Restoration &amp; Lifting',
     subtitle: "The Signature Liquid Collagen Bioactivator Experience",
-    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
+    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture.<br/>No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
     whatIsIt: {
       title: 'What is Gorgeous Lyft?',
       description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable.
@@ -855,9 +879,9 @@ export const services: Service[] = [
     ],
     protocol: [
       { label: 'Duration', value: '~30 minutes' },
-      { label: 'Technique', value: '5–7 injection points using micro-needle or cannula' },
+      { label: 'Technique', value: '5–7 injection points using micro-needle or cannula, depending on face type' },
       { label: 'Aftercare', value: 'Avoid excessive facial movement or massage for 24–48 hours' },
-      { label: 'Redness/Swelling', value: 'Typically subsides within 1–3 days' }
+      { label: 'Redness or swelling', value: 'typically subsides within 1–3 days' }
     ]
   },
   {
@@ -1022,7 +1046,7 @@ export const services: Service[] = [
         <li><strong>Masseter & Chin:</strong> Slims lower face bulk and corrects chin dimpling or asymmetry.</li>
         <li><strong>Neck Bands:</strong> Softens vertical neck lines and improves cervico-facial contour.</li>
       </ul>
-      <p class="mt-4">Utilizing full-dose botulinum toxin, dr. Aldisa performs full-face mapping to modulate muscle tone, lift areas prone to descent, and reset overused muscles for a more neutral, rested facial state. This protocol supports muscle balance, not paralysis — delivering a naturally lifted, refreshed result.</p>`
+      <p class="mt-4">Utilizing full-dose botulinum toxin, dr. Aldisa performs full-face mapping to modulate muscle tone, lift areas prone to descent, and reset overused muscles for a more neutral, rested facial state. This protocol supports muscle balance, not paralysis — delivering a naturally lifted, refreshed result with smooth transitions and intentional preservation of character lines when desired.</p>`
     },
     howItDiffers: `Why Full Dose? Post-40 facial shifts deepen lines and create downward vectors; full-dose modulation reverses this. Comprehensive mapping enables precise targeting of asymmetry and tension. This is a bespoke neuromodulation blueprint, where every injection serves a purpose in the harmony of your facial expression.`,
     benefits: [
@@ -1474,6 +1498,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
