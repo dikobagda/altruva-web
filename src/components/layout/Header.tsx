@@ -44,7 +44,14 @@ const navItems: NavItem[] = [
       {
         label: 'Prejuvenation',
         subItems: [
-          { href: '/services/art-lyft-lite', label: 'Altruva Lift' },
+          { 
+            label: 'Altruva Lift',
+            subItems: [
+                { href: '/services/art-lyft-lite', label: 'Altruva A.R.T Lift (Lite)' },
+                { href: '/services/gorgeous-lyft-prejuvenation', label: 'Altruva Gorgeous Lyft' },
+                { href: '/services/exion-lumi-rf', label: 'Altruva Lumi RF' },
+            ]
+          },
           { href: '/services/altruva-lift-signature', label: 'Altruva Lift Signature' },
           { href: '/services/exion-lumi-laser', label: 'Signature Laser' },
           { href: '/services/clarify-peel', label: 'Signature Peels' },
