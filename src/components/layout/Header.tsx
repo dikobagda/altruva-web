@@ -52,9 +52,28 @@ const navItems: NavItem[] = [
                 { href: '/services/exion-lumi-rf', label: 'Altruva Lumi RF' },
             ]
           },
-          { href: '/services/altruva-lift-signature', label: 'Altruva Lift Signature' },
-          { href: '/services/exion-lumi-laser', label: 'Signature Laser' },
-          { href: '/services/clarify-peel', label: 'Signature Peels' },
+          { 
+            label: 'Altruva Lift Signature',
+            subItems: [
+                { href: '/services/slim-contour-injection', label: 'Altruva Slim Contour Injection' },
+                { href: '/services/face-modulator-half', label: 'Altruva Face Modulator (Half Dose)' },
+                { href: '/services/dermal-fillers', label: 'Altruva Dermal Fillers' },
+            ]
+          },
+          { 
+            label: 'Signature Laser',
+            subItems: [
+                { href: '/services/exion-lumi-laser', label: 'Altruva Lumi Laser' },
+                { href: '/services/exion-scar-solver', label: 'Altruva Scar Solver' },
+            ]
+          },
+          { 
+            label: 'Signature Peels',
+            subItems: [
+                { href: '/services/clarify-peel', label: 'Altruva Clarify Peel' },
+                { href: '/services/korean-luminous-peel', label: 'Altruva Korean Luminous Peel' },
+            ]
+          },
         ],
       },
       {
