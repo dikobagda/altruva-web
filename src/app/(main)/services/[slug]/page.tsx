@@ -91,7 +91,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
             {service.mechanism && (
               <DetailSection title="Mechanism of Action" Icon={Dna}>
-                <ul className="space-y-4">
+                <ul className="space-y-4 pl-4">
                   {service.mechanism.map((item, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
@@ -107,7 +107,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
              {service.benefits && (
               <DetailSection title="Key Benefits" Icon={Star}>
-                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pl-4">
                   {service.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
@@ -126,7 +126,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
             {service.whyLoveIt && (
                <DetailSection title="Why Patients Love It" Icon={Info}>
-                 <ul className="space-y-2">
+                 <ul className="space-y-2 pl-4">
                   {service.whyLoveIt.map((item, index) => (
                      <li key={index} className="flex items-start">
                       <CheckCircle className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
@@ -163,7 +163,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             
             {service.indications && service.indications.length > 0 && (
                 <DetailSection title="Best For" Icon={Info}>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 pl-4">
                         {service.indications.map((item, index) => (
                             <li key={index} className="flex items-start">
                                 <CheckCircle className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
