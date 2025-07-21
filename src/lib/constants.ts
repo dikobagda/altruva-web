@@ -254,31 +254,26 @@ export const services: Service[] = [
     subtitle: 'Radiance Redefined – Illuminated From Within',
     longDescription: 'The Altruva Lumi Laser is a non-invasive skin optimization treatment that uses next-generation radiofrequency (RF) technology to target skin clarity, pigmentation, and textural refinement—all without downtime. This advanced protocol works deeply within the dermis to stimulate collagen, brighten the complexion, and refine pores, resulting in skin that’s visibly clearer, smoother, and more radiant after each session.<br/>Crafted for those seeking visible results with minimal interruption to daily life, Lumi Laser is a cornerstone treatment in Altruva’s Prejuvenation and Glow Optimization programs.',
     whatIsIt: {
-      title: 'Technology in Action',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-1">
-          <li><strong>Smart RF Energy Delivery:</strong> Gently penetrates the skin to awaken fibroblasts and trigger natural regeneration, without damaging the surface layer.</li>
-          <li><strong>Collagen & Elastin Biostimulation:</strong> Encourages dermal renewal and boosts elasticity for skin that’s visibly firmer and youthfully plump.</li>
-          <li><strong>Melanin Modulation:</strong> Reduces the appearance of age spots, sun damage, and uneven pigmentation, restoring a more even and luminous tone.</li>
-          <li><strong>Texture Refinement:</strong> Smoothes skin surface, minimizes pores, and restores a polished skin finish.</li>
-        </ul>`
+        title: 'Technology in Action',
+        description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Smart RF Energy Delivery:</strong> Gently penetrates the skin to awaken fibroblasts and trigger natural regeneration, without damaging the surface layer.</li><li><strong>Collagen & Elastin Biostimulation:</strong> Encourages dermal renewal and boosts elasticity for skin that’s visibly firmer and youthfully plump.</li><li><strong>Melanin Modulation:</strong> Reduces the appearance of age spots, sun damage, and uneven pigmentation, restoring a more even and luminous tone.</li><li><strong>Texture Refinement:</strong> Smoothes skin surface, minimizes pores, and restores a polished skin finish.</li></ul>`
     },
     benefits: [
-      'Brightens dull, uneven skin tone',
-      'Fades age spots, pigmentation, and redness',
-      'Improves skin texture and clarity',
-      'Tightens pores and supports long-term skin health',
-      'Zero downtime, perfect for lunch break treatments',
-      'Safe for all skin types'
+        'Brightens dull, uneven skin tone',
+        'Fades age spots, pigmentation, and redness',
+        'Improves skin texture and clarity',
+        'Tightens pores and supports long-term skin health',
+        'Zero downtime, perfect for lunch break treatments',
+        'Safe for all skin types'
     ],
     indications: [
-      'Dull or uneven skin',
-      'Hyperpigmentation or early sun damage',
-      'Enlarged pores and textural roughness',
-      'Early signs of aging',
-      'Those who want non-invasive, no-downtime rejuvenation'
+        'Dull or uneven skin',
+        'Hyperpigmentation or early sun damage',
+        'Enlarged pores and textural roughness',
+        'Early signs of aging',
+        'Those who want non-invasive, no-downtime rejuvenation'
     ],
     whyLoveIt: [
-      "Because clear skin is more than just cosmetic—it's a sign of internal skin vitality. Lumi Laser is tailored to your skin condition, often used as a foundation before bio-stimulator treatments like Gouri or Glacier Skin. It’s clarity, engineered."
+        "Because clear skin is more than just cosmetic—it's a sign of internal skin vitality. Lumi Laser is tailored to your skin condition, often used as a foundation before bio-stimulator treatments like Gouri or Glacier Skin. It’s clarity, engineered."
     ]
   },
   {
@@ -342,7 +337,7 @@ export const services: Service[] = [
       title: 'How It Works',
       description: `<p>A.R.T. Lift Lite uses precision ultrasound energy (Sofwave) to activate your skin's natural regenerative power. Focused beams of ultrasound energy reach the mid-dermis, heating tissue at just the right depth to stimulate fibroblasts—without damaging the skin surface. The gentle heat activates neocollagenesis, the body’s natural process of forming fresh collagen and elastin. With regenerative mapping by dr. Aldisa, each shot is planned to follow your unique fat pads, ligament structures, and collagen-rich zones to optimize long-term firming while preserving natural beauty.</p>`
     },
-    howItDiffers: 'Designed by a Global Sofwave Expert, the A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials & Gen Z.',
+    howItDiffers: 'Designed by a Global Sofwave Expert, the A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials & Gen Z. It is non-invasive with zero downtime.',
     whyLoveIt: [
       'Targeted Collagen Banking: Prevents premature sagging in midface, jawline, and brow.',
       'Non-invasive with Zero Downtime: A lunchtime protocol with no redness, peeling, or bruising.',
@@ -428,8 +423,8 @@ export const services: Service[] = [
     subtitle: 'Next-Generation Needle-Free Skin Tightening & Radiance Activation',
     longDescription: `Altruva Lumi RF is a non-invasive, regenerative radiofrequency treatment uniquely engineered to awaken your skin’s collagen and elastin without needles, pain, or downtime. Powered by advanced Exion™ technology, Lumi RF delivers intelligent energy deep into the dermis to refine skin texture, tighten sagging areas, and amplify natural hyaluronic acid production—resulting in firmer, smoother, more radiant skin.<br/><br/>This is the future of RF-powered lifting—effortless, elegant, and effective.<br/><br/><i>“We believe skin should glow from its own wisdom. Lumi RF helps your face remember how.” — dr. Olivia Aldisa, Medical Director of Altruva Aesthetic Clinic</i>`,
     whatIsIt: {
-      title: 'How Lumi RF Works',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><strong>Smart Radiofrequency (RF) Energy:</strong> Exion-powered RF heats the deeper dermal layers in a controlled, uniform way—stimulating fibroblasts to regenerate collagen and elastin without damaging the surface. Expect visibly firmer contours and smoother skin over time.</li><li><strong>Targeted Ultrasound Boost:</strong> By combining targeted ultrasound, Lumi RF supercharges the regenerative process—enhancing collagen crosslinking and optimizing skin density in areas prone to laxity, like under the eyes or jawline.</li><li><strong>Needle-Free, AI-Guided Delivery:</strong> Unlike traditional microneedling RF, Lumi RF is completely needle-free and uses AI-driven thermal mapping to ensure safe, consistent energy delivery. The result? A comfortable experience with measurable results.</li></ul>`,
+        title: 'How Lumi RF Works',
+        description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><strong>Smart Radiofrequency (RF) Energy:</strong> Exion-powered RF heats the deeper dermal layers in a controlled, uniform way—stimulating fibroblasts to regenerate collagen and elastin without damaging the surface. Expect visibly firmer contours and smoother skin over time.</li><li><strong>Targeted Ultrasound Boost:</strong> By combining targeted ultrasound, Lumi RF supercharges the regenerative process—enhancing collagen crosslinking and optimizing skin density in areas prone to laxity, like under the eyes or jawline.</li><li><strong>Needle-Free, AI-Guided Delivery:</strong> Unlike traditional microneedling RF, Lumi RF is completely needle-free and uses AI-driven thermal mapping to ensure safe, consistent energy delivery. The result? A comfortable experience with measurable results.</li></ul>`
     },
     whyLoveIt: [
       'Tightens Sagging Skin Naturally: Gently lifts and tones with no injectables and no downtime—ideal for cheeks, jawline, under-eye, and neck.',
@@ -442,14 +437,14 @@ export const services: Service[] = [
       'Women and men 25+ experiencing early signs of laxity or dullness',
       'Patients looking for needle-free facial rejuvenation',
       'Those prepping for important events without the risk of downtime',
-      'Individuals with sensitive or thin skin not suited to aggressive procedures',
+      'Individuals with sensitive or thin skin not suited to aggressive procedures'
     ],
     protocol: [
       { label: 'Duration', value: '30–45 minutes per session' },
       { label: 'Sensation', value: 'Gentle warmth; no pain or numbing required' },
       { label: 'Downtime', value: 'Zero to minimal (mild redness may last 1–2 hours)' },
       { label: 'Frequency', value: '3–5 sessions spaced 2–4 weeks apart for optimal results' },
-    ],
+    ]
   },
   {
     id: 'slim-contour-injection',
@@ -508,8 +503,8 @@ export const services: Service[] = [
     subtitle: "Precision Redefined. Subtle Contour, Maximum Harmony — by dr. Aldisa.",
     longDescription: `In a world where subtlety matters, Altruva Face Modulator (Half Dose) offers a refined approach to facial sculpting using microdosed botulinum toxin. Curated for those under 40, this treatment focuses on preventative contour modulation, delivering natural, soft corrections — not frozen expressions.<br/><br/>Whether it’s jawline slimming, temple lifting, or refining the upper face, this procedure enhances your features without overt volume loss or exaggerated stiffness. It’s about precision, personalization, and respecting your facial identity.<br/><br/>Every Altruva Face Modulator treatment is custom-designed by dr. Olivia Aldisa, integrating anatomical mapping and muscle balance principles to ensure precision, proportion, and preservation of your identity.`,
     whatIsIt: {
-      title: 'How It Works',
-      description: `Botulinum toxin, in a calibrated half dose, is administered strategically to modulate overactive muscles that contribute to undesirable bulk, heaviness, or downward pull:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Jawline:</strong> Slims bulky masseter muscles to enhance V-shape contours and reduce facial width.</li><li><strong>Upper Face:</strong> Softens glabella tension, subtly lifts brows, and prevents early wrinkle formation — all without freezing natural movement.</li></ul>`
+        title: 'How It Works',
+        description: `Botulinum toxin, in a calibrated half dose, is administered strategically to modulate overactive muscles that contribute to undesirable bulk, heaviness, or downward pull:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Jawline:</strong> Slims bulky masseter muscles to enhance V-shape contours and reduce facial width.</li><li><strong>Upper Face:</strong> Softens glabella tension, subtly lifts brows, and prevents early wrinkle formation — all without freezing natural movement.</li></ul>`
     },
     howItDiffers: 'For those under 40, smaller doses are ideal to prevent dynamic lines and slow early sagging — while preserving natural expression. Rather than full paralysis, the focus is modulation: dialing down overactivity to reshape, contour, and harmonize facial dynamics. Lower doses mean less risk of asymmetry, frozen looks, or unwanted diffusion. This is bespoke aesthetic medicine — not one-size-fits-all.',
     benefits: [
@@ -524,7 +519,6 @@ export const services: Service[] = [
       { label: 'Duration', value: '15–20 minutes' },
       { label: 'Downtime', value: 'Minimal to none' },
       { label: 'Longevity', value: '3–4 months (may vary)' },
-      { label: 'Ideal for', value: 'Jawline softening (masseter reduction), Temple lift or brow support, Early wrinkle prevention in glabella, forehead, or crow’s feet, First-time users or toxin-sensitive skin'}
     ],
     indications: [
       'Jawline softening (masseter reduction)',
@@ -548,8 +542,8 @@ export const services: Service[] = [
     subtitle: 'Refined. Personalized. Anatomically Precise — by dr. Aldisa. Signature Beautification for Under 40s',
     longDescription: `Altruva Dermal Fillers are not about chasing trends — they are about strategic enhancement. This protocol is built on the principle of harmonizing features using subtle, anatomically guided injections to enhance your natural bone structure, soften imbalances, and delay facial aging — before it ever becomes visible.<br/><br/>Led by dr. Olivia Aldisa, a trusted name in anatomical regenerative aesthetics, this treatment is fully personalized and intended for discerning patients under 40 who want refinement, not reinvention.<br/><br/><i>“The most beautiful result is one no one can point out — but everyone notices. That’s the art of natural beautification.” — dr. Olivia Aldisa, Facial Architect & Regenerative Strategist</i>`,
     whatIsIt: {
-      title: 'The Philosophy: Face Optimization Before Correction',
-      description: `Instead of reversing aging, Altruva Dermal Fillers focus on:<br/>
+        title: 'The Philosophy: Face Optimization Before Correction',
+        description: `Instead of reversing aging, Altruva Dermal Fillers focus on:<br/>
       <ul class="list-disc pl-5 mt-2 space-y-1">
         <li>Enhancing natural beauty through proportional feature balancing</li>
         <li>Strengthening the facial foundation to delay sagging and volume loss</li>
@@ -836,7 +830,7 @@ export const services: Service[] = [
       <ul class="list-disc pl-5 mt-2 space-y-1">
         <li><strong>Liquid PCL:</strong> Unlike microparticle biostimulators, Gouri flows seamlessly across the dermis.</li>
         <li><strong>Multi-Zone Collagenesis:</strong> A few targeted injections can reach broad facial areas.</li>
-        <li><strong>Gradual Lifting, Brightening &amp; Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
+        <li><strong>Gradual Lifting, Brightening & Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
         <li><strong>Doctor-Led Mapping:</strong> Injection patterns are personalized by dr. Aldisa to restore harmony across different facial zones — temples, nasojugal groove, marionette, cheeks, and preauricular area.</li>
       </ul>`
     },
@@ -1341,3 +1335,6 @@ export const quizResults: Record<string, QuizResult> = {
 
     
 
+
+
+    
