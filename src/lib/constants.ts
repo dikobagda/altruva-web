@@ -244,7 +244,41 @@ export const services: Service[] = [
     imageHint: 'acne scar treatment',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Signature Laser'
+    subgroup: 'Signature Laser',
+    subtitle: 'Deep Resurfacing. Precision Refinement. Regenerative Healing.',
+    longDescription: "Altruva Scar Solver is our signature skin-texture treatment powered by Exion Fractional RF, an advanced microneedling radiofrequency platform enhanced by AI-optimized precision. Specially curated for those with acne scarring, enlarged pores, stretch marks, and post-inflammatory irregularities, this treatment delivers focused energy into the skin’s deeper layers—stimulating collagen, elastin, and hyaluronic acid regeneration.<br/>By bridging the benefits of controlled dermal injury and intelligent energy delivery, Scar Solver achieves smoother, firmer, and more even-toned skin—naturally, progressively, and with minimal downtime.",
+    whatIsIt: {
+      title: 'How It Works',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+        <li><strong>Microneedling + RF Synergy:</strong> Ultrathin microneedles penetrate the skin to create micro-channels, triggering the skin’s natural wound-healing response. Simultaneously, radiofrequency energy is delivered into the dermis to heat and remodel tissue, supercharging collagen synthesis.</li>
+        <li><strong>AI Energy Delivery:</strong> The device’s smart algorithm tailors RF delivery in real-time based on skin feedback, ensuring maximum results with minimized discomfort or thermal injury.</li>
+        <li><strong>8mm Penetration Depth Without Full Needle Insertion:</strong> Unlike traditional RF microneedling, Altruva Scar Solver allows deep dermal targeting without the trauma of full-depth needle insertion—making it highly effective for textural scars and skin laxity, even in delicate zones.</li>
+      </ul>`
+    },
+    benefits: [
+      'Softens and smoothens acne scars and textural irregularities',
+      'Minimizes enlarged pores',
+      'Refines rough or uneven skin texture',
+      'Reduces fine lines and wrinkles in targeted zones',
+      'Stimulates natural hyaluronic acid production',
+      'Improves skin firmness and elasticity',
+      'Suitable for all skin types, including darker tones'
+    ],
+    indications: [
+      'Atrophic acne scars (icepick, boxcar, rolling)',
+      'Post-acne pigmentation and roughness',
+      'Enlarged pores on cheeks and nose',
+      'Fine lines with reduced skin elasticity',
+      'Stretch marks and dermal texture correction',
+      'Patients not ready for ablative lasers or surgery'
+    ],
+    protocol: [
+      { label: 'Recommended', value: '3–4 sessions, spaced 4–6 weeks apart' },
+      { label: 'Maintenance', value: '1–2 sessions annually for long-term dermal integrity' },
+      { label: 'Downtime', value: 'Mild redness or sensitivity for 1–3 days' },
+      { label: 'Pre/Post-Care', value: 'Avoid sun, retinoids pre-treatment; moisturize and apply SPF diligently post-care' },
+    ],
+    whyLoveIt: ["Because true skin healing starts from within. Our regenerative contouring philosophy ensures that every textural correction is achieved not by force—but by guiding the skin’s own intelligence to remodel, rebuild, and reveal your most refined texture."]
   },
   {
     id: 'art-lyft-lite',
@@ -446,6 +480,7 @@ export const services: Service[] = [
       { label: 'Duration', value: '15–20 minutes' },
       { label: 'Downtime', value: 'Minimal to none' },
       { label: 'Longevity', value: '3–4 months (may vary)' },
+      { label: 'Ideal for', value: 'Jawline softening (masseter reduction), Temple lift or brow support, Early wrinkle prevention in glabella, forehead, or crow’s feet, First-time users or toxin-sensitive skin'}
     ],
     indications: [
       'Jawline softening (masseter reduction)',
@@ -490,6 +525,7 @@ export const services: Service[] = [
     howItDiffers: 'Profile Balancing Approach: Each injection supports aesthetic harmony — not isolated features. Minimalism with Intent: We believe in doing less but doing it precisely. Product Synergy: HA fillers are selected based on elasticity, cohesivity, and area-specific need. Microcannula Precision: Safer and less traumatic delivery for most areas. Regenerative Add-ons: Optionally layered with PRF, PN, or skin boosters for longer-term support.',
     whyLoveIt: [
       "Why Start Fillers Under 40?",
+      "Early Intervention = Preventative Aging",
       "Less Product Needed Over Time",
       "More Natural-Looking Results",
       "Supports Tissue Integrity Before Breakdown Begins"
@@ -1218,3 +1254,6 @@ export const quizResults: Record<string, QuizResult> = {
     description: "You are ready for a transformative journey. The ÉLEVÉ plan provides comprehensive, deep support for visible and lasting rejuvenation."
   },
 };
+
+
+    
