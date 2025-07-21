@@ -519,6 +519,7 @@ export const services: Service[] = [
       { label: 'Duration', value: '15–20 minutes' },
       { label: 'Downtime', value: 'Minimal to none' },
       { label: 'Longevity', value: '3–4 months (may vary)' },
+      { label: 'Ideal for', value: '▸ Jawline softening (masseter reduction)\n▸ Temple lift or brow support\n▸ Early wrinkle prevention in glabella, forehead, or crow’s feet\n▸ First-time users or toxin-sensitive skin' },
     ],
     indications: [
       'Jawline softening (masseter reduction)',
@@ -870,7 +871,48 @@ export const services: Service[] = [
     imageHint: 'deep skin tightening',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Restoration &amp; Lifting'
+    subgroup: 'Restoration &amp; Lifting',
+    subtitle: 'The Intelligent RF Lift for Skin Over 40',
+    longDescription: "Altruva Regenerative RF is a needle-free, non-invasive RF-based skin rejuvenation treatment designed specifically for individuals over 40 who are experiencing visible signs of aging—such as sagging skin, fine lines, enlarged pores, and texture loss. Utilizing Exion™ Radiofrequency + Targeted Ultrasound technology, this treatment works deep within the dermis to stimulate collagen, elastin, and hyaluronic acid synthesis, restoring youthful density and definition to mature skin.<br/><br/>This is regenerative science meeting natural elegance.<br/><br/><i>“Aging skin doesn’t need to be fought—it needs to be regenerated. With Altruva Regenerative RF, we respect your skin’s biology and help it perform at its best.”<br/>— dr. Olivia Aldisa, Medical Director & Global Regenerative Aesthetic KOL</i>",
+    whatIsIt: {
+      title: 'How It Works',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+        <li><strong>Radiofrequency Energy:</strong> Controlled RF waves gently heat the deeper layers of the skin, activating fibroblasts and kickstarting collagen and elastin production—resulting in visibly lifted, firmer, and more resilient skin.</li>
+        <li><strong>Targeted Ultrasound Synergy:</strong> Focused ultrasound enhances dermal stimulation, supporting skin remodeling in deeper layers without compromising the surface. It’s ideal for the full face, including fragile areas like the under-eye and jawline.</li>
+        <li><strong>AI-Optimized Energy Delivery:</strong> Integrated AI systems read skin impedance in real time, adjusting energy output to deliver uniform heating and minimize risks—ensuring comfort and consistency in every session.</li>
+        <li><strong>100% Needle-Free:</strong> Unlike traditional microneedling RF, Altruva Regenerative RF uses no needles, making it a safer, gentler option for aging skin that may be prone to thinning or bruising.</li>
+      </ul>`
+    },
+    benefits: [
+      'Lifts and tightens sagging skin',
+      'Natural contour restoration without surgery or injectables.',
+      'Improves skin density and elasticity',
+      'Stimulates fibroblasts and boosts collagen for long-term firming effects.',
+      'Refines texture and minimizes pores',
+      'Smooths the skin’s surface and improves clarity, especially in areas prone to age-related roughness.',
+      'Enhances skin hydration and glow',
+      'Stimulates your own hyaluronic acid production, resulting in supple, luminous skin.',
+      'Safe for all skin tones',
+      'Clinically suitable for Asian and melanin-rich skin types with no risk of post-inflammatory hyperpigmentation.',
+      'Minimal to zero downtime'
+    ],
+    indications: [
+      'Skin laxity (jawline, cheeks, under-eye)',
+      'Fine lines and moderate wrinkles',
+      'Rough or uneven skin texture',
+      'Enlarged pores and dullness',
+      'Collagen depletion in mature skin',
+      'Men and women 40+ experiencing visible skin aging',
+      'Clients not yet ready for invasive lifting or injectables',
+      'Individuals with textural decline, sagging contours, and early jowl formation',
+      'Mature skin seeking regenerative improvement with minimal disruption'
+    ],
+    protocol: [
+      { label: 'Session Duration', value: '45–60 minutes for full face' },
+      { label: 'Comfort Level', value: 'Warm sensation; no numbing needed' },
+      { label: 'Recommended Frequency', value: '4 sessions spaced 2–4 weeks apart' },
+      { label: 'Maintenance', value: '1–2 times per year depending on aging profile' }
+    ]
   },
   {
     id: 'cocktail-contouring',
