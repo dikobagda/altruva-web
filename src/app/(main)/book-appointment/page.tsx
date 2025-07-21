@@ -20,6 +20,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { services } from '@/lib/constants';
+import { handleAppointmentSubmit } from './actions';
 
 const appointmentFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -32,15 +33,6 @@ const appointmentFormSchema = z.object({
 });
 
 type AppointmentFormValues = z.infer<typeof appointmentFormSchema>;
-
-// Placeholder for form submission handler
-async function handleAppointmentSubmit(data: AppointmentFormValues) {
-  'use server';
-  // This is a placeholder. In a real app, you would save this to a database
-  // or send it to a booking management system.
-  console.log('New Appointment Request:', data);
-  return { success: true, message: 'Your appointment request has been submitted!' };
-}
 
 const timeSlots = [
   '10:00 AM', '11:00 AM', '12:00 PM', 
@@ -63,13 +55,15 @@ export default function BookAppointmentPage() {
           description: result.message,
         });
         form.reset();
+        // Reset specific fields if needed, especially for un-controlled ones or to clear visual state
+        // For example, if you had a file input, you might reset its state here.
       } else {
-        throw new Error('Submission failed');
+        throw new Error(result.message || 'Submission failed');
       }
     } catch (error) {
       toast({
         title: 'Error',
-        description: 'There was a problem submitting your request. Please try again.',
+        description: error instanceof Error ? error.message : 'There was a problem submitting your request. Please try again.',
         variant: 'destructive',
       });
     }
