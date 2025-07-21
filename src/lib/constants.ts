@@ -193,7 +193,7 @@ export const services: Service[] = [
   },
   {
     id: 'exion-lumi-laser',
-    title: 'Exion Lumi Laser',
+    title: 'Altruva Lumi Laser',
     description: 'Targets light pigmentation, PIH, and mild acne marks.',
     price: 'Price on consultation',
     category: 'Prejuvenation',
@@ -202,7 +202,36 @@ export const services: Service[] = [
     imageHint: 'laser treatment',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Signature Laser'
+    subgroup: 'Signature Laser',
+    subtitle: 'Radiance Redefined – Illuminated From Within',
+    longDescription: 'The Altruva Lumi Laser is a non-invasive skin optimization treatment that uses next-generation radiofrequency (RF) technology to target skin clarity, pigmentation, and textural refinement—all without downtime. This advanced protocol works deeply within the dermis to stimulate collagen, brighten the complexion, and refine pores, resulting in skin that’s visibly clearer, smoother, and more radiant after each session.<br/>Crafted for those seeking visible results with minimal interruption to daily life, Lumi Laser is a cornerstone treatment in Altruva’s Prejuvenation and Glow Optimization programs.',
+    whatIsIt: {
+      title: 'Technology in Action',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-1">
+          <li><strong>Smart RF Energy Delivery:</strong> Gently penetrates the skin to awaken fibroblasts and trigger natural regeneration, without damaging the surface layer.</li>
+          <li><strong>Collagen & Elastin Biostimulation:</strong> Encourages dermal renewal and boosts elasticity for skin that’s visibly firmer and youthfully plump.</li>
+          <li><strong>Melanin Modulation:</strong> Reduces the appearance of age spots, sun damage, and uneven pigmentation, restoring a more even and luminous tone.</li>
+          <li><strong>Texture Refinement:</strong> Smoothes skin surface, minimizes pores, and restores a polished skin finish.</li>
+        </ul>`
+    },
+    benefits: [
+      'Brightens dull, uneven skin tone',
+      'Fades age spots, pigmentation, and redness',
+      'Improves skin texture and clarity',
+      'Tightens pores and supports long-term skin health',
+      'Zero downtime, perfect for lunch break treatments',
+      'Safe for all skin types'
+    ],
+    indications: [
+      'Dull or uneven skin',
+      'Hyperpigmentation or early sun damage',
+      'Enlarged pores and textural roughness',
+      'Early signs of aging',
+      'Those who want non-invasive, no-downtime rejuvenation'
+    ],
+    whyLoveIt: [
+      "Because clear skin is more than just cosmetic—it's a sign of internal skin vitality. Lumi Laser is tailored to your skin condition, often used as a foundation before bio-stimulator treatments like Gouri or Glacier Skin. It’s clarity, engineered."
+    ]
   },
   {
     id: 'exion-scar-solver',
