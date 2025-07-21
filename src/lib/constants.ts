@@ -99,7 +99,47 @@ export const services: Service[] = [
     imageHint: 'hydrated glowing skin',
     group: 'Signature Facials',
     groupDescription: 'Customized facials to address your unique skin needs.',
-    subgroup: 'Core Facials'
+    subgroup: 'Core Facials',
+    subtitle: 'Exfoliate. Infuse. Illuminate. The Gold Standard of Hydrodermabrasion.',
+    longDescription: 'For skin that craves clarity, hydration, and luminosity in one seamless protocol, Altruva HydraGlow Facial delivers results beyond the surface. This is Altruva’s elevated version of the Dermalinfusion, combining diamond-tip exfoliation, vacuum-assisted extraction, and targeted serum infusion — all in one high-performance session tailored to your skin’s real-time needs. Powered by vortex technology and curated infusions, this facial isn’t just about glow — it’s about deep nourishment, barrier support, and clinical rejuvenation without downtime.',
+    whatIsIt: {
+      title: 'How HydraGlow Works: 3-in-1 Dermal Technology',
+      description: `<ol class="list-decimal pl-5 space-y-2">
+        <li><strong class="text-primary">Exfoliate:</strong> A medical-grade diamond or vortex tip gently removes dull, dead cells from the skin’s surface — revealing smoother, more radiant skin underneath.</li>
+        <li><strong class="text-primary">Extract:</strong> Simultaneous suction clears clogged pores, blackheads, and surface impurities — leaving skin feeling clean, light, and less congested.</li>
+        <li><strong class="text-primary">Infuse:</strong> While exfoliating and extracting, the device also infuses targeted serums — chosen by your therapist — to address hydration, pigmentation, acne, or dullness. These actives penetrate deeply for immediate and visible impact.</li>
+      </ol>
+      <h4 class="font-semibold text-primary mt-4">Custom-Infused Serums May Include:</h4>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li><strong>Hyaluronic Acid:</strong> Deep hydration + plumping</li>
+        <li><strong>Salicylic Acid:</strong> Acne, oil control, and decongestion</li>
+        <li><strong>Vitamin C:</strong> Brightening and antioxidant protection</li>
+        <li><strong>Niacinamide:</strong> Strengthens barrier and evens tone</li>
+      </ul>`,
+    },
+    benefits: [
+      'Polishes away dead skin without irritation',
+      'Deeply hydrates and restores skin suppleness',
+      'Brightens and evens skin tone',
+      'Decongests pores and minimizes blackheads',
+      'Diminishes the appearance of fine lines and early wrinkles',
+      'Improves the effectiveness of skincare absorption',
+      'Delivers an instant “camera-ready” glow',
+    ],
+    protocol: [
+      { label: 'Duration', value: '45–60 minutes' },
+      { label: 'Downtime', value: 'None' },
+      { label: 'Results', value: 'Visible immediately; optimal over 24–48 hrs' },
+      { label: 'Frequency', value: 'Every 4–6 weeks for skin maintenance' },
+      { label: 'Ideal For', value: 'Dehydrated, acne-prone, dull, sensitive, or aging skin types' },
+    ],
+    whyLoveIt: [
+      '<strong>Custom PDT Integration:</strong> Add Blue, Red, or Infrared LED for acne control or regenerative glow.',
+      '<strong>Barrier-Safe Approach:</strong> No harsh acids. Skin remains calm, hydrated, and non-reactive.',
+      '<strong>Clinically Formulated Protocols:</strong> Designed by dr. Olivia Aldisa for enhanced cellular turnover and skin integrity.',
+      '<strong>Makeup-Optional Finish:</strong> Walk out with hydrated, luminous skin ready for the day or night.',
+      '<i>“Hydration is not a trend — it’s the foundation of skin longevity. This treatment makes your skin feel alive again.”</i> — dr. Olivia Aldisa, Founder of Altruva & Regenerative Skin Strategist',
+    ],
   },
 
   // --- Prejuvenation (< 40) ---
@@ -686,9 +726,9 @@ export const services: Service[] = [
       'Optimizes scalp condition for healthier follicles',
     ],
     whyLoveIt: [
-      'Synergistic with Energy-Based Devices: Ideal as a post-treatment bio-repair system following microneedling, lasers, or RF—enhancing outcomes and reducing downtime.',
-      'Scientifically Validated: Rigorously tested and developed under stringent laboratory protocols, ensuring quality, safety, and efficacy.',
-      'Visible, Long-Lasting Results: Improvements are often visible within a week. With consistent use (minimum 3 sessions), results may last 6–12 months depending on individual skin conditions and treatment protocols.',
+      '<strong>Synergistic with Energy-Based Devices:</strong> Ideal as a post-treatment bio-repair system following microneedling, lasers, or RF—enhancing outcomes and reducing downtime.',
+      '<strong>Scientifically Validated:</strong> Rigorously tested and developed under stringent laboratory protocols, ensuring quality, safety, and efficacy.',
+      '<strong>Visible, Long-Lasting Results:</strong> Improvements are often visible within a week. With consistent use (minimum 3 sessions), results may last 6–12 months depending on individual skin conditions and treatment protocols.',
     ]
   },
   {
@@ -745,7 +785,8 @@ export const services: Service[] = [
       'Low risk of puffiness or asymmetry',
       'Scientifically backed with a long safety profile',
       'Suitable for multiple areas: face, neck, under-eyes, and décolleté',
-      'Noticeably improved skin texture, bounce, and resilience within weeks'
+      'Noticeably improved skin texture, bounce, and resilience within weeks',
+      '<i>“DNA Repair isn’t just about reversing aging — it’s about restoring vitality at a cellular level. That’s regenerative beauty.”</i> — dr. Olivia Aldisa, Facial Architect & Cellular Rejuvenation Specialist'
     ]
   },
   {
@@ -789,10 +830,10 @@ export const services: Service[] = [
       { label: 'Layering Option', value: 'Safe to combine with PRF, skin boosters, or laser-based rejuvenation' },
     ],
     whyLoveIt: [
-      'Zero Tyndall Risk: No blue hue or light reflection',
-      'Volume-Free Approach: No risk of puffiness or overcorrection',
-      'Science-Based Safety: Derived from sterile, bio-purified DNA',
-      'Proven Regeneration: Backed by clinical evidence on dermal repair and collagen activation'
+      '<strong>Zero Tyndall Risk:</strong> No blue hue or light reflection',
+      '<strong>Volume-Free Approach:</strong> No risk of puffiness or overcorrection',
+      '<strong>Science-Based Safety:</strong> Derived from sterile, bio-purified DNA',
+      '<strong>Proven Regeneration:</strong> Backed by clinical evidence on dermal repair and collagen activation'
     ]
   },
   {
@@ -841,7 +882,7 @@ export const services: Service[] = [
       { label: 'Maintenance', value: 'Every 2–3 months as skin maintenance' },
     ],
     whyLoveIt: [
-      `"Think of it as your skin’s daily supplement — but delivered with clinical precision for real transformation." — dr. Olivia Aldisa, Altruva Clinical Director`
+      `<i>“Think of it as your skin’s daily supplement — but delivered with clinical precision for real transformation.”</i> — dr. Olivia Aldisa, Altruva Clinical Director`
     ]
   },
   {
@@ -966,7 +1007,7 @@ export const services: Service[] = [
       { label: 'Maintenance', value: '1–2 sessions every 6 months' },
     ],
     whyLoveIt: [
-      'Because beauty isn’t built in a single session. It’s cultivated through cellular intelligence, tissue harmony, and precise bio-signaling. At Altruva, we don’t chase the glow — we rebuild it from the inside out. — dr. Olivia Aldisa, International Trainer & Regenerative Aesthetics Expert'
+      '<i>Because beauty isn’t built in a single session. It’s cultivated through cellular intelligence, tissue harmony, and precise bio-signaling. At Altruva, we don’t chase the glow — we rebuild it from the inside out.</i> — dr. Olivia Aldisa, International Trainer & Regenerative Aesthetics Expert'
     ]
   },
   {
@@ -1272,7 +1313,7 @@ export const services: Service[] = [
       'Jawline and chin refinement',
       'Temple hollow correction',
       'Volume descent or fat loss in dynamic zones',
-      'Post-weight-loss facial reshaping',
+      'Post-weight loss facial reshaping',
       'Early signs of skeletal shrinkage without need for invasive lifting',
     ],
     protocol: [
@@ -1802,6 +1843,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
