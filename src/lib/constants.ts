@@ -783,7 +783,43 @@ export const services: Service[] = [
     imageHint: 'fractional laser',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Signature Laser'
+    subgroup: 'Signature Laser',
+    subtitle: "Precision Texture Refinement & Dermal Rejuvenation for Mature Skin",
+    longDescription: "Altruva FractioPro is our most advanced radiofrequency microneedling protocol, expertly designed to address the hallmarks of skin aging—textural deterioration, dermal thinning, and laxity—especially for skin over 40 years old. Powered by AI-enhanced Exion Fractional RF, this treatment stimulates your skin’s own collagen, elastin, and hyaluronic acid regeneration—restoring firmness, structure, and refined smoothness without invasive surgery.<br/>This is not just another skin rejuvenation treatment. Altruva FractioPro recalibrates skin architecture from within, turning back the effects of time intelligently and gracefully.",
+    whatIsIt: {
+      title: "How It Works",
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+        <li><strong>AI-Controlled Energy Mapping:</strong> Using real-time feedback and smart energy regulation, FractioPro adapts intensity to your skin’s needs—delivering safe, precise, and optimized outcomes with minimal discomfort.</li>
+        <li><strong>Fractional RF + Microneedling Fusion:</strong> Ultrathin needles deliver heat into the deep dermal matrix, creating micro-injuries that activate skin repair, while RF energy intensifies collagen remodeling and tissue contraction.</li>
+        <li><strong>Deep Dermal Reach (Up to 8mm):</strong> Without full needle insertion, FractioPro reaches deeper layers for effective treatment of skin laxity, deep wrinkles, and midface sagging.</li>
+        <li><strong>Full-Spectrum Rejuvenation:</strong> Beyond superficial improvement, FractioPro triggers long-term changes in skin density, texture, and tone—making it ideal for regenerative anti-aging.</li>
+      </ul>`
+    },
+    benefits: [
+      'Rebuilds collagen & elastin naturally',
+      'Visibly firms sagging skin on cheeks, jawline, and under-eyes',
+      'Smooths coarse texture, fine lines, and enlarged pores',
+      'Improves overall tone, resilience, and radiance',
+      'Supports HA stimulation for improved hydration and bounce',
+      'Gentle, adaptable for various Fitzpatrick types'
+    ],
+    indications: [
+      'Mature skin (>40 years old) showing visible signs of laxity & thinning',
+      'Deep wrinkles, fine lines, and early jowling',
+      'Uneven, rough skin texture due to age or environmental damage',
+      'Dehydrated, crepey skin in areas like cheeks, lower face, and neck',
+      'Patients looking for an elegant, regenerative alternative to surgical lifting'
+    ],
+    protocol: [
+      { label: 'Protocol', value: '3–4 sessions spaced 4–6 weeks apart' },
+      { label: 'Maintenance', value: '1–2 sessions yearly to preserve firmness' },
+      { label: 'Downtime', value: 'Mild redness or warmth for 1–2 days' },
+      { label: 'Prep', value: 'Discontinue retinoids and avoid sun 3 days before' },
+      { label: 'Aftercare', value: 'Intense hydration + SPF protection for optimal healing' },
+    ],
+    whyLoveIt: [
+      "Because skin after 40 deserves intelligent repair, not aggressive resurfacing. We treat aging as an evolution—not a flaw, and FractioPro embodies that philosophy: Restoring the skin’s quiet strength from within."
+    ]
   },
   {
     id: 'art-lyft',
@@ -1037,16 +1073,14 @@ export const services: Service[] = [
     subtitle: "Total Muscle Harmony. Signature Precision. By dr. Aldisa.",
     longDescription: `Altruva Face Modulator (Full Dose) is a full-spectrum neuromodulation protocol that redefines facial freshness through strategic, personalized botulinum toxin mapping. Engineered for those over 40, this treatment is not about freezing expression — it’s about resetting facial balance, lifting fatigue, and restoring dynamic symmetry with natural grace.<br/><br/>Dr. Aldisa applies her expertise in facial anatomy, aging patterns, and personalized dosing to harmonize muscle activity across the face — from frown lines and jaw tension to brow positioning and perioral movement. The result? A refreshed, rested, and refined look that feels like you — only better.`,
     whatIsIt: {
-      title: "What It Targets & How It Works",
-      description: `<p class="mb-2">This full-dose protocol is ideal for restoring youthfulness while maintaining facial authenticity by targeting:</p>
+      title: "How It Works",
+      description: `<p class="mb-2">Utilizing full-dose botulinum toxin, dr. Aldisa performs full-face mapping to:</p>
       <ul class="list-disc pl-5 space-y-1">
-        <li><strong>Upper Face:</strong> Rebalances glabella, forehead, and crow’s feet to reduce lines without a flat or frozen forehead.</li>
-        <li><strong>Eyebrow Precision:</strong> Custom lifting or softening tailored to your natural brow shape and eye expression.</li>
-        <li><strong>Midface & Lower Face:</strong> Softens downward pull (e.g. DAO, platysma), restores neutral smile dynamics, and improves marionette tone.</li>
-        <li><strong>Masseter & Chin:</strong> Slims lower face bulk and corrects chin dimpling or asymmetry.</li>
-        <li><strong>Neck Bands:</strong> Softens vertical neck lines and improves cervico-facial contour.</li>
+        <li><strong>Modulate muscle tone</strong> contributing to fatigue, imbalance, or aged expressions</li>
+        <li><strong>Lift areas prone to descent</strong> without the heaviness of dermal filler</li>
+        <li><strong>Reset overused muscles</strong> for a more neutral, rested facial state</li>
       </ul>
-      <p class="mt-4">Utilizing full-dose botulinum toxin, dr. Aldisa performs full-face mapping to modulate muscle tone, lift areas prone to descent, and reset overused muscles for a more neutral, rested facial state. This protocol supports muscle balance, not paralysis — delivering a naturally lifted, refreshed result with smooth transitions and intentional preservation of character lines when desired.</p>`
+      <p class="mt-4">This protocol supports muscle balance, not paralysis — delivering a naturally lifted, refreshed result with smooth transitions and intentional preservation of character lines when desired.</p>`
     },
     howItDiffers: `Why Full Dose? Post-40 facial shifts deepen lines and create downward vectors; full-dose modulation reverses this. Comprehensive mapping enables precise targeting of asymmetry and tension. This is a bespoke neuromodulation blueprint, where every injection serves a purpose in the harmony of your facial expression.`,
     benefits: [
@@ -1498,6 +1532,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
