@@ -297,11 +297,7 @@ export const services: Service[] = [
     longDescription: "Altruva Scar Solver is our signature skin-texture treatment powered by Exion Fractional RF, an advanced microneedling radiofrequency platform enhanced by AI-optimized precision. Specially curated for those with acne scarring, enlarged pores, stretch marks, and post-inflammatory irregularities, this treatment delivers focused energy into the skin’s deeper layers—stimulating collagen, elastin, and hyaluronic acid regeneration.<br/>By bridging the benefits of controlled dermal injury and intelligent energy delivery, Scar Solver achieves smoother, firmer, and more even-toned skin—naturally, progressively, and with minimal downtime.",
     whatIsIt: {
       title: 'How It Works',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
-        <li><strong>Microneedling + RF Synergy:</strong> Ultrathin microneedles penetrate the skin to create micro-channels, triggering the skin’s natural wound-healing response. Simultaneously, radiofrequency energy is delivered into the dermis to heat and remodel tissue, supercharging collagen synthesis.</li>
-        <li><strong>AI Energy Delivery:</strong> The device’s smart algorithm tailors RF delivery in real-time based on skin feedback, ensuring maximum results with minimized discomfort or thermal injury.</li>
-        <li><strong>8mm Penetration Depth Without Full Needle Insertion:</strong> Unlike traditional RF microneedling, Altruva Scar Solver allows deep dermal targeting without the trauma of full-depth needle insertion—making it highly effective for textural scars and skin laxity, even in delicate zones.</li>
-      </ul>`
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><strong>Microneedling + RF Synergy:</strong> Ultrathin microneedles penetrate the skin to create micro-channels, triggering the skin’s natural wound-healing response. Simultaneously, radiofrequency energy is delivered into the dermis to heat and remodel tissue, supercharging collagen synthesis.</li><li><strong>AI Energy Delivery:</strong> The device’s smart algorithm tailors RF delivery in real-time based on skin feedback, ensuring maximum results with minimized discomfort or thermal injury.</li><li><strong>8mm Penetration Depth Without Full Needle Insertion:</strong> Unlike traditional RF microneedling, Altruva Scar Solver allows deep dermal targeting without the trauma of full-depth needle insertion—making it highly effective for textural scars and skin laxity, even in delicate zones.</li></ul>`
     },
     benefits: [
       'Softens and smoothens acne scars and textural irregularities',
@@ -365,7 +361,7 @@ export const services: Service[] = [
       { label: 'Pain level', value: 'Mild warmth; cooling system ensures comfort' },
       { label: 'Downtime', value: 'None' },
       { label: 'Visible results', value: '3–4 weeks post-treatment, progressive improvement up to 12 weeks' },
-      { label: 'Suggested frequency', value: 'Once annually for maintenance; twice yearly for lift' }
+      { label: 'Suggested frequency', value: 'Once annually for maintenance; twice yearly for visible lift' }
     ],
   },
   {
@@ -781,7 +777,44 @@ export const services: Service[] = [
     imageHint: 'advanced ultrasound lift',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Restoration &amp; Lifting'
+    subgroup: 'Restoration &amp; Lifting',
+    subtitle: 'Anatomic Regenerative Targeting for Restorative Contour, Lift & Radiance. The Signature Over-40 Protocol | Powered by Sofwave',
+    longDescription: `For patients entering their 40s and beyond, skin aging isn’t just about fine lines — it's about structural shifts: collagen depletion, ligament laxity, and contour loss. Altruva A.R.T (Anatomic Regenerative Targeting) Lift PRO is a regenerative ultrasound-based protocol designed by dr. Olivia Aldisa, Asia’s Sofwave KOL, to address these challenges with unmatched anatomical precision.<br/><br/>Whether you're looking to reclaim lost volume, achieve superior lifting, or illuminate your complexion, A.R.T Lift PRO provides a data-driven, doctor-performed approach to regenerate your facial framework — without injectables or surgery.<br/><br/><i>“Over 40 is when regenerative planning matters most. A.R.T Lift PRO doesn't chase youth—it rebuilds the architecture of it.” — dr. Olivia Aldisa, Altruva Founder & Global Sofwave KOL</i>`,
+    whatIsIt: {
+      title: 'What Sets It Apart',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+        <li><strong>Sofwave Technology + Anatomical Mapping:</strong> Utilizing SUPERB™ ultrasound energy, the treatment delivers targeted heating to collagen-rich zones, following dr. Aldisa’s anatomical blueprint of facial ligaments, fat compartments, and dermal layers.</li>
+        <li><strong>Doctor-Driven Precision:</strong> Every pulse is guided by years of facial regenerative practice, ensuring customized treatment density whether your priority is volume restoration, tightening, or brightening.</li>
+        <li><strong>Multifaceted Outcome:</strong> Beyond skin tightening, A.R.T Lift PRO can visibly improve malar descent, jawline sagging, under-eye hollowness, and even skin tone dullness — an all-in-one anti-aging investment.</li>
+      </ul>`
+    },
+    mechanism: [
+      { title: 'Ultrasound-Driven Collagen Induction', description: 'Sofwave’s 1.5mm depth penetration delivers energy directly to the mid-dermis, bypassing the epidermis — ideal for collagenesis without thermal damage.' },
+      { title: 'Anatomic Regenerative Targeting', description: 'A proprietary mapping technique by dr. Aldisa that considers individual facial topography, addressing where fat loss or descent starts, rather than where it shows.' },
+      { title: 'High-Energy Multi-Zonal Delivery', description: 'Up to 500 pulses, placed strategically across ligament anchor points, mid-cheek lift zones, submental tightening, and peri-orbital glow boost areas.' }
+    ],
+    benefits: [
+      'Re-lifted midface contour',
+      'Smoother jawline, reduced jowls',
+      'Tighter neck profile',
+      'Improved skin luminosity (from improved dermal oxygenation and perfusion)',
+      'Gradual but long-lasting structural renewal'
+    ],
+    indications: [
+      'Midface flattening',
+      'Jowl formation and loss of mandibular definition',
+      'Nasolabial and marionette depth',
+      'General skin dullness and laxity',
+      'Post-weight loss sagging',
+      'Volume loss due to aging or overfilled correction',
+      'Collagen collapse from chronic sun damage'
+    ],
+    protocol: [
+      { label: 'Duration', value: '45–60 minutes' },
+      { label: 'Sessions', value: 'One treatment per year is recommended; twice annually for advanced aging' },
+      { label: 'Downtime', value: 'Minimal — some mild redness or swelling resolves in hours' },
+      { label: 'Peak Results', value: '6–12 weeks post-treatment, with ongoing improvement for 3–6 months' }
+    ]
   },
   {
     id: 'gorgeous-lyft-rejuvenation',
@@ -1307,3 +1340,4 @@ export const quizResults: Record<string, QuizResult> = {
     
 
     
+
