@@ -196,7 +196,7 @@ export const services: Service[] = [
         'Oily, congested, or rough skin texture'
     ],
     whyLoveIt: [
-        'Unlike traditional acne peels that may cause flaking or irritation, our protocol is designed with regenerative dermatology in mind. Paired with a personalized Altruva Glow regimen or combined with Exion Lumi Laser, it offers a gentle yet highly effective path to clear, luminous skin—no downtime, no harshness.'
+        "Unlike traditional acne peels that may cause flaking or irritation, our protocol is designed with regenerative dermatology in mind. Paired with a personalized Altruva Glow regimen or combined with Exion Lumi Laser, it offers a gentle yet highly effective path to clear, luminous skin—no downtime, no harshness."
     ]
   },
   {
@@ -337,7 +337,7 @@ export const services: Service[] = [
       title: 'How It Works',
       description: `<p>A.R.T. Lift Lite uses precision ultrasound energy (Sofwave) to activate your skin's natural regenerative power. Focused beams of ultrasound energy reach the mid-dermis, heating tissue at just the right depth to stimulate fibroblasts—without damaging the skin surface. The gentle heat activates neocollagenesis, the body’s natural process of forming fresh collagen and elastin. With regenerative mapping by dr. Aldisa, each shot is planned to follow your unique fat pads, ligament structures, and collagen-rich zones to optimize long-term firming while preserving natural beauty.</p>`
     },
-    howItDiffers: 'Designed by a Global Sofwave Expert, the A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials & Gen Z. It is non-invasive with zero downtime.',
+    howItDiffers: 'Designed by a Global Sofwave Expert. The A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials & Gen Z. It is non-invasive with zero downtime.',
     whyLoveIt: [
       'Targeted Collagen Banking: Prevents premature sagging in midface, jawline, and brow.',
       'Non-invasive with Zero Downtime: A lunchtime protocol with no redness, peeling, or bruising.',
@@ -355,7 +355,7 @@ export const services: Service[] = [
       { label: 'Protocol', value: '200–300 pulses, focused on collagen reservoirs' },
       { label: 'Pain level', value: 'Mild warmth; cooling system ensures comfort' },
       { label: 'Downtime', value: 'None' },
-      { label: 'Visible results', value: '3–4 weeks post-treatment, with progressive improvement up to 12 weeks' },
+      { label: 'Visible results', value: '3–4 weeks post-treatment, with progressive improvement for up to 12 weeks' },
       { label: 'Suggested frequency', value: 'Once annually for maintenance; twice yearly for visible lift' }
     ],
   },
@@ -379,7 +379,7 @@ export const services: Service[] = [
       <ul class="list-disc pl-5 mt-2 space-y-1">
         <li><strong>Liquid PCL:</strong> Unlike microparticle biostimulators, Gouri flows seamlessly across the dermis.</li>
         <li><strong>Multi-Zone Collagenesis:</strong> A few targeted injections can reach broad facial areas.</li>
-        <li><strong>Gradual Lifting, Brightening &amp; Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
+        <li><strong>Gradual Lifting, Brightening & Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
         <li><strong>Doctor-Led Mapping:</strong> Injection patterns are personalized by dr. Aldisa to restore harmony across different facial zones — temples, nasojugal groove, marionette, cheeks, and preauricular area.</li>
       </ul>`
     },
@@ -427,11 +427,11 @@ export const services: Service[] = [
         description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><strong>Smart Radiofrequency (RF) Energy:</strong> Exion-powered RF heats the deeper dermal layers in a controlled, uniform way—stimulating fibroblasts to regenerate collagen and elastin without damaging the surface. Expect visibly firmer contours and smoother skin over time.</li><li><strong>Targeted Ultrasound Boost:</strong> By combining targeted ultrasound, Lumi RF supercharges the regenerative process—enhancing collagen crosslinking and optimizing skin density in areas prone to laxity, like under the eyes or jawline.</li><li><strong>Needle-Free, AI-Guided Delivery:</strong> Unlike traditional microneedling RF, Lumi RF is completely needle-free and uses AI-driven thermal mapping to ensure safe, consistent energy delivery. The result? A comfortable experience with measurable results.</li></ul>`
     },
     whyLoveIt: [
-      'Tightens Sagging Skin Naturally: Gently lifts and tones with no injectables and no downtime—ideal for cheeks, jawline, under-eye, and neck.',
-      'Improves Hydration from Within: Promotes endogenous hyaluronic acid synthesis—a hallmark of youthful, “bouncy” skin.',
-      'Reduces Fine Lines & Refines Texture: Smooths rough patches, shrinks pores, and restores skin clarity without harsh resurfacing.',
-      'AI-Guided Precision: Smart feedback adjusts temperature and energy in real-time for safer, more predictable outcomes.',
-      'Minimal Downtime, Maximal Glow: With no needles, bruising, or peeling, you can return to your routine immediately post-treatment—glowing and lifted.',
+      'Tightens Sagging Skin Naturally',
+      'Improves Hydration from Within',
+      'Reduces Fine Lines & Refines Texture',
+      'AI-Guided Precision',
+      'Minimal Downtime, Maximal Glow',
     ],
     indications: [
       'Women and men 25+ experiencing early signs of laxity or dullness',
@@ -561,7 +561,7 @@ export const services: Service[] = [
         <li><strong>Lips:</strong> Optional volume or structure without distortion</li>
       </ul>`,
     },
-    howItDiffers: 'Profile Balancing Approach: Each injection supports aesthetic harmony — not isolated features. Minimalism with Intent: We believe in doing less but doing it precisely. Product Synergy: HA fillers are selected based on elasticity, cohesivity, and area-specific need. Microcannula Precision: Safer and less traumatic delivery for most areas. Regenerative Add-ons: Optionally layered with PRF, PN, or skin boosters for longer-term support.',
+    howItDiffers: 'Profile Balancing Approach. Minimalism with Intent. Product Synergy. Microcannula Precision. Regenerative Add-ons.',
     whyLoveIt: [
       "Why Start Fillers Under 40?",
       "Early Intervention = Preventative Aging",
@@ -885,15 +885,10 @@ export const services: Service[] = [
     },
     benefits: [
       'Lifts and tightens sagging skin',
-      'Natural contour restoration without surgery or injectables.',
       'Improves skin density and elasticity',
-      'Stimulates fibroblasts and boosts collagen for long-term firming effects.',
       'Refines texture and minimizes pores',
-      'Smooths the skin’s surface and improves clarity, especially in areas prone to age-related roughness.',
       'Enhances skin hydration and glow',
-      'Stimulates your own hyaluronic acid production, resulting in supple, luminous skin.',
       'Safe for all skin tones',
-      'Clinically suitable for Asian and melanin-rich skin types with no risk of post-inflammatory hyperpigmentation.',
       'Minimal to zero downtime'
     ],
     indications: [
@@ -957,8 +952,6 @@ export const services: Service[] = [
       { label: 'Pre/Post Enhancers', value: 'Polynucleotide injections, Selected Skin Booster, Radiant Advanced Peel' },
     ],
     whyLoveIt: [
-      "Because facial harmony is not just about filling—it’s about restoring dynamic architecture and encouraging the skin to renew itself.",
-      "At Altruva, we combine the structure of HA, the intelligence of CaHA, and the artistry of anatomical design to sculpt contours that age beautifully and regenerate naturally.",
       "This technique is refined under the mentorship of dr. Jani van Loghem—a global authority in aesthetic medicine known for developing advanced facial mapping systems, CaHA biostimulation protocols, and profile-balancing techniques. His mentorship through UMA Academy ensures that every Altruva Cocktail Contouring procedure reflects the highest international standards of safety, anatomy, and regenerative results."
     ],
   },
@@ -973,7 +966,38 @@ export const services: Service[] = [
     imageHint: 'advanced dermal filler',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Signature Restoration'
+    subgroup: 'Signature Restoration',
+    subtitle: "Volume Reclaimed. Contours Reawakened. Elegantly Executed by dr. Aldisa",
+    longDescription: `Aging is not just about wrinkles — it’s about deflation, descent, and disruption of volume harmony. Altruva Dermal Filler Pro is an advanced volumization protocol tailored for those over 40, where the priority shifts from enhancement to restoration.<br/><br/>Led by dr. Olivia Aldisa, a pioneer in regenerative and anatomical aesthetics, this protocol focuses on replacing structural volume loss, especially around the temples, forehead, midface, and preauricular zones, with sophisticated placement that respects your facial dynamics — never overfilling, never distorting.`,
+    whatIsIt: {
+      title: 'The Methodology',
+      description: `With Altruva Dermal Filler Pro, dr. Aldisa maps the entire facial framework, identifying where volume has been lost and how to rebuild with tastefully conservative doses, using:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Dynamic HA Fillers:</strong> Only premium, FDA-approved fillers with optimal tissue integration, elasticity, and safety profiles</li><li><strong>Microcannula & Needle Strategy:</strong> Safe and precise delivery based on vascular maps and anatomical zones</li><li><strong>Fat Pad Mapping:</strong> Volume is replaced according to fat compartment anatomy for predictable, natural lift</li><li><strong>Tissue Behavior Analysis:</strong> Ensures movement remains dynamic — never stiff or “stuffed”</li></ul>`
+    },
+    howItDiffers: "This isn't just about filling lines; it's about architectural restoration. For mature skin, filler placement must follow different principles: balance, support, and restraint. Restoring this scaffolding amplifies the effects of other treatments like lasers, threads, and collagen-stimulators.",
+    benefits: [
+      'Restores youthful curves and volume without puffiness',
+      'Reduces shadowing that contributes to a tired appearance',
+      'Lifts and supports surrounding tissues through volumetric anchoring',
+      'Rejuvenates high-risk zones like temples and forehead safely',
+      'Enhances harmony between upper, mid, and lower face',
+      'Rebuilds confidence with visible, yet undetectable change'
+    ],
+    indications: [
+      'Temples: Correct hollowing that creates shadowing and skeletal contours',
+      'Forehead: Restore gentle convexity and correct bony exposure or contour dips',
+      'Midface: Rebuild deep medial cheek fat and support tear trough integrity',
+      'Preauricular/Lower Face: Smooth hollowing, replenish lateral support, and contour jawline without heaviness',
+      'Chin & Perioral: Address perioral collapse and restore vertical height when needed'
+    ],
+    protocol: [
+        { label: 'Duration', value: '45–75 minutes' },
+        { label: 'Downtime', value: 'Minimal; mild swelling or bruising possible' },
+        { label: 'Results', value: 'Immediate soft volume; peak in 1–2 weeks' },
+        { label: 'Longevity', value: '12–18 months, depending on area & product' },
+        { label: 'Method', value: 'Microcannula and/or needle' },
+        { label: 'Ideal For', value: 'Volume loss, hollow temples, forehead dips, soft midface support' },
+        { label: 'Complementary To', value: 'Sofwave, collagen biostimulators, skinboosters' },
+    ]
   },
   {
     id: 'face-modulator-full',
@@ -1415,4 +1439,5 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
