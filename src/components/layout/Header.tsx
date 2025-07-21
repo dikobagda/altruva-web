@@ -44,7 +44,7 @@ const navItems: NavItem[] = [
       {
         label: 'Prejuvenation',
         subItems: [
-          { 
+          {
             label: 'Altruva Lift',
             subItems: [
                 { href: '/services/art-lyft-lite', label: 'Altruva A.R.T Lift (Lite)' },
@@ -52,7 +52,7 @@ const navItems: NavItem[] = [
                 { href: '/services/exion-lumi-rf', label: 'Altruva Lumi RF' },
             ]
           },
-          { 
+          {
             label: 'Altruva Lift Signature',
             subItems: [
                 { href: '/services/slim-contour-injection', label: 'Altruva Slim Contour Injection' },
@@ -60,14 +60,14 @@ const navItems: NavItem[] = [
                 { href: '/services/dermal-fillers', label: 'Altruva Dermal Fillers' },
             ]
           },
-          { 
+          {
             label: 'Signature Laser',
             subItems: [
                 { href: '/services/exion-lumi-laser', label: 'Altruva Lumi Laser' },
                 { href: '/services/exion-scar-solver', label: 'Altruva Scar Solver' },
             ]
           },
-          { 
+          {
             label: 'Signature Peels',
             subItems: [
                 { href: '/services/clarify-peel', label: 'Altruva Clarify Peel' },
@@ -79,11 +79,47 @@ const navItems: NavItem[] = [
       {
         label: 'Rejuvenation',
         subItems: [
-          { href: '/services/art-lyft', label: 'Altruva Lift' },
-          { href: '/services/gorgeous-lyft-rejuvenation', label: 'Altruva Lift Signature' },
-          { href: '/services/exion-regen-laser', label: 'Signature Laser' },
-          { href: '/services/radiant-advanced-peel', label: 'Signature Peels' },
-          { href: '/services/exoprime-pro', label: 'Skingeneering Boosters' },
+           {
+            label: 'Altruva Lift',
+            subItems: [
+              { href: '/services/art-lyft', label: 'Altruva A.R.T Lift PRO by dr. Aldisa' },
+              { href: '/services/gorgeous-lyft-rejuvenation', label: 'Altruva Gorgeous Lyft by dr. Aldisa' },
+              { href: '/services/radiance-lyft', label: 'Altruva Regenerative RF' },
+            ],
+          },
+           {
+            label: 'Altruva Lift Signature',
+             subItems: [
+              { href: '/services/cocktail-contouring', label: 'Altruva Cocktail Contouring' },
+              { href: '/services/face-modulator-full', label: 'Altruva Face Modulator (Full Dose)' },
+              { href: '/services/dermal-fillers-pro', label: 'Altruva Dermal Filler Pro' },
+            ],
+          },
+          {
+            label: 'Signature Laser',
+             subItems: [
+              { href: '/services/exion-regen-laser', label: 'Altruva Regenerative Laser' },
+              { href: '/services/exion-fractiopro', label: 'Altruva FractioPro' },
+            ],
+          },
+           {
+            label: 'Signature Peels',
+             subItems: [
+              { href: '/services/radiant-advanced-peel', label: 'Altruva Radiant Advanced Peel' },
+            ],
+          },
+           {
+            label: 'Skingeneering Boosters',
+             subItems: [
+              { href: '/services/dna-repair-pro', label: 'Altruva DNA Repair Pro' },
+              { href: '/services/dna-repair-eye', label: 'Altruva DNA Repair Eye' },
+              { href: '/services/exoprime-pro', label: 'Altruva Exoprime Pro' },
+              { href: '/services/melabooster', label: 'Altruva Mela-Boosters' },
+              { href: '/services/amino-booster', label: 'Altruva Amino Booster' },
+              { href: '/services/bio-prf-rejuvenation', label: 'Altruva Bio-PRF' },
+              { href: '/services/altruva-youth-elixir', label: 'Altruva Youth Elixir' },
+            ],
+          },
         ],
       },
     ],
