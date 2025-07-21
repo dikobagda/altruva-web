@@ -176,7 +176,28 @@ export const services: Service[] = [
     imageHint: 'chemical peel',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Signature Peels'
+    subgroup: 'Signature Peels',
+    subtitle: 'Targeted Clarity for Blemish-Prone Skin',
+    longDescription: 'At Altruva, we understand that breakout-prone skin needs more than just surface-level solutions. Altruva Clarify Peel is our advanced clearing peel that works deep within the skin to calm inflammation, combat acne, and brighten post-inflammatory pigmentation—without harsh disruption to your skin barrier.<br/><br/>Powered by a professional-strength blend of Salicylic Acid, Mandelic Acid, and the innovative Terpineol-Thymol Complex, this peel is curated for patients struggling with recurring blemishes, oil imbalance, and post-acne discoloration.',
+    whatIsIt: {
+        title: 'How It Works',
+        description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li>Salicylic Acid (BHA) deeply penetrates pores to dissolve sebum, clear blockages, and prevent future breakouts.</li><li>Mandelic Acid (AHA) offers gentle exfoliation to smooth skin texture and fade dark spots without irritation.</li><li>Terpineol-Thymol Complex is a patented antimicrobial technology that reduces redness, supports skin microbiome balance, and strengthens skin’s natural defenses.</li></ul>`
+    },
+    benefits: [
+        'Helps clear active acne and reduce future breakouts',
+        'Visibly lightens post-inflammatory hyperpigmentation (PIH)',
+        'Balances sebum production for oily and congested skin',
+        'Calms inflammation and redness without over-drying',
+        'Enhances skin clarity and smoothness after just a few sessions'
+    ],
+    indications: [
+        'Persistent blemishes and acne-prone skin',
+        'Redness and post-acne marks',
+        'Oily, congested, or rough skin texture'
+    ],
+    whyLoveIt: [
+        'Unlike traditional acne peels that may cause flaking or irritation, our protocol is designed with regenerative dermatology in mind. Paired with a personalized Altruva Glow regimen or combined with Exion Lumi Laser, it offers a gentle yet highly effective path to clear, luminous skin—no downtime, no harshness.'
+    ]
   },
   {
     id: 'korean-luminous-peel',
@@ -1255,5 +1276,7 @@ export const quizResults: Record<string, QuizResult> = {
   },
 };
 
+
+    
 
     
