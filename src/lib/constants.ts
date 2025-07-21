@@ -900,7 +900,37 @@ export const services: Service[] = [
     imageHint: 'advanced anti-aging',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    subtitle: 'The Science of Self-Renewal. Delivered.',
+    longDescription: 'Altruva Youth Elixir is an advanced, multi-tiered bioregenerative protocol formulated for individuals seeking long-term skin vitality, healing, and visible rejuvenation. This elite combination treatment merges three of the most potent tools in regenerative aesthetics: Polynucleotides (Plinest®), Cellbooster® Lift, and ProStem Secretome — each selected for their complementary mechanisms in cellular repair, dermal hydration, and collagen renewal.<br/><br/>Created as a biological elixir for the modern skin, this treatment transcends superficial hydration or anti-aging promises. Instead, it directly enhances the skin’s repair architecture, combats oxidative damage, and strengthens the dermal matrix from within.',
+    whatIsIt: {
+      title: 'What Makes Up the Youth Elixir?',
+      description: `<div class="space-y-4"><div><h4 class="font-semibold text-primary">Polynucleotides</h4><p>Derived from purified DNA fragments, polynucleotides act as bioactive cell messengers, enhancing fibroblast proliferation, tissue healing, and elasticity. Proven to be especially effective in post-acne scarring, wrinkle reduction, and barrier repair.</p></div><div><h4 class="font-semibold text-primary">Amino Acid Boosters</h4><p>A mesotherapy complex containing non-crosslinked hyaluronic acid, amino acids, and vitamins to improve microcirculation, collagen biosynthesis, and dermal hydration. It enhances skin texture, tone, and combats fine lines by feeding essential nutrients directly into the dermis.</p></div><div><h4 class="font-semibold text-primary">Secretome</h4><p>Rich in bio-signals including growth factors, cytokines, and exosomes, this ethically sourced stem cell-derived secretome stimulates deep tissue repair, improves mitochondrial function, reduces inflammation, and orchestrates global dermal rejuvenation.</p></div></div>`
+    },
+    benefits: [
+      'Enhances cell turnover and tissue regeneration',
+      'Boosts hydration while promoting long-term collagen production',
+      'Reduces the appearance of fine lines, scars, and hyperpigmentation',
+      'Improves skin elasticity, texture, and firmness',
+      'Accelerates post-inflammatory healing, ideal after laser or RF',
+      'Evens out skin tone and imparts a refined, radiant complexion'
+    ],
+    indications: [
+      'Patients over 40 seeking long-term collagen banking and wrinkle prevention',
+      'Post-acne or atrophic scarring concerns',
+      'Dull, dry, or uneven skin tone',
+      'Individuals undergoing stacked regenerative protocols (e.g., fractional RF, ultrasound lifting)',
+      'Those with stress-induced inflammation, early signs of glycation, or slow dermal healing'
+    ],
+    protocol: [
+      { label: 'Sessions', value: '3–4 sessions, spaced 2–4 weeks apart' },
+      { label: 'Customization', value: 'Personalized by dr. Olivia Aldisa based on anatomic map and regenerative profile' },
+      { label: 'Synergy', value: 'Can be combined with A.R.T Lift, Fractional RF, or Regenerative Laser' },
+      { label: 'Maintenance', value: '1–2 sessions every 6 months' },
+    ],
+    whyLoveIt: [
+      'Because beauty isn’t built in a single session. It’s cultivated through cellular intelligence, tissue harmony, and precise bio-signaling. At Altruva, we don’t chase the glow — we rebuild it from the inside out. — dr. Olivia Aldisa, International Trainer & Regenerative Aesthetics Expert'
+    ]
   },
   {
     id: 'radiant-advanced-peel',
@@ -1079,7 +1109,7 @@ export const services: Service[] = [
   {
     id: 'gorgeous-lyft-rejuvenation',
     title: 'Altruva Gorgeous Lyft by dr. Aldisa',
-    description: 'Liquid type biostimulators for strong collagen restoration.',
+    description: 'Injectable liquid type biostimulators for strong collagen restoration.',
     price: '11,000,000 IDR',
     category: 'Rejuvenation',
     Icon: HeartPulse,
@@ -1089,7 +1119,7 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Restoration &amp; Lifting',
     subtitle: "The Signature Liquid Collagen Bioactivator Experience",
-    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture.<br/>No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
+    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
     whatIsIt: {
       title: 'What is Gorgeous Lyft?',
       description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable.
@@ -1657,7 +1687,7 @@ export const glowQuizQuestions: QuizQuestion[] = [
     question: "What’s your current skin/aesthetic priority?",
     options: [
       { text: "I want glowing, hydrated skin and to delay signs of aging", score: 1 },
-      { text: "I want to firm up some areas and reduce pigmentation or early sagging", score: 2 },
+      { text: "I want to firm up some areas and to reduce pigmentation or early sagging", score: 2 },
       { text: "I want visible lift, volume restoration, and long-term rejuvenation", score: 3 },
     ],
   },
@@ -1735,6 +1765,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
