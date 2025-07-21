@@ -1,6 +1,9 @@
+
 'use server';
 
 import { z } from 'zod';
+import nodemailer from 'nodemailer';
+import { format } from 'date-fns';
 
 const appointmentFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -15,8 +18,43 @@ const appointmentFormSchema = z.object({
 type AppointmentFormValues = z.infer<typeof appointmentFormSchema>;
 
 export async function handleAppointmentSubmit(data: AppointmentFormValues) {
-  // This is a placeholder. In a real app, you would save this to a database
-  // or send it to a booking management system.
-  console.log('New Appointment Request:', data);
-  return { success: true, message: 'Your appointment request has been submitted!' };
+  const { name, email, phone, treatment, date, time, notes } = data;
+
+  // Configure Nodemailer transporter
+  // IMPORTANT: You need to set these environment variables in your .env file
+  const transporter = nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: Number(process.env.EMAIL_PORT),
+    secure: Number(process.env.EMAIL_PORT) === 465, // true for 465, false for other ports
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL_FROM,
+    to: 'admin@altruva.co.id',
+    subject: 'New Appointment Request',
+    html: `
+      <h1>New Appointment Request</h1>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>Treatment:</strong> ${treatment}</p>
+      <p><strong>Preferred Date:</strong> ${format(date, 'PPP')}</p>
+      <p><strong>Preferred Time:</strong> ${time}</p>
+      <p><strong>Notes:</strong></p>
+      <p>${notes || 'No additional notes provided.'}</p>
+    `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log('New Appointment Request Email Sent:', data);
+    return { success: true, message: 'Your appointment request has been submitted!' };
+  } catch (error) {
+    console.error('Failed to send appointment email:', error);
+    return { success: false, message: 'There was an error sending your request. Please try again later.' };
+  }
 }
