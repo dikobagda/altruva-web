@@ -154,7 +154,7 @@ export const services: Service[] = [
   },
   {
     id: 'bio-prf',
-    title: 'Bio-PRF',
+    title: 'Altruva Bio-PRF',
     description: 'Platelet-rich fibrin therapy for deep tissue regeneration.',
     price: '2,500,000 IDR',
     category: 'Prejuvenation',
@@ -163,7 +163,36 @@ export const services: Service[] = [
     imageHint: 'regenerative therapy',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    subtitle: 'Next-Generation Regeneration from Within',
+    longDescription: `At Altruva, we embrace the future of regenerative medicine. Altruva Bio-PRF (Platelet-Rich Fibrin) is our most advanced autologous treatment, using your body’s own biology to stimulate repair, rejuvenation, and regeneration—naturally.<br/><br/>Unlike traditional PRP, which offers a quick release of growth factors, Bio-PRF is designed for sustained, long-acting regeneration through its intelligent fibrin matrix. This makes it a cornerstone of our regenerative contouring philosophy—supporting structural collagen repair, improved tissue quality, and healing from the inside out.`,
+    whatIsIt: {
+      title: 'What Is Bio-PRF?',
+      description: `Bio-PRF is an evolution of platelet therapy. It contains not only high concentrations of platelets, but also leukocytes (white blood cells) and a natural fibrin scaffold—all prepared without anticoagulants. This allows the formation of a soft gel-like matrix that:
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Traps regenerative growth factors</li>
+        <li>Releases them slowly over 7–10 days</li>
+        <li>Supports long-term tissue healing and collagen induction</li>
+      </ul>
+      <p class="mt-2">It is completely autologous, meaning it's 100% derived from your own blood—no additives, no foreign substances, and no risk of rejection.</p>`
+    },
+    howItDiffers: 'Unlike PRP, which requires anticoagulants and offers a quick burst of growth factors, Bio-PRF creates a natural fibrin matrix that allows for a sustained release of growth factors over 7-10 days. This prolonged action provides more robust and lasting regenerative signals to the tissue.',
+    benefits: [
+      'Stimulates long-term collagen and elastin production',
+      'Improves skin quality, elasticity, and density',
+      'Enhances wound healing and reduces inflammation',
+      'Effective for hair regrowth, acne scars, dark undereyes, and skin rejuvenation',
+      'Excellent addition to GOURI, skinboosters, and energy-based devices'
+    ],
+    indications: [
+        'Face: Improves dermal thickness, glow, and firmness. A perfect complement to biostimulators or post-laser healing.',
+        'Hair: Encourages follicle repair and growth, ideal for early hair thinning.',
+        'Eye Area: Reduces dark circles and crepey skin with natural, regenerative power.',
+        'Scars: Reduces acne and atrophic scar depth by promoting healthy tissue remodeling.'
+    ],
+    whyLoveIt: [
+      'In a market saturated with synthetic fillers and quick fixes, Altruva Bio-PRF offers a return to nature—backed by science. It’s biocompatible, chemical-free, and patient-specific. At Altruva, we don’t just treat symptoms—we engineer skin longevity.'
+    ]
   },
   {
     id: 'clarify-peel',
@@ -715,13 +744,6 @@ export const services: Service[] = [
       'Non-puffy, filler-free eye rejuvenation',
       'Gentle, natural outcome with zero distortion'
     ],
-    indications: [
-        'Dark circles (vascular and pigmented)',
-        'Fine lines and crow\'s feet',
-        'Crepey, thin under-eye skin',
-        'Mild volume loss or hollowness',
-        'Tired-looking eyes'
-    ],
     protocol: [
       { label: 'Session Duration', value: '15–20 minutes' },
       { label: 'Protocol', value: '3–4 sessions spaced 2–3 weeks apart' },
@@ -827,7 +849,7 @@ export const services: Service[] = [
   },
   {
     id: 'bio-prf-rejuvenation',
-    title: 'Altruva Bio-PRF',
+    title: 'Altruva Bio-PRF Rejuvenation',
     description: 'Comprehensive regenerative healing.',
     price: '3,000,000 IDR',
     category: 'Rejuvenation',
@@ -836,7 +858,36 @@ export const services: Service[] = [
     imageHint: 'regenerative healing',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    subtitle: 'Next-Generation Regeneration from Within',
+    longDescription: `At Altruva, we embrace the future of regenerative medicine. Altruva Bio-PRF (Platelet-Rich Fibrin) is our most advanced autologous treatment, using your body’s own biology to stimulate repair, rejuvenation, and regeneration—naturally.<br/><br/>Unlike traditional PRP, which offers a quick release of growth factors, Bio-PRF is designed for sustained, long-acting regeneration through its intelligent fibrin matrix. This makes it a cornerstone of our regenerative contouring philosophy—supporting structural collagen repair, improved tissue quality, and healing from the inside out.`,
+    whatIsIt: {
+      title: 'What Is Bio-PRF?',
+      description: `Bio-PRF is an evolution of platelet therapy. It contains not only high concentrations of platelets, but also leukocytes (white blood cells) and a natural fibrin scaffold—all prepared without anticoagulants. This allows the formation of a soft gel-like matrix that:
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Traps regenerative growth factors</li>
+        <li>Releases them slowly over 7–10 days</li>
+        <li>Supports long-term tissue healing and collagen induction</li>
+      </ul>
+      <p class="mt-2">It is completely autologous, meaning it's 100% derived from your own blood—no additives, no foreign substances, and no risk of rejection.</p>`
+    },
+    howItDiffers: 'Unlike PRP, which requires anticoagulants and offers a quick burst of growth factors, Bio-PRF creates a natural fibrin matrix that allows for a sustained release of growth factors over 7-10 days. This prolonged action provides more robust and lasting regenerative signals to the tissue.',
+    benefits: [
+      'Stimulates long-term collagen and elastin production',
+      'Improves skin quality, elasticity, and density',
+      'Enhances wound healing and reduces inflammation',
+      'Effective for hair regrowth, acne scars, dark undereyes, and skin rejuvenation',
+      'Excellent addition to GOURI, skinboosters, and energy-based devices'
+    ],
+    indications: [
+        'Face: Improves dermal thickness, glow, and firmness. A perfect complement to biostimulators or post-laser healing.',
+        'Hair: Encourages follicle repair and growth, ideal for early hair thinning.',
+        'Eye Area: Reduces dark circles and crepey skin with natural, regenerative power.',
+        'Scars: Reduces acne and atrophic scar depth by promoting healthy tissue remodeling.'
+    ],
+    whyLoveIt: [
+      'In a market saturated with synthetic fillers and quick fixes, Altruva Bio-PRF offers a return to nature—backed by science. It’s biocompatible, chemical-free, and patient-specific. At Altruva, we don’t just treat symptoms—we engineer skin longevity.'
+    ]
   },
   {
     id: 'altruva-youth-elixir',
@@ -1684,6 +1735,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
