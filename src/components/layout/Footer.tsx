@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image
-                src="/images/altruva_logo.png"
+                src="/images/logo-altruva.png"
                 width={90}
                 height={90}
                 alt="Altruva Logo"

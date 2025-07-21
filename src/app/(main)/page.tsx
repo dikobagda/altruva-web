@@ -209,7 +209,7 @@ export default function HomePage() {
               data-ai-hint="futuristic skin analysis"
             />
              <div className="absolute -top-4 -left-4 bg-primary p-3 rounded-full shadow-lg">
-                <Image src="/images/altruva_logo.png" alt="Altruva Logo" width={40} height={40} />
+                <Image src="/images/logo-altruva.png" alt="Altruva Logo" width={40} height={40} />
             </div>
           </div>
           <div>
