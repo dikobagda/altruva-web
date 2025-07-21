@@ -556,7 +556,7 @@ export const services: Service[] = [
         <li><strong>Lips:</strong> Optional volume or structure without distortion</li>
       </ul>`,
     },
-    howItDiffers: 'Profile Balancing Approach. Minimalism with Intent. Product Synergy. Microcannula Precision. Regenerative Add-ons.',
+    howItDiffers: 'Profile Balancing Approach: Each injection supports aesthetic harmony — not isolated features. Minimalism with Intent: We believe in doing less but doing it precisely. Product Synergy: HA fillers are selected based on elasticity, cohesivity, and area-specific need. Microcannula Precision: Safer and less traumatic delivery for most areas. Regenerative Add-ons: Optionally layered with PRF, PN, or skin boosters for longer-term support.',
     whyLoveIt: [
       "Why Start Fillers Under 40?",
       "Early Intervention = Preventative Aging",
@@ -599,7 +599,7 @@ export const services: Service[] = [
     id: 'dna-repair-pro',
     title: 'Altruva DNA Repair Pro',
     description: 'Reinforces skin’s cellular repair system.',
-    longDescription: `Altruva DNA Repair Pro is a next-generation regenerative protocol powered by Polynucleotides (PN) — clinically purified DNA fragments that stimulate deep dermal healing, reverse cellular fatigue, and restore skin architecture from the inside out. Far beyond hydration, this treatment reactivates fibroblasts, encourages collagen remodeling, and reestablishes skin homeostasis — making it a cornerstone for age-related skin degeneration, post-acne scarring, and periocular rejuvenation.`,
+    longDescription: `Altruva DNA Repair Pro is a next-generation regenerative protocol powered by Polynucleotides (PN) — clinically purified DNA fragments that stimulate deep dermal healing, reverse cellular fatigue, and restore skin architecture from the inside out. Far beyond hydration, this treatment reactivates fibroblasts, encourages collagen remodeling, and reestablishes skin homeostasis — making it a cornerstone for age-related skin degeneration, post-acne scarring, and periocular rejuvenation.<br/><br/><i>“DNA Repair isn’t just about reversing aging — it’s about restoring vitality at a cellular level. That’s regenerative beauty.” — dr. Olivia Aldisa, Facial Architect & Cellular Rejuvenation Specialist</i>`,
     subtitle: 'Advanced Polynucleotide Skin Regeneration by dr. Aldisa',
     price: '7,500,000 IDR',
     category: 'Rejuvenation',
@@ -663,7 +663,48 @@ export const services: Service[] = [
     imageHint: 'eye treatment',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    subtitle: 'Targeted Polynucleotide Eye Regeneration – Tailored by dr. Aldisa',
+    longDescription: `Altruva DNA Repair Eye is a specialized micro-regeneration protocol powered by ultra-purified polynucleotides (PN) designed specifically for the delicate under-eye area. Crafted to combat dark circles, fine lines, volume thinning, and crepey texture, this treatment reactivates cellular vitality while hydrating and restoring periocular firmness — without puffiness or unnatural volume.<br/><br/>This is not a filler — this is cellular awakening for tired, aging eyes.<br/><br/><i>“The eyes are where fatigue, age, and emotion show first. DNA Repair Eye restores their language to one of radiance.” — dr. Olivia Aldisa, Periocular Harmony Specialist</i>`,
+    whatIsIt: {
+      title: 'How Altruva DNA Repair Eye Works',
+      description: `The periorbital region is thinner, more vascular, and more prone to early aging due to its fragility and constant micro-movement. Conventional injectables often fail here due to the risk of Tyndall effect, puffiness, or migration. Polynucleotides, with their regenerative but non-volumizing action, offer the ideal solution for this high-risk zone. They work by:
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li><strong>Polynucleotide Power (PN):</strong> DNA fragments derived from marine origin stimulate fibroblast proliferation, enhancing collagen and elastin synthesis while repairing extracellular matrix integrity.</li>
+        <li><strong>Microcirculation Activation:</strong> Improves oxygen and nutrient flow in the infraorbital area — reducing dark circles and dullness caused by stagnation or vascular congestion.</li>
+        <li><strong>Fibrillar Regeneration:</strong> Targets thinning dermis, reinforcing skin structure without the heaviness of fillers.</li>
+        <li><strong>Barrier Protection & Hydration:</strong> Enhances skin’s own hyaluronic acid production, restoring hydration and comfort to dry or sensitive under-eyes.</li>
+      </ul>`
+    },
+    benefits: [
+      'Reduces dark circles and vascular shadows',
+      'Smooths fine lines and crêpey texture',
+      'Tightens and firms thinning under-eye skin',
+      'Restores radiance to tired eyes',
+      'Safe for use in tear troughs and eyelid junctions',
+      'Non-puffy, filler-free eye rejuvenation',
+      'Gentle, natural outcome with zero distortion'
+    ],
+    indications: [
+        'Dark circles (vascular and pigmented)',
+        'Fine lines and crow\'s feet',
+        'Crepey, thin under-eye skin',
+        'Mild volume loss or hollowness',
+        'Tired-looking eyes'
+    ],
+    protocol: [
+      { label: 'Session Duration', value: '15–20 minutes' },
+      { label: 'Protocol', value: '3–4 sessions spaced 2–3 weeks apart' },
+      { label: 'Longevity', value: '6–9 months (may vary)' },
+      { label: 'Technique', value: 'Microinjection or microbolus' },
+      { label: 'Layering Option', value: 'Safe with PRF, skin boosters, or lasers' },
+    ],
+    whyLoveIt: [
+      'Zero Tyndall Risk: No blue hue or light reflection.',
+      'Volume-Free Approach: No risk of puffiness or overcorrection.',
+      'Science-Based Safety: Derived from sterile, bio-purified DNA.',
+      'Proven Regeneration: Backed by clinical evidence on dermal repair.'
+    ]
   },
   {
     id: 'amino-booster',
@@ -889,7 +930,7 @@ export const services: Service[] = [
       { label: 'Sessions', value: 'One treatment per year is recommended; twice annually for advanced aging' },
       { label: 'Downtime', value: 'Minimal — some mild redness or swelling resolves in hours' },
       { label: 'Peak Results', value: '6–12 weeks post-treatment, with ongoing improvement for 3–6 months' }
-    ]
+    ],
   },
   {
     id: 'gorgeous-lyft-rejuvenation',
@@ -972,11 +1013,6 @@ export const services: Service[] = [
       'Minimal to zero downtime'
     ],
     indications: [
-      'Skin laxity (jawline, cheeks, under-eye)',
-      'Fine lines and moderate wrinkles',
-      'Rough or uneven skin texture',
-      'Enlarged pores and dullness',
-      'Collagen depletion in mature skin',
       'Men and women 40+ experiencing visible skin aging',
       'Clients not yet ready for invasive lifting or injectables',
       'Individuals with textural decline, sagging contours, and early jowl formation',
@@ -1047,7 +1083,7 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Signature Restoration',
     subtitle: "Volume Reclaimed. Contours Reawakened. Elegantly Executed by dr. Aldisa",
-    longDescription: `Aging is not just about wrinkles — it’s about deflation, descent, and disruption of volume harmony. Altruva Dermal Filler Pro is an advanced volumization protocol tailored for those over 40, where the priority shifts from enhancement to restoration.<br/><br/>Led by dr. Olivia Aldisa, a pioneer in regenerative and anatomical aesthetics, this protocol focuses on replacing structural volume loss, especially around the temples, forehead, midface, and preauricular zones, with sophisticated placement that respects your facial dynamics — never overfilling, never distorting.`,
+    longDescription: `Aging is not just about wrinkles — it’s about deflation, descent, and disruption of volume harmony. Altruva Dermal Filler Pro is an advanced volumization protocol tailored for those over 40, where the priority shifts from enhancement to restoration.<br/><br/>Led by dr. Olivia Aldisa, a pioneer in regenerative and anatomical aesthetics, this protocol focuses on replacing structural volume loss, especially around the temples, forehead, midface, and preauricular zones, with sophisticated placement that respects your facial dynamics — never overfilling, never distorting.<br/><br/><i>“We’re not chasing youth — we’re restoring structure. When you lift the face the right way, you lift the spirit too.” — dr. Olivia Aldisa, Expert in Volumetric Harmony & Anatomical Restoration</i>`,
     whatIsIt: {
         title: 'The Methodology',
         description: `With Altruva Dermal Filler Pro, dr. Aldisa maps the entire facial framework, identifying where volume has been lost and how to rebuild with tastefully conservative doses, using:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Dynamic HA Fillers:</strong> Only premium, FDA-approved fillers with optimal tissue integration, elasticity, and safety profiles</li><li><strong>Microcannula & Needle Strategy:</strong> Safe and precise delivery based on vascular maps and anatomical zones</li><li><strong>Fat Pad Mapping:</strong> Volume is replaced according to fat compartment anatomy for predictable, natural lift</li><li><strong>Tissue Behavior Analysis:</strong> Ensures movement remains dynamic — never stiff or “stuffed”</li></ul>`
@@ -1091,7 +1127,7 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Signature Restoration',
     subtitle: "Total Muscle Harmony. Signature Precision. By dr. Aldisa.",
-    longDescription: `Altruva Face Modulator (Full Dose) is a full-spectrum neuromodulation protocol that redefines facial freshness through strategic, personalized botulinum toxin mapping. Engineered for those over 40, this treatment is not about freezing expression — it’s about resetting facial balance, lifting fatigue, and restoring dynamic symmetry with natural grace.<br/><br/>Dr. Aldisa applies her expertise in facial anatomy, aging patterns, and personalized dosing to harmonize muscle activity across the face — from frown lines and jaw tension to brow positioning and perioral movement. The result? A refreshed, rested, and refined look that feels like you — only better.`,
+    longDescription: `Altruva Face Modulator (Full Dose) is a full-spectrum neuromodulation protocol that redefines facial freshness through strategic, personalized botulinum toxin mapping. Engineered for those over 40, this treatment is not about freezing expression — it’s about resetting facial balance, lifting fatigue, and restoring dynamic symmetry with natural grace.<br/><br/>Dr. Aldisa applies her expertise in facial anatomy, aging patterns, and personalized dosing to harmonize muscle activity across the face — from frown lines and jaw tension to brow positioning and perioral movement. The result? A refreshed, rested, and refined look that feels like you — only better.<br/><br/><i>“Expression is human. Modulation is art. My role is to enhance your face’s natural rhythm — not mute it.” — dr. Olivia Aldisa, Architect of Altruva Face Modulator</i>`,
     whatIsIt: {
       title: "How It Works",
       description: `<p class="mb-2">Utilizing full-dose botulinum toxin, dr. Aldisa performs full-face mapping to:</p>
@@ -1552,6 +1588,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
