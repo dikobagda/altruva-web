@@ -33,6 +33,7 @@ const navItems: NavItem[] = [
     label: 'About',
     subItems: [
       { href: '/about-us', label: 'About us' },
+      { href: '/about-us/meet-dr-olivia-aldisa', label: 'Meet dr. Olivia Aldisa' },
       { href: '/our-clinic', label: 'Our Clinic' },
       { href: '/about-us/369-harmony', label: '369 Harmony™' },
       { href: '/news-media', label: 'News & Media' },
