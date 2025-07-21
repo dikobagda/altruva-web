@@ -57,7 +57,7 @@ export const services: Service[] = [
       description: `<ul class="list-disc pl-5 space-y-2">
         <li><strong class="text-primary">Fully Personalized Protocol:</strong> Whether you're battling congestion, sensitivity, dullness, or early signs of aging — your facial will be individually customized to treat your skin’s real-time needs.</li>
         <li><strong class="text-primary">PDT Light Technology (Photodynamic Therapy):</strong> Targeted LED wavelengths are incorporated based on your skin goals:
-          <ul class="list-disc pl-5 mt-1">
+          <ul class="list-disc pl-5 mt-1" style="padding-left: 40px;">
             <li><strong class="text-primary">Blue Light (415 nm):</strong> For acne-prone skin, kills P. acnes bacteria and calms inflammation.</li>
             <li><strong class="text-primary">Red Light (630 nm):</strong> Stimulates collagen, improves circulation, and supports cellular renewal.</li>
             <li><strong class="text-primary">Infrared Light (830 nm):</strong> Penetrates deeply to reduce inflammation, increase elasticity, and accelerate healing — ideal for mature, reactive, or post-procedure skin.</li>
@@ -110,7 +110,7 @@ export const services: Service[] = [
         <li><strong class="text-primary">Infuse:</strong> While exfoliating and extracting, the device also infuses targeted serums — chosen by your therapist — to address hydration, pigmentation, acne, or dullness. These actives penetrate deeply for immediate and visible impact.</li>
       </ol>
       <h4 class="font-semibold text-primary mt-4">Custom-Infused Serums May Include:</h4>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;">
         <li><strong class="text-primary">Hyaluronic Acid:</strong> Deep hydration + plumping</li>
         <li><strong class="text-primary">Salicylic Acid:</strong> Acne, oil control, and decongestion</li>
         <li><strong class="text-primary">Vitamin C:</strong> Brightening and antioxidant protection</li>
@@ -246,7 +246,7 @@ export const services: Service[] = [
     whatIsIt: {
       title: 'What Is Bio-PRF?',
       description: `Bio-PRF is an evolution of platelet therapy. It contains not only high concentrations of platelets, but also leukocytes (white blood cells) and a natural fibrin scaffold—all prepared without anticoagulants. This allows the formation of a soft gel-like matrix that:
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;">
         <li>Traps regenerative growth factors</li>
         <li>Releases them slowly over 7–10 days</li>
         <li>Supports long-term tissue healing and collagen induction</li>
@@ -287,7 +287,7 @@ export const services: Service[] = [
     longDescription: 'At Altruva, we understand that breakout-prone skin needs more than just surface-level solutions. Altruva Clarify Peel is our advanced clearing peel that works deep within the skin to calm inflammation, combat acne, and brighten post-inflammatory pigmentation—without harsh disruption to your skin barrier.<br/><br/>Powered by a professional-strength blend of Salicylic Acid, Mandelic Acid, and the innovative Terpineol-Thymol Complex, this peel is curated for patients struggling with recurring blemishes, oil imbalance, and post-acne discoloration.',
     whatIsIt: {
         title: 'How It Works',
-        description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Salicylic Acid (BHA):</strong> deeply penetrates pores to dissolve sebum, clear blockages, and prevent future breakouts.</li><li><strong>Mandelic Acid (AHA):</strong> offers gentle exfoliation to smooth skin texture and fade dark spots without irritation.</li><li><strong>Terpineol-Thymol Complex:</strong> is a patented antimicrobial technology that reduces redness, supports skin microbiome balance, and strengthens skin’s natural defenses.</li></ul>`
+        description: `<ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Salicylic Acid (BHA):</strong> deeply penetrates pores to dissolve sebum, clear blockages, and prevent future breakouts.</li><li><strong>Mandelic Acid (AHA):</strong> offers gentle exfoliation to smooth skin texture and fade dark spots without irritation.</li><li><strong>Terpineol-Thymol Complex:</strong> is a patented antimicrobial technology that reduces redness, supports skin microbiome balance, and strengthens skin’s natural defenses.</li></ul>`
     },
     benefits: [
         'Helps clear active acne and reduce future breakouts',
@@ -321,7 +321,7 @@ export const services: Service[] = [
     longDescription: "Inspired by the elegance of Korean skin philosophy, the Altruva Korean Luminous Peel is a next-generation chemical resurfacing treatment powered by LHA (Lipo-Hydroxy Acid) and HP-Sol™ technology. This gentle yet intelligent exfoliation system is designed for those who seek brighter, smoother, and more refined skin—without irritation, flaking, or social downtime.<br/>Unlike traditional peels that rely on high-acid concentrations to force skin shedding, this protocol honors your skin’s biology by supporting natural turnover, collagen renewal, and barrier integrity—making it ideal for sensitive skin or first-time peel users.",
     whatIsIt: {
       title: 'How It Works',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>LHA (Lipo-Hydroxy Acid):</strong> A lipid-soluble salicylic acid derivative that penetrates slowly, targeting clogged pores and dull skin with precision while being extremely gentle on the skin barrier.</li><li><strong>HP-Sol™ Complex:</strong> A patented alkaline complex that stimulates fibroblast activity for collagen production, balances skin pH, and supports healing—creating a glow-from-within effect.</li><li><strong>Skin-Friendly Lipids:</strong> Incorporated to hydrate, protect, and soothe, these actives ensure skin comfort during and after exfoliation.</li></ul>`
+      description: `<ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>LHA (Lipo-Hydroxy Acid):</strong> A lipid-soluble salicylic acid derivative that penetrates slowly, targeting clogged pores and dull skin with precision while being extremely gentle on the skin barrier.</li><li><strong>HP-Sol™ Complex:</strong> A patented alkaline complex that stimulates fibroblast activity for collagen production, balances skin pH, and supports healing—creating a glow-from-within effect.</li><li><strong>Skin-Friendly Lipids:</strong> Incorporated to hydrate, protect, and soothe, these actives ensure skin comfort during and after exfoliation.</li></ul>`
     },
     benefits: [
       'Minimizes pores and clears out congestion',
@@ -357,7 +357,7 @@ export const services: Service[] = [
     longDescription: 'The Altruva Lumi Laser is a non-invasive skin optimization treatment that uses next-generation radiofrequency (RF) technology to target skin clarity, pigmentation, and textural refinement—all without downtime. This advanced protocol works deeply within the dermis to stimulate collagen, brighten the complexion, and refine pores, resulting in skin that’s visibly clearer, smoother, and more radiant after each session.<br/><br/>Crafted for those seeking visible results with minimal interruption to daily life, Lumi Laser is a cornerstone treatment in Altruva’s Prejuvenation and Glow Optimization programs.',
     whatIsIt: {
         title: 'Technology in Action',
-        description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Smart RF Energy Delivery:</strong> Gently penetrates the skin to awaken fibroblasts and trigger natural regeneration, without damaging the surface layer.</li><li><strong>Collagen & Elastin Biostimulation:</strong> Encourages dermal renewal and boosts elasticity for skin that’s visibly firmer and youthfully plump.</li><li><strong>Melanin Modulation:</strong> Reduces the appearance of age spots, sun damage, and uneven pigmentation, restoring a more even and luminous tone.</li><li><strong>Texture Refinement:</strong> Smoothes skin surface, minimizes pores, and restores a polished skin finish.</li></ul>`
+        description: `<ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Smart RF Energy Delivery:</strong> Gently penetrates the skin to awaken fibroblasts and trigger natural regeneration, without damaging the surface layer.</li><li><strong>Collagen & Elastin Biostimulation:</strong> Encourages dermal renewal and boosts elasticity for skin that’s visibly firmer and youthfully plump.</li><li><strong>Melanin Modulation:</strong> Reduces the appearance of age spots, sun damage, and uneven pigmentation, restoring a more even and luminous tone.</li><li><strong>Texture Refinement:</strong> Smoothes skin surface, minimizes pores, and restores a polished skin finish.</li></ul>`
     },
     benefits: [
         'Brightens dull, uneven skin tone',
@@ -394,7 +394,7 @@ export const services: Service[] = [
     longDescription: "Altruva Scar Solver is our signature skin-texture treatment powered by Exion Fractional RF, an advanced microneedling radiofrequency platform enhanced by AI-optimized precision. Specially curated for those with acne scarring, enlarged pores, stretch marks, and post-inflammatory irregularities, this treatment delivers focused energy into the skin’s deeper layers—stimulating collagen, elastin, and hyaluronic acid regeneration.<br/>By bridging the benefits of controlled dermal injury and intelligent energy delivery, Scar Solver achieves smoother, firmer, and more even-toned skin—naturally, progressively, and with minimal downtime.",
     whatIsIt: {
       title: 'How It Works',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><strong>Microneedling + RF Synergy:</strong> Ultrathin microneedles penetrate the skin to create micro-channels, triggering the skin’s natural wound-healing response. Simultaneously, radiofrequency energy is delivered into the dermis to heat and remodel tissue, supercharging collagen synthesis.</li><li><strong>AI Energy Delivery:</strong> The device’s smart algorithm tailors RF delivery in real-time based on skin feedback, ensuring maximum results with minimized discomfort or thermal injury.</li><li><strong>8mm Penetration Depth Without Full Needle Insertion:</strong> Unlike traditional RF microneedling, Altruva Scar Solver allows deep dermal targeting without the trauma of full-depth needle insertion—making it highly effective for textural scars and skin laxity, even in delicate zones.</li></ul>`
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;"><li><strong>Microneedling + RF Synergy:</strong> Ultrathin microneedles penetrate the skin to create micro-channels, triggering the skin’s natural wound-healing response. Simultaneously, radiofrequency energy is delivered into the dermis to heat and remodel tissue, supercharging collagen synthesis.</li><li><strong>AI Energy Delivery:</strong> The device’s smart algorithm tailors RF delivery in real-time based on skin feedback, ensuring maximum results with minimized discomfort or thermal injury.</li><li><strong>8mm Penetration Depth Without Full Needle Insertion:</strong> Unlike traditional RF microneedling, Altruva Scar Solver allows deep dermal targeting without the trauma of full-depth needle insertion—making it highly effective for textural scars and skin laxity, even in delicate zones.</li></ul>`
     },
     benefits: [
       'Softens and smoothens acne scars and textural irregularities',
@@ -478,7 +478,7 @@ export const services: Service[] = [
     whatIsIt: {
       title: 'What is Gorgeous Lyft?',
       description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable.
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;">
         <li><strong>Liquid PCL:</strong> Unlike microparticle biostimulators, Gouri flows seamlessly across the dermis.</li>
         <li><strong>Multi-Zone Collagenesis:</strong> A few targeted injections can reach broad facial areas.</li>
         <li><strong>Gradual Lifting, Brightening & Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
@@ -526,7 +526,7 @@ export const services: Service[] = [
     longDescription: `Altruva Lumi RF is a non-invasive, regenerative radiofrequency treatment uniquely engineered to awaken your skin’s collagen and elastin without needles, pain, or downtime. Powered by advanced Exion™ technology, Lumi RF delivers intelligent energy deep into the dermis to refine skin texture, tighten sagging areas, and amplify natural hyaluronic acid production—resulting in firmer, smoother, more radiant skin.<br/><br/>This is the future of RF-powered lifting—effortless, elegant, and effective.<br/><br/><i>“We believe skin should glow from its own wisdom. Lumi RF helps your face remember how.” — dr. Olivia Aldisa, Medical Director of Altruva Aesthetic Clinic</i>`,
     whatIsIt: {
         title: 'How Lumi RF Works',
-        description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><strong>Smart Radiofrequency (RF) Energy:</strong> Exion-powered RF heats the deeper dermal layers in a controlled, uniform way—stimulating fibroblasts to regenerate collagen and elastin without damaging the surface. Expect visibly firmer contours and smoother skin over time.</li><li><strong>Targeted Ultrasound Boost:</strong> By combining targeted ultrasound, Lumi RF supercharges the regenerative process—enhancing collagen crosslinking and optimizing skin density in areas prone to laxity, like under the eyes or jawline.</li><li><strong>Needle-Free, AI-Guided Delivery:</strong> Unlike traditional microneedling RF, Lumi RF is completely needle-free and uses AI-driven thermal mapping to ensure safe, consistent energy delivery. The result? A comfortable experience with measurable results.</li></ul>`
+        description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;"><li><strong>Smart Radiofrequency (RF) Energy:</strong> Exion-powered RF heats the deeper dermal layers in a controlled, uniform way—stimulating fibroblasts to regenerate collagen and elastin without damaging the surface. Expect visibly firmer contours and smoother skin over time.</li><li><strong>Targeted Ultrasound Boost:</strong> By combining targeted ultrasound, Lumi RF supercharges the regenerative process—enhancing collagen crosslinking and optimizing skin density in areas prone to laxity, like under the eyes or jawline.</li><li><strong>Needle-Free, AI-Guided Delivery:</strong> Unlike traditional microneedling RF, Lumi RF is completely needle-free and uses AI-driven thermal mapping to ensure safe, consistent energy delivery. The result? A comfortable experience with measurable results.</li></ul>`
     },
     whyLoveIt: [
       'Tightens Sagging Skin Naturally',
@@ -564,7 +564,7 @@ export const services: Service[] = [
     longDescription: `Altruva Slim Contour Injection is a targeted fat-dissolving injectable designed for individuals under 40 who struggle with stubborn facial fat in key areas like the lower cheeks, jawline, and submental (double chin) region. Whether due to genetics or lifestyle, facial heaviness can obscure natural bone structure—even in those with a healthy BMI.<br/><br/>This treatment provides a non-surgical solution to refine contours, improve definition, and reshape the face for a leaner, more V-shaped profile—without downtime.<br/><br/><i>“It’s not about changing your face. It’s about unlocking its best version—cleaner lines, lifted confidence, no unnecessary volume.”<br/>— dr. Olivia Aldisa, Facial Contouring Specialist & Altruva Founder</i>`,
     whatIsIt: {
         title: 'How It Works',
-        description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+        description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
             <li><strong>Advanced Lipolytic Complex:</strong> Our formula is powered by clinically proven lipolytic compounds that selectively break down localized fat deposits while preserving skin integrity and surrounding tissues.</li>
             <li><strong>Microinjection Delivery:</strong> Administered via precise microinjections, the solution acts in the subcutaneous fat layer to liquefy fat cells, which are then naturally eliminated through the body’s lymphatic system.</li>
             <li><strong>Targeted Contouring:</strong> By reducing excess volume in specific areas, the treatment restores facial harmony and sharpens structural definition—especially in the jawline, jowl zone, and lower face.</li>
@@ -606,7 +606,7 @@ export const services: Service[] = [
     longDescription: `In a world where subtlety matters, Altruva Face Modulator (Half Dose) offers a refined approach to facial sculpting using microdosed botulinum toxin. Curated for those under 40, this treatment focuses on preventative contour modulation, delivering natural, soft corrections — not frozen expressions.<br/><br/>Whether it’s jawline slimming, temple lifting, or refining the upper face, this procedure enhances your features without overt volume loss or exaggerated stiffness. It’s about precision, personalization, and respecting your facial identity.<br/><br/>Every Altruva Face Modulator treatment is custom-designed by dr. Olivia Aldisa, integrating anatomical mapping and muscle balance principles to ensure precision, proportion, and preservation of your identity.`,
     whatIsIt: {
         title: 'How It Works',
-        description: `Botulinum toxin, in a calibrated half dose, is administered strategically to modulate overactive muscles that contribute to undesirable bulk, heaviness, or downward pull:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Jawline:</strong> Slims bulky masseter muscles to enhance V-shape contours and reduce facial width.</li><li><strong>Upper Face:</strong> Softens glabella tension, subtly lifts brows, and prevents early wrinkle formation — all without freezing natural movement.</li></ul>`
+        description: `Botulinum toxin, in a calibrated half dose, is administered strategically to modulate overactive muscles that contribute to undesirable bulk, heaviness, or downward pull:<br/><ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Jawline:</strong> Slims bulky masseter muscles to enhance V-shape contours and reduce facial width.</li><li><strong>Upper Face:</strong> Softens glabella tension, subtly lifts brows, and prevents early wrinkle formation — all without freezing natural movement.</li></ul>`
     },
     howItDiffers: 'For those under 40, smaller doses are ideal to prevent dynamic lines and slow early sagging — while preserving natural expression. Rather than full paralysis, the focus is modulation: dialing down overactivity to reshape, contour, and harmonize facial dynamics. Lower doses mean less risk of asymmetry, frozen looks, or unwanted diffusion. This is bespoke aesthetic medicine — not one-size-fits-all.',
     benefits: [
@@ -646,14 +646,14 @@ export const services: Service[] = [
     whatIsIt: {
         title: 'The Philosophy: Face Optimization Before Correction',
         description: `Instead of reversing aging, Altruva Dermal Fillers focus on:<br/>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;">
         <li>Enhancing natural beauty through proportional feature balancing</li>
         <li>Strengthening the facial foundation to delay sagging and volume loss</li>
         <li>Modulating fat compartments to optimize contour and symmetry</li>
         <li>Supporting prejuvenation with regenerative injection techniques</li>
       </ul>
       <h4 class="font-semibold text-primary mt-4">Treatment Areas May Include:</h4>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;">
         <li><strong>Chin:</strong> Subtle projection to define your profile</li>
         <li><strong>Jawline:</strong> Soft contouring for a refined lower face</li>
         <li><strong>Cheeks:</strong> Gentle enhancement for structure and midface lift</li>
@@ -704,7 +704,7 @@ export const services: Service[] = [
     longDescription: 'Altruva Exoprime Pro is an advanced, non-invasive regenerative treatment leveraging the science of exosomes to enhance skin health, promote rejuvenation, and support hair vitality. Exosomes are microscopic vesicles naturally secreted by cells, rich in bioactive compounds such as proteins, lipids, mRNA, and microRNAs—essential for cellular communication and repair. These vesicles act as messengers, triggering key biological processes that lead to improved skin texture, reduced inflammation and pigmentation, enhanced wound healing, and stimulation of hair growth.',
     whatIsIt: {
       title: 'Core Applications',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li>Skin Rejuvenation</li><li>Wound and Scar Repair</li><li>Anti-aging and Texture Refinement</li><li>Hair Restoration and Scalp Revitalization</li></ul>`
+      description: `<ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li>Skin Rejuvenation</li><li>Wound and Scar Repair</li><li>Anti-aging and Texture Refinement</li><li>Hair Restoration and Scalp Revitalization</li></ul>`
     },
     mechanism: [
       { title: 'Boosts Collagen & Elastin', description: 'Supports dermal remodeling by accelerating fibroblast activity' },
@@ -806,7 +806,7 @@ export const services: Service[] = [
     whatIsIt: {
       title: 'How Altruva DNA Repair Eye Works',
       description: `The periorbital region is thinner, more vascular, and more prone to early aging due to its fragility and constant micro-movement. Conventional injectables often fail here due to the risk of Tyndall effect, puffiness, or migration. Polynucleotides, with their regenerative but non-volumizing action, offer the ideal solution for this high-risk zone. They work by:
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;">
         <li><strong>Polynucleotide Power (PN):</strong> DNA fragments derived from marine origin stimulate fibroblast proliferation, enhancing collagen and elastin synthesis while repairing extracellular matrix integrity.</li>
         <li><strong>Microcirculation Activation:</strong> Improves oxygen and nutrient flow in the infraorbital area — reducing dark circles and dullness caused by stagnation or vascular congestion.</li>
         <li><strong>Fibrillar Regeneration:</strong> Targets thinning dermis, reinforcing skin structure without the heaviness of fillers.</li>
@@ -852,7 +852,7 @@ export const services: Service[] = [
     longDescription: `Altruva Amino Booster is a multi-functional skinboosters protocol formulated to restore vitality, elasticity, and hydration to the skin. This intradermal injectable cocktail contains hyaluronic acid, essential amino acids, and skin-repairing vitamins, designed to revive dull, tired, and aging skin from the inside out.<br/><br/>It’s more than a glow treatment — it’s cellular nutrition that rewires how your skin behaves.`,
     whatIsIt: {
       title: 'What’s Inside & Why It Matters',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><h4 class="font-semibold text-primary">Hyaluronic Acid</h4><p>Deeply hydrates and plumps the dermis, reducing fine lines</p></li><li><h4 class="font-semibold text-primary">Amino Acids</h4><p>Fundamental for collagen synthesis, skin repair, and resilience</p></li><li><h4 class="font-semibold text-primary">Vitamins (B-complex, C, E)</h4><p>Protects against oxidative stress, supports microcirculation, boosts glow</p></li></ul><p class="mt-4">Together, they reactivate your skin’s metabolic engine for healthier structure, tone, and function.</p>`
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;"><li><h4 class="font-semibold text-primary">Hyaluronic Acid</h4><p>Deeply hydrates and plumps the dermis, reducing fine lines</p></li><li><h4 class="font-semibold text-primary">Amino Acids</h4><p>Fundamental for collagen synthesis, skin repair, and resilience</p></li><li><h4 class="font-semibold text-primary">Vitamins (B-complex, C, E)</h4><p>Protects against oxidative stress, supports microcirculation, boosts glow</p></li></ul><p class="mt-4">Together, they reactivate your skin’s metabolic engine for healthier structure, tone, and function.</p>`
     },
     mechanism: [
       { title: 'Boosts Collagen & Elastin', description: 'Supports dermal remodeling by accelerating fibroblast activity' },
@@ -901,7 +901,7 @@ export const services: Service[] = [
     longDescription: 'Altruva Mela-Boosters is an advanced depigmenting protocol specifically formulated to treat melasma and persistent hyperpigmentation in Asian skin. By synergistically combining the brightening power of Vitamin C, Arbutin, Succinic Acid, and Mulberry Extracts, this multi-targeted treatment works to suppress melanin production, accelerate cellular repair, and calm low-grade inflammation that often exacerbates pigmentation.<br/><br/>Melasma affects both physical appearance and emotional well-being. It often causes reduced self-confidence and may be accompanied by symptoms such as itchiness, dryness, or a mild burning sensation.',
     whatIsIt: {
         title: 'Key Active Ingredients',
-        description: `These four components are designed to work synergistically—not only reducing visible pigmentation but also restoring healthy skin structure from within.<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Vitamin C:</strong> A powerful antioxidant that inhibits tyrosinase activity and promotes collagen synthesis.</li><li><strong>Arbutin:</strong> A gentle melanin-suppressing brightener with minimal irritation risk.</li><li><strong>Succinic Acid:</strong> A natural derivative with anti-inflammatory and antioxidant benefits.</li><li><strong>Mulberry Extract:</strong> A botanical ingredient that brightens skin, soothes irritation, and protects DNA from damage.</li></ul>`
+        description: `These four components are designed to work synergistically—not only reducing visible pigmentation but also restoring healthy skin structure from within.<br/><ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Vitamin C:</strong> A powerful antioxidant that inhibits tyrosinase activity and promotes collagen synthesis.</li><li><strong>Arbutin:</strong> A gentle melanin-suppressing brightener with minimal irritation risk.</li><li><strong>Succinic Acid:</strong> A natural derivative with anti-inflammatory and antioxidant benefits.</li><li><strong>Mulberry Extract:</strong> A botanical ingredient that brightens skin, soothes irritation, and protects DNA from damage.</li></ul>`
     },
     mechanism: [
         { title: 'Inhibits Tyrosinase', description: 'Blocks the key enzyme involved in melanin synthesis.' },
@@ -942,7 +942,7 @@ export const services: Service[] = [
     whatIsIt: {
       title: 'What Is Bio-PRF?',
       description: `Bio-PRF is an evolution of platelet therapy. It contains not only high concentrations of platelets, but also leukocytes (white blood cells) and a natural fibrin scaffold—all prepared without anticoagulants. This allows the formation of a soft gel-like matrix that:
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;">
         <li>Traps regenerative growth factors</li>
         <li>Releases them slowly over 7–10 days</li>
         <li>Supports long-term tissue healing and collagen induction</li>
@@ -1026,7 +1026,7 @@ export const services: Service[] = [
     longDescription: `Altruva Radiant Advanced Peel is a prejuvenation-driven chemical resurfacing treatment tailored for mature skin that needs intelligent exfoliation before undergoing regenerative procedures. Designed as the first step in your advanced rejuvenation journey, this peel harnesses Lipo-Hydroxy Acid (LHA) and HP-Sol™ Complex, targeting uneven texture, discoloration, and loss of clarity — all without compromising skin integrity.<br/><br/>Ideal for preparing the skin for lasers, collagen biostimulators, ultrasound lifting, or injectable programs, this protocol sets the foundation for superior clinical outcomes by optimizing cellular turnover, dermal receptivity, and epidermal renewal.`,
     whatIsIt: {
       title: 'How It Works',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><h4 class="font-semibold text-primary">Lipo-Hydroxy Acid (LHA)</h4><p>Promotes controlled exfoliation, unclogs pores, and softens fine lines with minimal irritation</p></li><li><h4 class="font-semibold text-primary">HP-Sol™ Complex</h4><p>A patented alkaline matrix that activates fibroblast function, balances pH, and supports collagen synthesis</p></li><li><h4 class="font-semibold text-primary">Dermal Conditioning Lipids</h4><p>Reinforce the skin barrier, ensuring comfort, hydration, and healing throughout the peeling process</p></li></ul><p class="mt-4">This multi-layered approach resets the skin's biological rhythm, laying the groundwork for long-term anti-aging transformations.</p>`
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;"><li><h4 class="font-semibold text-primary">Lipo-Hydroxy Acid (LHA)</h4><p>Promotes controlled exfoliation, unclogs pores, and softens fine lines with minimal irritation</p></li><li><h4 class="font-semibold text-primary">HP-Sol™ Complex</h4><p>A patented alkaline matrix that activates fibroblast function, balances pH, and supports collagen synthesis</p></li><li><h4 class="font-semibold text-primary">Dermal Conditioning Lipids</h4><p>Reinforce the skin barrier, ensuring comfort, hydration, and healing throughout the peeling process</p></li></ul><p class="mt-4">This multi-layered approach resets the skin's biological rhythm, laying the groundwork for long-term anti-aging transformations.</p>`
     },
     benefits: [
       'Smooths skin texture and primes dermis for deeper treatments',
@@ -1064,7 +1064,7 @@ export const services: Service[] = [
     longDescription: "The Altruva Regenerative Laser leverages smart fractional microablation technology to deliver powerful skin resurfacing while preserving the skin barrier—a rare synergy in the world of aesthetic lasers. Designed for those battling visible signs of aging, sun damage, or stubborn pigmentation, this treatment offers precision regeneration with minimal trauma, minimal downtime, and maximum results.<br/>Unlike aggressive CO₂ lasers, this intelligent device respects dermal integrity, making it a preferred choice in our Rejuvenation Program for patients over 40 or with environmentally stressed skin.",
     whatIsIt: {
       title: "Technology in Action",
-      description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Fractional Microablation:</strong> Targets damaged tissue zones while leaving surrounding skin intact for faster recovery and enhanced collagen remodeling.</li><li><strong>Dual Action – Resurfacing + Healing:</strong> Stimulates the skin’s own regenerative pathways, replacing damaged cells with renewed, radiant tissue.</li><li><strong>Smart Depth Control:</strong> Reaches both epidermal and dermal layers, addressing texture, tone, and structural support in one protocol.</li></ul>`
+      description: `<ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Fractional Microablation:</strong> Targets damaged tissue zones while leaving surrounding skin intact for faster recovery and enhanced collagen remodeling.</li><li><strong>Dual Action – Resurfacing + Healing:</strong> Stimulates the skin’s own regenerative pathways, replacing damaged cells with renewed, radiant tissue.</li><li><strong>Smart Depth Control:</strong> Reaches both epidermal and dermal layers, addressing texture, tone, and structural support in one protocol.</li></ul>`
     },
     benefits: [
       'Fades lentigo, sun spots, melasma, and photoaging',
@@ -1101,7 +1101,7 @@ export const services: Service[] = [
     longDescription: "Altruva FractioPro is our most advanced radiofrequency microneedling protocol, expertly designed to address the hallmarks of skin aging—textural deterioration, dermal thinning, and laxity—especially for skin over 40 years old. Powered by AI-enhanced Exion Fractional RF, this treatment stimulates your skin’s own collagen, elastin, and hyaluronic acid regeneration—restoring firmness, structure, and refined smoothness without invasive surgery.<br/>This is not just another skin rejuvenation treatment. Altruva FractioPro recalibrates skin architecture from within, turning back the effects of time intelligently and gracefully.",
     whatIsIt: {
       title: "How It Works",
-      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
         <li><strong>AI-Controlled Energy Mapping:</strong> Using real-time feedback and smart energy regulation, FractioPro adapts intensity to your skin’s needs—delivering safe, precise, and optimized outcomes with minimal discomfort.</li>
         <li><strong>Fractional RF + Microneedling Fusion:</strong> Ultrathin needles deliver heat into the deep dermal matrix, creating micro-injuries that activate skin repair, while RF energy intensifies collagen remodeling and tissue contraction.</li>
         <li><strong>Deep Dermal Reach (Up to 8mm):</strong> Without full needle insertion, FractioPro reaches deeper layers for effective treatment of skin laxity, deep wrinkles, and midface sagging.</li>
@@ -1150,7 +1150,7 @@ export const services: Service[] = [
     longDescription: `For patients entering their 40s and beyond, skin aging isn’t just about fine lines — it's about structural shifts: collagen depletion, ligament laxity, and contour loss. Altruva A.R.T (Anatomic Regenerative Targeting) Lift PRO is a regenerative ultrasound-based protocol designed by dr. Olivia Aldisa, Asia’s Sofwave KOL, to address these challenges with unmatched anatomical precision.<br/><br/>Whether you're looking to reclaim lost volume, achieve superior lifting, or illuminate your complexion, A.R.T Lift PRO provides a data-driven, doctor-performed approach to regenerate your facial framework — without injectables or surgery.<br/><br/><i>“Over 40 is when regenerative planning matters most. A.R.T Lift PRO doesn't chase youth—it rebuilds the architecture of it.” — dr. Olivia Aldisa, Altruva Founder & Global Sofwave KOL</i>`,
     whatIsIt: {
       title: 'What Sets It Apart',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
         <li><strong>Sofwave Technology + Anatomical Mapping:</strong> Utilizing SUPERB™ ultrasound energy, the treatment delivers targeted heating to collagen-rich zones, following dr. Aldisa’s anatomical blueprint of facial ligaments, fat compartments, and dermal layers.</li>
         <li><strong>Doctor-Driven Precision:</strong> Every pulse is guided by years of facial regenerative practice, ensuring customized treatment density whether your priority is volume restoration, tightening, or brightening.</li>
         <li><strong>Multifaceted Outcome:</strong> Beyond skin tightening, A.R.T Lift PRO can visibly improve malar descent, jawline sagging, under-eye hollowness, and even skin tone dullness — an all-in-one anti-aging investment.</li>
@@ -1201,7 +1201,7 @@ export const services: Service[] = [
     whatIsIt: {
       title: 'What is Gorgeous Lyft?',
       description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable.
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;">
         <li><strong>Liquid PCL:</strong> Unlike microparticle biostimulators, Gouri flows seamlessly across the dermis.</li>
         <li><strong>Multi-Zone Collagenesis:</strong> A few targeted injections can reach broad facial areas.</li>
         <li><strong>Gradual Lifting, Brightening & Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
@@ -1249,7 +1249,7 @@ export const services: Service[] = [
     longDescription: 'Altruva Regenerative RF is a needle-free, non-invasive RF-based skin rejuvenation treatment designed specifically for individuals over 40 who are experiencing visible signs of aging—such as sagging skin, fine lines, enlarged pores, and texture loss. Utilizing Exion™ Radiofrequency + Targeted Ultrasound technology, this treatment works deep within the dermis to stimulate collagen, elastin, and hyaluronic acid synthesis, restoring youthful density and definition to mature skin.<br/><br/>This is regenerative science meeting natural elegance.',
     whatIsIt: {
       title: 'How It Works',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
         <li><strong>Radiofrequency Energy:</strong> Controlled RF waves gently heat the deeper layers of the skin, activating fibroblasts and kickstarting collagen and elastin production—resulting in visibly lifted, firmer, and more resilient skin.</li>
         <li><strong>Targeted Ultrasound Synergy:</strong> Focused ultrasound enhances dermal stimulation, supporting skin remodeling in deeper layers without compromising the surface. It’s ideal for the full face, including fragile areas like the under-eye and jawline.</li>
         <li><strong>AI-Optimized Energy Delivery:</strong> Integrated AI systems read skin impedance in real time, adjusting energy output to deliver uniform heating and minimize risks—ensuring comfort and consistency in every session.</li>
@@ -1296,7 +1296,7 @@ export const services: Service[] = [
     longDescription: `Altruva Cocktail Contouring is an advanced, physician-personalized facial harmonization protocol that synergizes the volumizing structure of hyaluronic acid (HA) fillers with the collagen-stimulating power of calcium hydroxylapatite (CaHA). This hybrid regenerative approach is ideal for those seeking natural-looking contouring, fat repositioning, and bioactive lifting — without the heaviness or overfilled appearance often associated with traditional volumizing methods.<br/><br/>Inspired and developed from the pioneering methodologies of dr. Jani van Loghem (The Netherlands) and honed under the UMA Academy, this protocol is exclusively delivered by dr. Olivia Aldisa, reflecting her commitment to anatomical precision and cellular-level rejuvenation.`,
     whatIsIt: {
       title: 'What Is Cocktail Contouring?',
-      description: `Cocktail Contouring refers to the intelligent layering and combination of:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>CaHA (Calcium Hydroxylapatite):</strong> A biostimulatory filler that acts like a scaffold, triggering collagen and elastin synthesis while offering subtle structure.</li><li><strong>HA (Hyaluronic Acid):</strong> A hydrophilic volumizer that enhances facial contours, corrects asymmetries, and refines projection—delivering immediate, natural results with reversibility when needed.</li></ul><p class="mt-2">These two technologies, when blended precisely, mimic natural fat pads, reposition volume, and revitalize the dermis without excessive projection or puffiness.</p>`
+      description: `Cocktail Contouring refers to the intelligent layering and combination of:<br/><ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>CaHA (Calcium Hydroxylapatite):</strong> A biostimulatory filler that acts like a scaffold, triggering collagen and elastin synthesis while offering subtle structure.</li><li><strong>HA (Hyaluronic Acid):</strong> A hydrophilic volumizer that enhances facial contours, corrects asymmetries, and refines projection—delivering immediate, natural results with reversibility when needed.</li></ul><p class="mt-2">These two technologies, when blended precisely, mimic natural fat pads, reposition volume, and revitalize the dermis without excessive projection or puffiness.</p>`
     },
     benefits: [
       'Repositions deep fat pads without distortion',
@@ -1341,7 +1341,7 @@ export const services: Service[] = [
     longDescription: `Aging is not just about wrinkles — it’s about deflation, descent, and disruption of volume harmony. Altruva Dermal Filler Pro is an advanced volumization protocol tailored for those over 40, where the priority shifts from enhancement to restoration.<br/><br/>Led by dr. Olivia Aldisa, a pioneer in regenerative and anatomical aesthetics, this protocol focuses on replacing structural volume loss, especially around the temples, forehead, midface, and preauricular zones, with sophisticated placement that respects your facial dynamics — never overfilling, never distorting.<br/><br/><i>“We’re not chasing youth — we’re restoring structure. When you lift the face the right way, you lift the spirit too.” — dr. Olivia Aldisa, Expert in Volumetric Harmony & Anatomical Restoration</i>`,
     whatIsIt: {
         title: 'The Methodology',
-        description: `With Altruva Dermal Filler Pro, dr. Aldisa maps the entire facial framework, identifying where volume has been lost and how to rebuild with tastefully conservative doses, using:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Dynamic HA Fillers:</strong> Only premium, FDA-approved fillers with optimal tissue integration, elasticity, and safety profiles</li><li><strong>Microcannula & Needle Strategy:</strong> Safe and precise delivery based on vascular maps and anatomical zones</li><li><strong>Fat Pad Mapping:</strong> Volume is replaced according to fat compartment anatomy for predictable, natural lift</li><li><strong>Tissue Behavior Analysis:</strong> Ensures movement remains dynamic — never stiff or “stuffed”</li></ul>`
+        description: `With Altruva Dermal Filler Pro, dr. Aldisa maps the entire facial framework, identifying where volume has been lost and how to rebuild with tastefully conservative doses, using:<br/><ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Dynamic HA Fillers:</strong> Only premium, FDA-approved fillers with optimal tissue integration, elasticity, and safety profiles</li><li><strong>Microcannula & Needle Strategy:</strong> Safe and precise delivery based on vascular maps and anatomical zones</li><li><strong>Fat Pad Mapping:</strong> Volume is replaced according to fat compartment anatomy for predictable, natural lift</li><li><strong>Tissue Behavior Analysis:</strong> Ensures movement remains dynamic — never stiff or “stuffed”</li></ul>`
     },
     howItDiffers: "This isn't just about filling lines; it's about architectural restoration. For mature skin, filler placement must follow different principles: balance, support, and restraint. Restoring this scaffolding amplifies the effects of other treatments like lasers, threads, and collagen-stimulators.",
     benefits: [
@@ -1386,7 +1386,7 @@ export const services: Service[] = [
     whatIsIt: {
       title: "How It Works",
       description: `<p class="mb-2">Utilizing full-dose botulinum toxin, dr. Aldisa performs full-face mapping to:</p>
-      <ul class="list-disc pl-5 space-y-1">
+      <ul class="list-disc pl-5 space-y-1" style="padding-left: 40px;">
         <li><strong>Modulate muscle tone</strong> contributing to fatigue, imbalance, or aged expressions</li>
         <li><strong>Lift areas prone to descent</strong> without the heaviness of dermal filler</li>
         <li><strong>Reset overused muscles</strong> for a more neutral, rested facial state</li>
@@ -1447,7 +1447,7 @@ export const services: Service[] = [
     longDescription: 'When it comes to body contouring, fat reduction is no longer enough. Altruva NeoCurve is the next-generation protocol that delivers dual-action transformation — reducing fat while building real muscle — without needles, downtime, or compromise. This signature treatment harnesses the power of EmSculpt Neo, the only FDA-cleared device that simultaneously uses radiofrequency (RF) and HIFEM+ (High-Intensity Focused Electromagnetic energy) to burn fat and stimulate deep muscle contractions beyond what the human body can achieve naturally. Tailored exclusively at Altruva for clients who demand both aesthetic finesse and physiological performance — NeoCurve is not just about slimming, it’s about recomposition and metabolic renewal.',
     whatIsIt: {
       title: 'Science Behind the Curve',
-      description: `<strong>Dual-Energy Synergy:</strong><br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Radiofrequency (RF)</strong> gently heats the fat layer, triggering apoptosis (fat cell death). These cells are then eliminated naturally through the lymphatic system over weeks.</li><li><strong>HIFEM+ Energy</strong> penetrates deep into the muscle layer, generating 20,000+ supramaximal contractions per session — the type of muscle engagement that cannot be achieved through exercise alone.</li></ul><p class="mt-2"><strong>Outcome:</strong> Simultaneous fat destruction and muscle hypertrophy — safely, comfortably, and efficiently.</p>`,
+      description: `<strong>Dual-Energy Synergy:</strong><br/><ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Radiofrequency (RF)</strong> gently heats the fat layer, triggering apoptosis (fat cell death). These cells are then eliminated naturally through the lymphatic system over weeks.</li><li><strong>HIFEM+ Energy</strong> penetrates deep into the muscle layer, generating 20,000+ supramaximal contractions per session — the type of muscle engagement that cannot be achieved through exercise alone.</li></ul><p class="mt-2"><strong>Outcome:</strong> Simultaneous fat destruction and muscle hypertrophy — safely, comfortably, and efficiently.</p>`,
     },
     benefits: [
       'Up to 25% increase in muscle volume*',
@@ -1542,7 +1542,7 @@ export const services: Service[] = [
     longDescription: 'Altruva Regenerative RF (Body) is a needle-free, non-invasive sculpting solution that merges next-generation Radiofrequency (RF) and Ultrasound energy to regenerate the skin from within while reducing stubborn body fat. This dual-action technology enhances collagen, elastin, and hyaluronic acid production, visibly firms loose skin, and refines body contours — with zero downtime.<br/><br/>For patients seeking elegant body reshaping without invasive procedures, this is the ultimate regenerative contouring protocol — and it pairs seamlessly with Altruva Lipo Elixir for amplified fat modulation and tightening.',
     whatIsIt: {
       title: 'How It Works: Dual-Action Technology',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
           <li><strong>RF-Driven Collagen Remodeling:</strong> Targeted RF energy gently heats the dermis and subdermal tissues, stimulating fibroblasts to increase collagen and elastin synthesis — critical for firm, elastic, youthful-looking skin.</li>
           <li><strong>Ultrasound-Powered Fat Disruption:</strong> Focused ultrasound waves mechanically disrupt fat cell membranes and induce lipolysis, accelerating fat reduction in resistant areas.</li>
           <li><strong>Endogenous HA Booster:</strong> The technology uniquely stimulates natural hyaluronic acid production, enhancing hydration and skin plumpness from the inside out.</li>
@@ -1641,10 +1641,10 @@ export const services: Service[] = [
     longDescription: 'Altruva Micrograft Technology is a cutting-edge autologous cellular regeneration treatment that utilizes your own biological blueprint to restore thinning hair and enhance follicular vitality — without surgery, foreign substances, or downtime.<br/><br/>This next-generation hair rejuvenation protocol isolates progenitor cells, growth factors, and regenerative matrices from your own scalp tissue and reintroduces them into thinning zones — where they reawaken dormant follicles, improve scalp microcirculation, and lay the foundation for thicker, denser, and more resilient hair.',
     whatIsIt: {
       title: 'How It Works: From You, For You',
-      description: `<ol class="list-decimal pl-5 space-y-2">
+      description: `<ol class="list-decimal pl-5 space-y-2" >
         <li><strong class="text-primary">Tissue Harvesting:</strong> A small punch biopsy (usually from the occipital scalp) is taken — typically less than 2.5mm, requiring no sutures.</li>
         <li><strong class="text-primary">Cellular Isolation:</strong> Using sterile, closed-loop processing, the tissue is gently fragmented to release a regenerative blend of:
-          <ul class="list-disc pl-5 mt-1">
+          <ul class="list-disc pl-5 mt-1" style="padding-left: 40px;">
             <li>Progenitor cells</li>
             <li>Fibroblasts</li>
             <li>Growth factors</li>
