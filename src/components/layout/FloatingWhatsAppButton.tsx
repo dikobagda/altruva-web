@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon';
+import { MessageCircle } from 'lucide-react'; // Using a reliable icon from lucide
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useEffect, useState } from 'react';
 
@@ -32,7 +32,7 @@ export default function FloatingWhatsAppButton() {
               className="fixed bottom-[100px] right-6 h-14 w-14 rounded-full shadow-xl z-50 bg-green-500 hover:bg-green-600"
               aria-label="Contact us on WhatsApp"
             >
-              <WhatsAppIcon className="h-7 w-7 text-white" />
+              <MessageCircle className="h-7 w-7 text-white" fill="white" />
             </Button>
           </Link>
         </TooltipTrigger>
