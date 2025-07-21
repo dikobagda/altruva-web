@@ -235,7 +235,7 @@ export const services: Service[] = [
       title: 'How It Works',
       description: `<p>A.R.T. Lift Lite uses precision ultrasound energy (Sofwave) to activate your skin's natural regenerative power. Focused beams of ultrasound energy reach the mid-dermis, heating tissue at just the right depth to stimulate fibroblasts—without damaging the skin surface. The gentle heat activates neocollagenesis, the body’s natural process of forming fresh collagen and elastin. With regenerative mapping by dr. Aldisa, each shot is planned to follow your unique fat pads, ligament structures, and collagen-rich zones to optimize long-term firming while preserving natural beauty.</p>`
     },
-    howItDiffers: 'Designed by a Global Sofwave Expert, the A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials &amp; Gen Z.',
+    howItDiffers: 'Designed by a Global Sofwave Expert, the A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials & Gen Z.',
     whyLoveIt: [
       'Targeted Collagen Banking: Prevents premature sagging in midface, jawline, and brow.',
       'Non-invasive with Zero Downtime: A lunchtime protocol with no redness, peeling, or bruising.',
@@ -318,7 +318,7 @@ export const services: Service[] = [
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
     subgroup: 'Tightening &amp; Contouring',
-    subtitle: 'Next-Generation Needle-Free Skin Tightening &amp; Radiance Activation',
+    subtitle: 'Next-Generation Needle-Free Skin Tightening & Radiance Activation',
     longDescription: `Altruva Lumi RF is a non-invasive, regenerative radiofrequency treatment uniquely engineered to awaken your skin’s collagen and elastin without needles, pain, or downtime. Powered by advanced Exion™ technology, Lumi RF delivers intelligent energy deep into the dermis to refine skin texture, tighten sagging areas, and amplify natural hyaluronic acid production—resulting in firmer, smoother, more radiant skin.<br/><br/>This is the future of RF-powered lifting—effortless, elegant, and effective.<br/><br/><i>“We believe skin should glow from its own wisdom. Lumi RF helps your face remember how.” — dr. Olivia Aldisa, Medical Director of Altruva Aesthetic Clinic</i>`,
     whatIsIt: {
       title: 'How Lumi RF Works',
@@ -327,7 +327,7 @@ export const services: Service[] = [
     whyLoveIt: [
       'Tightens Sagging Skin Naturally: Gently lifts and tones with no injectables and no downtime—ideal for cheeks, jawline, under-eye, and neck.',
       'Improves Hydration from Within: Promotes endogenous hyaluronic acid synthesis—a hallmark of youthful, “bouncy” skin.',
-      'Reduces Fine Lines &amp; Refines Texture: Smooths rough patches, shrinks pores, and restores skin clarity without harsh resurfacing.',
+      'Reduces Fine Lines & Refines Texture: Smooths rough patches, shrinks pores, and restores skin clarity without harsh resurfacing.',
       'AI-Guided Precision: Smart feedback adjusts temperature and energy in real-time for safer, more predictable outcomes.',
       'Minimal Downtime, Maximal Glow: With no needles, bruising, or peeling, you can return to your routine immediately post-treatment—glowing and lifted.',
     ],
@@ -397,7 +397,33 @@ export const services: Service[] = [
     imageHint: 'wrinkle treatment',
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
-    subgroup: 'Signature Contouring'
+    subgroup: 'Signature Contouring',
+    subtitle: "Precision Redefined. Subtle Contour, Maximum Harmony — by dr. Aldisa.",
+    longDescription: `In a world where subtlety matters, Altruva Face Modulator (Half Dose) offers a refined approach to facial sculpting using microdosed botulinum toxin. Curated for those under 40, this treatment focuses on preventative contour modulation, delivering natural, soft corrections — not frozen expressions.<br/><br/>Whether it’s jawline slimming, temple lifting, or refining the upper face, this procedure enhances your features without overt volume loss or exaggerated stiffness. It’s about precision, personalization, and respecting your facial identity. Every Altruva Face Modulator treatment is custom-designed by dr. Olivia Aldisa, integrating anatomical mapping and muscle balance principles to ensure precision, proportion, and preservation of your identity.<br/><br/><i>“Face Modulation isn’t about changing how you look—it’s about changing how you age.” — dr. Olivia Aldisa, Expert in Facial Harmony & Preventative Aesthetics</i>`,
+    whatIsIt: {
+      title: 'How It Works',
+      description: `Botulinum toxin, in a calibrated half dose, is administered strategically to modulate overactive muscles that contribute to undesirable bulk, heaviness, or downward pull:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Jawline:</strong> Slims bulky masseter muscles to enhance V-shape contours and reduce facial width.</li><li><strong>Upper Face:</strong> Softens glabella tension, subtly lifts brows, and prevents early wrinkle formation — all without freezing natural movement.</li></ul>`
+    },
+    howItDiffers: 'For those under 40, smaller doses are ideal to prevent dynamic lines and slow early sagging — while preserving natural expression. Rather than full paralysis, the focus is modulation: dialing down overactivity to reshape, contour, and harmonize facial dynamics. Lower doses mean less risk of asymmetry, frozen looks, or unwanted diffusion. This is bespoke aesthetic medicine — not one-size-fits-all.',
+    benefits: [
+      'Refines jawline and lower face bulkiness without surgery',
+      'Gently lifts the brows and eyes for a more rested expression',
+      'Softens frown lines and early crow’s feet',
+      'Prevents premature skin laxity and facial aging',
+      'Allows natural facial movement — no overdone look',
+      'Minimal downtime with visible changes in 5–10 days',
+    ],
+    protocol: [
+      { label: 'Duration', value: '15–20 minutes' },
+      { label: 'Downtime', value: 'Minimal to none' },
+      { label: 'Longevity', value: '3–4 months (may vary)' },
+    ],
+    indications: [
+      'Jawline softening (masseter reduction)',
+      'Temple lift or brow support',
+      'Early wrinkle prevention in glabella, forehead, or crow’s feet',
+      'First-time users or toxin-sensitive skin',
+    ]
   },
   {
     id: 'dermal-fillers',
