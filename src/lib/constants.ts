@@ -222,7 +222,7 @@ export const services: Service[] = [
     title: 'Altruva A.R.T Lift (Lite) by dr. Aldisa',
     description: '(up to 300 shots) Personalized SUPERB Ultrasound-powered deep tissue tightening.',
     longDescription: `Anatomic Regenerative Targeting with Precision Sofwave Ultrasound. For those under 40, the best anti-aging strategy isn't reversal—it's prevention. A.R.T Lift Lite is Altruva’s signature collagen banking protocol, designed by dr. Olivia Aldisa, Sofwave Key Opinion Leader in Asia. This treatment uses SUPERB™ ultrasound technology to target areas of early collagen loss and prevent sagging before it starts. A.R.T (Anatomic Regenerative Targeting) Lift Lite is not just a facial—it’s a strategic investment in your skin’s future. <br/><br/><i>“At Altruva, we don’t chase aging—we engineer prevention. A.R.T Lift Lite is how we build long-term beauty without filler or surgery.” — dr. Olivia Aldisa</i>`,
-    subtitle: "Signature Prejuvenation for Collagen Banking (<40 years old)",
+    subtitle: "Signature Prejuvenation for Collagen Banking (&lt;40 years old)",
     price: '20,000,000 IDR',
     category: 'Prejuvenation',
     Icon: Zap,
@@ -230,12 +230,12 @@ export const services: Service[] = [
     imageHint: 'ultrasound facelift',
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
-    subgroup: 'Tightening & Contouring',
+    subgroup: 'Tightening &amp; Contouring',
     whatIsIt: {
       title: 'How It Works',
       description: `<p>A.R.T. Lift Lite uses precision ultrasound energy (Sofwave) to activate your skin's natural regenerative power. Focused beams of ultrasound energy reach the mid-dermis, heating tissue at just the right depth to stimulate fibroblasts—without damaging the skin surface. The gentle heat activates neocollagenesis, the body’s natural process of forming fresh collagen and elastin. With regenerative mapping by dr. Aldisa, each shot is planned to follow your unique fat pads, ligament structures, and collagen-rich zones to optimize long-term firming while preserving natural beauty.</p>`
     },
-    howItDiffers: 'Designed by a Global Sofwave Expert, the A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials & Gen Z.',
+    howItDiffers: 'Designed by a Global Sofwave Expert, the A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials &amp; Gen Z.',
     whyLoveIt: [
       'Targeted Collagen Banking: Prevents premature sagging in midface, jawline, and brow.',
       'Non-invasive with Zero Downtime: A lunchtime protocol with no redness, peeling, or bruising.',
@@ -268,7 +268,7 @@ export const services: Service[] = [
     imageHint: 'biostimulator injection',
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
-    subgroup: 'Tightening & Contouring'
+    subgroup: 'Tightening &amp; Contouring'
   },
   {
     id: 'exion-lumi-rf',
@@ -281,12 +281,37 @@ export const services: Service[] = [
     imageHint: 'rf skin tightening',
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
-    subgroup: 'Tightening & Contouring'
+    subgroup: 'Tightening &amp; Contouring',
+    subtitle: 'Next-Generation Needle-Free Skin Tightening &amp; Radiance Activation',
+    longDescription: `Altruva Lumi RF is a non-invasive, regenerative radiofrequency treatment uniquely engineered to awaken your skin’s collagen and elastin without needles, pain, or downtime. Powered by advanced Exion™ technology, Lumi RF delivers intelligent energy deep into the dermis to refine skin texture, tighten sagging areas, and amplify natural hyaluronic acid production—resulting in firmer, smoother, more radiant skin.<br/><br/>This is the future of RF-powered lifting—effortless, elegant, and effective.<br/><br/><i>“We believe skin should glow from its own wisdom. Lumi RF helps your face remember how.” — dr. Olivia Aldisa, Medical Director of Altruva Aesthetic Clinic</i>`,
+    whatIsIt: {
+      title: 'How Lumi RF Works',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><strong>Smart Radiofrequency (RF) Energy:</strong> Exion-powered RF heats the deeper dermal layers in a controlled, uniform way—stimulating fibroblasts to regenerate collagen and elastin without damaging the surface. Expect visibly firmer contours and smoother skin over time.</li><li><strong>Targeted Ultrasound Boost:</strong> By combining targeted ultrasound, Lumi RF supercharges the regenerative process—enhancing collagen crosslinking and optimizing skin density in areas prone to laxity, like under the eyes or jawline.</li><li><strong>Needle-Free, AI-Guided Delivery:</strong> Unlike traditional microneedling RF, Lumi RF is completely needle-free and uses AI-driven thermal mapping to ensure safe, consistent energy delivery. The result? A comfortable experience with measurable results.</li></ul>`,
+    },
+    whyLoveIt: [
+      'Tightens Sagging Skin Naturally: Gently lifts and tones with no injectables and no downtime—ideal for cheeks, jawline, under-eye, and neck.',
+      'Improves Hydration from Within: Promotes endogenous hyaluronic acid synthesis—a hallmark of youthful, “bouncy” skin.',
+      'Reduces Fine Lines &amp; Refines Texture: Smooths rough patches, shrinks pores, and restores skin clarity without harsh resurfacing.',
+      'AI-Guided Precision: Smart feedback adjusts temperature and energy in real-time for safer, more predictable outcomes.',
+      'Minimal Downtime, Maximal Glow: With no needles, bruising, or peeling, you can return to your routine immediately post-treatment—glowing and lifted.',
+    ],
+    indications: [
+      'Women and men 25+ experiencing early signs of laxity or dullness',
+      'Patients looking for needle-free facial rejuvenation',
+      'Those prepping for important events without the risk of downtime',
+      'Individuals with sensitive or thin skin not suited to aggressive procedures',
+    ],
+    protocol: [
+      { label: 'Duration', value: '30–45 minutes per session' },
+      { label: 'Sensation', value: 'Gentle warmth; no pain or numbing required' },
+      { label: 'Downtime', value: 'Zero to minimal (mild redness may last 1–2 hours)' },
+      { label: 'Frequency', value: '3–5 sessions spaced 2–4 weeks apart for optimal results' },
+    ],
   },
   {
     id: 'slim-contour-injection',
     title: 'Altruva Slim Contour Injection',
-    description: 'Facial fat detox & contouring.',
+    description: 'Facial fat detox &amp; contouring.',
     price: '2,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Droplets,
@@ -357,9 +382,9 @@ export const services: Service[] = [
     },
     mechanism: [
       { title: 'Fibroblast Activation', description: 'Stimulates dermal fibroblasts to enhance collagen, elastin, and extracellular matrix (ECM) synthesis.' },
-      { title: 'Tissue Repair & Remodeling', description: 'Reactivates damaged skin cells, restores cutaneous density, and accelerates wound healing at the cellular level.' },
-      { title: 'Hydration & Barrier Support', description: 'Increases water retention and strengthens the skin’s defense mechanisms against oxidative stress and pollution.' },
-      { title: 'Angiogenesis & Oxygenation', description: 'Improves microvascular perfusion, supporting brighter tone and healthier skin metabolism.' },
+      { title: 'Tissue Repair &amp; Remodeling', description: 'Reactivates damaged skin cells, restores cutaneous density, and accelerates wound healing at the cellular level.' },
+      { title: 'Hydration &amp; Barrier Support', description: 'Increases water retention and strengthens the skin’s defense mechanisms against oxidative stress and pollution.' },
+      { title: 'Angiogenesis &amp; Oxygenation', description: 'Improves microvascular perfusion, supporting brighter tone and healthier skin metabolism.' },
     ],
     benefits: [
       'Smooths fine lines and early wrinkles',
@@ -509,7 +534,7 @@ export const services: Service[] = [
     imageHint: 'advanced ultrasound lift',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Restoration & Lifting'
+    subgroup: 'Restoration &amp; Lifting'
   },
   {
     id: 'gorgeous-lyft-rejuvenation',
@@ -522,7 +547,7 @@ export const services: Service[] = [
     imageHint: 'collagen biostimulator',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Restoration & Lifting',
+    subgroup: 'Restoration &amp; Lifting',
     subtitle: "The Signature Liquid Collagen Bioactivator Experience",
     longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
     whatIsIt: {
@@ -531,7 +556,7 @@ export const services: Service[] = [
       <ul class="list-disc pl-5 mt-2 space-y-1">
         <li><strong>Liquid PCL:</strong> Unlike microparticle biostimulators, Gouri flows seamlessly across the dermis.</li>
         <li><strong>Multi-Zone Collagenesis:</strong> A few targeted injections can reach broad facial areas.</li>
-        <li><strong>Gradual Lifting, Brightening & Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
+        <li><strong>Gradual Lifting, Brightening &amp; Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
         <li><strong>Doctor-Led Mapping:</strong> Injection patterns are personalized by dr. Aldisa to restore harmony across different facial zones — temples, nasojugal groove, marionette, cheeks, and preauricular area.</li>
       </ul>`
     },
@@ -571,12 +596,12 @@ export const services: Service[] = [
     imageHint: 'deep skin tightening',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Restoration & Lifting'
+    subgroup: 'Restoration &amp; Lifting'
   },
   {
     id: 'cocktail-contouring',
     title: 'Altruva Cocktail Contouring',
-    description: 'Personalized bio-stimulator & selected filler fusion.',
+    description: 'Personalized bio-stimulator &amp; selected filler fusion.',
     price: '15,500,000 IDR',
     category: 'Rejuvenation',
     Icon: Sparkles,
@@ -615,7 +640,7 @@ export const services: Service[] = [
   {
     id: 'sculpt-lift-plus',
     title: 'Sculpt Lift +',
-    description: 'Facial contour sculpting & detoxification.',
+    description: 'Facial contour sculpting &amp; detoxification.',
     price: '4,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Zap,
@@ -638,7 +663,7 @@ export const services: Service[] = [
     imageHint: 'body sculpting machine',
     group: 'Body Contouring',
     groupDescription: 'Sculpt, tone, and refine your body with our advanced treatments.',
-    subgroup: 'Muscle & Fat'
+    subgroup: 'Muscle &amp; Fat'
   },
   {
     id: 'altruva-lipo-elixir',
@@ -731,7 +756,7 @@ export const services: Service[] = [
     imageHint: 'signature facelift procedure',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Restoration & Lifting'
+    subgroup: 'Restoration &amp; Lifting'
   }
 ];
 
