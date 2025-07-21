@@ -22,53 +22,6 @@ export default function AboutUsPage() {
         />
       </SectionWrapper>
 
-      {/* Vision and Mission Section */}
-       <SectionWrapper>
-        <div className="grid md:grid-cols-2 gap-12 items-stretch">
-          <Card className="shadow-lg">
-            <CardHeader>
-                <div className="flex items-center gap-3">
-                    <Star className="h-8 w-8 text-accent" />
-                    <CardTitle className="font-serif text-3xl text-primary">Our Vision</CardTitle>
-                </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-lg text-foreground/80">
-                To become Asia’s leading regenerative aesthetic sanctuary—where authenticity meets innovation, and aging is seen as a privilege, not a problem.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="shadow-lg">
-            <CardHeader>
-                <div className="flex items-center gap-3">
-                    <Heart className="h-8 w-8 text-accent" />
-                    <CardTitle className="font-serif text-3xl text-primary">Our Mission</CardTitle>
-                </div>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
-                  <span className="text-foreground/80">To provide technology-driven, evidence-based treatments that prioritize long-term tissue health.</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
-                  <span className="text-foreground/80">To deliver a patient experience that is humane, holistic, and mindful.</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
-                  <span className="text-foreground/80">To educate the public that aging is a journey, not an enemy.</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
-                  <span className="text-foreground/80">To cultivate a community of empowered, gracefully aging women and men.</span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </SectionWrapper>
-
       {/* Philosophy Section */}
       <SectionWrapper className="bg-secondary/30">
         <div className="grid md:grid-cols-2 gap-12 items-center">
