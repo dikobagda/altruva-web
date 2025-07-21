@@ -38,12 +38,9 @@ const navItems: NavItem[] = [
       { href: '/news-media', label: 'News & Media' },
     ],
   },
-  { href: '/skin', label: 'Skin' },
   {
-    label: 'Face',
+    label: 'Skin',
     subItems: [
-      { href: '/services/altruva-signature-facial', label: 'Altruva Signature Facial (Pore Clean Facial)' },
-      { href: '/services/altruva-hydraglow-facial', label: 'Altruva HydraGlow Facial' },
       {
         label: 'Prejuvenation',
         subItems: [
@@ -63,6 +60,13 @@ const navItems: NavItem[] = [
           { href: '/services/exoprime-pro', label: 'Skingeneering Boosters' },
         ],
       },
+    ],
+  },
+  {
+    label: 'Face',
+    subItems: [
+      { href: '/services/altruva-signature-facial', label: 'Altruva Signature Facial (Pore Clean Facial)' },
+      { href: '/services/altruva-hydraglow-facial', label: 'Altruva HydraGlow Facial' },
     ],
   },
   {
