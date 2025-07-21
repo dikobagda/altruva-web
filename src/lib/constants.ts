@@ -730,10 +730,10 @@ export const services: Service[] = [
       { label: 'Layering Option', value: 'Safe to combine with PRF, skin boosters, or lasers' },
     ],
     whyLoveIt: [
-      'Zero Tyndall Risk: No blue hue or light reflection.',
-      'Volume-Free Approach: No risk of puffiness or overcorrection.',
-      'Science-Based Safety: Derived from sterile, bio-purified DNA.',
-      'Proven Regeneration: Backed by clinical evidence on dermal repair.'
+      'Zero Tyndall Risk: No blue hue or light reflection',
+      'Volume-Free Approach: No risk of puffiness or overcorrection',
+      'Science-Based Safety: Derived from sterile, bio-purified DNA',
+      'Proven Regeneration: Backed by clinical evidence on dermal repair and collagen activation'
     ]
   },
   {
@@ -747,7 +747,43 @@ export const services: Service[] = [
     imageHint: 'skin density',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    subtitle: 'Smart Skin Recharging with Hyaluronic Acid, Amino Acids & Vitamins',
+    longDescription: `Altruva Amino Booster is a multi-functional skinboosters protocol formulated to restore vitality, elasticity, and hydration to the skin. This intradermal injectable cocktail contains hyaluronic acid, essential amino acids, and skin-repairing vitamins, designed to revive dull, tired, and aging skin from the inside out.<br/><br/>It’s more than a glow treatment — it’s cellular nutrition that rewires how your skin behaves.`,
+    whatIsIt: {
+      title: 'What’s Inside & Why It Matters',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><h4 class="font-semibold text-primary">Hyaluronic Acid</h4><p>Deeply hydrates and plumps the dermis, reducing fine lines</p></li><li><h4 class="font-semibold text-primary">Amino Acids</h4><p>Fundamental for collagen synthesis, skin repair, and resilience</p></li><li><h4 class="font-semibold text-primary">Vitamins (B-complex, C, E)</h4><p>Protects against oxidative stress, supports microcirculation, boosts glow</p></li></ul><p class="mt-4">Together, they reactivate your skin’s metabolic engine for healthier structure, tone, and function.</p>`
+    },
+    mechanism: [
+      { title: 'Boosts Collagen & Elastin', description: 'Supports dermal remodeling by accelerating fibroblast activity' },
+      { title: 'Neutralizes Free Radicals', description: 'Reduces oxidative stress from pollution, UV, and internal aging' },
+      { title: 'Improves Skin Texture', description: 'Softens unevenness, smoothens skin surface' },
+      { title: 'Deep Skin Hydration', description: 'Enhances water retention and replenishes the extracellular matrix' },
+      { title: 'Enhances Microcirculation', description: 'Improves oxygenation and nutrient flow for a lit-from-within glow' },
+      { title: 'Supports Skin Recovery', description: 'Ideal for post-laser, peeling, or stress-related skin fatigue' },
+    ],
+    benefits: [
+      'Improves skin elasticity and hydration',
+      'Softens fine lines and crepey texture',
+      'Brightens dull complexion',
+      'Supports skin regeneration and tissue repair',
+      'Enhances firmness and barrier resilience',
+      'Well tolerated, with minimal downtime and suitable for all skin types'
+    ],
+    indications: [
+      '40+ patients showing early signs of collagen loss or dullness',
+      'Those with fatigue-induced skin damage',
+      'Patients undergoing skin repair programs after laser, sun exposure, or pollution',
+      'Individuals with textural irregularities, dehydration, or pigmentary imbalance',
+    ],
+    protocol: [
+      { label: 'Initial Program', value: '3–4 sessions, spaced 2–3 weeks apart' },
+      { label: 'Injection Techniques', value: 'Papular, microbolus, linear retrograde' },
+      { label: 'Maintenance', value: 'Every 2–3 months as skin maintenance' },
+    ],
+    whyLoveIt: [
+      `"Think of it as your skin’s daily supplement — but delivered with clinical precision for real transformation." — dr. Olivia Aldisa, Altruva Clinical Director`
+    ]
   },
   {
     id: 'melabooster',
@@ -1051,7 +1087,7 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Restoration &amp; Lifting',
     subtitle: 'The Intelligent RF Lift for Skin Over 40',
-    longDescription: `Altruva Regenerative RF is a needle-free, non-invasive RF-based skin rejuvenation treatment designed specifically for individuals over 40 who are experiencing visible signs of aging—such as sagging skin, fine lines, enlarged pores, and texture loss. Utilizing Exion™ Radiofrequency + Targeted Ultrasound technology, this treatment works deep within the dermis to stimulate collagen, elastin, and hyaluronic acid synthesis, restoring youthful density and definition to mature skin.<br/><br/>This is regenerative science meeting natural elegance.<br/><br/><i>“Aging skin doesn’t need to be fought—it needs to be regenerated. With Altruva Regenerative RF, we respect your skin’s biology and help it perform at its best.”<br/>— dr. Olivia Aldisa, Medical Director & Global Regenerative Aesthetic KOL</i>`,
+    longDescription: 'Altruva Regenerative RF is a needle-free, non-invasive RF-based skin rejuvenation treatment designed specifically for individuals over 40 who are experiencing visible signs of aging—such as sagging skin, fine lines, enlarged pores, and texture loss. Utilizing Exion™ Radiofrequency + Targeted Ultrasound technology, this treatment works deep within the dermis to stimulate collagen, elastin, and hyaluronic acid synthesis, restoring youthful density and definition to mature skin.<br/><br/>This is regenerative science meeting natural elegance.',
     whatIsIt: {
       title: 'How It Works',
       description: `<ul class="list-disc pl-5 mt-2 space-y-2">
@@ -1080,6 +1116,9 @@ export const services: Service[] = [
       { label: 'Comfort Level', value: 'Warm sensation; no numbing needed' },
       { label: 'Recommended Frequency', value: '4 sessions spaced 2–4 weeks apart' },
       { label: 'Maintenance', value: '1–2 times per year depending on aging profile' }
+    ],
+    whyLoveIt: [
+      `“Aging skin doesn’t need to be fought—it needs to be regenerated. With Altruva Regenerative RF, we respect your skin’s biology and help it perform at its best.” — dr. Olivia Aldisa, Medical Director & Global Regenerative Aesthetic KOL`
     ]
   },
   {
@@ -1645,6 +1684,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
