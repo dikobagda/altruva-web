@@ -222,7 +222,7 @@ export const services: Service[] = [
     title: 'Altruva A.R.T Lift (Lite) by dr. Aldisa',
     description: '(up to 300 shots) Personalized SUPERB Ultrasound-powered deep tissue tightening.',
     longDescription: `Anatomic Regenerative Targeting with Precision Sofwave Ultrasound. For those under 40, the best anti-aging strategy isn't reversal—it's prevention. A.R.T Lift Lite is Altruva’s signature collagen banking protocol, designed by dr. Olivia Aldisa, Sofwave Key Opinion Leader in Asia. This treatment uses SUPERB™ ultrasound technology to target areas of early collagen loss and prevent sagging before it starts. A.R.T (Anatomic Regenerative Targeting) Lift Lite is not just a facial—it’s a strategic investment in your skin’s future. <br/><br/><i>“At Altruva, we don’t chase aging—we engineer prevention. A.R.T Lift Lite is how we build long-term beauty without filler or surgery.” — dr. Olivia Aldisa</i>`,
-    subtitle: "Signature Prejuvenation for Collagen Banking (&lt;40 years old)",
+    subtitle: "Signature Prejuvenation for Collagen Banking (<40 years old)",
     price: '20,000,000 IDR',
     category: 'Prejuvenation',
     Icon: Zap,
@@ -259,7 +259,7 @@ export const services: Service[] = [
   },
   {
     id: 'gorgeous-lyft-prejuvenation',
-    title: 'Altruva Gorgeous Lyft',
+    title: 'Altruva Gorgeous Lyft by dr. Aldisa',
     description: 'Injectable liquid type biostimulators for structural longevity.',
     price: '6,000,000 IDR',
     category: 'Prejuvenation',
@@ -268,7 +268,43 @@ export const services: Service[] = [
     imageHint: 'biostimulator injection',
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
-    subgroup: 'Tightening &amp; Contouring'
+    subgroup: 'Tightening &amp; Contouring',
+    subtitle: "The Signature Liquid Collagen Bioactivator Experience",
+    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
+    whatIsIt: {
+      title: 'What is Gorgeous Lyft?',
+      description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable.
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li><strong>Liquid PCL:</strong> Unlike microparticle biostimulators, Gouri flows seamlessly across the dermis.</li>
+        <li><strong>Multi-Zone Collagenesis:</strong> A few targeted injections can reach broad facial areas.</li>
+        <li><strong>Gradual Lifting, Brightening &amp; Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
+        <li><strong>Doctor-Led Mapping:</strong> Injection patterns are personalized by dr. Aldisa to restore harmony across different facial zones — temples, nasojugal groove, marionette, cheeks, and preauricular area.</li>
+      </ul>`
+    },
+    mechanism: [
+      { title: 'Strategic Infiltration', description: "Minimal points are needed to activate widespread collagen induction. For enhanced safety and efficacy, dr. Aldisa always pre-infiltrates with lidocaine to create safe distribution channels." },
+      { title: 'Controlled Dispersion', description: "Using the exclusive Gouri Dispersion Method (GDM) and post-injection 1-minute point compression, bruising is minimized and PCL diffusion is optimized." },
+      { title: 'Bioregenerative Remodeling', description: "Over the next 3–12 weeks, your skin begins producing Type I and III collagen, resulting in firmer texture, lifted contours, and improved glow." }
+    ],
+    benefits: [
+      "Stimulates natural collagen without adding artificial volume",
+      "Improves laxity, skin tone, and texture",
+      "Reduces wrinkles, tear trough, and marionette shadows",
+      "Minimal downtime, low risk of lumps or overfilling",
+      "Results that build over time and last up to 9–12 months"
+    ],
+    indications: [
+        "Patients 30–55 seeking refinement rather than reshaping",
+        "Individuals with early signs of sagging, dullness, or mild volume depletion",
+        "Clients wanting a filler-free profile",
+        "Postpartum mothers, perimenopausal women, and aesthetic minimalists"
+    ],
+    protocol: [
+      { label: 'Duration', value: '~30 minutes' },
+      { label: 'Technique', value: '5–7 injection points using micro-needle or cannula' },
+      { label: 'Aftercare', value: 'Avoid excessive facial movement or massage for 24–48 hours' },
+      { label: 'Redness/Swelling', value: 'Typically subsides within 1–3 days' }
+    ]
   },
   {
     id: 'exion-lumi-rf',
@@ -319,7 +355,36 @@ export const services: Service[] = [
     imageHint: 'facial contouring',
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
-    subgroup: 'Signature Contouring'
+    subgroup: 'Signature Contouring',
+    subtitle: 'Sculpt Smart. Contour Clean. For a Lighter, Sharper You.',
+    longDescription: `Altruva Slim Contour Injection is a targeted fat-dissolving injectable designed for individuals under 40 who struggle with stubborn facial fat in key areas like the lower cheeks, jawline, and submental (double chin) region. Whether due to genetics or lifestyle, facial heaviness can obscure natural bone structure—even in those with a healthy BMI.<br/><br/>This treatment provides a non-surgical solution to refine contours, improve definition, and reshape the face for a leaner, more V-shaped profile—without downtime.<br/><br/><i>“It’s not about changing your face. It’s about unlocking its best version—cleaner lines, lifted confidence, no unnecessary volume.”<br/>— dr. Olivia Aldisa, Facial Contouring Specialist & Altruva Founder</i>`,
+    whatIsIt: {
+        title: 'How It Works',
+        description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+            <li><strong>Advanced Lipolytic Complex:</strong> Our formula is powered by clinically proven lipolytic compounds that selectively break down localized fat deposits while preserving skin integrity and surrounding tissues.</li>
+            <li><strong>Microinjection Delivery:</strong> Administered via precise microinjections, the solution acts in the subcutaneous fat layer to liquefy fat cells, which are then naturally eliminated through the body’s lymphatic system.</li>
+            <li><strong>Targeted Contouring:</strong> By reducing excess volume in specific areas, the treatment restores facial harmony and sharpens structural definition—especially in the jawline, jowl zone, and lower face.</li>
+        </ul>`
+    },
+    benefits: [
+        'Contours without surgery',
+        'Improves facial proportions',
+        'Boosts skin tone and elasticity',
+        'Gentle and well-tolerated',
+        'Clinically backed innovation'
+    ],
+    indications: [
+        'Men and women under 40 with excess facial fat despite normal weight',
+        'Individuals looking to define the V-line, reduce chipmunk cheeks, or lighten lower face heaviness',
+        'Those hesitant about surgical buccal fat removal or invasive procedures',
+        'Patients who want refined facial proportions without adding volume'
+    ],
+    protocol: [
+      { label: 'Session Time', value: '30–45 minutes' },
+      { label: 'Frequency', value: '2–4 sessions spaced 2–3 weeks apart' },
+      { label: 'Recovery', value: 'Mild tenderness or swelling for 1–3 days' },
+      { label: 'Maintenance', value: 'As needed based on lifestyle & metabolism' }
+    ]
   },
   {
     id: 'face-modulator-half',
