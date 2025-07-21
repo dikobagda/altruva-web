@@ -14,6 +14,7 @@ import PageTitle from '@/components/shared/PageTitle';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import React from 'react';
 import InsightCard from '@/components/insights/InsightCard';
+import GlowQuiz from '@/components/quiz/GlowQuiz';
 import {
   Carousel,
   CarouselContent,
@@ -184,6 +185,16 @@ export default function HomePage() {
         </SectionWrapper>
       )}
 
+      {/* Glow Quiz Section */}
+      <SectionWrapper id="glow-quiz" className="bg-primary text-primary-foreground">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Find Your Perfect Harmony Plan</h2>
+          <p className="text-lg md:text-xl mb-8 opacity-90">
+            Take our quick Glow Quiz to get a personalized aesthetic roadmap tailored to your age, skin needs, and goals.
+          </p>
+          <GlowQuiz />
+        </div>
+      </SectionWrapper>
 
       {/* AI Skin Analysis Teaser Section */}
       <SectionWrapper id="ai-skin-analysis-teaser" className="bg-secondary/30">
