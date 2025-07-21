@@ -51,7 +51,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
   return (
     <>
-      <SectionWrapper className="bg-secondary/30">
+      <SectionWrapper className="bg-secondary/30 pt-24 md:pt-32 pb-12">
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-accent font-semibold mb-2">{service.group}</p>
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">{service.title}</h1>
