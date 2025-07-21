@@ -12,8 +12,8 @@ export interface Service {
   Icon?: LucideIcon;
   imageSrc: string;
   imageHint: string;
-  category: 'Prejuvenation' | 'Rejuvenation';
-  group: 'Altruva Glow' | 'Altruva Lift';
+  category: 'Prejuvenation' | 'Rejuvenation' | 'Body' | 'Hair' | 'Facial';
+  group: 'Altruva Glow' | 'Altruva Lift' | 'Body Contouring' | 'Hair Restoration' | 'Signature Facials';
   groupDescription: string;
   subgroup: string;
 
@@ -37,6 +37,34 @@ export interface Service {
 }
 
 export const services: Service[] = [
+  // --- Signature Facials ---
+  {
+    id: 'altruva-signature-facial',
+    title: 'Altruva Signature Facial (Pore Clean Facial)',
+    description: 'A deep cleansing facial to purify pores and refresh the skin.',
+    price: 'Price on consultation',
+    category: 'Facial',
+    Icon: Sparkles,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'deep pore cleansing',
+    group: 'Signature Facials',
+    groupDescription: 'Customized facials to address your unique skin needs.',
+    subgroup: 'Core Facials'
+  },
+  {
+    id: 'altruva-hydraglow-facial',
+    title: 'Altruva HydraGlow Facial',
+    description: 'Intense hydration for a luminous, dewy complexion.',
+    price: 'Price on consultation',
+    category: 'Facial',
+    Icon: Droplets,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'hydrated glowing skin',
+    group: 'Signature Facials',
+    groupDescription: 'Customized facials to address your unique skin needs.',
+    subgroup: 'Core Facials'
+  },
+
   // --- Prejuvenation (< 40) ---
   {
     id: 'glacier-skin',
@@ -534,6 +562,114 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Signature Restoration'
   },
+
+  // --- Body Treatments ---
+  {
+    id: 'altruva-neocurve',
+    title: 'Altruva NeoCurve by EmSculpt Neo',
+    description: 'Advanced body contouring to build muscle and reduce fat.',
+    price: 'Price on consultation',
+    category: 'Body',
+    Icon: Zap,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'body sculpting machine',
+    group: 'Body Contouring',
+    groupDescription: 'Sculpt, tone, and refine your body with our advanced treatments.',
+    subgroup: 'Muscle & Fat'
+  },
+  {
+    id: 'altruva-lipo-elixir',
+    title: 'Altruva Lipo Elixir',
+    description: 'Targeted fat-dissolving injections for stubborn areas.',
+    price: 'Price on consultation',
+    category: 'Body',
+    Icon: Droplets,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'injection treatment',
+    group: 'Body Contouring',
+    groupDescription: 'Sculpt, tone, and refine your body with our advanced treatments.',
+    subgroup: 'Fat Reduction'
+  },
+  {
+    id: 'altruva-regenerative-rf-body',
+    title: 'Altruva Regenerative RF (Body)',
+    description: 'Radiofrequency for skin tightening and cellulite reduction on the body.',
+    price: 'Price on consultation',
+    category: 'Body',
+    Icon: HeartPulse,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'rf body treatment',
+    group: 'Body Contouring',
+    groupDescription: 'Sculpt, tone, and refine your body with our advanced treatments.',
+    subgroup: 'Skin Tightening'
+  },
+  {
+    id: 'altruva-lipofreeze',
+    title: 'Altruva LipoFreeze by CoolSculpting®',
+    description: 'Freeze away unwanted fat cells permanently with cryolipolysis.',
+    price: 'Price on consultation',
+    category: 'Body',
+    Icon: Star,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'cryolipolysis machine',
+    group: 'Body Contouring',
+    groupDescription: 'Sculpt, tone, and refine your body with our advanced treatments.',
+    subgroup: 'Fat Reduction'
+  },
+
+  // --- Hair Treatments ---
+  {
+    id: 'altruva-micrograft-technology',
+    title: 'Altruva Micrograft Technology',
+    description: 'A revolutionary approach to hair restoration using your own tissue.',
+    price: 'Price on consultation',
+    category: 'Hair',
+    Icon: Microscope,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'hair follicle science',
+    group: 'Hair Restoration',
+    groupDescription: 'Advanced solutions for hair thinning and loss.',
+    subgroup: 'Advanced Restoration'
+  },
+  {
+    id: 'altruva-hair-prf',
+    title: 'Altruva Hair PRF',
+    description: 'Platelet-Rich Fibrin therapy to stimulate hair follicles and promote growth.',
+    price: 'Price on consultation',
+    category: 'Hair',
+    Icon: HeartPulse,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'hair growth therapy',
+    group: 'Hair Restoration',
+    groupDescription: 'Advanced solutions for hair thinning and loss.',
+    subgroup: 'Growth Boosters'
+  },
+  {
+    id: 'altruva-hair-booster',
+    title: 'Altruva Hair Booster',
+    description: 'A potent cocktail of nutrients and growth factors injected into the scalp.',
+    price: 'Price on consultation',
+    category: 'Hair',
+    Icon: Droplets,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'scalp injection',
+    group: 'Hair Restoration',
+    groupDescription: 'Advanced solutions for hair thinning and loss.',
+    subgroup: 'Growth Boosters'
+  },
+  {
+    id: 'altruva-lift-signature',
+    title: 'Altruva Lift Signature',
+    description: 'A combination therapy for maximum lift and rejuvenation, tailored to you.',
+    price: 'Price on consultation',
+    category: 'Rejuvenation',
+    Icon: Star,
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'signature facelift procedure',
+    group: 'Altruva Lift',
+    groupDescription: 'Aging is an evolution. Let’s refine the process.',
+    subgroup: 'Restoration & Lifting'
+  }
 ];
 
 

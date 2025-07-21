@@ -42,25 +42,25 @@ const navItems: NavItem[] = [
   {
     label: 'Face',
     subItems: [
-      { href: '/face/altruva-signature-facial', label: 'Altruva Signature Facial (Pore Clean Facial)' },
-      { href: '/face/altruva-hydraglow-facial', label: 'Altruva HydraGlow Facial' },
+      { href: '/services/altruva-signature-facial', label: 'Altruva Signature Facial (Pore Clean Facial)' },
+      { href: '/services/altruva-hydraglow-facial', label: 'Altruva HydraGlow Facial' },
       {
         label: 'Prejuvenation',
         subItems: [
-          { href: '/face/prejuvenation/altruva-lift', label: 'Altruva Lift' },
-          { href: '/face/prejuvenation/altruva-lift-signature', label: 'Altruva Lift Signature' },
-          { href: '/face/prejuvenation/signature-laser', label: 'Signature Laser' },
-          { href: '/face/prejuvenation/signature-peels', label: 'Signature Peels' },
+          { href: '/services/art-lyft-lite', label: 'Altruva Lift' },
+          { href: '/services/altruva-lift-signature', label: 'Altruva Lift Signature' },
+          { href: '/services/exion-lumi-laser', label: 'Signature Laser' },
+          { href: '/services/clarify-peel', label: 'Signature Peels' },
         ],
       },
       {
         label: 'Rejuvenation',
         subItems: [
-          { href: '/face/rejuvenation/altruva-lift', label: 'Altruva Lift' },
-          { href: '/face/rejuvenation/altruva-lift-signature', label: 'Altruva Lift Signature' },
-          { href: '/face/rejuvenation/signature-laser', label: 'Signature Laser' },
-          { href: '/face/rejuvenation/signature-peels', label: 'Signature Peels' },
-          { href: '/face/rejuvenation/skingeneering-boosters', label: 'Skingeneering Boosters' },
+          { href: '/services/art-lyft', label: 'Altruva Lift' },
+          { href: '/services/gorgeous-lyft-rejuvenation', label: 'Altruva Lift Signature' },
+          { href: '/services/exion-regen-laser', label: 'Signature Laser' },
+          { href: '/services/radiant-advanced-peel', label: 'Signature Peels' },
+          { href: '/services/exoprime-pro', label: 'Skingeneering Boosters' },
         ],
       },
     ],
@@ -68,18 +68,18 @@ const navItems: NavItem[] = [
   {
     label: 'Hair',
     subItems: [
-        { href: '/hair/altruva-micrograft-technology', label: 'Altruva Micrograft Technology' },
-        { href: '/hair/altruva-hair-prf', label: 'Altruva Hair PRF' },
-        { href: '/hair/altruva-hair-booster', label: 'Altruva Hair Booster' },
+        { href: '/services/altruva-micrograft-technology', label: 'Altruva Micrograft Technology' },
+        { href: '/services/altruva-hair-prf', label: 'Altruva Hair PRF' },
+        { href: '/services/altruva-hair-booster', label: 'Altruva Hair Booster' },
     ]
   },
   {
     label: 'Body',
     subItems: [
-      { href: '/body/altruva-neocurve', label: 'Altruva NeoCurve by EmSculpt Neo' },
-      { href: '/body/altruva-lipo-elixir', label: 'Altruva Lipo Elixir' },
-      { href: '/body/altruva-regenerative-rf', label: 'Altruva Regenerative RF (Body)' },
-      { href: '/body/altruva-lipofreeze', label: 'Altruva LipoFreeze by CoolSculpting®' },
+      { href: '/services/altruva-neocurve', label: 'Altruva NeoCurve by EmSculpt Neo' },
+      { href: '/services/altruva-lipo-elixir', label: 'Altruva Lipo Elixir' },
+      { href: '/services/altruva-regenerative-rf-body', label: 'Altruva Regenerative RF (Body)' },
+      { href: '/services/altruva-lipofreeze', label: 'Altruva LipoFreeze by CoolSculpting®' },
     ],
   },
   { href: '/insights', label: 'Insights' },
@@ -113,38 +113,39 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
   const isActive = getIsActive(item);
 
   if (item.href) {
-    if (isMobile) {
-        return (
-            <div className='p-0'>
-                <Link
-                href={item.href}
-                className={cn(
-                    "w-full text-left",
-                    "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary",
-                    isActive ? "text-primary bg-primary/5" : "text-foreground/80"
-                )}
-                onClick={closeMobileMenu}
-                prefetch={false}
-                >
-                {item.label}
-                </Link>
-            </div>
-        );
+    // For Desktop, top-level links are buttons
+    if (!isMobile) {
+      return (
+        <Button
+          variant="ghost"
+          asChild
+          className={cn(
+            "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto",
+            "hover:bg-primary/10 hover:text-primary",
+            isActive ? "text-primary bg-primary/5" : "text-foreground/80"
+          )}
+        >
+          <Link href={item.href} prefetch={false}>{item.label}</Link>
+        </Button>
+      );
     }
     
-    // For Desktop, top-level links are buttons
+    // For Mobile
     return (
-      <Button
-        variant="ghost"
-        asChild
-        className={cn(
-          "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start text-left h-auto",
-          "hover:bg-primary/10 hover:text-primary",
-          isActive ? "text-primary bg-primary/5" : "text-foreground/80"
-        )}
-      >
-        <Link href={item.href} prefetch={false}>{item.label}</Link>
-      </Button>
+        <div className='p-0'>
+            <Link
+            href={item.href}
+            className={cn(
+                "w-full text-left",
+                "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary",
+                isActive ? "text-primary bg-primary/5" : "text-foreground/80"
+            )}
+            onClick={closeMobileMenu}
+            prefetch={false}
+            >
+            {item.label}
+            </Link>
+        </div>
     );
   }
 
@@ -167,7 +168,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
               <ChevronDown className="ml-1 h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="bg-background shadow-lg mt-1 w-56">
+          <DropdownMenuContent align="start" className="bg-popover shadow-lg mt-1 w-56">
             {item.subItems?.map((subItem) => (
               <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
             ))}
@@ -194,7 +195,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
                   <ChevronDown className="h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
                   </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-background shadow-lg mt-1">
+              <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-popover shadow-lg mt-1">
                   {item.subItems?.map((subItem) => (
                       <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
                   ))}
@@ -256,7 +257,7 @@ const NavSubMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, is
                     <span>{item.label}</span>
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
-                    <DropdownMenuSubContent className="w-56">
+                    <DropdownMenuSubContent className="bg-popover w-56">
                     {item.subItems?.map((subItem) => (
                         <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
                     ))}
@@ -358,7 +359,7 @@ export default function Header() {
           />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-background shadow-lg">
+      <DropdownMenuContent align="end" className="bg-popover shadow-lg">
         {languages.map((lang) => (
           <DropdownMenuItem key={lang.code} onSelect={() => setSelectedLanguage(lang)} className="space-x-2 cursor-pointer">
             <lang.Icon className="h-4 w-auto" />
