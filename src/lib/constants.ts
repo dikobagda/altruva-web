@@ -584,7 +584,7 @@ export const services: Service[] = [
   // --- Rejuvenation (> 40) ---
   {
     id: 'exoprime-pro',
-    title: 'Exoprime Pro',
+    title: 'Altruva Exoprime Pro',
     description: 'Deep regenerative exosome therapy.',
     price: '4,500,000 IDR',
     category: 'Rejuvenation',
@@ -593,7 +593,37 @@ export const services: Service[] = [
     imageHint: 'exosome therapy',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    subtitle: 'Origin & Purity',
+    longDescription: 'Altruva Exoprime Pro is an advanced, non-invasive regenerative treatment leveraging the science of exosomes to enhance skin health, promote rejuvenation, and support hair vitality. Exosomes are microscopic vesicles naturally secreted by cells, rich in bioactive compounds such as proteins, lipids, mRNA, and microRNAs—essential for cellular communication and repair. These vesicles act as messengers, triggering key biological processes that lead to improved skin texture, reduced inflammation and pigmentation, enhanced wound healing, and stimulation of hair growth.',
+    whatIsIt: {
+      title: 'Core Applications',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li>Skin Rejuvenation</li><li>Wound and Scar Repair</li><li>Anti-aging and Texture Refinement</li><li>Hair Restoration and Scalp Revitalization</li></ul>`
+    },
+    mechanism: [
+      { title: 'Boosts Collagen & Elastin', description: 'Supports dermal remodeling by accelerating fibroblast activity' },
+      { title: 'Neutralizes Free Radicals', description: 'Reduces oxidative stress from pollution, UV, and internal aging' },
+      { title: 'Improves Skin Texture', description: 'Softens unevenness, smoothens skin surface' },
+      { title: 'Deep Skin Hydration', description: 'Enhances water retention and replenishes the extracellular matrix' },
+      { title: 'Enhances Microcirculation', description: 'Improves oxygenation and nutrient flow for a lit-from-within glow' },
+      { title: 'Supports Skin Recovery', description: 'Ideal for post-laser, peeling, or stress-related skin fatigue' },
+    ],
+    benefits: [
+      'Supports accelerated skin repair and regeneration',
+      'Minimizes fine lines and wrinkles',
+      'Improves skin elasticity, tone, and resilience',
+      'Boosts collagen synthesis and fibroblast activity',
+      'Enhances overall texture and luminosity',
+      'Strengthens hair structure and shaft integrity',
+      'Promotes accelerated hair growth',
+      'Reduces excessive shedding',
+      'Optimizes scalp condition for healthier follicles',
+    ],
+    whyLoveIt: [
+      'Synergistic with Energy-Based Devices: Ideal as a post-treatment bio-repair system following microneedling, lasers, or RF—enhancing outcomes and reducing downtime.',
+      'Scientifically Validated: Rigorously tested and developed under stringent laboratory protocols, ensuring quality, safety, and efficacy.',
+      'Visible, Long-Lasting Results: Improvements are often visible within a week. With consistent use (minimum 3 sessions), results may last 6–12 months depending on individual skin conditions and treatment protocols.',
+    ]
   },
   {
     id: 'dna-repair-pro',
@@ -697,7 +727,7 @@ export const services: Service[] = [
       { label: 'Protocol', value: '3–4 sessions spaced 2–3 weeks apart' },
       { label: 'Longevity', value: '6–9 months (may vary)' },
       { label: 'Technique', value: 'Microinjection or microbolus' },
-      { label: 'Layering Option', value: 'Safe with PRF, skin boosters, or lasers' },
+      { label: 'Layering Option', value: 'Safe to combine with PRF, skin boosters, or lasers' },
     ],
     whyLoveIt: [
       'Zero Tyndall Risk: No blue hue or light reflection.',
@@ -1013,10 +1043,10 @@ export const services: Service[] = [
       'Minimal to zero downtime'
     ],
     indications: [
-      'Men and women 40+ experiencing visible skin aging',
-      'Clients not yet ready for invasive lifting or injectables',
-      'Individuals with textural decline, sagging contours, and early jowl formation',
-      'Mature skin seeking regenerative improvement with minimal disruption'
+        'Men and women 40+ experiencing visible skin aging',
+        'Clients not yet ready for invasive lifting or injectables',
+        'Individuals with textural decline, sagging contours, and early jowl formation',
+        'Mature skin seeking regenerative improvement with minimal disruption'
     ],
     protocol: [
       { label: 'Session Duration', value: '45–60 minutes for full face' },
@@ -1588,6 +1618,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
