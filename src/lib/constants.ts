@@ -58,9 +58,9 @@ export const services: Service[] = [
         <li><strong class="text-primary">Fully Personalized Protocol:</strong> Whether you're battling congestion, sensitivity, dullness, or early signs of aging — your facial will be individually customized to treat your skin’s real-time needs.</li>
         <li><strong class="text-primary">PDT Light Technology (Photodynamic Therapy):</strong> Targeted LED wavelengths are incorporated based on your skin goals:
           <ul class="list-disc pl-5 mt-1">
-            <li><strong>Blue Light (415 nm):</strong> For acne-prone skin, kills P. acnes bacteria and calms inflammation.</li>
-            <li><strong>Red Light (630 nm):</strong> Stimulates collagen, improves circulation, and supports cellular renewal.</li>
-            <li><strong>Infrared Light (830 nm):</strong> Penetrates deeply to reduce inflammation, increase elasticity, and accelerate healing — ideal for mature, reactive, or post-procedure skin.</li>
+            <li><strong class="text-primary">Blue Light (415 nm):</strong> For acne-prone skin, kills P. acnes bacteria and calms inflammation.</li>
+            <li><strong class="text-primary">Red Light (630 nm):</strong> Stimulates collagen, improves circulation, and supports cellular renewal.</li>
+            <li><strong class="text-primary">Infrared Light (830 nm):</strong> Penetrates deeply to reduce inflammation, increase elasticity, and accelerate healing — ideal for mature, reactive, or post-procedure skin.</li>
           </ul>
         </li>
         <li><strong class="text-primary">Signature Extraction Method:</strong> Gentle yet thorough extractions ensure deep cleansing without compromising skin barrier or comfort — especially ideal for clogged pores, blackheads, and t-zone buildup.</li>
@@ -134,10 +134,10 @@ export const services: Service[] = [
       { label: 'Ideal For', value: 'Dehydrated, acne-prone, dull, sensitive, or aging skin types' },
     ],
     whyLoveIt: [
-      '<strong>Custom PDT Integration:</strong> Add Blue, Red, or Infrared LED for acne control or regenerative glow.',
-      '<strong>Barrier-Safe Approach:</strong> No harsh acids. Skin remains calm, hydrated, and non-reactive.',
-      '<strong>Clinically Formulated Protocols:</strong> Designed by dr. Olivia Aldisa for enhanced cellular turnover and skin integrity.',
-      '<strong>Makeup-Optional Finish:</strong> Walk out with hydrated, luminous skin ready for the day or night.',
+      'Custom PDT Integration: Add Blue, Red, or Infrared LED for acne control or regenerative glow.',
+      'Barrier-Safe Approach: No harsh acids. Skin remains calm, hydrated, and non-reactive.',
+      'Clinically Formulated Protocols: Designed by dr. Olivia Aldisa for enhanced cellular turnover and skin integrity.',
+      'Makeup-Optional Finish: Walk out with hydrated, luminous skin ready for the day or night.',
       '<i>“Hydration is not a trend — it’s the foundation of skin longevity. This treatment makes your skin feel alive again.”</i> — dr. Olivia Aldisa, Founder of Altruva & Regenerative Skin Strategist',
     ],
   },
@@ -1584,7 +1584,44 @@ export const services: Service[] = [
     imageHint: 'cryolipolysis machine',
     group: 'Body Contouring',
     groupDescription: 'Sculpt, tone, and refine your body with our advanced treatments.',
-    subgroup: 'Fat Reduction'
+    subgroup: 'Fat Reduction',
+    subtitle: 'Science-Led. Clinically Precise. Zero Downtime Fat Removal — by dr. Aldisa.',
+    longDescription: `Altruva LipoFreeze is the signature non-surgical fat reduction protocol at Altruva, powered by the original CoolSculpting® Elite technology and personalized by dr. Olivia Aldisa, official CoolSculpting KOL, international trainer, and finalist at AMWC Monaco 2024 for Non-Surgical Body Shaping.<br/><br/>With over a decade of clinical data and more than 100 peer-reviewed studies, CoolSculpting is the gold standard in cryolipolysis, trusted worldwide for its safety, precision, and long-term results.`,
+    whatIsIt: {
+      title: 'The Science Behind LipoFreeze',
+      description: `<h4 class="font-semibold text-primary">Cryolipolysis:</h4><p>CoolSculpting delivers controlled cooling to selectively target and freeze fat cells without damaging surrounding tissue. Fat cells, being more sensitive to cold than skin, undergo apoptosis (cell death) and are naturally eliminated by the lymphatic system over time.</p><h4 class="font-semibold text-primary mt-4">No Needles. No Surgery. No Downtime.</h4><p>LipoFreeze is fully non-invasive, offering transformative fat reduction with zero social disruption.</p>`
+    },
+    benefits: [
+      'Up to 27% fat reduction per session (clinical average)',
+      'FDA-cleared for 9 body areas',
+      'No surgery, anesthesia, or needles',
+      'Clinically proven safety profile',
+      'Immediate return to normal activities',
+      'Natural-looking contour refinement'
+    ],
+    indications: [
+      'Abdomen & Flanks',
+      'Upper Arms',
+      'Inner & Outer Thighs',
+      'Bra Fat & Back Rolls',
+      'Submental (Double Chin)',
+      'Banana Roll (Under Buttock)',
+    ],
+    protocol: [
+      { label: 'Duration per area', value: '35–60 minutes' },
+      { label: 'Number of sessions', value: '1–3 depending on area and fat volume' },
+      { label: 'Onset of results', value: 'Visible at 30 days; peak at 12 weeks' },
+      { label: 'Longevity', value: 'Permanent fat cell reduction*' },
+      { label: 'Downtime', value: 'None' },
+      { label: 'Discomfort', value: 'Mild, mostly cold sensation & tugging' }
+    ],
+    whyLoveIt: [
+      '<strong>Led by a Global Expert:</strong> All treatments are mapped and performed under the guidance of dr. Aldisa, ensuring world-class technique and safety.',
+      '<strong>DualSculpting Efficiency:</strong> Treat two areas simultaneously with Altruva’s Elite Dual Applicator System, halving treatment time.',
+      '<strong>Tailored Body Blueprinting:</strong> Every contour plan is custom-created based on fat layer thickness, skin quality, and body proportion, ensuring results that are natural and elegant — never uneven or bulky.',
+      '<i>“My clothes fit better, my waist looks sculpted — and no one guessed I had anything done. That’s the Altruva magic.”</i> - A satisfied patient.',
+      '<i>“The real artistry in body shaping lies in knowing what not to freeze — precision is everything. LipoFreeze is not just technology, it’s a treatment philosophy.”</i> — dr. Olivia Aldisa, Global CoolSculpting Trainer & Regenerative Body Shaping Expert'
+    ]
   },
 
   // --- Hair Treatments ---
@@ -1619,11 +1656,11 @@ export const services: Service[] = [
       </ol>`
     },
     benefits: [
-      '100% from your body. No chemicals. No risk of rejection.',
-      'Particularly effective in early to moderate androgenetic alopecia.',
-      'Especially beneficial for miniaturized or inactive follicles.',
-      'Return to daily activities almost immediately after the procedure.',
-      'Amplify results with oral nutricosmetics, hair serums, LLLT (laser caps), or RF microneedling.'
+      'Autologous & Biocompatible: 100% from your body. No chemicals. No risk of rejection.',
+      'Improves Hair Density: Particularly effective in early to moderate androgenetic alopecia.',
+      'Reawakens Dormant Follicles: Especially beneficial for miniaturized or inactive follicles.',
+      'Minimal Downtime: Return to daily activities almost immediately after the procedure.',
+      'Pairs Synergistically: Amplify results with oral nutricosmetics, hair serums, LLLT (laser caps), or RF microneedling.'
     ],
     protocol: [
       { label: 'Duration', value: '45–60 minutes (including harvest + injection)' },
@@ -1703,8 +1740,7 @@ export const services: Service[] = [
     longDescription: `Altruva Hair Booster is an advanced mesotherapy solution meticulously designed to combat male and female pattern hair loss (androgenetic alopecia) and revitalize the scalp. Leveraging Fusion Meso F-Hair Men — a clinically proven cocktail of growth factors, peptides, hyaluronic acid, and essential minerals — this treatment activates follicular regeneration, strengthens existing hair shafts, and creates an optimal environment for new hair growth.`,
     whatIsIt: {
         title: 'What It Is',
-        description: `A high-performance scalp mesotherapy protocol using microinjections of regenerative actives, Altruva Hair Booster nourishes the dermal papilla and reactivates the hair cycle with minimal discomfort or downtime.
-Ideal for men and women in early to moderate stages of hair thinning or shedding.`
+        description: `A high-performance scalp mesotherapy protocol using microinjections of regenerative actives, Altruva Hair Booster nourishes the dermal papilla and reactivates the hair cycle with minimal discomfort or downtime. Ideal for men and women in early to moderate stages of hair thinning or shedding.`
     },
     mechanism: [
         { title: 'EGF, FGF, VEGF (Growth Factors)', description: 'Stimulate hair follicles at a cellular level, prolong the anagen (growth) phase, and enhance microvascular perfusion.' },
@@ -2055,6 +2091,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
