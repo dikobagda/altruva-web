@@ -1442,7 +1442,42 @@ export const services: Service[] = [
     imageHint: 'body sculpting machine',
     group: 'Body Contouring',
     groupDescription: 'Sculpt, tone, and refine your body with our advanced treatments.',
-    subgroup: 'Muscle &amp; Fat'
+    subgroup: 'Muscle &amp; Fat',
+    subtitle: 'Shape Redefined. Strength Amplified. Contour, Regenerate, Elevate.',
+    longDescription: 'When it comes to body contouring, fat reduction is no longer enough. Altruva NeoCurve is the next-generation protocol that delivers dual-action transformation — reducing fat while building real muscle — without needles, downtime, or compromise. This signature treatment harnesses the power of EmSculpt Neo, the only FDA-cleared device that simultaneously uses radiofrequency (RF) and HIFEM+ (High-Intensity Focused Electromagnetic energy) to burn fat and stimulate deep muscle contractions beyond what the human body can achieve naturally. Tailored exclusively at Altruva for clients who demand both aesthetic finesse and physiological performance — NeoCurve is not just about slimming, it’s about recomposition and metabolic renewal.',
+    whatIsIt: {
+      title: 'Science Behind the Curve',
+      description: `<strong>Dual-Energy Synergy:</strong><br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Radiofrequency (RF)</strong> gently heats the fat layer, triggering apoptosis (fat cell death). These cells are then eliminated naturally through the lymphatic system over weeks.</li><li><strong>HIFEM+ Energy</strong> penetrates deep into the muscle layer, generating 20,000+ supramaximal contractions per session — the type of muscle engagement that cannot be achieved through exercise alone.</li></ul><p class="mt-2"><strong>Outcome:</strong> Simultaneous fat destruction and muscle hypertrophy — safely, comfortably, and efficiently.</p>`,
+    },
+    benefits: [
+      'Up to 25% increase in muscle volume*',
+      'Up to 30% subcutaneous fat reduction*',
+      'Mild RF-based tightening in superficial layers',
+      'Improved posture, core control, and physical tone',
+      'A more defined, athletic, confident silhouette'
+    ],
+    indications: [
+      'Abdomen',
+      'Arms',
+      'Thighs',
+      'Buttocks',
+      'Calves',
+    ],
+    protocol: [
+      { label: 'Sessions', value: '4 treatments, spaced one week apart' },
+      { label: 'Duration', value: '30 minutes per area' },
+      { label: 'Downtime', value: 'None – resume daily activity immediately' },
+      { label: 'Results', value: 'Begin at 2–4 weeks; peak by 12 weeks post-final session' },
+      { label: 'Maintenance', value: 'Optional 1–2 booster sessions per quarter for sustained tone' },
+    ],
+    whyLoveIt: [
+      '<strong>Total Body Recomposition:</strong> not just fat loss, but functional muscular strength.',
+      '<strong>Safe for All Skin Types:</strong> including post-partum and peri-menopausal patients.',
+      '<strong>Curated by Dr. Aldisa:</strong> personalized mapping and treatment plans for optimal results.',
+      '<strong>Metabolic Edge:</strong> improved basal metabolic rate through increased lean mass.',
+      '<strong>Fitness Plateau Breakthrough:</strong> perfect for those already training or stuck at a plateau.',
+      '<i>“With NeoCurve, we’re not just sculpting — we’re resetting your physiology. Stronger. Leaner. Sharper.”</i> — dr. Olivia Aldisa, Functional Aesthetic Strategist & Regenerative Contour Specialist'
+    ],
   },
   {
     id: 'altruva-lipo-elixir',
@@ -1951,6 +1986,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
