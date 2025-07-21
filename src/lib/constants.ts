@@ -1537,7 +1537,41 @@ export const services: Service[] = [
     imageHint: 'rf body treatment',
     group: 'Body Contouring',
     groupDescription: 'Sculpt, tone, and refine your body with our advanced treatments.',
-    subgroup: 'Skin Tightening'
+    subgroup: 'Skin Tightening',
+    subtitle: 'Smart Sculpting. Deep Regeneration. Non-Surgical Body Recontouring.',
+    longDescription: 'Altruva Regenerative RF (Body) is a needle-free, non-invasive sculpting solution that merges next-generation Radiofrequency (RF) and Ultrasound energy to regenerate the skin from within while reducing stubborn body fat. This dual-action technology enhances collagen, elastin, and hyaluronic acid production, visibly firms loose skin, and refines body contours — with zero downtime.<br/><br/>For patients seeking elegant body reshaping without invasive procedures, this is the ultimate regenerative contouring protocol — and it pairs seamlessly with Altruva Lipo Elixir for amplified fat modulation and tightening.',
+    whatIsIt: {
+      title: 'How It Works: Dual-Action Technology',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2">
+          <li><strong>RF-Driven Collagen Remodeling:</strong> Targeted RF energy gently heats the dermis and subdermal tissues, stimulating fibroblasts to increase collagen and elastin synthesis — critical for firm, elastic, youthful-looking skin.</li>
+          <li><strong>Ultrasound-Powered Fat Disruption:</strong> Focused ultrasound waves mechanically disrupt fat cell membranes and induce lipolysis, accelerating fat reduction in resistant areas.</li>
+          <li><strong>Endogenous HA Booster:</strong> The technology uniquely stimulates natural hyaluronic acid production, enhancing hydration and skin plumpness from the inside out.</li>
+      </ul>`
+    },
+    benefits: [
+      'Firms and tightens sagging skin on the abdomen, thighs, arms, and more',
+      'Reduces stubborn fat via mechanical lipolysis',
+      'Improves texture and cellulite by remodeling connective tissue',
+      'Boosts hydration and elasticity through HA stimulation',
+      'Non-invasive & painless with no needles, surgery, or social downtime'
+    ],
+    indications: [
+        'Abdomen',
+        'Flanks',
+        'Arms',
+        'Thighs',
+        'Buttocks'
+    ],
+    protocol: [
+      { label: 'Duration', value: '30–60 minutes per area' },
+      { label: 'Sessions Needed', value: '4–6 sessions, spaced 1–2 weeks apart' },
+      { label: 'Downtime', value: 'Minimal to none' },
+      { label: 'Results Timeline', value: 'Progressive over 6–12 weeks post-treatment' },
+    ],
+    whyLoveIt: [
+      '<strong>Why Combine with Lipo Elixir?</strong> Regenerative RF and Lipo Elixir are complementary — one triggers apoptosis to gently reduce fat volume, while the other tightens and regenerates the overlying skin. Together, they deliver smarter debulking, harmonized contours, and long-term regeneration.',
+      '<i>“Body sculpting is no longer about burning fat — it’s about regenerating structure, improving skin integrity, and restoring confidence — the Altruva way.”</i> — dr. Olivia Aldisa, Advanced Contouring Specialist'
+    ]
   },
   {
     id: 'altruva-lipofreeze',
@@ -1669,7 +1703,8 @@ export const services: Service[] = [
     longDescription: `Altruva Hair Booster is an advanced mesotherapy solution meticulously designed to combat male and female pattern hair loss (androgenetic alopecia) and revitalize the scalp. Leveraging Fusion Meso F-Hair Men — a clinically proven cocktail of growth factors, peptides, hyaluronic acid, and essential minerals — this treatment activates follicular regeneration, strengthens existing hair shafts, and creates an optimal environment for new hair growth.`,
     whatIsIt: {
         title: 'What It Is',
-        description: `A high-performance scalp mesotherapy protocol using microinjections of regenerative actives, Altruva Hair Booster nourishes the dermal papilla and reactivates the hair cycle with minimal discomfort or downtime. Ideal for men and women in early to moderate stages of hair thinning or shedding.`
+        description: `A high-performance scalp mesotherapy protocol using microinjections of regenerative actives, Altruva Hair Booster nourishes the dermal papilla and reactivates the hair cycle with minimal discomfort or downtime.
+Ideal for men and women in early to moderate stages of hair thinning or shedding.`
     },
     mechanism: [
         { title: 'EGF, FGF, VEGF (Growth Factors)', description: 'Stimulate hair follicles at a cellular level, prolong the anagen (growth) phase, and enhance microvascular perfusion.' },
@@ -2020,6 +2055,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
