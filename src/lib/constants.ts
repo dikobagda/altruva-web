@@ -111,10 +111,10 @@ export const services: Service[] = [
       </ol>
       <h4 class="font-semibold text-primary mt-4">Custom-Infused Serums May Include:</h4>
       <ul class="list-disc pl-5 mt-2 space-y-1">
-        <li><strong>Hyaluronic Acid:</strong> Deep hydration + plumping</li>
-        <li><strong>Salicylic Acid:</strong> Acne, oil control, and decongestion</li>
-        <li><strong>Vitamin C:</strong> Brightening and antioxidant protection</li>
-        <li><strong>Niacinamide:</strong> Strengthens barrier and evens tone</li>
+        <li><strong class="text-primary">Hyaluronic Acid:</strong> Deep hydration + plumping</li>
+        <li><strong class="text-primary">Salicylic Acid:</strong> Acne, oil control, and decongestion</li>
+        <li><strong class="text-primary">Vitamin C:</strong> Brightening and antioxidant protection</li>
+        <li><strong class="text-primary">Niacinamide:</strong> Strengthens barrier and evens tone</li>
       </ul>`,
     },
     benefits: [
@@ -1496,7 +1496,44 @@ export const services: Service[] = [
     imageHint: 'hair follicle science',
     group: 'Hair Restoration',
     groupDescription: 'Advanced solutions for hair thinning and loss.',
-    subgroup: 'Advanced Restoration'
+    subgroup: 'Advanced Restoration',
+    subtitle: 'Activate Dormant Follicles. Regrow What’s Yours — Naturally.',
+    longDescription: 'Altruva Micrograft Technology is a cutting-edge autologous cellular regeneration treatment that utilizes your own biological blueprint to restore thinning hair and enhance follicular vitality — without surgery, foreign substances, or downtime.<br/><br/>This next-generation hair rejuvenation protocol isolates progenitor cells, growth factors, and regenerative matrices from your own scalp tissue and reintroduces them into thinning zones — where they reawaken dormant follicles, improve scalp microcirculation, and lay the foundation for thicker, denser, and more resilient hair.',
+    whatIsIt: {
+      title: 'How It Works: From You, For You',
+      description: `<ol class="list-decimal pl-5 space-y-2">
+        <li><strong class="text-primary">Tissue Harvesting:</strong> A small punch biopsy (usually from the occipital scalp) is taken — typically less than 2.5mm, requiring no sutures.</li>
+        <li><strong class="text-primary">Cellular Isolation:</strong> Using sterile, closed-loop processing, the tissue is gently fragmented to release a regenerative blend of:
+          <ul class="list-disc pl-5 mt-1">
+            <li>Progenitor cells</li>
+            <li>Fibroblasts</li>
+            <li>Growth factors</li>
+            <li>Extracellular matrix fragments</li>
+          </ul>
+        </li>
+        <li><strong class="text-primary">Precision Injection:</strong> This bioactive micrograft suspension is then re-injected into areas of thinning, typically the frontal, temporal, and crown regions.</li>
+        <li><strong class="text-primary">Regeneration Begins:</strong> These cells work to stimulate angiogenesis, revive follicular niches, and rebalance the hair cycle — from resting (telogen) back to growing (anagen).</li>
+      </ol>`
+    },
+    benefits: [
+      '100% from your body. No chemicals. No risk of rejection.',
+      'Particularly effective in early to moderate androgenetic alopecia.',
+      'Especially beneficial for miniaturized or inactive follicles.',
+      'Return to daily activities almost immediately after the procedure.',
+      'Amplify results with oral nutricosmetics, hair serums, LLLT (laser caps), or RF microneedling.'
+    ],
+    protocol: [
+      { label: 'Duration', value: '45–60 minutes (including harvest + injection)' },
+      { label: 'Downtime', value: 'Minimal – mild sensitivity for 24–48 hrs' },
+      { label: 'Sessions', value: '1–2 yearly for maintenance (based on severity)' },
+      { label: 'Results', value: 'Visible improvements from 2–3 months onward' },
+      { label: 'Ideal For', value: 'Early to moderate hair thinning, both men and women' },
+      { label: 'Not Ideal For', value: 'Complete bald areas or scarred scalp zones' },
+    ],
+    whyLoveIt: [
+      'Each Altruva Micrograft treatment is mapped and performed by dr. Olivia Aldisa, ensuring targeted precision and optimal integration with your scalp’s vascular pattern and follicular anatomy.',
+      '<i>“We’re no longer just trying to cover thinning — we’re going upstream to biologically revive the scalp itself.” — dr. Olivia Aldisa, Regenerative Strategist & Founder of Altruva</i>'
+    ]
   },
   {
     id: 'altruva-hair-prf',
@@ -1843,6 +1880,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
