@@ -519,7 +519,7 @@ export const services: Service[] = [
       { label: 'Duration', value: '15–20 minutes' },
       { label: 'Downtime', value: 'Minimal to none' },
       { label: 'Longevity', value: '3–4 months (may vary)' },
-      { label: 'Ideal for', value: '▸ Jawline softening (masseter reduction)\n▸ Temple lift or brow support\n▸ Early wrinkle prevention in glabella, forehead, or crow’s feet\n▸ First-time users or toxin-sensitive skin' },
+      { label: 'Ideal for', value: 'Jawline softening, Temple lift, Early wrinkle prevention, First-time users' },
     ],
     indications: [
       'Jawline softening (masseter reduction)',
@@ -948,8 +948,7 @@ export const services: Service[] = [
     protocol: [
       { label: 'Protocol', value: '1 session with personalized mapping' },
       { label: 'Follow-up', value: '6–12 months' },
-      { label: 'Can be stacked with', value: 'A.R.T Lift PRO, Altruva Youth Elixir, or Exion Fractio Pro' },
-      { label: 'Pre/Post Enhancers', value: 'Polynucleotide injections, Selected Skin Booster, Radiant Advanced Peel' },
+      { label: 'Stackable with', value: 'A.R.T Lift PRO, Altruva Youth Elixir, or Exion Fractio Pro' },
     ],
     whyLoveIt: [
       "This technique is refined under the mentorship of dr. Jani van Loghem—a global authority in aesthetic medicine known for developing advanced facial mapping systems, CaHA biostimulation protocols, and profile-balancing techniques. His mentorship through UMA Academy ensures that every Altruva Cocktail Contouring procedure reflects the highest international standards of safety, anatomy, and regenerative results."
@@ -970,8 +969,8 @@ export const services: Service[] = [
     subtitle: "Volume Reclaimed. Contours Reawakened. Elegantly Executed by dr. Aldisa",
     longDescription: `Aging is not just about wrinkles — it’s about deflation, descent, and disruption of volume harmony. Altruva Dermal Filler Pro is an advanced volumization protocol tailored for those over 40, where the priority shifts from enhancement to restoration.<br/><br/>Led by dr. Olivia Aldisa, a pioneer in regenerative and anatomical aesthetics, this protocol focuses on replacing structural volume loss, especially around the temples, forehead, midface, and preauricular zones, with sophisticated placement that respects your facial dynamics — never overfilling, never distorting.`,
     whatIsIt: {
-      title: 'The Methodology',
-      description: `With Altruva Dermal Filler Pro, dr. Aldisa maps the entire facial framework, identifying where volume has been lost and how to rebuild with tastefully conservative doses, using:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Dynamic HA Fillers:</strong> Only premium, FDA-approved fillers with optimal tissue integration, elasticity, and safety profiles</li><li><strong>Microcannula & Needle Strategy:</strong> Safe and precise delivery based on vascular maps and anatomical zones</li><li><strong>Fat Pad Mapping:</strong> Volume is replaced according to fat compartment anatomy for predictable, natural lift</li><li><strong>Tissue Behavior Analysis:</strong> Ensures movement remains dynamic — never stiff or “stuffed”</li></ul>`
+        title: 'The Methodology',
+        description: `With Altruva Dermal Filler Pro, dr. Aldisa maps the entire facial framework, identifying where volume has been lost and how to rebuild with tastefully conservative doses, using:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Dynamic HA Fillers:</strong> Only premium, FDA-approved fillers with optimal tissue integration, elasticity, and safety profiles</li><li><strong>Microcannula & Needle Strategy:</strong> Safe and precise delivery based on vascular maps and anatomical zones</li><li><strong>Fat Pad Mapping:</strong> Volume is replaced according to fat compartment anatomy for predictable, natural lift</li><li><strong>Tissue Behavior Analysis:</strong> Ensures movement remains dynamic — never stiff or “stuffed”</li></ul>`
     },
     howItDiffers: "This isn't just about filling lines; it's about architectural restoration. For mature skin, filler placement must follow different principles: balance, support, and restraint. Restoring this scaffolding amplifies the effects of other treatments like lasers, threads, and collagen-stimulators.",
     benefits: [
@@ -1010,7 +1009,43 @@ export const services: Service[] = [
     imageHint: 'full wrinkle treatment',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Signature Restoration'
+    subgroup: 'Signature Restoration',
+    subtitle: "Total Muscle Harmony. Signature Precision. By dr. Aldisa.",
+    longDescription: `Altruva Face Modulator (Full Dose) is a full-spectrum neuromodulation protocol that redefines facial freshness through strategic, personalized botulinum toxin mapping. Engineered for those over 40, this treatment is not about freezing expression — it’s about resetting facial balance, lifting fatigue, and restoring dynamic symmetry with natural grace.<br/><br/>Dr. Aldisa applies her expertise in facial anatomy, aging patterns, and personalized dosing to harmonize muscle activity across the face — from frown lines and jaw tension to brow positioning and perioral movement. The result? A refreshed, rested, and refined look that feels like you — only better.`,
+    whatIsIt: {
+      title: "What It Targets & How It Works",
+      description: `<p class="mb-2">This full-dose protocol is ideal for restoring youthfulness while maintaining facial authenticity by targeting:</p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Upper Face:</strong> Rebalances glabella, forehead, and crow’s feet to reduce lines without a flat or frozen forehead.</li>
+        <li><strong>Eyebrow Precision:</strong> Custom lifting or softening tailored to your natural brow shape and eye expression.</li>
+        <li><strong>Midface & Lower Face:</strong> Softens downward pull (e.g. DAO, platysma), restores neutral smile dynamics, and improves marionette tone.</li>
+        <li><strong>Masseter & Chin:</strong> Slims lower face bulk and corrects chin dimpling or asymmetry.</li>
+        <li><strong>Neck Bands:</strong> Softens vertical neck lines and improves cervico-facial contour.</li>
+      </ul>
+      <p class="mt-4">Utilizing full-dose botulinum toxin, dr. Aldisa performs full-face mapping to modulate muscle tone, lift areas prone to descent, and reset overused muscles for a more neutral, rested facial state. This protocol supports muscle balance, not paralysis — delivering a naturally lifted, refreshed result.</p>`
+    },
+    howItDiffers: `Why Full Dose? Post-40 facial shifts deepen lines and create downward vectors; full-dose modulation reverses this. Comprehensive mapping enables precise targeting of asymmetry and tension. This is a bespoke neuromodulation blueprint, where every injection serves a purpose in the harmony of your facial expression.`,
+    benefits: [
+      'Custom eyebrow lifting without “surprised” brows',
+      'Reduces tired or tense look around the eyes',
+      'Softens static and dynamic wrinkles (glabella, forehead, crow’s feet)',
+      'Refines jawline and smooths neck bands',
+      'Reduces downward pull around mouth and chin',
+      'Delivers balanced muscle tone for long-term facial wellness',
+      'Maintains expression integrity — no “overdone” look'
+    ],
+    indications: [
+      'Women and men >40 seeking refreshed, lifted, yet natural expression',
+      'Facial asymmetry or signs of muscular imbalance',
+      'Long-term neuromodulator users ready for elevated customization',
+      'Patients desiring facial lifting without fillers or surgery',
+    ],
+    protocol: [
+      { label: 'Duration', value: '20–30 minutes' },
+      { label: 'Downtime', value: 'Minimal (some bruising possible)' },
+      { label: 'Onset', value: '5–7 days, with full results in 10–14 days' },
+      { label: 'Longevity', value: '3–5 months (patient-dependent)' },
+    ]
   },
   {
     id: 'sculpt-lift-plus',
@@ -1439,5 +1474,6 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
