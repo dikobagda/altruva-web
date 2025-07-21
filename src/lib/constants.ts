@@ -221,7 +221,7 @@ export const services: Service[] = [
     id: 'art-lyft-lite',
     title: 'Altruva A.R.T Lift (Lite) by dr. Aldisa',
     description: '(up to 300 shots) Personalized SUPERB Ultrasound-powered deep tissue tightening.',
-    longDescription: `Anatomic Regenerative Targeting with Precision Sofwave Ultrasound. For those under 40, the best anti-aging strategy isn't reversal—it's prevention. A.R.T Lift Lite is Altruva’s signature collagen banking protocol, designed by dr. Olivia Aldisa, Sofwave Key Opinion Leader in Asia. This treatment uses SUPERB™ ultrasound technology to target areas of early collagen loss and prevent sagging before it starts. A.R.T (Anatomic Regenerative Targeting) Lift Lite is not just a facial—it’s a strategic investment in your skin’s future.`,
+    longDescription: `Anatomic Regenerative Targeting with Precision Sofwave Ultrasound. For those under 40, the best anti-aging strategy isn't reversal—it's prevention. A.R.T Lift Lite is Altruva’s signature collagen banking protocol, designed by dr. Olivia Aldisa, Sofwave Key Opinion Leader in Asia. This treatment uses SUPERB™ ultrasound technology to target areas of early collagen loss and prevent sagging before it starts. A.R.T (Anatomic Regenerative Targeting) Lift Lite is not just a facial—it’s a strategic investment in your skin’s future. <br/><br/><i>“At Altruva, we don’t chase aging—we engineer prevention. A.R.T Lift Lite is how we build long-term beauty without filler or surgery.” — dr. Olivia Aldisa</i>`,
     subtitle: "Signature Prejuvenation for Collagen Banking (<40 years old)",
     price: '20,000,000 IDR',
     category: 'Prejuvenation',
@@ -233,7 +233,7 @@ export const services: Service[] = [
     subgroup: 'Tightening & Contouring',
     whatIsIt: {
       title: 'How It Works',
-      description: `<p>A.R.T. Lift Lite uses precision ultrasound energy (Sofwave) to activate your skin's natural regenerative power. Focused beams of ultrasound energy reach the mid-dermis, heating tissue at just the right depth to stimulate fibroblasts—without damaging the skin surface. The gentle heat activates neocollagenesis, the body’s natural process of forming fresh collagen and elastin. With regenerative mapping by dr. Aldisa, each shot is planned to follow your unique fat pads, ligament structures, and collagen-rich zones to optimize long-term firming while preserving natural beauty.</p><br/><i>“At Altruva, we don’t chase aging—we engineer prevention. A.R.T Lift Lite is how we build long-term beauty without filler or surgery.” — dr. Olivia Aldisa</i>`
+      description: `<p>A.R.T. Lift Lite uses precision ultrasound energy (Sofwave) to activate your skin's natural regenerative power. Focused beams of ultrasound energy reach the mid-dermis, heating tissue at just the right depth to stimulate fibroblasts—without damaging the skin surface. The gentle heat activates neocollagenesis, the body’s natural process of forming fresh collagen and elastin. With regenerative mapping by dr. Aldisa, each shot is planned to follow your unique fat pads, ligament structures, and collagen-rich zones to optimize long-term firming while preserving natural beauty.</p>`
     },
     howItDiffers: 'Designed by a Global Sofwave Expert, the A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials & Gen Z.',
     whyLoveIt: [
@@ -259,7 +259,7 @@ export const services: Service[] = [
   },
   {
     id: 'gorgeous-lyft-prejuvenation',
-    title: 'Gorgeous Lyft',
+    title: 'Altruva Gorgeous Lyft',
     description: 'Injectable liquid type biostimulators for structural longevity.',
     price: '6,000,000 IDR',
     category: 'Prejuvenation',
@@ -272,7 +272,7 @@ export const services: Service[] = [
   },
   {
     id: 'exion-lumi-rf',
-    title: 'Exion Lumi-RF',
+    title: 'Altruva Lumi RF',
     description: 'Fusion of RF and Ultrasound Technology. Best for maintenance after A.R.T Lyft.',
     price: 'Price on consultation',
     category: 'Prejuvenation',
@@ -285,7 +285,7 @@ export const services: Service[] = [
   },
   {
     id: 'slim-contour-injection',
-    title: 'Slim Contour Injection',
+    title: 'Altruva Slim Contour Injection',
     description: 'Facial fat detox & contouring.',
     price: '2,500,000 IDR',
     category: 'Prejuvenation',
@@ -298,7 +298,7 @@ export const services: Service[] = [
   },
   {
     id: 'face-modulator-half',
-    title: 'Face Modulator (Half Dose)',
+    title: 'Altruva Face Modulator (Half Dose)',
     description: 'Subtle wrinkle softening while preserving natural expression.',
     price: '5,000,000 IDR',
     category: 'Prejuvenation',
@@ -311,7 +311,7 @@ export const services: Service[] = [
   },
   {
     id: 'dermal-fillers',
-    title: 'Dermal Fillers',
+    title: 'Altruva Dermal Fillers',
     description: 'Minimalist volume enhancement for refined definition.',
     price: '6,000,000 IDR',
     category: 'Prejuvenation',
@@ -522,7 +522,43 @@ export const services: Service[] = [
     imageHint: 'collagen biostimulator',
     group: 'Altruva Lift',
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
-    subgroup: 'Restoration & Lifting'
+    subgroup: 'Restoration & Lifting',
+    subtitle: "The Signature Liquid Collagen Bioactivator Experience",
+    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
+    whatIsIt: {
+      title: 'What is Gorgeous Lyft?',
+      description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable. It involves:
+      <ul>
+        <li style="list-style-type: disc; margin-left: 20px;"><strong>Liquid PCL:</strong> Unlike microparticle biostimulators, Gouri flows seamlessly across the dermis.</li>
+        <li style="list-style-type: disc; margin-left: 20px;"><strong>Multi-Zone Collagenesis:</strong> A few targeted injections can reach broad facial areas.</li>
+        <li style="list-style-type: disc; margin-left: 20px;"><strong>Gradual Lifting, Brightening & Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
+        <li style="list-style-type: disc; margin-left: 20px;"><strong>Doctor-Led Mapping:</strong> Injection patterns are personalized by dr. Aldisa to restore harmony across different facial zones — temples, nasojugal groove, marionette, cheeks, and preauricular area.</li>
+      </ul>`
+    },
+    mechanism: [
+      { title: 'Strategic Infiltration', description: "Minimal points are needed to activate widespread collagen induction. For enhanced safety and efficacy, dr. Aldisa always pre-infiltrates with lidocaine to create safe distribution channels." },
+      { title: 'Controlled Dispersion', description: "Using the exclusive Gouri Dispersion Method (GDM) and post-injection 1-minute point compression, bruising is minimized and PCL diffusion is optimized." },
+      { title: 'Bioregenerative Remodeling', description: "Over the next 3–12 weeks, your skin begins producing Type I and III collagen, resulting in firmer texture, lifted contours, and improved glow." }
+    ],
+    benefits: [
+      "Stimulates natural collagen without adding artificial volume",
+      "Improves laxity, skin tone, and texture",
+      "Reduces wrinkles, tear trough, and marionette shadows",
+      "Minimal downtime, low risk of lumps or overfilling",
+      "Results that build over time and last up to 9–12 months"
+    ],
+    indications: [
+        "Patients 30–55 seeking refinement rather than reshaping",
+        "Individuals with early signs of sagging, dullness, or mild volume depletion",
+        "Clients wanting a filler-free profile",
+        "Postpartum mothers, perimenopausal women, and aesthetic minimalists"
+    ],
+    protocol: [
+      { label: 'Duration', value: '~30 minutes' },
+      { label: 'Technique', value: '5–7 injection points using micro-needle or cannula, depending on face type' },
+      { label: 'Aftercare', value: 'Avoid excessive facial movement or massage for 24–48 hours' },
+      { label: 'Redness/Swelling', value: 'Typically subsides within 1–3 days' }
+    ]
   },
   {
     id: 'radiance-lyft',
