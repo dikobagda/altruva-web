@@ -15,7 +15,7 @@ const appointmentFormSchema = z.object({
   notes: z.string().max(500).optional(),
 });
 
-type AppointmentFormValues = z.infer<typeof appointmentFormSchema>;
+export type AppointmentFormValues = z.infer<typeof appointmentFormSchema>;
 
 export async function handleAppointmentSubmit(data: AppointmentFormValues) {
   const { name, email, phone, treatment, date, time, notes } = data;
@@ -64,5 +64,9 @@ export async function handleAppointmentSubmit(data: AppointmentFormValues) {
 
   // Always return success to the user. The booking was successfully received by the server.
   // The email is just a notification.
-  return { success: true, message: 'Your appointment request has been submitted!' };
+  return { 
+    success: true, 
+    message: 'Your appointment request has been submitted!',
+    data: data,
+  };
 }
