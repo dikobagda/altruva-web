@@ -15,15 +15,8 @@ export const metadata = {
 export default function AboutUsPage() {
   return (
     <>
-      <SectionWrapper className="pt-24 md:pt-32">
-        <PageTitle 
-            title="About Altruva"
-            subtitle="Discover our philosophy of regenerative aesthetics, where science meets the art of authentic beauty."
-        />
-      </SectionWrapper>
-
       {/* Philosophy Section */}
-      <SectionWrapper className="bg-secondary/30">
+      <SectionWrapper className="bg-secondary/30 pt-24 md:pt-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
             <Image
