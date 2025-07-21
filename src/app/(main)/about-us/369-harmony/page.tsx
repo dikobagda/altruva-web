@@ -93,6 +93,7 @@ export default function Harmony369Page() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent z-10"></div>
         <div className="relative z-20 max-w-4xl mx-auto p-4">
           <PageTitle
+            className="!pt-16"
             title="The Altruva 369 Harmony Approach™"
             subtitle="Your intelligent, year-round beauty roadmap for natural, long-term rejuvenation."
           />
