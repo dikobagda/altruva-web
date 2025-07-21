@@ -527,12 +527,12 @@ export const services: Service[] = [
     longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
     whatIsIt: {
       title: 'What is Gorgeous Lyft?',
-      description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable. It involves:
-      <ul>
-        <li style="list-style-type: disc; margin-left: 20px;"><strong>Liquid PCL:</strong> Unlike microparticle biostimulators, Gouri flows seamlessly across the dermis.</li>
-        <li style="list-style-type: disc; margin-left: 20px;"><strong>Multi-Zone Collagenesis:</strong> A few targeted injections can reach broad facial areas.</li>
-        <li style="list-style-type: disc; margin-left: 20px;"><strong>Gradual Lifting, Brightening & Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
-        <li style="list-style-type: disc; margin-left: 20px;"><strong>Doctor-Led Mapping:</strong> Injection patterns are personalized by dr. Aldisa to restore harmony across different facial zones — temples, nasojugal groove, marionette, cheeks, and preauricular area.</li>
+      description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable.
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li><strong>Liquid PCL:</strong> Unlike microparticle biostimulators, Gouri flows seamlessly across the dermis.</li>
+        <li><strong>Multi-Zone Collagenesis:</strong> A few targeted injections can reach broad facial areas.</li>
+        <li><strong>Gradual Lifting, Brightening & Tightening:</strong> As fibroblasts activate, skin begins a months-long journey of self-renewal.</li>
+        <li><strong>Doctor-Led Mapping:</strong> Injection patterns are personalized by dr. Aldisa to restore harmony across different facial zones — temples, nasojugal groove, marionette, cheeks, and preauricular area.</li>
       </ul>`
     },
     mechanism: [
@@ -555,7 +555,7 @@ export const services: Service[] = [
     ],
     protocol: [
       { label: 'Duration', value: '~30 minutes' },
-      { label: 'Technique', value: '5–7 injection points using micro-needle or cannula, depending on face type' },
+      { label: 'Technique', value: '5–7 injection points using micro-needle or cannula' },
       { label: 'Aftercare', value: 'Avoid excessive facial movement or massage for 24–48 hours' },
       { label: 'Redness/Swelling', value: 'Typically subsides within 1–3 days' }
     ]
