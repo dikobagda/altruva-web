@@ -1595,7 +1595,42 @@ export const services: Service[] = [
     imageHint: 'scalp injection',
     group: 'Hair Restoration',
     groupDescription: 'Advanced solutions for hair thinning and loss.',
-    subgroup: 'Growth Boosters'
+    subgroup: 'Growth Boosters',
+    subtitle: 'Targeted Scalp Therapy for Thicker, Stronger, Healthier Hair',
+    longDescription: `Altruva Hair Booster is an advanced mesotherapy solution meticulously designed to combat male and female pattern hair loss (androgenetic alopecia) and revitalize the scalp. Leveraging Fusion Meso F-Hair Men — a clinically proven cocktail of growth factors, peptides, hyaluronic acid, and essential minerals — this treatment activates follicular regeneration, strengthens existing hair shafts, and creates an optimal environment for new hair growth.`,
+    whatIsIt: {
+        title: 'What It Is',
+        description: `A high-performance scalp mesotherapy protocol using microinjections of regenerative actives, Altruva Hair Booster nourishes the dermal papilla and reactivates the hair cycle with minimal discomfort or downtime. Ideal for men and women in early to moderate stages of hair thinning or shedding.`
+    },
+    mechanism: [
+        { title: 'EGF, FGF, VEGF (Growth Factors)', description: 'Stimulate hair follicles at a cellular level, prolong the anagen (growth) phase, and enhance microvascular perfusion.' },
+        { title: 'Acetyl Tetrapeptide-3 & Red Clover Extract', description: 'Reinforce anchoring proteins, inhibit DHT-related follicle damage, and reduce inflammation in the scalp.' },
+        { title: 'Hyaluronic Acid', description: 'Delivers intense hydration to the scalp and improves barrier function, reducing dryness, flakiness, and irritation.' },
+        { title: 'Carnosine & Organic Silica', description: 'Strengthen connective tissue and protect against oxidative stress that accelerates follicular miniaturization.' },
+        { title: 'Essential Trace Elements (Zinc, Copper, Calcium, Magnesium)', description: 'Critical cofactors that support keratin synthesis and optimal follicular metabolism.' },
+    ],
+    benefits: [
+      'Reduces active hair loss and thinning',
+      'Reactivates dormant follicles',
+      'Improves hair shaft quality and strength',
+      'Hydrates and rebalances the scalp',
+      'Supports long-term scalp and follicle health',
+      'Safe and effective for androgenic alopecia'
+    ],
+    protocol: [
+      { label: 'Duration', value: '30–40 minutes' },
+      { label: 'Discomfort', value: 'Mild – numbing optional' },
+      { label: 'Sessions', value: '4–6 sessions spaced 10–14 days apart' },
+      { label: 'Maintenance', value: 'Every 3–6 months depending on individual response' },
+      { label: 'Downtime', value: 'None to minimal' },
+    ],
+    whyLoveIt: [
+      'Scientifically backed formulation',
+      'FDA-registered ingredients from Fusion Meso (Europe)',
+      'Customized by dr. Olivia Aldisa — KOL and regenerative expert',
+      'Synergistic with PRF, Micrograft, and oral nutricosmetics',
+      '<i>“Hair rejuvenation isn’t a one-time fix — it’s a journey. With Altruva Hair Booster, we offer you not just a treatment, but a protocol of follicular rehabilitation.”</i> — dr. Olivia Aldisa, Expert in Regenerative Aesthetic Medicine'
+    ]
   },
   {
     id: 'altruva-lift-signature',
@@ -1916,6 +1951,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
