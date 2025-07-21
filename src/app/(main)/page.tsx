@@ -201,15 +201,13 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square max-w-md mx-auto">
             <Image
-              src="/images/iEtT5L9l261Y.png"
+              src="/images/ai-skin.png"
               alt="Promotional image for AI Skin Analysis showing a woman's profile with text overlay"
               width={500}
               height={500}
               className="rounded-lg shadow-xl object-cover"
             />
-             <div className="absolute -top-4 -left-4 bg-primary p-3 rounded-full shadow-lg">
-                <Image src="/images/logo-altruva.png" alt="Altruva Logo" width={40} height={40} />
-            </div>
+             
           </div>
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-6">
