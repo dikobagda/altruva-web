@@ -40,6 +40,14 @@ const timeSlots = [
   '04:00 PM', '05:00 PM'
 ];
 
+// Create a unique list of treatments based on title
+const uniqueTreatments = services.reduce((acc, current) => {
+  if (!acc.find((item) => item.title === current.title)) {
+    acc.push(current);
+  }
+  return acc;
+}, [] as typeof services);
+
 export default function BookAppointmentPage() {
   const { toast } = useToast();
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
@@ -160,7 +168,7 @@ export default function BookAppointmentPage() {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              {services.map((service) => (
+                              {uniqueTreatments.map((service) => (
                                 <SelectItem key={service.id} value={service.title}>
                                   {service.title}
                                 </SelectItem>
