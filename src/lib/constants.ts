@@ -181,7 +181,7 @@ export const services: Service[] = [
     longDescription: 'At Altruva, we understand that breakout-prone skin needs more than just surface-level solutions. Altruva Clarify Peel is our advanced clearing peel that works deep within the skin to calm inflammation, combat acne, and brighten post-inflammatory pigmentation—without harsh disruption to your skin barrier.<br/><br/>Powered by a professional-strength blend of Salicylic Acid, Mandelic Acid, and the innovative Terpineol-Thymol Complex, this peel is curated for patients struggling with recurring blemishes, oil imbalance, and post-acne discoloration.',
     whatIsIt: {
         title: 'How It Works',
-        description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li>Salicylic Acid (BHA) deeply penetrates pores to dissolve sebum, clear blockages, and prevent future breakouts.</li><li>Mandelic Acid (AHA) offers gentle exfoliation to smooth skin texture and fade dark spots without irritation.</li><li>Terpineol-Thymol Complex is a patented antimicrobial technology that reduces redness, supports skin microbiome balance, and strengthens skin’s natural defenses.</li></ul>`
+        description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Salicylic Acid (BHA):</strong> deeply penetrates pores to dissolve sebum, clear blockages, and prevent future breakouts.</li><li><strong>Mandelic Acid (AHA):</strong> offers gentle exfoliation to smooth skin texture and fade dark spots without irritation.</li><li><strong>Terpineol-Thymol Complex:</strong> is a patented antimicrobial technology that reduces redness, supports skin microbiome balance, and strengthens skin’s natural defenses.</li></ul>`
     },
     benefits: [
         'Helps clear active acne and reduce future breakouts',
@@ -196,7 +196,7 @@ export const services: Service[] = [
         'Oily, congested, or rough skin texture'
     ],
     whyLoveIt: [
-        "Unlike traditional acne peels that may cause flaking or irritation, our protocol is designed with regenerative dermatology in mind. Paired with a personalized Altruva Glow regimen or combined with Exion Lumi Laser, it offers a gentle yet highly effective path to clear, luminous skin—no downtime, no harshness."
+      "Unlike traditional acne peels that may cause flaking or irritation, our protocol is designed with regenerative dermatology in mind. Paired with a personalized Altruva Glow regimen or combined with Exion Lumi Laser, it offers a gentle yet highly effective path to clear, luminous skin—no downtime, no harshness."
     ]
   },
   {
@@ -215,11 +215,7 @@ export const services: Service[] = [
     longDescription: "Inspired by the elegance of Korean skin philosophy, the Altruva Korean Luminous Peel is a next-generation chemical resurfacing treatment powered by LHA (Lipo-Hydroxy Acid) and HP-Sol™ technology. This gentle yet intelligent exfoliation system is designed for those who seek brighter, smoother, and more refined skin—without irritation, flaking, or social downtime.<br/>Unlike traditional peels that rely on high-acid concentrations to force skin shedding, this protocol honors your skin’s biology by supporting natural turnover, collagen renewal, and barrier integrity—making it ideal for sensitive skin or first-time peel users.",
     whatIsIt: {
       title: 'How It Works',
-      description: `<ul class="list-disc pl-5 mt-2 space-y-1">
-        <li>LHA (Lipo-Hydroxy Acid): A lipid-soluble salicylic acid derivative that penetrates slowly, targeting clogged pores and dull skin with precision while being extremely gentle on the skin barrier.</li>
-        <li>HP-Sol™ Complex: A patented alkaline complex that stimulates fibroblast activity for collagen production, balances skin pH, and supports healing—creating a glow-from-within effect.</li>
-        <li>Skin-Friendly Lipids: Incorporated to hydrate, protect, and soothe, these actives ensure skin comfort during and after exfoliation.</li>
-      </ul>`
+      description: `<ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>LHA (Lipo-Hydroxy Acid):</strong> A lipid-soluble salicylic acid derivative that penetrates slowly, targeting clogged pores and dull skin with precision while being extremely gentle on the skin barrier.</li><li><strong>HP-Sol™ Complex:</strong> A patented alkaline complex that stimulates fibroblast activity for collagen production, balances skin pH, and supports healing—creating a glow-from-within effect.</li><li><strong>Skin-Friendly Lipids:</strong> Incorporated to hydrate, protect, and soothe, these actives ensure skin comfort during and after exfoliation.</li></ul>`
     },
     benefits: [
       'Minimizes pores and clears out congestion',
@@ -519,7 +515,6 @@ export const services: Service[] = [
       { label: 'Duration', value: '15–20 minutes' },
       { label: 'Downtime', value: 'Minimal to none' },
       { label: 'Longevity', value: '3–4 months (may vary)' },
-      { label: 'Ideal for', value: 'Jawline softening, Temple lift, Early wrinkle prevention, First-time users' },
     ],
     indications: [
       'Jawline softening (masseter reduction)',
@@ -733,7 +728,32 @@ export const services: Service[] = [
     imageHint: 'advanced chemical peel',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Signature Peels'
+    subgroup: 'Signature Peels',
+    subtitle: 'Reset. Rebuild. Radiate. Age-Evolved Peeling for Skin Over 40',
+    longDescription: `Altruva Radiant Advanced Peel is a prejuvenation-driven chemical resurfacing treatment tailored for mature skin that needs intelligent exfoliation before undergoing regenerative procedures. Designed as the first step in your advanced rejuvenation journey, this peel harnesses Lipo-Hydroxy Acid (LHA) and HP-Sol™ Complex, targeting uneven texture, discoloration, and loss of clarity — all without compromising skin integrity.<br/><br/>Ideal for preparing the skin for lasers, collagen biostimulators, ultrasound lifting, or injectable programs, this protocol sets the foundation for superior clinical outcomes by optimizing cellular turnover, dermal receptivity, and epidermal renewal.`,
+    whatIsIt: {
+      title: 'How It Works',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-2"><li><h4 class="font-semibold text-primary">Lipo-Hydroxy Acid (LHA)</h4><p>Promotes controlled exfoliation, unclogs pores, and softens fine lines with minimal irritation</p></li><li><h4 class="font-semibold text-primary">HP-Sol™ Complex</h4><p>A patented alkaline matrix that activates fibroblast function, balances pH, and supports collagen synthesis</p></li><li><h4 class="font-semibold text-primary">Dermal Conditioning Lipids</h4><p>Reinforce the skin barrier, ensuring comfort, hydration, and healing throughout the peeling process</p></li></ul><p class="mt-4">This multi-layered approach resets the skin's biological rhythm, laying the groundwork for long-term anti-aging transformations.</p>`
+    },
+    benefits: [
+      'Smooths skin texture and primes dermis for deeper treatments',
+      'Fades pigmentation, age spots, and sun damage',
+      'Prepares skin for better response to energy-based or injectable procedures',
+      'Stimulates natural collagen for structural skin support',
+      'Minimizes surface roughness, pores, and dull tone',
+      'Zero social downtime — treatment-ready in 24 hours'
+    ],
+    indications: [
+      'Individuals 40+ with visible signs of aging (wrinkles, pigmentation, loss of tone)',
+      'Patients preparing for Sofwave, fractional RF, collagen biostimulators (Gouri, PRF, PLLA)',
+      'Skin experiencing cumulative photodamage, stress, or sluggish regeneration',
+      'Those with sensitive or thinning skin who need an exfoliation alternative without acid trauma'
+    ],
+    whyLoveIt: [
+      `Unlike traditional peels designed to strip, this protocol is designed to strengthen — making it a cornerstone of Altruva’s regenerative protocol layering strategy.`,
+      `"Think of this peel as your skin’s warm-up routine — aligning surface renewal with deeper regenerative potential." — dr. Olivia Aldisa, Founder & Clinical Director`,
+      `<strong>Recommended Pairings:</strong> Before: ART Lift Pro, Gorgeous Lyft, Lumi Laser, or Altruva Youth Elixir. After: Hydration-focused boosters, PN/HA mesotherapy, or low-level light therapy (LLLT).`
+    ]
   },
   {
     id: 'exion-regen-laser',
@@ -933,7 +953,7 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Restoration &amp; Lifting',
     subtitle: 'The Intelligent RF Lift for Skin Over 40',
-    longDescription: "Altruva Regenerative RF is a needle-free, non-invasive RF-based skin rejuvenation treatment designed specifically for individuals over 40 who are experiencing visible signs of aging—such as sagging skin, fine lines, enlarged pores, and texture loss. Utilizing Exion™ Radiofrequency + Targeted Ultrasound technology, this treatment works deep within the dermis to stimulate collagen, elastin, and hyaluronic acid synthesis, restoring youthful density and definition to mature skin.<br/><br/>This is regenerative science meeting natural elegance.<br/><br/><i>“Aging skin doesn’t need to be fought—it needs to be regenerated. With Altruva Regenerative RF, we respect your skin’s biology and help it perform at its best.”<br/>— dr. Olivia Aldisa, Medical Director & Global Regenerative Aesthetic KOL</i>",
+    longDescription: `Altruva Regenerative RF is a needle-free, non-invasive RF-based skin rejuvenation treatment designed specifically for individuals over 40 who are experiencing visible signs of aging—such as sagging skin, fine lines, enlarged pores, and texture loss. Utilizing Exion™ Radiofrequency + Targeted Ultrasound technology, this treatment works deep within the dermis to stimulate collagen, elastin, and hyaluronic acid synthesis, restoring youthful density and definition to mature skin.<br/><br/>This is regenerative science meeting natural elegance.<br/><br/><i>“Aging skin doesn’t need to be fought—it needs to be regenerated. With Altruva Regenerative RF, we respect your skin’s biology and help it perform at its best.”<br/>— dr. Olivia Aldisa, Medical Director & Global Regenerative Aesthetic KOL</i>`,
     whatIsIt: {
       title: 'How It Works',
       description: `<ul class="list-disc pl-5 mt-2 space-y-2">
@@ -1532,6 +1552,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 
