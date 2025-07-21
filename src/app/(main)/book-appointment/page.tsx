@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { CalendarIcon, Clock, Loader2 } from 'lucide-react';
 import { format } from 'date-fns';
+import { useState } from 'react';
 
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
@@ -42,6 +43,7 @@ const timeSlots = [
 
 export default function BookAppointmentPage() {
   const { toast } = useToast();
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const form = useForm<AppointmentFormValues>({
     resolver: zodResolver(appointmentFormSchema),
   });
@@ -159,7 +161,7 @@ export default function BookAppointmentPage() {
                     render={({ field }) => (
                       <FormItem className="flex flex-col">
                         <FormLabel>Preferred Date</FormLabel>
-                        <Popover>
+                        <Popover open={isDatePickerOpen} onOpenChange={setIsDatePickerOpen}>
                           <PopoverTrigger asChild>
                             <FormControl>
                               <Button
@@ -182,7 +184,10 @@ export default function BookAppointmentPage() {
                             <Calendar
                               mode="single"
                               selected={field.value}
-                              onSelect={field.onChange}
+                              onSelect={(date) => {
+                                field.onChange(date);
+                                setIsDatePickerOpen(false);
+                              }}
                               disabled={(date) =>
                                 date < new Date(new Date().setHours(0,0,0,0))
                               }
