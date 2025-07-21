@@ -166,6 +166,7 @@ const languages: Language[] = [
 const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMobile: boolean, closeMobileMenu?: () => void }) => {
   const pathname = usePathname();
   const hasSubItems = item.subItems && item.subItems.length > 0;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getIsActive = (navItem: NavItem): boolean => {
     if (navItem.href) {
@@ -177,6 +178,13 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
     return false;
   };
   const isActive = getIsActive(item);
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    if (closeMobileMenu) {
+      closeMobileMenu();
+    }
+  };
 
   if (item.href) {
     // For Desktop, top-level links are buttons
@@ -191,7 +199,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
             isActive ? "text-primary bg-primary/5" : "text-foreground/80"
           )}
         >
-          <Link href={item.href} prefetch={false}>{item.label}</Link>
+          <Link href={item.href} prefetch={false} onClick={handleLinkClick}>{item.label}</Link>
         </Button>
       );
     }
@@ -206,7 +214,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
                 "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary",
                 isActive ? "text-primary bg-primary/5" : "text-foreground/80"
             )}
-            onClick={closeMobileMenu}
+            onClick={handleLinkClick}
             prefetch={false}
             >
             {item.label}
@@ -220,7 +228,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
     if (!isMobile) {
       // Top-level dropdown with subitems
       return (
-        <DropdownMenu>
+        <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
@@ -236,7 +244,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="bg-popover shadow-lg mt-1 w-56">
             {item.subItems?.map((subItem) => (
-              <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
+              <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} onLinkClick={handleLinkClick} />
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
@@ -263,7 +271,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
               </DropdownMenuTrigger>
               <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-popover shadow-lg mt-1">
                   {item.subItems?.map((subItem) => (
-                      <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
+                      <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} onLinkClick={handleLinkClick} />
                   ))}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -278,7 +286,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
 
 
 // Helper component for items inside a dropdown menu
-const NavSubMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMobile: boolean, closeMobileMenu?: () => void }) => {
+const NavSubMenuItem = ({ item, isMobile, onLinkClick }: { item: NavItem, isMobile: boolean, onLinkClick: () => void }) => {
     const pathname = usePathname();
     const hasSubItems = item.subItems && item.subItems.length > 0;
 
@@ -303,7 +311,7 @@ const NavSubMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, is
                         "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start hover:bg-primary/10",
                         isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:text-primary"
                     )}
-                    onClick={closeMobileMenu}
+                    onClick={onLinkClick}
                     prefetch={false}
                 >
                     {item.label}
@@ -325,7 +333,7 @@ const NavSubMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, is
                 <DropdownMenuPortal>
                     <DropdownMenuSubContent className="bg-popover w-56">
                     {item.subItems?.map((subItem) => (
-                        <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} closeMobileMenu={closeMobileMenu} />
+                        <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} onLinkClick={onLinkClick} />
                     ))}
                     </DropdownMenuSubContent>
                 </DropdownMenuPortal>
