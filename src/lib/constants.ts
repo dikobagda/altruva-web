@@ -49,7 +49,44 @@ export const services: Service[] = [
     imageHint: 'deep pore cleansing',
     group: 'Signature Facials',
     groupDescription: 'Customized facials to address your unique skin needs.',
-    subgroup: 'Core Facials'
+    subgroup: 'Core Facials',
+    subtitle: 'Pore Purity. Cellular Rejuvenation. Personalized Glow.',
+    longDescription: 'At Altruva, our Signature Facial isn’t just a routine — it’s a custom-engineered skin therapy, crafted for your unique skin biology and life rhythms. Tailored by our in-house skin therapists and supported by clinical-grade protocols, this treatment synergizes deep pore purification, targeted light therapy (PDT), and dermal restoration into one comprehensive facial ritual.',
+    whatIsIt: {
+      title: 'What Makes It Signature?',
+      description: `<ul class="list-disc pl-5 space-y-2">
+        <li><strong class="text-primary">Fully Personalized Protocol:</strong> Whether you're battling congestion, sensitivity, dullness, or early signs of aging — your facial will be individually customized to treat your skin’s real-time needs.</li>
+        <li><strong class="text-primary">PDT Light Technology (Photodynamic Therapy):</strong> Targeted LED wavelengths are incorporated based on your skin goals:
+          <ul class="list-disc pl-5 mt-1">
+            <li><strong>Blue Light (415 nm):</strong> For acne-prone skin, kills P. acnes bacteria and calms inflammation.</li>
+            <li><strong>Red Light (630 nm):</strong> Stimulates collagen, improves circulation, and supports cellular renewal.</li>
+            <li><strong>Infrared Light (830 nm):</strong> Penetrates deeply to reduce inflammation, increase elasticity, and accelerate healing — ideal for mature, reactive, or post-procedure skin.</li>
+          </ul>
+        </li>
+        <li><strong class="text-primary">Signature Extraction Method:</strong> Gentle yet thorough extractions ensure deep cleansing without compromising skin barrier or comfort — especially ideal for clogged pores, blackheads, and t-zone buildup.</li>
+        <li><strong class="text-primary">Skin Diagnostics & Recovery Mapping:</strong> Every session begins with a detailed consultation and is concluded with barrier repair serums or hydration shields based on your current dermal state.</li>
+      </ul>`,
+    },
+    benefits: [
+      'Deeply purifies congested skin and minimizes pores',
+      'Brightens dull or uneven complexion',
+      'Soothes inflamed or acne-prone skin with targeted LED',
+      'Promotes dermal regeneration and collagen synthesis',
+      'Improves hydration levels and barrier resilience',
+      'Leaves skin smoother, cleaner, and visibly more luminous',
+    ],
+    protocol: [
+      { label: 'Duration', value: '60–75 minutes' },
+      { label: 'Downtime', value: 'None' },
+      { label: 'Ideal For', value: 'All skin types, especially oily/acneic, dull, fatigued, or aging skin' },
+      { label: 'Frequency', value: 'Every 2–4 weeks for optimal skin health' },
+      { label: 'Add-ons Available', value: 'Enzyme peeling, Oxygeneo infusion, Glass Skin serum therapy' }
+    ],
+    whyLoveIt: [
+      'Because no skin is generic.',
+      'Altruva’s facial protocols are built on a hybrid model of spa-grade indulgence and medical-grade insight, ensuring your glow isn’t superficial — it’s cellular.',
+      '<i>“True clarity isn’t achieved by stripping skin — it’s by teaching it to function optimally. This facial isn’t just cleansing; it’s re-education.”</i> — dr. Olivia Aldisa, Founder of Altruva & Expert in Skin Health Optimization'
+    ],
   },
   {
     id: 'altruva-hydraglow-facial',
@@ -191,7 +228,7 @@ export const services: Service[] = [
         'Scars: Reduces acne and atrophic scar depth by promoting healthy tissue remodeling.'
     ],
     whyLoveIt: [
-      'In a market saturated with synthetic fillers and quick fixes, Altruva Bio-PRF offers a return to nature—backed by science. It’s biocompatible, chemical-free, and patient-specific. At Altruva, we don’t just treat symptoms—we engineer skin longevity.'
+      "In a market saturated with synthetic fillers and quick fixes, Altruva Bio-PRF offers a return to nature—backed by science. It’s biocompatible, chemical-free, and patient-specific. At Altruva, we don’t just treat symptoms—we engineer skin longevity."
     ]
   },
   {
@@ -658,8 +695,8 @@ export const services: Service[] = [
     id: 'dna-repair-pro',
     title: 'Altruva DNA Repair Pro',
     description: 'Reinforces skin’s cellular repair system.',
-    longDescription: `Altruva DNA Repair Pro is a next-generation regenerative protocol powered by Polynucleotides (PN) — clinically purified DNA fragments that stimulate deep dermal healing, reverse cellular fatigue, and restore skin architecture from the inside out. Far beyond hydration, this treatment reactivates fibroblasts, encourages collagen remodeling, and reestablishes skin homeostasis — making it a cornerstone for age-related skin degeneration, post-acne scarring, and periocular rejuvenation.<br/><br/><i>“DNA Repair isn’t just about reversing aging — it’s about restoring vitality at a cellular level. That’s regenerative beauty.” — dr. Olivia Aldisa, Facial Architect & Cellular Rejuvenation Specialist</i>`,
     subtitle: 'Advanced Polynucleotide Skin Regeneration by dr. Aldisa',
+    longDescription: `Altruva DNA Repair Pro is a next-generation regenerative protocol powered by Polynucleotides (PN) — clinically purified DNA fragments that stimulate deep dermal healing, reverse cellular fatigue, and restore skin architecture from the inside out. Far beyond hydration, this treatment reactivates fibroblasts, encourages collagen remodeling, and reestablishes skin homeostasis — making it a cornerstone for age-related skin degeneration, post-acne scarring, and periocular rejuvenation.<br/><br/><i>“DNA Repair isn’t just about reversing aging — it’s about restoring vitality at a cellular level. That’s regenerative beauty.” — dr. Olivia Aldisa, Facial Architect & Cellular Rejuvenation Specialist</i>`,
     price: '7,500,000 IDR',
     category: 'Rejuvenation',
     Icon: Shield,
@@ -715,6 +752,8 @@ export const services: Service[] = [
     id: 'dna-repair-eye',
     title: 'Altruva DNA Repair Eye',
     description: 'Reinforces skin’s cellular repair system for undereye area.',
+    subtitle: 'Targeted Polynucleotide Eye Regeneration – Tailored by dr. Aldisa',
+    longDescription: `Altruva DNA Repair Eye is a specialized micro-regeneration protocol powered by ultra-purified polynucleotides (PN) designed specifically for the delicate under-eye area. Crafted to combat dark circles, fine lines, volume thinning, and crepey texture, this treatment reactivates cellular vitality while hydrating and restoring periocular firmness — without puffiness or unnatural volume.<br/><br/>This is not a filler — this is cellular awakening for tired, aging eyes.<br/><br/><i>“The eyes are where fatigue, age, and emotion show first. DNA Repair Eye restores their language to one of radiance.” — dr. Olivia Aldisa, Periocular Harmony Specialist</i>`,
     price: '5,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Shield,
@@ -723,8 +762,6 @@ export const services: Service[] = [
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
     subgroup: 'Skin-geneering Boosters',
-    subtitle: 'Targeted Polynucleotide Eye Regeneration – Tailored by dr. Aldisa',
-    longDescription: `Altruva DNA Repair Eye is a specialized micro-regeneration protocol powered by ultra-purified polynucleotides (PN) designed specifically for the delicate under-eye area. Crafted to combat dark circles, fine lines, volume thinning, and crepey texture, this treatment reactivates cellular vitality while hydrating and restoring periocular firmness — without puffiness or unnatural volume.<br/><br/>This is not a filler — this is cellular awakening for tired, aging eyes.<br/><br/><i>“The eyes are where fatigue, age, and emotion show first. DNA Repair Eye restores their language to one of radiance.” — dr. Olivia Aldisa, Periocular Harmony Specialist</i>`,
     whatIsIt: {
       title: 'How Altruva DNA Repair Eye Works',
       description: `The periorbital region is thinner, more vascular, and more prone to early aging due to its fragility and constant micro-movement. Conventional injectables often fail here due to the risk of Tyndall effect, puffiness, or migration. Polynucleotides, with their regenerative but non-volumizing action, offer the ideal solution for this high-risk zone. They work by:
@@ -749,7 +786,7 @@ export const services: Service[] = [
       { label: 'Protocol', value: '3–4 sessions spaced 2–3 weeks apart' },
       { label: 'Longevity', value: '6–9 months (may vary)' },
       { label: 'Technique', value: 'Microinjection or microbolus' },
-      { label: 'Layering Option', value: 'Safe to combine with PRF, skin boosters, or lasers' },
+      { label: 'Layering Option', value: 'Safe to combine with PRF, skin boosters, or laser-based rejuvenation' },
     ],
     whyLoveIt: [
       'Zero Tyndall Risk: No blue hue or light reflection',
@@ -966,7 +1003,7 @@ export const services: Service[] = [
     ],
     whyLoveIt: [
       `Unlike traditional peels designed to strip, this protocol is designed to strengthen — making it a cornerstone of Altruva’s regenerative protocol layering strategy.`,
-      `"Think of this peel as your skin’s warm-up routine — aligning surface renewal with deeper regenerative potential." — dr. Olivia Aldisa, Founder & Clinical Director`,
+      `<i>“Think of this peel as your skin’s warm-up routine — aligning surface renewal with deeper regenerative potential.”</i> — dr. Olivia Aldisa, Founder & Clinical Director`,
       `<strong>Recommended Pairings:</strong> Before: ART Lift Pro, Gorgeous Lyft, Lumi Laser, or Altruva Youth Elixir. After: Hydration-focused boosters, PN/HA mesotherapy, or low-level light therapy (LLLT).`
     ]
   },
@@ -1765,6 +1802,7 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
 

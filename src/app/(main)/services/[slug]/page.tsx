@@ -130,7 +130,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   {service.whyLoveIt.map((item, index) => (
                      <li key={index} className="flex items-start">
                       <CheckCircle className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
-                      <span className="text-sm text-foreground/80">{item}</span>
+                      <span className="text-sm text-foreground/80" dangerouslySetInnerHTML={{ __html: item }}></span>
                     </li>
                   ))}
                  </ul>
@@ -161,6 +161,19 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 </CardContent>
             </Card>
             
+            {service.indications && service.indications.length > 0 && (
+                <DetailSection title="Best For" Icon={Info}>
+                    <ul className="space-y-2">
+                        {service.indications.map((item, index) => (
+                            <li key={index} className="flex items-start">
+                                <CheckCircle className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
+                                <span className="text-sm text-foreground/80">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </DetailSection>
+            )}
+
             {service.protocol && (
                <DetailSection title="Protocol Overview" Icon={BookOpen}>
                 <ul className="space-y-3">
