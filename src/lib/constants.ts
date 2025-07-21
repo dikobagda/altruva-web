@@ -399,7 +399,7 @@ export const services: Service[] = [
     groupDescription: 'A sculpted face begins with structural integrity.',
     subgroup: 'Signature Contouring',
     subtitle: "Precision Redefined. Subtle Contour, Maximum Harmony — by dr. Aldisa.",
-    longDescription: `In a world where subtlety matters, Altruva Face Modulator (Half Dose) offers a refined approach to facial sculpting using microdosed botulinum toxin. Curated for those under 40, this treatment focuses on preventative contour modulation, delivering natural, soft corrections — not frozen expressions.<br/><br/>Whether it’s jawline slimming, temple lifting, or refining the upper face, this procedure enhances your features without overt volume loss or exaggerated stiffness. It’s about precision, personalization, and respecting your facial identity. Every Altruva Face Modulator treatment is custom-designed by dr. Olivia Aldisa, integrating anatomical mapping and muscle balance principles to ensure precision, proportion, and preservation of your identity.<br/><br/><i>“Face Modulation isn’t about changing how you look—it’s about changing how you age.” — dr. Olivia Aldisa, Expert in Facial Harmony & Preventative Aesthetics</i>`,
+    longDescription: `In a world where subtlety matters, Altruva Face Modulator (Half Dose) offers a refined approach to facial sculpting using microdosed botulinum toxin. Curated for those under 40, this treatment focuses on preventative contour modulation, delivering natural, soft corrections — not frozen expressions.<br/><br/>Whether it’s jawline slimming, temple lifting, or refining the upper face, this procedure enhances your features without overt volume loss or exaggerated stiffness. It’s about precision, personalization, and respecting your facial identity.<br/><br/>Every Altruva Face Modulator treatment is custom-designed by dr. Olivia Aldisa, integrating anatomical mapping and muscle balance principles to ensure precision, proportion, and preservation of your identity.`,
     whatIsIt: {
       title: 'How It Works',
       description: `Botulinum toxin, in a calibrated half dose, is administered strategically to modulate overactive muscles that contribute to undesirable bulk, heaviness, or downward pull:<br/><ul class="list-disc pl-5 mt-2 space-y-1"><li><strong>Jawline:</strong> Slims bulky masseter muscles to enhance V-shape contours and reduce facial width.</li><li><strong>Upper Face:</strong> Softens glabella tension, subtly lifts brows, and prevents early wrinkle formation — all without freezing natural movement.</li></ul>`
@@ -436,7 +436,50 @@ export const services: Service[] = [
     imageHint: 'dermal filler',
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
-    subgroup: 'Signature Contouring'
+    subgroup: 'Signature Contouring',
+    subtitle: 'Refined. Personalized. Anatomically Precise — by dr. Aldisa. Signature Beautification for Under 40s',
+    longDescription: `Altruva Dermal Fillers are not about chasing trends — they are about strategic enhancement. This protocol is built on the principle of harmonizing features using subtle, anatomically guided injections to enhance your natural bone structure, soften imbalances, and delay facial aging — before it ever becomes visible.<br/><br/>Led by dr. Olivia Aldisa, a trusted name in anatomical regenerative aesthetics, this treatment is fully personalized and intended for discerning patients under 40 who want refinement, not reinvention.<br/><br/><i>“The most beautiful result is one no one can point out — but everyone notices. That’s the art of natural beautification.” — dr. Olivia Aldisa, Facial Architect & Regenerative Strategist</i>`,
+    whatIsIt: {
+      title: 'The Philosophy: Face Optimization Before Correction',
+      description: `Instead of reversing aging, Altruva Dermal Fillers focus on:<br/>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Enhancing natural beauty through proportional feature balancing</li>
+        <li>Strengthening the facial foundation to delay sagging and volume loss</li>
+        <li>Modulating fat compartments to optimize contour and symmetry</li>
+        <li>Supporting prejuvenation with regenerative injection techniques</li>
+      </ul>
+      <h4 class="font-semibold text-primary mt-4">Treatment Areas May Include:</h4>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li><strong>Chin:</strong> Subtle projection to define your profile</li>
+        <li><strong>Jawline:</strong> Soft contouring for a refined lower face</li>
+        <li><strong>Cheeks:</strong> Gentle enhancement for structure and midface lift</li>
+        <li><strong>Temples:</strong> Filling deflation for smoother transitions</li>
+        <li><strong>Tear Troughs:</strong> Brighten tired-looking eyes (when indicated)</li>
+        <li><strong>Lips:</strong> Optional volume or structure without distortion</li>
+      </ul>`,
+    },
+    howItDiffers: 'Profile Balancing Approach: Each injection supports aesthetic harmony — not isolated features. Minimalism with Intent: We believe in doing less but doing it precisely. Product Synergy: HA fillers are selected based on elasticity, cohesivity, and area-specific need. Microcannula Precision: Safer and less traumatic delivery for most areas. Regenerative Add-ons: Optionally layered with PRF, PN, or skin boosters for longer-term support.',
+    whyLoveIt: [
+      "Why Start Fillers Under 40?",
+      "Less Product Needed Over Time",
+      "More Natural-Looking Results",
+      "Supports Tissue Integrity Before Breakdown Begins"
+    ],
+    benefits: [
+      'Defines and refines features without exaggeration',
+      'Enhances facial symmetry and proportions',
+      'Delays signs of structural aging',
+      'Elevates appearance while preserving authenticity',
+      'Boosts confidence through soft, visible enhancement',
+    ],
+    protocol: [
+      { label: 'Duration', value: '30–60 minutes' },
+      { label: 'Downtime', value: 'Minimal – may include temporary swelling or bruising' },
+      { label: 'Results', value: 'Immediate structural enhancement; softens within 1–2 weeks' },
+      { label: 'Longevity', value: '9 to 18 months, depending on product and area' },
+      { label: 'Technique', value: 'Microcannula and needle, based on area and goals' },
+      { label: 'Customization', value: 'Fully tailored, with comprehensive facial analysis' },
+    ]
   },
 
   // --- Rejuvenation (> 40) ---
