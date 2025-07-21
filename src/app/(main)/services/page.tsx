@@ -2,23 +2,23 @@
 
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
-import ServiceCard from '@/components/services/ServiceCard';
+import TreatmentCard from '@/components/services/TreatmentCard';
 import { services } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Our Services - Altruva',
-  description: 'Explore the wide range of aesthetic services offered at Altruva clinic.',
+  title: 'Our Treatments - Altruva',
+  description: 'Explore the wide range of aesthetic treatments offered at Altruva clinic.',
 };
 
 export default function ServicesPage() {
   return (
     <SectionWrapper>
-      <PageTitle title="Our Services" subtitle="Discover our comprehensive range of regenerative and aesthetic treatments, tailored to your unique needs." />
+      <PageTitle title="Our Treatments" subtitle="Discover our comprehensive range of regenerative and aesthetic treatments, tailored to your unique needs." />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {services.map((service) => (
-          <ServiceCard key={service.id} service={service} />
+          <TreatmentCard key={service.id} service={service} />
         ))}
       </div>
       <div className="text-center">

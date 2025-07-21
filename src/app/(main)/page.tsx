@@ -22,10 +22,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-type ServiceCategory = 'Prejuvenation' | 'Rejuvenation';
+type TreatmentCategory = 'Prejuvenation' | 'Rejuvenation';
 
 export default function HomePage() {
-  const [activeCategory, setActiveCategory] = useState<ServiceCategory | null>(null);
+  const [activeCategory, setActiveCategory] = useState<TreatmentCategory | null>(null);
 
   const filteredServices = activeCategory ? services.filter(service => service.category === activeCategory) : [];
 
@@ -33,12 +33,12 @@ export default function HomePage() {
     Prejuvenation: {
       title: '< 40 years old',
       subtitle: 'Prejuvenation (Preserve & Enhance)',
-      servicesTitle: 'Prejuvenation Services',
+      treatmentsTitle: 'Prejuvenation Treatments',
     },
     Rejuvenation: {
       title: '> 40 years old',
       subtitle: 'Rejuvenation (Restore & Lift)',
-      servicesTitle: 'Rejuvenation Services',
+      treatmentsTitle: 'Rejuvenation Treatments',
     },
   };
 
@@ -102,7 +102,7 @@ export default function HomePage() {
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">Your Regenerative Journey</h2>
           <p className="text-lg text-foreground/80 mb-8">Select your age group to discover tailored treatments that meet your unique needs.</p>
           <div className="flex justify-center gap-4 md:gap-8">
-            {(Object.keys(categoryDetails) as ServiceCategory[]).map(key => (
+            {(Object.keys(categoryDetails) as TreatmentCategory[]).map(key => (
               <button
                 key={key}
                 onClick={() => setActiveCategory(key)}
@@ -121,9 +121,9 @@ export default function HomePage() {
 
       {/* Services Overview Section */}
       {activeCategory && (
-        <SectionWrapper id="services-overview">
+        <SectionWrapper id="treatments-overview">
           <PageTitle 
-            title={categoryDetails[activeCategory].servicesTitle}
+            title={categoryDetails[activeCategory].treatmentsTitle}
           />
           <div className="max-w-6xl mx-auto">
             <div className="space-y-12">
@@ -136,7 +136,7 @@ export default function HomePage() {
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <TableHead className="w-1/3 font-semibold text-primary/90">Service</TableHead>
+                          <TableHead className="w-1/3 font-semibold text-primary/90">Treatment</TableHead>
                           <TableHead className="w-1/2 font-semibold text-primary/90">Description</TableHead>
                           <TableHead className="text-right font-semibold text-primary/90">Price</TableHead>
                         </TableRow>

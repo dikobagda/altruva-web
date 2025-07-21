@@ -82,18 +82,11 @@ export default function Harmony369Page() {
   return (
     <>
       {/* Hero Section */}
-      <SectionWrapper className="relative min-h-[50vh] flex items-center justify-center text-center !py-0 overflow-hidden">
-        <Image
-          src="https://placehold.co/1600x800.png"
-          alt="Abstract representation of harmony and balance"
-          fill
-          className="object-cover"
-          data-ai-hint="abstract harmony balance"
-        />
+      <SectionWrapper className="relative min-h-[80vh] flex items-center justify-center text-center !py-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent z-10"></div>
-        <div className="relative z-20 max-w-4xl mx-auto p-4">
+        <div className="relative z-20 max-w-4xl mx-auto p-4 pb-16">
           <PageTitle
-            className="!pt-16"
+            className="pt-32"
             title="The Altruva 369 Harmony Approach™"
             subtitle="Your intelligent, year-round beauty roadmap for natural, long-term rejuvenation."
           />
@@ -137,14 +130,14 @@ export default function Harmony369Page() {
             <AccordionItem value="item-1">
               <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
                 <div className="flex items-center gap-4">
-                  <span className="text-4xl font-bold text-accent">3</span>
                   <div>
                     Phase 3 (3 Months): Foundation
-                    <p className="text-base font-sans font-normal text-foreground/70">Quarterly Foundation / Once a Month for 3 Months</p>
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
+                <p className="text-base text-foreground/70">Quarterly Foundation / Once a Month for 3 Months</p>
+                <br />
                 <p className="font-semibold mb-2 text-primary">Focus: Skin Health + Preventive</p>
                 <p className="mb-4">"Skin health, glow, hydration—build the foundation." This phase improves texture, tone, and hydration, prevents dullness, and maintains baseline regenerative activity.</p>
                 <p className="font-semibold text-primary">Example Treatments:</p>
@@ -158,15 +151,16 @@ export default function Harmony369Page() {
             <AccordionItem value="item-2">
               <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
                  <div className="flex items-center gap-4">
-                  <span className="text-4xl font-bold text-accent">6</span>
-                  <div>
+                 <div>
                     Phase 6 (6 Months): Harmonization
-                    <p className="text-base font-sans font-normal text-foreground/70">Biannual Harmonization / Every 6 Months</p>
+                    
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
-                 <p className="font-semibold mb-2 text-primary">Focus: Volume Preservation + Rejuvenation</p>
+                <p className="text-base text-foreground/70">Biannual Harmonization / Every 6 Months</p>
+                <br/>
+                <p className="font-semibold mb-2 text-primary">Focus: Volume Preservation + Rejuvenation</p>
                 <p className="mb-4">"Collagen banking, lifting, biostimulation." This phase reinforces skin architecture, balances muscle dynamics, and activates collagen deposition.</p>
                 <p className="font-semibold text-primary">Example Treatments:</p>
                 <ul className="list-disc list-inside mt-1">
@@ -179,14 +173,14 @@ export default function Harmony369Page() {
             <AccordionItem value="item-3">
               <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
                  <div className="flex items-center gap-4">
-                  <span className="text-4xl font-bold text-accent">9-12</span>
                   <div>
                     Phase 9-12 (Months): Elevation
-                    <p className="text-base font-sans font-normal text-foreground/70">Annual Elevation / Every 9-12 Months</p>
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
+                <p className="text-base text-foreground/70">Annual Elevation / Every 9-12 Months</p>
+                <br />
                 <p className="font-semibold mb-2 text-primary">Focus: Structural Refinement + Contouring</p>
                 <p className="mb-4">"Structural repositioning, long-term support." This phase focuses on structural refinement, fat pad modulation, and collagen densification to reset the aging trajectory.</p>
                 <p className="font-semibold text-primary">Example Treatments:</p>

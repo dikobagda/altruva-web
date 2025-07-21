@@ -36,9 +36,6 @@ const clinicImages = [
 export default function OurClinicPage() {
   return (
     <>
-      <SectionWrapper>
-        
-      </SectionWrapper>
 
       <SectionWrapper className="pt-0">
         <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-2xl">

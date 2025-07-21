@@ -19,12 +19,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   if (!service) {
     return {
-      title: 'Service Not Found',
+      title: 'Treatment Not Found',
     };
   }
 
   return {
-    title: `${service.title} - Altruva Services`,
+    title: `${service.title} - Altruva Treatments`,
     description: service.longDescription || service.description,
   };
 }
@@ -142,7 +142,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           <aside className="lg:col-span-1 space-y-8 sticky top-24">
             <Card className="shadow-lg">
                 <CardHeader>
-                  <CardTitle className="font-serif text-2xl text-primary">Service Summary</CardTitle>
+                  <CardTitle className="font-serif text-2xl text-primary">Treatment Summary</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <div>
@@ -156,7 +156,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                     )}
                     </div>
                     <Button asChild size="lg" className="w-full font-semibold">
-                      <Link href="/book-appointment">Book This Service <ArrowRight className="ml-2" /></Link>
+                      <Link href="/book-appointment">Book This Treatment <ArrowRight className="ml-2" /></Link>
                     </Button>
                 </CardContent>
             </Card>
