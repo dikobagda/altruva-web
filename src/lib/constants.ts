@@ -219,8 +219,10 @@ export const services: Service[] = [
   },
   {
     id: 'art-lyft-lite',
-    title: 'A.R.T Lyft Lite by Sofwave',
+    title: 'Altruva A.R.T Lift (Lite) by dr. Aldisa',
     description: '(up to 300 shots) Personalized SUPERB Ultrasound-powered deep tissue tightening.',
+    longDescription: `Anatomic Regenerative Targeting with Precision Sofwave Ultrasound. For those under 40, the best anti-aging strategy isn't reversal—it's prevention. A.R.T Lift Lite is Altruva’s signature collagen banking protocol, designed by dr. Olivia Aldisa, Sofwave Key Opinion Leader in Asia. This treatment uses SUPERB™ ultrasound technology to target areas of early collagen loss and prevent sagging before it starts. A.R.T (Anatomic Regenerative Targeting) Lift Lite is not just a facial—it’s a strategic investment in your skin’s future.`,
+    subtitle: "Signature Prejuvenation for Collagen Banking (<40 years old)",
     price: '20,000,000 IDR',
     category: 'Prejuvenation',
     Icon: Zap,
@@ -228,7 +230,32 @@ export const services: Service[] = [
     imageHint: 'ultrasound facelift',
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
-    subgroup: 'Tightening & Contouring'
+    subgroup: 'Tightening & Contouring',
+    whatIsIt: {
+      title: 'How It Works',
+      description: `<p>A.R.T. Lift Lite uses precision ultrasound energy (Sofwave) to activate your skin's natural regenerative power. Focused beams of ultrasound energy reach the mid-dermis, heating tissue at just the right depth to stimulate fibroblasts—without damaging the skin surface. The gentle heat activates neocollagenesis, the body’s natural process of forming fresh collagen and elastin. With regenerative mapping by dr. Aldisa, each shot is planned to follow your unique fat pads, ligament structures, and collagen-rich zones to optimize long-term firming while preserving natural beauty.</p><br/><i>“At Altruva, we don’t chase aging—we engineer prevention. A.R.T Lift Lite is how we build long-term beauty without filler or surgery.” — dr. Olivia Aldisa</i>`
+    },
+    howItDiffers: 'Designed by a Global Sofwave Expert, the A.R.T Lift Lite protocol is based on clinical knowledge and field data from dr. Aldisa’s work with thousands of Sofwave pulses. It targets collagen banking to prevent premature sagging and is a strategic prejuvenation for Millennials & Gen Z.',
+    whyLoveIt: [
+      'Targeted Collagen Banking: Prevents premature sagging in midface, jawline, and brow.',
+      'Non-invasive with Zero Downtime: A lunchtime protocol with no redness, peeling, or bruising.',
+      'Ideal for patients in their late 20s to mid-30s looking to future-proof their facial architecture.',
+    ],
+    indications: [
+      'Early signs of facial laxity',
+      'Flat mid-cheeks or soft jawline definition',
+      '“Pre-jowl” or under-chin laxity',
+      'Maintenance after filler or threads',
+      'Skin prep before life events (weddings, media, international travel)',
+    ],
+    protocol: [
+      { label: 'Duration', value: '35–45 minutes' },
+      { label: 'Protocol', value: '200–300 pulses, focused on collagen reservoirs' },
+      { label: 'Pain level', value: 'Mild warmth; cooling system ensures comfort' },
+      { label: 'Downtime', value: 'None' },
+      { label: 'Visible results', value: '3–4 weeks post-treatment, progressive improvement up to 12 weeks' },
+      { label: 'Suggested frequency', value: 'Once annually for maintenance; twice yearly for lift' }
+    ],
   },
   {
     id: 'gorgeous-lyft-prejuvenation',
@@ -245,7 +272,7 @@ export const services: Service[] = [
   },
   {
     id: 'exion-lumi-rf',
-    title: 'Exion Lumi-RF (RF Face)',
+    title: 'Exion Lumi-RF',
     description: 'Fusion of RF and Ultrasound Technology. Best for maintenance after A.R.T Lyft.',
     price: 'Price on consultation',
     category: 'Prejuvenation',
@@ -271,7 +298,7 @@ export const services: Service[] = [
   },
   {
     id: 'face-modulator-half',
-    title: 'Face Modulator Half Dose',
+    title: 'Face Modulator (Half Dose)',
     description: 'Subtle wrinkle softening while preserving natural expression.',
     price: '5,000,000 IDR',
     category: 'Prejuvenation',
@@ -369,7 +396,7 @@ export const services: Service[] = [
   },
   {
     id: 'dna-repair-eye',
-    title: 'DNA Repair Eye',
+    title: 'Altruva DNA Repair Eye',
     description: 'Reinforces skin’s cellular repair system for undereye area.',
     price: '5,000,000 IDR',
     category: 'Rejuvenation',
@@ -382,7 +409,7 @@ export const services: Service[] = [
   },
   {
     id: 'amino-booster',
-    title: 'Amino Booster',
+    title: 'Altruva Amino Booster',
     description: 'Dermal protein replenishment for enhanced density.',
     price: '6,000,000 IDR',
     category: 'Rejuvenation',
@@ -395,7 +422,7 @@ export const services: Service[] = [
   },
   {
     id: 'melabooster',
-    title: 'MelaBooster',
+    title: 'Altruva Mela-Boosters',
     description: 'Powerful melanin modulation.',
     price: '4,500,000 IDR',
     category: 'Rejuvenation',
@@ -408,7 +435,7 @@ export const services: Service[] = [
   },
   {
     id: 'bio-prf-rejuvenation',
-    title: 'Bio-PRF',
+    title: 'Altruva Bio-PRF',
     description: 'Comprehensive regenerative healing.',
     price: '3,000,000 IDR',
     category: 'Rejuvenation',
@@ -434,7 +461,7 @@ export const services: Service[] = [
   },
   {
     id: 'radiant-advanced-peel',
-    title: 'Radiant Advanced Peel',
+    title: 'Altruva Radiant Advanced Peel',
     description: 'Bio-stimulatory resurfacing for skin renewal.',
     price: '1,000,000 IDR',
     category: 'Rejuvenation',
@@ -447,7 +474,7 @@ export const services: Service[] = [
   },
   {
     id: 'exion-regen-laser',
-    title: 'Exion Regen Laser',
+    title: 'Altruva Regenerative Laser',
     description: 'Lunchtime laser targeting deep pigmentation, restoring skin luminosity without downtime.',
     price: 'Price on consultation',
     category: 'Rejuvenation',
@@ -460,7 +487,7 @@ export const services: Service[] = [
   },
   {
     id: 'exion-fractiopro',
-    title: 'Exion FractioPro',
+    title: 'Altruva FractioPro',
     description: 'Deeper fractionated resurfacing for pronounced pigment and texture correction.',
     price: 'Price on consultation',
     category: 'Rejuvenation',
@@ -473,7 +500,7 @@ export const services: Service[] = [
   },
   {
     id: 'art-lyft',
-    title: 'A.R.T Lyft by Sofwave',
+    title: 'Altruva A.R.T Lift PRO by dr. Aldisa',
     description: '(up to 500 shots) Personalized SUPERB Ultrasound for deep dermal firming.',
     price: '30,000,000 IDR',
     category: 'Rejuvenation',
@@ -486,7 +513,7 @@ export const services: Service[] = [
   },
   {
     id: 'gorgeous-lyft-rejuvenation',
-    title: 'Gorgeous Lyft',
+    title: 'Altruva Gorgeous Lyft by dr. Aldisa',
     description: 'Liquid type biostimulators for strong collagen restoration.',
     price: '11,000,000 IDR',
     category: 'Rejuvenation',
@@ -499,7 +526,7 @@ export const services: Service[] = [
   },
   {
     id: 'radiance-lyft',
-    title: 'Radiance Lyft',
+    title: 'Altruva Regenerative RF',
     description: 'Comprehensive deep skin tightening.',
     price: '9,000,000 IDR',
     category: 'Rejuvenation',
@@ -512,7 +539,7 @@ export const services: Service[] = [
   },
   {
     id: 'cocktail-contouring',
-    title: 'Cocktail Contouring',
+    title: 'Altruva Cocktail Contouring',
     description: 'Personalized bio-stimulator & selected filler fusion.',
     price: '15,500,000 IDR',
     category: 'Rejuvenation',
@@ -525,7 +552,7 @@ export const services: Service[] = [
   },
   {
     id: 'dermal-fillers-pro',
-    title: 'Dermal Fillers Pro',
+    title: 'Altruva Dermal Filler Pro',
     description: 'Precision volumization for facial balance.',
     price: '6,500,000 IDR',
     category: 'Rejuvenation',
@@ -538,7 +565,7 @@ export const services: Service[] = [
   },
   {
     id: 'face-modulator-full',
-    title: 'Face Modulator Full Dose',
+    title: 'Altruva Face Modulator (Full Dose)',
     description: 'Dynamic wrinkle refinement.',
     price: '9,000,000 IDR',
     category: 'Rejuvenation',

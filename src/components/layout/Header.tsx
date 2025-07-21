@@ -47,8 +47,8 @@ const navItems: NavItem[] = [
           {
             label: 'Altruva Lift',
             subItems: [
-                { href: '/services/art-lyft-lite', label: 'Altruva A.R.T Lift (Lite)' },
-                { href: '/services/gorgeous-lyft-prejuvenation', label: 'Altruva Gorgeous Lyft' },
+                { href: '/services/art-lyft-lite', label: 'Altruva A.R.T Lift (Lite) by dr. Aldisa' },
+                { href: '/services/gorgeous-lyft-prejuvenation', label: 'Altruva Gorgeous Lyft by dr. Aldisa' },
                 { href: '/services/exion-lumi-rf', label: 'Altruva Lumi RF' },
             ]
           },
