@@ -51,10 +51,10 @@ export const services: Service[] = [
     groupDescription: 'Customized facials to address your unique skin needs.',
     subgroup: 'Core Facials',
     subtitle: 'Pore Purity. Cellular Rejuvenation. Personalized Glow.',
-    longDescription: 'At Altruva, our Signature Facial isn’t just a routine — it’s a custom-engineered skin therapy, crafted for your unique skin biology and life rhythms. Tailored by our in-house skin therapists and supported by clinical-grade protocols, this treatment synergizes deep pore purification, targeted light therapy (PDT), and dermal restoration into one comprehensive facial ritual.',
+    longDescription: 'At Altruva, our Signature Facial isn’t just a routine — it’s a custom-engineered skin therapy, crafted for your unique skin biology and life rhythms. Tailored by our in-house skin therapists and supported by clinical-grade protocols, this treatment synergizes deep pore purification, targeted light therapy (PDT), and dermal restoration into one comprehensive facial ritual. <br /> <br /> <i>“True clarity isn’t achieved by stripping skin — it’s by teaching it to function optimally. This facial isn’t just cleansing; it’s re-education.”</i> — dr. Olivia Aldisa, Founder of Altruva & Expert in Skin Health Optimization',
     whatIsIt: {
       title: 'What Makes It Signature?',
-      description: `<ul class="list-disc pl-5 space-y-2">
+      description: `<ul class="list-disc pl-5 space-y-2" style="padding-left: 40px;">
         <li><strong class="text-primary">Fully Personalized Protocol:</strong> Whether you're battling congestion, sensitivity, dullness, or early signs of aging — your facial will be individually customized to treat your skin’s real-time needs.</li>
         <li><strong class="text-primary">PDT Light Technology (Photodynamic Therapy):</strong> Targeted LED wavelengths are incorporated based on your skin goals:
           <ul class="list-disc pl-5 mt-1" style="padding-left: 40px;">
@@ -85,7 +85,6 @@ export const services: Service[] = [
     whyLoveIt: [
       'Because no skin is generic.',
       'Altruva’s facial protocols are built on a hybrid model of spa-grade indulgence and medical-grade insight, ensuring your glow isn’t superficial — it’s cellular.',
-      '<i>“True clarity isn’t achieved by stripping skin — it’s by teaching it to function optimally. This facial isn’t just cleansing; it’s re-education.”</i> — dr. Olivia Aldisa, Founder of Altruva & Expert in Skin Health Optimization'
     ],
   },
   {
@@ -101,7 +100,7 @@ export const services: Service[] = [
     groupDescription: 'Customized facials to address your unique skin needs.',
     subgroup: 'Core Facials',
     subtitle: 'Exfoliate. Infuse. Illuminate. The Gold Standard of Hydrodermabrasion.',
-    longDescription: 'For skin that craves clarity, hydration, and luminosity in one seamless protocol, Altruva HydraGlow Facial delivers results beyond the surface. This is Altruva’s elevated version of the Dermalinfusion, combining diamond-tip exfoliation, vacuum-assisted extraction, and targeted serum infusion — all in one high-performance session tailored to your skin’s real-time needs. Powered by vortex technology and curated infusions, this facial isn’t just about glow — it’s about deep nourishment, barrier support, and clinical rejuvenation without downtime.',
+    longDescription: 'For skin that craves clarity, hydration, and luminosity in one seamless protocol, Altruva HydraGlow Facial delivers results beyond the surface. This is Altruva’s elevated version of the Dermalinfusion, combining diamond-tip exfoliation, vacuum-assisted extraction, and targeted serum infusion — all in one high-performance session tailored to your skin’s real-time needs. Powered by vortex technology and curated infusions, this facial isn’t just about glow — it’s about deep nourishment, barrier support, and clinical rejuvenation without downtime. <br /> <br /> <i>“Hydration is not a trend — it’s the foundation of skin longevity. This treatment makes your skin feel alive again.”</i> — dr. Olivia Aldisa, Founder of Altruva & Regenerative Skin Strategist',
     whatIsIt: {
       title: 'How HydraGlow Works: 3-in-1 Dermal Technology',
       description: `<ol class="list-decimal pl-5 space-y-2">
@@ -138,7 +137,6 @@ export const services: Service[] = [
       'Barrier-Safe Approach: No harsh acids. Skin remains calm, hydrated, and non-reactive.',
       'Clinically Formulated Protocols: Designed by dr. Olivia Aldisa for enhanced cellular turnover and skin integrity.',
       'Makeup-Optional Finish: Walk out with hydrated, luminous skin ready for the day or night.',
-      '<i>“Hydration is not a trend — it’s the foundation of skin longevity. This treatment makes your skin feel alive again.”</i> — dr. Olivia Aldisa, Founder of Altruva & Regenerative Skin Strategist',
     ],
   },
 
@@ -1761,7 +1759,7 @@ Ideal for men and women in early to moderate stages of hair thinning or shedding
     protocol: [
       { label: 'Duration', value: '30–40 minutes' },
       { label: 'Discomfort', value: 'Mild – numbing optional' },
-      { label: 'Sessions', value: '4–6 sessions spaced 10–14 days apart' },
+      { label: 'Sessions', value: '4–6 sessions, spaced 10–14 days apart' },
       { label: 'Maintenance', value: 'Every 3–6 months depending on individual response' },
       { label: 'Downtime', value: 'None to minimal' },
     ],
@@ -1852,8 +1850,8 @@ export const testimonials: Testimonial[] = [
   {
     id: '1',
     name: 'Sarah L.',
-    text: 'Altruva has completely transformed my skin! The staff is incredibly knowledgeable and caring. I highly recommend their Divine Glow Facial.',
-    procedure: 'Divine Glow Facial',
+    text: 'Altruva has completely transformed my skin! The staff is incredibly knowledgeable and caring. I felt so rejuvenated after the A.R.T. Lift Pro. My skin feels tighter and looks brighter.',
+    procedure: 'A.R.T. Lift Pro',
     avatarSrc: 'https://placehold.co/100x100.png',
     rating: 5,
     avatarHint: 'woman smiling'
@@ -1861,20 +1859,39 @@ export const testimonials: Testimonial[] = [
   {
     id: '2',
     name: 'John B.',
-    text: 'I was hesitant about injections, but the results from Age-Defy are amazing and look so natural. The team at Altruva made me feel comfortable throughout the process.',
-    procedure: 'Age-Defy Injections',
+    text: 'I was hesitant about injections, but the results from the Altruva Face Modulator are amazing and look so natural. The team at Altruva made me feel comfortable throughout the process.',
+    procedure: 'Face Modulator',
     rating: 5,
+    avatarSrc: 'https://placehold.co/100x100.png',
     avatarHint: 'man portrait'
   },
   {
     id: '3',
     name: 'Emily K.',
     text: 'The laser rejuvenation treatments have done wonders for my sun damage. My skin looks years younger. Thank you, Altruva!',
-    procedure: 'Laser Rejuvenation',
+    procedure: 'Regenerative Laser',
     avatarSrc: 'https://placehold.co/100x100.png',
     rating: 4,
     avatarHint: 'happy person'
   },
+  {
+    id: '4',
+    name: 'Jessica P.',
+    text: 'After just a few sessions of the Altruva NeoCurve, I can see a significant difference in my abdomen. It\'s more toned, and my clothes fit better. Highly recommend!',
+    procedure: 'NeoCurve Body Contouring',
+    avatarSrc: 'https://placehold.co/100x100.png',
+    rating: 5,
+    avatarHint: 'woman profile'
+  },
+  {
+    id: '5',
+    name: 'Michael T.',
+    text: 'The Hair Micrograft Technology was a game-changer for my thinning hair. The process was comfortable, and the results have exceeded my expectations. I feel much more confident.',
+    procedure: 'Hair Micrograft Technology',
+    rating: 5,
+    avatarSrc: 'https://placehold.co/100x100.png',
+    avatarHint: 'man smiling'
+  }
 ];
 
 export interface FAQItem {

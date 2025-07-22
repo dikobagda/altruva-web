@@ -48,6 +48,7 @@ export default function MeetTheDoctorPage() {
               height={500}
               className="rounded-lg shadow-xl object-cover"
             />
+            
           </div>
           <div className="space-y-6">
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary">dr. Olivia Aldisa</h1>

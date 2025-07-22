@@ -22,6 +22,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import TestimonialCard from '@/components/testimonials/TestimonialCard';
 
 type TreatmentCategory = 'Prejuvenation' | 'Rejuvenation';
 
@@ -237,41 +238,28 @@ export default function HomePage() {
       {/* Testimonials Preview Section */}
       <SectionWrapper id="testimonials-preview">
         <PageTitle title="Hear From Our Clients" subtitle="Real stories from those who've experienced the Altruva difference." />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.slice(0,3).map((testimonial) => (
-            <Card key={testimonial.id} className="bg-card shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  {testimonial.avatarSrc && (
-                    <Image
-                      src={testimonial.avatarSrc}
-                      alt={testimonial.name}
-                      width={60}
-                      height={60}
-                      className="rounded-full"
-                      data-ai-hint={testimonial.avatarHint || "person"}
-                    />
-                  )}
-                  <div>
-                    <CardTitle className="font-serif text-xl text-primary">{testimonial.name}</CardTitle>
-                    <CardDescription className="text-accent">{testimonial.procedure}</CardDescription>
-                  </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: testimonials.length > 3,
+          }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {testimonials.map((testimonial) => (
+              <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1 h-full">
+                  <TestimonialCard testimonial={testimonial} className="h-full" />
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/80 italic">"{testimonial.text}"</p>
-                <div className="flex mt-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className={`h-5 w-5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`} />
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2 hidden lg:flex" />
+          <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2 hidden lg:flex" />
+        </Carousel>
         <div className="text-center mt-12">
-          <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
-            <Link href="/testimonials">Read More Testimonials</Link>
+          <Button asChild size="lg" variant="default">
+            <Link href="/book-appointment">Ready for your transformation?</Link>
           </Button>
         </div>
       </SectionWrapper>

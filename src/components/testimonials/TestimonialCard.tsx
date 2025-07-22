@@ -3,14 +3,16 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Testimonial } from '@/lib/constants';
 import { Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
+  className?: string;
 }
 
-export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
+export default function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
   return (
-    <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <Card className={cn("flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300", className)}>
       <CardHeader>
         <div className="flex items-center space-x-4 mb-2">
           {testimonial.avatarSrc && (
