@@ -46,7 +46,7 @@ export default function MeetTheDoctorPage() {
               alt="Promotional image for AI Skin Analysis showing a woman's profile with text overlay"
               width={500}
               height={500}
-              className="rounded-lg shadow-xl "
+              className="rounded-lg shadow-xl object-cover"
             />
           </div>
           <div className="space-y-6">

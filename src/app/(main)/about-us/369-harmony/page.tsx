@@ -125,73 +125,83 @@ export default function Harmony369Page() {
           title="Your Intelligent Beauty Roadmap"
           subtitle="The Altruva 369 Harmony Approach™ is your year-round guide to strategic rejuvenation."
         />
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" defaultValue="item-1" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
-                <div className="flex items-center gap-4">
-                  <div>
-                    Phase 3 (3 Months): Foundation
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="relative aspect-square">
+            <Image 
+              src="/images/369.jpg" 
+              alt="369 Harmony diagram"
+              fill
+              className="object-contain rounded-lg"
+            />
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" defaultValue="item-1" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
+                  <div className="flex items-center gap-4">
+                    <div>
+                      Phase 3 (3 Months): Foundation
+                    </div>
                   </div>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
-                <p className="text-base text-foreground/70">Quarterly Foundation / Once a Month for 3 Months</p>
-                <br />
-                <p className="font-semibold mb-2 text-primary">Focus: Skin Health + Preventive</p>
-                <p className="mb-4">"Skin health, glow, hydration—build the foundation." This phase improves texture, tone, and hydration, prevents dullness, and maintains baseline regenerative activity.</p>
-                <p className="font-semibold text-primary">Example Treatments:</p>
-                <ul className="list-disc list-inside mt-1">
-                  <li>Signature Clinical Facial</li>
-                  <li>Selected Laser Toning</li>
-                  <li>Selected Skinbooster (HA-based / PN-based / Amino Acid-rich)</li>
-                </ul>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
-                 <div className="flex items-center gap-4">
-                 <div>
-                    Phase 6 (6 Months): Harmonization
-                    
+                </AccordionTrigger>
+                <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
+                  <p className="text-base text-foreground/70">Quarterly Foundation / Once a Month for 3 Months</p>
+                  <br />
+                  <p className="font-semibold mb-2 text-primary">Focus: Skin Health + Preventive</p>
+                  <p className="mb-4">"Skin health, glow, hydration—build the foundation." This phase improves texture, tone, and hydration, prevents dullness, and maintains baseline regenerative activity.</p>
+                  <p className="font-semibold text-primary">Example Treatments:</p>
+                  <ul className="list-disc list-inside mt-1">
+                    <li>Signature Clinical Facial</li>
+                    <li>Selected Laser Toning</li>
+                    <li>Selected Skinbooster (HA-based / PN-based / Amino Acid-rich)</li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
+                   <div className="flex items-center gap-4">
+                   <div>
+                      Phase 6 (6 Months): Harmonization
+                      
+                    </div>
                   </div>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
-                <p className="text-base text-foreground/70">Biannual Harmonization / Every 6 Months</p>
-                <br/>
-                <p className="font-semibold mb-2 text-primary">Focus: Volume Preservation + Rejuvenation</p>
-                <p className="mb-4">"Collagen banking, lifting, biostimulation." This phase reinforces skin architecture, balances muscle dynamics, and activates collagen deposition.</p>
-                <p className="font-semibold text-primary">Example Treatments:</p>
-                <ul className="list-disc list-inside mt-1">
-                    <li>Botulinum Toxin (targeted zones)</li>
-                    <li>Biostimulator (PLLA/CaHA / PCL)</li>
-                    <li>Customized Peptides (Injectable or transdermal delivery)</li>
-                </ul>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
-                 <div className="flex items-center gap-4">
-                  <div>
-                    Phase 9-12 (Months): Elevation
+                </AccordionTrigger>
+                <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
+                  <p className="text-base text-foreground/70">Biannual Harmonization / Every 6 Months</p>
+                  <br/>
+                  <p className="font-semibold mb-2 text-primary">Focus: Volume Preservation + Rejuvenation</p>
+                  <p className="mb-4">"Collagen banking, lifting, biostimulation." This phase reinforces skin architecture, balances muscle dynamics, and activates collagen deposition.</p>
+                  <p className="font-semibold text-primary">Example Treatments:</p>
+                  <ul className="list-disc list-inside mt-1">
+                      <li>Botulinum Toxin (targeted zones)</li>
+                      <li>Biostimulator (PLLA/CaHA / PCL)</li>
+                      <li>Customized Peptides (Injectable or transdermal delivery)</li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
+                   <div className="flex items-center gap-4">
+                    <div>
+                      Phase 9-12 (Months): Elevation
+                    </div>
                   </div>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
-                <p className="text-base text-foreground/70">Annual Elevation / Every 9-12 Months</p>
-                <br />
-                <p className="font-semibold mb-2 text-primary">Focus: Structural Refinement + Contouring</p>
-                <p className="mb-4">"Structural repositioning, long-term support." This phase focuses on structural refinement, fat pad modulation, and collagen densification to reset the aging trajectory.</p>
-                <p className="font-semibold text-primary">Example Treatments:</p>
-                <ul className="list-disc list-inside mt-1">
-                    <li>Energy-Based Device (Sofwave™)</li>
-                    <li>SculptLift+ Lipolysis (targeted jaw/cheeks)</li>
-                    <li>Filler / Cocktail Contouring (restorative or repositioning)</li>
-                </ul>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+                </AccordionTrigger>
+                <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
+                  <p className="text-base text-foreground/70">Annual Elevation / Every 9-12 Months</p>
+                  <br />
+                  <p className="font-semibold mb-2 text-primary">Focus: Structural Refinement + Contouring</p>
+                  <p className="mb-4">"Structural repositioning, long-term support." This phase focuses on structural refinement, fat pad modulation, and collagen densification to reset the aging trajectory.</p>
+                  <p className="font-semibold text-primary">Example Treatments:</p>
+                  <ul className="list-disc list-inside mt-1">
+                      <li>Energy-Based Device (Sofwave™)</li>
+                      <li>SculptLift+ Lipolysis (targeted jaw/cheeks)</li>
+                      <li>Filler / Cocktail Contouring (restorative or repositioning)</li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </div>
       </SectionWrapper>
       
