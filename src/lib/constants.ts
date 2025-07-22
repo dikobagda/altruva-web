@@ -1945,7 +1945,7 @@ export const insights: Insight[] = [
     id: '1',
     title: 'The Truth About Polynucleotides: Beyond the Hype',
     excerpt: 'We dive deep into the science of Polynucleotides (PN), exploring how these DNA-derived biopolymers are revolutionizing skin regeneration from a cellular level.',
-    imageSrc: 'https://images.unsplash.com/photo-1533750349088-249c511e32d5?q=80&w=600',
+    imageSrc: 'https://placehold.co/600x400.png',
     imageHint: 'dna helix science',
     date: 'August 5, 2024',
     href: '/insights/truth-about-polynucleotides',
@@ -1960,7 +1960,7 @@ export const insights: Insight[] = [
     id: '2',
     title: 'Prejuvenation: The Philosophy of "Future-Proofing" Your Skin',
     excerpt: 'Discover why the best anti-aging strategy is starting early. We explain the concept of prejuvenation and how it preserves your skin\'s youthful vitality.',
-    imageSrc: 'https://images.unsplash.com/photo-1596548438234-914cf2b34889?q=80&w=600',
+    imageSrc: 'https://placehold.co/600x400.png',
     imageHint: 'youthful glowing skin',
     date: 'July 28, 2024',
     href: '/insights/prejuvenation-philosophy',
@@ -1973,7 +1973,7 @@ export const insights: Insight[] = [
     id: '3',
     title: 'A.R.T Lyft by Sofwave: The Future of Non-Surgical Lifting',
     excerpt: 'Learn how SUPERB™ (Synchronous Ultrasound Parallel Beam) technology is setting a new standard for non-invasive facelifts, delivering natural results without the downtime.',
-    imageSrc: 'https://images.unsplash.com/photo-1616394584738-65a51a836898?q=80&w=600',
+    imageSrc: 'https://placehold.co/600x400.png',
     imageHint: 'ultrasound facial treatment',
     date: 'July 21, 2024',
     href: '/insights/art-lyft-sofwave',
@@ -1986,7 +1986,7 @@ export const insights: Insight[] = [
     id: '4',
     title: 'Understanding Your Skin Type: An AI-Powered Approach',
     excerpt: 'Our AI Skin Analysis tool demystifies your unique skin needs. Find out how technology can guide you to your most effective skincare routine ever.',
-    imageSrc: 'https://images.unsplash.com/photo-1526374965328-5f61d4dc16c6?q=80&w=600',
+    imageSrc: 'https://placehold.co/600x400.png',
     imageHint: 'ai skin analysis technology',
     date: 'July 14, 2024',
     href: '/insights/ai-skin-analysis',
@@ -2115,3 +2115,6 @@ export const quizResults: Record<string, QuizResult> = {
 
 
 
+
+
+    
