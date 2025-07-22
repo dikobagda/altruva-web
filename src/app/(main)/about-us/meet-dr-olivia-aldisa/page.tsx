@@ -41,13 +41,12 @@ export default function MeetTheDoctorPage() {
       <SectionWrapper className="bg-secondary/30 pt-24 md:pt-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square md:aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
-            <Image
-              src="https://placehold.co/600x750.png"
-              alt="dr. Olivia Aldisa"
-              fill
-              className="object-cover"
-              data-ai-hint="professional female doctor portrait"
-              priority
+          <Image
+              src="/images/draldisa.png"
+              alt="Promotional image for AI Skin Analysis showing a woman's profile with text overlay"
+              width={500}
+              height={500}
+              className="rounded-lg shadow-xl "
             />
           </div>
           <div className="space-y-6">

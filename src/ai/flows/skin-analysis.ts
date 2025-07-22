@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview An AI agent for analyzing skin and providing personalized skincare recommendations.
@@ -9,6 +10,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import { services } from '@/lib/constants';
 
 const SkinAnalysisInputSchema = z.object({
   photoDataUri: z
@@ -33,7 +35,7 @@ const SkinAnalysisOutputSchema = z.object({
     .describe('Personalized skincare recommendations based on the analysis.'),
   suggestedTreatments: z
     .string()
-    .describe('Suitable treatments that address the user provided skin concerns.'),
+    .describe('Suitable treatments that address the user provided skin concerns. This should be a list of treatments from the provided list.'),
 });
 export type SkinAnalysisOutput = z.infer<typeof SkinAnalysisOutputSchema>;
 
@@ -41,17 +43,29 @@ export async function analyzeSkin(input: SkinAnalysisInput): Promise<SkinAnalysi
   return analyzeSkinFlow(input);
 }
 
+const altruvaServices = services.map(s => `- ${s.title}: ${s.description}`).join('\n');
+
 const prompt = ai.definePrompt({
   name: 'skinAnalysisPrompt',
   input: {schema: SkinAnalysisInputSchema},
   output: {schema: SkinAnalysisOutputSchema},
-  prompt: `You are an expert dermatologist specializing in analyzing skin and providing personalized skincare recommendations.
+  prompt: `You are an expert dermatologist at Altruva Aesthetic Clinic, specializing in analyzing skin and providing personalized skincare recommendations.
 
-You will use the information provided to analyze the user's skin, identify any issues, and provide appropriate recommendations and suggest suitable treatments.
+You will use the information provided to analyze the user's skin, identify any issues, and provide appropriate recommendations.
 
+Crucially, you MUST suggest suitable treatments from the official list of Altruva's services provided below. Your suggested treatments must be a selection from this list. Do not recommend services that are not on this list.
+
+Here is the list of available Altruva treatments:
+---
+${altruvaServices}
+---
+
+Now, analyze the user's information:
 Photo: {{media url=photoDataUri}}
 Skin Concerns: {{{skinConcerns}}}
-Questionnaire Responses: {{{questionnaireResponses}}}`,
+Questionnaire Responses: {{{questionnaireResponses}}}
+
+Based on your analysis, provide the skin type, skin condition, general skincare recommendations, and a list of specific, suitable treatments from the Altruva services list above.`,
 });
 
 const analyzeSkinFlow = ai.defineFlow(
