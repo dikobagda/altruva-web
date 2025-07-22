@@ -25,6 +25,7 @@ export default function GlowQuiz() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
+  const [currentSelection, setCurrentSelection] = useState<number | null>(null);
   const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
 
   const currentQuestion = glowQuizQuestions[currentQuestionIndex];
@@ -32,21 +33,26 @@ export default function GlowQuiz() {
   const isLastQuestion = currentQuestionIndex === glowQuizQuestions.length - 1;
 
   const handleNextQuestion = () => {
+    if (currentSelection === null) return;
+    
+    const newAnswers = [...answers];
+    newAnswers[currentQuestionIndex] = currentSelection;
+    setAnswers(newAnswers);
+
     if (isLastQuestion) {
-      calculateResult();
+      calculateResult(newAnswers);
     } else {
       setCurrentQuestionIndex(prev => prev + 1);
+      setCurrentSelection(null); // Reset selection for the next question
     }
   };
 
   const handleAnswerSelect = (score: number) => {
-    const newAnswers = [...answers];
-    newAnswers[currentQuestionIndex] = score;
-    setAnswers(newAnswers);
+    setCurrentSelection(score);
   };
   
-  const calculateResult = () => {
-    const totalScore = answers.reduce((sum, score) => sum + score, 0);
+  const calculateResult = (finalAnswers: number[]) => {
+    const totalScore = finalAnswers.reduce((sum, score) => sum + score, 0);
     let resultTier: 'LUMI' | 'AURA' | 'ÉLEVÉ';
 
     if (totalScore <= 8) {
@@ -65,6 +71,7 @@ export default function GlowQuiz() {
   const resetQuiz = () => {
     setCurrentQuestionIndex(0);
     setAnswers([]);
+    setCurrentSelection(null);
     setQuizResult(null);
   };
   
@@ -107,7 +114,7 @@ export default function GlowQuiz() {
                   {`Q${currentQuestion.id}: ${currentQuestion.question}`}
                 </h3>
                 <RadioGroup
-                  value={answers[currentQuestionIndex]?.toString()}
+                  value={currentSelection?.toString()}
                   onValueChange={(value) => handleAnswerSelect(Number(value))}
                   className="space-y-3"
                 >
@@ -117,7 +124,7 @@ export default function GlowQuiz() {
                       htmlFor={`${currentQuestion.id}-${option.score}`}
                       className={cn(
                         "flex items-center space-x-3 rounded-md border p-4 transition-all cursor-pointer",
-                        answers[currentQuestionIndex] === option.score 
+                        currentSelection === option.score 
                           ? "border-primary bg-primary/10"
                           : "border-border hover:bg-accent/50"
                       )}
@@ -151,7 +158,7 @@ export default function GlowQuiz() {
             {!quizResult ? (
                 <Button 
                     onClick={handleNextQuestion} 
-                    disabled={answers[currentQuestionIndex] === undefined}
+                    disabled={currentSelection === null}
                 >
                     {isLastQuestion ? 'See My Result' : 'Next'}
                     <ArrowRight className="ml-2 h-4 w-4" />
