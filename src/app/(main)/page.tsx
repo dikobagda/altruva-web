@@ -138,16 +138,15 @@ export default function HomePage() {
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <TableHead className="w-1/3 font-semibold text-primary/90">Treatment</TableHead>
-                          <TableHead className="w-1/2 font-semibold text-primary/90">Description</TableHead>
-                          <TableHead className="text-right font-semibold text-primary/90">Price</TableHead>
+                          <TableHead className="w-[40%] font-semibold text-primary/90">Treatment</TableHead>
+                          <TableHead className="w-[60%] font-semibold text-primary/90">Description</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
                         {Object.entries(groupData.subgroups).map(([subgroupName, subgroupServices]) => (
                            <Fragment key={subgroupName}>
                              <TableRow className="bg-secondary/30">
-                               <TableCell colSpan={3} className="font-bold text-secondary-foreground text-base py-3">
+                               <TableCell colSpan={2} className="font-bold text-secondary-foreground text-base py-3">
                                  {subgroupName}
                                </TableCell>
                              </TableRow>
@@ -157,16 +156,6 @@ export default function HomePage() {
                                   <Link href={`/services/${service.id}`} className="hover:underline">{service.title}</Link>
                                 </TableCell>
                                 <TableCell className="text-foreground/80">{service.description}</TableCell>
-                                <TableCell className="text-right font-semibold text-accent">
-                                {service.price.toLowerCase() !== 'price on consultation' ? (
-                                    <div className="flex flex-col items-end">
-                                        <span className="text-xs font-normal text-muted-foreground">start from</span>
-                                        <span>{service.price}</span>
-                                    </div>
-                                    ) : (
-                                    <span>{service.price}</span>
-                                )}
-                                </TableCell>
                               </TableRow>
                              ))}
                            </Fragment>

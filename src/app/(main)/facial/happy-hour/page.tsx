@@ -47,7 +47,8 @@ export default function HappyHourPage() {
             <Image
               src="/images/happyhour1.jpeg"
               alt="Promotional image for Altruva Happy Hour"
-              fill
+              width={500}
+              height={500}
               className="rounded-lg shadow-xl object-cover"
             />
           </div>
