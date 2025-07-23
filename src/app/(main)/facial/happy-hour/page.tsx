@@ -45,11 +45,10 @@ export default function HappyHourPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
             <Image
-              src="/images/happy-hour-promo.jpg"
-              alt="Altruva Happy Hour Promotion"
+              src="/images/happyhour1.jpeg"
+              alt="Promotional image for Altruva Happy Hour"
               fill
-              className="object-cover"
-              priority
+              className="rounded-lg shadow-xl object-cover"
             />
           </div>
           <div className="space-y-6">
