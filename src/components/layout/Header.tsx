@@ -40,7 +40,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: 'Skin',
+    label: 'Facial',
     subItems: [
       {
         label: 'Prejuvenation',
