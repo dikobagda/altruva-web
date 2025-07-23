@@ -40,7 +40,7 @@ const navItems: NavItem[] = [
   },
   { href: '/about-us/369-harmony', label: '369 Harmony™' },
   {
-    label: 'Facial',
+    label: 'Face',
     subItems: [
       {
         label: 'Prejuvenation',
@@ -126,10 +126,12 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: 'Face',
+    label: 'Body',
     subItems: [
-      { href: '/services/altruva-signature-facial', label: 'Altruva Signature Facial (Pore Clean Facial)' },
-      { href: '/services/altruva-hydraglow-facial', label: 'Altruva HydraGlow Facial' },
+      { href: '/services/altruva-neocurve', label: 'Altruva NeoCurve by EmSculpt Neo' },
+      { href: '/services/altruva-lipo-elixir', label: 'Altruva Lipo Elixir' },
+      { href: '/services/altruva-regenerative-rf-body', label: 'Altruva Regenerative RF (Body)' },
+      { href: '/services/altruva-lipofreeze', label: 'Altruva LipoFreeze by CoolSculpting®' },
     ],
   },
   {
@@ -141,12 +143,11 @@ const navItems: NavItem[] = [
     ]
   },
   {
-    label: 'Body',
+    label: 'Facial',
     subItems: [
-      { href: '/services/altruva-neocurve', label: 'Altruva NeoCurve by EmSculpt Neo' },
-      { href: '/services/altruva-lipo-elixir', label: 'Altruva Lipo Elixir' },
-      { href: '/services/altruva-regenerative-rf-body', label: 'Altruva Regenerative RF (Body)' },
-      { href: '/services/altruva-lipofreeze', label: 'Altruva LipoFreeze by CoolSculpting®' },
+      { href: '/services/altruva-signature-facial', label: 'Altruva Signature Facial (Pore Clean Facial)' },
+      { href: '/services/altruva-hydraglow-facial', label: 'Altruva HydraGlow Facial' },
+      { href: '/facial/happy-hour', label: 'Happy Hour' },
     ],
   },
   { href: '/insights', label: 'Insights' },
