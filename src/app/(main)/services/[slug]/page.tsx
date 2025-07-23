@@ -140,26 +140,6 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
           {/* Sidebar - Right/Bottom Column */}
           <aside className="lg:col-span-1 space-y-8 sticky top-24">
-            <Card className="shadow-lg">
-                <CardHeader>
-                  <CardTitle className="font-serif text-2xl text-primary">Treatment Summary</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                    <div>
-                    {service.price.toLowerCase() !== 'price on consultation' ? (
-                        <>
-                            <p className="text-sm text-muted-foreground">start from</p>
-                            <p className="text-3xl font-bold text-accent">{service.price}</p>
-                        </>
-                        ) : (
-                        <p className="text-xl font-bold text-accent">{service.price}</p>
-                    )}
-                    </div>
-                    <Button asChild size="lg" className="w-full font-semibold">
-                      <Link href="/book-appointment">Book This Treatment <ArrowRight className="ml-2" /></Link>
-                    </Button>
-                </CardContent>
-            </Card>
             
             {service.indications && service.indications.length > 0 && (
                 <DetailSection title="Best For" Icon={Info}>
