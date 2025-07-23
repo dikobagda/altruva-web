@@ -35,7 +35,7 @@ const SkinAnalysisOutputSchema = z.object({
     .describe('Personalized skincare recommendations based on the analysis.'),
   suggestedTreatments: z
     .string()
-    .describe('Suitable treatments that address the user provided skin concerns. This should be a list of treatments from the provided list.'),
+    .describe('Suitable treatments that address the user provided skin concerns. This should be a bulleted list of treatments from the provided list (e.g., "- Treatment Name").'),
 });
 export type SkinAnalysisOutput = z.infer<typeof SkinAnalysisOutputSchema>;
 
@@ -65,7 +65,7 @@ Photo: {{media url=photoDataUri}}
 Skin Concerns: {{{skinConcerns}}}
 Questionnaire Responses: {{{questionnaireResponses}}}
 
-Based on your analysis, provide the skin type, skin condition, general skincare recommendations, and a list of specific, suitable treatments from the Altruva services list above.`,
+Based on your analysis, provide the skin type, skin condition, general skincare recommendations, and a list of specific, suitable treatments from the Altruva services list above. For the suggested treatments, format them as a bulleted list (e.g., using '-').`,
 });
 
 const analyzeSkinFlow = ai.defineFlow(

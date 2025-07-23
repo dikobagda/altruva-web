@@ -73,16 +73,16 @@ export default function HomePage() {
         <div className="container mx-auto px-20 md:px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
-              <h1 className="font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
+              <h1 className="pl-8 font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
               Altruva – Jakarta’s 1st Regenerative Contouring Clinic
               </h1>
-              <h4 className="font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">Your Beauty, Engineered for the Future</h4>
+              <h4 className="pl-8 font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">Your Beauty, Engineered for the Future</h4>
               <Button
                 asChild
                 size="lg"
                 className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
               >
-                <Link href="/book-appointment">Book an Appointment</Link>
+                <Link className="ml-8" href="/book-appointment">Book an Appointment</Link>
               </Button>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function HomePage() {
       <SectionWrapper className="bg-secondary/30">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-lg md:text-xl text-foreground/80">
-            Altruva Aesthetic Clinic is an aesthetic and medical clinic in Jakarta that offers a continuously-updated array of minimal to non-invasive, FDA-approved and CE-marked medical aesthetic treatments. The end goal is to empower you to become the best version of yourself.
+            Welcome to Altruva Aesthetic Clinic — an aesthetic and medical clinic in Jakarta that offers a continuously-updated array of minimal to non-invasive, FDA-approved and CE-marked medical aesthetic treatments. The end goal is to empower you to become the best version of yourself.
           </p>
         </div>
       </SectionWrapper>
