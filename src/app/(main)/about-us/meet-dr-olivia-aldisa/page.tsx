@@ -86,6 +86,25 @@ export default function MeetTheDoctorPage() {
           ))}
         </div>
       </SectionWrapper>
+
+      <SectionWrapper id="video-feature" className="bg-secondary/30">
+        <PageTitle
+          title="Dr. Aldisa in Action"
+          subtitle="Watch Dr. Aldisa discuss the future of regenerative aesthetics."
+        />
+        <div className="max-w-4xl mx-auto">
+          <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-2xl">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/wBDINWzOPXM"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </SectionWrapper>
       
       <SectionWrapper className="bg-primary text-primary-foreground">
         <div className="text-center max-w-2xl mx-auto">
