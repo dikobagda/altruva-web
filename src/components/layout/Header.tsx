@@ -9,7 +9,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
@@ -363,7 +362,7 @@ const NavSubMenuItem = ({ item, isMobile, onLinkClick }: { item: NavItem, isMobi
 
 
 export default function Header() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
