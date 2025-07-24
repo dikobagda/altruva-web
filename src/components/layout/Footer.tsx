@@ -7,12 +7,12 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const openingHours = [
-    { day: 'Tuesday', hours: '10.00 am – 6.00 pm' },
-    { day: 'Wednesday', hours: '10.00 am – 6.00 pm' },
-    { day: 'Thursday', hours: '10.00 am – 6.00 pm' },
-    { day: 'Friday', hours: '10.00 am – 6.00 pm' },
-    { day: 'Saturday', hours: '10.00 am – 6.00 pm' },
-    { day: 'Sunday', hours: '9.00 am – 5.00 pm' },
+    { day: 'Tuesday', hours: '10.00 am–6.00 pm' },
+    { day: 'Wednesday', hours: '10.00 am–6.00 pm' },
+    { day: 'Thursday', hours: '10.00 am–6.00 pm' },
+    { day: 'Friday', hours: '10.00 am–6.00 pm' },
+    { day: 'Saturday', hours: '10.00 am–6.00 pm' },
+    { day: 'Sunday', hours: '9.00 am–5.00 pm' },
     { day: 'Monday', hours: 'Closed' },
   ];
 
@@ -49,7 +49,6 @@ export default function Footer() {
             <h4 className="font-serif text-lg font-semibold mb-3 text-primary">Quick Links</h4>
             <ul className="space-y-2 text-center sm:text-left">
               <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-              <li><Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
               <li><Link href="/book-appointment" className="hover:text-primary transition-colors">Book Appointment</Link></li>
             </ul>
