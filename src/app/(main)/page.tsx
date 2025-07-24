@@ -74,15 +74,15 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
               <h1 className="md:pl-8 font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
-              Altruva – Jakarta’s 1st Regenerative Contouring Clinic
+              Altruva – Klinik Kontur Regeneratif Pertama di Jakarta
               </h1>
-              <h4 className="md:pl-8 font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">Your Beauty, Engineered for the Future</h4>
+              <h4 className="md:pl-8 font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">Kecantikan Anda, Direkayasa untuk Masa Depan</h4>
               <Button
                 asChild
                 size="lg"
                 className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
               >
-                <Link className="md:ml-8" href="/book-appointment">Book an Appointment</Link>
+                <Link className="md:ml-8" href="/book-appointment">Buat Janji Temu</Link>
               </Button>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function HomePage() {
       <SectionWrapper className="bg-secondary/30">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-lg md:text-xl text-foreground/80">
-            Welcome to Altruva Aesthetic Clinic — an aesthetic and medical clinic in Jakarta that offers a continuously-updated array of minimal to non-invasive, FDA-approved and CE-marked medical aesthetic treatments. The end goal is to empower you to become the best version of yourself.
+          Selamat datang di Klinik Estetika Altruva — sebuah klinik estetika dan medis di Jakarta yang menawarkan rangkaian perawatan estetika medis yang terus diperbarui, minimal hingga non-invasif, disetujui FDA dan ditandai CE. Tujuan utamanya adalah memberdayakan Anda untuk menjadi versi terbaik dari diri Anda.
           </p>
         </div>
       </SectionWrapper>
@@ -101,8 +101,8 @@ export default function HomePage() {
       {/* Age-based Service Selector */}
       <SectionWrapper className="bg-background">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">Your Regenerative Journey</h2>
-          <p className="text-lg text-foreground/80 mb-8">Select your age group to discover tailored treatments that meet your unique needs.</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">Perjalanan Regeneratif Anda</h2>
+          <p className="text-lg text-foreground/80 mb-8">Pilih kelompok usia Anda untuk menemukan perawatan yang disesuaikan untuk memenuhi kebutuhan unik Anda.</p>
           <div className="flex justify-center gap-4 md:gap-8">
             {(Object.keys(categoryDetails) as TreatmentCategory[]).map(key => (
               <button
@@ -138,8 +138,8 @@ export default function HomePage() {
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <TableHead className="w-[40%] font-semibold text-primary/90">Treatment</TableHead>
-                          <TableHead className="w-[60%] font-semibold text-primary/90">Description</TableHead>
+                          <TableHead className="w-[40%] font-semibold text-primary/90">Perawatan</TableHead>
+                          <TableHead className="w-[60%] font-semibold text-primary/90">Deskripsi</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -168,7 +168,7 @@ export default function HomePage() {
             </div>
             <div className="text-center mt-12">
               <Button asChild size="lg" variant="default">
-                <Link href="/book-appointment">Book a Consultation</Link>
+                <Link href="/book-appointment">Buat Janji Temu Konsultasi</Link>
               </Button>
             </div>
           </div>
@@ -178,9 +178,9 @@ export default function HomePage() {
       {/* Glow Quiz Section */}
       <SectionWrapper id="glow-quiz" className="bg-primary text-primary-foreground">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Find Your Perfect Harmony Plan</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Temukan Rencana Harmoni Sempurna Anda</h2>
           <p className="text-lg md:text-xl mb-8 opacity-90">
-            Take our quick Glow Quiz to get a personalized aesthetic roadmap tailored to your age, skin needs, and goals.
+          Ikuti Kuis Cahaya singkat kami untuk mendapatkan peta jalan estetika yang dipersonalisasi yang disesuaikan dengan usia, kebutuhan kulit, dan tujuan Anda.
           </p>
           <GlowQuiz />
         </div>
@@ -201,10 +201,10 @@ export default function HomePage() {
           </div>
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-6">
-              Unlock Personalized Skincare with AI
+            Buka Perawatan Kulit yang Dipersonalisasi dengan AI
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
-              Our cutting-edge AI Skin Analysis tool helps you understand your skin better. Upload a photo, answer a few questions, and receive personalized recommendations.
+            Alat Analisis Kulit AI canggih kami membantu Anda memahami kulit Anda dengan lebih baik. Unggah foto, jawab beberapa pertanyaan, dan terima rekomendasi yang dipersonalisasi.
             </p>
             <ul className="space-y-4 mb-8">
               {aiAnalysisFeatures.map((feature) => (
@@ -218,7 +218,7 @@ export default function HomePage() {
               ))}
             </ul>
             <Button asChild size="lg" className="font-semibold">
-              <Link href="/skin-analysis">Try AI Skin Analysis</Link>
+              <Link href="/skin-analysis">Coba Analisis Kulit AI</Link>
             </Button>
           </div>
         </div>
@@ -226,7 +226,7 @@ export default function HomePage() {
 
       {/* Testimonials Preview Section */}
       <SectionWrapper id="testimonials-preview">
-        <PageTitle title="Hear From Our Customers" subtitle="Real stories from those who've experienced the Altruva difference." />
+        <PageTitle title="Dengar dari Pelanggan Kami" subtitle="Kisah nyata dari mereka yang pernah merasakan perbedaan Altruva." />
         <Carousel
           opts={{
             align: "start",
@@ -248,14 +248,14 @@ export default function HomePage() {
         </Carousel>
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="default">
-            <Link href="/book-appointment">Ready for your transformation?</Link>
+            <Link href="/book-appointment">Siap untuk transformasi Anda?</Link>
           </Button>
         </div>
       </SectionWrapper>
 
       {/* Featured Insights Section */}
       <SectionWrapper id="featured-insights" className="bg-secondary/30">
-        <PageTitle title="Featured Insights" subtitle="Explore the latest in aesthetic science and wellness from our experts." />
+        <PageTitle title="Wawasan Unggulan" subtitle="Jelajahi yang terbaru dalam ilmu estetika dan kesehatan dari para ahli kami." />
         <Carousel
           opts={{
             align: "start",
@@ -277,7 +277,7 @@ export default function HomePage() {
         </Carousel>
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="default">
-            <Link href="/insights">Explore All Insights</Link>
+            <Link href="/insights">Jelajahi Semua Wawasan</Link>
           </Button>
         </div>
       </SectionWrapper>
@@ -285,12 +285,12 @@ export default function HomePage() {
       {/* Call to Action Section */}
       <SectionWrapper className="bg-primary text-primary-foreground">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">Ready to Begin Your Transformation?</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">Siap Memulai Transformasi Anda?</h2>
           <p className="text-lg md:text-xl mb-8 opacity-90">
-            Your journey to enhanced beauty and confidence starts here. Schedule your personalized consultation with our expert team today.
+          Perjalanan Anda menuju kecantikan dan kepercayaan diri yang lebih baik dimulai di sini. Jadwalkan konsultasi pribadi Anda dengan tim ahli kami hari ini.
           </p>
           <Button asChild size="lg" variant="secondary" className="font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-            <Link href="/book-appointment">Book Your Consultation Now</Link>
+            <Link href="/book-appointment">Pesan Konsultasi Anda Sekarang</Link>
           </Button>
         </div>
       </SectionWrapper>

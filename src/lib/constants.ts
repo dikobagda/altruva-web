@@ -488,6 +488,10 @@ export const services: Service[] = [
     subgroup: 'Signature Laser',
     subtitle: 'Radiance Redefined – Illuminated From Within',
     longDescription: 'The Altruva Lumi Laser is a non-invasive skin optimization treatment that uses next-generation radiofrequency (RF) technology to target skin clarity, pigmentation, and textural refinement—all without downtime. This advanced protocol works deeply within the dermis to stimulate collagen, brighten the complexion, and refine pores, resulting in skin that’s visibly clearer, smoother, and more radiant after each session.<br/><br/>Crafted for those seeking visible results with minimal interruption to daily life, Lumi Laser is a cornerstone treatment in Altruva’s Prejuvenation and Glow Optimization programs.',
+    quote: {
+        text: 'Because clear skin is more than just cosmetic—it\'s a sign of internal skin vitality. Lumi Laser is tailored to your skin condition, often used as a foundation before bio-stimulator treatments like Gouri or Glacier Skin. It’s clarity, engineered.',
+        author: 'dr. Olivia Aldisa'
+    },
     whatIsIt: {
         title: 'Technology in Action',
         description: `<ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Smart RF Energy Delivery:</strong> Gently penetrates the skin to awaken fibroblasts and trigger natural regeneration, without damaging the surface layer.</li><li><strong>Collagen & Elastin Biostimulation:</strong> Encourages dermal renewal and boosts elasticity for skin that’s visibly firmer and youthfully plump.</li><li><strong>Melanin Modulation:</strong> Reduces the appearance of age spots, sun damage, and uneven pigmentation, restoring a more even and luminous tone.</li><li><strong>Texture Refinement:</strong> Smoothes skin surface, minimizes pores, and restores a polished skin finish.</li></ul>`
@@ -506,9 +510,6 @@ export const services: Service[] = [
         'Enlarged pores and textural roughness',
         'Early signs of aging',
         'Those who want non-invasive, no-downtime rejuvenation'
-    ],
-    whyLoveIt: [
-      'Because clear skin is more than just cosmetic—it\'s a sign of internal skin vitality. Lumi Laser is tailored to your skin condition, often used as a foundation before bio-stimulator treatments like Gouri or Glacier Skin. It’s clarity, engineered.'
     ]
   },
   {
@@ -525,6 +526,10 @@ export const services: Service[] = [
     subgroup: 'Signature Laser',
     subtitle: 'Deep Resurfacing. Precision Refinement. Regenerative Healing.',
     longDescription: "Altruva Scar Solver is our signature skin-texture treatment powered by Exion Fractional RF, an advanced microneedling radiofrequency platform enhanced by AI-optimized precision. Specially curated for those with acne scarring, enlarged pores, stretch marks, and post-inflammatory irregularities, this treatment delivers focused energy into the skin’s deeper layers—stimulating collagen, elastin, and hyaluronic acid regeneration.<br/>By bridging the benefits of controlled dermal injury and intelligent energy delivery, Scar Solver achieves smoother, firmer, and more even-toned skin—naturally, progressively, and with minimal downtime.",
+    quote: {
+        text: "Because true skin healing starts from within. Our regenerative contouring philosophy ensures that every textural correction is achieved not by force—but by guiding the skin’s own intelligence to remodel, rebuild, and reveal your most refined texture.",
+        author: "dr. Olivia Aldisa"
+    },
     whatIsIt: {
       title: 'How It Works',
       description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;"><li><strong>Microneedling + RF Synergy:</strong> Ultrathin microneedles penetrate the skin to create micro-channels, triggering the skin’s natural wound-healing response. Simultaneously, radiofrequency energy is delivered into the dermis to heat and remodel tissue, supercharging collagen synthesis.</li><li><strong>AI Energy Delivery:</strong> The device’s smart algorithm tailors RF delivery in real-time based on skin feedback, ensuring maximum results with minimized discomfort or thermal injury.</li><li><strong>8mm Penetration Depth Without Full Needle Insertion:</strong> Unlike traditional RF microneedling, Altruva Scar Solver allows deep dermal targeting without the trauma of full-depth needle insertion—making it highly effective for textural scars and skin laxity, even in delicate zones.</li></ul>`
@@ -551,8 +556,7 @@ export const services: Service[] = [
       { label: 'Maintenance', value: '1–2 sessions annually for long-term dermal integrity' },
       { label: 'Downtime', value: 'Mild redness or sensitivity for 1–3 days' },
       { label: 'Pre/Post-Care', value: 'Avoid sun, retinoids pre-treatment; moisturize and apply SPF diligently post-care' },
-    ],
-    whyLoveIt: ["Because true skin healing starts from within. Our regenerative contouring philosophy ensures that every textural correction is achieved not by force—but by guiding the skin’s own intelligence to remodel, rebuild, and reveal your most refined texture."]
+    ]
   },
   {
     id: 'art-lyft-lite',
@@ -664,10 +668,10 @@ export const services: Service[] = [
     groupDescription: 'A sculpted face begins with structural integrity.',
     subgroup: 'Tightening &amp; Contouring',
     subtitle: 'Next-Generation Needle-Free Skin Tightening & Radiance Activation',
-    longDescription: `Altruva Lumi RF is a non-invasive, regenerative radiofrequency treatment uniquely engineered to awaken your skin’s collagen and elastin without needles, pain, or downtime. Powered by advanced Exion™ technology, Lumi RF delivers intelligent energy deep into the dermis to refine skin texture, tighten sagging areas, and amplify natural hyaluronic acid production—resulting in firmer, smoother, more radiant skin.<br/><br/>This is the future of RF-powered lifting—effortless, elegant, and effective.`,
+    longDescription: 'Altruva Lumi RF is a non-invasive, regenerative radiofrequency treatment uniquely engineered to awaken your skin’s collagen and elastin without needles, pain, or downtime. Powered by advanced Exion™ technology, Lumi RF delivers intelligent energy deep into the dermis to refine skin texture, tighten sagging areas, and amplify natural hyaluronic acid production—resulting in firmer, smoother, more radiant skin.<br/><br/>This is the future of RF-powered lifting—effortless, elegant, and effective.',
     quote: {
-      text: "We believe skin should glow from its own wisdom. Lumi RF helps your face remember how.",
-      author: "dr. Olivia Aldisa, Medical Director of Altruva Aesthetic Clinic"
+        text: "We believe skin should glow from its own wisdom. Lumi RF helps your face remember how.",
+        author: "dr. Olivia Aldisa, Medical Director of Altruva Aesthetic Clinic"
     },
     whatIsIt: {
         title: 'How Lumi RF Works',
@@ -708,8 +712,8 @@ export const services: Service[] = [
     subtitle: 'Sculpt Smart. Contour Clean. For a Lighter, Sharper You.',
     longDescription: `Altruva Slim Contour Injection is a targeted fat-dissolving injectable designed for individuals under 40 who struggle with stubborn facial fat in key areas like the lower cheeks, jawline, and submental (double chin) region. Whether due to genetics or lifestyle, facial heaviness can obscure natural bone structure—even in those with a healthy BMI.<br/><br/>This treatment provides a non-surgical solution to refine contours, improve definition, and reshape the face for a leaner, more V-shaped profile—without downtime.`,
     quote: {
-      text: "It’s not about changing your face. It’s about unlocking its best version—cleaner lines, lifted confidence, no unnecessary volume.",
-      author: "dr. Olivia Aldisa, Facial Contouring Specialist & Altruva Founder"
+        text: "It’s not about changing your face. It’s about unlocking its best version—cleaner lines, lifted confidence, no unnecessary volume.",
+        author: "dr. Olivia Aldisa, Facial Contouring Specialist & Altruva Founder"
     },
     whatIsIt: {
         title: 'How It Works',
@@ -753,6 +757,10 @@ export const services: Service[] = [
     subgroup: 'Signature Contouring',
     subtitle: "Precision Redefined. Subtle Contour, Maximum Harmony — by dr. Aldisa.",
     longDescription: `In a world where subtlety matters, Altruva Face Modulator (Half Dose) offers a refined approach to facial sculpting using microdosed botulinum toxin. Curated for those under 40, this treatment focuses on preventative contour modulation, delivering natural, soft corrections — not frozen expressions.<br/><br/>Whether it’s jawline slimming, temple lifting, or refining the upper face, this procedure enhances your features without overt volume loss or exaggerated stiffness. It’s about precision, personalization, and respecting your facial identity.<br/><br/>Every Altruva Face Modulator treatment is custom-designed by dr. Olivia Aldisa, integrating anatomical mapping and muscle balance principles to ensure precision, proportion, and preservation of your identity.`,
+    quote: {
+        text: "The most beautiful result is one no one can point out — but everyone notices. That’s the art of natural beautification.",
+        author: 'dr. Olivia Aldisa'
+    },
     whatIsIt: {
         title: 'How It Works',
         description: `Botulinum toxin, in a calibrated half dose, is administered strategically to modulate overactive muscles that contribute to undesirable bulk, heaviness, or downward pull:<br/><ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Jawline:</strong> Slims bulky masseter muscles to enhance V-shape contours and reduce facial width.</li><li><strong>Upper Face:</strong> Softens glabella tension, subtly lifts brows, and prevents early wrinkle formation — all without freezing natural movement.</li></ul>`
@@ -793,8 +801,8 @@ export const services: Service[] = [
     subtitle: 'Refined. Personalized. Anatomically Precise — by dr. Aldisa. Signature Beautification for Under 40s',
     longDescription: `Altruva Dermal Fillers are not about chasing trends — they are about strategic enhancement. This protocol is built on the principle of harmonizing features using subtle, anatomically guided injections to enhance your natural bone structure, soften imbalances, and delay facial aging — before it ever becomes visible.<br/><br/>Led by dr. Olivia Aldisa, a trusted name in anatomical regenerative aesthetics, this treatment is fully personalized and intended for discerning patients under 40 who want refinement, not reinvention.`,
     quote: {
-      text: "The most beautiful result is one no one can point out — but everyone notices. That’s the art of natural beautification.",
-      author: "dr. Olivia Aldisa, Facial Architect & Regenerative Strategist"
+        text: "The most beautiful result is one no one can point out — but everyone notices. That’s the art of natural beautification.",
+        author: "dr. Olivia Aldisa, Facial Architect & Regenerative Strategist"
     },
     whatIsIt: {
         title: 'The Philosophy: Face Optimization Before Correction',
@@ -940,7 +948,7 @@ export const services: Service[] = [
     whyLoveIt: [
       'Non-volumizing, natural result',
       'Low risk of puffiness or asymmetry',
-      'Scientifically backed with a long safety profile',
+      'Science-based safety with a long safety profile',
       'Suitable for multiple areas: face, neck, under-eyes, and décolleté',
       'Noticeably improved skin texture, bounce, and resilience within weeks'
     ]
@@ -1011,8 +1019,8 @@ export const services: Service[] = [
     subtitle: 'Smart Skin Recharging with Hyaluronic Acid, Amino Acids & Vitamins',
     longDescription: `Altruva Amino Booster is a multi-functional skinboosters protocol formulated to restore vitality, elasticity, and hydration to the skin. This intradermal injectable cocktail contains hyaluronic acid, essential amino acids, and skin-repairing vitamins, designed to revive dull, tired, and aging skin from the inside out.<br/><br/>It’s more than a glow treatment — it’s cellular nutrition that rewires how your skin behaves.`,
     quote: {
-      text: "Think of it as your skin’s daily supplement — but delivered with clinical precision for real transformation.",
-      author: "dr. Olivia Aldisa, Altruva Clinical Director"
+        text: "Think of it as your skin’s daily supplement — but delivered with clinical precision for real transformation.",
+        author: "dr. Olivia Aldisa, Altruva Clinical Director"
     },
     whatIsIt: {
       title: 'What’s Inside & Why It Matters',
@@ -1227,6 +1235,10 @@ export const services: Service[] = [
     subgroup: 'Signature Laser',
     subtitle: "Resurface. Restore. Regenerate.",
     longDescription: "The Altruva Regenerative Laser leverages smart fractional microablation technology to deliver powerful skin resurfacing while preserving the skin barrier—a rare synergy in the world of aesthetic lasers. Designed for those battling visible signs of aging, sun damage, or stubborn pigmentation, this treatment offers precision regeneration with minimal trauma, minimal downtime, and maximum results.<br/>Unlike aggressive CO₂ lasers, this intelligent device respects dermal integrity, making it a preferred choice in our Rejuvenation Program for patients over 40 or with environmentally stressed skin.",
+    quote: {
+        text: 'Because resurfacing should be regenerative, not aggressive. At Altruva, we pair smart energy with skin-geneering principles to ensure every treatment fuels skin longevity—not just short-term glow. Ideal as a prep step before biostimulators or as a standalone renewal for aging skin.',
+        author: 'dr. Olivia Aldisa'
+    },
     whatIsIt: {
       title: "Technology in Action",
       description: `<ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Fractional Microablation:</strong> Targets damaged tissue zones while leaving surrounding skin intact for faster recovery and enhanced collagen remodeling.</li><li><strong>Dual Action – Resurfacing + Healing:</strong> Stimulates the skin’s own regenerative pathways, replacing damaged cells with renewed, radiant tissue.</li><li><strong>Smart Depth Control:</strong> Reaches both epidermal and dermal layers, addressing texture, tone, and structural support in one protocol.</li></ul>`
@@ -1245,9 +1257,6 @@ export const services: Service[] = [
       'Uneven texture and mild to moderate wrinkling',
       'Post-acne discoloration or photo-damaged skin',
       'Those seeking true regenerative transformation'
-    ],
-    whyLoveIt: [
-      'Because resurfacing should be regenerative, not aggressive. At Altruva, we pair smart energy with skin-geneering principles to ensure every treatment fuels skin longevity—not just short-term glow. Ideal as a prep step before biostimulators or as a standalone renewal for aging skin.'
     ]
   },
   {
@@ -1514,8 +1523,8 @@ export const services: Service[] = [
     subtitle: "Volume Reclaimed. Contours Reawakened. Elegantly Executed by dr. Aldisa",
     longDescription: `Aging is not just about wrinkles — it’s about deflation, descent, and disruption of volume harmony. Altruva Dermal Filler Pro is an advanced volumization protocol tailored for those over 40, where the priority shifts from enhancement to restoration.<br/><br/>Led by dr. Olivia Aldisa, a pioneer in regenerative and anatomical aesthetics, this protocol focuses on replacing structural volume loss, especially around the temples, forehead, midface, and preauricular zones, with sophisticated placement that respects your facial dynamics — never overfilling, never distorting.`,
     quote: {
-      text: "We’re not chasing youth — we’re restoring structure. When you lift the face the right way, you lift the spirit too.",
-      author: "dr. Olivia Aldisa, Expert in Volumetric Harmony & Anatomical Restoration"
+        text: "We’re not chasing youth — we’re restoring structure. When you lift the face the right way, you lift the spirit too.",
+        author: "dr. Olivia Aldisa, Expert in Volumetric Harmony & Anatomical Restoration"
     },
     whatIsIt: {
         title: 'The Methodology',
@@ -2042,9 +2051,7 @@ export interface Testimonial {
   name: string;
   text: string;
   procedure: string;
-  avatarSrc?: string;
   rating: number; // 1-5 stars
-  avatarHint?: string;
 }
 
 export const testimonials: Testimonial[] = [
@@ -2098,33 +2105,6 @@ export interface FAQItem {
   answer: string;
   Icon?: LucideIcon;
 }
-
-export const faqItems: FAQItem[] = [
-  {
-    id: '1',
-    question: 'What is the downtime for Age-Defy Injections?',
-    answer: 'Downtime is minimal for most neurotoxin injections, often allowing you to return to daily activities immediately. Some minor bruising or swelling may occur. For dermal fillers, downtime can range from a few hours to a few days, depending on the area treated and individual response. We will discuss this thoroughly during your consultation.',
-    Icon: HelpCircle,
-  },
-  {
-    id: '2',
-    question: 'How many sessions of Laser Rejuvenation will I need?',
-    answer: 'The number of sessions varies depending on your skin concerns and the type of laser treatment. Typically, a series of 3-5 sessions is recommended for optimal results. We will create a personalized treatment plan for you.',
-    Icon: HelpCircle,
-  },
-  {
-    id: '3',
-    question: 'Are the treatments painful?',
-    answer: 'We prioritize your comfort. Most treatments involve minimal discomfort. Topical numbing creams are often used for procedures like injections or some laser treatments. Our team will ensure you are as comfortable as possible.',
-    Icon: HelpCircle,
-  },
-  {
-    id: '4',
-    question: 'How do I book a consultation?',
-    answer: 'You can easily book a consultation online through our "Book Appointment" page or by calling our clinic directly. We look forward to meeting you!',
-    Icon: MessageSquare,
-  },
-];
 
 export const aiAnalysisFeatures = [
     {
