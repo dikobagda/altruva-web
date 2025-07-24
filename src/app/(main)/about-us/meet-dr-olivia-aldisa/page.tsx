@@ -90,7 +90,7 @@ export default function MeetTheDoctorPage() {
       <SectionWrapper id="video-feature" className="bg-secondary/30">
         <PageTitle
           title="Dr. Aldisa in Action"
-          subtitle="Watch Dr. Aldisa discuss the future of regenerative aesthetics."
+          subtitle="Watch Dr. Aldisa discuss Menopause Awareness."
         />
         <div className="max-w-4xl mx-auto">
           <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-2xl">
