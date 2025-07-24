@@ -154,7 +154,7 @@ export const services: Service[] = [
     imageHint: 'refined skin texture',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering booster',
     whatIsIt: {
       title: 'What Is Altruva Glacier Skin?',
       description: `Glacier Skin is a precision-designed treatment that combines microinjections of hyaluronic acid, microdosed botulinum toxin type A, active peptides, amino acids, and essential vitamins to rebalance the skin, minimize pore appearance, and deliver that coveted "jelly-fresh," poreless glow.`,
@@ -196,6 +196,10 @@ export const services: Service[] = [
         label: 'Administration',
         value: 'Series of ultra-fine microinjections, similar to traditional skinboosters.',
       },
+      {
+        label: 'How it feels',
+        value: 'This method allows the actives to be precisely deposited where they are most effective, while also stimulating micro-regeneration for smoother, more even skin.'
+      }
     ],
     whyLoveIt: [
       'It is safe. Altruva Glacier Skin uses clinically proven, dermatologist-curated ingredients and is administered under expert medical supervision. Each session is tailored for your unique skin profile and goals.',
@@ -204,7 +208,7 @@ export const services: Service[] = [
   },
   {
     id: 'dna-repair',
-    title: 'DNA Repair',
+    title: 'Altruva DNA Repair',
     description: 'Environmental damage repair & skin barrier fortification.',
     longDescription: `Altruva DNA Repair is a specialized prejuvenation protocol utilizing Polynucleotides (PN) to proactively strengthen your skin's core structures. This treatment focuses on fortifying the skin barrier, preserving healthy collagen, and boosting resilience against the first signs of aging caused by environmental stressors. It's an investment in your skin's future, ensuring it remains vibrant, hydrated, and strong.`,
     subtitle: "Protective Polynucleotide Skin Fortification",
@@ -215,7 +219,7 @@ export const services: Service[] = [
     imageHint: 'skin barrier protection',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering booster',
     whatIsIt: {
       title: 'What is DNA Repair for Prejuvenation?',
       description: 'For prejuvenation, Polynucleotides act as a biological shield and personal trainer for your skin. These DNA-derived biostimulators coach your skin cells to function optimally, enhancing their ability to resist damage from UV rays, pollution, and stress. It is not about changing your appearance, but about fortifying your skin’s natural defenses for long-term health and a sustained glow.',
@@ -251,16 +255,54 @@ export const services: Service[] = [
   },
   {
     id: 'purifying-booster',
-    title: 'Purifying Booster',
+    title: 'Altruva Purifying Booster',
     description: 'Therapy for anti-inflammatory and reduced acne marks.',
     price: '2,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Sparkles,
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/images/services/purifyingbooster.jpg',
     imageHint: 'clear skin',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skingeneering booster',
+    subtitle: 'Smart Sebum Control • Calm Inflammation • Clear Breakouts',
+    longDescription: `At Altruva, we understand that acne-prone, oily, and inflamed skin requires more than just surface-level solutions. That’s why we created the Altruva Purifying Booster — a science-forward, regeneratively designed treatment to balance, purify, and restore. Formulated with a curated blend of high-performance active ingredients, this booster addresses the root causes of blemishes and congestion while strengthening the skin’s natural defense.`,
+    whatIsIt: {
+      title: 'Inside the Altruva Purifying Booster: The Synergistic Complex',
+      description: `<ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;">
+        <li><strong>Hyaluronic Acid:</strong> Provides deep hydration without clogging pores, leaving skin smooth, supple, and balanced.</li>
+        <li><strong>Acetyl Glucosamine:</strong> A bioavailable sugar molecule that stimulates your skin to naturally produce more hyaluronic acid, helping reduce texture and redness.</li>
+        <li><strong>Zinc PCA:</strong> Regulates sebum production, minimizes pores, and helps prevent future breakouts.</li>
+        <li><strong>Niacinamide (Vitamin B3):</strong> Brightens uneven tone, strengthens skin barrier function, and calms inflammatory flare-ups.</li>
+        <li><strong>Betaine Salicylate:</strong> A gentle BHA exfoliant that decongests pores and accelerates skin cell turnover without irritation.</li>
+        <li><strong>Panthenol (Vitamin B5):</strong> Soothes, heals, and calms stressed or sensitized skin.</li>
+      </ul>`
+    },
+    mechanism: [
+      {
+        title: 'Hydration Meets Clarity',
+        description: 'Rather than drying out the skin, Altruva Purifying Booster restores moisture balance while purging impurities. Hyaluronic acid and acetyl glucosamine ensure skin remains hydrated, preventing rebound oiliness.'
+      },
+      {
+        title: 'Sebum Regulation Without Compromise',
+        description: 'Zinc PCA and niacinamide collaborate to reduce excess oil, tighten pores, and brighten dull, congested skin. The skin appears clearer, more even, and less reactive over time.'
+      },
+      {
+        title: 'Calm & Heal',
+        description: 'Whether your acne is hormonal, stress-related, or chronic, the anti-inflammatory actions of panthenol and niacinamide help minimize redness and accelerate healing.'
+      }
+    ],
+    indications: [
+      'Oily and acne-prone skin',
+      'Enlarged pores and congestion',
+      'Sensitive and inflamed skin types',
+      'Pre/Post-procedure calming',
+      'Adults with adult-onset acne or recurring hormonal breakouts'
+    ],
+    whyLoveIt: [
+      'Purifying Booster isn’t just about breakouts. It’s a regenerative intervention to rebalance your skin’s ecosystem, improve its resilience, and enhance long-term skin health — without harsh stripping or downtime.',
+      'Lightweight, non-comedogenic, and fast-absorbing. Designed to complement laser treatments, microneedling, or standalone as part of your Altruva Glow ritual.'
+    ]
   },
   {
     id: 'dark-spot-booster',
@@ -273,7 +315,7 @@ export const services: Service[] = [
     imageHint: 'even skin tone',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering booster',
     subtitle: 'Brightening Science for Stubborn Pigmentation',
     longDescription: `Altruva Darkspot-Boosters is an advanced depigmenting protocol specifically formulated to treat melasma and persistent hyperpigmentation in Asian skin. By synergistically combining the brightening power of Vitamin C, Arbutin, Succinic Acid, and Mulberry Extracts, this multi-targeted treatment works to suppress melanin production, accelerate cellular repair, and calm low-grade inflammation that often exacerbates pigmentation.
     <br/><br/>
@@ -320,7 +362,7 @@ export const services: Service[] = [
     imageHint: 'regenerative therapy',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering booster',
     subtitle: 'Next-Generation Regeneration from Within',
     longDescription: `At Altruva, we embrace the future of regenerative medicine. Altruva Bio-PRF (Platelet-Rich Fibrin) is our most advanced autologous treatment, using your body’s own biology to stimulate repair, rejuvenation, and regeneration—naturally.<br/><br/>Unlike traditional PRP, which offers a quick release of growth factors, Bio-PRF is designed for sustained, long-acting regeneration through its intelligent fibrin matrix. This makes it a cornerstone of our regenerative contouring philosophy—supporting structural collagen repair, improved tissue quality, and healing from the inside out.`,
     whatIsIt: {
@@ -587,7 +629,7 @@ export const services: Service[] = [
       { label: 'Duration', value: '~30 minutes' },
       { label: 'Technique', value: '5–7 injection points using micro-needle or cannula' },
       { label: 'Aftercare', value: 'Avoid excessive facial movement or massage for 24–48 hours' },
-      { label: 'Redness/Swelling', value: 'Typically subsides within 1–3 days' }
+      { label: 'Redness/Swelling', value: 'Typically subsides within 1–3 days' },
     ]
   },
   {
@@ -779,7 +821,7 @@ export const services: Service[] = [
     imageHint: 'exosome therapy',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering Boosters',
     subtitle: 'Origin & Purity',
     longDescription: 'Altruva Exoprime Pro is an advanced, non-invasive regenerative treatment leveraging the science of exosomes to enhance skin health, promote rejuvenation, and support hair vitality. Exosomes are microscopic vesicles naturally secreted by cells, rich in bioactive compounds such as proteins, lipids, mRNA, and microRNAs—essential for cellular communication and repair. These vesicles act as messengers, triggering key biological processes that lead to improved skin texture, reduced inflammation and pigmentation, enhanced wound healing, and stimulation of hair growth.',
     whatIsIt: {
@@ -824,7 +866,7 @@ export const services: Service[] = [
     imageHint: 'cellular repair',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering Boosters',
     whatIsIt: {
       title: 'What Are Polynucleotides (PN)?',
       description: 'Polynucleotides are DNA-derived biopolymers extracted and purified from fish sources (with high biocompatibility). When injected into the skin, they act as powerful biomodulators, awakening fibroblasts and enhancing microcirculation — laying the foundation for true skin renewal, not just temporary glow.',
@@ -882,7 +924,7 @@ export const services: Service[] = [
     imageHint: 'eye treatment',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering Boosters',
     whatIsIt: {
       title: 'How Altruva DNA Repair Eye Works',
       description: `The periorbital region is thinner, more vascular, and more prone to early aging due to its fragility and constant micro-movement. Conventional injectables often fail here due to the risk of Tyndall effect, puffiness, or migration. Polynucleotides, with their regenerative but non-volumizing action, offer the ideal solution for this high-risk zone. They work by:
@@ -927,7 +969,7 @@ export const services: Service[] = [
     imageHint: 'skin density',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering Boosters',
     subtitle: 'Smart Skin Recharging with Hyaluronic Acid, Amino Acids & Vitamins',
     longDescription: `Altruva Amino Booster is a multi-functional skinboosters protocol formulated to restore vitality, elasticity, and hydration to the skin. This intradermal injectable cocktail contains hyaluronic acid, essential amino acids, and skin-repairing vitamins, designed to revive dull, tired, and aging skin from the inside out.<br/><br/>It’s more than a glow treatment — it’s cellular nutrition that rewires how your skin behaves.`,
     whatIsIt: {
@@ -976,7 +1018,7 @@ export const services: Service[] = [
     imageHint: 'pigmentation treatment',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering Boosters',
     subtitle: 'Brightening Science for Stubborn Pigmentation',
     longDescription: 'Altruva Mela-Boosters is an advanced depigmenting protocol specifically formulated to treat melasma and persistent hyperpigmentation in Asian skin. By synergistically combining the brightening power of Vitamin C, Arbutin, Succinic Acid, and Mulberry Extracts, this multi-targeted treatment works to suppress melanin production, accelerate cellular repair, and calm low-grade inflammation that often exacerbates pigmentation.<br/><br/>Melasma affects both physical appearance and emotional well-being. It often causes reduced self-confidence and may be accompanied by symptoms such as itchiness, dryness, or a mild burning sensation.',
     whatIsIt: {
@@ -1016,7 +1058,7 @@ export const services: Service[] = [
     imageHint: 'regenerative healing',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering Boosters',
     subtitle: 'Next-Generation Regeneration from Within',
     longDescription: `At Altruva, we embrace the future of regenerative medicine. Altruva Bio-PRF (Platelet-Rich Fibrin) is our most advanced autologous treatment, using your body’s own biology to stimulate repair, rejuvenation, and regeneration—naturally.<br/><br/>Unlike traditional PRP, which offers a quick release of growth factors, Bio-PRF is designed for sustained, long-acting regeneration through its intelligent fibrin matrix. This makes it a cornerstone of our regenerative contouring philosophy—supporting structural collagen repair, improved tissue quality, and healing from the inside out.`,
     whatIsIt: {
@@ -1058,7 +1100,7 @@ export const services: Service[] = [
     imageHint: 'advanced anti-aging',
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
-    subgroup: 'Skin-geneering Boosters',
+    subgroup: 'Skingeneering Boosters',
     subtitle: 'The Science of Self-Renewal. Delivered.',
     longDescription: 'Altruva Youth Elixir is an advanced, multi-tiered bioregenerative protocol formulated for individuals seeking long-term skin vitality, healing, and visible rejuvenation. This elite combination treatment merges three of the most potent tools in regenerative aesthetics: Polynucleotides (Plinest®), Cellbooster® Lift, and ProStem Secretome — each selected for their complementary mechanisms in cellular repair, dermal hydration, and collagen renewal.<br/><br/>Created as a biological elixir for the modern skin, this treatment transcends superficial hydration or anti-aging promises. Instead, it directly enhances the skin’s repair architecture, combats oxidative damage, and strengthens the dermal matrix from within.',
     whatIsIt: {
@@ -2216,5 +2258,6 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
 
