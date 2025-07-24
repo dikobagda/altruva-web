@@ -75,6 +75,16 @@ const navItems: NavItem[] = [
                 { href: '/services/korean-luminous-peel', label: 'Altruva Korean Luminous Peel' },
             ]
           },
+          {
+            label: 'Skingeneering booster',
+            subItems: [
+              { href: '/services/glacier-skin', label: 'Altruva Glacier Skin' },
+              { href: '/services/dark-spot-booster', label: 'Altruva Darkspots-Boosters' },
+              { href: '/services/purifying-booster', label: 'Altruva Purifying Booster' },
+              { href: '/services/dna-repair', label: 'Altruva DNA Repair' },
+              { href: '/services/bio-prf', label: 'Altruva Bio-PRF' },
+            ]
+          }
         ],
       },
       {
