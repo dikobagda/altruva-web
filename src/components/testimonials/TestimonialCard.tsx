@@ -15,16 +15,6 @@ export default function TestimonialCard({ testimonial, className }: TestimonialC
     <Card className={cn("flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300", className)}>
       <CardHeader>
         <div className="flex items-center space-x-4 mb-2">
-          {testimonial.avatarSrc && (
-            <Image
-              src={testimonial.avatarSrc}
-              alt={testimonial.name}
-              width={60}
-              height={60}
-              className="rounded-full object-cover"
-              data-ai-hint={testimonial.avatarHint || "person"}
-            />
-          )}
           <div>
             <CardTitle className="font-serif text-xl text-primary">{testimonial.name}</CardTitle>
             <CardDescription className="text-sm text-accent">{testimonial.procedure}</CardDescription>

@@ -508,7 +508,7 @@ export const services: Service[] = [
         'Those who want non-invasive, no-downtime rejuvenation'
     ],
     whyLoveIt: [
-      "Because clear skin is more than just cosmetic—it's a sign of internal skin vitality. Lumi Laser is tailored to your skin condition, often used as a foundation before bio-stimulator treatments like Gouri or Glacier Skin. It’s clarity, engineered."
+      'Because clear skin is more than just cosmetic—it\'s a sign of internal skin vitality. Lumi Laser is tailored to your skin condition, often used as a foundation before bio-stimulator treatments like Gouri or Glacier Skin. It’s clarity, engineered.'
     ]
   },
   {
@@ -2050,48 +2050,45 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: '1',
-    name: 'Sarah L.',
-    text: 'Altruva has completely transformed my skin! The staff is incredibly knowledgeable and caring. I felt so rejuvenated after the A.R.T. Lift Pro. My skin feels tighter and looks brighter.',
-    procedure: 'A.R.T. Lift Pro',
-    avatarSrc: 'https://placehold.co/100x100.png',
+    name: 'Indy natalia',
+    text: 'Pertama kali kesini, honestly nggak kayak klinik lain. Lebih homey ya, lagi belajar konsep treatment regeneratif & nyobain Exion reg. Laser 2 weeks ago. Looks good on me! Very recommended!',
+    procedure: 'Regenerative Laser',
     rating: 5,
-    avatarHint: 'woman smiling'
   },
   {
     id: '2',
-    name: 'John B.',
-    text: 'I was hesitant about injections, but the results from the Altruva Face Modulator are amazing and look so natural. The team at Altruva made me feel comfortable throughout the process.',
-    procedure: 'Face Modulator',
+    name: 'Sutan haudhy',
+    text: 'I accompanied my wife to Altruva Clinic for her acne scar treatment — tempatnya homie, waiting room-nya juga super chill. Istri gue very happy with the results, baru kelar treatment tp udah keliatan glowing hasilnya. So far sih, Altruva worth it banget!',
+    procedure: 'Acne Scar Treatment',
     rating: 5,
-    avatarSrc: 'https://placehold.co/100x100.png',
-    avatarHint: 'man portrait'
   },
   {
     id: '3',
-    name: 'Emily K.',
-    text: 'The laser rejuvenation treatments have done wonders for my sun damage. My skin looks years younger. Thank you, Altruva!',
-    procedure: 'Regenerative Laser',
-    avatarSrc: 'https://placehold.co/100x100.png',
-    rating: 4,
-    avatarHint: 'happy person'
+    name: 'Dike Nugroho',
+    text: 'Dokternya sangat informatif, menjelaskan setiap langkah treatment dengan jelas. Bahkan menjelaskan dg detail alat-alatnya tuh punya teknologi apa aja',
+    procedure: 'Consultation',
+    rating: 5,
   },
   {
     id: '4',
-    name: 'Jessica P.',
-    text: 'After just a few sessions of the Altruva NeoCurve, I can see a significant difference in my abdomen. It\'s more toned, and my clothes fit better. Highly recommend!',
-    procedure: 'NeoCurve Body Contouring',
-    avatarSrc: 'https://placehold.co/100x100.png',
+    name: 'Woro Purnamasari',
+    text: 'Kalau cari klinik estetik yang nyaman, private, dan hasilnya kelihatan natural, Altruva adalah jawabannya. Klinik ini milik dr. Aldisa yang sudah berpengalaman lebih dari 12 tahun, jadi dari awal konsultasi pun udah langsung yakin.',
+    procedure: 'Aesthetic Consultation',
     rating: 5,
-    avatarHint: 'woman profile'
   },
   {
     id: '5',
-    name: 'Michael T.',
-    text: 'The Hair Micrograft Technology was a game-changer for my thinning hair. The process was comfortable, and the results have exceeded my expectations. I feel much more confident.',
-    procedure: 'Hair Micrograft Technology',
+    name: 'Dwi nurul',
+    text: 'Highly recommended untuk siapa pun yang ingin merawat kulit wajah dengan hasil nyata. Saya pasti akan datang ke sini lagi. Terima kasih Dr.Aldisa dan tim Altruva atas pelayanannya yang luar biasa!😊 🙌✨',
+    procedure: 'Facial Treatment',
     rating: 5,
-    avatarSrc: 'https://placehold.co/100x100.png',
-    avatarHint: 'man smiling'
+  },
+  {
+    id: '6',
+    name: 'Prassalli Story',
+    text: 'Feels like home. Berasa pulang ke rumah dan curhat sama nyokap soal jerawat. Lalu nyokap ke dapur bikin obat buat jerawat. Sementara itu bokap ngajak ngobrol di teras sambil ngopi dan ngemil pisang goreng. Efeknya, gak pengen pulang 😁',
+    procedure: 'Acne Treatment',
+    rating: 5,
   }
 ];
 
