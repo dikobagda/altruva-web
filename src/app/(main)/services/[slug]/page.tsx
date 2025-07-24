@@ -1,4 +1,3 @@
-
 'use client';
 
 import { notFound } from 'next/navigation';
@@ -8,7 +7,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Microscope, Dna, Star, Layers, Info, BookOpen } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import { useEffect } from 'react';
+import { useEffect, use } from 'react';
 
 const DetailSection: React.FC<{ title: string; children: React.ReactNode; Icon: React.ElementType, className?: string }> = ({ title, children, Icon, className }) => (
   <Card className={className}>
@@ -36,7 +35,7 @@ const QuoteSection: React.FC<{ quote: { text: Record<'en' | 'id', string>; autho
 
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+  const { slug } = use(Promise.resolve(params));
   const { t } = useLanguage();
   const service = services.find((s) => s.id === slug);
 
@@ -78,7 +77,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   </div>
                   <div className="p-6">
                     <h2 className="font-serif text-2xl text-primary mb-4">{t({en: "About This Treatment", id: "Tentang Perawatan Ini"})}</h2>
-                    <div className="prose prose-lg max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: t(service.longDescription || { en: service.description.en, id: service.description.id }) }} />
+                    <div className="prose prose-lg max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: t(service.longDescription || service.description) }} />
                   </div>
               </CardContent>
             </Card>
