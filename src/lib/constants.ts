@@ -264,16 +264,50 @@ export const services: Service[] = [
   },
   {
     id: 'dark-spot-booster',
-    title: 'Dark Spot Booster',
+    title: 'Altruva Darkspots-Boosters',
     description: 'Targeted hyperpigmentation correction.',
     price: '3,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Sun,
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/images/services/melabooster.jpg',
     imageHint: 'even skin tone',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    subtitle: 'Brightening Science for Stubborn Pigmentation',
+    longDescription: `Altruva Darkspot-Boosters is an advanced depigmenting protocol specifically formulated to treat melasma and persistent hyperpigmentation in Asian skin. By synergistically combining the brightening power of Vitamin C, Arbutin, Succinic Acid, and Mulberry Extracts, this multi-targeted treatment works to suppress melanin production, accelerate cellular repair, and calm low-grade inflammation that often exacerbates pigmentation.
+    <br/><br/>
+    <strong>Why Is Melasma Harder to Treat in Asian Skin?</strong><br/>
+    Melasma is a chronic pigmentary disorder characterized by the appearance of brown to gray-brown patches, particularly on the face. In Asian skin, this condition poses greater challenges due to higher melanin production, an exaggerated post-UV inflammatory response, and increased sensitivity to certain active ingredients. Melasma affects both physical appearance and emotional well-being, often causing reduced self-confidence and may be accompanied by symptoms such as itchiness, dryness, or a mild burning sensation.`,
+    whatIsIt: {
+      title: 'Key Active Ingredients',
+      description: `These four components are designed to work synergistically—not only reducing visible pigmentation but also restoring healthy skin structure from within.<br/><ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Vitamin C:</strong> A powerful antioxidant that inhibits tyrosinase activity and promotes collagen synthesis.</li><li><strong>Arbutin:</strong> A gentle melanin-suppressing brightener with minimal irritation risk.</li><li><strong>Succinic Acid:</strong> A natural derivative with anti-inflammatory and antioxidant benefits.</li><li><strong>Mulberry Extract:</strong> A botanical ingredient that brightens skin, soothes irritation, and protects DNA from damage.</li></ul>`
+    },
+    mechanism: [
+      { title: 'Inhibits Tyrosinase', description: 'Blocks the key enzyme involved in melanin synthesis.' },
+      { title: 'Reduces Micro-inflammation', description: 'Calms the low-grade inflammation that often triggers melasma flare-ups.' },
+      { title: 'Calms UV-Induced Irritation', description: 'Soothes sensitivity from sun exposure and harsh products.' },
+      { title: 'Accelerates Skin Regeneration', description: 'Enables faster fading of dark spots by promoting cellular turnover.' },
+      { title: 'Safe for Sensitive Skin', description: 'Suitable for all Fitzpatrick skin types, especially types III–V.' }
+    ],
+    benefits: [
+      'Safe for long-term use',
+      'Does not cause rebound hyperpigmentation',
+      'Soothes and strengthens the skin barrier',
+      'Effective as a maintenance protocol post-laser or peeling',
+      'Non-irritating and does not increase photosensitivity'
+    ],
+    indications: [
+      'Patients with epidermal or dermal pigmentation',
+      'Individuals with post-inflammatory hyperpigmentation (PIH) from acne or injury',
+      'Those seeking overall facial brightening with no downtime',
+      'Patients intolerant to strong acids such as hydroquinone, retinoids, or oral tranexamic acid',
+      'Breastfeeding mothers or individuals preferring non-invasive, non-hormonal therapies'
+    ],
+    protocol: [
+      { label: 'Ideal Combinations', value: 'Can be used alone or with Microneedling, Brightening Infusions, or Energy-Based Devices (e.g., Exion).' },
+      { label: 'Expected Outcomes', value: 'Visible improvements may be seen as early as 2–4 weeks. For optimal results, consistent use for 8–12 weeks is recommended.' }
+    ]
   },
   {
     id: 'bio-prf',
@@ -2182,4 +2216,5 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
 
