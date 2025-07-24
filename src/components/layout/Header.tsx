@@ -165,7 +165,7 @@ const navItems: NavItem[] = [
 ];
 
 type Language = {
-  code: 'en' | 'id' | 'cn';
+  code: 'en' | 'id';
   label: string;
   Icon: React.ElementType;
 };
