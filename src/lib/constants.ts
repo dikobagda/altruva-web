@@ -34,6 +34,10 @@ export interface Service {
   }[];
   howItDiffers?: string;
   whyLoveIt?: string[];
+  quote?: {
+    text: string;
+    author: string;
+  };
 }
 
 export const services: Service[] = [
@@ -51,7 +55,11 @@ export const services: Service[] = [
     groupDescription: 'Customized facials to address your unique skin needs.',
     subgroup: 'Core Facials',
     subtitle: 'Pore Purity. Cellular Rejuvenation. Personalized Glow.',
-    longDescription: 'At Altruva, our Signature Facial isn’t just a routine — it’s a custom-engineered skin therapy, crafted for your unique skin biology and life rhythms. Tailored by our in-house skin therapists and supported by clinical-grade protocols, this treatment synergizes deep pore purification, targeted light therapy (PDT), and dermal restoration into one comprehensive facial ritual. <br /> <br /> <i>“True clarity isn’t achieved by stripping skin — it’s by teaching it to function optimally. This facial isn’t just cleansing; it’s re-education.”</i> — dr. Olivia Aldisa, Founder of Altruva & Expert in Skin Health Optimization',
+    longDescription: 'At Altruva, our Signature Facial isn’t just a routine — it’s a custom-engineered skin therapy, crafted for your unique skin biology and life rhythms. Tailored by our in-house skin therapists and supported by clinical-grade protocols, this treatment synergizes deep pore purification, targeted light therapy (PDT), and dermal restoration into one comprehensive facial ritual.',
+    quote: {
+      text: 'True clarity isn’t achieved by stripping skin — it’s by teaching it to function optimally. This facial isn’t just cleansing; it’s re-education.',
+      author: 'dr. Olivia Aldisa, Founder of Altruva & Expert in Skin Health Optimization'
+    },
     whatIsIt: {
       title: 'What Makes It Signature?',
       description: `<ul class="list-disc pl-5 space-y-2" style="padding-left: 40px;">
@@ -100,7 +108,11 @@ export const services: Service[] = [
     groupDescription: 'Customized facials to address your unique skin needs.',
     subgroup: 'Core Facials',
     subtitle: 'Exfoliate. Infuse. Illuminate. The Gold Standard of Hydrodermabrasion.',
-    longDescription: 'For skin that craves clarity, hydration, and luminosity in one seamless protocol, Altruva HydraGlow Facial delivers results beyond the surface. This is Altruva’s elevated version of the Dermalinfusion, combining diamond-tip exfoliation, vacuum-assisted extraction, and targeted serum infusion — all in one high-performance session tailored to your skin’s real-time needs. Powered by vortex technology and curated infusions, this facial isn’t just about glow — it’s about deep nourishment, barrier support, and clinical rejuvenation without downtime. <br /> <br /> <i>“Hydration is not a trend — it’s the foundation of skin longevity. This treatment makes your skin feel alive again.”</i> — dr. Olivia Aldisa, Founder of Altruva & Regenerative Skin Strategist',
+    longDescription: 'For skin that craves clarity, hydration, and luminosity in one seamless protocol, Altruva HydraGlow Facial delivers results beyond the surface. This is Altruva’s elevated version of the Dermalinfusion, combining diamond-tip exfoliation, vacuum-assisted extraction, and targeted serum infusion — all in one high-performance session tailored to your skin’s real-time needs. Powered by vortex technology and curated infusions, this facial isn’t just about glow — it’s about deep nourishment, barrier support, and clinical rejuvenation without downtime.',
+    quote: {
+      text: 'Hydration is not a trend — it’s the foundation of skin longevity. This treatment makes your skin feel alive again.',
+      author: 'dr. Olivia Aldisa, Founder of Altruva & Regenerative Skin Strategist'
+    },
     whatIsIt: {
       title: 'How HydraGlow Works: 3-in-1 Dermal Technology',
       description: `<ol class="list-decimal pl-5 space-y-2">
@@ -546,7 +558,7 @@ export const services: Service[] = [
     id: 'art-lyft-lite',
     title: 'Altruva A.R.T Lift (Lite) by dr. Aldisa',
     description: '(up to 300 shots) Personalized SUPERB Ultrasound-powered deep tissue tightening.',
-    longDescription: `Anatomic Regenerative Targeting with Precision Sofwave Ultrasound. For those under 40, the best anti-aging strategy isn't reversal—it's prevention. A.R.T Lift Lite is Altruva’s signature collagen banking protocol, designed by dr. Olivia Aldisa, Sofwave Key Opinion Leader in Asia. This treatment uses SUPERB™ ultrasound technology to target areas of early collagen loss and prevent sagging before it starts. A.R.T (Anatomic Regenerative Targeting) Lift Lite is not just a facial—it’s a strategic investment in your skin’s future. <br/><br/><i>“At Altruva, we don’t chase aging—we engineer prevention. A.R.T Lift Lite is how we build long-term beauty without filler or surgery.” — dr. Olivia Aldisa</i>`,
+    longDescription: `Anatomic Regenerative Targeting with Precision Sofwave Ultrasound. For those under 40, the best anti-aging strategy isn't reversal—it's prevention. A.R.T Lift Lite is Altruva’s signature collagen banking protocol, designed by dr. Olivia Aldisa, Sofwave Key Opinion Leader in Asia. This treatment uses SUPERB™ ultrasound technology to target areas of early collagen loss and prevent sagging before it starts. A.R.T (Anatomic Regenerative Targeting) Lift Lite is not just a facial—it’s a strategic investment in your skin’s future.`,
     subtitle: "Signature Prejuvenation for Collagen Banking (<40 years old)",
     price: '20,000,000 IDR',
     category: 'Prejuvenation',
@@ -556,6 +568,10 @@ export const services: Service[] = [
     group: 'Altruva Lift',
     groupDescription: 'A sculpted face begins with structural integrity.',
     subgroup: 'Tightening &amp; Contouring',
+    quote: {
+        text: 'At Altruva, we don’t chase aging—we engineer prevention. A.R.T Lift Lite is how we build long-term beauty without filler or surgery.',
+        author: 'dr. Olivia Aldisa'
+    },
     whatIsIt: {
       title: 'How It Works',
       description: `<p>A.R.T. Lift Lite uses precision ultrasound energy (Sofwave) to activate your skin's natural regenerative power. Focused beams of ultrasound energy reach the mid-dermis, heating tissue at just the right depth to stimulate fibroblasts—without damaging the skin surface. The gentle heat activates neocollagenesis, the body’s natural process of forming fresh collagen and elastin. With regenerative mapping by dr. Aldisa, each shot is planned to follow your unique fat pads, ligament structures, and collagen-rich zones to optimize long-term firming while preserving natural beauty.</p>`
@@ -595,7 +611,11 @@ export const services: Service[] = [
     groupDescription: 'A sculpted face begins with structural integrity.',
     subgroup: 'Tightening &amp; Contouring',
     subtitle: "The Signature Liquid Collagen Bioactivator Experience",
-    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
+    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.`,
+    quote: {
+        text: "Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.",
+        author: "dr. Olivia Aldisa, International KOL for Gouri"
+    },
     whatIsIt: {
       title: 'What is Gorgeous Lyft?',
       description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable.
@@ -644,7 +664,11 @@ export const services: Service[] = [
     groupDescription: 'A sculpted face begins with structural integrity.',
     subgroup: 'Tightening &amp; Contouring',
     subtitle: 'Next-Generation Needle-Free Skin Tightening & Radiance Activation',
-    longDescription: `Altruva Lumi RF is a non-invasive, regenerative radiofrequency treatment uniquely engineered to awaken your skin’s collagen and elastin without needles, pain, or downtime. Powered by advanced Exion™ technology, Lumi RF delivers intelligent energy deep into the dermis to refine skin texture, tighten sagging areas, and amplify natural hyaluronic acid production—resulting in firmer, smoother, more radiant skin.<br/><br/>This is the future of RF-powered lifting—effortless, elegant, and effective.<br/><br/><i>“We believe skin should glow from its own wisdom. Lumi RF helps your face remember how.” — dr. Olivia Aldisa, Medical Director of Altruva Aesthetic Clinic</i>`,
+    longDescription: `Altruva Lumi RF is a non-invasive, regenerative radiofrequency treatment uniquely engineered to awaken your skin’s collagen and elastin without needles, pain, or downtime. Powered by advanced Exion™ technology, Lumi RF delivers intelligent energy deep into the dermis to refine skin texture, tighten sagging areas, and amplify natural hyaluronic acid production—resulting in firmer, smoother, more radiant skin.<br/><br/>This is the future of RF-powered lifting—effortless, elegant, and effective.`,
+    quote: {
+      text: "We believe skin should glow from its own wisdom. Lumi RF helps your face remember how.",
+      author: "dr. Olivia Aldisa, Medical Director of Altruva Aesthetic Clinic"
+    },
     whatIsIt: {
         title: 'How Lumi RF Works',
         description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;"><li><strong>Smart Radiofrequency (RF) Energy:</strong> Exion-powered RF heats the deeper dermal layers in a controlled, uniform way—stimulating fibroblasts to regenerate collagen and elastin without damaging the surface. Expect visibly firmer contours and smoother skin over time.</li><li><strong>Targeted Ultrasound Boost:</strong> By combining targeted ultrasound, Lumi RF supercharges the regenerative process—enhancing collagen crosslinking and optimizing skin density in areas prone to laxity, like under the eyes or jawline.</li><li><strong>Needle-Free, AI-Guided Delivery:</strong> Unlike traditional microneedling RF, Lumi RF is completely needle-free and uses AI-driven thermal mapping to ensure safe, consistent energy delivery. The result? A comfortable experience with measurable results.</li></ul>`
@@ -682,7 +706,11 @@ export const services: Service[] = [
     groupDescription: 'A sculpted face begins with structural integrity.',
     subgroup: 'Signature Contouring',
     subtitle: 'Sculpt Smart. Contour Clean. For a Lighter, Sharper You.',
-    longDescription: `Altruva Slim Contour Injection is a targeted fat-dissolving injectable designed for individuals under 40 who struggle with stubborn facial fat in key areas like the lower cheeks, jawline, and submental (double chin) region. Whether due to genetics or lifestyle, facial heaviness can obscure natural bone structure—even in those with a healthy BMI.<br/><br/>This treatment provides a non-surgical solution to refine contours, improve definition, and reshape the face for a leaner, more V-shaped profile—without downtime.<br/><br/><i>“It’s not about changing your face. It’s about unlocking its best version—cleaner lines, lifted confidence, no unnecessary volume.”<br/>— dr. Olivia Aldisa, Facial Contouring Specialist & Altruva Founder</i>`,
+    longDescription: `Altruva Slim Contour Injection is a targeted fat-dissolving injectable designed for individuals under 40 who struggle with stubborn facial fat in key areas like the lower cheeks, jawline, and submental (double chin) region. Whether due to genetics or lifestyle, facial heaviness can obscure natural bone structure—even in those with a healthy BMI.<br/><br/>This treatment provides a non-surgical solution to refine contours, improve definition, and reshape the face for a leaner, more V-shaped profile—without downtime.`,
+    quote: {
+      text: "It’s not about changing your face. It’s about unlocking its best version—cleaner lines, lifted confidence, no unnecessary volume.",
+      author: "dr. Olivia Aldisa, Facial Contouring Specialist & Altruva Founder"
+    },
     whatIsIt: {
         title: 'How It Works',
         description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
@@ -763,7 +791,11 @@ export const services: Service[] = [
     groupDescription: 'A sculpted face begins with structural integrity.',
     subgroup: 'Signature Contouring',
     subtitle: 'Refined. Personalized. Anatomically Precise — by dr. Aldisa. Signature Beautification for Under 40s',
-    longDescription: `Altruva Dermal Fillers are not about chasing trends — they are about strategic enhancement. This protocol is built on the principle of harmonizing features using subtle, anatomically guided injections to enhance your natural bone structure, soften imbalances, and delay facial aging — before it ever becomes visible.<br/><br/>Led by dr. Olivia Aldisa, a trusted name in anatomical regenerative aesthetics, this treatment is fully personalized and intended for discerning patients under 40 who want refinement, not reinvention.<br/><br/><i>“The most beautiful result is one no one can point out — but everyone notices. That’s the art of natural beautification.” — dr. Olivia Aldisa, Facial Architect & Regenerative Strategist</i>`,
+    longDescription: `Altruva Dermal Fillers are not about chasing trends — they are about strategic enhancement. This protocol is built on the principle of harmonizing features using subtle, anatomically guided injections to enhance your natural bone structure, soften imbalances, and delay facial aging — before it ever becomes visible.<br/><br/>Led by dr. Olivia Aldisa, a trusted name in anatomical regenerative aesthetics, this treatment is fully personalized and intended for discerning patients under 40 who want refinement, not reinvention.`,
+    quote: {
+      text: "The most beautiful result is one no one can point out — but everyone notices. That’s the art of natural beautification.",
+      author: "dr. Olivia Aldisa, Facial Architect & Regenerative Strategist"
+    },
     whatIsIt: {
         title: 'The Philosophy: Face Optimization Before Correction',
         description: `Instead of reversing aging, Altruva Dermal Fillers focus on:<br/>
@@ -857,7 +889,7 @@ export const services: Service[] = [
     title: 'Altruva DNA Repair Pro',
     description: 'Reinforces skin’s cellular repair system.',
     subtitle: 'Advanced Polynucleotide Skin Regeneration by dr. Aldisa',
-    longDescription: `Altruva DNA Repair Pro is a next-generation regenerative protocol powered by Polynucleotides (PN) — clinically purified DNA fragments that stimulate deep dermal healing, reverse cellular fatigue, and restore skin architecture from the inside out. Far beyond hydration, this treatment reactivates fibroblasts, encourages collagen remodeling, and reestablishes skin homeostasis — making it a cornerstone for age-related skin degeneration, post-acne scarring, and periocular rejuvenation.<br/><br/><i>“DNA Repair isn’t just about reversing aging — it’s about restoring vitality at a cellular level. That’s regenerative beauty.” — dr. Olivia Aldisa, Facial Architect & Cellular Rejuvenation Specialist</i>`,
+    longDescription: `Altruva DNA Repair Pro is a next-generation regenerative protocol powered by Polynucleotides (PN) — clinically purified DNA fragments that stimulate deep dermal healing, reverse cellular fatigue, and restore skin architecture from the inside out. Far beyond hydration, this treatment reactivates fibroblasts, encourages collagen remodeling, and reestablishes skin homeostasis — making it a cornerstone for age-related skin degeneration, post-acne scarring, and periocular rejuvenation.`,
     price: '7,500,000 IDR',
     category: 'Rejuvenation',
     Icon: Shield,
@@ -866,6 +898,10 @@ export const services: Service[] = [
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
     subgroup: 'Skingeneering Boosters',
+    quote: {
+        text: "DNA Repair isn’t just about reversing aging — it’s about restoring vitality at a cellular level. That’s regenerative beauty.",
+        author: "dr. Olivia Aldisa, Facial Architect & Cellular Rejuvenation Specialist"
+    },
     whatIsIt: {
       title: 'What Are Polynucleotides (PN)?',
       description: 'Polynucleotides are DNA-derived biopolymers extracted and purified from fish sources (with high biocompatibility). When injected into the skin, they act as powerful biomodulators, awakening fibroblasts and enhancing microcirculation — laying the foundation for true skin renewal, not just temporary glow.',
@@ -906,8 +942,7 @@ export const services: Service[] = [
       'Low risk of puffiness or asymmetry',
       'Scientifically backed with a long safety profile',
       'Suitable for multiple areas: face, neck, under-eyes, and décolleté',
-      'Noticeably improved skin texture, bounce, and resilience within weeks',
-      '<i>“DNA Repair isn’t just about reversing aging — it’s about restoring vitality at a cellular level. That’s regenerative beauty.”</i> — dr. Olivia Aldisa, Facial Architect & Cellular Rejuvenation Specialist'
+      'Noticeably improved skin texture, bounce, and resilience within weeks'
     ]
   },
   {
@@ -915,7 +950,7 @@ export const services: Service[] = [
     title: 'Altruva DNA Repair Eye',
     description: 'Reinforces skin’s cellular repair system for undereye area.',
     subtitle: 'Targeted Polynucleotide Eye Regeneration – Tailored by dr. Aldisa',
-    longDescription: `Altruva DNA Repair Eye is a specialized micro-regeneration protocol powered by ultra-purified polynucleotides (PN) designed specifically for the delicate under-eye area. Crafted to combat dark circles, fine lines, volume thinning, and crepey texture, this treatment reactivates cellular vitality while hydrating and restoring periocular firmness — without puffiness or unnatural volume.<br/><br/>This is not a filler — this is cellular awakening for tired, aging eyes.<br/><br/><i>“The eyes are where fatigue, age, and emotion show first. DNA Repair Eye restores their language to one of radiance.” — dr. Olivia Aldisa, Periocular Harmony Specialist</i>`,
+    longDescription: `Altruva DNA Repair Eye is a specialized micro-regeneration protocol powered by ultra-purified polynucleotides (PN) designed specifically for the delicate under-eye area. Crafted to combat dark circles, fine lines, volume thinning, and crepey texture, this treatment reactivates cellular vitality while hydrating and restoring periocular firmness — without puffiness or unnatural volume.<br/><br/>This is not a filler — this is cellular awakening for tired, aging eyes.`,
     price: '5,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Shield,
@@ -924,6 +959,10 @@ export const services: Service[] = [
     group: 'Altruva Glow',
     groupDescription: 'Aging is a shift, not a stop. Altruva Glow revitalizes skin function, ensuring long-term firmness, resilience, and radiance.',
     subgroup: 'Skingeneering Boosters',
+    quote: {
+        text: "The eyes are where fatigue, age, and emotion show first. DNA Repair Eye restores their language to one of radiance.",
+        author: "dr. Olivia Aldisa, Periocular Harmony Specialist"
+    },
     whatIsIt: {
       title: 'How Altruva DNA Repair Eye Works',
       description: `The periorbital region is thinner, more vascular, and more prone to early aging due to its fragility and constant micro-movement. Conventional injectables often fail here due to the risk of Tyndall effect, puffiness, or migration. Polynucleotides, with their regenerative but non-volumizing action, offer the ideal solution for this high-risk zone. They work by:
@@ -971,6 +1010,10 @@ export const services: Service[] = [
     subgroup: 'Skingeneering Boosters',
     subtitle: 'Smart Skin Recharging with Hyaluronic Acid, Amino Acids & Vitamins',
     longDescription: `Altruva Amino Booster is a multi-functional skinboosters protocol formulated to restore vitality, elasticity, and hydration to the skin. This intradermal injectable cocktail contains hyaluronic acid, essential amino acids, and skin-repairing vitamins, designed to revive dull, tired, and aging skin from the inside out.<br/><br/>It’s more than a glow treatment — it’s cellular nutrition that rewires how your skin behaves.`,
+    quote: {
+      text: "Think of it as your skin’s daily supplement — but delivered with clinical precision for real transformation.",
+      author: "dr. Olivia Aldisa, Altruva Clinical Director"
+    },
     whatIsIt: {
       title: 'What’s Inside & Why It Matters',
       description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;"><li><h4 class="font-semibold text-primary">Hyaluronic Acid</h4><p>Deeply hydrates and plumps the dermis, reducing fine lines</p></li><li><h4 class="font-semibold text-primary">Amino Acids</h4><p>Fundamental for collagen synthesis, skin repair, and resilience</p></li><li><h4 class="font-semibold text-primary">Vitamins (B-complex, C, E)</h4><p>Protects against oxidative stress, supports microcirculation, boosts glow</p></li></ul><p class="mt-4">Together, they reactivate your skin’s metabolic engine for healthier structure, tone, and function.</p>`
@@ -1001,9 +1044,6 @@ export const services: Service[] = [
       { label: 'Initial Program', value: '3–4 sessions, spaced 2–3 weeks apart' },
       { label: 'Injection Techniques', value: 'Papular, microbolus, linear retrograde' },
       { label: 'Maintenance', value: 'Every 2–3 months as skin maintenance' },
-    ],
-    whyLoveIt: [
-      `<i>“Think of it as your skin’s daily supplement — but delivered with clinical precision for real transformation.”</i> — dr. Olivia Aldisa, Altruva Clinical Director`
     ]
   },
   {
@@ -1102,6 +1142,10 @@ export const services: Service[] = [
     subgroup: 'Skingeneering Boosters',
     subtitle: 'The Science of Self-Renewal. Delivered.',
     longDescription: 'Altruva Youth Elixir is an advanced, multi-tiered bioregenerative protocol formulated for individuals seeking long-term skin vitality, healing, and visible rejuvenation. This elite combination treatment merges three of the most potent tools in regenerative aesthetics: Polynucleotides (Plinest®), Cellbooster® Lift, and ProStem Secretome — each selected for their complementary mechanisms in cellular repair, dermal hydration, and collagen renewal.<br/><br/>Created as a biological elixir for the modern skin, this treatment transcends superficial hydration or anti-aging promises. Instead, it directly enhances the skin’s repair architecture, combats oxidative damage, and strengthens the dermal matrix from within.',
+    quote: {
+        text: "Because beauty isn’t built in a single session. It’s cultivated through cellular intelligence, tissue harmony, and precise bio-signaling. At Altruva, we don’t chase the glow — we rebuild it from the inside out.",
+        author: "dr. Olivia Aldisa, International Trainer & Regenerative Aesthetics Expert"
+    },
     whatIsIt: {
       title: 'What Makes Up the Youth Elixir?',
       description: `<div class="space-y-4"><div><h4 class="font-semibold text-primary">Polynucleotides</h4><p>Derived from purified DNA fragments, polynucleotides act as bioactive cell messengers, enhancing fibroblast proliferation, tissue healing, and elasticity. Proven to be especially effective in post-acne scarring, wrinkle reduction, and barrier repair.</p></div><div><h4 class="font-semibold text-primary">Amino Acid Boosters</h4><p>A mesotherapy complex containing non-crosslinked hyaluronic acid, amino acids, and vitamins to improve microcirculation, collagen biosynthesis, and dermal hydration. It enhances skin texture, tone, and combats fine lines by feeding essential nutrients directly into the dermis.</p></div><div><h4 class="font-semibold text-primary">Secretome</h4><p>Rich in bio-signals including growth factors, cytokines, and exosomes, this ethically sourced stem cell-derived secretome stimulates deep tissue repair, improves mitochondrial function, reduces inflammation, and orchestrates global dermal rejuvenation.</p></div></div>`
@@ -1126,9 +1170,6 @@ export const services: Service[] = [
       { label: 'Customization', value: 'Personalized by dr. Olivia Aldisa based on anatomic map and regenerative profile' },
       { label: 'Synergy', value: 'Can be combined with A.R.T Lift, Fractional RF, or Regenerative Laser' },
       { label: 'Maintenance', value: '1–2 sessions every 6 months' },
-    ],
-    whyLoveIt: [
-      '<i>“Because beauty isn’t built in a single session. It’s cultivated through cellular intelligence, tissue harmony, and precise bio-signaling. At Altruva, we don’t chase the glow — we rebuild it from the inside out.”</i> — dr. Olivia Aldisa, International Trainer & Regenerative Aesthetics Expert'
     ]
   },
   {
@@ -1145,6 +1186,10 @@ export const services: Service[] = [
     subgroup: 'Signature Peels',
     subtitle: 'Reset. Rebuild. Radiate. Age-Evolved Peeling for Skin Over 40',
     longDescription: `Altruva Radiant Advanced Peel is a prejuvenation-driven chemical resurfacing treatment tailored for mature skin that needs intelligent exfoliation before undergoing regenerative procedures. Designed as the first step in your advanced rejuvenation journey, this peel harnesses Lipo-Hydroxy Acid (LHA) and HP-Sol™ Complex, targeting uneven texture, discoloration, and loss of clarity — all without compromising skin integrity.<br/><br/>Ideal for preparing the skin for lasers, collagen biostimulators, ultrasound lifting, or injectable programs, this protocol sets the foundation for superior clinical outcomes by optimizing cellular turnover, dermal receptivity, and epidermal renewal.`,
+    quote: {
+        text: "Think of this peel as your skin’s warm-up routine — aligning surface renewal with deeper regenerative potential.",
+        author: "dr. Olivia Aldisa, Founder & Clinical Director"
+    },
     whatIsIt: {
       title: 'How It Works',
       description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;"><li><h4 class="font-semibold text-primary">Lipo-Hydroxy Acid (LHA)</h4><p>Promotes controlled exfoliation, unclogs pores, and softens fine lines with minimal irritation</p></li><li><h4 class="font-semibold text-primary">HP-Sol™ Complex</h4><p>A patented alkaline matrix that activates fibroblast function, balances pH, and supports collagen synthesis</p></li><li><h4 class="font-semibold text-primary">Dermal Conditioning Lipids</h4><p>Reinforce the skin barrier, ensuring comfort, hydration, and healing throughout the peeling process</p></li></ul><p class="mt-4">This multi-layered approach resets the skin's biological rhythm, laying the groundwork for long-term anti-aging transformations.</p>`
@@ -1165,7 +1210,6 @@ export const services: Service[] = [
     ],
     whyLoveIt: [
       `Unlike traditional peels designed to strip, this protocol is designed to strengthen — making it a cornerstone of Altruva’s regenerative protocol layering strategy.`,
-      `<i>“Think of this peel as your skin’s warm-up routine — aligning surface renewal with deeper regenerative potential.”</i> — dr. Olivia Aldisa, Founder & Clinical Director`,
       `<strong>Recommended Pairings:</strong> Before: ART Lift Pro, Gorgeous Lyft, Lumi Laser, or Altruva Youth Elixir. After: Hydration-focused boosters, PN/HA mesotherapy, or low-level light therapy (LLLT).`
     ]
   },
@@ -1268,7 +1312,11 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Restoration &amp; Lifting',
     subtitle: 'Anatomic Regenerative Targeting for Restorative Contour, Lift & Radiance. The Signature Over-40 Protocol | Powered by Sofwave',
-    longDescription: `For patients entering their 40s and beyond, skin aging isn’t just about fine lines — it's about structural shifts: collagen depletion, ligament laxity, and contour loss. Altruva A.R.T (Anatomic Regenerative Targeting) Lift PRO is a regenerative ultrasound-based protocol designed by dr. Olivia Aldisa, Asia’s Sofwave KOL, to address these challenges with unmatched anatomical precision.<br/><br/>Whether you're looking to reclaim lost volume, achieve superior lifting, or illuminate your complexion, A.R.T Lift PRO provides a data-driven, doctor-performed approach to regenerate your facial framework — without injectables or surgery.<br/><br/><i>“Over 40 is when regenerative planning matters most. A.R.T Lift PRO doesn't chase youth—it rebuilds the architecture of it.” — dr. Olivia Aldisa, Altruva Founder & Global Sofwave KOL</i>`,
+    longDescription: `For patients entering their 40s and beyond, skin aging isn’t just about fine lines — it's about structural shifts: collagen depletion, ligament laxity, and contour loss. Altruva A.R.T (Anatomic Regenerative Targeting) Lift PRO is a regenerative ultrasound-based protocol designed by dr. Olivia Aldisa, Asia’s Sofwave KOL, to address these challenges with unmatched anatomical precision.<br/><br/>Whether you're looking to reclaim lost volume, achieve superior lifting, or illuminate your complexion, A.R.T Lift PRO provides a data-driven, doctor-performed approach to regenerate your facial framework — without injectables or surgery.`,
+    quote: {
+        text: "Over 40 is when regenerative planning matters most. A.R.T Lift PRO doesn't chase youth—it rebuilds the architecture of it.",
+        author: "dr. Olivia Aldisa, Altruva Founder & Global Sofwave KOL"
+    },
     whatIsIt: {
       title: 'What Sets It Apart',
       description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
@@ -1318,7 +1366,11 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Restoration &amp; Lifting',
     subtitle: "The Signature Liquid Collagen Bioactivator Experience",
-    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.<br/><br/><i>“Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.”<br/>— dr. Olivia Aldisa, International KOL for Gouri</i>`,
+    longDescription: `Precision by Gouri International KOL. Gorgeous Lyft is the ultimate expression of regenerative luxury, exclusively available at Altruva Aesthetic Clinic and masterfully performed by dr. Olivia Aldisa, one of the world’s leading KOLs for Gouri.<br/><br/>This next-generation procedure harnesses the power of liquid Polycaprolactone (PCL) — a fully solubilized collagen biostimulator — to awaken your skin’s innate capacity to rebuild, rejuvenate, and restore youthful architecture. No volumization. No puffiness. Just glow-from-within firmness that whispers elegance.`,
+    quote: {
+        text: "Collagen is your skin’s inheritance. Gorgeous Lyft helps you protect and grow it—elegantly, safely, and globally.",
+        author: "dr. Olivia Aldisa, International KOL for Gouri"
+    },
     whatIsIt: {
       title: 'What is Gorgeous Lyft?',
       description: `Gorgeous Lyft is Altruva’s signature bio-collagen activation protocol using Gouri, the world’s first and only 100% liquid PCL injectable.
@@ -1368,6 +1420,10 @@ export const services: Service[] = [
     subgroup: 'Restoration &amp; Lifting',
     subtitle: 'The Intelligent RF Lift for Skin Over 40',
     longDescription: 'Altruva Regenerative RF is a needle-free, non-invasive RF-based skin rejuvenation treatment designed specifically for individuals over 40 who are experiencing visible signs of aging—such as sagging skin, fine lines, enlarged pores, and texture loss. Utilizing Exion™ Radiofrequency + Targeted Ultrasound technology, this treatment works deep within the dermis to stimulate collagen, elastin, and hyaluronic acid synthesis, restoring youthful density and definition to mature skin.<br/><br/>This is regenerative science meeting natural elegance.',
+    quote: {
+        text: "Aging skin doesn’t need to be fought—it needs to be regenerated. With Altruva Regenerative RF, we respect your skin’s biology and help it perform at its best.",
+        author: "dr. Olivia Aldisa, Medical Director & Global Regenerative Aesthetic KOL"
+    },
     whatIsIt: {
       title: 'How It Works: Dual-Action Technology',
       description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
@@ -1396,9 +1452,6 @@ export const services: Service[] = [
       { label: 'Comfort Level', value: 'Warm sensation; no numbing needed' },
       { label: 'Recommended Frequency', value: '4 sessions spaced 2–4 weeks apart' },
       { label: 'Maintenance', value: '1–2 times per year depending on aging profile' }
-    ],
-    whyLoveIt: [
-      `“Aging skin doesn’t need to be fought—it needs to be regenerated. With Altruva Regenerative RF, we respect your skin’s biology and help it perform at its best.” — dr. Olivia Aldisa, Medical Director & Global Regenerative Aesthetic KOL`
     ]
   },
   {
@@ -1459,7 +1512,11 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Signature Restoration',
     subtitle: "Volume Reclaimed. Contours Reawakened. Elegantly Executed by dr. Aldisa",
-    longDescription: `Aging is not just about wrinkles — it’s about deflation, descent, and disruption of volume harmony. Altruva Dermal Filler Pro is an advanced volumization protocol tailored for those over 40, where the priority shifts from enhancement to restoration.<br/><br/>Led by dr. Olivia Aldisa, a pioneer in regenerative and anatomical aesthetics, this protocol focuses on replacing structural volume loss, especially around the temples, forehead, midface, and preauricular zones, with sophisticated placement that respects your facial dynamics — never overfilling, never distorting.<br/><br/><i>“We’re not chasing youth — we’re restoring structure. When you lift the face the right way, you lift the spirit too.” — dr. Olivia Aldisa, Expert in Volumetric Harmony & Anatomical Restoration</i>`,
+    longDescription: `Aging is not just about wrinkles — it’s about deflation, descent, and disruption of volume harmony. Altruva Dermal Filler Pro is an advanced volumization protocol tailored for those over 40, where the priority shifts from enhancement to restoration.<br/><br/>Led by dr. Olivia Aldisa, a pioneer in regenerative and anatomical aesthetics, this protocol focuses on replacing structural volume loss, especially around the temples, forehead, midface, and preauricular zones, with sophisticated placement that respects your facial dynamics — never overfilling, never distorting.`,
+    quote: {
+      text: "We’re not chasing youth — we’re restoring structure. When you lift the face the right way, you lift the spirit too.",
+      author: "dr. Olivia Aldisa, Expert in Volumetric Harmony & Anatomical Restoration"
+    },
     whatIsIt: {
         title: 'The Methodology',
         description: `With Altruva Dermal Filler Pro, dr. Aldisa maps the entire facial framework, identifying where volume has been lost and how to rebuild with tastefully conservative doses, using:<br/><ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Dynamic HA Fillers:</strong> Only premium, FDA-approved fillers with optimal tissue integration, elasticity, and safety profiles</li><li><strong>Microcannula & Needle Strategy:</strong> Safe and precise delivery based on vascular maps and anatomical zones</li><li><strong>Fat Pad Mapping:</strong> Volume is replaced according to fat compartment anatomy for predictable, natural lift</li><li><strong>Tissue Behavior Analysis:</strong> Ensures movement remains dynamic — never stiff or “stuffed”</li></ul>`
@@ -1503,7 +1560,11 @@ export const services: Service[] = [
     groupDescription: 'Aging is an evolution. Let’s refine the process.',
     subgroup: 'Signature Restoration',
     subtitle: "Total Muscle Harmony. Signature Precision. By dr. Aldisa.",
-    longDescription: `Altruva Face Modulator (Full Dose) is a full-spectrum neuromodulation protocol that redefines facial freshness through strategic, personalized botulinum toxin mapping. Engineered for those over 40, this treatment is not about freezing expression — it’s about resetting facial balance, lifting fatigue, and restoring dynamic symmetry with natural grace.<br/><br/>Dr. Aldisa applies her expertise in facial anatomy, aging patterns, and personalized dosing to harmonize muscle activity across the face — from frown lines and jaw tension to brow positioning and perioral movement. The result? A refreshed, rested, and refined look that feels like you — only better.<br/><br/><i>“Expression is human. Modulation is art. My role is to enhance your face’s natural rhythm — not mute it.” — dr. Olivia Aldisa, Architect of Altruva Face Modulator</i>`,
+    longDescription: `Altruva Face Modulator (Full Dose) is a full-spectrum neuromodulation protocol that redefines facial freshness through strategic, personalized botulinum toxin mapping. Engineered for those over 40, this treatment is not about freezing expression — it’s about resetting facial balance, lifting fatigue, and restoring dynamic symmetry with natural grace.<br/><br/>Dr. Aldisa applies her expertise in facial anatomy, aging patterns, and personalized dosing to harmonize muscle activity across the face — from frown lines and jaw tension to brow positioning and perioral movement. The result? A refreshed, rested, and refined look that feels like you — only better.`,
+    quote: {
+        text: "Expression is human. Modulation is art. My role is to enhance your face’s natural rhythm — not mute it.",
+        author: "dr. Olivia Aldisa, Architect of Altruva Face Modulator"
+    },
     whatIsIt: {
       title: "How It Works",
       description: `<p class="mb-2">Utilizing full-dose botulinum toxin, dr. Aldisa performs full-face mapping to:</p>
@@ -1566,6 +1627,10 @@ export const services: Service[] = [
     subgroup: 'Muscle &amp; Fat',
     subtitle: 'Shape Redefined. Strength Amplified. Contour, Regenerate, Elevate.',
     longDescription: 'When it comes to body contouring, fat reduction is no longer enough. Altruva NeoCurve is the next-generation protocol that delivers dual-action transformation — reducing fat while building real muscle — without needles, downtime, or compromise. This signature treatment harnesses the power of EmSculpt Neo, the only FDA-cleared device that simultaneously uses radiofrequency (RF) and HIFEM+ (High-Intensity Focused Electromagnetic energy) to burn fat and stimulate deep muscle contractions beyond what the human body can achieve naturally. Tailored exclusively at Altruva for clients who demand both aesthetic finesse and physiological performance — NeoCurve is not just about slimming, it’s about recomposition and metabolic renewal.',
+    quote: {
+        text: "With NeoCurve, we’re not just sculpting — we’re resetting your physiology. Stronger. Leaner. Sharper.",
+        author: "dr. Olivia Aldisa, Functional Aesthetic Strategist & Regenerative Contour Specialist"
+    },
     whatIsIt: {
       title: 'Science Behind the Curve',
       description: `<strong>Dual-Energy Synergy:</strong><br/><ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 40px;"><li><strong>Radiofrequency (RF)</strong> gently heats the fat layer, triggering apoptosis (fat cell death). These cells are then eliminated naturally through the lymphatic system over weeks.</li><li><strong>HIFEM+ Energy</strong> penetrates deep into the muscle layer, generating 20,000+ supramaximal contractions per session — the type of muscle engagement that cannot be achieved through exercise alone.</li></ul><p class="mt-2"><strong>Outcome:</strong> Simultaneous fat destruction and muscle hypertrophy — safely, comfortably, and efficiently.</p>`,
@@ -1597,7 +1662,6 @@ export const services: Service[] = [
       '<strong>Curated by Dr. Aldisa:</strong> personalized mapping and treatment plans for optimal results.',
       '<strong>Metabolic Edge:</strong> improved basal metabolic rate through increased lean mass.',
       '<strong>Fitness Plateau Breakthrough:</strong> perfect for those already training or stuck at a plateau.',
-      '<i>“With NeoCurve, we’re not just sculpting — we’re resetting your physiology. Stronger. Leaner. Sharper.”</i> — dr. Olivia Aldisa, Functional Aesthetic Strategist & Regenerative Contour Specialist'
     ],
   },
   {
@@ -1614,6 +1678,10 @@ export const services: Service[] = [
     subgroup: 'Fat Reduction',
     subtitle: 'Precision Fat Sculpting Through Science-Driven Apoptosis',
     longDescription: `For patients seeking refined facial or body contouring — without surgery or inflammation — Altruva Lipo Elixir offers a cutting-edge approach to fat modulation through controlled fat cell apoptosis. Rooted in biomedical innovation and powered by Alsavique's Fat Apoptosis formulation, this treatment targets stubborn fat deposits with molecular precision, inducing natural cellular clearance without the trauma of necrosis.<br/><br/>Curated for facial debulking, double chin, lower face heaviness, and small localized body fat zones, this protocol is the epitome of non-inflammatory lipolysis — championed by doctors seeking finesse over force.`,
+    quote: {
+        text: "Fat isn’t just about removal — it’s about intelligent repositioning, modulation, and preservation of facial identity. Lipo Elixir lets us sculpt — not shrink — beauty.",
+        author: "dr. Olivia Aldisa, Regenerative Sculpting Pioneer"
+    },
     whatIsIt: {
       title: 'How It Works: Apoptosis-Induced Fat Clearance',
       description: `<p>Unlike aggressive fat-melting injections that cause inflammation or necrosis, Altruva Lipo Elixir induces programmed cell death (apoptosis), a clean and biologically harmonious process in which unwanted fat cells self-destruct and are metabolically cleared over time.</p>
@@ -1643,8 +1711,7 @@ export const services: Service[] = [
       { label: 'Visible Effects', value: 'Start from 2 weeks; peak at 6–8 weeks' },
     ],
     whyLoveIt: [
-      'Expertly tailored by dr. Olivia Aldisa using anatomical mapping and facial balancing protocols to ensure not only fat reduction — but facial harmony and natural regeneration.',
-      '<i>“Fat isn’t just about removal — it’s about intelligent repositioning, modulation, and preservation of facial identity. Lipo Elixir lets us sculpt — not shrink — beauty.”</i> — dr. Olivia Aldisa, Regenerative Sculpting Pioneer'
+      'Expertly tailored by dr. Olivia Aldisa using anatomical mapping and facial balancing protocols to ensure not only fat reduction — but facial harmony and natural regeneration.'
     ]
   },
   {
@@ -1661,6 +1728,10 @@ export const services: Service[] = [
     subgroup: 'Skin Tightening',
     subtitle: 'Smart Sculpting. Deep Regeneration. Non-Surgical Body Recontouring.',
     longDescription: 'Altruva Regenerative RF (Body) is a needle-free, non-invasive sculpting solution that merges next-generation Radiofrequency (RF) and Ultrasound energy to regenerate the skin from within while reducing stubborn body fat. This dual-action technology enhances collagen, elastin, and hyaluronic acid production, visibly firms loose skin, and refines body contours — with zero downtime.<br/><br/>For patients seeking elegant body reshaping without invasive procedures, this is the ultimate regenerative contouring protocol — and it pairs seamlessly with Altruva Lipo Elixir for amplified fat modulation and tightening.',
+    quote: {
+        text: "Body sculpting is no longer about burning fat — it’s about regenerating structure, improving skin integrity, and restoring confidence — the Altruva way.",
+        author: "dr. Olivia Aldisa, Advanced Contouring Specialist"
+    },
     whatIsIt: {
       title: 'How It Works: Dual-Action Technology',
       description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
@@ -1690,8 +1761,7 @@ export const services: Service[] = [
       { label: 'Results Timeline', value: 'Progressive over 6–12 weeks post-treatment' },
     ],
     whyLoveIt: [
-      '<strong>Why Combine with Lipo Elixir?</strong> Regenerative RF and Lipo Elixir are complementary — one triggers apoptosis to gently reduce fat volume, while the other tightens and regenerates the overlying skin. Together, they deliver smarter debulking, harmonized contours, and long-term regeneration.',
-      '<i>“Body sculpting is no longer about burning fat — it’s about regenerating structure, improving skin integrity, and restoring confidence — the Altruva way.”</i> — dr. Olivia Aldisa, Advanced Contouring Specialist'
+      '<strong>Why Combine with Lipo Elixir?</strong> Regenerative RF and Lipo Elixir are complementary — one triggers apoptosis to gently reduce fat volume, while the other tightens and regenerates the overlying skin. Together, they deliver smarter debulking, harmonized contours, and long-term regeneration.'
     ]
   },
   {
@@ -1708,6 +1778,10 @@ export const services: Service[] = [
     subgroup: 'Fat Reduction',
     subtitle: 'Science-Led. Clinically Precise. Zero Downtime Fat Removal — by dr. Aldisa.',
     longDescription: `Altruva LipoFreeze is the signature non-surgical fat reduction protocol at Altruva, powered by the original CoolSculpting® Elite technology and personalized by dr. Olivia Aldisa, official CoolSculpting KOL, international trainer, and finalist at AMWC Monaco 2024 for Non-Surgical Body Shaping.<br/><br/>With over a decade of clinical data and more than 100 peer-reviewed studies, CoolSculpting is the gold standard in cryolipolysis, trusted worldwide for its safety, precision, and long-term results.`,
+    quote: {
+        text: "The real artistry in body shaping lies in knowing what not to freeze — precision is everything. LipoFreeze is not just technology, it’s a treatment philosophy.",
+        author: "dr. Olivia Aldisa, Global CoolSculpting Trainer & Regenerative Body Shaping Expert"
+    },
     whatIsIt: {
       title: 'The Science Behind LipoFreeze',
       description: `<h4 class="font-semibold text-primary">Cryolipolysis:</h4><p>CoolSculpting delivers controlled cooling to selectively target and freeze fat cells without damaging surrounding tissue. Fat cells, being more sensitive to cold than skin, undergo apoptosis (cell death) and are naturally eliminated by the lymphatic system over time.</p><h4 class="font-semibold text-primary mt-4">No Needles. No Surgery. No Downtime.</h4><p>LipoFreeze is fully non-invasive, offering transformative fat reduction with zero social disruption.</p>`
@@ -1741,7 +1815,6 @@ export const services: Service[] = [
       '<strong>DualSculpting Efficiency:</strong> Treat two areas simultaneously with Altruva’s Elite Dual Applicator System, halving treatment time.',
       '<strong>Tailored Body Blueprinting:</strong> Every contour plan is custom-created based on fat layer thickness, skin quality, and body proportion, ensuring results that are natural and elegant — never uneven or bulky.',
       '<i>“My clothes fit better, my waist looks sculpted — and no one guessed I had anything done. That’s the Altruva magic.”</i> - A satisfied patient.',
-      '<i>“The real artistry in body shaping lies in knowing what not to freeze — precision is everything. LipoFreeze is not just technology, it’s a treatment philosophy.”</i> — dr. Olivia Aldisa, Global CoolSculpting Trainer & Regenerative Body Shaping Expert'
     ]
   },
 
@@ -1809,6 +1882,10 @@ export const services: Service[] = [
     subgroup: 'Growth Boosters',
     subtitle: "Awaken Your Follicles. Heal From Within.",
     longDescription: `Altruva Hair PRF is a powerful regenerative scalp therapy that leverages your body’s own healing intelligence to restore thinning hair, reduce shedding, and improve scalp vitality — all without synthetic additives or foreign substances.<br/><br/>Using Platelet-Rich Fibrin (PRF) — a second-generation regenerative concentrate rich in growth factors, fibrin scaffolds, white blood cells, and stem-like cells — this treatment reactivates dormant follicles and amplifies the scalp’s microenvironment for healthy, resilient hair regrowth.<br/><br/>Curated by dr. Olivia Aldisa, this protocol is ideal for both men and women experiencing early to moderate hair thinning, especially in androgenetic alopecia.`,
+    quote: {
+        text: "Hair loss isn’t always about genetics. Sometimes, it’s about giving your follicles the right environment to thrive. And that’s exactly what we do with PRF.",
+        author: "dr. Olivia Aldisa, Aesthetic Regeneration Specialist"
+    },
     whatIsIt: {
       title: "What is PRF (Platelet-Rich Fibrin)?",
       description: `Unlike traditional PRP, PRF is spun at a lower centrifugation speed and contains no anticoagulants, allowing for:
@@ -1841,7 +1918,6 @@ export const services: Service[] = [
     ],
     whyLoveIt: [
       'Each session is mapped and executed by dr. Olivia Aldisa, who applies her expertise in aesthetic regenerative medicine to ensure precision delivery and custom dosage based on the patient’s needs.',
-      '<i>“Hair loss isn’t always about genetics. Sometimes, it’s about giving your follicles the right environment to thrive. And that’s exactly what we do with PRF.”</i> — dr. Olivia Aldisa, Aesthetic Regeneration Specialist'
     ]
   },
   {
@@ -1858,6 +1934,10 @@ export const services: Service[] = [
     subgroup: 'Growth Boosters',
     subtitle: 'Targeted Scalp Therapy for Thicker, Stronger, Healthier Hair',
     longDescription: `Altruva Hair Booster is an advanced mesotherapy solution meticulously designed to combat male and female pattern hair loss (androgenetic alopecia) and revitalize the scalp. Leveraging Fusion Meso F-Hair Men — a clinically proven cocktail of growth factors, peptides, hyaluronic acid, and essential minerals — this treatment activates follicular regeneration, strengthens existing hair shafts, and creates an optimal environment for new hair growth.`,
+    quote: {
+        text: "Hair rejuvenation isn’t a one-time fix — it’s a journey. With Altruva Hair Booster, we offer you not just a treatment, but a protocol of follicular rehabilitation.",
+        author: "dr. Olivia Aldisa, Expert in Regenerative Aesthetic Medicine"
+    },
     whatIsIt: {
         title: 'What It Is',
         description: `A high-performance scalp mesotherapy protocol using microinjections of regenerative actives, Altruva Hair Booster nourishes the dermal papilla and reactivates the hair cycle with minimal discomfort or downtime.
@@ -1889,8 +1969,7 @@ Ideal for men and women in early to moderate stages of hair thinning or shedding
       'Scientifically backed formulation',
       'FDA-registered ingredients from Fusion Meso (Europe)',
       'Customized by dr. Olivia Aldisa — KOL and regenerative expert',
-      'Synergistic with PRF, Micrograft, and oral nutricosmetics',
-      '<i>“Hair rejuvenation isn’t a one-time fix — it’s a journey. With Altruva Hair Booster, we offer you not just a treatment, but a protocol of follicular rehabilitation.”</i> — dr. Olivia Aldisa, Expert in Regenerative Aesthetic Medicine'
+      'Synergistic with PRF, Micrograft, and oral nutricosmetics'
     ]
   },
   {
@@ -2222,44 +2301,3 @@ export const quizResults: Record<string, QuizResult> = {
     description: "You are ready for a transformative journey. The ÉLEVÉ plan provides comprehensive, deep support for visible and lasting rejuvenation."
   },
 };
-
-
-    
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-    

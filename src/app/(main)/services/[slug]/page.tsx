@@ -6,7 +6,7 @@ import { services } from '@/lib/constants';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, ArrowRight, Microscope, Info, BookOpen, Layers, Star, Dna } from 'lucide-react';
+import { CheckCircle, ArrowRight, Microscope, Info, BookOpen, Layers, Star, Dna, MessageSquare } from 'lucide-react';
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -39,6 +39,15 @@ const DetailSection: React.FC<{ title: string; children: React.ReactNode; Icon: 
       {children}
     </CardContent>
   </Card>
+);
+
+const QuoteSection: React.FC<{ quote: { text: string; author: string } }> = ({ quote }) => (
+    <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg my-8">
+        <blockquote className="text-xl italic text-primary/90">
+            "{quote.text}"
+        </blockquote>
+        <cite className="block text-right mt-4 text-base font-semibold text-accent not-italic">— {quote.author}</cite>
+    </div>
 );
 
 
@@ -83,6 +92,8 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               </CardContent>
             </Card>
 
+            {service.quote && <QuoteSection quote={service.quote} />}
+
             {service.whatIsIt && (
               <DetailSection title={service.whatIsIt.title} Icon={Microscope}>
                 <div className="prose max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: service.whatIsIt.description }} />
@@ -124,7 +135,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                </DetailSection>
             )}
 
-            {service.whyLoveIt && (
+            {service.whyLoveIt && service.whyLoveIt.length > 0 && (
                <DetailSection title="Why Patients Love It" Icon={Info}>
                  <ul className="space-y-2 pl-4">
                   {service.whyLoveIt.map((item, index) => (
