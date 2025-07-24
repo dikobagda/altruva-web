@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Instagram, Facebook, Twitter } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -59,7 +59,6 @@ export default function Footer() {
             <div className="flex space-x-4">
               <Link href="#" aria-label="Instagram" className="text-primary hover:text-accent transition-colors"><Instagram size={24} /></Link>
               <Link href="#" aria-label="Facebook" className="text-primary hover:text-accent transition-colors"><Facebook size={24} /></Link>
-              <Link href="#" aria-label="Twitter" className="text-primary hover:text-accent transition-colors"><Twitter size={24} /></Link>
             </div>
             <div className="mt-4 text-sm text-center sm:text-left">
               <p>Jl. Ciasem I No.2, RT.2/RW.4, Rw. Bar, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</p>
