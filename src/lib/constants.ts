@@ -143,8 +143,10 @@ export const services: Service[] = [
   // --- Prejuvenation (< 40) ---
   {
     id: 'glacier-skin',
-    title: 'Glacier Skin',
+    title: 'Altruva Glacier Skin',
+    subtitle: 'Smart Solution for Poreless, Balanced, Radiant Skin',
     description: 'Pore refining & oil control for a smooth, matte finish.',
+    longDescription: 'If you struggle with oily skin, enlarged pores, dullness, or occasional breakouts, you don’t need to layer multiple treatments. Altruva Glacier Skin is a signature solution that addresses multiple skin concerns in one intelligent protocol—restoring clarity, hydration, and a refined complexion from the inside out.',
     price: '4,000,000 IDR',
     category: 'Prejuvenation',
     Icon: Droplets,
@@ -152,7 +154,53 @@ export const services: Service[] = [
     imageHint: 'refined skin texture',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
-    subgroup: 'Skin-geneering Boosters'
+    subgroup: 'Skin-geneering Boosters',
+    whatIsIt: {
+      title: 'What Is Altruva Glacier Skin?',
+      description: `Glacier Skin is a precision-designed treatment that combines microinjections of hyaluronic acid, microdosed botulinum toxin type A, active peptides, amino acids, and essential vitamins to rebalance the skin, minimize pore appearance, and deliver that coveted "jelly-fresh," poreless glow.`,
+    },
+    indications: [
+      'Oily and acne-prone skin',
+      'Dehydrated yet shiny skin',
+      'Rough texture and visible pores',
+      'Dullness or loss of skin vitality',
+    ],
+    mechanism: [
+      {
+        title: 'Hyaluronic Acid (HA)',
+        description: 'Deep hydration that plumps and smooths the skin from within.',
+      },
+      {
+        title: 'Botulinum Toxin Type A (Microdose)',
+        description: 'Regulates oil and sweat production, reduces pore size, and relaxes fine muscle tension to refine skin texture.',
+      },
+      {
+        title: 'Peptides & Amino Acids',
+        description: 'Support skin regeneration, improve structural integrity, and promote microbiome health.',
+      },
+      {
+        title: 'Vitamins',
+        description: 'Antioxidant support and skin nourishment for enhanced clarity and resilience.',
+      },
+    ],
+    benefits: [
+      'Multi-targeted skin improvement with minimal downtime',
+      'Controls excess oil and reduces visible pores',
+      'Boosts hydration without heaviness',
+      'Supports barrier repair and smooths texture',
+      'Improves skin clarity and natural glow',
+      'Fully customizable to your skin’s needs and biology',
+    ],
+    protocol: [
+      {
+        label: 'Administration',
+        value: 'Series of ultra-fine microinjections, similar to traditional skinboosters.',
+      },
+    ],
+    whyLoveIt: [
+      'It is safe. Altruva Glacier Skin uses clinically proven, dermatologist-curated ingredients and is administered under expert medical supervision. Each session is tailored for your unique skin profile and goals.',
+      'If you\'re looking to achieve clear, dewy, jelly-like skin that feels balanced and truly breathable, Altruva Glacier Skin is a powerful addition to your skin optimization journey.',
+    ],
   },
   {
     id: 'dna-repair',
@@ -2134,3 +2182,4 @@ export const quizResults: Record<string, QuizResult> = {
 
 
     
+
