@@ -210,47 +210,43 @@ export const services: Service[] = [
     id: 'dna-repair',
     title: 'Altruva DNA Repair',
     description: 'Environmental damage repair & skin barrier fortification.',
-    longDescription: `Altruva DNA Repair is a specialized prejuvenation protocol utilizing Polynucleotides (PN) to proactively strengthen your skin's core structures. This treatment focuses on fortifying the skin barrier, preserving healthy collagen, and boosting resilience against the first signs of aging caused by environmental stressors. It's an investment in your skin's future, ensuring it remains vibrant, hydrated, and strong.`,
-    subtitle: "Protective Polynucleotide Skin Fortification",
+    longDescription: `Before aging becomes visible, the skin quietly begins to lose its ability to renew, repair, and defend. Altruva DNA Repair is our signature prejuvenation treatment designed to reinforce your skin’s self-repair mechanisms—before signs of aging emerge. Harnessing high-purity polynucleotides (PN) extracted from ethically sourced salmon DNA, this biocompatible treatment enhances cellular function, hydrates deeply, and sets the foundation for long-term skin health. Infused with non-crosslinked hyaluronic acid, growth factors, and rejuvenating micronutrients, it’s ideal for those in their 20s to early 30s seeking a head start on graceful aging.`,
+    subtitle: "Cellular Prejuvenation for Youthful Radiance",
     price: '5,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Shield,
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/images/services/dnarepair.jpg',
     imageHint: 'skin barrier protection',
     group: 'Altruva Glow',
     groupDescription: 'The best aging strategy is prevention. Altruva Glow strengthens skin resilience, hydration, and defense mechanisms against premature aging, keeping your skin radiant and future-ready.',
     subgroup: 'Skingeneering booster',
     whatIsIt: {
-      title: 'What is DNA Repair for Prejuvenation?',
-      description: 'For prejuvenation, Polynucleotides act as a biological shield and personal trainer for your skin. These DNA-derived biostimulators coach your skin cells to function optimally, enhancing their ability to resist damage from UV rays, pollution, and stress. It is not about changing your appearance, but about fortifying your skin’s natural defenses for long-term health and a sustained glow.',
+      title: 'How It Works: Smart Regeneration, Seamlessly Delivered',
+      description: `
+        <ul class="list-disc pl-5 space-y-2">
+            <li><strong>Stimulates Cellular Renewal:</strong> PNs act at the DNA level to repair damaged skin cells and reprogram fibroblasts, boosting collagen and elastin production.</li>
+            <li><strong>Deep Hydration & Elasticity Boost:</strong> Non-crosslinked hyaluronic acid penetrates the skin layers, providing intense hydration and a subtle plumping effect that improves suppleness and texture.</li>
+            <li><strong>Strengthens Skin Barrier:</strong> The formulation reinforces the skin’s resilience against environmental aggressors and free radicals, minimizing the risk of premature aging.</li>
+            <li><strong>Brightens & Balances:</strong> Growth factors and vitamins reduce dullness, uneven tone, and pigmentation irregularities, restoring the skin’s natural glow.</li>
+            <li><strong>Reduces Sensitivity & Redness:</strong> Anti-inflammatory properties calm irritation, making it suitable for acne-prone or reactive skin types.</li>
+        </ul>`,
     },
-    mechanism: [
-      { title: 'Barrier Fortification', description: 'Strengthens the skin’s natural defense system, making it more resilient to environmental damage.' },
-      { title: 'Collagen Preservation', description: 'Stimulates fibroblasts to maintain healthy collagen and elastin levels, preserving skin’s firmness and bounce.' },
-      { title: 'Deep Hydration', description: 'Improves the skin’s ability to retain moisture, preventing dryness and maintaining a healthy glow.' },
-      { title: 'Oxidative Stress Reduction', description: 'Helps neutralize free radicals from pollution and UV rays, preventing them from causing cellular damage.' },
-    ],
     benefits: [
-      'Reduces early signs of sun damage',
-      'Improves skin texture and smoothness',
-      'Enhances skin hydration and radiance',
-      'Minimizes the appearance of large pores',
-      'Reduces redness and sensitivity',
-      'Strengthens the skin barrier for long-term health'
+      'Boosts skin’s regenerative capacity before visible aging',
+      'Refines pores and smoothes early textural irregularities',
+      'Improves tone, clarity, and hydration in one session',
+      'Prevents future collagen breakdown and pigmentation',
+      'Enhances skin strength, glow, and elasticity',
+      'No downtime — just fresh, radiant, jelly-like skin'
     ],
-    protocol: [
-      { label: 'Session Time', value: '20 minutes' },
-      { label: 'Protocol', value: '2–3 sessions spaced 3 weeks apart' },
-      { label: 'Maintenance', value: 'Every 6 months' },
-      { label: 'Ideal For', value: 'Ages 20-40 focused on prevention' },
+    indications: [
+      'Preserve collagen and dermal density',
+      'Prevent early signs of skin fatigue, pigmentation, or dullness',
+      'Improve recovery after stress, travel, or environmental exposure',
+      'Prepare the skin for future regenerative treatments'
     ],
-    howItDiffers: 'Unlike hydrating skin boosters, which primarily add moisture, DNA Repair works deeper to improve the fundamental health and resilience of your skin cells, providing benefits that are structural and long-lasting.',
     whyLoveIt: [
-      'It’s the ultimate preventative step for long-term skin health.',
-      'Results in a natural, "lit-from-within" glow.',
-      'Minimal to no downtime.',
-      'Improves overall skin resilience.',
-      'A scientifically-backed approach to "future-proofing" your skin.'
+      'Altruva DNA Repair is often recommended as part of our Altruva Glow Prejuvenation Ritual, where regenerative boosters, skin peels, and gentle energy-based therapies are stacked for amplified results — personalized by Dr. Aldisa and her medical team.'
     ]
   },
   {
@@ -292,6 +288,10 @@ export const services: Service[] = [
         description: 'Whether your acne is hormonal, stress-related, or chronic, the anti-inflammatory actions of panthenol and niacinamide help minimize redness and accelerate healing.'
       }
     ],
+    benefits: [
+        'Lightweight, non-comedogenic, and fast-absorbing.',
+        'Designed to complement laser treatments, microneedling, or standalone as part of your Altruva Glow ritual.'
+    ],
     indications: [
       'Oily and acne-prone skin',
       'Enlarged pores and congestion',
@@ -300,8 +300,7 @@ export const services: Service[] = [
       'Adults with adult-onset acne or recurring hormonal breakouts'
     ],
     whyLoveIt: [
-      'Purifying Booster isn’t just about breakouts. It’s a regenerative intervention to rebalance your skin’s ecosystem, improve its resilience, and enhance long-term skin health — without harsh stripping or downtime.',
-      'Lightweight, non-comedogenic, and fast-absorbing. Designed to complement laser treatments, microneedling, or standalone as part of your Altruva Glow ritual.'
+      'Purifying Booster isn’t just about breakouts. It’s a regenerative intervention to rebalance your skin’s ecosystem, improve its resilience, and enhance long-term skin health — without harsh stripping or downtime.'
     ]
   },
   {
@@ -1370,7 +1369,7 @@ export const services: Service[] = [
     subtitle: 'The Intelligent RF Lift for Skin Over 40',
     longDescription: 'Altruva Regenerative RF is a needle-free, non-invasive RF-based skin rejuvenation treatment designed specifically for individuals over 40 who are experiencing visible signs of aging—such as sagging skin, fine lines, enlarged pores, and texture loss. Utilizing Exion™ Radiofrequency + Targeted Ultrasound technology, this treatment works deep within the dermis to stimulate collagen, elastin, and hyaluronic acid synthesis, restoring youthful density and definition to mature skin.<br/><br/>This is regenerative science meeting natural elegance.',
     whatIsIt: {
-      title: 'How It Works',
+      title: 'How It Works: Dual-Action Technology',
       description: `<ul class="list-disc pl-5 mt-2 space-y-2" style="padding-left: 40px;">
         <li><strong>Radiofrequency Energy:</strong> Controlled RF waves gently heat the deeper layers of the skin, activating fibroblasts and kickstarting collagen and elastin production—resulting in visibly lifted, firmer, and more resilient skin.</li>
         <li><strong>Targeted Ultrasound Synergy:</strong> Focused ultrasound enhances dermal stimulation, supporting skin remodeling in deeper layers without compromising the surface. It’s ideal for the full face, including fragile areas like the under-eye and jawline.</li>
@@ -2261,3 +2260,6 @@ export const quizResults: Record<string, QuizResult> = {
 
 
 
+
+
+    
