@@ -48,8 +48,8 @@ export default function Harmony369Page() {
       alaCartePrice: 'IDR 30,900,000',
       savings: { en: 'IDR 6,400,000 (20%)', id: 'Rp 6.400.000 (20%)' },
       bonus: [
-        { en: '1x Customized Oxy Infusion', id: '1x Infus Oksigen yang Disesuaikan' },
-        { en: '1x Lymphatic Massage', id: '1x Pijat Limfatik' },
+        { en: '1x Customized Oxy Infusion', id: '1x Customized Oxy Infusion' },
+        { en: '1x Lymphatic Massage', id: '1x Lymphatic Massage' },
       ],
       monthlyBreakdown: '~1,991,000/month',
       featured: false,
@@ -164,7 +164,7 @@ export default function Harmony369Page() {
                   <ul className="list-disc list-inside mt-1">
                     <li>{t({ en: "Signature Clinical Facial", id: "Signature Clinical Facial" })}</li>
                     <li>{t({ en: "Selected Laser Toning", id: "Selected Laser Toning" })}</li>
-                    <li>{t({ en: "Selected Skinbooster (HA-based / PN-based / Amino Acid-rich)", id: "Selected Skinbooster (Berbasis HA / PN / Kaya Asam Amino)" })}</li>
+                    <li>{t({ en: "Selected Skinbooster (HA-based / PN-based / Amino Acid-rich)", id: "Selected Skinbooster (HA-based / PN-based / Amino Acid-rich)" })}</li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>
@@ -183,9 +183,9 @@ export default function Harmony369Page() {
                   <p className="mb-4">{t({ en: '"Collagen banking, lifting, biostimulation." This phase reinforces skin architecture, balances muscle dynamics, and activates collagen deposition.', id: '"Bank kolagen, pengencangan, biostimulasi." Fase ini memperkuat arsitektur kulit, menyeimbangkan dinamika otot, dan mengaktifkan deposisi kolagen.' })}</p>
                   <p className="font-semibold text-primary">{t({ en: "Example Treatments:", id: "Contoh Perawatan:" })}</p>
                   <ul className="list-disc list-inside mt-1">
-                      <li>{t({ en: "Botulinum Toxin (targeted zones)", id: "Botulinum Toxin (zona target)" })}</li>
+                      <li>{t({ en: "Botulinum Toxin (targeted zones)", id: "Botulinum Toxin (targeted zones)" })}</li>
                       <li>{t({ en: "Biostimulator (PLLA/CaHA / PCL)", id: "Biostimulator (PLLA/CaHA / PCL)" })}</li>
-                      <li>{t({ en: "Customized Peptides (Injectable or transdermal delivery)", id: "Peptida yang Disesuaikan (Dapat disuntikkan atau pengiriman transdermal)" })}</li>
+                      <li>{t({ en: "Customized Peptides (Injectable or transdermal delivery)", id: "Customized Peptides (Injectable or transdermal delivery)" })}</li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>
@@ -205,8 +205,8 @@ export default function Harmony369Page() {
                   <p className="font-semibold text-primary">{t({ en: "Example Treatments:", id: "Contoh Perawatan:" })}</p>
                   <ul className="list-disc list-inside mt-1">
                       <li>{t({ en: "Energy-Based Device (Sofwave™)", id: "Energy-Based Device (Sofwave™)" })}</li>
-                      <li>{t({ en: "SculptLift+ Lipolysis (targeted jaw/cheeks)", id: "SculptLift+ Lipolysis (rahang/pipi target)" })}</li>
-                      <li>{t({ en: "Filler / Cocktail Contouring (restorative or repositioning)", id: "Filler / Cocktail Contouring (restoratif atau reposisi)" })}</li>
+                      <li>{t({ en: "SculptLift+ Lipolysis (targeted jaw/cheeks)", id: "SculptLift+ Lipolysis (targeted jaw/cheeks)" })}</li>
+                      <li>{t({ en: "Filler / Cocktail Contouring (restorative or repositioning)", id: "Filler / Cocktail Contouring (restorative or repositioning)" })}</li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>
