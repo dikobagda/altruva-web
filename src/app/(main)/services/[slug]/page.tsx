@@ -1,12 +1,13 @@
 
+'use client';
+
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import { services } from '@/lib/constants';
 import SectionWrapper from '@/components/shared/SectionWrapper';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, ArrowRight, Microscope, Info, BookOpen, Layers, Star, Dna, MessageSquare } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CheckCircle, Microscope, Dna, Star, Layers, Info, BookOpen } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -14,6 +15,9 @@ export async function generateStaticParams() {
   }));
 }
 
+// Metadata generation should remain a server-side function if possible,
+// but since we need language context, we'll handle title dynamically in the component.
+// We can set a generic one here.
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const service = services.find((s) => s.id === params.slug);
 
@@ -25,7 +29,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   return {
     title: `${service.title} - Altruva Treatments`,
-    description: service.longDescription || service.description,
+    description: service.description.en, // Default to English for metadata
   };
 }
 
@@ -41,17 +45,21 @@ const DetailSection: React.FC<{ title: string; children: React.ReactNode; Icon: 
   </Card>
 );
 
-const QuoteSection: React.FC<{ quote: { text: string; author: string } }> = ({ quote }) => (
-    <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg my-8">
-        <blockquote className="text-xl italic text-primary/90">
-            "{quote.text}"
-        </blockquote>
-        <cite className="block text-right mt-4 text-base font-semibold text-accent not-italic">— {quote.author}</cite>
-    </div>
-);
+const QuoteSection: React.FC<{ quote: { text: Record<'en' | 'id', string>; author: Record<'en' | 'id', string> } }> = ({ quote }) => {
+    const { t } = useLanguage();
+    return (
+        <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg my-8">
+            <blockquote className="text-xl italic text-primary/90">
+                "{t(quote.text)}"
+            </blockquote>
+            <cite className="block text-right mt-4 text-base font-semibold text-accent not-italic">— {t(quote.author)}</cite>
+        </div>
+    );
+};
 
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+  const { t } = useLanguage();
   const service = services.find((s) => s.id === params.slug);
 
   if (!service) {
@@ -64,14 +72,13 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-accent font-semibold mb-2">{service.group}</p>
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">{service.title}</h1>
-            {service.subtitle && <p className="text-xl md:text-2xl text-foreground/80">{service.subtitle}</p>}
+            {service.subtitle && <p className="text-xl md:text-2xl text-foreground/80">{t(service.subtitle)}</p>}
           </div>
       </SectionWrapper>
 
       <SectionWrapper className="pt-0">
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           
-          {/* Main Content - Left/Top Column */}
           <div className="lg:col-span-2 space-y-8">
             <Card>
               <CardContent className="p-0">
@@ -86,8 +93,8 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                     />
                   </div>
                   <div className="p-6">
-                    <h2 className="font-serif text-2xl text-primary mb-4">About This Treatment</h2>
-                    <div className="prose prose-lg max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: service.longDescription || service.description }} />
+                    <h2 className="font-serif text-2xl text-primary mb-4">{t({en: "About This Treatment", id: "Tentang Perawatan Ini"})}</h2>
+                    <div className="prose prose-lg max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: t(service.longDescription || service.description) }} />
                   </div>
               </CardContent>
             </Card>
@@ -95,20 +102,20 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             {service.quote && <QuoteSection quote={service.quote} />}
 
             {service.whatIsIt && (
-              <DetailSection title={service.whatIsIt.title} Icon={Microscope}>
-                <div className="prose max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: service.whatIsIt.description }} />
+              <DetailSection title={t(service.whatIsIt.title)} Icon={Microscope}>
+                <div className="prose max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: t(service.whatIsIt.description) }} />
               </DetailSection>
             )}
 
             {service.mechanism && (
-              <DetailSection title="Mechanism of Action" Icon={Dna}>
+              <DetailSection title={t({en: "Mechanism of Action", id: "Mekanisme Aksi"})} Icon={Dna}>
                 <ul className="space-y-4 pl-4">
                   {service.mechanism.map((item, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-primary">{item.title}</h4>
-                        <p className="text-foreground/70">{item.description}</p>
+                        <h4 className="font-semibold text-primary">{t(item.title)}</h4>
+                        <p className="text-foreground/70">{t(item.description)}</p>
                       </div>
                     </li>
                   ))}
@@ -117,12 +124,12 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             )}
 
              {service.benefits && (
-              <DetailSection title="Key Benefits" Icon={Star}>
+              <DetailSection title={t({en: "Key Benefits", id: "Manfaat Utama"})} Icon={Star}>
                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 pl-4">
                   {service.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-accent mr-3 mt-1 shrink-0" />
-                      <span className="text-foreground/80">{benefit}</span>
+                      <span className="text-foreground/80">{t(benefit)}</span>
                     </li>
                   ))}
                 </ul>
@@ -130,18 +137,18 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             )}
 
             {service.howItDiffers && (
-               <DetailSection title="How It Differs" Icon={Layers}>
-                 <p className="text-foreground/80">{service.howItDiffers}</p>
+               <DetailSection title={t({en: "How It Differs", id: "Perbedaannya"})} Icon={Layers}>
+                 <p className="text-foreground/80">{t(service.howItDiffers)}</p>
                </DetailSection>
             )}
 
             {service.whyLoveIt && service.whyLoveIt.length > 0 && (
-               <DetailSection title="Why Patients Love It" Icon={Info}>
+               <DetailSection title={t({en: "Why Patients Love It", id: "Mengapa Pasien Menyukainya"})} Icon={Info}>
                  <ul className="space-y-2 pl-4">
                   {service.whyLoveIt.map((item, index) => (
                      <li key={index} className="flex items-start">
                       <CheckCircle className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
-                      <span className="text-sm text-foreground/80" dangerouslySetInnerHTML={{ __html: item }}></span>
+                      <span className="text-sm text-foreground/80" dangerouslySetInnerHTML={{ __html: t(item) }}></span>
                     </li>
                   ))}
                  </ul>
@@ -149,16 +156,15 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             )}
           </div>
 
-          {/* Sidebar - Right/Bottom Column */}
           <aside className="lg:col-span-1 space-y-8 sticky top-24">
             
             {service.indications && service.indications.length > 0 && (
-                <DetailSection title="Best For" Icon={Info}>
+                <DetailSection title={t({en: "Best For", id: "Terbaik Untuk"})} Icon={Info}>
                     <ul className="space-y-2 pl-4">
                         {service.indications.map((item, index) => (
                             <li key={index} className="flex items-start">
                                 <CheckCircle className="h-4 w-4 text-accent mr-3 mt-1 shrink-0" />
-                                <span className="text-sm text-foreground/80">{item}</span>
+                                <span className="text-sm text-foreground/80">{t(item)}</span>
                             </li>
                         ))}
                     </ul>
@@ -166,12 +172,12 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             )}
 
             {service.protocol && (
-               <DetailSection title="Protocol Overview" Icon={BookOpen}>
+               <DetailSection title={t({en: "Protocol Overview", id: "Tinjauan Protokol"})} Icon={BookOpen}>
                 <ul className="space-y-3">
                   {service.protocol.map((item, index) => (
                     <li key={index} className="flex justify-between items-center text-sm">
-                      <span className="font-semibold text-primary/90">{item.label}:</span>
-                      <span className="text-right text-foreground/80">{item.value}</span>
+                      <span className="font-semibold text-primary/90">{t(item.label)}:</span>
+                      <span className="text-right text-foreground/80">{t(item.value)}</span>
                     </li>
                   ))}
                 </ul>
