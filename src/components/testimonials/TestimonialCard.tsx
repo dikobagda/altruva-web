@@ -1,9 +1,9 @@
 
-import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Testimonial } from '@/lib/constants';
 import { Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -11,6 +11,7 @@ interface TestimonialCardProps {
 }
 
 export default function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
+  const { t } = useLanguage();
   return (
     <Card className={cn("flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300", className)}>
       <CardHeader>
@@ -30,7 +31,7 @@ export default function TestimonialCard({ testimonial, className }: TestimonialC
           </div>
       </CardHeader>
       <CardContent className="flex-grow">
-        <p className="text-foreground/80 italic leading-relaxed">"{testimonial.text}"</p>
+        <p className="text-foreground/80 italic leading-relaxed">"{t(testimonial.text)}"</p>
       </CardContent>
     </Card>
   );

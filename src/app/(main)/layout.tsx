@@ -8,6 +8,7 @@ import FloatingAISkinAnalysisButton from '@/components/layout/FloatingAISkinAnal
 import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 import Preloader from '@/components/layout/Preloader';
 import { usePathname } from 'next/navigation';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 export default function MainLayout({
   children,
@@ -27,15 +28,17 @@ export default function MainLayout({
   }, [pathname]); // Rerun on path change
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Preloader isLoading={isLoading} />
-      <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <FloatingWhatsAppButton />
-        <FloatingAISkinAnalysisButton />
+    <LanguageProvider>
+      <div className="flex flex-col min-h-screen">
+        <Preloader isLoading={isLoading} />
+        <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <FloatingWhatsAppButton />
+          <FloatingAISkinAnalysisButton />
+        </div>
       </div>
-    </div>
+    </LanguageProvider>
   );
 }

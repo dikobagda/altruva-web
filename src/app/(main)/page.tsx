@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services, testimonials, aiAnalysisFeatures, insights } from '@/lib/constants';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageTitle from '@/components/shared/PageTitle';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -23,24 +23,26 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import TestimonialCard from '@/components/testimonials/TestimonialCard';
+import { useLanguage } from '@/context/LanguageContext';
 
 type TreatmentCategory = 'Prejuvenation' | 'Rejuvenation';
 
 export default function HomePage() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<TreatmentCategory | null>(null);
 
   const filteredServices = activeCategory ? services.filter(service => service.category === activeCategory) : [];
 
   const categoryDetails = {
     Prejuvenation: {
-      title: '< 40 years old',
-      subtitle: 'Prejuvenation (Preserve & Enhance)',
-      treatmentsTitle: 'Prejuvenation Treatments',
+      title: { en: '< 40 years old', id: '< 40 tahun' },
+      subtitle: { en: 'Prejuvenation (Preserve & Enhance)', id: 'Prejuvenation (Memelihara & Meningkatkan)' },
+      treatmentsTitle: { en: 'Prejuvenation Treatments', id: 'Perawatan Prejuvenation' },
     },
     Rejuvenation: {
-      title: '> 40 years old',
-      subtitle: 'Rejuvenation (Restore & Lift)',
-      treatmentsTitle: 'Rejuvenation Treatments',
+      title: { en: '> 40 years old', id: '> 40 tahun' },
+      subtitle: { en: 'Rejuvenation (Restore & Lift)', id: 'Rejuvenation (Memulihkan & Mengangkat)' },
+      treatmentsTitle: { en: 'Rejuvenation Treatments', id: 'Perawatan Rejuvenation' },
     },
   };
 
@@ -74,15 +76,17 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
               <h1 className="md:pl-8 font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
-                Altruva — Jakarta's First Regenerative Contour Clinic
+                {t({ en: "Altruva — Jakarta's First Regenerative Contour Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
               </h1>
-              <h4 className="md:pl-8 font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">Your Beauty, Future-Proofed</h4>
+              <h4 className="md:pl-8 font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">
+                {t({ en: "Your Beauty, Future-Proofed", id: "Kecantikan Anda, Terjamin di Masa Depan" })}
+              </h4>
               <Button
                 asChild
                 size="lg"
                 className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
               >
-                <Link className="md:ml-8" href="/book-appointment">Book an Appointment</Link>
+                <Link className="md:ml-8" href="/book-appointment">{t({ en: 'Book an Appointment', id: 'Buat Janji Temu' })}</Link>
               </Button>
             </div>
           </div>
@@ -93,7 +97,10 @@ export default function HomePage() {
       <SectionWrapper className="bg-secondary/30">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-lg md:text-xl text-foreground/80">
-            Welcome to Altruva Aesthetic Clinic — an aesthetic and medical clinic in Jakarta offering an ever-updated range of minimal to non-invasive, FDA-approved, and CE-marked medical aesthetic treatments. The primary goal is to empower you to become the best version of yourself.
+            {t({ 
+              en: "Welcome to Altruva Aesthetic Clinic — an aesthetic and medical clinic in Jakarta offering an ever-updated range of minimal to non-invasive, FDA-approved, and CE-marked medical aesthetic treatments. The primary goal is to empower you to become the best version of yourself.",
+              id: "Selamat datang di Klinik Estetika Altruva — sebuah klinik estetika dan medis di Jakarta yang menawarkan rangkaian perawatan estetika medis minimal hingga non-invasif yang selalu diperbarui, disetujui FDA, dan bertanda CE. Tujuan utamanya adalah memberdayakan Anda untuk menjadi versi terbaik dari diri Anda."
+            })}
           </p>
         </div>
       </SectionWrapper>
@@ -101,8 +108,8 @@ export default function HomePage() {
       {/* Age-based Service Selector */}
       <SectionWrapper className="bg-background">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">Your Regenerative Journey</h2>
-          <p className="text-lg text-foreground/80 mb-8">Choose your age group to discover treatments tailored to meet your unique needs.</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">{t({ en: 'Your Regenerative Journey', id: 'Perjalanan Regeneratif Anda' })}</h2>
+          <p className="text-lg text-foreground/80 mb-8">{t({ en: 'Choose your age group to discover treatments tailored to meet your unique needs.', id: 'Pilih kelompok usia Anda untuk menemukan perawatan yang disesuaikan untuk memenuhi kebutuhan unik Anda.' })}</p>
           <div className="flex justify-center gap-4 md:gap-8">
             {(Object.keys(categoryDetails) as TreatmentCategory[]).map(key => (
               <button
@@ -113,8 +120,8 @@ export default function HomePage() {
                   activeCategory === key ? 'bg-primary border-primary text-primary-foreground shadow-xl' : 'bg-card border-border hover:border-primary/50 hover:bg-card/90'
                 )}
               >
-                <h3 className="text-xl md:text-2xl font-bold font-serif">{categoryDetails[key].title}</h3>
-                <p className={cn("text-sm md:text-base", activeCategory === key ? 'text-primary-foreground/90' : 'text-foreground/70')}>{categoryDetails[key].subtitle}</p>
+                <h3 className="text-xl md:text-2xl font-bold font-serif">{t(categoryDetails[key].title)}</h3>
+                <p className={cn("text-sm md:text-base", activeCategory === key ? 'text-primary-foreground/90' : 'text-foreground/70')}>{t(categoryDetails[key].subtitle)}</p>
               </button>
             ))}
           </div>
@@ -125,7 +132,7 @@ export default function HomePage() {
       {activeCategory && (
         <SectionWrapper id="treatments-overview">
           <PageTitle 
-            title={categoryDetails[activeCategory].treatmentsTitle}
+            title={t(categoryDetails[activeCategory].treatmentsTitle)}
           />
           <div className="max-w-6xl mx-auto">
             <div className="space-y-12">
@@ -138,8 +145,8 @@ export default function HomePage() {
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <TableHead className="w-[40%] font-semibold text-primary/90">Treatment</TableHead>
-                          <TableHead className="w-[60%] font-semibold text-primary/90">Description</TableHead>
+                          <TableHead className="w-[40%] font-semibold text-primary/90">{t({ en: 'Treatment', id: 'Perawatan' })}</TableHead>
+                          <TableHead className="w-[60%] font-semibold text-primary/90">{t({ en: 'Description', id: 'Deskripsi' })}</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -168,7 +175,7 @@ export default function HomePage() {
             </div>
             <div className="text-center mt-12">
               <Button asChild size="lg" variant="default">
-                <Link href="/book-appointment">Book a Consultation</Link>
+                <Link href="/book-appointment">{t({ en: 'Book a Consultation', id: 'Jadwalkan Konsultasi' })}</Link>
               </Button>
             </div>
           </div>
@@ -178,9 +185,9 @@ export default function HomePage() {
       {/* Glow Quiz Section */}
       <SectionWrapper id="glow-quiz" className="bg-primary text-primary-foreground">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Discover Your Perfect Harmony Plan</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">{t({ en: 'Discover Your Perfect Harmony Plan', id: 'Temukan Paket Harmoni Sempurna Anda' })}</h2>
           <p className="text-lg md:text-xl mb-8 opacity-90">
-            Take our short Glow Quiz to get a personalized aesthetic roadmap tailored to your age, skin needs, and goals.
+            {t({ en: 'Take our short Glow Quiz to get a personalized aesthetic roadmap tailored to your age, skin needs, and goals.', id: 'Ikuti Kuis Cahaya singkat kami untuk mendapatkan peta jalan estetika yang dipersonalisasi yang disesuaikan dengan usia, kebutuhan kulit, dan tujuan Anda.' })}
           </p>
           <GlowQuiz />
         </div>
@@ -201,24 +208,27 @@ export default function HomePage() {
           </div>
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-6">
-              Unlock Personalized Skincare with AI
+              {t({ en: 'Unlock Personalized Skincare with AI', id: 'Buka Perawatan Kulit Pribadi dengan AI' })}
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
-              Our advanced AI Skin Analysis tool helps you understand your skin better. Upload a photo, answer a few questions, and receive personalized recommendations.
+              {t({ 
+                en: 'Our advanced AI Skin Analysis tool helps you understand your skin better. Upload a photo, answer a few questions, and receive personalized recommendations.',
+                id: 'Alat Analisis Kulit AI canggih kami membantu Anda memahami kulit Anda lebih baik. Unggah foto, jawab beberapa pertanyaan, dan terima rekomendasi yang dipersonalisasi.'
+              })}
             </p>
             <ul className="space-y-4 mb-8">
               {aiAnalysisFeatures.map((feature) => (
-                <li key={feature.title} className="flex items-start">
+                <li key={t(feature.title)} className="flex items-start">
                   <feature.Icon className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-primary">{feature.title}</h4>
-                    <p className="text-foreground/70">{feature.description}</p>
+                    <h4 className="font-semibold text-primary">{t(feature.title)}</h4>
+                    <p className="text-foreground/70">{t(feature.description)}</p>
                   </div>
                 </li>
               ))}
             </ul>
             <Button asChild size="lg" className="font-semibold">
-              <Link href="/skin-analysis">Try AI Skin Analysis</Link>
+              <Link href="/skin-analysis">{t({ en: 'Try AI Skin Analysis', id: 'Coba Analisis Kulit AI' })}</Link>
             </Button>
           </div>
         </div>
@@ -226,7 +236,10 @@ export default function HomePage() {
 
       {/* Testimonials Preview Section */}
       <SectionWrapper id="testimonials-preview">
-        <PageTitle title="Hear From Our Clients" subtitle="Real stories from those who have experienced the Altruva difference." />
+        <PageTitle 
+          title={t({ en: "Hear From Our Clients", id: "Dengar dari Klien Kami" })}
+          subtitle={t({ en: "Real stories from those who have experienced the Altruva difference.", id: "Kisah nyata dari mereka yang telah merasakan perbedaan Altruva."})} 
+        />
         <Carousel
           opts={{
             align: "start",
@@ -248,14 +261,17 @@ export default function HomePage() {
         </Carousel>
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="default">
-            <Link href="/book-appointment">Ready for your transformation?</Link>
+            <Link href="/book-appointment">{t({ en: 'Ready for your transformation?', id: 'Siap untuk transformasi Anda?' })}</Link>
           </Button>
         </div>
       </SectionWrapper>
 
       {/* Featured Insights Section */}
       <SectionWrapper id="featured-insights" className="bg-secondary/30">
-        <PageTitle title="Featured Insights" subtitle="Explore the latest in aesthetic science and wellness from our experts." />
+        <PageTitle 
+          title={t({ en: 'Featured Insights', id: 'Wawasan Unggulan' })}
+          subtitle={t({ en: 'Explore the latest in aesthetic science and wellness from our experts.', id: 'Jelajahi yang terbaru dalam ilmu estetika dan kesehatan dari para ahli kami.' })}
+        />
         <Carousel
           opts={{
             align: "start",
@@ -277,7 +293,7 @@ export default function HomePage() {
         </Carousel>
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="default">
-            <Link href="/insights">Explore All Insights</Link>
+            <Link href="/insights">{t({ en: 'Explore All Insights', id: 'Jelajahi Semua Wawasan' })}</Link>
           </Button>
         </div>
       </SectionWrapper>
@@ -285,12 +301,12 @@ export default function HomePage() {
       {/* Call to Action Section */}
       <SectionWrapper className="bg-primary text-primary-foreground">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">Ready to Begin Your Transformation?</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">{t({ en: 'Ready to Begin Your Transformation?', id: 'Siap Memulai Transformasi Anda?' })}</h2>
           <p className="text-lg md:text-xl mb-8 opacity-90">
-            Your journey to enhanced beauty and confidence starts here. Schedule your private consultation with our team of experts today.
+            {t({ en: 'Your journey to enhanced beauty and confidence starts here. Schedule your private consultation with our team of experts today.', id: 'Perjalanan Anda menuju kecantikan dan kepercayaan diri yang lebih baik dimulai di sini. Jadwalkan konsultasi pribadi Anda dengan tim ahli kami hari ini.' })}
           </p>
           <Button asChild size="lg" variant="secondary" className="font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-            <Link href="/book-appointment">Book Your Consultation Now</Link>
+            <Link href="/book-appointment">{t({ en: 'Book Your Consultation Now', id: 'Jadwalkan Konsultasi Anda Sekarang' })}</Link>
           </Button>
         </div>
       </SectionWrapper>
