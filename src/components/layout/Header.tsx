@@ -40,7 +40,7 @@ const navItems: NavItem[] = [
   },
   { href: '/about-us/369-harmony', label: { en: '369 Harmony™', id: '369 Harmony™' } },
   {
-    label: { en: 'Face', id: 'Wajah' },
+    label: { en: 'Face', id: 'Face' },
     subItems: [
       {
         label: { en: 'Prejuvenation', id: 'Prejuvenation' },
@@ -136,7 +136,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: { en: 'Body', id: 'Tubuh' },
+    label: { en: 'Body', id: 'Body' },
     subItems: [
       { href: '/services/altruva-neocurve', label: { en: 'Altruva NeoCurve by EmSculpt Neo', id: 'Altruva NeoCurve by EmSculpt Neo' } },
       { href: '/services/altruva-lipo-elixir', label: { en: 'Altruva Lipo Elixir', id: 'Altruva Lipo Elixir' } },
@@ -145,7 +145,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: { en: 'Hair', id: 'Rambut' },
+    label: { en: 'Hair', id: 'Hair' },
     subItems: [
         { href: '/services/altruva-micrograft-technology', label: { en: 'Altruva Micrograft Technology', id: 'Altruva Micrograft Technology' } },
         { href: '/services/altruva-hair-prf', label: { en: 'Altruva Hair PRF', id: 'Altruva Hair PRF' } },
@@ -160,7 +160,7 @@ const navItems: NavItem[] = [
       { href: '/facial/happy-hour', label: { en: 'Happy Hour', id: 'Happy Hour' } },
     ],
   },
-  { href: '/insights', label: { en: 'Insights', id: 'Wawasan' } },
+  { href: '/insights', label: { en: 'Insights', id: 'Insights' } },
   { href: '/contact', label: { en: 'Contact', id: 'Kontak' } },
 ];
 
