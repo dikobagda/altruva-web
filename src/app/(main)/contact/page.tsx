@@ -29,13 +29,13 @@ async function handleSubmit(formData: FormData) {
 export default function ContactPage() {
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.191379435602!2d106.80900997591308!3d-6.238523561088915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f165d09075d7%3A0xab2d38304a455052!2sAltruva%20Aesthetic%20Clinic!5e0!3m2!1sen!2sid!4v1721890332819!5m2!1sen!2sid";
   const openingHours = [
-    { day: 'Sunday', hours: '10.00 am – 6.00 pm' },
-    { day: 'Monday', hours: '10.00 am – 6.00 pm' },
     { day: 'Tuesday', hours: '10.00 am – 6.00 pm' },
     { day: 'Wednesday', hours: '10.00 am – 6.00 pm' },
     { day: 'Thursday', hours: '10.00 am – 6.00 pm' },
     { day: 'Friday', hours: '10.00 am – 6.00 pm' },
     { day: 'Saturday', hours: '10.00 am – 6.00 pm' },
+    { day: 'Sunday', hours: '9.00 am – 5.00 pm' },
+    { day: 'Monday', hours: 'Closed' },
   ];
   return (
     <>

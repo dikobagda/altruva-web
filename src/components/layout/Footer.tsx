@@ -7,13 +7,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const openingHours = [
-    { day: 'Sunday', hours: '10.00 am – 6.00 pm' },
-    { day: 'Monday', hours: '10.00 am – 6.00 pm' },
     { day: 'Tuesday', hours: '10.00 am – 6.00 pm' },
     { day: 'Wednesday', hours: '10.00 am – 6.00 pm' },
     { day: 'Thursday', hours: '10.00 am – 6.00 pm' },
     { day: 'Friday', hours: '10.00 am – 6.00 pm' },
     { day: 'Saturday', hours: '10.00 am – 6.00 pm' },
+    { day: 'Sunday', hours: '9.00 am – 5.00 pm' },
+    { day: 'Monday', hours: 'Closed' },
   ];
 
   return (
