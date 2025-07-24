@@ -8,30 +8,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Microscope, Dna, Star, Layers, Info, BookOpen } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-
-export async function generateStaticParams() {
-  return services.map((service) => ({
-    slug: service.id,
-  }));
-}
-
-// Metadata generation should remain a server-side function if possible,
-// but since we need language context, we'll handle title dynamically in the component.
-// We can set a generic one here.
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const service = services.find((s) => s.id === params.slug);
-
-  if (!service) {
-    return {
-      title: 'Treatment Not Found',
-    };
-  }
-
-  return {
-    title: `${service.title} - Altruva Treatments`,
-    description: service.description.en, // Default to English for metadata
-  };
-}
+import { useEffect } from 'react';
 
 const DetailSection: React.FC<{ title: string; children: React.ReactNode; Icon: React.ElementType, className?: string }> = ({ title, children, Icon, className }) => (
   <Card className={className}>
@@ -61,6 +38,12 @@ const QuoteSection: React.FC<{ quote: { text: Record<'en' | 'id', string>; autho
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
   const { t } = useLanguage();
   const service = services.find((s) => s.id === params.slug);
+
+  useEffect(() => {
+    if (service) {
+      document.title = `${service.title} - Altruva Treatments`;
+    }
+  }, [service]);
 
   if (!service) {
     notFound();
@@ -94,7 +77,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   </div>
                   <div className="p-6">
                     <h2 className="font-serif text-2xl text-primary mb-4">{t({en: "About This Treatment", id: "Tentang Perawatan Ini"})}</h2>
-                    <div className="prose prose-lg max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: t(service.longDescription || service.description) }} />
+                    <div className="prose prose-lg max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: t(service.longDescription || { en: service.description.en, id: service.description.id }) }} />
                   </div>
               </CardContent>
             </Card>
