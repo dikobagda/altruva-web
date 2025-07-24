@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Phone, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { handleSubmit } from './actions';
 
 // Note: Metadata is typically handled on the server.
 // For dynamic metadata based on language, a different approach might be needed.
@@ -18,17 +19,6 @@ import { useLanguage } from '@/context/LanguageContext';
 //   title: 'Contact Us - Altruva',
 //   description: 'Get in touch with Altruva. Find our contact details, address, and send us a message.',
 // };
-
-// Placeholder for form submission handler
-async function handleSubmit(formData: FormData) {
-  "use server";
-  // This is a placeholder. In a real app, you'd process the form data e.g., send an email.
-  const name = formData.get('name');
-  const email = formData.get('email');
-  const message = formData.get('message');
-  console.log('Form submitted:', { name, email, message });
-  // You could redirect or show a success message here.
-}
 
 export default function ContactPage() {
   const { t } = useLanguage();
