@@ -226,7 +226,7 @@ export default function HomePage() {
 
       {/* Testimonials Preview Section */}
       <SectionWrapper id="testimonials-preview">
-        <PageTitle title="Hear From Our Clients" subtitle="Real stories from those who've experienced the Altruva difference." />
+        <PageTitle title="Hear From Our Customers" subtitle="Real stories from those who've experienced the Altruva difference." />
         <Carousel
           opts={{
             align: "start",

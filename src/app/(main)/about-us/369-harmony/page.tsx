@@ -106,9 +106,6 @@ export default function Harmony369Page() {
           {keyPrinciples.map((principle) => (
             <Card key={principle.title} className="text-center shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <div className="w-12 h-12 bg-primary text-primary-foreground rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <principle.Icon className="w-6 h-6" />
-                </div>
                 <CardTitle className="font-serif text-xl text-primary">{principle.title}</CardTitle>
               </CardHeader>
               <CardContent>

@@ -2050,14 +2050,14 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: '1',
-    name: 'Indy natalia',
+    name: 'Indy Natalia',
     text: 'Pertama kali kesini, honestly nggak kayak klinik lain. Lebih homey ya, lagi belajar konsep treatment regeneratif & nyobain Exion reg. Laser 2 weeks ago. Looks good on me! Very recommended!',
     procedure: 'Regenerative Laser',
     rating: 5,
   },
   {
     id: '2',
-    name: 'Sutan haudhy',
+    name: 'Sutan Haudhy',
     text: 'I accompanied my wife to Altruva Clinic for her acne scar treatment — tempatnya homie, waiting room-nya juga super chill. Istri gue very happy with the results, baru kelar treatment tp udah keliatan glowing hasilnya. So far sih, Altruva worth it banget!',
     procedure: 'Acne Scar Treatment',
     rating: 5,
@@ -2078,7 +2078,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '5',
-    name: 'Dwi nurul',
+    name: 'Dwi Nurul',
     text: 'Highly recommended untuk siapa pun yang ingin merawat kulit wajah dengan hasil nyata. Saya pasti akan datang ke sini lagi. Terima kasih Dr.Aldisa dan tim Altruva atas pelayanannya yang luar biasa!😊 🙌✨',
     procedure: 'Facial Treatment',
     rating: 5,
