@@ -24,26 +24,26 @@ import { CnFlagIcon } from '@/components/icons/CnFlagIcon';
 
 export interface NavItem {
   href?: string;
-  label: string | Record<string, string>;
+  label: string;
   subItems?: NavItem[];
 }
 
 const navItems: NavItem[] = [
   {
-    label: { en: 'About', id: 'Tentang' },
+    label: 'About',
     subItems: [
-      { href: '/about-us', label: { en: 'About us', id: 'Tentang Kami' } },
-      { href: '/about-us/meet-dr-olivia-aldisa', label: { en: 'Meet dr. Olivia Aldisa', id: 'Tentang dr. Olivia Aldisa' } },
-      { href: '/our-clinic', label: { en: 'Our Clinic', id: 'Klinik Kami' } },
-      { href: '/news-media', label: { en: 'News & Media', id: 'Berita & Media' } },
+      { href: '/about-us', label: 'About us' },
+      { href: '/about-us/meet-dr-olivia-aldisa', label: 'Meet dr. Olivia Aldisa' },
+      { href: '/our-clinic', label: 'Our Clinic' },
+      { href: '/news-media', label: 'News & Media' },
     ],
   },
   { href: '/about-us/369-harmony', label: '369 Harmony™' },
   {
-    label: { en: 'Face', id: 'Wajah' },
+    label: 'Face',
     subItems: [
       {
-        label: { en: 'Prejuvenation', id: 'Prejuvenation' },
+        label: 'Prejuvenation',
         subItems: [
           {
             label: 'Altruva Lift',
@@ -88,7 +88,7 @@ const navItems: NavItem[] = [
         ],
       },
       {
-        label: { en: 'Rejuvenation', id: 'Rejuvenation' },
+        label: 'Rejuvenation',
         subItems: [
            {
             label: 'Altruva Lift',
@@ -136,7 +136,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: { en: 'Body', id: 'Tubuh' },
+    label: 'Body',
     subItems: [
       { href: '/services/altruva-neocurve', label: 'Altruva NeoCurve by EmSculpt Neo' },
       { href: '/services/altruva-lipo-elixir', label: 'Altruva Lipo Elixir' },
@@ -145,7 +145,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: { en: 'Hair', id: 'Rambut' },
+    label: 'Hair',
     subItems: [
         { href: '/services/altruva-micrograft-technology', label: 'Altruva Micrograft Technology' },
         { href: '/services/altruva-hair-prf', label: 'Altruva Hair PRF' },
@@ -153,15 +153,15 @@ const navItems: NavItem[] = [
     ]
   },
   {
-    label: { en: 'Facial', id: 'Facial' },
+    label: 'Facial',
     subItems: [
       { href: '/services/altruva-signature-facial', label: 'Altruva Signature Facial (Pore Clean Facial)' },
       { href: '/services/altruva-hydraglow-facial', label: 'Altruva HydraGlow Facial' },
       { href: '/facial/happy-hour', label: 'Happy Hour' },
     ],
   },
-  { href: '/insights', label: { en: 'Insights', id: 'Insights' } },
-  { href: '/contact', label: { en: 'Contact', id: 'Kontak' } },
+  { href: '/insights', label: 'Insights' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 type LanguageCode = 'en' | 'id';
@@ -176,19 +176,10 @@ const languages: Language[] = [
   { code: 'id', label: 'Bahasa Indonesia', Icon: IdFlagIcon },
 ];
 
-const NavMenuItem = ({ item, isMobile, closeMobileMenu, lang }: { item: NavItem, isMobile: boolean, closeMobileMenu?: () => void, lang: LanguageCode }) => {
+const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMobile: boolean, closeMobileMenu?: () => void }) => {
   const pathname = usePathname();
   const hasSubItems = item.subItems && item.subItems.length > 0;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const getLabel = (label: string | Record<string, string>) => {
-    if (typeof label === 'string') {
-      return label;
-    }
-    return label[lang] || label['en'];
-  };
-  
-  const currentLabel = getLabel(item.label);
 
   const getIsActive = (navItem: NavItem): boolean => {
     if (navItem.href) {
@@ -221,7 +212,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu, lang }: { item: NavItem,
             isActive ? "text-primary bg-primary/5" : "text-foreground/80"
           )}
         >
-          <Link href={item.href} prefetch={false} onClick={handleLinkClick}>{currentLabel}</Link>
+          <Link href={item.href} prefetch={false} onClick={handleLinkClick}>{item.label}</Link>
         </Button>
       );
     }
@@ -239,7 +230,7 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu, lang }: { item: NavItem,
             onClick={handleLinkClick}
             prefetch={false}
             >
-            {currentLabel}
+            {item.label}
             </Link>
         </div>
     );
@@ -260,13 +251,13 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu, lang }: { item: NavItem,
                 isActive ? "text-primary" : "text-foreground/80"
               )}
             >
-              {currentLabel}
+              {item.label}
               <ChevronDown className="ml-1 h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="bg-popover shadow-lg mt-1 w-56">
             {item.subItems?.map((subItem) => (
-              <NavSubMenuItem key={getLabel(subItem.label)} item={subItem} isMobile={isMobile} onLinkClick={handleLinkClick} lang={lang} />
+              <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} onLinkClick={handleLinkClick} />
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
@@ -287,13 +278,13 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu, lang }: { item: NavItem,
                       isActive ? "text-primary" : "text-foreground/80"
                   )}
                   >
-                  <span>{currentLabel}</span>
+                  <span>{item.label}</span>
                   <ChevronDown className="h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
                   </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-popover shadow-lg mt-1">
                   {item.subItems?.map((subItem) => (
-                      <NavSubMenuItem key={getLabel(subItem.label)} item={subItem} isMobile={isMobile} onLinkClick={handleLinkClick} lang={lang} />
+                      <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} onLinkClick={handleLinkClick} />
                   ))}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -303,24 +294,15 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu, lang }: { item: NavItem,
   }
 
   // Fallback for items that are neither links nor have sub-items
-  return <span className="px-3 py-2 text-foreground/60">{currentLabel}</span>;
+  return <span className="px-3 py-2 text-foreground/60">{item.label}</span>;
 };
 
 
 // Helper component for items inside a dropdown menu
-const NavSubMenuItem = ({ item, isMobile, onLinkClick, lang }: { item: NavItem, isMobile: boolean, onLinkClick: () => void, lang: LanguageCode }) => {
+const NavSubMenuItem = ({ item, isMobile, onLinkClick }: { item: NavItem, isMobile: boolean, onLinkClick: () => void }) => {
     const pathname = usePathname();
     const hasSubItems = item.subItems && item.subItems.length > 0;
     
-    const getLabel = (label: string | Record<string, string>) => {
-      if (typeof label === 'string') {
-        return label;
-      }
-      return label[lang] || label['en'];
-    };
-    
-    const currentLabel = getLabel(item.label);
-
     const getIsActive = (navItem: NavItem): boolean => {
         if (navItem.href) {
         return pathname === navItem.href || pathname.startsWith(navItem.href + '/');
@@ -345,7 +327,7 @@ const NavSubMenuItem = ({ item, isMobile, onLinkClick, lang }: { item: NavItem, 
                     onClick={onLinkClick}
                     prefetch={false}
                 >
-                    {currentLabel}
+                    {item.label}
                 </Link>
             </DropdownMenuItem>
         );
@@ -359,12 +341,12 @@ const NavSubMenuItem = ({ item, isMobile, onLinkClick, lang }: { item: NavItem, 
                     "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md h-auto hover:bg-primary/10",
                     isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:text-primary"
                 )}>
-                    <span>{currentLabel}</span>
+                    <span>{item.label}</span>
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                     <DropdownMenuSubContent className="bg-popover w-56">
                     {item.subItems?.map((subItem) => (
-                        <NavSubMenuItem key={getLabel(subItem.label)} item={subItem} isMobile={isMobile} onLinkClick={onLinkClick} lang={lang} />
+                        <NavSubMenuItem key={subItem.label} item={subItem} isMobile={isMobile} onLinkClick={onLinkClick} />
                     ))}
                     </DropdownMenuSubContent>
                 </DropdownMenuPortal>
@@ -372,7 +354,7 @@ const NavSubMenuItem = ({ item, isMobile, onLinkClick, lang }: { item: NavItem, 
         );
     }
     
-    return <span className="px-3 py-2 text-foreground/60">{currentLabel}</span>;
+    return <span className="px-3 py-2 text-foreground/60">{item.label}</span>;
 }
 
 
@@ -497,7 +479,7 @@ export default function Header() {
 
         <nav className="hidden md:flex flex-grow items-center justify-start ml-10 space-x-3">
           {navItems.map((item) => (
-            <NavMenuItem key={typeof item.label === 'string' ? item.label : item.label.en} item={item} isMobile={false} lang={selectedLanguage.code} />
+            <NavMenuItem key={item.label} item={item} isMobile={false} />
           ))}
         </nav>
 
@@ -520,7 +502,7 @@ export default function Header() {
         <div className="md:hidden absolute top-20 left-0 w-full bg-background shadow-lg py-4 animate-accordion-down">
           <nav className="flex flex-col space-y-1 px-4">
             {navItems.map((item) => (
-               <NavMenuItem key={typeof item.label === 'string' ? item.label : item.label.en} item={item} isMobile={true} closeMobileMenu={closeMobileMenu} lang={selectedLanguage.code} />
+               <NavMenuItem key={item.label} item={item} isMobile={true} closeMobileMenu={closeMobileMenu} />
             ))}
             <div className="border-t border-border pt-4 mt-2 space-y-2">
                  <div className="py-2 px-3">
