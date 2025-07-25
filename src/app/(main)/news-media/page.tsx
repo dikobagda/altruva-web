@@ -17,32 +17,24 @@ const pressFeatures = [
     publication: 'Fimela',
     title: 'Jelang Usia 40 Tahun, Atiqah Hasiholan Lakukan Filler Rejuvenation Cocktail untuk Perawatan Wajah',
     link: 'https://www.fimela.com/amp/4592983/jelang-usia-40-tahun-atiqah-hasiholan-lakukan-filler-rejuvenation-cocktail-untuk-perawatan-wajah',
-    logo: 'https://placehold.co/150x50.png',
-    hint: 'Fimela logo',
     type: 'article'
   },
   {
     publication: 'Liputan6',
     title: 'Jelang Usia Kepala 4, Atiqah Hasiholan Lirik Filler Sambil Tetap Cintai Buah dan Sayur',
     link: 'https://www.liputan6.com/showbiz/read/4590906/jelang-usia-kepala-4-atiqah-hasiholan-lirik-filler-sambil-tetap-cintai-buah-dan-sayur',
-    logo: 'https://placehold.co/150x50.png',
-    hint: 'Liputan6 logo',
     type: 'article'
   },
   {
     publication: 'Stylo Grid',
     title: 'Pilihan Perawatan Wajah Bopeng (Acne Scar) di Klinik Kecantikan dengan Biostimulator Filler dan Picolaser serta Chemical Peeling',
     link: 'https://stylo.grid.id/amp/142758372/pilihan-perawatan-wajah-bopeng-acne-scar-di-klinik-kecantikan-dengan-biostimulator-filler-dan-picolaser-serta-chemical-peeling?page=all',
-    logo: 'https://placehold.co/150x50.png',
-    hint: 'Stylo Grid logo',
     type: 'article'
   },
   {
     publication: 'Antara News',
     title: 'Mengatasi kulit kendur dengan filler yang tepat',
     link: 'https://m.antaranews.com/amp/berita/2231398/mengatasi-kulit-kendur-dengan-filler-yang-tepat',
-    logo: 'https://placehold.co/150x50.png',
-    hint: 'Antara News logo',
     type: 'article'
   },
 ];
@@ -83,24 +75,14 @@ export default function NewsAndMediaPage() {
         <div className="grid md:grid-cols-2 gap-8">
           {pressFeatures.map((feature, index) => (
             <Card key={index} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
+                <CardHeader className="flex-grow">
                     <div className="flex items-center space-x-3 mb-2">
                          <Newspaper className="h-6 w-6 text-accent"/>
                         <h3 className="font-bold text-lg text-primary">{feature.publication}</h3>
                     </div>
-                    <CardTitle className="font-serif text-xl leading-tight h-20">{feature.title}</CardTitle>
+                    <CardTitle className="font-serif text-xl leading-tight">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow">
-                     <Image
-                        src={feature.logo}
-                        alt={`${feature.publication} logo`}
-                        width={120}
-                        height={40}
-                        className="object-contain"
-                        data-ai-hint={feature.hint}
-                    />
-                </CardContent>
-                <div className="p-6 pt-0">
+                <div className="p-6 pt-0 mt-auto">
                     <Button asChild className="w-full font-semibold">
                         <Link href={feature.link} target="_blank" rel="noopener noreferrer">
                             Read More
