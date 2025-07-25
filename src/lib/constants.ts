@@ -1010,9 +1010,21 @@ export const services: Service[] = [
     ],
     protocol: [
       { label: { en: 'Duration', id: 'Durasi' }, value: { en: '~30 minutes', id: '~30 menit' } },
-      { label: { en: 'Technique', id: 'Teknik' }, value: { en: '5–7 injection points using micro-needle or cannula', id: '5–7 titik injeksi menggunakan jarum mikro atau kanula' } },
-      { label: { en: 'Aftercare', id: 'Perawatan Lanjutan' }, value: { en: 'Avoid excessive facial movement or massage for 24–48 hours', id: 'Hindari gerakan wajah atau pijatan berlebihan selama 24–48 jam' } },
-      { label: { en: 'Redness/Swelling', id: 'Kemerahan/Bengkak' }, value: { en: 'Typically subsides within 1–3 days', id: 'Biasanya mereda dalam 1–3 hari' } },
+      {
+        label: { en: 'Technique', id: 'Teknik' },
+        value: {
+          en: '5–7 injection points using micro-needle or cannula, depending on face type',
+          id: '5–7 titik injeksi menggunakan jarum mikro atau kanula, tergantung pada jenis wajah'
+        }
+      },
+      {
+        label: { en: 'Aftercare', id: 'Perawatan Lanjutan' },
+        value: { en: 'Avoid excessive facial movement or massage for 24–48 hours', id: 'Hindari gerakan wajah atau pijatan berlebihan selama 24–48 jam' }
+      },
+      {
+        label: { en: 'Redness or swelling', id: 'Kemerahan atau bengkak' },
+        value: { en: 'typically subsides within 1–3 days', id: 'biasanya mereda dalam 1–3 hari' }
+      }
     ]
   },
   {
@@ -2496,18 +2508,26 @@ export const services: Service[] = [
       }
     },
     benefits: [
-      { en: 'Lifts and tightens sagging skin', id: 'Mengangkat dan mengencangkan kulit kendur' },
-      { en: 'Improves skin density and elasticity', id: 'Meningkatkan kepadatan dan elastisitas kulit' },
-      { en: 'Refines texture and minimizes pores', id: 'Menghaluskan tekstur dan meminimalkan pori-pori' },
-      { en: 'Enhances skin hydration and glow', id: 'Meningkatkan hidrasi dan kilau kulit' },
-      { en: 'Safe for all skin tones', id: 'Aman untuk semua warna kulit' },
-      { en: 'Minimal to zero downtime', id: 'Waktu henti minimal hingga nol' }
+      {
+        en: 'Firms and tightens sagging skin on the abdomen, thighs, arms, and more',
+        id: 'Mengencangkan dan menguatkan kulit kendur di perut, paha, lengan, dan lainnya'
+      },
+      { en: 'Reduces stubborn fat via mechanical lipolysis', id: 'Mengurangi lemak membandel melalui lipolisis mekanis' },
+      {
+        en: 'Improves texture and cellulite by remodeling connective tissue',
+        id: 'Meningkatkan tekstur dan selulit dengan merombak jaringan ikat'
+      },
+      {
+        en: 'Boosts hydration and elasticity through HA stimulation',
+        id: 'Meningkatkan hidrasi dan elastisitas melalui stimulasi HA'
+      },
+      {
+        en: 'Non-invasive & painless with no needles, surgery, or social downtime',
+        id: 'Non-invasif & tanpa rasa sakit tanpa jarum, operasi, atau waktu henti sosial'
+      }
     ],
     indications: [
-      {
-        en: 'Men and women 40+ experiencing visible skin aging',
-        id: 'Pria dan wanita 40+ yang mengalami penuaan kulit yang terlihat'
-      },
+      { en: 'Men and women 40+ experiencing visible skin aging', id: 'Pria dan wanita 40+ yang mengalami penuaan kulit yang terlihat' },
       {
         en: 'Clients not yet ready for invasive lifting or injectables',
         id: 'Klien yang belum siap untuk pengangkatan invasif atau suntikan'
@@ -2523,21 +2543,21 @@ export const services: Service[] = [
     ],
     protocol: [
       {
-        label: { en: 'Session Duration', id: 'Durasi Sesi' },
-        value: { en: '45–60 minutes for full face', id: '45–60 menit untuk seluruh wajah' }
+        label: { en: 'Duration', id: 'Durasi' },
+        value: { en: '30–60 minutes per area', id: '30–60 menit per area' }
       },
       {
-        label: { en: 'Comfort Level', id: 'Tingkat Kenyamanan' },
-        value: { en: 'Warm sensation; no numbing needed', id: 'Sensasi hangat; tidak perlu mati rasa' }
+        label: { en: 'Sessions Needed', id: 'Sesi yang Dibutuhkan' },
+        value: { en: '4–6 sessions, spaced 1–2 weeks apart', id: '4–6 sesi, dengan jarak 1–2 minggu' }
       },
       {
-        label: { en: 'Recommended Frequency', id: 'Frekuensi yang Direkomendasikan' },
-        value: { en: '4 sessions spaced 2–4 weeks apart', id: '4 sesi dengan jarak 2–4 minggu' }
+        label: { en: 'Downtime', id: 'Waktu Henti' },
+        value: { en: 'Minimal to none', id: 'Minimal hingga tidak ada' }
       },
       {
-        label: { en: 'Maintenance', id: 'Pemeliharaan' },
-        value: { en: '1–2 times per year depending on aging profile', id: '1–2 kali per tahun tergantung pada profil penuaan' }
-      }
+        label: { en: 'Results Timeline', id: 'Garis Waktu Hasil' },
+        value: { en: 'Progressive over 6–12 weeks post-treatment', id: 'Progresif selama 6–12 minggu pasca-perawatan' }
+      },
     ]
   },
   {
@@ -3777,26 +3797,32 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
-    id: '1',
-    title: 'The Truth About Polynucleotides: Beyond the Hype',
-    excerpt: 'We dive deep into the science of Polynucleotides (PN), exploring how these DNA-derived biopolymers are revolutionizing skin regeneration from a cellular level.',
-    imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'dna helix science',
-    date: 'August 5, 2024',
-    href: '/insights/truth-about-polynucleotides',
+    id: 'lip-wrinkles-101',
+    title: 'Kerutan Bibir Bikin 10 Tahun Lebih Tua? No way!',
+    excerpt: 'Keriput bibir, yang kadang-kadang disebut garis bibir, garis lipstik, atau garis perokok, adalah garis vertikal kecil yang terbentuk di bibir orang dewasa yang lebih tua. Garis-garis ini terkenal sulit untuk disembunyikan. Daripada ditutupi terus-menerus, lebih baik kita bahas cara untuk memperbaikinya.',
+    imageSrc: '',
+    imageHint: '',
+    date: 'August 12, 2024',
+    href: '/insights/lip-wrinkles-101',
     content: `
-      <h2>The Science of Cellular Regeneration</h2>
-      <p>Polynucleotides, often referred to as PN, are more than just a trend in aesthetic medicine; they represent a significant leap forward in how we approach skin health. Derived from purified fragments of fish DNA, these biostimulators work in harmony with our own bodies to awaken the skin's natural regenerative processes. Unlike treatments that simply add volume or mask imperfections, PN works at the cellular level to repair damage and rebuild the very foundation of healthy skin.</p>
-      <h3>How Do They Work?</h3>
-      <p>When introduced into the skin, Polynucleotides signal our fibroblasts—the cells responsible for producing collagen and elastin—to get back to work. This results in firmer, denser, and more resilient skin over time. They also improve microcirculation, bringing more oxygen and nutrients to the skin, which contributes to a brighter, more vibrant complexion. It's a holistic approach that fosters true, long-lasting rejuvenation from within.</p>
+      <p>By dr. Olivia Aldisa</p>
+      <h2>Penyebab Kerutan Bibir</h2>
+      <p>Kulit yang menua juga menghasilkan lebih sedikit minyak, yang dapat menyebabkan kekeringan kronis. Cuaca yang kering dan kurang minum air putih juga dapat memperparah hal ini. Penyebab utama lain dari garis bibir adalah paparan sinar matahari. Kulit di bibir Anda sangat halus dan sering kali tidak terlindungi. Paparan sinar ultraviolet matahari adalah penyebab utama penuaan dini. Proses ini disebut photoaging. Kerutan pada bibir atas sering disebabkan oleh rokok. Merokok menghasilkan radikal bebas dalam tubuh, yang berkontribusi terhadap penuaan dini. Gerakan menghisap rokok dapat menyebabkan kerutan pada bibir. Kerutan pada bibir juga dapat menyebabkan mengerucutkan bibir yang berhubungan dengan minum menggunakan sedotan atau ekspresi wajah yang berulang.</p>
+      
+      <h2>Mencegah Bibir Berkerut Sejak Dini</h2>
+      <p>Meskipun ada daftar panjang faktor yang harus dihindari, cara termudah untuk mencegah garis bibir adalah sebagai berikut: Jangan merokok (atau vape), hindari minum dari sedotan sebisa mungkin, tetap terhidrasi dan minum air putih minimal 2 liter sehari, hidrasi bibir dengan produk pelembab, terutama pelembab bibir yang mengandung tabir surya minimal SPF 30.</p>
+      
+      <h2>Treatment yang Tepat Untuk Bibir Berkerut</h2>
+      <p>Ada beberapa hal yang dapat Anda lakukan di rumah untuk memperbaiki tanda-tanda penuaan pada dan di sekitar mulut Anda. Krim dan serum yang merangsang produksi kolagen adalah awal yang baik. Gunakan terutama setiap malam sebelum tidur agar Anda dapat merasakan manfaatnya. Ada beberapa produk di pasaran yang mengklaim sebagai lip plumper, meskipun ini tidak akan membantu jika bibir Anda menipis dan berkerut selama bertahun-tahun. Apabila bibir Anda sudah terlanjur menunjukkan tanda-tanda kerutan, jangan panik. Treatment sedini mungkin dan tepat guna dapat memudarkan kerutan bibir Anda sebelum menjadi lebih dalam lagi. Dr. Aldisa akan memeriksa area sekitar bibir Anda secara menyeluruh tidak hanya di bibir saja. Hal ini akan sangat membantu tidak hanya bibir Anda tampak sehat, namun juga harmonis pada wajah Anda. Setelah itu, bibir Anda akan di-teratment sesuai dengan diagnosis dokter. Treatment Lip Flip untuk kerutan bibir ini bisa berupa atau kombinasi dari : neuromodulator (Botox) untuk merilekskan garis-garis halus di atas bibir Anda karena smoker’s line, lip dermal filllers yaitu penyuntikan produk asam hialuronat khusus bibir pada area yang membutuhkan. Treatment ini tidak hanya membuat bibir tampak segar dan mengisi garis-garis bibir, namun juga sekaligus melembabkannya. Yang terakhir, yaitu treatment mutakhir hanya dari dr. Aldisa yaitu “Inflammaging Savior”. Selain untuk kulit wajah, treatment ini juga sangat cocok sebagai penangkal kerutan di sekitar bibir. Terutama untuk para pemula yang belum berani untuk melakukan treatment injeksi.</p>
+      <p>Treatment ini menggunakan teknologi micro-infused microneedling dengan gawai tercanggih di kelasnya untuk membentuk saluran-saluran mikro di mana serum unik racikan dokter ahli yang mengandung 135 multi vitamin, mineral, dan anti-oksidan serta asam hialuronat akan meresap ke lapisan dermal kulit. Hasilnya, dalam 2-3 kali perawatan kerutan di sekitar bibir Anda akan memudar secara signifikan. Treatment ini juga dapat dikombinasikan dengan perawatan lainnya. Konsultasikan kebutuhan Anda kepada dr. Aldisa untuk segera tampil awet muda dengan bibir sehat bebas kerut!</p>
     `
   },
   {
     id: '2',
     title: 'Prejuvenation: The Philosophy of "Future-Proofing" Your Skin',
     excerpt: 'Discover why the best anti-aging strategy is starting early. We explain the concept of prejuvenation and how it preserves your skin\'s youthful vitality.',
-    imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'youthful glowing skin',
+    imageSrc: '',
+    imageHint: '',
     date: 'July 28, 2024',
     href: '/insights/prejuvenation-philosophy',
     content: `
@@ -3808,8 +3834,8 @@ export const insights: Insight[] = [
     id: '3',
     title: 'A.R.T Lyft by Sofwave: The Future of Non-Surgical Lifting',
     excerpt: 'Learn how SUPERB™ (Synchronous Ultrasound Parallel Beam) technology is setting a new standard for non-invasive facelifts, delivering natural results without the downtime.',
-    imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'ultrasound facial treatment',
+    imageSrc: '',
+    imageHint: '',
     date: 'July 21, 2024',
     href: '/insights/art-lyft-sofwave',
     content: `
@@ -3821,8 +3847,8 @@ export const insights: Insight[] = [
     id: '4',
     title: 'Understanding Your Skin Type: An AI-Powered Approach',
     excerpt: 'Our AI Skin Analysis tool demystifies your unique skin needs. Find out how technology can guide you to your most effective skincare routine ever.',
-    imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'ai skin analysis technology',
+    imageSrc: '',
+    imageHint: '',
     date: 'July 14, 2024',
     href: '/insights/ai-skin-analysis',
     content: `

@@ -57,16 +57,18 @@ export default function InsightDetailPage({ params }: { params: { slug: string }
       <SectionWrapper className="pt-0">
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
             <article className="lg:col-span-2 prose prose-lg max-w-none text-foreground/90">
-                <div className="relative aspect-video w-full rounded-lg overflow-hidden mb-8 shadow-lg">
-                    <Image 
-                        src={insight.imageSrc}
-                        alt={insight.title}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={insight.imageHint}
-                        priority
-                    />
-                </div>
+                {insight.imageSrc && (
+                  <div className="relative aspect-video w-full rounded-lg overflow-hidden mb-8 shadow-lg">
+                      <Image 
+                          src={insight.imageSrc}
+                          alt={insight.title}
+                          fill
+                          className="object-cover"
+                          data-ai-hint={insight.imageHint}
+                          priority
+                      />
+                  </div>
+                )}
                 <div 
                     className="prose prose-lg max-w-none text-foreground/80 [&>p]:mb-4 [&>h2]:font-serif [&>h2]:text-primary [&>h2]:text-3xl [&>h2]:mb-4 [&>h3]:font-serif [&>h3]:text-primary" 
                     dangerouslySetInnerHTML={{ __html: insight.content || "<p>Content coming soon.</p>" }} 
@@ -79,6 +81,7 @@ export default function InsightDetailPage({ params }: { params: { slug: string }
                     <div className="space-y-6">
                         {relatedInsights.map(related => (
                             <Link href={related.href} key={related.id} className="flex items-center space-x-4 group">
+                                {related.imageSrc && (
                                 <div className="relative h-20 w-20 rounded-md overflow-hidden shrink-0">
                                     <Image 
                                         src={related.imageSrc}
@@ -88,6 +91,7 @@ export default function InsightDetailPage({ params }: { params: { slug: string }
                                         data-ai-hint={related.imageHint}
                                     />
                                 </div>
+                                )}
                                 <div>
                                     <p className="font-semibold text-primary group-hover:underline leading-tight">{related.title}</p>
                                     <p className="text-xs text-muted-foreground mt-1">{related.date}</p>

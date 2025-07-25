@@ -14,16 +14,18 @@ export default function InsightCard({ insight }: InsightCardProps) {
   return (
     <Link href={insight.href} className="flex h-full">
       <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">
-        <div className="relative w-full aspect-video overflow-hidden">
-          <Image
-            src={insight.imageSrc}
-            alt={insight.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            data-ai-hint={insight.imageHint}
-          />
-        </div>
+        {insight.imageSrc && (
+          <div className="relative w-full aspect-video overflow-hidden">
+            <Image
+              src={insight.imageSrc}
+              alt={insight.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              data-ai-hint={insight.imageHint}
+            />
+          </div>
+        )}
         <CardHeader>
           <CardTitle className="font-serif text-xl text-primary leading-tight h-14 overflow-hidden">{insight.title}</CardTitle>
            <div className="flex items-center text-sm text-muted-foreground pt-1">
