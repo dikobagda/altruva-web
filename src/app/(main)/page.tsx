@@ -266,6 +266,47 @@ export default function HomePage() {
         </div>
       </SectionWrapper>
 
+      {/* Dr. Aldisa in Action Section */}
+      <SectionWrapper className="bg-secondary/30">
+        <PageTitle title={t({ en: "Dr. Aldisa in Action", id: "Dr. Aldisa Beraksi" })} />
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-3xl mx-auto"
+        >
+          <CarouselContent>
+            <CarouselItem>
+              <div className="aspect-video w-full rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/wBDINWzOPXM"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </CarouselItem>
+            <CarouselItem>
+              <div className="aspect-video w-full rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/DrqIbRAHoYw"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </SectionWrapper>
+
       {/* Featured Insights Section */}
       <SectionWrapper id="featured-insights" className="bg-secondary/30">
         <PageTitle 
