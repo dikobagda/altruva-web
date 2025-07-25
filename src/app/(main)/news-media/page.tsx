@@ -10,10 +10,10 @@ import { Rss, Megaphone, Youtube, Newspaper } from 'lucide-react';
 import PageTitle from '@/components/shared/PageTitle';
 import { useLanguage } from '@/context/LanguageContext';
 
-export const metadata = {
-  title: 'News & Media - Altruva',
-  description: 'Stay updated with the latest news, press features, and announcements from Altruva Aesthetic Clinic.',
-};
+// export const metadata = {
+//   title: 'News & Media - Altruva',
+//   description: 'Stay updated with the latest news, press features, and announcements from Altruva Aesthetic Clinic.',
+// };
 
 const pressFeatures = [
   {
