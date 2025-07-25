@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Rss, Megaphone, Youtube, Newspaper } from 'lucide-react';
 import PageTitle from '@/components/shared/PageTitle';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const metadata = {
   title: 'News & Media - Altruva',
@@ -42,12 +43,13 @@ const pressFeatures = [
 ];
 
 export default function NewsAndMediaPage() {
+  const { t } = useLanguage();
   return (
     <>
       <SectionWrapper>
         <PageTitle 
-          title="Altruva in the Media" 
-          subtitle="Discover what the press is saying about our innovative treatments and philosophy." 
+          title={t({ en: "Altruva in the Media", id: "Altruva di Media" })}
+          subtitle={t({ en: "Discover what the press is saying about our innovative treatments and philosophy.", id: "Temukan apa yang media katakan tentang perawatan dan filosofi inovatif kami." })}
         />
         
         {/* Press Articles Section */}
@@ -64,7 +66,7 @@ export default function NewsAndMediaPage() {
                 <div className="p-6 pt-0 mt-auto">
                     <Button asChild className="w-full font-semibold">
                         <Link href={feature.link} target="_blank" rel="noopener noreferrer">
-                            Read More
+                            {t({ en: "Read More", id: "Baca Selengkapnya" })}
                         </Link>
                     </Button>
                 </div>
@@ -76,12 +78,12 @@ export default function NewsAndMediaPage() {
       {/* CTA Section */}
       <SectionWrapper className="bg-primary text-primary-foreground">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">Stay Connected</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">{t({ en: "Stay Connected", id: "Tetap Terhubung" })}</h2>
           <p className="text-lg md:text-xl mb-8 opacity-90">
-            Follow us on social media for real-time updates and daily inspiration. For press inquiries, please contact us directly.
+            {t({ en: "Follow us on social media for real-time updates and daily inspiration. For press inquiries, please contact us directly.", id: "Ikuti kami di media sosial untuk pembaruan waktu nyata dan inspirasi harian. Untuk pertanyaan pers, silakan hubungi kami secara langsung." })}
           </p>
           <Button asChild size="lg" variant="secondary" className="font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-            <Link href="/contact">Contact Us</Link>
+            <Link href="/contact">{t({ en: "Contact Us", id: "Hubungi Kami" })}</Link>
           </Button>
         </div>
       </SectionWrapper>
