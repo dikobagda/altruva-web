@@ -78,7 +78,7 @@ export default function MeetTheDoctorPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square md:aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
           <Image
-              src="/images/draldisa.png"
+              src="/images/draldisa_new.jpg"
               alt="dr. Olivia Aldisa, Founder of Altruva"
               width={500}
               height={500}
