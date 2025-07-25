@@ -117,8 +117,8 @@ export default function Harmony369Page() {
           subtitle={t({ en: "A philosophy rooted in science, experience, and the art of natural beauty.", id: "Sebuah filosofi yang berakar pada ilmu pengetahuan, pengalaman, dan seni kecantikan alami." })}
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {keyPrinciples.map((principle) => (
-            <Card key={t(principle.title)} className="text-center shadow-lg hover:shadow-xl transition-shadow">
+          {keyPrinciples.map((principle, index) => (
+            <Card key={index} className="text-center shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <CardTitle className="font-serif text-xl text-primary">{t(principle.title)}</CardTitle>
               </CardHeader>
@@ -257,7 +257,7 @@ export default function Harmony369Page() {
                  <div>
                   <h4 className="font-semibold text-primary">{t({ en: "Exclusive Bonus:", id: "Bonus Eksklusif:" })}</h4>
                   <ul className="text-sm text-foreground/80 list-disc list-inside">
-                    {tier.bonus.map(b => <li key={t(b)}>{t(b)}</li>)}
+                    {tier.bonus.map((b, index) => <li key={index}>{t(b)}</li>)}
                   </ul>
                 </div>
               </CardContent>
@@ -273,3 +273,5 @@ export default function Harmony369Page() {
     </>
   );
 }
+
+    
