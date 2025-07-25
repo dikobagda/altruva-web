@@ -526,8 +526,8 @@ export const services: Service[] = [
         description: { en: 'Calms the low-grade inflammation that often triggers melasma flare-ups.', id: 'Menenangkan peradangan tingkat rendah yang sering memicu kambuhnya melasma.' }
       },
       {
-        title: { en: 'Calms UV-Induced Irritation', id: 'Menenangkan Iritasi Akibat UV' },
-        description: { en: 'Soothes sensitivity from sun exposure and harsh products.', id: 'Menenangkan sensitivitas dari paparan sinar matahari dan produk keras.' }
+        title: { en: 'Soothes UV-Induced Irritation', id: 'Menenangkan Iritasi Akibat UV' },
+        description: { en: 'Calms sensitivity from sun exposure and harsh products.', id: 'Menenangkan sensitivitas dari paparan sinar matahari dan produk keras.' }
       },
       {
         title: { en: 'Accelerates Skin Regeneration', id: 'Mempercepat Regenerasi Kulit' },
@@ -546,7 +546,7 @@ export const services: Service[] = [
       { en: 'Non-irritating and does not increase photosensitivity', id: 'Tidak menyebabkan iritasi dan tidak meningkatkan fotosensitivitas' }
     ],
     indications: [
-      { en: 'Patients with epidermal or dermal pigmentation', id: 'Pasien dengan pigmentasi epidermal atau dermal' },
+      { en: 'Patients with epidermal or dermal melasma', id: 'Pasien dengan melasma epidermal atau dermal' },
       { en: 'Individuals with post-inflammatory hyperpigmentation (PIH) from acne or injury', id: 'Individu dengan hiperpigmentasi pasca-inflamasi (PIH) dari jerawat atau cedera' },
       { en: 'Those seeking overall facial brightening with no downtime', id: 'Mereka yang mencari pencerahan wajah secara keseluruhan tanpa waktu henti' },
       { en: 'Patients intolerant to strong acids such as hydroquinone, retinoids, or oral tranexamic acid', id: 'Pasien yang tidak toleran terhadap asam kuat seperti hidrokuinon, retinoid, atau asam traneksamat oral' },
@@ -3818,16 +3818,27 @@ export const insights: Insight[] = [
     `
   },
   {
-    id: '2',
-    title: 'Prejuvenation: The Philosophy of "Future-Proofing" Your Skin',
-    excerpt: 'Discover why the best anti-aging strategy is starting early. We explain the concept of prejuvenation and how it preserves your skin\'s youthful vitality.',
+    id: 'skin-barrier-101',
+    title: 'Bagaimana Cara Kita Mengenali Sawar Kulit (Skin Barrier) yang Rusak',
+    excerpt: 'Setelah bertahun-tahun mendongkrak pemakaian agen pengelupasan dan retinol, tren kecantikan terbaru yang tidak diragukan lagi adalah produk yang menyehatkan sawar kulit, yang membawa kita ke satu pertanyaan yang sangat penting: Apakah sawar kulit (skin barrier) itu?',
     imageSrc: '',
     imageHint: '',
-    date: 'July 28, 2024',
-    href: '/insights/prejuvenation-philosophy',
+    date: 'August 5, 2024',
+    href: '/insights/skin-barrier-101',
     content: `
-      <h2>An Investment in Your Future Self</h2>
-      <p>Prejuvenation is a proactive approach to skincare and aesthetics that focuses on preventing the signs of aging before they become prominent. Instead of waiting to correct wrinkles, sagging, and volume loss, prejuvenation uses targeted, minimally invasive treatments to maintain the skin's structural integrity and youthful function. This might include treatments that boost collagen production, protect against environmental damage, and optimize skin hydration. By starting early, you can significantly slow down the aging process, ensuring your skin stays healthier and more vibrant for longer.</p>
+      <p>By dr. Olivia Aldisa</p>
+      <h2>Apa itu Skin Barrier?</h2>
+      <p>Penghalang kulit, juga kadang-kadang disebut sebagai "sawar kelembaban" atau "mantel asam", adalah istilah yang digunakan untuk menggambarkan lapisan atas kulit Anda. Ketika kita berbicara tentang kulit, kulit memiliki tiga lapisan utama: epidermis, lapisan terluar dari kulit; dermis, lapisan tengah kulit yang mengandung kolagen, elastin, dan saraf kulit serta suplai darah; dan lemak subkutan yang membentuk lapisan antara kulit dan otot.</p>
+      <p>Sebagian besar referensi untuk skin barrier difokuskan pada lapisan paling atas epidermis, lapisan korneum.</p>
+      <h2>Mengapa Skin Barrier Penting?</h2>
+      <p>Skin barrier memiliki dua peran umum: Menjaga zat baik tetap masuk—dan zat buruk keluar. Skin barrier melindungi tubuh bagian dalam dari racun fisik (seperti polusi dan bahan kimia berbahaya) dan radiasi ultraviolet dari paparan sinar matahari. Penghalang kulit juga membantu tubuh mempertahankan kelembapan alami dengan mencegah kehilangan air transepidermal.</p>
+      <h2>Tanda-tanda Penghalang Kulit Rusak</h2>
+      <p>Gangguan pada fungsi inti skin barrier dapat muncul dalam beberapa bentuk, termasuk: Rosasea dan eksim. Kondisi ini sebagian disebabkan oleh cacat genetik pada penghalang kulit. Namun, kerusakan luar tambahan pada penghalang kulit dapat menyebabkan kondisi ini kambuh. Iritasi kulit kronis, Kulit yang gatal, Dehidrasi, kulit kusam, Hiperpigmentasi, Infeksi kulit, Penyembuhan luka yang tertunda.</p>
+      <h2>Apa yang Dapat Merusak Penghalang Kulit Anda?</h2>
+      <p>Secara umum, kehidupan sehari-hari dapat merusak skin barrier. Polusi, Radiasi UV, Sering cuci tangan, Penggunaan pembersih yang menghilangkan penghalang kulit dari minyak alaminya, Terlalu sering menggunakan asam pengelupasan, Penggunaan exfoliant fisik yang keras, Merokok, Kurang tidur, Diet minim nutrisi. Kombinasi kebiasaan sehari-hari yang dapat dihindari dan tidak dapat dihindari menyebabkan berbagai tingkat kerusakan pada skin barrier.</p>
+      <h2>Cara Memperbaiki Skin Barrier yang Rusak</h2>
+      <p>Pendekatan pertama dan paling penting untuk merawat penghalang kulit Anda adalah dengan memilih rutinitas perawatan kulit dan kosmetik Anda sebagai praktik untuk menghargai dan merayakan kulit Anda, bukan untuk menghilangkan pori-pori dan pigmen alami kulit Anda. Glass skin itu tidak ada. Anda tidak akan pernah terlihat seperti Anda dengan filter, tetapi pancaran dan kilau dapat dicapai. Persingkat Rutinitas Perawatan Kulit Anda. Anda dapat menyusun rutinitas perawatan kulit yang ditargetkan dengan seorang ahli atau Anda dapat melakukannya dengan banyak penelitian di internet, tetapi yang terutama, Anda memahami apa yang dilakukan suatu produk untuk kebutuhan kulit spesifik Anda sebelum Anda memulainya. Tentu saja, itu berarti Anda juga harus duduk dan memutuskan: “Apa yang ingin saya capai dengan rutinitas perawatan kulit saya?” Untuk beberapa, ini akan mengurangi kemerahan. Bagi yang lain, mungkin meratakan warna kulit atau mengendalikan jerawat. Rutinitas perawatan kulit yang diarahkan pada tujuan akan efektif, lebih sederhana, lebih lembut, dan lebih murah.</p>
+      <p>Untuk mengetahui rencana perawatan, jumlah perawatan yang diperlukan, hingga kombinasi treatment yang terbaik tentu harus dilakukan asesmen dengan dokter ahli kami terlebih dahulu karena sejatinya kasus tiap wajah berbeda. Dengan perawatan yang tepat dan sesuai target , skin barrier yang merupakan teman berharga yang melindungi Anda dapat melaksanakan fungsinya dengan baik. Gelombang baru treatment kulit ramah skin barrier adalah peluang untuk menciptakan kulit sehat berkilau tanpa Anda perlu merasakan pedih, kemerahan, atau pengelupasan berlebihan.</p>
     `
   },
   {
