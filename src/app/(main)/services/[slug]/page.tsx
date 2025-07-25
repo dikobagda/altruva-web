@@ -35,7 +35,7 @@ const QuoteSection: React.FC<{ quote: { text: Record<'en' | 'id', string>; autho
 
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = use(Promise.resolve(params));
+  const { slug } = params;
   const { t } = useLanguage();
   const service = services.find((s) => s.id === slug);
 
