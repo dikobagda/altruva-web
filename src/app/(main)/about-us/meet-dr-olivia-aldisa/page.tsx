@@ -65,8 +65,8 @@ const certifications = [
   "Facial Anatomy Master Class Bangkok - Mahidol University",
   "CoolSculpting University Bangkok - ZELTIQ",
   "Member of American Academy of Aesthetic Medicine - International",
-  "International Master Course on Aging Science (IMCAS) World Congress - Paris, 2023",
-  "Beauty Through Science (BTS) Congress - Stockholm, 2022",
+  "International Master Course on Aging Science (IMCAS) World Congress - (Paris, France, 2023)",
+  "Beauty Through Science (BTS) Congress - Stockholm, Sweden, June 2022",
   "Advanced Filler Techniques - UMA Academy, Netherlands, 2022"
 ];
 
@@ -109,8 +109,7 @@ export default function MeetTheDoctorPage() {
         />
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="shadow-lg">
-                <CardHeader className="flex flex-row items-center space-x-4">
-                    <Eye className="w-10 h-10 text-accent" />
+                <CardHeader>
                     <CardTitle className="font-serif text-2xl text-primary">Our Vision</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -118,8 +117,7 @@ export default function MeetTheDoctorPage() {
                 </CardContent>
             </Card>
             <Card className="shadow-lg">
-                <CardHeader className="flex flex-row items-center space-x-4">
-                    <Target className="w-10 h-10 text-accent" />
+                <CardHeader>
                     <CardTitle className="font-serif text-2xl text-primary">Our Mission</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -222,5 +220,3 @@ export default function MeetTheDoctorPage() {
     </>
   );
 }
-
-    
