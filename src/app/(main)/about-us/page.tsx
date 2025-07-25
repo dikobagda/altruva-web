@@ -28,7 +28,7 @@ export default function AboutUsPage() {
               src="/images/filosofi.jpg"
               alt="Altruva's Philosophy"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
           <div className="space-y-6">
