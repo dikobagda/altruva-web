@@ -13,7 +13,7 @@ export default function Footer() {
     { day: { en: 'Friday', id: 'Jumat' }, hours: '10.00 am–6.00 pm' },
     { day: { en: 'Saturday', id: 'Sabtu' }, hours: '10.00 am–6.00 pm' },
     { day: { en: 'Sunday', id: 'Minggu' }, hours: '9.00 am–5.00 pm' },
-    { day: { en: 'Monday', id: 'Senin' }, hours: 'Closed' },
+    { day: { en: 'Monday', id: 'Senin' }, hours: { en: 'Closed', id: 'Tutup' } },
     { day: { en: 'Tuesday', id: 'Selasa' }, hours: '10.00 am–6.00 pm' },
     { day: { en: 'Wednesday', id: 'Rabu' }, hours: '10.00 am–6.00 pm' },
   ];
@@ -45,7 +45,7 @@ export default function Footer() {
               {openingHours.map(item => (
                 <li key={t(item.day)} className="flex justify-between w-full max-w-xs sm:max-w-none">
                   <span className="font-medium mr-2">{t(item.day)}</span>
-                  <span className="text-right">{item.hours === 'Closed' ? t({ en: 'Closed', id: 'Tutup' }) : item.hours}</span>
+                  <span className="text-right">{typeof item.hours === 'object' ? t(item.hours) : item.hours}</span>
                 </li>
               ))}
             </ul>

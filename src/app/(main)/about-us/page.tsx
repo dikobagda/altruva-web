@@ -25,10 +25,10 @@ export default function AboutUsPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="/images/filosofi2.jpg"
-              alt="Altruva's Philosophy"
+              src="/images/filosofi.jpg"
+              alt="Altruva's Philosophy - a serene image of a woman"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
           <div className="space-y-6">
