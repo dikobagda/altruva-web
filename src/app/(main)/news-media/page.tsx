@@ -1,4 +1,6 @@
 
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import SectionWrapper from '@/components/shared/SectionWrapper';
@@ -47,29 +49,6 @@ export default function NewsAndMediaPage() {
           title="Altruva in the Media" 
           subtitle="Discover what the press is saying about our innovative treatments and philosophy." 
         />
-        
-        {/* YouTube Video Section */}
-        <Card className="mb-12 shadow-xl overflow-hidden">
-            <CardHeader>
-                <div className="flex items-center space-x-3">
-                    <Youtube className="h-8 w-8 text-red-600"/>
-                    <CardTitle className="font-serif text-2xl text-primary">Filler Rejuvenation Cocktail for Atiqah Hasiholan</CardTitle>
-                </div>
-                <CardDescription>Watch the feature on Fimela com</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <div className="aspect-video w-full rounded-lg overflow-hidden">
-                    <iframe
-                        className="w-full h-full"
-                        src="https://www.youtube.com/embed/T6WsQB8FEBw"
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                    ></iframe>
-                </div>
-            </CardContent>
-        </Card>
         
         {/* Press Articles Section */}
         <div className="grid md:grid-cols-2 gap-8">
