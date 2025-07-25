@@ -50,7 +50,7 @@ export default function HomePage() {
     const groupName = service.group;
     if (!acc[groupName]) {
       acc[groupName] = {
-        description: service.groupDescription,
+        description: service.groupDescription, // This is a translation object
         subgroups: {},
       };
     }
@@ -62,7 +62,7 @@ export default function HomePage() {
     
     acc[groupName].subgroups[subgroupName].push(service);
     return acc;
-  }, {} as Record<string, { description: string; subgroups: Record<string, typeof services> }>);
+  }, {} as Record<string, { description: Record<'en'|'id', string>; subgroups: Record<string, typeof services> }>);
 
   return (
     <>
@@ -139,7 +139,7 @@ export default function HomePage() {
               {Object.entries(groupedServices).map(([groupName, groupData]) => (
                 <div key={groupName}>
                   <h3 className="font-serif text-2xl md:text-3xl font-bold text-primary mb-2">{groupName}</h3>
-                  <p className="text-md md:text-lg text-foreground/80 mb-6">{groupData.description}</p>
+                  <p className="text-md md:text-lg text-foreground/80 mb-6">{t(groupData.description)}</p>
                   
                   <Card className="shadow-lg p-4 md:p-6">
                     <Table>
@@ -162,7 +162,7 @@ export default function HomePage() {
                                 <TableCell className="font-semibold text-primary">
                                   <Link href={`/services/${service.id}`} className="hover:underline">{service.title}</Link>
                                 </TableCell>
-                                <TableCell className="text-foreground/80">{service.description}</TableCell>
+                                <TableCell className="text-foreground/80">{t(service.description)}</TableCell>
                               </TableRow>
                              ))}
                            </Fragment>
@@ -212,7 +212,7 @@ export default function HomePage() {
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
               {t({ 
-                en: 'Our advanced AI Skin Analysis tool helps you understand your skin better. Upload a photo, answer a few questions, and receive personalized recommendations.',
+                en: "Our advanced AI Skin Analysis tool helps you understand your skin better. Upload a photo, answer a few questions, and receive personalized recommendations.",
                 id: 'Alat Analisis Kulit AI canggih kami membantu Anda memahami kulit Anda lebih baik. Unggah foto, jawab beberapa pertanyaan, dan terima rekomendasi yang dipersonalisasi.'
               })}
             </p>
