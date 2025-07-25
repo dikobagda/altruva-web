@@ -38,7 +38,7 @@ export default function OurClinicPage() {
       <SectionWrapper className="pt-0">
         <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-2xl">
           <Image
-            src="https://placehold.co/1200x500.png"
+            src="/images/altruva-klinik.png"
             alt="Panoramic view of the Altruva clinic interior"
             fill
             className="object-cover"
@@ -107,7 +107,7 @@ export default function OurClinicPage() {
           </div>
           <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-xl">
              <Image
-                src="https://placehold.co/600x750.png"
+                src="/images/altruva-clinic-face.png"
                 alt="A detail shot of the clinic's calming decor"
                 fill
                 className="object-cover"
@@ -116,7 +116,7 @@ export default function OurClinicPage() {
           </div>
         </div>
       </SectionWrapper>
-
+      {/*
       <SectionWrapper>
         <div className="text-center mb-12">
             <h2 className="font-serif text-3xl font-bold text-primary">
@@ -168,6 +168,7 @@ export default function OurClinicPage() {
           </Button>
         </div>
       </SectionWrapper>
+      */}
     </>
   );
 }
