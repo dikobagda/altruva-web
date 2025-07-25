@@ -25,11 +25,10 @@ export default function AboutUsPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="https://placehold.co/600x450.png"
-              alt="Interior of Altruva clinic"
+              src="/images/filosofi.jpg"
+              alt="Altruva's Philosophy"
               fill
               className="object-cover"
-              data-ai-hint="modern clinic interior"
             />
           </div>
           <div className="space-y-6">

@@ -32,7 +32,7 @@ const navItems: NavItem[] = [
   {
     label: { en: 'About', id: 'Tentang Kami' },
     subItems: [
-      { href: '/about-us', label: { en: 'About us', id: 'Tentang Kami' } },
+      { href: '/about-us', label: { en: 'Philosophy', id: 'Filosofi' } },
       { href: '/about-us/meet-dr-olivia-aldisa', label: { en: 'Meet dr. Olivia Aldisa', id: 'Temui dr. Olivia Aldisa' } },
       { href: '/our-clinic', label: { en: 'Our Clinic', id: 'Klinik Kami' } },
       { href: '/news-media', label: { en: 'News & Media', id: 'Berita & Media' } },
