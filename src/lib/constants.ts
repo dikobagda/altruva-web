@@ -886,7 +886,7 @@ export const services: Service[] = [
     imageHint: 'ultrasound facelift',
     group: 'Altruva Lift',
     groupDescription: { en: 'A sculpted face begins with structural integrity.', id: 'Wajah terpahat dimulai dengan integritas struktural.' },
-    subgroup: 'Tightening &amp; Contouring',
+    subgroup: 'Tightening & Contouring',
     quote: {
       text: {
         en: 'At Altruva, we don’t chase aging—we engineer prevention. A.R.T Lift Lite is how we build long-term beauty without filler or surgery.',
