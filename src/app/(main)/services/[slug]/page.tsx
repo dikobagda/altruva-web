@@ -1,13 +1,13 @@
 'use client';
 
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 import Image from 'next/image';
 import { services } from '@/lib/constants';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Microscope, Dna, Star, Layers, Info, BookOpen } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import { useEffect, use } from 'react';
+import { useEffect } from 'react';
 
 const DetailSection: React.FC<{ title: string; children: React.ReactNode; Icon: React.ElementType, className?: string }> = ({ title, children, Icon, className }) => (
   <Card className={className}>
@@ -34,8 +34,9 @@ const QuoteSection: React.FC<{ quote: { text: Record<'en' | 'id', string>; autho
 };
 
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function ServiceDetailPage() {
+  const params = useParams();
+  const slug = params.slug as string;
   const { t } = useLanguage();
   const service = services.find((s) => s.id === slug);
 
