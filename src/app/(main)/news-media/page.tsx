@@ -4,7 +4,8 @@ import Link from 'next/link';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Rss, Megaphone } from 'lucide-react';
+import { Rss, Megaphone, Youtube, Newspaper } from 'lucide-react';
+import PageTitle from '@/components/shared/PageTitle';
 
 export const metadata = {
   title: 'News & Media - Altruva',
@@ -13,86 +14,98 @@ export const metadata = {
 
 const pressFeatures = [
   {
-    name: 'Vogue',
+    publication: 'Fimela',
+    title: 'Jelang Usia 40 Tahun, Atiqah Hasiholan Lakukan Filler Rejuvenation Cocktail untuk Perawatan Wajah',
+    link: 'https://www.fimela.com/amp/4592983/jelang-usia-40-tahun-atiqah-hasiholan-lakukan-filler-rejuvenation-cocktail-untuk-perawatan-wajah',
     logo: 'https://placehold.co/150x50.png',
-    link: '#',
-    description: "The Future of Aesthetics: Altruva's Regenerative Approach",
-    hint: 'vogue logo'
+    hint: 'Fimela logo',
+    type: 'article'
   },
   {
-    name: "Harper's Bazaar",
+    publication: 'Liputan6',
+    title: 'Jelang Usia Kepala 4, Atiqah Hasiholan Lirik Filler Sambil Tetap Cintai Buah dan Sayur',
+    link: 'https://www.liputan6.com/showbiz/read/4590906/jelang-usia-kepala-4-atiqah-hasiholan-lirik-filler-sambil-tetap-cintai-buah-dan-sayur',
     logo: 'https://placehold.co/150x50.png',
-    link: '#',
-    description: 'A Sanctuary of Science and Beauty in the City',
-    hint: 'harpers bazaar logo'
+    hint: 'Liputan6 logo',
+    type: 'article'
   },
   {
-    name: 'Elle',
+    publication: 'Stylo Grid',
+    title: 'Pilihan Perawatan Wajah Bopeng (Acne Scar) di Klinik Kecantikan dengan Biostimulator Filler dan Picolaser serta Chemical Peeling',
+    link: 'https://stylo.grid.id/amp/142758372/pilihan-perawatan-wajah-bopeng-acne-scar-di-klinik-kecantikan-dengan-biostimulator-filler-dan-picolaser-serta-chemical-peeling?page=all',
     logo: 'https://placehold.co/150x50.png',
-    link: '#',
-    description: 'Why Non-Invasive Treatments Are The New Go-To',
-    hint: 'elle logo'
+    hint: 'Stylo Grid logo',
+    type: 'article'
   },
   {
-    name: 'Tatler',
+    publication: 'Antara News',
+    title: 'Mengatasi kulit kendur dengan filler yang tepat',
+    link: 'https://m.antaranews.com/amp/berita/2231398/mengatasi-kulit-kendur-dengan-filler-yang-tepat',
     logo: 'https://placehold.co/150x50.png',
-    link: '#',
-    description: "Inside Jakarta's Most Exclusive Aesthetic Clinic",
-    hint: 'tatler logo'
-  },
-];
-
-const latestNews = [
-  {
-    id: '1',
-    title: 'Altruva Introduces the New "Liquid Gold" Treatment',
-    date: 'July 15, 2024',
-    excerpt: 'We are thrilled to announce our latest innovation in regenerative skincare, a treatment designed to deeply nourish and restore your skin\'s natural radiance from within.',
-    imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'glowing skincare product',
-  },
-  {
-    id: '2',
-    title: 'Dr. Evelyn Reed to Speak at Global Aesthetics Conference',
-    date: 'June 28, 2024',
-    excerpt: 'Our lead practitioner, Dr. Evelyn Reed, has been invited to share her insights on the future of non-surgical facelifts at the upcoming Global Aesthetics Conference in Geneva.',
-    imageSrc: 'https://placehold.co/600x400.png',
-    imageHint: 'professional conference presentation',
+    hint: 'Antara News logo',
+    type: 'article'
   },
 ];
 
 export default function NewsAndMediaPage() {
   return (
     <>
-      {/* Latest News Section */}
-      <SectionWrapper className="pt-24 md:pt-32">
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl font-bold text-primary">Latest From Altruva</h2>
-           <p className="text-lg text-foreground/80 mt-2">Stay informed about our new treatments, events, and clinic news.</p>
-        </div>
-        <div className="max-w-4xl mx-auto space-y-12">
-          {latestNews.map((item) => (
-            <Card key={item.id} className="grid md:grid-cols-2 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="relative w-full h-64 md:h-auto">
-                    <Image
-                        src={item.imageSrc}
-                        alt={item.title}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={item.imageHint}
-                    />
+      <SectionWrapper>
+        <PageTitle 
+          title="Altruva in the Media" 
+          subtitle="Discover what the press is saying about our innovative treatments and philosophy." 
+        />
+        
+        {/* YouTube Video Section */}
+        <Card className="mb-12 shadow-xl overflow-hidden">
+            <CardHeader>
+                <div className="flex items-center space-x-3">
+                    <Youtube className="h-8 w-8 text-red-600"/>
+                    <CardTitle className="font-serif text-2xl text-primary">Filler Rejuvenation Cocktail for Atiqah Hasiholan</CardTitle>
                 </div>
-                <div className="flex flex-col p-6">
-                    <CardHeader className="p-0 mb-4">
-                        <CardDescription className="text-sm text-muted-foreground">{item.date}</CardDescription>
-                        <CardTitle className="font-serif text-2xl text-primary leading-tight">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-0 flex-grow">
-                        <p className="text-foreground/80">{item.excerpt}</p>
-                    </CardContent>
-                    <div className="mt-6">
-                        <Button variant="link" className="p-0 text-primary">Read More</Button>
+                <CardDescription>Watch the feature on Fimela com</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <div className="aspect-video w-full rounded-lg overflow-hidden">
+                    <iframe
+                        className="w-full h-full"
+                        src="https://www.youtube.com/embed/T6WsQB8FEBw"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            </CardContent>
+        </Card>
+        
+        {/* Press Articles Section */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {pressFeatures.map((feature, index) => (
+            <Card key={index} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                    <div className="flex items-center space-x-3 mb-2">
+                         <Newspaper className="h-6 w-6 text-accent"/>
+                        <h3 className="font-bold text-lg text-primary">{feature.publication}</h3>
                     </div>
+                    <CardTitle className="font-serif text-xl leading-tight h-20">{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                     <Image
+                        src={feature.logo}
+                        alt={`${feature.publication} logo`}
+                        width={120}
+                        height={40}
+                        className="object-contain"
+                        data-ai-hint={feature.hint}
+                    />
+                </CardContent>
+                <div className="p-6 pt-0">
+                    <Button asChild className="w-full font-semibold">
+                        <Link href={feature.link} target="_blank" rel="noopener noreferrer">
+                            Read More
+                        </Link>
+                    </Button>
                 </div>
             </Card>
           ))}
