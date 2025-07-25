@@ -9,13 +9,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const openingHours = [
+    { day: { en: 'Tuesday', id: 'Selasa' }, hours: '10.00 am–6.00 pm' },
+    { day: { en: 'Wednesday', id: 'Rabu' }, hours: '10.00 am–6.00 pm' },
     { day: { en: 'Thursday', id: 'Kamis' }, hours: '10.00 am–6.00 pm' },
     { day: { en: 'Friday', id: 'Jumat' }, hours: '10.00 am–6.00 pm' },
     { day: { en: 'Saturday', id: 'Sabtu' }, hours: '10.00 am–6.00 pm' },
     { day: { en: 'Sunday', id: 'Minggu' }, hours: '9.00 am–5.00 pm' },
     { day: { en: 'Monday', id: 'Senin' }, hours: { en: 'Closed', id: 'Tutup' } },
-    { day: { en: 'Tuesday', id: 'Selasa' }, hours: '10.00 am–6.00 pm' },
-    { day: { en: 'Wednesday', id: 'Rabu' }, hours: '10.00 am–6.00 pm' },
   ];
 
   return (
