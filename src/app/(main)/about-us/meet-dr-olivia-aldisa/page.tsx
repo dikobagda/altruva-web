@@ -5,35 +5,71 @@ import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Award, BookOpen, Mic, Star, CheckCircle } from 'lucide-react';
+import { Award, BookOpen, Mic, Star, CheckCircle, Briefcase, GraduationCap, Target, Eye, Lightbulb } from 'lucide-react';
 
 export const metadata = {
-  title: 'Meet dr. Olivia Aldisa - Altruva Aesthetic Clinic',
-  description: 'Learn about dr. Olivia Aldisa, a leading expert in regenerative aesthetics, international KOL, and the founder of Altruva.',
+  title: 'Meet dr. Olivia Aldisa, dipl. AAAM - Altruva Aesthetic Clinic',
+  description: 'Learn about dr. Olivia Aldisa, a leading expert in non-surgical profiloplasty, international KOL, and the founder of Altruva.',
 };
 
-const credentials = [
+const keyExpertise = [
   {
     Icon: Star,
-    title: 'Founder & Medical Director',
-    description: 'The visionary behind Altruva, shaping its philosophy of regenerative, patient-centric care.',
+    title: 'Non-Surgical Profiloplasty Expert',
+    description: 'Specializes in fillers, botox, and ultherapy to achieve balanced and natural facial harmony.',
   },
   {
     Icon: Award,
     title: 'International KOL & Trainer',
-    description: 'A globally recognized Key Opinion Leader for technologies like Sofwave™ and Gouri™.',
+    description: 'A globally recognized Key Opinion Leader and trainer for cutting-edge technologies like CoolSculpting®.',
   },
   {
-    Icon: Mic,
-    title: 'Finalist at AMWC Monaco 2024',
-    description: 'Acknowledged for excellence in Non-Surgical Body Shaping on a global stage.',
+    Icon: Briefcase,
+    title: 'Experienced Head Doctor & Founder',
+    description: 'Previously led award-winning clinics and now brings her vision to life with her own brand, Altruva.',
   },
   {
     Icon: BookOpen,
     title: 'Regenerative Aesthetics Pioneer',
-    description: 'Expert in advanced protocols including Polynucleotides, Biostimulators, and Micrograft technology.',
+    description: 'Combines global technology with the beauty of Indonesian heritage for unique, effective treatments.',
   },
 ];
+
+const education = [
+    { degree: "Doctor of Medicine (MD)", university: "Universitas Padjadjaran", years: "2006 - 2012" },
+    { degree: "Master's Degree, Business & Management", university: "Universitas Pelita Harapan", years: "2017 - 2019" },
+    { degree: "Diploma in Aesthetic Medicine", university: "American Academy of Aesthetic Medicine", years: "International" },
+];
+
+const experiences = [
+    { role: "CoolSculpting Medical Trainer", years: "2022 - Present" },
+    { role: "Head Doctor - QuickGlam Clinic Kemang", years: "2023 - Present" },
+    { role: "Scientific Researcher", years: "2021 - Present" },
+    { role: "Head Doctor - De Vie Medical Aesthetics", years: "2021 - 2023" },
+    { role: "Medical Doctor - Jakarta Aesthetic Clinic", years: "2015 - 2021" },
+    { role: "Medical Doctor - Impressions Aesthetic Clinic", years: "2013 - 2015" },
+];
+
+const certifications = [
+  "Train The Trainer CoolSculpting - Allergan",
+  "Cadaver Joint Research - Merz Aesthetics",
+  "CoolSculpting Education Bangkok - Allergan",
+  "Facial Aesthetic Master Class Beverly Hills 2019 - Galderma",
+  "Non-Surgical Symposium Sydney 2019 - Australasian Society of Aesthetic Plastic Surgeons",
+  "Ultherapy University (Phase I & II) - Merz Aesthetics",
+  "Train The Trainer (Obesity Management) - PT. Soho Industri Pharmasi",
+  "MERZ Expert Summit Copenhagen, Denmark - Merz Aesthetics",
+  "IMCAS Asia Bangkok 2018 & 2017 - IMCAS",
+  "MD Codes (Unlocking The Code to Lower Face Harmonization) - Allergan",
+  "AMWC ASIA Taiwan 2018 - EuroMediCom",
+  "Facial Anatomy Master Class Bangkok - Mahidol University",
+  "CoolSculpting University Bangkok - ZELTIQ",
+  "Member of American Academy of Aesthetic Medicine - International",
+  "International Master Course on Aging Science (IMCAS) World Congress - Paris, 2023",
+  "Beauty Through Science (BTS) Congress - Stockholm, 2022",
+  "Advanced Filler Techniques - UMA Academy, Netherlands, 2022"
+];
+
 
 export default function MeetTheDoctorPage() {
   return (
@@ -43,20 +79,21 @@ export default function MeetTheDoctorPage() {
           <div className="relative aspect-square md:aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
           <Image
               src="/images/draldisa.png"
-              alt="Promotional image for AI Skin Analysis showing a woman's profile with text overlay"
+              alt="dr. Olivia Aldisa, Founder of Altruva"
               width={500}
               height={500}
               className="rounded-lg shadow-xl object-cover"
+              priority
             />
           </div>
           <div className="space-y-6">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary">dr. Olivia Aldisa</h1>
-            <h2 className="text-xl font-semibold text-accent">Founder of Altruva, Global KOL & Regenerative Aesthetics Expert</h2>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary">dr. Olivia Aldisa, dipl. AAAM</h1>
+            <h2 className="text-xl font-semibold text-accent">A Rising Star in Indonesia’s Aesthetics Medicine</h2>
             <p className="text-lg text-foreground/80">
-              Dr. Olivia Aldisa is a distinguished medical professional at the forefront of regenerative and aesthetic medicine. With a philosophy centered on enhancing natural beauty through scientific innovation, she has established Altruva as a sanctuary for those seeking authentic, long-term results.
+              Known for her perfect balance of medical-scientific knowledge and artistic forte, dr. Olivia Aldisa is an expert in non-surgical profiloplasty. As an experienced senior doctor and a Key Opinion Leader, she specializes in cutting-edge treatments that combine global technology with the beauty of Indonesian heritage.
             </p>
             <p className="text-foreground/80">
-              Her approach goes beyond temporary fixes, focusing instead on rebuilding and revitalizing the skin and facial structures from a cellular level. Dr. Aldisa is not just a practitioner; she is an educator and a pioneer, committed to advancing the field and empowering her patients with knowledge and confidence.
+              After years as a trainer for an award-winning clinic, Dr. Aldisa is now channeling her expertise into her own brand, Altruva, to provide a uniquely personalized and artistic aesthetic journey for every patient.
             </p>
             <Button asChild size="lg">
               <Link href="/book-appointment">Book a Consultation with Dr. Aldisa</Link>
@@ -67,11 +104,38 @@ export default function MeetTheDoctorPage() {
 
       <SectionWrapper>
         <PageTitle
-          title="Expertise & Philosophy"
+          title="Vision & Mission"
+          subtitle="A philosophy rooted in artistry, expertise, and personalized care."
+        />
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="shadow-lg">
+                <CardHeader className="flex flex-row items-center space-x-4">
+                    <Eye className="w-10 h-10 text-accent" />
+                    <CardTitle className="font-serif text-2xl text-primary">Our Vision</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-foreground/80">To be a leading aesthetic clinic known for a harmonious balance of medical-scientific knowledge and artistic forte in every non-surgical treatment.</p>
+                </CardContent>
+            </Card>
+            <Card className="shadow-lg">
+                <CardHeader className="flex flex-row items-center space-x-4">
+                    <Target className="w-10 h-10 text-accent" />
+                    <CardTitle className="font-serif text-2xl text-primary">Our Mission</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-foreground/80">To provide the best experience in our patients' aesthetics journey through expertise, artistic flare, and personalized treatments based on their unique ethno-beauty.</p>
+                </CardContent>
+            </Card>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper id="key-expertise" className="bg-secondary/30">
+        <PageTitle
+          title="Key Expertise"
           subtitle="A commitment to science, artistry, and patient-centric care."
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {credentials.map((cred) => (
+          {keyExpertise.map((cred) => (
             <Card key={cred.title} className="text-center shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary text-primary-foreground rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -87,24 +151,62 @@ export default function MeetTheDoctorPage() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper id="video-feature" className="bg-secondary/30">
+       <SectionWrapper id="career-highlights">
         <PageTitle
-          title="Dr. Aldisa in Action"
-          subtitle="Watch Dr. Aldisa discuss Menopause Awareness."
+          title="Medical Career Highlights"
+          subtitle="A journey of continuous learning and leadership in aesthetic medicine."
         />
-        <div className="max-w-4xl mx-auto">
-          <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-2xl">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/wBDINWzOPXM"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
+        <div className="grid lg:grid-cols-2 gap-12">
+            <Card className="shadow-lg">
+                <CardHeader>
+                    <CardTitle className="flex items-center font-serif text-2xl text-primary"><GraduationCap className="mr-3" />Education</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ul className="space-y-4">
+                        {education.map(edu => (
+                            <li key={edu.degree}>
+                                <p className="font-semibold text-lg text-foreground">{edu.degree}</p>
+                                <p className="text-muted-foreground">{edu.university} ({edu.years})</p>
+                            </li>
+                        ))}
+                    </ul>
+                </CardContent>
+            </Card>
+            <Card className="shadow-lg">
+                <CardHeader>
+                    <CardTitle className="flex items-center font-serif text-2xl text-primary"><Briefcase className="mr-3" />Experience</CardTitle>
+                </CardHeader>
+                <CardContent>
+                     <ul className="space-y-4">
+                        {experiences.map(exp => (
+                            <li key={exp.role}>
+                                <p className="font-semibold text-lg text-foreground">{exp.role}</p>
+                                <p className="text-muted-foreground">{exp.years}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </CardContent>
+            </Card>
         </div>
-      </SectionWrapper>
+        <div className="mt-12">
+            <Card className="shadow-lg">
+                 <CardHeader>
+                    <CardTitle className="flex items-center font-serif text-2xl text-primary"><Award className="mr-3" />Licenses & Certifications</CardTitle>
+                    <CardDescription>Committed to global standards and continuous professional development.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
+                       {certifications.map(cert => (
+                            <li key={cert} className="flex items-start">
+                                <CheckCircle className="h-5 w-5 text-accent mr-2 mt-1 shrink-0" />
+                                <span className="text-foreground/80">{cert}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </CardContent>
+            </Card>
+        </div>
+       </SectionWrapper>
       
       <SectionWrapper className="bg-primary text-primary-foreground">
         <div className="text-center max-w-2xl mx-auto">
@@ -120,3 +222,5 @@ export default function MeetTheDoctorPage() {
     </>
   );
 }
+
+    
