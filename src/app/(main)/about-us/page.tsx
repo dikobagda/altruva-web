@@ -25,10 +25,10 @@ export default function AboutUsPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="/images/filosofi.jpg"
+              src="/images/filosofi2.jpg"
               alt="Altruva's Philosophy"
               fill
-              className="object-contain"
+              className="object-cover"
             />
           </div>
           <div className="space-y-6">
@@ -100,7 +100,7 @@ export default function AboutUsPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="https://placehold.co/600x450.png"
+              src="/images/altruva-face.jpg"
               alt="Aesthetic professional consulting with a client"
               fill
               className="object-cover"

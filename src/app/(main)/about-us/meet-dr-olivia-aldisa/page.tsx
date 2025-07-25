@@ -6,6 +6,13 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Award, BookOpen, Mic, Star, CheckCircle, Briefcase, GraduationCap, Target, Eye, Lightbulb } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export const metadata = {
   title: 'Meet dr. Olivia Aldisa, dipl. AAAM - Altruva Aesthetic Clinic',
@@ -206,6 +213,34 @@ export default function MeetTheDoctorPage() {
         </div>
        </SectionWrapper>
       
+      <SectionWrapper className="bg-secondary/30">
+        <PageTitle title="Dr. Aldisa in Action" />
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-3xl mx-auto"
+        >
+          <CarouselContent>
+            <CarouselItem>
+              <div className="aspect-video w-full rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/DrqIbRAHoYw"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </SectionWrapper>
+
       <SectionWrapper className="bg-primary text-primary-foreground">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">Begin Your Regenerative Journey</h2>
