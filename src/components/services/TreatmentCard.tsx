@@ -5,46 +5,50 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import type { Service } from '@/lib/constants';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 interface TreatmentCardProps {
-  service: Service;
+  id: string;
+  title: string;
+  description: Record<'en' | 'id', string>;
+  price: string;
+  imageSrc: string;
+  imageHint: string;
 }
 
-export default function TreatmentCard({ service }: TreatmentCardProps) {
+export default function TreatmentCard({ id, title, description, price, imageSrc, imageHint }: TreatmentCardProps) {
   const { t } = useLanguage();
   
   return (
-    <Link href={`/services/${service.id}`} className="flex h-full">
-      <Card id={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">
+    <Link href={`/services/${id}`} className="flex h-full">
+      <Card id={id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">
         <div className="relative w-full aspect-video overflow-hidden">
           <Image
-            src={service.imageSrc}
-            alt={service.title}
+            src={imageSrc}
+            alt={title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            data-ai-hint={service.imageHint}
+            data-ai-hint={imageHint}
           />
         </div>
         <CardHeader>
           <div className="flex items-center space-x-3 mb-2">
-            <CardTitle className="font-serif text-2xl text-primary">{service.title}</CardTitle>
+            <CardTitle className="font-serif text-2xl text-primary">{title}</CardTitle>
           </div>
           <CardDescription className="text-foreground/70 h-20 overflow-hidden text-ellipsis"> 
-            {t(service.description)}
+            {t(description)}
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
-          {service.price.toLowerCase() !== 'price on consultation' ? (
+          {price.toLowerCase() !== 'price on consultation' ? (
             <div>
               <span className="text-xs font-normal text-muted-foreground">start from</span>
-              <p className="text-xl font-semibold text-accent">{service.price}</p>
+              <p className="text-xl font-semibold text-accent">{price}</p>
             </div>
           ) : (
-            <p className="text-lg font-semibold text-accent">{service.price}</p>
+            <p className="text-lg font-semibold text-accent">{price}</p>
           )}
         </CardContent>
         <CardFooter>

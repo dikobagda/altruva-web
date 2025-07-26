@@ -18,7 +18,15 @@ export default function ServicesPage() {
       <PageTitle title="Our Treatments" subtitle="Discover our comprehensive range of regenerative and aesthetic treatments, tailored to your unique needs." />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {services.map((service) => (
-          <TreatmentCard key={service.id} service={service} />
+          <TreatmentCard 
+            key={service.id}
+            id={service.id}
+            title={service.title}
+            description={service.description}
+            price={service.price}
+            imageSrc={service.imageSrc}
+            imageHint={service.imageHint}
+          />
         ))}
       </div>
       <div className="text-center">
