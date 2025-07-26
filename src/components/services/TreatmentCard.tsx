@@ -1,16 +1,21 @@
 
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import type { Service } from '@/lib/constants';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface TreatmentCardProps {
   service: Service;
 }
 
 export default function TreatmentCard({ service }: TreatmentCardProps) {
+  const { t } = useLanguage();
+  
   return (
     <Link href={`/services/${service.id}`} className="flex h-full">
       <Card id={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">
@@ -30,7 +35,7 @@ export default function TreatmentCard({ service }: TreatmentCardProps) {
             <CardTitle className="font-serif text-2xl text-primary">{service.title}</CardTitle>
           </div>
           <CardDescription className="text-foreground/70 h-20 overflow-hidden text-ellipsis"> 
-            {service.longDescription || service.description}
+            {t(service.longDescription || service.description)}
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
