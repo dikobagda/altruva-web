@@ -31,11 +31,10 @@ export default function TreatmentCard({ service }: TreatmentCardProps) {
         </div>
         <CardHeader>
           <div className="flex items-center space-x-3 mb-2">
-            {service.Icon && <service.Icon className="h-8 w-8 text-accent" />}
             <CardTitle className="font-serif text-2xl text-primary">{service.title}</CardTitle>
           </div>
           <CardDescription className="text-foreground/70 h-20 overflow-hidden text-ellipsis"> 
-            {t(service.longDescription || service.description)}
+            {t(service.description)}
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
