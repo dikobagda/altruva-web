@@ -58,7 +58,7 @@ export default function FlyerPage() {
   return (
     <>
       {/* Hero Section */}
-      <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center justify-center relative overflow-hidden">
+      <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://placehold.co/1200x800.png"
@@ -70,7 +70,7 @@ export default function FlyerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="relative z-20 text-center max-w-3xl p-4">
+        <div className="relative z-20 text-center max-w-3xl p-4 mx-auto">
           <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 text-shadow">
             {t({ en: 'Regenerative Aesthetics, Redefined.', id: 'Estetika Regeneratif, Didefinisikan Ulang.' })}
           </h1>
