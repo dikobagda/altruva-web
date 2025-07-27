@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { analyzeSkin, type SkinAnalysisInput, type SkinAnalysisOutput } from '@/ai/flows/skin-analysis';
+import { analyzeSkin, type SkinAnalysisInput, type SkinAnalysisOutput } from '@/app/(main)/skin-analysis/actions';
 import { Loader2, UploadCloud } from 'lucide-react';
 import Image from 'next/image';
 

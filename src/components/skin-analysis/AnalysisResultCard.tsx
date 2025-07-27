@@ -1,5 +1,5 @@
 
-import type { SkinAnalysisOutput } from '@/ai/flows/skin-analysis';
+import type { SkinAnalysisOutput } from '@/app/(main)/skin-analysis/actions';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';

@@ -6,7 +6,7 @@ import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import SkinAnalysisForm from '@/components/skin-analysis/SkinAnalysisForm';
 import AnalysisResultCard from '@/components/skin-analysis/AnalysisResultCard';
-import type { SkinAnalysisOutput } from '@/ai/flows/skin-analysis';
+import type { SkinAnalysisOutput } from '@/app/(main)/skin-analysis/actions';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Bot } from 'lucide-react';
 

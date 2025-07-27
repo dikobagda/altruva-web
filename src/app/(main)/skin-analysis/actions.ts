@@ -1,16 +1,21 @@
-
 'use server';
 /**
- * @fileOverview An AI agent for analyzing skin and providing personalized skincare recommendations.
+ * @fileOverview Server actions for the skin analysis feature.
  *
  * - analyzeSkin - A function that handles the skin analysis process.
  * - SkinAnalysisInput - The input type for the analyzeSkin function.
  * - SkinAnalysisOutput - The return type for the analyzeSkin function.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
-import { services } from '@/lib/constants';
+import {genkit, z} from 'genkit';
+import {googleAI} from '@genkit-ai/googleai';
+import {services} from '@/lib/constants';
+
+// Initialize Genkit AI instance within the server action file
+const ai = genkit({
+  plugins: [googleAI()],
+  model: 'googleai/gemini-2.0-flash',
+});
 
 const SkinAnalysisInputSchema = z.object({
   photoDataUri: z
@@ -18,32 +23,42 @@ const SkinAnalysisInputSchema = z.object({
     .describe(
       "A photo of the user's skin, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
     ),
-  skinConcerns: z.string().describe('A description of the user provided skin concerns.'),
+  skinConcerns: z
+    .string()
+    .describe('A description of the user provided skin concerns.'),
   questionnaireResponses: z
     .string()
-    .describe('The user provided responses to a skincare questionnaire.'),
+    .describe(
+      'The user provided responses to a skincare questionnaire.'
+    ),
 });
 export type SkinAnalysisInput = z.infer<typeof SkinAnalysisInputSchema>;
 
 const SkinAnalysisOutputSchema = z.object({
-  skinType: z.string().describe('The identified skin type (e.g., oily, dry, combination).'),
+  skinType: z
+    .string()
+    .describe('The identified skin type (e.g., oily, dry, combination).'),
   skinCondition: z
     .string()
-    .describe('The identified skin condition(s) (e.g., acne, rosacea, eczema).'),
+    .describe(
+      'The identified skin condition(s) (e.g., acne, rosacea, eczema).'
+    ),
   recommendations: z
     .string()
-    .describe('Personalized skincare recommendations based on the analysis.'),
+    .describe(
+      'Personalized skincare recommendations based on the analysis.'
+    ),
   suggestedTreatments: z
     .string()
-    .describe('Suitable treatments that address the user provided skin concerns. This should be a bulleted list of treatments from the provided list (e.g., "- Treatment Name").'),
+    .describe(
+      'Suitable treatments that address the user provided skin concerns. This should be a bulleted list of treatments from the provided list (e.g., "- Treatment Name").'
+    ),
 });
 export type SkinAnalysisOutput = z.infer<typeof SkinAnalysisOutputSchema>;
 
-export async function analyzeSkin(input: SkinAnalysisInput): Promise<SkinAnalysisOutput> {
-  return analyzeSkinFlow(input);
-}
-
-const altruvaServices = services.map(s => `- ${s.title}: ${s.description}`).join('\n');
+const altruvaServices = services
+  .map(s => `- ${s.title}: ${s.description}`)
+  .join('\n');
 
 const prompt = ai.definePrompt({
   name: 'skinAnalysisPrompt',
@@ -79,3 +94,9 @@ const analyzeSkinFlow = ai.defineFlow(
     return output!;
   }
 );
+
+export async function analyzeSkin(
+  input: SkinAnalysisInput
+): Promise<SkinAnalysisOutput> {
+  return analyzeSkinFlow(input);
+}

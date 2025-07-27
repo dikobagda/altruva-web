@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import SkinAnalysisForm from '@/components/skin-analysis/SkinAnalysisForm';
 import AnalysisResultCard from '@/components/skin-analysis/AnalysisResultCard';
-import type { SkinAnalysisOutput } from '@/ai/flows/skin-analysis';
+import type { SkinAnalysisOutput } from '@/app/(main)/skin-analysis/actions';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Bot, RefreshCw, Sparkles } from 'lucide-react'; // Added Sparkles
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
