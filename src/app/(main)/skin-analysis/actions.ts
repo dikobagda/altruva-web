@@ -68,6 +68,7 @@ export async function analyzeSkin(
     name: 'skinAnalysisPrompt',
     input: {schema: SkinAnalysisInputSchema},
     output: {schema: SkinAnalysisOutputSchema},
+    model: googleAI.model('gemini-pro'),
     prompt: `You are an expert dermatologist at Altruva Aesthetic Clinic, specializing in analyzing skin and providing personalized skincare recommendations.
 
 You will use the information provided to analyze the user's skin, identify any issues, and provide appropriate recommendations.
