@@ -70,7 +70,7 @@ export default function FlyerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="relative z-20 text-center max-w-3xl p-4 mx-auto">
+        <div className="relative z-20 text-center max-w-3xl mx-auto p-4">
           <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 text-shadow">
             {t({ en: 'Regenerative Aesthetics, Redefined.', id: 'Estetika Regeneratif, Didefinisikan Ulang.' })}
           </h1>
@@ -141,8 +141,35 @@ export default function FlyerPage() {
         </div>
       </SectionWrapper>
       
+       {/* Meet Dr. Aldisa Section */}
+      <SectionWrapper id="meet-the-doctor" className="bg-secondary/30">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
+                <Image
+                src="/images/draldisa_new.jpg"
+                alt={t({ en: "dr. Olivia Aldisa, Founder of Altruva", id: "dr. Olivia Aldisa, Pendiri Altruva"})}
+                fill
+                className="object-cover object-top"
+                />
+            </div>
+            <div className="space-y-4">
+                <h2 className="font-serif text-3xl font-bold text-primary">{t({ en: 'Meet dr. Olivia Aldisa', id: 'Temui dr. Olivia Aldisa' })}</h2>
+                <p className="text-lg font-semibold text-accent">{t({ en: "A Globally-Recognized Expert in Regenerative Aesthetics", id: "Seorang Ahli Estetika Regeneratif yang Diakui Secara Global"})}</p>
+                <p className="text-foreground/80">
+                {t({ 
+                    en: "Known for her perfect balance of medical-scientific knowledge and artistic forte, dr. Olivia Aldisa is an international Key Opinion Leader (KOL) and trainer for premier aesthetic technologies. She brings her vision for natural, regenerative results to life at Altruva.",
+                    id: "Dikenal karena keseimbangan sempurna antara pengetahuan medis-ilmiah dan keahlian artistiknya, dr. Olivia Aldisa adalah seorang Key Opinion Leader (KOL) internasional dan pelatih untuk teknologi estetika terkemuka. Dia mewujudkan visinya untuk hasil yang alami dan regeneratif di Altruva."
+                })}
+                </p>
+                <Button asChild variant="outline">
+                    <Link href="/about-us/meet-dr-olivia-aldisa">{t({ en: 'Learn More About Dr. Aldisa', id: 'Pelajari Lebih Lanjut Tentang Dr. Aldisa' })}</Link>
+                </Button>
+            </div>
+        </div>
+      </SectionWrapper>
+
       {/* Why Choose Altruva Section */}
-      <SectionWrapper id="why-choose" className="bg-secondary/30">
+      <SectionWrapper id="why-choose">
         <PageTitle
           title={t({ en: 'Why Choose Altruva?', id: 'Mengapa Memilih Altruva?' })}
           subtitle={t({ en: 'Your trust is our highest priority. We are committed to providing an exceptional experience.', id: 'Kepercayaan Anda adalah prioritas utama kami. Kami berkomitmen untuk memberikan pengalaman yang luar biasa.' })}
