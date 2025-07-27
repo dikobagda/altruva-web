@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/skin-analysis.ts';
+import '@/ai/dev-flows.ts';
