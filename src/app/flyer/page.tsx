@@ -29,7 +29,7 @@ export default function FlyerPage() {
       href: '/services/gorgeous-lyft-rejuvenation',
     },
     {
-      imageSrc: '/images/services/369harmony.png',
+      imageSrc: '/images/369.webp',
       imageHint: 'holistic skincare diagram',
       title: { en: '369 Harmony™', id: '369 Harmony™' },
       description: { en: 'Your intelligent, year-round roadmap to lasting beauty.', id: 'Peta jalan cerdas Anda sepanjang tahun menuju kecantikan abadi.' },
