@@ -15,21 +15,21 @@ export default function FlyerPage() {
 
   const featuredOfferings = [
     {
-      imageSrc: 'https://placehold.co/600x400.png',
+      imageSrc: '/images/services/art.webp',
       imageHint: 'ultrasound facelift',
       title: { en: 'A.R.T Lift PRO', id: 'A.R.T Lift PRO' },
       description: { en: 'Signature ultrasound lifting for deep, structural rejuvenation.', id: 'Pengangkatan ultrasound khas untuk peremajaan struktural yang mendalam.' },
       href: '/services/art-lyft',
     },
     {
-      imageSrc: 'https://placehold.co/600x400.png',
+      imageSrc: '/images/services/gorgeous-lift.jpg',
       imageHint: 'biostimulator injection',
       title: { en: 'Gorgeous Lyft by dr. Aldisa', id: 'Gorgeous Lyft oleh dr. Aldisa' },
       description: { en: 'Liquid collagen bio-activator for natural firmness and glow.', id: 'Bio-aktivator kolagen cair untuk kekencangan dan kilau alami.' },
       href: '/services/gorgeous-lyft-rejuvenation',
     },
     {
-      imageSrc: 'https://placehold.co/600x400.png',
+      imageSrc: '/images/services/369harmony.png',
       imageHint: 'holistic skincare diagram',
       title: { en: '369 Harmony™', id: '369 Harmony™' },
       description: { en: 'Your intelligent, year-round roadmap to lasting beauty.', id: 'Peta jalan cerdas Anda sepanjang tahun menuju kecantikan abadi.' },
@@ -61,7 +61,7 @@ export default function FlyerPage() {
       <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://placehold.co/1200x800.png"
+            src="/images/herobackground-new.png"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
             className="object-cover"
@@ -72,7 +72,7 @@ export default function FlyerPage() {
         </div>
         <div className="relative z-20 text-center max-w-3xl mx-auto p-4">
           <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 text-shadow">
-            {t({ en: 'Regenerative Aesthetics, Redefined.', id: 'Estetika Regeneratif, Didefinisikan Ulang.' })}
+            {t({ en: "Altruva — Jakarta's First Regenerative Contour Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
           </h1>
           <p className="text-lg md:text-xl text-foreground/90 mb-8 text-shadow-sm">
             {t({ en: 'Experience the art of aesthetic science at Altruva, where your unique beauty is enhanced, never changed.', id: 'Rasakan seni ilmu estetika di Altruva, di mana kecantikan unik Anda disempurnakan, bukan diubah.' })}
@@ -88,7 +88,7 @@ export default function FlyerPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
                 <Image
-                src="https://placehold.co/600x450.png"
+                src="/images/filosofi.jpg"
                 alt="serene clinic interior"
                 fill
                 className="object-cover"
