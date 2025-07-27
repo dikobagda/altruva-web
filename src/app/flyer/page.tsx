@@ -7,7 +7,7 @@ import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Star, Zap, Gem, ArrowRight } from 'lucide-react';
+import { Star, Zap, Gem, ArrowRight, ShieldCheck, Heart, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function FlyerPage() {
@@ -15,24 +15,45 @@ export default function FlyerPage() {
 
   const featuredOfferings = [
     {
-      Icon: Star,
+      imageSrc: 'https://placehold.co/600x400.png',
+      imageHint: 'ultrasound facelift',
       title: { en: 'A.R.T Lift PRO', id: 'A.R.T Lift PRO' },
       description: { en: 'Signature ultrasound lifting for deep, structural rejuvenation.', id: 'Pengangkatan ultrasound khas untuk peremajaan struktural yang mendalam.' },
       href: '/services/art-lyft',
     },
     {
-      Icon: Zap,
+      imageSrc: 'https://placehold.co/600x400.png',
+      imageHint: 'biostimulator injection',
       title: { en: 'Gorgeous Lyft by dr. Aldisa', id: 'Gorgeous Lyft oleh dr. Aldisa' },
       description: { en: 'Liquid collagen bio-activator for natural firmness and glow.', id: 'Bio-aktivator kolagen cair untuk kekencangan dan kilau alami.' },
       href: '/services/gorgeous-lyft-rejuvenation',
     },
     {
-      Icon: Gem,
+      imageSrc: 'https://placehold.co/600x400.png',
+      imageHint: 'holistic skincare diagram',
       title: { en: '369 Harmony™', id: '369 Harmony™' },
       description: { en: 'Your intelligent, year-round roadmap to lasting beauty.', id: 'Peta jalan cerdas Anda sepanjang tahun menuju kecantikan abadi.' },
       href: '/about-us/369-harmony',
     },
   ];
+
+  const whyChooseUs = [
+      {
+          Icon: Heart,
+          title: {en: "Expert-Led Care", id: "Perawatan oleh Ahli"},
+          description: {en: "Led by dr. Olivia Aldisa, an international KOL and expert in regenerative aesthetics.", id: "Dipimpin oleh dr. Olivia Aldisa, seorang KOL internasional dan ahli estetika regeneratif."},
+      },
+      {
+          Icon: ShieldCheck,
+          title: {en: "Advanced Technology", id: "Teknologi Canggih"},
+          description: {en: "We utilize only the latest, clinically-proven technologies for safe and effective treatments.", id: "Kami hanya menggunakan teknologi terbaru yang teruji secara klinis untuk perawatan yang aman dan efektif."},
+      },
+      {
+          Icon: Sparkles,
+          title: {en: "Natural Results", id: "Hasil Alami"},
+          description: {en: "Our philosophy is to enhance your unique beauty, not alter it. We believe in elegant, subtle outcomes.", id: "Filosofi kami adalah untuk menyempurnakan kecantikan unik Anda, bukan mengubahnya. Kami percaya pada hasil yang elegan dan halus."},
+      }
+  ]
 
   return (
     <>
@@ -51,7 +72,7 @@ export default function FlyerPage() {
         </div>
         <div className="relative z-20 text-center max-w-3xl p-4">
           <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 text-shadow">
-            {t({ en: 'Reveal Your Regenerative Beauty', id: 'Ungkap Kecantikan Regeneratif Anda' })}
+            {t({ en: 'Regenerative Aesthetics, Redefined.', id: 'Estetika Regeneratif, Didefinisikan Ulang.' })}
           </h1>
           <p className="text-lg md:text-xl text-foreground/90 mb-8 text-shadow-sm">
             {t({ en: 'Experience the art of aesthetic science at Altruva, where your unique beauty is enhanced, never changed.', id: 'Rasakan seni ilmu estetika di Altruva, di mana kecantikan unik Anda disempurnakan, bukan diubah.' })}
@@ -61,32 +82,83 @@ export default function FlyerPage() {
           </Button>
         </div>
       </SectionWrapper>
+      
+      {/* Philosophy Section */}
+       <SectionWrapper id="philosophy" className="bg-secondary/30">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
+                <Image
+                src="https://placehold.co/600x450.png"
+                alt="serene clinic interior"
+                fill
+                className="object-cover"
+                data-ai-hint="serene clinic interior"
+                />
+            </div>
+            <div className="space-y-4">
+                <h2 className="font-serif text-3xl font-bold text-primary">{t({ en: 'Our Philosophy', id: 'Filosofi Kami' })}</h2>
+                <p className="text-lg text-foreground/80">
+                {t({ 
+                    en: "True beauty is not about transformation, but revelation. We utilize the latest advancements in regenerative medicine and non-surgical treatments to work in harmony with your body, promoting cellular renewal and achieving authentic, lasting results.",
+                    id: "Kecantikan sejati bukan tentang transformasi, melainkan pengungkapan. Kami memanfaatkan kemajuan terbaru dalam pengobatan regeneratif dan perawatan non-bedah untuk bekerja selaras dengan tubuh Anda, mendorong pembaruan seluler dan mencapai hasil yang otentik dan tahan lama."
+                })}
+                </p>
+            </div>
+        </div>
+      </SectionWrapper>
 
       {/* Featured Offerings Section */}
       <SectionWrapper id="offerings">
         <PageTitle
-          title={t({ en: 'The Altruva Difference', id: 'Perbedaan Altruva' })}
-          subtitle={t({ en: 'Signature treatments designed for natural, elegant, and lasting results.', id: 'Perawatan khas yang dirancang untuk hasil yang alami, elegan, dan tahan lama.' })}
+          title={t({ en: 'Signature Treatments', id: 'Perawatan Khas' })}
+          subtitle={t({ en: 'Clinically-proven solutions designed for natural, elegant, and lasting results.', id: 'Solusi teruji klinis yang dirancang untuk hasil yang alami, elegan, dan tahan lama.' })}
         />
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {featuredOfferings.map((offering) => (
-            <Card key={t(offering.title)} className="text-center shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col">
-              <CardHeader className="flex-grow">
-                <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4">
-                  <offering.Icon className="w-8 h-8" />
+            <Card key={t(offering.title)} className="text-center shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden group">
+              <CardContent className="p-0 flex-grow">
+                <div className="relative aspect-video">
+                  <Image
+                    src={offering.imageSrc}
+                    alt={t(offering.title)}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={offering.imageHint}
+                  />
                 </div>
-                <CardTitle className="font-serif text-2xl text-primary">{t(offering.title)}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-foreground/80">{t(offering.description)}</p>
+                <div className="p-6">
+                    <CardTitle className="font-serif text-2xl text-primary mb-2">{t(offering.title)}</CardTitle>
+                    <p className="text-foreground/80">{t(offering.description)}</p>
+                </div>
               </CardContent>
-              <div className="p-6 pt-0">
+              <div className="p-6 pt-0 mt-auto">
                   <Button asChild variant="link" className="font-semibold text-primary">
                       <Link href={offering.href}>{t({ en: 'Learn More', id: 'Pelajari Lebih Lanjut' })} <ArrowRight className="ml-2 h-4 w-4" /></Link>
                   </Button>
               </div>
             </Card>
           ))}
+        </div>
+      </SectionWrapper>
+      
+      {/* Why Choose Altruva Section */}
+      <SectionWrapper id="why-choose" className="bg-secondary/30">
+        <PageTitle
+          title={t({ en: 'Why Choose Altruva?', id: 'Mengapa Memilih Altruva?' })}
+          subtitle={t({ en: 'Your trust is our highest priority. We are committed to providing an exceptional experience.', id: 'Kepercayaan Anda adalah prioritas utama kami. Kami berkomitmen untuk memberikan pengalaman yang luar biasa.' })}
+        />
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {whyChooseUs.map((item) => (
+                <div key={t(item.title)} className="text-center">
+                    <div className="flex justify-center mb-4">
+                        <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center">
+                           <item.Icon className="w-8 h-8"/>
+                        </div>
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-primary mb-2">{t(item.title)}</h3>
+                    <p className="text-foreground/80">{t(item.description)}</p>
+                </div>
+            ))}
         </div>
       </SectionWrapper>
 
