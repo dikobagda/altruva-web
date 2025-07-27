@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview Server actions for the skin analysis feature.
@@ -11,17 +12,11 @@ import {genkit, z} from 'genkit';
 import {googleAI} from '@genkit-ai/googleai';
 import {services} from '@/lib/constants';
 
-// Initialize Genkit AI instance within the server action file
-const ai = genkit({
-  plugins: [googleAI()],
-  model: 'googleai/gemini-2.0-flash',
-});
-
 const SkinAnalysisInputSchema = z.object({
   photoDataUri: z
     .string()
     .describe(
-      "A photo of the user's skin, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
+      "A photo of the user's skin, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'"
     ),
   skinConcerns: z
     .string()
@@ -57,14 +52,23 @@ const SkinAnalysisOutputSchema = z.object({
 export type SkinAnalysisOutput = z.infer<typeof SkinAnalysisOutputSchema>;
 
 const altruvaServices = services
-  .map(s => `- ${s.title}: ${s.description}`)
+  .map(s => `- ${s.title}: ${JSON.stringify(s.description)}`) // Pass description as a JSON string
   .join('\n');
 
-const prompt = ai.definePrompt({
-  name: 'skinAnalysisPrompt',
-  input: {schema: SkinAnalysisInputSchema},
-  output: {schema: SkinAnalysisOutputSchema},
-  prompt: `You are an expert dermatologist at Altruva Aesthetic Clinic, specializing in analyzing skin and providing personalized skincare recommendations.
+export async function analyzeSkin(
+  input: SkinAnalysisInput
+): Promise<SkinAnalysisOutput> {
+  // Initialize Genkit and define the prompt *inside* the server action
+  // to prevent it from running during the build process.
+  const ai = genkit({
+    plugins: [googleAI()],
+  });
+
+  const prompt = ai.definePrompt({
+    name: 'skinAnalysisPrompt',
+    input: {schema: SkinAnalysisInputSchema},
+    output: {schema: SkinAnalysisOutputSchema},
+    prompt: `You are an expert dermatologist at Altruva Aesthetic Clinic, specializing in analyzing skin and providing personalized skincare recommendations.
 
 You will use the information provided to analyze the user's skin, identify any issues, and provide appropriate recommendations.
 
@@ -81,22 +85,11 @@ Skin Concerns: {{{skinConcerns}}}
 Questionnaire Responses: {{{questionnaireResponses}}}
 
 Based on your analysis, provide the skin type, skin condition, general skincare recommendations, and a list of specific, suitable treatments from the Altruva services list above. For the suggested treatments, format them as a bulleted list (e.g., using '-').`,
-});
+  });
 
-const analyzeSkinFlow = ai.defineFlow(
-  {
-    name: 'analyzeSkinFlow',
-    inputSchema: SkinAnalysisInputSchema,
-    outputSchema: SkinAnalysisOutputSchema,
-  },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
+  const {output} = await prompt(input);
+  if (!output) {
+    throw new Error('Failed to get a response from the AI model.');
   }
-);
-
-export async function analyzeSkin(
-  input: SkinAnalysisInput
-): Promise<SkinAnalysisOutput> {
-  return analyzeSkinFlow(input);
+  return output;
 }
