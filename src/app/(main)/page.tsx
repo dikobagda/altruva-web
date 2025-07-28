@@ -74,7 +74,7 @@ export default function HomePage() {
             src="/images/model1.png"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
-            className="object-contain md:hidden"
+            className="object-cover object-right translate-y-1/4 md:hidden"
             data-ai-hint="elegant woman radiant skin"
             priority
           />
@@ -371,5 +371,7 @@ export default function HomePage() {
     </>
   );
 }
+
+    
 
     
