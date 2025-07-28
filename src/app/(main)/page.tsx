@@ -68,10 +68,9 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section
-        className="relative pt-28 md:pt-32 pb-20 md:pb-32 min-h-[50vh] flex items-center bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/herobackground-new.png')" }}
+        className="relative pt-28 md:pt-32 pb-20 md:pb-32 min-h-[50vh] flex items-center bg-cover bg-center bg-secondary/30 md:bg-[url('/images/herobackground-new.png')]"
       >
-        <div className="absolute inset-0 bg-black/30 z-0" data-ai-hint="dark overlay"></div>
+        <div className="absolute inset-0 bg-black/30 z-0 hidden md:block" data-ai-hint="dark overlay"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
