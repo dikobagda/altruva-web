@@ -72,13 +72,13 @@ export default function HomePage() {
         style={{ backgroundImage: "url('/images/herobackground-new.png')" }}
       >
         <div className="absolute inset-0 bg-black/30 z-0" data-ai-hint="dark overlay"></div>
-        <div className="container mx-auto px-20 md:px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
-              <h1 className="md:pl-8 font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
+              <h1 className="font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
                 {t({ en: "Altruva — Jakarta's First Regenerative Contour Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
               </h1>
-              <h4 className="md:pl-8 font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">
+              <h4 className="font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">
                 {t({ en: "Your Beauty, Future-Proofed", id: "Kecantikan Anda, Terjamin di Masa Depan" })}
               </h4>
               <Button
@@ -86,7 +86,7 @@ export default function HomePage() {
                 size="lg"
                 className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
               >
-                <Link className="md:ml-8" href="/book-appointment">{t({ en: 'Book an Appointment', id: 'Buat Janji Temu' })}</Link>
+                <Link href="/book-appointment">{t({ en: 'Book an Appointment', id: 'Buat Janji Temu' })}</Link>
               </Button>
             </div>
           </div>
