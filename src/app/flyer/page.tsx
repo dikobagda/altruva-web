@@ -73,7 +73,7 @@ export default function FlyerPage() {
         <div className="relative z-20 w-full">
             <div className="text-left max-w-3xl mx-auto p-4">
                 <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 text-shadow">
-                    {t({ en: "Altruva — Jakarta's First Regenerative Contour Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
+                    {t({ en: "Altruva — Jakarta’s 1st Regenerative Contouring Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
                 </h1>
                 <p className="text-lg md:text-xl text-foreground/90 mb-8 text-shadow-sm">
                     {t({ en: 'Experience the art of aesthetic science at Altruva, where your unique beauty is enhanced, never changed.', id: 'Rasakan seni ilmu estetika di Altruva, di mana kecantikan unik Anda disempurnakan, bukan diubah.' })}
@@ -148,7 +148,7 @@ export default function FlyerPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
                 <Image
-                    src="/images/draldisa_new.jpg"
+                    src="/images/draldisanew.jpg"
                     alt={t({ en: "dr. Olivia Aldisa, Founder of Altruva", id: "dr. Olivia Aldisa, Pendiri Altruva"})}
                     width={500}
                     height={625}
