@@ -27,7 +27,7 @@ export default function InsightCard({ insight }: InsightCardProps) {
           </div>
         )}
         <CardHeader>
-          <CardTitle className="font-serif text-xl text-primary leading-tight h-14 overflow-hidden">{insight.title}</CardTitle>
+          <CardTitle className="font-serif text-xl text-primary leading-tight min-h-14">{insight.title}</CardTitle>
            <div className="flex items-center text-sm text-muted-foreground pt-1">
              <CalendarDays className="h-4 w-4 mr-2" />
              <span>{insight.date}</span>
