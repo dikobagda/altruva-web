@@ -71,7 +71,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
            {/* Mobile Image */}
           <Image
-            src="/images/model1.png"
+            src="/images/model1-face.png"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
             className="object-cover object-right translate-y-1/4 md:hidden"
