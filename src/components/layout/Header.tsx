@@ -368,28 +368,24 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   
-  const selectedLanguage = languages.find(lang => lang.code === language) || languages[0];
-  
   useEffect(() => {
     setIsMounted(true);
   }, []);
+  
+  const selectedLanguage = languages.find(lang => lang.code === language) || languages[0];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    if (isMounted) {
-      window.addEventListener('scroll', handleScroll);
-      handleScroll(); // Call on mount to set initial state
-    }
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call on mount to set initial state
 
     return () => {
-      if (isMounted) {
-        window.removeEventListener('scroll', handleScroll);
-      }
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [isMounted]);
+  }, []);
 
 
   const toggleMobileMenu = () => {
@@ -404,7 +400,6 @@ export default function Header() {
 
 
   if (!isMounted) {
-    // To prevent hydration mismatch and ensure smooth client-side rendering of dynamic parts.
     return (
       <header className="absolute top-0 left-0 right-0 z-50 group">
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
@@ -519,3 +514,5 @@ export default function Header() {
     </header>
   );
 }
+
+    
