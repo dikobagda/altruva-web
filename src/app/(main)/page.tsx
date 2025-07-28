@@ -67,10 +67,28 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="relative pt-28 md:pt-32 pb-20 md:pb-32 min-h-[50vh] flex items-center bg-cover bg-center bg-secondary/30 md:bg-[url('/images/herobackground-new.png')]"
-      >
-        <div className="absolute inset-0 bg-black/30 z-0 hidden md:block" data-ai-hint="dark overlay"></div>
+      <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
+        <div className="absolute inset-0 z-0">
+           {/* Mobile Image */}
+          <Image
+            src="/images/model1.png"
+            alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
+            fill
+            className="object-cover md:hidden"
+            data-ai-hint="elegant woman radiant skin"
+            priority
+          />
+          {/* Desktop Image */}
+          <Image
+            src="/images/herobackground-new.png"
+            alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
+            fill
+            className="object-cover hidden md:block"
+            data-ai-hint="elegant woman radiant skin"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
+        </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
@@ -90,7 +108,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </SectionWrapper>
 
       {/* Intro Description Section */}
       <SectionWrapper className="bg-secondary/30">
@@ -353,3 +371,5 @@ export default function HomePage() {
     </>
   );
 }
+
+    
