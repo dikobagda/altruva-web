@@ -1,12 +1,19 @@
 
+'use client';
+
 import Link from 'next/link';
 import { Instagram, Facebook } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
+import { useState, useEffect } from 'react';
 
 export default function Footer() {
   const { t } = useLanguage();
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   const openingHours = [
     { day: { en: 'Tuesday', id: 'Selasa' }, hours: '10.00 am–6.00 pm' },
@@ -72,7 +79,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Altruva. {t({ en: 'All rights reserved.', id: 'Seluruh hak cipta dilindungi.' })}</p>
+          {currentYear && <p>&copy; {currentYear} Altruva. {t({ en: 'All rights reserved.', id: 'Seluruh hak cipta dilindungi.' })}</p>}
         </div>
       </div>
     </footer>

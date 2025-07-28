@@ -13,9 +13,11 @@ export default function FlyerLayout({
   children: React.ReactNode;
 }) {
   const [isLoading, setIsLoading] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    setIsMounted(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500); 
@@ -29,7 +31,7 @@ export default function FlyerLayout({
         <Preloader isLoading={isLoading} />
         <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
           <main className="flex-grow">{children}</main>
-          <Footer />
+          {isMounted && <Footer />}
         </div>
       </div>
     </LanguageProvider>
