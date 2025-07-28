@@ -29,7 +29,7 @@ export default function FlyerPage() {
       href: '/services/gorgeous-lyft-rejuvenation',
     },
     {
-      imageSrc: '/images/369.jpg',
+      imageSrc: '/images/369.webp',
       imageHint: 'holistic skincare diagram',
       title: { en: '369 Harmony™', id: '369 Harmony™' },
       description: { en: 'Your intelligent, year-round roadmap to lasting beauty.', id: 'Peta jalan cerdas Anda sepanjang tahun menuju kecantikan abadi.' },
@@ -58,8 +58,8 @@ export default function FlyerPage() {
   return (
     <>
       {/* Hero Section */}
-      <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30 md:bg-transparent">
+        <div className="absolute inset-0 z-0 hidden md:block">
           <Image
             src="/images/herobackground-new.png"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
@@ -72,10 +72,10 @@ export default function FlyerPage() {
         </div>
         <div className="relative z-20 w-full">
             <div className="text-left max-w-3xl mx-auto p-4">
-                <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 text-shadow">
-                    {t({ en: "Altruva — Jakarta’s 1st Regenerative Contouring Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
+                <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 md:text-shadow">
+                    {t({ en: "Altruva — Jakarta's First Regenerative Contour Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
                 </h1>
-                <p className="text-lg md:text-xl text-foreground/90 mb-8 text-shadow-sm">
+                <p className="text-lg md:text-xl text-foreground/90 mb-8 md:text-shadow-sm">
                     {t({ en: 'Experience the art of aesthetic science at Altruva, where your unique beauty is enhanced, never changed.', id: 'Rasakan seni ilmu estetika di Altruva, di mana kecantikan unik Anda disempurnakan, bukan diubah.' })}
                 </p>
                 <Button asChild size="lg">
