@@ -15,7 +15,7 @@ export default function FlyerPage() {
 
   const featuredOfferings = [
     {
-      imageSrc: '/images/services/softwave.jpg',
+      imageSrc: '/images/softwave.jpg',
       imageHint: 'ultrasound facelift',
       title: { en: 'A.R.T Lift by Sofwave', id: 'A.R.T Lift PRO' },
       description: { en: 'Signature ultrasound lifting for deep, structural rejuvenation.', id: 'Pengangkatan ultrasound khas untuk peremajaan struktural yang mendalam.' },
