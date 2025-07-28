@@ -33,7 +33,7 @@ export default function MainLayout({
         <Preloader isLoading={isLoading} />
         <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow pt-20">{children}</main>
           <Footer />
           <FloatingWhatsAppButton />
           <FloatingAISkinAnalysisButton />

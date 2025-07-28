@@ -376,7 +376,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -401,7 +401,7 @@ export default function Header() {
 
   if (!isMounted) {
     return (
-      <header className="absolute top-0 left-0 right-0 z-50 group">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background shadow-md">
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center space-x-2" prefetch={false}>
             <Image
@@ -412,7 +412,7 @@ export default function Header() {
             />
           </Link>
           <div className="md:hidden">
-            <Button variant="ghost" size="icon" aria-label="Toggle mobile menu" className="text-white group-hover:text-primary">
+            <Button variant="ghost" size="icon" aria-label="Toggle mobile menu" className="text-primary">
               <Menu className="h-6 w-6" />
             </Button>
           </div>
@@ -430,8 +430,8 @@ export default function Header() {
             "flex items-center space-x-1.5 h-auto transition-none",
             inMobileMenu
               ? "w-full justify-start px-2 py-1"
-              : "px-4 py-2 rounded-full bg-primary text-primary-foreground text-foreground/80 hover:bg-primary/10", // No hover change for desktop
-             !inMobileMenu && "border-none" // Explicitly no border for desktop
+              : "px-4 py-2 rounded-full bg-primary text-primary-foreground text-foreground/80 hover:bg-primary/10",
+             !inMobileMenu && "border-none"
           )}
         >
           <selectedLanguage.Icon className={cn("h-4 w-auto", !inMobileMenu && "text-primary-foreground" )} />
@@ -459,11 +459,9 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "top-0 left-0 right-0 z-50 transition-shadow duration-300 ease-in-out group",
-        isScrolled
-          ? "fixed bg-background shadow-lg" // Opaque background when scrolled
-          : "absolute group-hover:bg-background/80", // Semi-transparent on hover when not scrolled
-        isScrolled ? "bg-background" : "bg-transparent group-hover:bg-background/80"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
+        isScrolled ? "shadow-lg" : "shadow-none",
+        "bg-background"
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
@@ -488,9 +486,7 @@ export default function Header() {
 
         <div className="md:hidden">
           <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" 
-            className={cn(
-              isScrolled ? "text-primary" : "text-foreground/80 group-hover:text-primary"
-            )}
+            className={cn("text-primary")}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
