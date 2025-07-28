@@ -70,16 +70,18 @@ export default function FlyerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="relative z-20 text-center max-w-3xl mx-auto p-4">
-          <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 text-shadow">
-            {t({ en: "Altruva — Jakarta's First Regenerative Contour Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
-          </h1>
-          <p className="text-lg md:text-xl text-foreground/90 mb-8 text-shadow-sm">
-            {t({ en: 'Experience the art of aesthetic science at Altruva, where your unique beauty is enhanced, never changed.', id: 'Rasakan seni ilmu estetika di Altruva, di mana kecantikan unik Anda disempurnakan, bukan diubah.' })}
-          </p>
-          <Button asChild size="lg">
-            <Link href="/book-appointment">{t({ en: 'Book Your Consultation', id: 'Pesan Konsultasi Anda' })}</Link>
-          </Button>
+        <div className="relative z-20 w-full">
+            <div className="text-center max-w-3xl mx-auto p-4">
+                <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 text-shadow">
+                    {t({ en: "Altruva — Jakarta's First Regenerative Contour Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
+                </h1>
+                <p className="text-lg md:text-xl text-foreground/90 mb-8 text-shadow-sm">
+                    {t({ en: 'Experience the art of aesthetic science at Altruva, where your unique beauty is enhanced, never changed.', id: 'Rasakan seni ilmu estetika di Altruva, di mana kecantikan unik Anda disempurnakan, bukan diubah.' })}
+                </p>
+                <Button asChild size="lg">
+                    <Link href="/book-appointment">{t({ en: 'Book Your Consultation', id: 'Pesan Konsultasi Anda' })}</Link>
+                </Button>
+            </div>
         </div>
       </SectionWrapper>
       
@@ -146,10 +148,11 @@ export default function FlyerPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
                 <Image
-                src="/images/draldisa_new.jpg"
-                alt={t({ en: "dr. Olivia Aldisa, Founder of Altruva", id: "dr. Olivia Aldisa, Pendiri Altruva"})}
-                fill
-                className="object-cover object-top"
+                    src="/images/draldisa_new.jpg"
+                    alt={t({ en: "dr. Olivia Aldisa, Founder of Altruva", id: "dr. Olivia Aldisa, Pendiri Altruva"})}
+                    width={500}
+                    height={625}
+                    className="object-cover object-top"
                 />
             </div>
             <div className="space-y-4">
