@@ -71,7 +71,7 @@ export default function FlyerPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
         <div className="relative z-20 w-full">
-            <div className="text-center max-w-3xl mx-auto p-4">
+            <div className="max-w-3xl mx-auto p-4">
                 <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 text-shadow">
                     {t({ en: "Altruva — Jakarta's First Regenerative Contour Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
                 </h1>
