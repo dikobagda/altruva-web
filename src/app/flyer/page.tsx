@@ -22,7 +22,7 @@ export default function FlyerPage() {
       href: '/services/art-lyft',
     },
     {
-      imageSrc: '/images/services/gorgeous-lift.jpg',
+      imageSrc: '/images/gouri.jpg',
       imageHint: 'biostimulator injection',
       title: { en: 'Gorgeous Lyft by dr. Aldisa', id: 'Gorgeous Lyft oleh dr. Aldisa' },
       description: { en: 'Liquid collagen bio-activator for natural firmness and glow.', id: 'Bio-aktivator kolagen cair untuk kekencangan dan kilau alami.' },
