@@ -23,7 +23,7 @@ export default function TreatmentCard({ id, title, description, price, imageSrc,
   return (
     <Link href={`/services/${id}`} className="flex h-full">
       <Card id={id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">
-        <div className="relative w-full aspect-video overflow-hidden">
+        {/* <div className="relative w-full aspect-video overflow-hidden">
           <Image
             src={imageSrc}
             alt={title}
@@ -32,7 +32,7 @@ export default function TreatmentCard({ id, title, description, price, imageSrc,
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             data-ai-hint={imageHint}
           />
-        </div>
+        </div> */}
         <CardHeader>
           <div className="flex items-center space-x-3 mb-2">
             <CardTitle className="font-serif text-2xl text-primary">{title}</CardTitle>
