@@ -12,13 +12,12 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { handleSubmit } from './actions';
+import type { Metadata } from 'next';
 
-// Note: Metadata is typically handled on the server.
-// For dynamic metadata based on language, a different approach might be needed.
-// export const metadata = {
-//   title: 'Contact Us - Altruva',
-//   description: 'Get in touch with Altruva. Find our contact details, address, and send us a message.',
-// };
+export const metadata: Metadata = {
+  title: 'Contact Us - Altruva Aesthetic Clinic Jakarta',
+  description: 'Get in touch with Altruva Clinic. Find our contact details, address, opening hours, and send us a message to book your consultation.',
+};
 
 export default function ContactPage() {
   const { t } = useLanguage();
@@ -118,3 +117,5 @@ export default function ContactPage() {
     </>
   );
 }
+
+    

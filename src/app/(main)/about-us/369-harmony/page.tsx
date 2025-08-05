@@ -15,11 +15,12 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { useLanguage } from '@/context/LanguageContext';
+import type { Metadata } from 'next';
 
-// export const metadata = {
-//   title: '369 Harmony™ - Altruva Aesthetic Clinic',
-//   description: 'Discover the Altruva 369 Harmony Approach™, your intelligent, year-round beauty roadmap for natural, long-term rejuvenation.',
-// };
+export const metadata: Metadata = {
+  title: '369 Harmony™ Approach - Altruva Aesthetic Clinic',
+  description: 'Discover the Altruva 369 Harmony Approach™, your intelligent, year-round beauty roadmap for natural, long-term rejuvenation and graceful aging.',
+};
 
 export default function Harmony369Page() {
   const { t } = useLanguage();
@@ -273,5 +274,7 @@ export default function Harmony369Page() {
     </>
   );
 }
+
+    
 
     

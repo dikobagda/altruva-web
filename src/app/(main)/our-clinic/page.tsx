@@ -8,6 +8,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { CheckCircle, MapPin } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Clinic - A Sanctuary of Tranquility & Technology in Jakarta',
+  description: 'Explore Altruva Aesthetic Clinic in Jakarta, a welcoming and professional space designed for your comfort, privacy, and transformative results.',
+};
 
 export default function OurClinicPage() {
   const { t } = useLanguage();
@@ -172,3 +178,5 @@ export default function OurClinicPage() {
     </>
   );
 }
+
+    

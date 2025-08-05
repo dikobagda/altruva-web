@@ -19,8 +19,9 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Altruva - Aesthetic Clinic',
-  description: 'Welcome to Altruva, your partner in aesthetic transformations.',
+  title: 'Altruva Aesthetic Clinic - Regenerative Contouring in Jakarta',
+  description: 'Discover premier regenerative and aesthetic treatments at Altruva Clinic in Jakarta. Specializing in non-invasive procedures like Sofwave, EmSculpt Neo, and Gouri, led by dr. Olivia Aldisa.',
+  keywords: 'aesthetic clinic jakarta, klinik kecantikan, regenerative contouring, dr olivia aldisa, sofwave, emsculpt neo, gouri, facial, skin treatment',
   icons: {
     icon: '/altruva.ico',
   },
@@ -57,3 +58,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+    

@@ -9,6 +9,12 @@ import AnalysisResultCard from '@/components/skin-analysis/AnalysisResultCard';
 import type { SkinAnalysisOutput } from '@/app/(main)/skin-analysis/actions';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Bot } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'AI Skin Analysis - Personalized Skincare Recommendations | Altruva',
+  description: 'Upload a photo to get a free, AI-powered skin analysis. Receive personalized recommendations for products and treatments from Altruva Clinic.',
+};
 
 export default function SkinAnalysisPage() {
   const [analysisResult, setAnalysisResult] = useState<SkinAnalysisOutput | null>(null);
@@ -42,3 +48,5 @@ export default function SkinAnalysisPage() {
     </SectionWrapper>
   );
 }
+
+    
