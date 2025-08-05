@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Libre_Baskerville, Nunito_Sans } from 'next/font/google';
 import './globals.css';
@@ -20,7 +21,9 @@ const nunitoSans = Nunito_Sans({
 export const metadata: Metadata = {
   title: 'Altruva - Aesthetic Clinic',
   description: 'Welcome to Altruva, your partner in aesthetic transformations.',
-  // Removed placeholder favicon
+  icons: {
+    icon: '/altruva.ico',
+  },
 };
 
 export default function RootLayout({
