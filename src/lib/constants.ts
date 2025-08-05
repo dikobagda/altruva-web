@@ -882,7 +882,7 @@ export const services: Service[] = [
     price: '20,000,000 IDR',
     category: 'Prejuvenation',
     Icon: Zap,
-    imageSrc: '/images/services/sofwave-v2.png',
+    imageSrc: '/images/services/softwave-v2.png',
     imageHint: 'ultrasound facelift',
     group: 'Altruva Lift',
     groupDescription: { en: 'A sculpted face begins with structural integrity.', id: 'Wajah terpahat dimulai dengan integritas struktural.' },
