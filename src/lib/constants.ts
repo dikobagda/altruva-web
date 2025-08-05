@@ -3800,8 +3800,8 @@ export const insights: Insight[] = [
     id: 'lip-wrinkles-101',
     title: 'Kerutan Bibir Bikin 10 Tahun Lebih Tua? No way!',
     excerpt: 'Keriput bibir, yang kadang-kadang disebut garis bibir, garis lipstik, atau garis perokok, adalah garis vertikal kecil yang terbentuk di bibir orang dewasa yang lebih tua. Garis-garis ini terkenal sulit untuk disembunyikan. Daripada ditutupi terus-menerus, lebih baik kita bahas cara untuk memperbaikinya.',
-    imageSrc: '',
-    imageHint: '',
+    imageSrc: '/images/insights/lip-wrinkles.jpg',
+    imageHint: 'wrinkled lips',
     date: 'August 12, 2024',
     href: '/insights/lip-wrinkles-101',
     content: `
@@ -3821,8 +3821,8 @@ export const insights: Insight[] = [
     id: 'skin-barrier-101',
     title: 'Bagaimana Cara Kita Mengenali Sawar Kulit (Skin Barrier) yang Rusak',
     excerpt: 'Setelah bertahun-tahun mendongkrak pemakaian agen pengelupasan dan retinol, tren kecantikan terbaru yang tidak diragukan lagi adalah produk yang menyehatkan sawar kulit, yang membawa kita ke satu pertanyaan yang sangat penting: Apakah sawar kulit (skin barrier) itu?',
-    imageSrc: '',
-    imageHint: '',
+    imageSrc: '/images/insights/skin-barrier.jpg',
+    imageHint: 'damaged skin barrier',
     date: 'August 5, 2024',
     href: '/insights/skin-barrier-101',
     content: `
@@ -3843,8 +3843,8 @@ export const insights: Insight[] = [
     id: 'antioxidants-for-skin',
     title: 'Anti-oksidan untuk Kesehatan dan Kecantikan Kulit',
     excerpt: 'Antioksidan memerangi radikal bebas berbahaya untuk mengurangi garis-garis halus dan menjaga kulit tampil awet muda. Berikut kita akan membahas 5 antioksidan terbaik untuk perawatan kulit dan manfaatnya.',
-    imageSrc: '',
-    imageHint: '',
+    imageSrc: '/images/insights/antioxidants.jpg',
+    imageHint: 'healthy skin food',
     date: 'July 21, 2024',
     href: '/insights/antioxidants-for-skin',
     content: `
@@ -3885,13 +3885,13 @@ export const insights: Insight[] = [
     `
   },
   {
-    id: '4',
+    id: 'ai-skin-analysis-explained',
     title: 'Understanding Your Skin Type: An AI-Powered Approach',
     excerpt: 'Our AI Skin Analysis tool demystifies your unique skin needs. Find out how technology can guide you to your most effective skincare routine ever.',
-    imageSrc: '',
-    imageHint: '',
+    imageSrc: '/images/insights/ai-analysis.jpg',
+    imageHint: 'AI skin analysis',
     date: 'July 14, 2024',
-    href: '/insights/ai-skin-analysis',
+    href: '/insights/ai-skin-analysis-explained',
     content: `
       <h2>Personalization Through Technology</h2>
       <p>The one-size-fits-all approach to skincare is a thing of the past. To achieve the best results, you need to understand your skin's unique characteristics and concerns. Our AI Skin Analysis tool takes the guesswork out of the equation. By analyzing a photo of your skin and your answers to a brief questionnaire, our advanced algorithm can identify your skin type, detect underlying conditions, and provide personalized recommendations for both at-home products and in-clinic treatments. It's the first step toward a truly effective, data-driven skincare journey.</p>

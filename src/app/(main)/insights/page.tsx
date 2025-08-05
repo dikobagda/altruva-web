@@ -8,10 +8,11 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CalendarDays } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Insights - Altruva',
-  description: 'Explore the latest in aesthetic science, wellness, and beauty from the experts at Altruva.',
+export const metadata: Metadata = {
+  title: 'Aesthetic Science & Beauty Insights | Altruva Clinic Blog',
+  description: 'Explore the latest in aesthetic science, wellness, and beauty from the experts at Altruva Clinic in Jakarta. Your source for skincare tips and treatment information.',
 };
 
 export default function InsightsPage() {

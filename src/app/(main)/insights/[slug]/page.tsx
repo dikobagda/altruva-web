@@ -7,6 +7,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, CalendarDays } from 'lucide-react';
 import InsightCard from '@/components/insights/InsightCard';
+import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
   return insights.map((insight) => ({
@@ -14,7 +15,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const insight = insights.find((i) => i.href.endsWith(params.slug));
 
   if (!insight) {
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: `${insight.title} - Altruva Insights`,
     description: insight.excerpt,
+    keywords: insight.title.split(' ').concat(['Altruva', 'Aesthetic Clinic', 'dr. Olivia Aldisa']),
   };
 }
 
