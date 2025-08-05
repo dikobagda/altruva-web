@@ -51,7 +51,7 @@ export const services: Service[] = [
     price: 'Price on consultation',
     category: 'Facial',
     Icon: Sparkles,
-    imageSrc: '/images/services/porecleanfacial.jpg',
+    imageSrc: '/images/services/SignatureFacial.png',
     imageHint: 'deep pore cleansing',
     group: 'Signature Facials',
     groupDescription: {
@@ -798,7 +798,7 @@ export const services: Service[] = [
     price: 'Price on consultation',
     category: 'Prejuvenation',
     Icon: Zap,
-    imageSrc: '/images/services/scarSolver.png',
+    imageSrc: '/images/services/scarsolverv2.png',
     imageHint: 'acne scar treatment',
     group: 'Altruva Glow',
     groupDescription: {
@@ -1103,7 +1103,7 @@ export const services: Service[] = [
     price: '2,500,000 IDR',
     category: 'Prejuvenation',
     Icon: Droplets,
-    imageSrc: '/images/services/SlimContourInjection.webp',
+    imageSrc: '/images/services/slimcontourinjectionv2.webp',
     imageHint: 'facial contouring',
     group: 'Altruva Lift',
     groupDescription: { en: 'A sculpted face begins with structural integrity.', id: 'Wajah terpahat dimulai dengan integritas struktural.' },
@@ -1921,7 +1921,7 @@ export const services: Service[] = [
     price: '6,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Star,
-    imageSrc: '/images/services/YouthElixir.jpg',
+    imageSrc: '/images/services/YouthElixirv2.jpg',
     imageHint: 'advanced anti-aging',
     group: 'Altruva Glow',
     groupDescription: {
@@ -2467,7 +2467,7 @@ export const services: Service[] = [
     price: '9,000,000 IDR',
     category: 'Rejuvenation',
     Icon: Star,
-    imageSrc: '/images/services/regenerativerf.png',
+    imageSrc: '/images/services/ExionBody.jpg',
     imageHint: 'deep skin tightening',
     group: 'Altruva Lift',
     groupDescription: { en: 'Aging is an evolution. Let’s refine the process.', id: 'Penuaan adalah evolusi. Mari kita perbaiki prosesnya.' },
@@ -3059,7 +3059,7 @@ export const services: Service[] = [
     price: 'Price on consultation',
     category: 'Body',
     Icon: HeartPulse,
-    imageSrc: '/images/services/rf.png',
+    imageSrc: '/images/services/ExionBody.jpg',
     imageHint: 'rf body treatment',
     group: 'Body Contouring',
     groupDescription: {

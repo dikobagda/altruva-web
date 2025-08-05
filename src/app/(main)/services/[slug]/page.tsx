@@ -66,7 +66,7 @@ export default function ServiceDetailPage() {
           <div className="lg:col-span-2 space-y-8">
             <Card>
               <CardContent className="p-0">
-                 {/* <div className="relative aspect-video rounded-t-lg overflow-hidden">
+                  <div className="relative aspect-video rounded-t-lg overflow-hidden">
                     <Image
                       src={service.imageSrc}
                       alt={service.title}
@@ -75,7 +75,7 @@ export default function ServiceDetailPage() {
                       data-ai-hint={service.imageHint}
                       priority
                     />
-                  </div> */}
+                  </div>
                   <div className="p-6">
                     <h2 className="font-serif text-2xl text-primary mb-4">{t({en: "About This Treatment", id: "Tentang Perawatan Ini"})}</h2>
                     <div className="prose prose-lg max-w-none text-foreground/80" dangerouslySetInnerHTML={{ __html: t(service.longDescription || service.description) }} />
