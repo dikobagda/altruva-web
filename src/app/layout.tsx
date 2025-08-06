@@ -5,6 +5,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 import NextTopLoader from 'nextjs-toploader';
+import Script from 'next/script';
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   description: 'Discover premier regenerative and aesthetic treatments at Altruva Clinic in Jakarta. Specializing in non-invasive procedures like Sofwave, EmSculpt Neo, and Gouri, led by dr. Olivia Aldisa.',
   keywords: 'aesthetic clinic jakarta, klinik kecantikan, regenerative contouring, dr olivia aldisa, sofwave, emsculpt neo, gouri, facial, skin treatment',
   icons: {
-    icon: '/images/altruva.ico',
+    icon: '/altruva.ico',
   },
 };
 
@@ -54,9 +55,19 @@ export default function RootLayout({
         />
         {children}
         <Toaster />
+        
+        {/* Google Analytics */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-58LTL5Q4HE"></Script>
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'G-58LTL5Q4HE');
+          `}
+        </Script>
       </body>
     </html>
   );
 }
-
-    
