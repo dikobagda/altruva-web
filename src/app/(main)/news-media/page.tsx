@@ -9,12 +9,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Rss, Megaphone, Youtube, Newspaper } from 'lucide-react';
 import PageTitle from '@/components/shared/PageTitle';
 import { useLanguage } from '@/context/LanguageContext';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'News & Media Features - Altruva Aesthetic Clinic',
-  description: 'Stay updated with the latest news, press features, and media mentions for Altruva Aesthetic Clinic and our founder, dr. Olivia Aldisa.',
-};
 
 const pressFeatures = [
   {
@@ -91,5 +85,3 @@ export default function NewsAndMediaPage() {
     </>
   );
 }
-
-    

@@ -9,12 +9,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { CheckCircle, ShieldCheck, Zap, Diamond, Star, Heart } from 'lucide-react';
 import PageTitle from '@/components/shared/PageTitle';
 import { useLanguage } from '@/context/LanguageContext';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'About Altruva - Our Philosophy & Commitment to Natural Beauty',
-  description: 'Learn about Altruva\'s mission for personalized regenerative care, our expert team, and our commitment to natural, elegant results in Jakarta.',
-};
 
 export default function AboutUsPage() {
   const { t } = useLanguage();
@@ -126,5 +120,3 @@ export default function AboutUsPage() {
     </>
   );
 }
-
-    

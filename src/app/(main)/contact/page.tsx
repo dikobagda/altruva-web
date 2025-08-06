@@ -12,12 +12,6 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { handleSubmit } from './actions';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Contact Us - Altruva Aesthetic Clinic Jakarta',
-  description: 'Get in touch with Altruva Clinic. Find our contact details, address, opening hours, and send us a message to book your consultation.',
-};
 
 export default function ContactPage() {
   const { t } = useLanguage();
@@ -117,5 +111,3 @@ export default function ContactPage() {
     </>
   );
 }
-
-    
