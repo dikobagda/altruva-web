@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description: 'Discover premier regenerative and aesthetic treatments at Altruva Clinic in Jakarta. Specializing in non-invasive procedures like Sofwave, EmSculpt Neo, and Gouri, led by dr. Olivia Aldisa.',
   keywords: 'aesthetic clinic jakarta, klinik kecantikan, regenerative contouring, dr olivia aldisa, sofwave, emsculpt neo, gouri, facial, skin treatment',
   icons: {
-    icon: '/altruva.ico',
+    icon: '/images/altruva.ico',
   },
 };
 
