@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description: 'Discover premier regenerative and aesthetic treatments at Altruva Clinic in Jakarta. Specializing in non-invasive procedures like Sofwave, EmSculpt Neo, and Gouri, led by dr. Olivia Aldisa.',
   keywords: 'aesthetic clinic jakarta, klinik kecantikan, regenerative contouring, dr olivia aldisa, sofwave, emsculpt neo, gouri, facial, skin treatment',
   icons: {
-    icon: '/images/altruva.ico',
+    icon: '/altruva.ico',
   },
 };
 
@@ -57,8 +57,14 @@ export default function RootLayout({
         <Toaster />
         
         {/* Google Analytics */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-58LTL5Q4HE"></Script>
-        <Script id="google-analytics">
+        <Script 
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-58LTL5Q4HE"
+        />
+        <Script 
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

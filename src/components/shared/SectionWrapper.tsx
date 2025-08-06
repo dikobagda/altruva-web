@@ -1,5 +1,5 @@
 
-import type { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 interface SectionWrapperProps {
@@ -10,7 +10,7 @@ interface SectionWrapperProps {
   style?: React.CSSProperties; // Added style prop
 }
 
-export default function SectionWrapper({ children, className, as: Component = 'section', id, style }: SectionWrapperProps) {
+const SectionWrapper = React.memo(function SectionWrapper({ children, className, as: Component = 'section', id, style }: SectionWrapperProps) {
   return (
     <Component id={id} className={cn("py-12 md:py-20", className)} style={style}>
       <div className="container mx-auto px-4 md:px-6">
@@ -18,4 +18,7 @@ export default function SectionWrapper({ children, className, as: Component = 's
       </div>
     </Component>
   );
-}
+});
+
+SectionWrapper.displayName = 'SectionWrapper';
+export default SectionWrapper;

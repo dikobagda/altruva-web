@@ -1,4 +1,5 @@
 
+import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,7 @@ interface QuizResultCardProps {
   result: QuizResult;
 }
 
-export default function QuizResultCard({ result }: QuizResultCardProps) {
+const QuizResultCard = React.memo(function QuizResultCard({ result }: QuizResultCardProps) {
   return (
     <Card className="border-primary border-2 shadow-xl text-center">
       <CardHeader>
@@ -31,4 +32,7 @@ export default function QuizResultCard({ result }: QuizResultCardProps) {
       </CardFooter>
     </Card>
   );
-}
+});
+
+QuizResultCard.displayName = 'QuizResultCard';
+export default QuizResultCard;

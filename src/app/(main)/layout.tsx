@@ -19,13 +19,23 @@ export default function MainLayout({
   const pathname = usePathname();
 
   useEffect(() => {
-    // Hide preloader after a delay
-    const timer = setTimeout(() => {
+    // Let's rely on actual loading state rather than an arbitrary timer
+    const handleLoad = () => {
       setIsLoading(false);
-    }, 2000); // 2 seconds delay
+    };
 
-    return () => clearTimeout(timer);
-  }, [pathname]); // Rerun on path change
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      // Fallback timeout in case the load event is finicky
+      const timer = setTimeout(handleLoad, 500); 
+      return () => {
+        window.removeEventListener('load', handleLoad);
+        clearTimeout(timer);
+      };
+    }
+  }, [pathname]);
 
   return (
     <LanguageProvider>

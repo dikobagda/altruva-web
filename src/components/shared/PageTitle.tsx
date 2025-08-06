@@ -1,5 +1,5 @@
 
-import type { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 interface PageTitleProps {
@@ -8,7 +8,7 @@ interface PageTitleProps {
   className?: string;
 }
 
-export default function PageTitle({ title, subtitle, className }: PageTitleProps) {
+const PageTitle = React.memo(function PageTitle({ title, subtitle, className }: PageTitleProps) {
   return (
     <div className={cn("pt-8 mb-8 md:mb-12 text-center", className)}>
       <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-2 md:mb-3">
@@ -27,4 +27,7 @@ export default function PageTitle({ title, subtitle, className }: PageTitleProps
       )}
     </div>
   );
-}
+});
+
+PageTitle.displayName = 'PageTitle';
+export default PageTitle;

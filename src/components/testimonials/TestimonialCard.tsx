@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Testimonial } from '@/lib/constants';
 import { Star } from 'lucide-react';
@@ -10,7 +11,7 @@ interface TestimonialCardProps {
   className?: string;
 }
 
-export default function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
+const TestimonialCard = React.memo(function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
   const { t } = useLanguage();
   return (
     <Card className={cn("flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300", className)}>
@@ -35,4 +36,7 @@ export default function TestimonialCard({ testimonial, className }: TestimonialC
       </CardContent>
     </Card>
   );
-}
+});
+
+TestimonialCard.displayName = 'TestimonialCard';
+export default TestimonialCard;
