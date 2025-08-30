@@ -94,7 +94,7 @@ export default function HomePage() {
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="md:pr-8 leading-7 pt-32">
+            <div className="md:pr-8 leading-7">
               <h1 className="font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
                 {t({ en: "Altruva — Jakarta's First Regenerative Contouring Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
               </h1>
