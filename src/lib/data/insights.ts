@@ -1,3 +1,4 @@
+
 export interface Insight {
   id: string;
   title: string;
@@ -10,6 +11,56 @@ export interface Insight {
 }
 
 export const insights: Insight[] = [
+  {
+    id: 'pore-refining-system',
+    title: 'Pori-Pori Kulit: Normal, Penting, dan Cara Meredupkan Tampakannya',
+    excerpt: 'Pori-pori adalah struktur alami kulit yang penting. Kulit yang bercahaya dan sehat bukan hasil dari "menghapus" pori, melainkan menjaga agar tetap bersih dan kencang. Pelajari pendekatan holistik kami.',
+    imageSrc: '/images/insights/i5.png',
+    imageHint: 'refined skin pores',
+    date: 'August 15, 2024',
+    href: '/insights/pore-refining-system',
+    content: `
+      <h2>Mengapa Pori-Pori itu Justru Sehat, Bukan Musuh?</h2>
+      <p>Pori-pori adalah struktur alami kulit yang berperan sebagai akses keluar masuk sebum dan keringat. Komponen penting untuk menjaga kelembapan dan pertahanan kulit. Jadi, memiliki pori bukan aib, melainkan tanda kulit fungsional dan sehat.</p>
+      <p>Bahkan, tidak ada istilah medis yang sahih bernama "pore surgery". Meskipun istilah ini kerap digunakan di media untuk prosedur yang bertujuan mengecilkan pori, secara ilmiah tidak berarti operatif dan juga bersifat tidak sustainable, terutama dalam iklim tropis seperti Jakarta. Kulit yang bercahaya dan sehat bukan hasil dari "menghapus" pori, melainkan menjaga agar tetap bersih dan kencang, sesuai dengan fungsinya.</p>
+
+      <h2>Mengapa Kita Tidak Menginginkan “Pore Surgery”?</h2>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Pori adalah jalan kulit bernapas. Menutup atau menghilangkan secara agresif bisa mengganggu keseimbangan sebum dan iritasi.</li>
+        <li>Di iklim Jakarta yang lembab dan panas, kulit lebih cepat memproduksi minyak dan rentan kering mengalami rebound jika over-treated.</li>
+        <li>Prosedur seperti dermabrasion, ablative lasers, atau ekstraksi operatif memang bisa mengurangi tampilan pori, tapi memiliki risiko downtime panjang, iritasi, bahkan hiperpigmentasi yang tidak sustainable untuk banyak pasien lokal.</li>
+      </ul>
+      <p class="mt-4 font-semibold text-primary">Faktanya: Kita Tak Butuh “Pore Surgery,” Cukup Mentally Refine dengan Protokol Tepat</p>
+      <p>Di Altruva, kami mengembangkan Pore Refining System yang berfokus pada minimisasi tampilan pori dengan pendekatan holistik, bukan ekstrem. Pori-pori tidak bisa hilang, tapi tampilannya dapat diperkecil dengan:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li>Kontrol produksi sebum</li>
+          <li>Pembersihan mendalam (double cleansing, peel/eksfoliasi)</li>
+          <li>Stimulus kolagen (microneedling, peel, booster)</li>
+          <li>Teknologi medis seperti Red Light Therapy untuk menenangkan kulit dan memperbaiki tekstur</li>
+      </ul>
+
+      <h2>Apa Itu Pore Refining System di Altruva?</h2>
+      <p>Ritual eksklusif untuk hasil terlihat halus dan sehat tanpa menghilangkan fungsi pori:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li><strong>Pore-Clean Facial:</strong> pengangkatan sebum & debris secara menyeluruh</li>
+          <li><strong>Korean Luminous Peel:</strong> eksfoliasi lembut untuk tekstur lebih refine</li>
+          <li><strong>Exion Scar Solver:</strong> menyasar stimulasi kolagen untuk tampilan pori lebih rapat.</li>
+          <li><strong>Glacier Skinbooster:</strong> hidrasi dalam agar kulit tampak kenyal dan mengurangi produksi sebum.</li>
+          <li><strong>Red Light Therapy:</strong> menenangkan dan membantu proses penyembuhan.</li>
+      </ul>
+
+      <h2>Mengapa Ini Lebih Baik daripada “Pore Surgery”?</h2>
+       <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li><strong>Functional Beauty:</strong> Meminimalkan tampilan pori tanpa merusak fungsinya</li>
+          <li><strong>Aman dan Terukur:</strong> Bekerja secara bertahap dan maintenance-friendly</li>
+          <li><strong>Ideal untuk Iklim Tropis:</strong> Menghindari iritasi dan rebound oiliness</li>
+          <li><strong>Timeless, bukan trend:</strong> Kulit sehat, bukan sekadar filter</li>
+      </ul>
+
+      <h2>Penutup: Pori Itu Normal—Just Keep Them Looking Refined</h2>
+      <p>Pori-pori bukan untuk dihilangkan. Yang kita inginkan adalah kulit yang tampak halus, sehat, dan flawless secara natural. Dengan protokol seperti Altruva Pore Refining System, Anda dapat mencapai timeless beauty, secara realistis dan sustainable.</p>
+    `
+  },
   {
     id: 'lip-wrinkles-101',
     title: 'Kerutan Bibir Bikin 10 Tahun Lebih Tua? No way!',
