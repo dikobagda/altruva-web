@@ -15,7 +15,7 @@ export const insights: Insight[] = [
     id: 'pore-refining-system',
     title: 'Pori-Pori Kulit: Normal, Penting, dan Cara Meredupkan Tampakannya',
     excerpt: 'Pori-pori adalah struktur alami kulit yang penting. Kulit yang bercahaya dan sehat bukan hasil dari "menghapus" pori, melainkan menjaga agar tetap bersih dan kencang. Pelajari pendekatan holistik kami.',
-    imageSrc: '/images/insights/i5.png',
+    imageSrc: '/images/insights/i5.jpeg',
     imageHint: 'refined skin pores',
     date: 'August 15, 2024',
     href: '/insights/pore-refining-system',
