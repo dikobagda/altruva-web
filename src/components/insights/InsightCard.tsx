@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import type { Insight } from '@/lib/constants';
+import type { Insight } from '@/lib/data/insights';
 import { ArrowRight, CalendarDays } from 'lucide-react';
 
 interface InsightCardProps {

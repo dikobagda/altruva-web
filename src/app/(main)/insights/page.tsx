@@ -2,7 +2,7 @@
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import InsightCard from '@/components/insights/InsightCard';
-import { insights } from '@/lib/constants';
+import { insights } from '@/lib/data/insights';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';

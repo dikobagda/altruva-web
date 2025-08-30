@@ -1,7 +1,7 @@
 
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import type { GalleryImage } from '@/lib/constants';
+import type { GalleryImage } from '@/lib/data/gallery';
 
 interface GalleryItemProps {
   item: GalleryImage;

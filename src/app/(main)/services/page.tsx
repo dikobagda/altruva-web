@@ -3,7 +3,7 @@
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import TreatmentCard from '@/components/services/TreatmentCard';
-import { services } from '@/lib/constants';
+import { services } from '@/lib/data/services';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 

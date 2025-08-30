@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import type { QuizResult } from '@/lib/constants';
+import type { QuizResult } from '@/lib/data/quiz';
 
 interface QuizResultCardProps {
   result: QuizResult;

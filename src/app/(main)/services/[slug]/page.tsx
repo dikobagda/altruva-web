@@ -2,7 +2,7 @@
 
 import { notFound, useParams } from 'next/navigation';
 import Image from 'next/image';
-import { services } from '@/lib/constants';
+import { services } from '@/lib/data/services';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Microscope, Dna, Star, Layers, Info, BookOpen } from 'lucide-react';

@@ -7,7 +7,10 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import SectionWrapper from '@/components/shared/SectionWrapper';
-import { services, testimonials, aiAnalysisFeatures, insights } from '@/lib/constants';
+import { services } from '@/lib/data/services';
+import { testimonials } from '@/lib/data/testimonials';
+import { aiAnalysisFeatures } from '@/lib/data/ai-features';
+import { insights } from '@/lib/data/insights';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageTitle from '@/components/shared/PageTitle';
@@ -91,7 +94,7 @@ export default function HomePage() {
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="md:pr-8 leading-7">
+            <div className="md:pr-8 leading-7 pt-32">
               <h1 className="font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
                 {t({ en: "Altruva — Jakarta's First Regenerative Contouring Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
               </h1>

@@ -10,7 +10,7 @@
 
 import {genkit, z} from 'genkit';
 import {googleAI} from '@genkit-ai/googleai';
-import {services} from '@/lib/constants';
+import {services} from '@/lib/data/services';
 
 const SkinAnalysisInputSchema = z.object({
   photoDataUri: z

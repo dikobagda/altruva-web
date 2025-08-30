@@ -1,0 +1,114 @@
+export interface Insight {
+  id: string;
+  title: string;
+  excerpt: string;
+  imageSrc: string;
+  imageHint: string;
+  date: string;
+  href: string;
+  content?: string;
+}
+
+export const insights: Insight[] = [
+  {
+    id: 'lip-wrinkles-101',
+    title: 'Kerutan Bibir Bikin 10 Tahun Lebih Tua? No way!',
+    excerpt: 'Keriput bibir, yang kadang-kadang disebut garis bibir, garis lipstik, atau garis perokok, adalah garis vertikal kecil yang terbentuk di bibir orang dewasa yang lebih tua. Garis-garis ini terkenal sulit untuk disembunyikan. Daripada ditutupi terus-menerus, lebih baik kita bahas cara untuk memperbaikinya.',
+    imageSrc: '/images/insights/i1.png',
+    imageHint: 'wrinkled lips',
+    date: 'August 12, 2024',
+    href: '/insights/lip-wrinkles-101',
+    content: `
+      <p>By dr. Olivia Aldisa</p>
+      <h2>Penyebab Kerutan Bibir</h2>
+      <p>Kulit yang menua juga menghasilkan lebih sedikit minyak, yang dapat menyebabkan kekeringan kronis. Cuaca yang kering dan kurang minum air putih juga dapat memperparah hal ini. Penyebab utama lain dari garis bibir adalah paparan sinar matahari. Kulit di bibir Anda sangat halus dan sering kali tidak terlindungi. Paparan sinar ultraviolet matahari adalah penyebab utama penuaan dini. Proses ini disebut photoaging. Kerutan pada bibir atas sering disebabkan oleh rokok. Merokok menghasilkan radikal bebas dalam tubuh, yang berkontribusi terhadap penuaan dini. Gerakan menghisap rokok dapat menyebabkan kerutan pada bibir. Kerutan pada bibir juga dapat menyebabkan mengerucutkan bibir yang berhubungan dengan minum menggunakan sedotan atau ekspresi wajah yang berulang.</p>
+      
+      <h2>Mencegah Bibir Berkerut Sejak Dini</h2>
+      <p>Meskipun ada daftar panjang faktor yang harus dihindari, cara termudah untuk mencegah garis bibir adalah sebagai berikut: Jangan merokok (atau vape), hindari minum dari sedotan sebisa mungkin, tetap terhidrasi dan minum air putih minimal 2 liter sehari, hidrasi bibir dengan produk pelembab, terutama pelembab bibir yang mengandung tabir surya minimal SPF 30.</p>
+      
+      <h2>Treatment yang Tepat Untuk Bibir Berkerut</h2>
+      <p>Ada beberapa hal yang dapat Anda lakukan di rumah untuk memperbaiki tanda-tanda penuaan pada dan di sekitar mulut Anda. Krim dan serum yang merangsang produksi kolagen adalah awal yang baik. Gunakan terutama setiap malam sebelum tidur agar Anda dapat merasakan manfaatnya. Ada beberapa produk di pasaran yang mengklaim sebagai lip plumper, meskipun ini tidak akan membantu jika bibir Anda menipis dan berkerut selama bertahun-tahun. Apabila bibir Anda sudah terlanjur menunjukkan tanda-tanda kerutan, jangan panik. Treatment sedini mungkin dan tepat guna dapat memudarkan kerutan bibir Anda sebelum menjadi lebih dalam lagi. Dr. Aldisa akan memeriksa area sekitar bibir Anda secara menyeluruh tidak hanya di bibir saja. Hal ini akan sangat membantu tidak hanya bibir Anda tampak sehat, namun juga harmonis pada wajah Anda. Setelah itu, bibir Anda akan di-teratment sesuai dengan diagnosis dokter. Treatment Lip Flip untuk kerutan bibir ini bisa berupa atau kombinasi dari : neuromodulator (Botox) untuk merilekskan garis-garis halus di atas bibir Anda karena smoker’s line, lip dermal filllers yaitu penyuntikan produk asam hialuronat khusus bibir pada area yang membutuhkan. Treatment ini tidak hanya membuat bibir tampak segar dan mengisi garis-garis bibir, namun juga sekaligus melembabkannya. Yang terakhir, yaitu treatment mutakhir hanya dari dr. Aldisa yaitu “Inflammaging Savior”. Selain untuk kulit wajah, treatment ini juga sangat cocok sebagai penangkal kerutan di sekitar bibir. Terutama untuk para pemula yang belum berani untuk melakukan treatment injeksi.</p>
+      <p>Treatment ini menggunakan teknologi micro-infused microneedling dengan gawai tercanggih di kelasnya untuk membentuk saluran-saluran mikro di mana serum unik racikan dokter ahli yang mengandung 135 multi vitamin, mineral, dan anti-oksidan serta asam hialuronat akan meresap ke lapisan dermal kulit. Hasilnya, dalam 2-3 kali perawatan kerutan di sekitar bibir Anda akan memudar secara signifikan. Treatment ini juga dapat dikombinasikan dengan perawatan lainnya. Konsultasikan kebutuhan Anda kepada dr. Aldisa untuk segera tampil awet muda dengan bibir sehat bebas kerut!</p>
+    `
+  },
+  {
+    id: 'skin-barrier-101',
+    title: 'Bagaimana Cara Kita Mengenali Sawar Kulit (Skin Barrier) yang Rusak',
+    excerpt: 'Setelah bertahun-tahun mendongkrak pemakaian agen pengelupasan dan retinol, tren kecantikan terbaru yang tidak diragukan lagi adalah produk yang menyehatkan sawar kulit, yang membawa kita ke satu pertanyaan yang sangat penting: Apakah sawar kulit (skin barrier) itu?',
+    imageSrc: '/images/insights/i2.png',
+    imageHint: 'damaged skin barrier',
+    date: 'August 5, 2024',
+    href: '/insights/skin-barrier-101',
+    content: `
+      <p>By dr. Olivia Aldisa</p>
+      <h2>Apa itu Skin Barrier?</h2>
+      <p>Penghalang kulit, juga kadang-kadang disebut sebagai "sawar kelembaban" atau "mantel asam", adalah istilah yang digunakan untuk menggambarkan lapisan atas kulit Anda. Ketika kita berbicara tentang kulit, kulit memiliki tiga lapisan utama: epidermis, lapisan terluar dari kulit; dermis, lapisan tengah kulit yang mengandung kolagen, elastin, dan saraf kulit serta suplai darah; dan lemak subkutan yang membentuk lapisan antara kulit dan otot. Epidermis mengandung tiga jenis sel: Keratinosit—sel-sel ini sebenarnya membentuk apa yang Anda anggap sebagai “kulit” Anda. Mereka biasanya disebut sebagai batu bata, dengan minyak alami, ceramide, dan kolesterol menyediakan lem yang mengikat mereka bersama-sama ke dinding yang sebagian besar kedap air. Melanosit—sel-sel ini menghasilkan melanin. Melanin epidermis menyerap radiasi ultraviolet dan melindungi struktur di bawahnya dari kerusakan UV. Melanin juga memberikan warna kulit alami pada kulit. Sel Langerhan—ini adalah sel yang membantu kulit meningkatkan respons imun terhadap bakteri, jamur, dan virus. Sebagian besar referensi untuk skin barrier difokuskan pada lapisan paling atas epidermis, lapisan korneum.</p>
+      <h2>Mengapa Skin Barrier Penting?</h2>
+      <p>Skin barrier memiliki dua peran umum: Menjaga zat baik tetap masuk—dan zat buruk keluar. Skin barrier melindungi tubuh bagian dalam dari racun fisik (seperti polusi dan bahan kimia berbahaya) dan radiasi ultraviolet dari paparan sinar matahari. Penghalang kulit juga membantu tubuh mempertahankan kelembapan alami dengan mencegah kehilangan air transepidermal. Jika lapisan terluar epidermis (stratum korneum) tidak mengandung cukup air, kulit akan kehilangan elastisitas dan tampak kering, kasar, dan bersisik. Kulit yang kurang terhidrasi juga tidak dapat mempertahankan skin barrier yang sesuai, membuat kulit lebih rentan terhadap kerusakan dari sumber eksternal/lingkungan.” Skin barrier yang sehat juga merupakan kunci untuk mendapatkan kulit yang terhidrasi, bercahaya, dan merata.</p>
+      <h2>Tanda-tanda Penghalang Kulit Rusak</h2>
+      <p>Gangguan pada fungsi inti skin barrier dapat muncul dalam beberapa bentuk, termasuk: Rosasea dan eksim. Kondisi ini sebagian disebabkan oleh cacat genetik pada penghalang kulit. Namun, kerusakan luar tambahan pada penghalang kulit dapat menyebabkan kondisi ini kambuh. Iritasi kulit kronis, Kulit yang gatal, Dehidrasi, kulit kusam, Hiperpigmentasi, Infeksi kulit, Penyembuhan luka yang tertunda.</p>
+      <h2>Apa yang Dapat Merusak Penghalang Kulit Anda?</h2>
+      <p>Secara umum, kehidupan sehari-hari dapat merusak skin barrier. Polusi, Radiasi UV, Sering cuci tangan, Penggunaan pembersih yang menghilangkan penghalang kulit dari minyak alaminya, Terlalu sering menggunakan asam pengelupasan, Penggunaan exfoliant fisik yang keras, Merokok, Kurang tidur, Diet minim nutrisi. Kombinasi kebiasaan sehari-hari yang dapat dihindari dan tidak dapat dihindari menyebabkan berbagai tingkat kerusakan pada skin barrier.</p>
+      <h2>Cara Memperbaiki Skin Barrier yang Rusak</h2>
+      <p>Pendekatan pertama dan paling penting untuk merawat penghalang kulit Anda adalah dengan memilih rutinitas perawatan kulit dan kosmetik Anda sebagai praktik untuk menghargai dan merayakan kulit Anda, bukan untuk menghilangkan pori-pori dan pigmen alami kulit Anda. Glass skin itu tidak ada. Anda tidak akan pernah terlihat seperti Anda dengan filter, tetapi pancaran dan kilau dapat dicapai. Persingkat Rutinitas Perawatan Kulit Anda. Anda dapat menyusun rutinitas perawatan kulit yang ditargetkan dengan seorang ahli atau Anda dapat melakukannya dengan banyak penelitian di internet, tetapi yang terutama, Anda memahami apa yang dilakukan suatu produk untuk kebutuhan kulit spesifik Anda sebelum Anda memulainya. Tentu saja, itu berarti Anda juga harus duduk dan memutuskan: “Apa yang ingin saya capai dengan rutinitas perawatan kulit saya?” Untuk beberapa, ini akan mengurangi kemerahan. Bagi yang lain, mungkin meratakan warna kulit atau mengendalikan jerawat. Rutinitas perawatan kulit yang diarahkan pada tujuan akan efektif, lebih sederhana, lebih lembut, dan lebih murah. Untuk mengetahui rencana perawatan, jumlah perawatan yang diperlukan, hingga kombinasi treatment yang terbaik tentu harus dilakukan asesmen dengan dokter ahli kami terlebih dahulu karena sejatinya kasus tiap wajah berbeda. Dengan perawatan yang tepat dan sesuai target , skin barrier yang merupakan teman berharga yang melindungi Anda dapat melaksanakan fungsinya dengan baik. Gelombang baru treatment kulit ramah skin barrier adalah peluang untuk menciptakan kulit sehat berkilau tanpa Anda perlu merasakan pedih, kemerahan, atau pengelupasan berlebihan.</p>
+    `
+  },
+  {
+    id: 'antioxidants-for-skin',
+    title: 'Anti-oksidan untuk Kesehatan dan Kecantikan Kulit',
+    excerpt: 'Antioksidan memerangi radikal bebas berbahaya untuk mengurangi garis-garis halus dan menjaga kulit tampil awet muda. Berikut kita akan membahas 5 antioksidan terbaik untuk perawatan kulit dan manfaatnya.',
+    imageSrc: '/images/insights/i3.png',
+    imageHint: 'healthy skin food',
+    date: 'July 21, 2024',
+    href: '/insights/antioxidants-for-skin',
+    content: `
+      <p>By dr. Olivia Aldisa</p>
+      <p>Antioksidan memerangi radikal bebas berbahaya untuk mengurangi garis-garis halus dan menjaga kulit tampil awet muda. Berikut kita akan membahas 5 antioksidan terbaik untuk perawatan kulit dan manfaatnya.</p>
+      <p>Antioksidan memang diketahui memberikan manfaat yang signifikan bagi kulit, namun sebenarnya apa sih antioksidan itu? Bagaimana mereka bekerja? Antioksidan mana yang paling efektif? Artikel ini akan memberi Anda sejumlah fakta untuk membantu membuat keputusan yang tepat untuk kulit Anda. Inilah semua yang perlu Anda ketahui tentang antioksidan untuk perawatan kulit.</p>
+      <h2>Apa itu antioksidan?</h2>
+      <p>Antioksidan adalah molekul (ditemukan dalam vitamin dan mineral) yang memerangi radikal bebas dan mencegah kerusakan oksidatif pada sel.</p>
+      <p>Untuk lebih memahami kekuatan antioksidan yang sebenarnya, kita harus memahami sifat radikal bebas. Radikal bebas adalah molekul tidak stabil yang merusak sel, menyebabkan penyakit, kanker, peradangan, dan penuaan kulit yang cepat.</p>
+      <p>Radikal bebas tidak stabil karena rasio elektron dan protonnya yang tidak merata. (Molekul yang stabil memiliki jumlah elektron dan proton yang genap.) Ketika sebuah molekul terpecah dan ditinggalkan dengan elektron yang tidak berpasangan, molekul tersebut menjadi tidak stabil. Molekul yang tidak stabil akan mencoba menyeimbangkan dirinya dengan mencari elektron ekstra dan mencurinya dari molekul lain (dalam atom kulit Anda). Ini menciptakan efek domino pencurian elektron, yang merusak sel.</p>
+      <p>Antioksidan menyediakan elektron yang hilang untuk molekul yang tidak stabil, mencegah kebutuhan molekul ini untuk mencuri elektron dari molekul lain. Proses ini menghentikan efek domino dari pencurian elektron, yang menyembuhkan sel dan mencegah kerusakan akibat radikal bebas.</p>
+      <p>Tubuh kita secara alami menghasilkan antioksidan kuat seperti glutathione. Kita juga menyerap antioksidan melalui banyak makanan sehat yang kita makan, termasuk buah-buahan, sayuran, dan kacang-kacangan.</p>
+      <p>Antioksidan ditemukan secara alami di tubuh kita dan di beberapa makanan kita, tetapi mereka juga direplikasi secara sintetis sebagai produk perawatan kulit untuk memberi manfaat bagi kulit. Mereka juga direplikasi sebagai suplemen di beberapa makanan dan minuman.</p>
+      <h2>Apa saja manfaat antioksidan untuk perawatan kulit?</h2>
+      <p>Ada banyak manfaat antioksidan yang diketahui untuk kulit. Manfaat transformatifnya termasuk melembabkan dan mencerahkan kulit, mengurangi garis-garis halus dan kerutan, serta mengurangi peradangan dan rosacea.</p>
+      <p>Stres oksidatif (kerusakan sel yang disebabkan oleh radikal bebas) adalah penyebab utama penuaan kulit. Kulit kita mengalami stres oksidatif melalui faktor lingkungan, seperti polusi dan sinar UV dari matahari, dan melalui kebiasaan yang tidak sehat, seperti asap rokok dan konsumsi makanan olahan.</p>
+      <p>Dengan menstabilkan radikal bebas, antioksidan melindungi kulit dari stres oksidatif, memungkinkan sel-sel kulit untuk sembuh dan beregenerasi lebih cepat. Radikal bebas terkenal karena merusak kolagen alami dan elastisitas kulit kita, di situlah penuaan cepat muncul.</p>
+      <h2>5 Antioksidan terbaik untuk kulit Anda</h2>
+      <h3>1. VITAMIN A</h3>
+      <p>Vitamin A adalah antioksidan terkuat pertama dalam daftar ini. Retinol, turunan dari vitamin A, penuh dengan manfaat perawatan kulit. Antioksidan ini merangsang produksi kolagen, mengurangi garis-garis halus dan kerutan pada kulit untuk kulit yang kencang. Vitamin A juga meningkatkan pergantian sel, yang berarti mendukung kulit dalam melepaskan sel-sel kulit mati yang lama dan menghasilkan sel-sel kulit baru yang direvitalisasi.</p>
+      <p>Menambahkan serum wajah antioksidan seperti retinol ke rutinitas perawatan kulit Anda dapat memberikan perawatan yang ampuh dan memperbarui untuk mengurangi munculnya garis-garis halus dan ketidaksempurnaan untuk penampilan yang kencang dan muda.</p>
+      <h3>2.VITAMIN C</h3>
+      <p>Vitamin C harus ada di lemari perawatan kulit Anda karena sejumlah alasan. Terkenal karena efek mencerahkannya, vitamin C membantu meratakan warna kulit dengan mengurangi dan mencerahkan hiperpigmentasi.</p>
+      <p>Antioksidan ini sangat penting untuk kesehatan kulit yang optimal dan kesehatan tubuh secara keseluruhan. Faktanya, kekurangan vitamin C dapat menyebabkan penyakit kudis dan lesi kulit. Asupan vitamin C yang cukup dapat mengurangi peradangan, mengurangi kerusakan kulit yang disebabkan oleh radikal bebas, melembabkan kulit, dan membantu tubuh dalam penyembuhan luka.</p>
+      <p>Serum vitamin C topikal dapat mengurangi munculnya pori-pori yang membesar, menyeimbangkan pigmen kulit, dan mengurangi kerutan untuk menjaga kulit awet muda.</p>
+      <h3>3.VITAMIN E</h3>
+      <p>Untuk orang-orang yang berjuang dengan jerawat, psoriasis, atau kulit kering, vitamin E adalah bahan perawatan kulit yang sangat baik untuk dimasukkan dalam rejimen harian Anda. Dengan kemampuan untuk mengobati kerusakan akibat sinar matahari, mengurangi peradangan, melembabkan kulit dan mencegah kulit terbakar, antioksidan ini adalah komponen umum dalam banyak pelembab dan serum.</p>
+      <h3>4. RESVERATROL</h3>
+      <p>Antioksidan yang dapat Anda konsumsi melalui anggur merah? Resveratrol, antioksidan yang ditemukan dalam anggur, kulit anggur, kacang tanah, cranberry, dan blueberry, dapat mengurangi peradangan dalam tubuh dan mengurangi kemungkinan berkembangnya penyakit jantung, kanker, dan diabetes.</p>
+      <p>Resveratrol melawan kerusakan yang disebabkan oleh faktor lingkungan berbahaya yang kita temui setiap hari. Antioksidan ini mencerahkan kulit dan mengurangi tanda-tanda penuaan yang terlihat.</p>
+      <h3>5. NIACINAMIDE</h3>
+      <p>Niacinamide, juga dikenal sebagai nicotinamide, adalah bentuk vitamin B yang melindungi kulit dari kerusakan lingkungan, mengurangi garis-garis halus, mengurangi munculnya pori-pori yang membesar, dan mencerahkan kulit agar tampak segar.</p>
+      <p>Antioksidan ini bekerja dengan baik dengan bahan perawatan kulit seperti retinol, vitamin C, dan asam hialuronat. Menggunakan niacinamide bersama serum asam hialuronat yang menghidrasi akan membantu kulit Anda mempertahankan kelembapan dan mengatasi kerutan dengan efek wajah terlihat segar dan kenyal.</p>
+      <p>Untuk meningkatkan kualitas kulit Anda, integrasikan beberapa antioksidan ini ke dalam rutinitas perawatan kulit Anda. Antioksidan datang dalam berbagai bentuk, ukuran, dan rasa. Transisi ke gaya hidup kaya antioksidan tidak harus menjadi proses yang memakan waktu. Bagaimanapun, kita selalu mencari cara tercepat untuk memperbaiki kulit kita sambil tetap mengikuti kehidupan kita yang sibuk dan serba cepat.</p>
+      <p>Bayangkan apabila kulit Anda mendapatkan beragam manfaat antioksidan dalam satu perawatan wajah yang simpel, tanpa downtime dengan efek glowing yang instan. Telah hadir treatment Dash! And Glow dan Glow and Gloss by dr. Aldisa. Untuk Dash! And Glow, Formulasi perawatan yang memukau ini secara strategis memadukan bahan-bahan yang meningkatkan kualitas kulit dengan antioksidan dan agen pencerah untuk menyeimbangkan kembali kulit berminyak, dengan pori-pori besar dan tersumbat, serta mencerahkan penampakan wajah yang kusam. Sedangkan formulasi untuk Glow and Gloss dipersiapkan khusus untuk kulit yang lebih kering, menua, dengan bercak-bercak gelap, serta penampakan garis-garis halus. Dokter akan memeriksa dan menentukan treatment yang paling sesuai untuk kebutuhan kulit Anda.</p>
+      <p>Kombinasi racikan khusus ini didukung oleh micro-infusion technology untuk memantapkan penyerapan ke dalam kulit.</p>
+      <p>Bersiaplah untuk tampilan seperti filter!😍</p>
+    `
+  },
+  {
+    id: 'ai-skin-analysis-explained',
+    title: 'Understanding Your Skin Type: An AI-Powered Approach',
+    excerpt: 'Our AI Skin Analysis tool demystifies your unique skin needs. Find out how technology can guide you to your most effective skincare routine ever.',
+    imageSrc: '/images/insights/i4.png',
+    imageHint: 'AI skin analysis',
+    date: 'July 14, 2024',
+    href: '/insights/ai-skin-analysis-explained',
+    content: `
+      <h2>Personalization Through Technology</h2>
+      <p>The one-size-fits-all approach to skincare is a thing of the past. To achieve the best results, you need to understand your skin's unique characteristics and concerns. Our AI Skin Analysis tool takes the guesswork out of the equation. By analyzing a photo of your skin and your answers to a brief questionnaire, our advanced algorithm can identify your skin type, detect underlying conditions, and provide personalized recommendations for both at-home products and in-clinic treatments. It's the first step toward a truly effective, data-driven skincare journey.</p>
+    `
+  },
+];

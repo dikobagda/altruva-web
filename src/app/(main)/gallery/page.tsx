@@ -2,7 +2,7 @@
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import GalleryItem from '@/components/gallery/GalleryItem';
-import { galleryImages } from '@/lib/constants';
+import { galleryImages } from '@/lib/data/gallery';
 
 export const metadata = {
   title: 'Before & After Gallery - Altruva',

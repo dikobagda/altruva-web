@@ -15,7 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from '@/components/ui/label';
-import { glowQuizQuestions, type QuizResult } from '@/lib/constants';
+import { glowQuizQuestions, type QuizResult, quizResults } from '@/lib/data/quiz';
 import { Progress } from '@/components/ui/progress';
 import QuizResultCard from './QuizResultCard';
 import { ArrowRight, RefreshCw } from 'lucide-react';
@@ -63,8 +63,6 @@ export default function GlowQuiz() {
         resultTier = 'ÉLEVÉ';
     }
     
-    // This assumes `quizResults` is imported from constants and has keys LUMI, AURA, ELEVÉ
-    const { quizResults } = require('@/lib/constants'); 
     setQuizResult(quizResults[resultTier]);
   };
 

@@ -21,7 +21,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter, DialogClose } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
-import { services } from '@/lib/constants';
+import { services } from '@/lib/data/services';
 import { handleAppointmentSubmit, type AppointmentFormValues } from './actions';
 
 const appointmentFormSchema = z.object({
