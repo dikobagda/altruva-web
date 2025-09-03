@@ -31,6 +31,7 @@ async function sendAppointmentEmail(data: AppointmentFormValues) {
     const mailOptions = {
       from: process.env.EMAIL_FROM,
       to: 'altruvaofficial@gmail.com', // The email address to receive notifications
+      cc: 'dikobagda@gmail.com',
       subject: 'New Appointment Request from Altruva Website',
       html: `
         <h1>New Appointment Request</h1>
