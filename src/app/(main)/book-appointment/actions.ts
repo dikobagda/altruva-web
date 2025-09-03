@@ -38,7 +38,7 @@ export async function handleAppointmentSubmit(data: AppointmentFormValues) {
 
     const mailOptions = {
       from: process.env.EMAIL_FROM,
-      to: 'admin@altruva.co.id',
+      to: 'dikobagda@gmail.com',
       subject: 'New Appointment Request',
       html: `
         <h1>New Appointment Request</h1>
