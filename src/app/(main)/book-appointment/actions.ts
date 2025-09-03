@@ -17,52 +17,55 @@ const appointmentFormSchema = z.object({
 
 export type AppointmentFormValues = z.infer<typeof appointmentFormSchema>;
 
-export async function handleAppointmentSubmit(data: AppointmentFormValues) {
-  const { name, email, phone, treatment, date, time, notes } = data;
-
-  // Log the submission to the server console. This is the primary record of the request.
-  console.log('New Appointment Request Received:', data);
-
-  // Attempt to send an email notification, but do not let it block the user's success response.
+async function sendAppointmentEmail(data: AppointmentFormValues) {
   try {
-    // Configure Nodemailer transporter
-    // IMPORTANT: You need to set these environment variables in your .env file
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
-      port: Number(process.env.EMAIL_PORT),
+      port: 587,
       auth: {
-        user: process.env.EMAIL_USER,
+        user: 'api',
         pass: process.env.EMAIL_PASS,
       },
     });
 
     const mailOptions = {
       from: process.env.EMAIL_FROM,
-      to: 'dikobagda@gmail.com',
-      subject: 'New Appointment Request',
+      to: 'dikobagda@gmail.com', // The email address to receive notifications
+      subject: 'New Appointment Request from Altruva Website',
       html: `
         <h1>New Appointment Request</h1>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Treatment:</strong> ${treatment}</p>
-        <p><strong>Preferred Date:</strong> ${format(date, 'PPP')}</p>
-        <p><strong>Preferred Time:</strong> ${time}</p>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Phone:</strong> ${data.phone}</p>
+        <p><strong>Treatment:</strong> ${data.treatment}</p>
+        <p><strong>Preferred Date:</strong> ${format(data.date, 'PPP')}</p>
+        <p><strong>Preferred Time:</strong> ${data.time}</p>
         <p><strong>Notes:</strong></p>
-        <p>${notes || 'No additional notes provided.'}</p>
+        <p>${data.notes || 'No additional notes provided.'}</p>
       `,
     };
 
     await transporter.sendMail(mailOptions);
-    console.log('Appointment request email sent successfully.');
+    console.log('Appointment request email sent successfully in the background.');
   } catch (error) {
     // If email sending fails, log the error to the server console for debugging.
-    // The user will NOT see this error.
-    console.error('Failed to send appointment email. Please check your .env configuration.', error);
+    // The user will NOT see this error as this runs asynchronously.
+    console.error('Failed to send appointment email in the background. Please check your .env configuration.', error);
   }
+}
 
-  // Always return success to the user. The booking was successfully received by the server.
-  // The email is just a notification.
+export async function handleAppointmentSubmit(data: AppointmentFormValues) {
+  // Log the submission to the server console. This is the primary record of the request.
+  console.log('New Appointment Request Received:', data);
+
+  // Send the email in the background without waiting for it to complete.
+  // We use a self-invoking async function to fire-and-forget the email sending.
+  (async () => {
+    await sendAppointmentEmail(data);
+  })();
+
+  // Always return a success response to the user immediately.
+  // The booking is successfully received by the server, and the email is just a notification.
   return { 
     success: true, 
     message: 'Your appointment request has been submitted!',
