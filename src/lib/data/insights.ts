@@ -8,6 +8,7 @@ export interface Insight {
   date: string;
   href: string;
   content?: string;
+  keywords?: string[];
 }
 
 export const insights: Insight[] = [
@@ -15,10 +16,17 @@ export const insights: Insight[] = [
     id: 'quiet-luxury-lift',
     title: 'Mengapa Quiet Luxury Lift di Altruva Menjadi Standar Baru Perawatan Lifting Wajah',
     excerpt: 'Di tengah tren perawatan estetika yang semakin berkembang, ada satu prinsip mendasar yang sering terlupakan: aesthetic treatments bukanlah pengganti gaya hidup sehat, melainkan perpanjangan darinya.',
-    imageSrc: '/images/insights/i6.jpeg', // Placeholder image
+    imageSrc: '/images/insights/i6.jpeg',
     imageHint: 'elegant aesthetic treatment',
     date: 'August 16, 2024',
     href: '/insights/quiet-luxury-lift',
+    keywords: [
+      'skin tightening alami',
+      'lifting wajah natural',
+      'Sofwave Altruva',
+      'injeksi Gouri untuk kolagen',
+      'perawatan kulit elegan',
+    ],
     content: `
       <p>Di tengah tren perawatan estetika yang semakin berkembang, ada satu prinsip mendasar yang sering terlupakan: aesthetic treatments bukanlah pengganti gaya hidup sehat, melainkan perpanjangan darinya. Sama halnya dengan menjaga berat badan, perjalanan skin tightening tidak bisa dilepaskan dari cara kita merawat tubuh sehari-hari.</p>
       <p>Banyak orang berharap treatment bisa menyelesaikan semua masalah kulit dalam sekejap. Faktanya, tanpa pondasi gaya hidup yang stabil, hasil perawatan akan cepat memudar. Di sinilah filosofi Altruva berdiri: menghadirkan perawatan estetika yang integrated, evidence-based, dan menyatu dengan pola hidup sehat.</p>
@@ -204,5 +212,3 @@ export const insights: Insight[] = [
     `
   },
 ];
-
-    

@@ -24,10 +24,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
+  const baseKeywords = ['Altruva', 'Aesthetic Clinic', 'dr. Olivia Aldisa'];
+  const dynamicKeywords = insight.keywords ? insight.keywords : insight.title.split(' ');
+
   return {
     title: `${insight.title} - Altruva Insights`,
     description: insight.excerpt,
-    keywords: insight.title.split(' ').concat(['Altruva', 'Aesthetic Clinic', 'dr. Olivia Aldisa']),
+    keywords: [...new Set([...dynamicKeywords, ...baseKeywords])], // Combine and remove duplicates
   };
 }
 
