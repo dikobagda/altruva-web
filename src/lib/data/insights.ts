@@ -12,6 +12,47 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: 'quiet-luxury-lift',
+    title: 'Mengapa Quiet Luxury Lift di Altruva Menjadi Standar Baru Perawatan Lifting Wajah',
+    excerpt: 'Di tengah tren perawatan estetika yang semakin berkembang, ada satu prinsip mendasar yang sering terlupakan: aesthetic treatments bukanlah pengganti gaya hidup sehat, melainkan perpanjangan darinya.',
+    imageSrc: '/images/insights/i4.png', // Placeholder image
+    imageHint: 'elegant aesthetic treatment',
+    date: 'August 16, 2024',
+    href: '/insights/quiet-luxury-lift',
+    content: `
+      <p>Di tengah tren perawatan estetika yang semakin berkembang, ada satu prinsip mendasar yang sering terlupakan: aesthetic treatments bukanlah pengganti gaya hidup sehat, melainkan perpanjangan darinya. Sama halnya dengan menjaga berat badan, perjalanan skin tightening tidak bisa dilepaskan dari cara kita merawat tubuh sehari-hari.</p>
+      <p>Banyak orang berharap treatment bisa menyelesaikan semua masalah kulit dalam sekejap. Faktanya, tanpa pondasi gaya hidup yang stabil, hasil perawatan akan cepat memudar. Di sinilah filosofi Altruva berdiri: menghadirkan perawatan estetika yang integrated, evidence-based, dan menyatu dengan pola hidup sehat.</p>
+      
+      <h2>Berat Badan & Elastisitas Kulit: Hubungan yang Sering Terabaikan</h2>
+      <p>Salah satu faktor yang paling memengaruhi kualitas kulit, terutama elastisitas, adalah fluktuasi berat badan. Naik-turun berat badan secara drastis, atau yang dikenal dengan yo-yo dieting, membawa dampak yang lebih serius dari sekadar perubahan bentuk tubuh.</p>
+      <p>Setiap kali kulit diregangkan lalu dilepaskan kembali, serat elastin dan kolagen di bawah permukaan kulit kehilangan kekuatannya. Lama-kelamaan, kulit tidak lagi mampu kembali kencang seperti semula. Hasilnya adalah kulit kendur, kerutan lebih cepat muncul, dan wajah kehilangan definisi alami.</p>
+      <p>Beberapa penelitian menegaskan hal ini:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li><strong>Raffoul et al., 2020 (Obesity Reviews):</strong> weight cycling mempercepat penuaan dan menurunkan elastisitas kulit.</li>
+        <li><strong>Montesi et al., 2016 (Frontiers in Endocrinology):</strong> fluktuasi berat badan berulang merusak dermal matrix sehingga mempercepat terjadinya skin laxity.</li>
+        <li><strong>Kwon et al., 2019 (Journal of Cosmetic Dermatology):</strong> pasien dengan riwayat yo-yo dieting memiliki respons lebih rendah terhadap prosedur pengencangan kulit.</li>
+      </ul>
+      <p class="mt-4">Karena itu, stabilitas berat badan adalah fondasi utama dalam mendapatkan hasil optimal dari treatment skin tightening. Nutrisi seimbang, olahraga konsisten, hidrasi cukup, dan tidur berkualitas adalah dasar yang membuat hasil perawatan lebih efektif sekaligus tahan lama.</p>
+      
+      <h2>Filosofi Quiet Luxury dalam Dunia Estetika</h2>
+      <p>Dalam dunia mode dan gaya hidup, istilah quiet luxury merujuk pada keanggunan yang tidak mencolok: elegan, refined, namun nyata terasa. Filosofi ini kini juga merambah ke dunia estetika. Pasien modern semakin menginginkan hasil yang natural, tidak berlebihan, tetapi memberikan transformasi halus dan bertahan lama.</p>
+      <p>Altruva merangkum filosofi ini dalam signature treatment lifting: Quiet Luxury Lift. Sebuah perjalanan perawatan yang tidak hanya mengencangkan kulit, tetapi juga menghadirkan kualitas penuaan yang lebih halus, anggun, dan autentik.</p>
+      
+      <h2>Quiet Luxury Lift: Standar Baru Lifting Wajah di Altruva</h2>
+      <p>Quiet Luxury Lift adalah kombinasi canggih yang menyatukan teknologi medis dengan regenerative aesthetics, sehingga mampu menjadi standar baru perawatan lifting wajah.</p>
+      <h3>A.R.T Lyft by Sofwave</h3>
+      <p>Treatment ultrasound berbasis energi tinggi yang dipersonalisasi sesuai kebutuhan wajah. Baik untuk menambah volume pada area tertentu maupun menargetkan pengencangan (skin tightening) secara presisi di lapisan kulit terdalam.</p>
+      <h3>Gorgeous Lyft by Gouri</h3>
+      <p>Injeksi polikaprolakton cair (liquid PCL) yang bekerja membentuk interconnected scaffold. Struktur ini berfungsi sebagai kerangka penyangga yang memungkinkan fibroblas menghasilkan kolagen baru secara padat, merata, dan berkesinambungan.</p>
+      <p>Kombinasi keduanya menciptakan hasil yang sangat natural, tahan lama, dan elegan—tidak terlihat artifisial, tidak instan, tetapi menyatu dengan perjalanan hidup setiap pasien.</p>
+      
+      <h2>Ekstensi Kehidupan, Bukan Sekadar Treatment</h2>
+      <p>Quiet Luxury Lift di Altruva bukan hanya sekadar perawatan kulit. Ia adalah refleksi filosofi bahwa estetika terbaik lahir dari keseimbangan antara ilmu pengetahuan, teknologi, dan gaya hidup sehat.</p>
+      <p>Hasil yang dihadirkan bukan sekadar kulit kencang, tetapi kualitas penuaan yang refined—tenang, indah, dan berkelas. Inilah yang menjadikan Quiet Luxury Lift sebagai standar baru lifting wajah modern. Sebuah ekstensi kehidupan dalam arti sebenarnya.</p>
+      <p class="font-bold text-primary mt-4">✨ Altruva – Elevating Beauty with Science and Elegance</p>
+    `
+  },
+  {
     id: 'pore-refining-system',
     title: 'Pori-Pori Kulit: Normal, Penting, dan Cara Meredupkan Tampakannya',
     excerpt: 'Pori-pori adalah struktur alami kulit yang penting. Kulit yang bercahaya dan sehat bukan hasil dari "menghapus" pori, melainkan menjaga agar tetap bersih dan kencang. Pelajari pendekatan holistik kami.',
@@ -101,7 +142,7 @@ export const insights: Insight[] = [
       <h2>Apa yang Dapat Merusak Penghalang Kulit Anda?</h2>
       <p>Secara umum, kehidupan sehari-hari dapat merusak skin barrier. Polusi, Radiasi UV, Sering cuci tangan, Penggunaan pembersih yang menghilangkan penghalang kulit dari minyak alaminya, Terlalu sering menggunakan asam pengelupasan, Penggunaan exfoliant fisik yang keras, Merokok, Kurang tidur, Diet minim nutrisi. Kombinasi kebiasaan sehari-hari yang dapat dihindari dan tidak dapat dihindari menyebabkan berbagai tingkat kerusakan pada skin barrier.</p>
       <h2>Cara Memperbaiki Skin Barrier yang Rusak</h2>
-      <p>Pendekatan pertama dan paling penting untuk merawat penghalang kulit Anda adalah dengan memilih rutinitas perawatan kulit dan kosmetik Anda sebagai praktik untuk menghargai dan merayakan kulit Anda, bukan untuk menghilangkan pori-pori dan pigmen alami kulit Anda. Glass skin itu tidak ada. Anda tidak akan pernah terlihat seperti Anda dengan filter, tetapi pancaran dan kilau dapat dicapai. Persingkat Rutinitas Perawatan Kulit Anda. Anda dapat menyusun rutinitas perawatan kulit yang ditargetkan dengan seorang ahli atau Anda dapat melakukannya dengan banyak penelitian di internet, tetapi yang terutama, Anda memahami apa yang dilakukan suatu produk untuk kebutuhan kulit spesifik Anda sebelum Anda memulainya. Tentu saja, itu berarti Anda juga harus duduk dan memutuskan: “Apa yang ingin saya capai dengan rutinitas perawatan kulit saya?” Untuk beberapa, ini akan mengurangi kemerahan. Bagi yang lain, mungkin meratakan warna kulit atau mengendalikan jerawat. Rutinitas perawatan kulit yang diarahkan pada tujuan akan efektif, lebih sederhana, lebih lembut, dan lebih murah. Untuk mengetahui rencana perawatan, jumlah perawatan yang diperlukan, hingga kombinasi treatment yang terbaik tentu harus dilakukan asesmen dengan dokter ahli kami terlebih dahulu karena sejatinya kasus tiap wajah berbeda. Dengan perawatan yang tepat dan sesuai target , skin barrier yang merupakan teman berharga yang melindungi Anda dapat melaksanakan fungsinya dengan baik. Gelombang baru treatment kulit ramah skin barrier adalah peluang untuk menciptakan kulit sehat berkilau tanpa Anda perlu merasakan pedih, kemerahan, atau pengelupasan berlebihan.</p>
+      <p>Pendekatan pertama dan paling penting untuk merawat penghalang kulit Anda adalah dengan memilih rutinitas perawatan kulit dan kosmetik Anda sebagai praktik untuk menghargai dan merayakan kulit Anda, bukan untuk menghilangkan pori-pori dan pigmen alami kulit Anda. Glass skin itu tidak ada. Anda tidak akan pernah terlihat seperti Anda dengan filter, tetapi pancaran dan kilau dapat dicapai. Persingkat Rutinitas Perawatan Kulit Anda. Anda dapat menyusun rutinitas perawatan kulit yang ditargetkan dengan seorang ahli atau Anda dapat melakukannya dengan banyak penelitian di internet, tetapi yang terutama, Anda memahami apa yang dilakukan suatu produk untuk kebutuhan spesifik Anda sebelum Anda memulainya. Tentu saja, itu berarti Anda juga harus duduk dan memutuskan: “Apa yang ingin saya capai dengan rutinitas perawatan kulit saya?” Untuk beberapa, ini akan mengurangi kemerahan. Bagi yang lain, mungkin meratakan warna kulit atau mengendalikan jerawat. Rutinitas perawatan kulit yang diarahkan pada tujuan akan efektif, lebih sederhana, lebih lembut, dan lebih murah. Untuk mengetahui rencana perawatan, jumlah perawatan yang diperlukan, hingga kombinasi treatment yang terbaik tentu harus dilakukan asesmen dengan dokter ahli kami terlebih dahulu karena sejatinya kasus tiap wajah berbeda. Dengan perawatan yang tepat dan sesuai target , skin barrier yang merupakan teman berharga yang melindungi Anda dapat melaksanakan fungsinya dengan baik. Gelombang baru treatment kulit ramah skin barrier adalah peluang untuk menciptakan kulit sehat berkilau tanpa Anda perlu merasakan pedih, kemerahan, atau pengelupasan berlebihan.</p>
     `
   },
   {
@@ -163,3 +204,5 @@ export const insights: Insight[] = [
     `
   },
 ];
+
+    
