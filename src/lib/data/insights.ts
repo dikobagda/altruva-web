@@ -15,7 +15,7 @@ export const insights: Insight[] = [
     id: 'quiet-luxury-lift',
     title: 'Mengapa Quiet Luxury Lift di Altruva Menjadi Standar Baru Perawatan Lifting Wajah',
     excerpt: 'Di tengah tren perawatan estetika yang semakin berkembang, ada satu prinsip mendasar yang sering terlupakan: aesthetic treatments bukanlah pengganti gaya hidup sehat, melainkan perpanjangan darinya.',
-    imageSrc: '/images/insights/i4.png', // Placeholder image
+    imageSrc: '/images/insights/i6.jpeg', // Placeholder image
     imageHint: 'elegant aesthetic treatment',
     date: 'August 16, 2024',
     href: '/insights/quiet-luxury-lift',
