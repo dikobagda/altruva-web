@@ -18,7 +18,7 @@ export const insights: Insight[] = [
     excerpt: 'Di tengah tren perawatan estetika yang semakin berkembang, ada satu prinsip mendasar yang sering terlupakan: aesthetic treatments bukanlah pengganti gaya hidup sehat, melainkan perpanjangan darinya.',
     imageSrc: '/images/insights/i6.jpeg',
     imageHint: 'elegant aesthetic treatment',
-    date: 'August 16, 2024',
+    date: 'September 9, 2025',
     href: '/insights/quiet-luxury-lift',
     keywords: [
       'skin tightening alami',
@@ -114,7 +114,7 @@ export const insights: Insight[] = [
     id: 'lip-wrinkles-101',
     title: 'Kerutan Bibir Bikin 10 Tahun Lebih Tua? No way!',
     excerpt: 'Keriput bibir, yang kadang-kadang disebut garis bibir, garis lipstik, atau garis perokok, adalah garis vertikal kecil yang terbentuk di bibir orang dewasa yang lebih tua. Garis-garis ini terkenal sulit untuk disembunyikan. Daripada ditutupi terus-menerus, lebih baik kita bahas cara untuk memperbaikinya.',
-    imageSrc: '/images/insights/i1.png',
+    imageSrc: '/images/insights/i7.jpeg',
     imageHint: 'wrinkled lips',
     date: 'August 12, 2024',
     href: '/insights/lip-wrinkles-101',
