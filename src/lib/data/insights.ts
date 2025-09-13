@@ -18,7 +18,7 @@ export const insights: Insight[] = [
     excerpt: 'Melasma sering dipersepsikan hanya sebagai “flek hitam” yang perlu diputihkan. Padahal, melasma adalah kondisi kronis yang kompleks, dipengaruhi oleh banyak faktor internal maupun eksternal.',
     imageSrc: '/images/insights/i8.png',
     imageHint: 'melasma treatment skin',
-    date: 'September 15, 2025',
+    date: 'September 13, 2025',
     href: '/insights/melasma-treatment',
     keywords: ['melasma', 'MelaBooster', 'flek hitam', 'perawatan kulit', 'DNA Repair Pro'],
     content: `
@@ -289,3 +289,5 @@ export const insights: Insight[] = [
     `
   },
 ];
+
+    
