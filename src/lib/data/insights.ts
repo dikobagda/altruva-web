@@ -13,6 +13,83 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: 'melasma-treatment',
+    title: 'Treatment Melasma Efektif dan Aman: Lebih dari Sekadar Memutihkan',
+    excerpt: 'Melasma sering dipersepsikan hanya sebagai “flek hitam” yang perlu diputihkan. Padahal, melasma adalah kondisi kronis yang kompleks, dipengaruhi oleh banyak faktor internal maupun eksternal.',
+    imageSrc: '/images/insights/i8.png',
+    imageHint: 'melasma treatment skin',
+    date: 'September 15, 2025',
+    href: '/insights/melasma-treatment',
+    keywords: ['melasma', 'MelaBooster', 'flek hitam', 'perawatan kulit', 'DNA Repair Pro'],
+    content: `
+      <h2>🌓 Mengapa Melasma Bukan Masalah Kulit Biasa?</h2>
+      <p>Melasma sering dipersepsikan hanya sebagai “flek hitam” yang perlu diputihkan. Padahal, melasma adalah kondisi kronis yang kompleks, dipengaruhi oleh banyak faktor internal maupun eksternal.</p>
+      <p>Beberapa faktor kunci:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Melanosit overaktif → sel penghasil pigmen bekerja berlebihan.</li>
+        <li>Stres oksidatif → radikal bebas mempercepat kerusakan sel.</li>
+        <li>Inflamasi kronis → peradangan berulang menstimulasi pigmentasi.</li>
+        <li>Hiper-vaskularisasi & kerusakan basement membrane → jaringan penyangga kulit melemah, sehingga pigmen lebih mudah “menyebar” ke lapisan dalam.</li>
+      </ul>
+      <p class="mt-4">Artinya, memutihkan permukaan kulit saja tidak cukup. Tanpa mengatasi akar masalah, melasma hampir pasti kambuh.</p>
+
+      <h2>🔍 Fakta Penting: Whitening ≠ Solusi Jangka Panjang</h2>
+      <p>Produk pencerah kulit (whitening) umumnya hanya bekerja di lapisan epidermis. Hasilnya:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li>Pigmen memang tampak memudar.</li>
+          <li>Namun, pabrik pigmen di bawah kulit tetap aktif.</li>
+          <li>Begitu terpapar matahari atau stres, flek kembali muncul.</li>
+      </ul>
+      <p class="mt-4">Karena itu, strategi pengobatan modern melasma berfokus pada “closing the factory”, bukan sekadar menghancurkan pigmen di permukaan.</p>
+
+      <h2>🌿 MelaBooster: Multi-Target Approach untuk Melasma</h2>
+      <p>Di Altruva, salah satu protokol utama untuk melasma adalah MelaBooster — terapi dengan pendekatan multi-level:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li><strong>Inhibisi tirosinase (Arbutin)</strong> → menekan aktivitas enzim kunci pembentuk pigmen.</li>
+          <li><strong>Reduksi oksidasi melanin (Vitamin C)</strong> → mencegah pigmen menjadi semakin gelap.</li>
+      </ul>
+
+      <h3>💎 Keunggulan Formula</h3>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li>Formulasi alkali → meningkatkan penetrasi bahan aktif.</li>
+          <li>Efek kelasi tembaga → menonaktifkan enzim pigmen agar produksi berkurang.</li>
+          <li>Sifat kontrol jangka panjang → membantu mengurangi risiko kambuh, bukan hanya hasil sementara.</li>
+      </ul>
+      <p class="mt-4">Dengan kata lain, ini bukan sekadar “pencerah”, tapi terapi yang menyasar mekanisme biologis melasma.</p>
+
+      <h2>🔬 Melasma Control Protocol di Altruva</h2>
+      <p>Karena melasma bersifat multifaktor, satu terapi saja jarang cukup. Kami menggabungkan MelaBooster dalam protokol komprehensif:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li><strong>DNA Repair Pro</strong> → meredakan inflamasi & memperbaiki kerusakan sel.</li>
+          <li><strong>MelaBooster</strong> → menarget langsung pabrik pigmen.</li>
+          <li><strong>Exion Regenerative Laser</strong> → mengatasi hiper-vaskularisasi & memperkuat basement membrane.</li>
+      </ul>
+      <p class="mt-4">Pendekatan ini memungkinkan perawatan lebih stabil, dengan hasil yang lebih tahan lama.</p>
+      
+      <h2>🌸 Filosofi Kami dalam Menangani Melasma</h2>
+      <p>Bagi kami, tujuan terapi melasma bukan hanya “kulit lebih putih”, melainkan:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li>Kulit yang lebih sehat.</li>
+          <li>Kulit yang lebih stabil terhadap pencetus kambuh.</li>
+          <li>Kulit yang lebih bercahaya secara natural, bukan artifisial.</li>
+      </ul>
+      <p class="mt-4">Dengan pendekatan regeneratif, pasien tidak hanya mendapatkan kulit yang lebih cerah, tetapi juga lebih resilient terhadap stres, matahari, dan penuaan.</p>
+
+      <h2>📊 Bukti Nyata</h2>
+      <p>Pasien yang menjalani protokol ini melaporkan:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Flek berkurang signifikan.</li>
+        <li>Kulit terasa lebih halus & cerah.</li>
+        <li>Episode kambuh lebih jarang dibanding terapi konvensional.</li>
+      </ul>
+      <p class="italic mt-2">“Melasma saya tidak hanya pudar, tapi juga jarang kambuh lagi. Rasanya kulit saya lebih kuat.” – Testimoni Pasien Altruva</p>
+      
+      <h2 class="mt-4">✨ Kesimpulan</h2>
+      <p>Melasma adalah kondisi kronis yang membutuhkan strategi efektif, aman, dan berlapis. Pendekatan modern seperti MelaBooster dan Melasma Control Protocol memberikan hasil lebih sustainable dibanding sekadar whitening.</p>
+      <p>Dengan memahami melasma secara ilmiah, kita bisa merawat kulit bukan hanya untuk tampilan hari ini, tapi juga untuk kesehatan jangka panjang.</p>
+    `
+  },
+  {
     id: 'quiet-luxury-lift',
     title: 'Mengapa Quiet Luxury Lift di Altruva Menjadi Standar Baru Perawatan Lifting Wajah',
     excerpt: 'Di tengah tren perawatan estetika yang semakin berkembang, ada satu prinsip mendasar yang sering terlupakan: aesthetic treatments bukanlah pengganti gaya hidup sehat, melainkan perpanjangan darinya.',
