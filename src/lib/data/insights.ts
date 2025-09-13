@@ -25,7 +25,7 @@ export const insights: Insight[] = [
       <h2>🌓 Mengapa Melasma Bukan Masalah Kulit Biasa?</h2>
       <p>Melasma sering dipersepsikan hanya sebagai “flek hitam” yang perlu diputihkan. Padahal, melasma adalah kondisi kronis yang kompleks, dipengaruhi oleh banyak faktor internal maupun eksternal.</p>
       <p>Beberapa faktor kunci:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
         <li>Melanosit overaktif → sel penghasil pigmen bekerja berlebihan.</li>
         <li>Stres oksidatif → radikal bebas mempercepat kerusakan sel.</li>
         <li>Inflamasi kronis → peradangan berulang menstimulasi pigmentasi.</li>
@@ -35,7 +35,7 @@ export const insights: Insight[] = [
 
       <h2>🔍 Fakta Penting: Whitening ≠ Solusi Jangka Panjang</h2>
       <p>Produk pencerah kulit (whitening) umumnya hanya bekerja di lapisan epidermis. Hasilnya:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
           <li>Pigmen memang tampak memudar.</li>
           <li>Namun, pabrik pigmen di bawah kulit tetap aktif.</li>
           <li>Begitu terpapar matahari atau stres, flek kembali muncul.</li>
@@ -44,13 +44,13 @@ export const insights: Insight[] = [
 
       <h2>🌿 MelaBooster: Multi-Target Approach untuk Melasma</h2>
       <p>Di Altruva, salah satu protokol utama untuk melasma adalah MelaBooster — terapi dengan pendekatan multi-level:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
           <li><strong>Inhibisi tirosinase (Arbutin)</strong> → menekan aktivitas enzim kunci pembentuk pigmen.</li>
           <li><strong>Reduksi oksidasi melanin (Vitamin C)</strong> → mencegah pigmen menjadi semakin gelap.</li>
       </ul>
 
       <h3>💎 Keunggulan Formula</h3>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
           <li>Formulasi alkali → meningkatkan penetrasi bahan aktif.</li>
           <li>Efek kelasi tembaga → menonaktifkan enzim pigmen agar produksi berkurang.</li>
           <li>Sifat kontrol jangka panjang → membantu mengurangi risiko kambuh, bukan hanya hasil sementara.</li>
@@ -59,7 +59,7 @@ export const insights: Insight[] = [
 
       <h2>🔬 Melasma Control Protocol di Altruva</h2>
       <p>Karena melasma bersifat multifaktor, satu terapi saja jarang cukup. Kami menggabungkan MelaBooster dalam protokol komprehensif:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
           <li><strong>DNA Repair Pro</strong> → meredakan inflamasi & memperbaiki kerusakan sel.</li>
           <li><strong>MelaBooster</strong> → menarget langsung pabrik pigmen.</li>
           <li><strong>Exion Regenerative Laser</strong> → mengatasi hiper-vaskularisasi & memperkuat basement membrane.</li>
@@ -68,16 +68,16 @@ export const insights: Insight[] = [
       
       <h2>🌸 Filosofi Kami dalam Menangani Melasma</h2>
       <p>Bagi kami, tujuan terapi melasma bukan hanya “kulit lebih putih”, melainkan:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
-          <li>Kulit yang lebih sehat.</li>
-          <li>Kulit yang lebih stabil terhadap pencetus kambuh.</li>
-          <li>Kulit yang lebih bercahaya secara natural, bukan artifisial.</li>
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+        <li>Kulit yang lebih sehat.</li>
+        <li>Kulit yang lebih stabil terhadap pencetus kambuh.</li>
+        <li>Kulit yang lebih bercahaya secara natural, bukan artifisial.</li>
       </ul>
       <p class="mt-4">Dengan pendekatan regeneratif, pasien tidak hanya mendapatkan kulit yang lebih cerah, tetapi juga lebih resilient terhadap stres, matahari, dan penuaan.</p>
 
       <h2>📊 Bukti Nyata</h2>
       <p>Pasien yang menjalani protokol ini melaporkan:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
         <li>Flek berkurang signifikan.</li>
         <li>Kulit terasa lebih halus & cerah.</li>
         <li>Episode kambuh lebih jarang dibanding terapi konvensional.</li>
@@ -289,5 +289,7 @@ export const insights: Insight[] = [
     `
   },
 ];
+
+    
 
     
