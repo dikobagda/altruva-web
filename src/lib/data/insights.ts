@@ -13,6 +13,65 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: 'quiet-luxury-face',
+    title: 'Quiet Luxury Face: Era Baru Estetika yang Elegan dan Tahan Lama',
+    excerpt: 'Apakah kita akhirnya sudah melewati era obvious filler dan “Instagram Face”? Tren ini tidak mudah dikenali karena ciri khasnya justru adalah ketiadaan sesuatu yang berlebihan.',
+    imageSrc: '/images/insights/i9.jpeg',
+    imageHint: 'elegant aesthetic treatment',
+    date: 'October 26, 2024',
+    href: '/insights/quiet-luxury-face',
+    keywords: [
+      'Quiet Luxury Face',
+      'Quiet Luxury Lift',
+      'Regenerative Contouring',
+      'Sofwave Indonesia',
+      'Gouri Indonesia',
+      'SculptLift+',
+      'C-Frame Contouring',
+      'Perawatan anti-aging natural',
+      'Estetika elegan dan timeless',
+      'Klinik estetika premium Jakarta',
+      'Treatment wajah natural tanpa filler berlebihan',
+      'Collagen banking treatment',
+      'Skin tightening Sofwave',
+      'Liquid PCL Gouri',
+      'Altruva Aesthetic Clinic'
+    ],
+    content: `
+      <h2>Apa Itu Quiet Luxury Face?</h2>
+      <p>Quiet Luxury Face adalah filosofi perawatan estetika yang mengutamakan:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+        <li>Hasil natural tanpa jejak intervensi berlebihan.</li>
+        <li>Perawatan regeneratif yang memperbaiki kualitas kulit dari dalam, bukan sekadar menutupi dari luar.</li>
+        <li>Estetika elegan dan timeless, bukan tren sementara.</li>
+      </ul>
+      <p class="mt-4">Bukan kebetulan jika treatment seperti biostimulator, exosomes, dan skin booster semakin populer. Perawatan ini bekerja dengan cara quiet, diam-diam memperbaiki kulit, mengaktifkan regenerasi, dan membuat wajah terlihat segar tanpa ada yang menyangka.</p>
+
+      <h2>Quiet Luxury Lift di Altruva Aesthetic Clinic</h2>
+      <p>Di Altruva, filosofi ini diwujudkan melalui Quiet Luxury Lift, protokol eksklusif yang merupakan bagian dari Regenerative Contouring.</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+        <li><strong>✨ A.R.T Lift by Sofwave</strong> – teknologi ultrasound untuk skin tightening dan collagen remodeling.</li>
+        <li><strong>✨ Gorgeous Lyft by Gouri</strong> – liquid PCL pertama di dunia untuk collagen banking.</li>
+        <li><strong>✨ SculptLift+ (Swiss Technology)</strong> – injeksi untuk mengurangi lemak dan cairan berlebih, tanpa bengkak, agar wajah kembali netral sebelum dilakukan lifting.</li>
+      </ul>
+
+      <h2>Step by Step Quiet Luxury Lift</h2>
+      <p><strong>Priming wajah</strong> – SculptLift+ digunakan untuk membantu mengurangi massa berlebih, sehingga wajah siap untuk proses lifting.</p>
+      <p><strong>Regenerative Lifting</strong> – kombinasi Sofwave dan Gouri bekerja sinergis untuk mengencangkan, membentuk, dan merangsang kolagen baru.</p>
+      <p><strong>Strategic Contouring</strong> – setelah 1 bulan, dilakukan evaluasi. Jika masih ada area yang memerlukan kontur, maka filler atau hybrid filler ditempatkan dengan sangat strategis.</p>
+      <p>Misalnya C-Frame Contouring, penempatan filler di area atas wajah (alis, pelipis, sisi luar mata) sebagai anchor yang menopang bentuk wajah dan sering kehilangan volume akibat penuaan.</p>
+
+      <h2>Mengapa Regenerative Contouring Tidak Instan?</h2>
+      <p>Karena di Altruva kami menghormati ritme alami wajah.</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+          <li>Kami tidak memberikan quick fix yang hanya menutupi tanda penuaan.</li>
+          <li>Kami merawat, bukan menghapus, setiap garis di wajah sebagai bagian dari perjalanan hidup.</li>
+          <li>Kami menghadirkan hasil yang elegan, natural, dan everlasting.</li>
+      </ul>
+      <p class="mt-4">Setiap wajah punya cerita. Setiap garis punya makna. Dan Quiet Luxury Lift adalah cara terbaik merawatnya dengan penuh penghargaan.</p>
+    `
+  },
+  {
     id: 'melasma-treatment',
     title: 'Treatment Melasma Efektif dan Aman: Lebih dari Sekadar Memutihkan',
     excerpt: 'Melasma sering dipersepsikan hanya sebagai “flek hitam” yang perlu diputihkan. Padahal, melasma adalah kondisi kronis yang kompleks, dipengaruhi oleh banyak faktor internal maupun eksternal.',
@@ -293,3 +352,4 @@ export const insights: Insight[] = [
     
 
     
+
