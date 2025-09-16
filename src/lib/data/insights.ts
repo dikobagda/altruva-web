@@ -14,8 +14,8 @@ export interface Insight {
 export const insights: Insight[] = [
   {
     id: 'quiet-luxury-face',
-    title: 'Quiet Luxury Face: Era Baru Estetika yang Elegan dan Tahan Lama',
-    excerpt: 'Apakah kita akhirnya sudah melewati era obvious filler dan “Instagram Face”? Tren ini tidak mudah dikenali karena ciri khasnya justru adalah ketiadaan sesuatu yang berlebihan.',
+    title: 'Quiet Luxury Face: Rahasia Lifting Elegan di Altruva',
+    excerpt: 'Temukan Quiet Luxury Lift di Altruva Aesthetic Clinic: kombinasi Sofwave, Gouri, dan SculptLift+ untuk hasil natural, elegan, dan tahan lama.',
     imageSrc: '/images/insights/i9.jpeg',
     imageHint: 'elegant aesthetic treatment',
     date: 'October 26, 2024',
@@ -353,3 +353,6 @@ export const insights: Insight[] = [
 
     
 
+
+
+    
