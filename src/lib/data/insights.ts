@@ -93,7 +93,8 @@ export const insights: Insight[] = [
       <p class="mt-4">Artinya, memutihkan permukaan kulit saja tidak cukup. Tanpa mengatasi akar masalah, melasma hampir pasti kambuh.</p>
 
       <h2>🔍 Fakta Penting: Whitening ≠ Solusi Jangka Panjang</h2>
-      <p>Produk pencerah kulit (whitening) umumnya hanya bekerja di lapisan epidermis. Hasilnya:</p>
+      <p>Produk pencerah kulit (whitening) umumnya hanya bekerja di lapisan epidermis.
+      Hasilnya:</p>
       <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
           <li>Pigmen memang tampak memudar.</li>
           <li>Namun, pabrik pigmen di bawah kulit tetap aktif.</li>
@@ -144,7 +145,9 @@ export const insights: Insight[] = [
       <p class="italic mt-2">“Melasma saya tidak hanya pudar, tapi juga jarang kambuh lagi. Rasanya kulit saya lebih kuat.” – Testimoni Pasien Altruva</p>
       
       <h2 class="mt-4">✨ Kesimpulan</h2>
-      <p>Melasma adalah kondisi kronis yang membutuhkan strategi efektif, aman, dan berlapis. Pendekatan modern seperti MelaBooster dan Melasma Control Protocol memberikan hasil lebih sustainable dibanding sekadar whitening.</p>
+      <p>Melasma adalah kondisi kronis yang membutuhkan strategi efektif, aman, dan berlapis.
+      Pendekatan modern seperti MelaBooster dan Melasma Control Protocol memberikan hasil lebih sustainable dibanding sekadar whitening.</p>
+
       <p>Dengan memahami melasma secara ilmiah, kita bisa merawat kulit bukan hanya untuk tampilan hari ini, tapi juga untuk kesehatan jangka panjang.</p>
     `
   },
