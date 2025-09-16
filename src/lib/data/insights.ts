@@ -18,7 +18,7 @@ export const insights: Insight[] = [
     excerpt: 'Temukan Quiet Luxury Lift di Altruva Aesthetic Clinic: kombinasi Sofwave, Gouri, dan SculptLift+ untuk hasil natural, elegan, dan tahan lama.',
     imageSrc: '/images/insights/i9.jpeg',
     imageHint: 'elegant aesthetic treatment',
-    date: 'October 26, 2024',
+    date: 'September 16, 2025',
     href: '/insights/quiet-luxury-face',
     keywords: [
       'Quiet Luxury Face',
@@ -354,5 +354,7 @@ export const insights: Insight[] = [
     
 
 
+
+    
 
     
