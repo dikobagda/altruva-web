@@ -13,6 +13,83 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: 'micro-trends-2025',
+    title: 'Micro Trends Kecantikan 2025: Dari Neuro-Aesthetics hingga Wellness Holistik',
+    excerpt: 'Laporan terbaru dari Global Wellness Institute (GWI) menyebutkan bahwa tahun 2025 akan ditandai oleh tren besar yang disebut aesthetic health—yaitu bagaimana kecantikan tidak hanya terlihat dari luar, tetapi juga berhubungan erat dengan kesehatan mental, vitalitas tubuh, dan keseimbangan hidup.',
+    imageSrc: 'https://placehold.co/600x400.png',
+    imageHint: 'futuristic beauty trends',
+    date: 'September 17, 2025',
+    href: '/insights/micro-trends-2025',
+    keywords: [
+      'Micro Trends Kecantikan 2025',
+      'Neuro-Aesthetics',
+      'Wellness Holistik',
+      'Evolusi Sunscreen',
+      'Psiko-Dermatologi',
+      'Regenerative Treatments',
+      'Altruva Aesthetic Clinic',
+      'CoreSlim Injections',
+      'Gouri Liquid PCL',
+      'HealCore Therapy',
+      'DNA Repair Pro',
+      'NeoCurve by EmSculpt Neo',
+      'Altruva Radiance Drip',
+    ],
+    content: `
+      <h2>Micro Trends Kecantikan 2025: Dari Neuro-Aesthetics hingga Wellness Holistik</h2>
+      <p>Dunia kecantikan terus berkembang seiring perubahan gaya hidup dan kebutuhan manusia. Laporan terbaru dari Global Wellness Institute (GWI) menyebutkan bahwa tahun 2025 akan ditandai oleh tren besar yang disebut aesthetic health—yaitu bagaimana kecantikan tidak hanya terlihat dari luar, tetapi juga berhubungan erat dengan kesehatan mental, vitalitas tubuh, dan keseimbangan hidup.</p>
+      <p>Di artikel ini, kita akan membahas 5 micro trends utama dalam dunia kecantikan 2025 dan bagaimana Altruva Aesthetic Clinic menghadirkan solusi yang relevan, aman, dan berbasis evidence.</p>
+
+      <h3>1. Neuro-Aesthetics: Kecantikan yang Menghubungkan Pikiran & Kulit</h3>
+      <p>Tren pertama adalah neuro-aesthetics. Kini semakin banyak penelitian yang menunjukkan hubungan erat antara kondisi kulit dan kesehatan mental. Produk-produk kecantikan modern mulai diformulasi dengan bahan aktif yang mampu memengaruhi mood sekaligus menenangkan pikiran.</p>
+      <p>Contoh: skincare dengan adaptogen (ginseng, ashwagandha) atau aromatherapy-based facials yang tidak hanya membuat kulit glowing, tapi juga memberi efek calming.</p>
+      <p><strong>🌿 Insight:</strong> Pasien kini mencari pengalaman kecantikan yang multisensory—perawatan kulit sekaligus relaksasi mental.</p>
+
+      <h3>2. Evolusi Sunscreen: Perlindungan Kulit Generasi Baru</h3>
+      <p>Sunscreen bukan lagi sekadar pelindung UV. Sunscreen 2025 akan semakin banyak berbasis mineral dengan formula ringan, ramah lingkungan, dan lebih nyaman dipakai sehari-hari.</p>
+      <p>Selain itu, inovasi terbaru mencakup sunscreen yang mendukung aktivasi reseptor vitamin D di kulit, melindungi DNA sel, serta menjaga sel punca epidermal agar tetap sehat.</p>
+      <p>Contoh: produk seperti Supergoop Mineral Matte, ISDIN Fusion Water, hingga sunscreen lokal berbasis zinc oxide yang diformulasi modern.</p>
+      <p><strong>🌿 Insight:</strong> Pasien semakin sadar pentingnya proteksi kulit dari photoaging, bukan hanya dari sinar matahari tetapi juga polusi.</p>
+
+      <h3>3. Psiko-Dermatologi: Kulit Sehat Dimulai dari Pikiran Tenang</h3>
+      <p>Tren ketiga adalah psiko-dermatologi, yaitu ilmu yang mempelajari bagaimana kondisi mental memengaruhi kesehatan kulit. Stres terbukti dapat memicu jerawat, rosacea, dan penuaan dini.</p>
+      <p>Perawatan di masa depan akan lebih menekankan mind-body connection, yaitu menjaga kulit sekaligus menenangkan pikiran. Produk dengan mood-boosting qualities atau facial dengan teknik relaksasi akan semakin populer.</p>
+      <p><strong>🌿 Insight:</strong> Orang merasa lebih percaya diri saat kulit sehat dan mental stabil. Dua hal ini kini menjadi satu paket dalam estetika modern.</p>
+
+      <h3>4. Minimally Invasive & Regenerative Treatments</h3>
+      <p>Inilah tren yang semakin mendominasi: perawatan regeneratif minim invasif. Pasien ingin hasil alami, efektif, dan aman tanpa prosedur bedah. Teknologi terbaru menghadirkan bioactive proteins, growth factors, polinukleotida (PN/PDRN), hingga DNA repair therapy untuk memperbaiki sel dari dalam.</p>
+      <p><strong>✨ Signature Treatments Altruva:</strong></p>
+      <ul style="list-style-type: disc; padding-left: 1.25rem;">
+        <li><strong>CoreSlim Injections</strong> – injeksi berbasis peptida regeneratif untuk mendukung metabolisme sehat dan shaping tubuh alami.</li>
+        <li><strong>Gouri Liquid PCL</strong> – skin booster cair inovatif untuk menstimulasi kolagen alami, hasil lebih kencang dan tahan lama.</li>
+        <li><strong>HealCore Therapy (BPC-157)</strong> – terapi regeneratif untuk mempercepat penyembuhan jaringan dan revitalisasi tubuh.</li>
+        <li><strong>DNA Repair Pro (Trout DNA)</strong> – perawatan berbasis DNA ikan trout untuk memperbaiki kerusakan sel kulit, memperkuat skin barrier, dan memperlambat penuaan dini.</li>
+      </ul>
+      <p><strong>🌿 Insight:</strong> Estetika masa depan adalah tentang regenerasi seluler. Altruva menghadirkan solusi modern yang membangun kecantikan dari dalam, bukan sekadar memperbaiki permukaan.</p>
+
+      <h3>5. Holistic & Integrative Approach</h3>
+      <p>Tren terakhir adalah pendekatan holistik. Pasien kini ingin perawatan menyeluruh yang tidak hanya fokus pada kulit, tetapi juga mendukung kesehatan tubuh, energi, dan keseimbangan hidup.</p>
+      <p><strong>✨ Signature Treatments Altruva:</strong></p>
+      <ul style="list-style-type: disc; padding-left: 1.25rem;">
+        <li><strong>NeoCurve by EmSculpt Neo</strong> – teknologi inovatif yang membakar lemak sekaligus membentuk otot, mendukung metabolisme, kesehatan tubuh, dan penampilan ideal.</li>
+        <li><strong>Altruva Radiance Drip</strong> – infus nutrisi eksklusif untuk meningkatkan daya tahan tubuh, mengembalikan energi, sekaligus membuat kulit lebih cerah bercahaya.</li>
+      </ul>
+      <p><strong>🌿 Insight:</strong> Estetika modern adalah mind, body, and spirit. Di Altruva, perawatan kulit terintegrasi dengan wellness program agar pasien tidak hanya terlihat cantik, tetapi juga merasa lebih sehat, bertenaga, dan percaya diri.</p>
+
+      <h2>Kesimpulan</h2>
+      <p>Tahun 2025 menandai era baru estetika dengan 5 tren utama:</p>
+      <ul style="list-style-type: disc; padding-left: 1.25rem;">
+        <li>Neuro-Aesthetics</li>
+        <li>Evolusi Sunscreen</li>
+        <li>Psiko-Dermatologi</li>
+        <li>Regenerative Treatments</li>
+        <li>Holistic & Integrative Approach</li>
+      </ul>
+      <p>Altruva Aesthetic Clinic menghadirkan perawatan signature seperti CoreSlim, Gouri, HealCore, DNA Repair Pro, NeoCurve by EmSculpt Neo, dan Radiance Drip yang sesuai dengan arah global. Semua dirancang dengan standar keamanan tinggi, berbasis sains, dan pendekatan holistik.</p>
+      <p><strong>✨ Di Altruva, kecantikan tidak hanya terlihat—tetapi juga terasa.</strong></p>
+    `
+  },
+  {
     id: 'quiet-luxury-face',
     title: 'Quiet Luxury Face: Rahasia Lifting Elegan di Altruva',
     excerpt: 'Temukan Quiet Luxury Lift di Altruva Aesthetic Clinic: kombinasi Sofwave, Gouri, dan SculptLift+ untuk hasil natural, elegan, dan tahan lama.',
@@ -84,7 +161,7 @@ export const insights: Insight[] = [
       <h2>🌓 Mengapa Melasma Bukan Masalah Kulit Biasa?</h2>
       <p>Melasma sering dipersepsikan hanya sebagai “flek hitam” yang perlu diputihkan. Padahal, melasma adalah kondisi kronis yang kompleks, dipengaruhi oleh banyak faktor internal maupun eksternal.</p>
       <p>Beberapa faktor kunci:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+      <ul class="list-disc" style="padding-left: 1.25rem;">
         <li>Melanosit overaktif → sel penghasil pigmen bekerja berlebihan.</li>
         <li>Stres oksidatif → radikal bebas mempercepat kerusakan sel.</li>
         <li>Inflamasi kronis → peradangan berulang menstimulasi pigmentasi.</li>
@@ -95,7 +172,7 @@ export const insights: Insight[] = [
       <h2>🔍 Fakta Penting: Whitening ≠ Solusi Jangka Panjang</h2>
       <p>Produk pencerah kulit (whitening) umumnya hanya bekerja di lapisan epidermis.
       Hasilnya:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+      <ul class="list-disc" style="padding-left: 1.25rem;">
           <li>Pigmen memang tampak memudar.</li>
           <li>Namun, pabrik pigmen di bawah kulit tetap aktif.</li>
           <li>Begitu terpapar matahari atau stres, flek kembali muncul.</li>
@@ -104,13 +181,13 @@ export const insights: Insight[] = [
 
       <h2>🌿 MelaBooster: Multi-Target Approach untuk Melasma</h2>
       <p>Di Altruva, salah satu protokol utama untuk melasma adalah MelaBooster — terapi dengan pendekatan multi-level:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+      <ul class="list-disc" style="padding-left: 1.25rem;">
           <li><strong>Inhibisi tirosinase (Arbutin)</strong> → menekan aktivitas enzim kunci pembentuk pigmen.</li>
           <li><strong>Reduksi oksidasi melanin (Vitamin C)</strong> → mencegah pigmen menjadi semakin gelap.</li>
       </ul>
 
       <h3>💎 Keunggulan Formula</h3>
-      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+      <ul class="list-disc" style="padding-left: 1.25rem;">
           <li>Formulasi alkali → meningkatkan penetrasi bahan aktif.</li>
           <li>Efek kelasi tembaga → menonaktifkan enzim pigmen agar produksi berkurang.</li>
           <li>Sifat kontrol jangka panjang → membantu mengurangi risiko kambuh, bukan hanya hasil sementara.</li>
@@ -119,7 +196,7 @@ export const insights: Insight[] = [
 
       <h2>🔬 Melasma Control Protocol di Altruva</h2>
       <p>Karena melasma bersifat multifaktor, satu terapi saja jarang cukup. Kami menggabungkan MelaBooster dalam protokol komprehensif:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+      <ul class="list-disc" style="padding-left: 1.25rem;">
           <li><strong>DNA Repair Pro</strong> → meredakan inflamasi & memperbaiki kerusakan sel.</li>
           <li><strong>MelaBooster</strong> → menarget langsung pabrik pigmen.</li>
           <li><strong>Exion Regenerative Laser</strong> → mengatasi hiper-vaskularisasi & memperkuat basement membrane.</li>
@@ -128,7 +205,7 @@ export const insights: Insight[] = [
       
       <h2>🌸 Filosofi Kami dalam Menangani Melasma</h2>
       <p>Bagi kami, tujuan terapi melasma bukan hanya “kulit lebih putih”, melainkan:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+      <ul class="list-disc" style="padding-left: 1.25rem;">
         <li>Kulit yang lebih sehat.</li>
         <li>Kulit yang lebih stabil terhadap pencetus kambuh.</li>
         <li>Kulit yang lebih bercahaya secara natural, bukan artifisial.</li>
@@ -137,7 +214,7 @@ export const insights: Insight[] = [
 
       <h2>📊 Bukti Nyata</h2>
       <p>Pasien yang menjalani protokol ini melaporkan:</p>
-      <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
+      <ul class="list-disc" style="padding-left: 1.25rem;">
         <li>Flek berkurang signifikan.</li>
         <li>Kulit terasa lebih halus & cerah.</li>
         <li>Episode kambuh lebih jarang dibanding terapi konvensional.</li>
@@ -357,6 +434,8 @@ export const insights: Insight[] = [
     
 
 
+
+    
 
     
 
