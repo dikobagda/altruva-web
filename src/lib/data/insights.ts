@@ -16,7 +16,7 @@ export const insights: Insight[] = [
     id: 'micro-trends-2025',
     title: 'Micro Trends Kecantikan 2025 di Altruva Aesthetic',
     excerpt: 'Temukan tren kecantikan 2025: neuro-aesthetics, sunscreen baru, psiko-dermatologi, hingga regenerative & holistic treatments di Altruva Aesthetic.',
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/images/insights/i10.webp',
     imageHint: 'futuristic beauty trends',
     date: 'September 17, 2025',
     href: '/insights/micro-trends-2025',
@@ -439,3 +439,4 @@ export const insights: Insight[] = [
     
 
     
+
