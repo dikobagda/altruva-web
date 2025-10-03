@@ -10,13 +10,15 @@ import InsightCard from '@/components/insights/InsightCard';
 import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
-  return insights.map((insight) => ({
-    slug: insight.href.split('/').pop(),
-  }));
+  return insights
+    .filter((insight) => insight.href) // Filter out insights without an href
+    .map((insight) => ({
+      slug: insight.href.split('/').pop(),
+    }));
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const insight = insights.find((i) => i.href.endsWith(params.slug));
+  const insight = insights.find((i) => i.href && i.href.endsWith(params.slug));
 
   if (!insight) {
     return {
@@ -35,13 +37,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default function InsightDetailPage({ params }: { params: { slug: string } }) {
-  const insight = insights.find((i) => i.href.endsWith(params.slug));
+  const insight = insights.find((i) => i.href && i.href.endsWith(params.slug));
 
   if (!insight) {
     notFound();
   }
 
-  const relatedInsights = insights.filter(i => i.id !== insight.id).slice(0, 3);
+  const relatedInsights = insights.filter(i => i.id !== insight.id && i.href).slice(0, 3);
 
   return (
     <>
@@ -85,7 +87,7 @@ export default function InsightDetailPage({ params }: { params: { slug: string }
                     <h3 className="font-serif text-2xl text-primary mb-4">Related Insights</h3>
                     <div className="space-y-6">
                         {relatedInsights.map(related => (
-                            <Link href={related.href} key={related.id} className="flex items-center space-x-4 group">
+                            <Link href={related.href!} key={related.id} className="flex items-center space-x-4 group">
                                 {related.imageSrc && (
                                 <div className="relative h-20 w-20 rounded-md overflow-hidden shrink-0">
                                     <Image 
