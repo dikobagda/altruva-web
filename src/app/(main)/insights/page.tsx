@@ -13,11 +13,12 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Aesthetic Science & Beauty Insights | Altruva Clinic Blog',
   description: 'Explore the latest in aesthetic science, wellness, and beauty from the experts at Altruva Clinic in Jakarta. Your source for skincare tips and treatment information.',
+  keywords: ['aesthetic science', 'beauty blog', 'skincare tips', 'Altruva Clinic', 'dr. Olivia Aldisa', 'regenerative aesthetics', 'Jakarta'],
 };
 
 export default function InsightsPage() {
-  const featuredInsight = insights[0];
-  const otherInsights = insights.slice(1);
+  const featuredInsight = insights.find(i => i.href);
+  const otherInsights = insights.slice(1).filter(i => i.href);
 
   return (
     <SectionWrapper>
