@@ -18,7 +18,7 @@ export const insights: Insight[] = [
     excerpt: 'Temukan tren kecantikan 2025: neuro-aesthetics, sunscreen baru, psiko-dermatologi, hingga regenerative & holistic treatments di Altruva Aesthetic.',
     imageSrc: '/images/insights/i10.webp',
     imageHint: 'futuristic beauty trends',
-    date: 'September 17, 2025',
+    date: 'October 3, 2025',
     href: '/insights/micro-trends-2025',
     keywords: [
       'Klinik estetika premium Jakarta',
@@ -234,7 +234,6 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i6.jpeg',
     imageHint: 'elegant aesthetic treatment',
     date: 'September 9, 2025',
-    href: '/insights/quiet-luxury-lift',
     keywords: [
       'skin tightening alami',
       'lifting wajah natural',
@@ -267,7 +266,6 @@ export const insights: Insight[] = [
       <p>Treatment ultrasound berbasis energi tinggi yang dipersonalisasi sesuai kebutuhan wajah. Baik untuk menambah volume pada area tertentu maupun menargetkan pengencangan (skin tightening) secara presisi di lapisan kulit terdalam.</p>
       <h3>Gorgeous Lyft by Gouri</h3>
       <p>Injeksi polikaprolakton cair (liquid PCL) yang bekerja membentuk interconnected scaffold. Struktur ini berfungsi sebagai kerangka penyangga yang memungkinkan fibroblas menghasilkan kolagen baru secara padat, merata, dan berkesinambungan.</p>
-      <p>Kombinasi keduanya menciptakan hasil yang sangat natural, tahan lama, dan elegan—tidak terlihat artifisial, tidak instan, tetapi menyatu dengan perjalanan hidup setiap pasien.</p>
       
       <h2>Ekstensi Kehidupan, Bukan Sekadar Treatment</h2>
       <p>Quiet Luxury Lift di Altruva bukan hanya sekadar perawatan kulit. Ia adalah refleksi filosofi bahwa estetika terbaik lahir dari keseimbangan antara ilmu pengetahuan, teknologi, dan gaya hidup sehat.</p>
@@ -439,4 +437,5 @@ export const insights: Insight[] = [
     
 
     
+
 
