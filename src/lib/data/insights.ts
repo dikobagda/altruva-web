@@ -14,26 +14,25 @@ export interface Insight {
 export const insights: Insight[] = [
   {
     id: 'micro-trends-2025',
-    title: 'Micro Trends Kecantikan 2025: Dari Neuro-Aesthetics hingga Wellness Holistik',
-    excerpt: 'Laporan terbaru dari Global Wellness Institute (GWI) menyebutkan bahwa tahun 2025 akan ditandai oleh tren besar yang disebut aesthetic health—yaitu bagaimana kecantikan tidak hanya terlihat dari luar, tetapi juga berhubungan erat dengan kesehatan mental, vitalitas tubuh, dan keseimbangan hidup.',
+    title: 'Micro Trends Kecantikan 2025 di Altruva Aesthetic',
+    excerpt: 'Temukan tren kecantikan 2025: neuro-aesthetics, sunscreen baru, psiko-dermatologi, hingga regenerative & holistic treatments di Altruva Aesthetic.',
     imageSrc: 'https://placehold.co/600x400.png',
     imageHint: 'futuristic beauty trends',
     date: 'September 17, 2025',
     href: '/insights/micro-trends-2025',
     keywords: [
+      'Klinik estetika premium Jakarta',
+      'Treatment anti-aging regeneratif',
+      'Skin booster kolagen PCL',
+      'Infus nutrisi kulit glowing',
+      'EmSculpt Neo Jakarta',
+      'DNA repair treatment wajah',
+      'Perawatan estetika holistik',
       'Micro Trends Kecantikan 2025',
       'Neuro-Aesthetics',
       'Wellness Holistik',
-      'Evolusi Sunscreen',
-      'Psiko-Dermatologi',
       'Regenerative Treatments',
-      'Altruva Aesthetic Clinic',
-      'CoreSlim Injections',
-      'Gouri Liquid PCL',
-      'HealCore Therapy',
-      'DNA Repair Pro',
-      'NeoCurve by EmSculpt Neo',
-      'Altruva Radiance Drip',
+      'Altruva Aesthetic Clinic'
     ],
     content: `
       <h2>Micro Trends Kecantikan 2025: Dari Neuro-Aesthetics hingga Wellness Holistik</h2>
