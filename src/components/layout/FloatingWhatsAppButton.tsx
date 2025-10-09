@@ -1,3 +1,4 @@
+
 // src/components/layout/FloatingWhatsAppButton.tsx
 "use client";
 
@@ -29,7 +30,10 @@ export default function FloatingWhatsAppButton() {
             <Button
               variant="default"
               size="icon"
-              className="fixed bottom-[100px] right-6 h-14 w-14 rounded-full shadow-xl z-50 bg-green-500 hover:bg-green-600 p-3"
+              className="fixed bottom-[100px] right-6 h-14 w-14 rounded-full shadow-xl z-50 p-3"
+              style={{ backgroundColor: '#3ea81f' }}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#35931a')}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#3ea81f')}
               aria-label="Contact us on WhatsApp"
             >
               <Image 
