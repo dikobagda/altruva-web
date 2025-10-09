@@ -3,9 +3,9 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { MessageCircle } from 'lucide-react'; // Using a reliable icon from lucide
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function FloatingWhatsAppButton() {
   const [isMounted, setIsMounted] = useState(false);
@@ -29,10 +29,16 @@ export default function FloatingWhatsAppButton() {
             <Button
               variant="default"
               size="icon"
-              className="fixed bottom-[100px] right-6 h-14 w-14 rounded-full shadow-xl z-50 bg-green-500 hover:bg-green-600"
+              className="fixed bottom-[100px] right-6 h-14 w-14 rounded-full shadow-xl z-50 bg-green-500 hover:bg-green-600 p-3"
               aria-label="Contact us on WhatsApp"
             >
-              <MessageCircle className="h-7 w-7 text-white" fill="white" />
+              <Image 
+                src="/images/whatsapp.png" 
+                alt="WhatsApp Icon" 
+                width={40} 
+                height={40} 
+                className="object-contain"
+              />
             </Button>
           </Link>
         </TooltipTrigger>
@@ -43,5 +49,3 @@ export default function FloatingWhatsAppButton() {
     </TooltipProvider>
   );
 }
-
-    
