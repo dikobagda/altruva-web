@@ -35,6 +35,7 @@ const navItems: NavItem[] = [
       { href: '/about-us', label: { en: 'Philosophy', id: 'Filosofi' } },
       { href: '/about-us/meet-dr-olivia-aldisa', label: { en: 'Meet dr. Olivia Aldisa', id: 'Temui dr. Olivia Aldisa' } },
       { href: '/our-clinic', label: { en: 'Our Clinic', id: 'Klinik Kami' } },
+      { href: '/about-us/our-devices', label: { en: 'Our Devices', id: 'Perangkat Kami' } },
     ],
   },
   { href: '/about-us/369-harmony', label: { en: '369 Harmony™', id: '369 Harmony™' } },
@@ -189,7 +190,9 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
 
   const getIsActive = (navItem: NavItem): boolean => {
     if (navItem.href) {
-      return pathname === navItem.href || pathname.startsWith(navItem.href + '/');
+      // Check for exact match or if it's a parent route
+      // e.g., /about-us should be active for /about-us/meet-dr-olivia-aldisa
+      return pathname === navItem.href || (navItem.href !== '/' && pathname.startsWith(navItem.href + '/'));
     }
     if (navItem.subItems) {
       return navItem.subItems.some(sub => getIsActive(sub));
@@ -314,10 +317,10 @@ const NavSubMenuItem = ({ item, isMobile, onLinkClick }: { item: NavItem, isMobi
     
     const getIsActive = (navItem: NavItem): boolean => {
         if (navItem.href) {
-        return pathname === navItem.href || pathname.startsWith(navItem.href + '/');
+            return pathname === navItem.href || (navItem.href !== '/' && pathname.startsWith(navItem.href + '/'));
         }
         if (navItem.subItems) {
-        return navItem.subItems.some(sub => getIsActive(sub));
+            return navItem.subItems.some(sub => getIsActive(sub));
         }
         return false;
     };
@@ -516,5 +519,3 @@ export default function Header() {
     </header>
   );
 }
-
-    
