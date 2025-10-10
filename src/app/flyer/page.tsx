@@ -1,6 +1,7 @@
 
 'use client';
 
+import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import PageTitle from '@/components/shared/PageTitle';
@@ -11,7 +12,11 @@ import { Star, Zap, Gem, ArrowRight, ShieldCheck, Heart, Sparkles } from 'lucide
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function FlyerPage() {
-  const { t } = useLanguage();
+  const { t, setLanguage } = useLanguage();
+
+  useEffect(() => {
+    setLanguage('id');
+  }, [setLanguage]);
 
   const featuredOfferings = [
     {
@@ -217,5 +222,7 @@ export default function FlyerPage() {
     </>
   );
 }
+
+    
 
     
