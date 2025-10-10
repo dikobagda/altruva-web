@@ -6,7 +6,7 @@ export interface Insight {
   imageSrc: string;
   imageHint: string;
   date: string;
-  href: string;
+  href?: string;
   content?: string;
   keywords?: string[];
 }
@@ -19,7 +19,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i10.webp',
     imageHint: 'futuristic beauty trends',
     date: 'October 3, 2025',
-    href: '/articles/micro-trends-2025',
+    href: '/insights/micro-trends-2025',
     keywords: [
       'Klinik estetika premium Jakarta',
       'Treatment anti-aging regeneratif',
@@ -95,7 +95,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i9.jpeg',
     imageHint: 'elegant aesthetic treatment',
     date: 'September 16, 2025',
-    href: '/articles/quiet-luxury-face',
+    href: '/insights/quiet-luxury-face',
     keywords: [
       'Quiet Luxury Face',
       'Quiet Luxury Lift',
@@ -154,7 +154,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i8.png',
     imageHint: 'melasma treatment skin',
     date: 'September 13, 2025',
-    href: '/articles/melasma-treatment',
+    href: '/insights/melasma-treatment',
     keywords: ['melasma', 'MelaBooster', 'flek hitam', 'perawatan kulit', 'DNA Repair Pro'],
     content: `
       <h2>🌓 Mengapa Melasma Bukan Masalah Kulit Biasa?</h2>
@@ -234,7 +234,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i6.jpeg',
     imageHint: 'elegant aesthetic treatment',
     date: 'September 9, 2025',
-    href: '/articles/quiet-luxury-lift',
+    href: '/insights/quiet-luxury-lift',
     keywords: [
       'skin tightening alami',
       'lifting wajah natural',
@@ -270,7 +270,7 @@ export const insights: Insight[] = [
       
       <h2>Ekstensi Kehidupan, Bukan Sekadar Treatment</h2>
       <p>Quiet Luxury Lift di Altruva bukan hanya sekadar perawatan kulit. Ia adalah refleksi filosofi bahwa estetika terbaik lahir dari keseimbangan antara ilmu pengetahuan, teknologi, dan gaya hidup sehat.</p>
-      <p>Hasil yang dihadirkan bukan sekadar kulit kencang, tetapi kualitas penuaan yang refined—tenang, indah, dan berkelas. Inilah yang menjadikan Quiet Luxury Lift sebagai standar baru lifting wajah modern. Sebuah ekstensi kehidupan dalam arti sebenarnya.</p>
+      <p>Hasil yang dihadirkan bukan sekadar kulit kencang, tetapi kualitas penuaan yang lebih halus, anggun, dan autentik. Inilah yang menjadikan Quiet Luxury Lift sebagai standar baru lifting wajah modern. Sebuah ekstensi kehidupan dalam arti sebenarnya.</p>
       <p class="font-bold text-primary mt-4">✨ Altruva – Elevating Beauty with Science and Elegance</p>
     `
   },
@@ -281,7 +281,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i5.jpeg',
     imageHint: 'refined skin pores',
     date: 'August 15, 2024',
-    href: '/articles/pore-refining-system',
+    href: '/insights/pore-refining-system',
     content: `
       <h2>Mengapa Pori-Pori itu Justru Sehat, Bukan Musuh?</h2>
       <p>Pori-pori adalah struktur alami kulit yang berperan sebagai akses keluar masuk sebum dan keringat. Komponen penting untuk menjaga kelembapan dan pertahanan kulit. Jadi, memiliki pori bukan aib, melainkan tanda kulit fungsional dan sehat.</p>
@@ -331,7 +331,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i7.jpeg',
     imageHint: 'wrinkled lips',
     date: 'August 12, 2024',
-    href: '/articles/lip-wrinkles-101',
+    href: '/insights/lip-wrinkles-101',
     content: `
       <p>By dr. Olivia Aldisa</p>
       <h2>Penyebab Kerutan Bibir</h2>
@@ -352,7 +352,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i2.png',
     imageHint: 'damaged skin barrier',
     date: 'August 5, 2024',
-    href: '/articles/skin-barrier-101',
+    href: '/insights/skin-barrier-101',
     content: `
       <p>By dr. Olivia Aldisa</p>
       <h2>Apa itu Skin Barrier?</h2>
@@ -368,58 +368,13 @@ export const insights: Insight[] = [
     `
   },
   {
-    id: 'antioxidants-for-skin',
-    title: 'Anti-oksidan untuk Kesehatan dan Kecantikan Kulit',
-    excerpt: 'Antioksidan memerangi radikal bebas berbahaya untuk mengurangi garis-garis halus dan menjaga kulit tampil awet muda. Berikut kita akan membahas 5 antioksidan terbaik untuk perawatan kulit dan manfaatnya.',
-    imageSrc: '/images/insights/i3.png',
-    imageHint: 'healthy skin food',
-    date: 'July 21, 2024',
-    href: '/articles/antioxidants-for-skin',
-    content: `
-      <p>By dr. Olivia Aldisa</p>
-      <p>Antioksidan memerangi radikal bebas berbahaya untuk mengurangi garis-garis halus dan menjaga kulit tampil awet muda. Berikut kita akan membahas 5 antioksidan terbaik untuk perawatan kulit dan manfaatnya.</p>
-      <p>Antioksidan memang diketahui memberikan manfaat yang signifikan bagi kulit, namun sebenarnya apa sih antioksidan itu? Bagaimana mereka bekerja? Antioksidan mana yang paling efektif? Artikel ini akan memberi Anda sejumlah fakta untuk membantu membuat keputusan yang tepat untuk kulit Anda. Inilah semua yang perlu Anda ketahui tentang antioksidan untuk perawatan kulit.</p>
-      <h2>Apa itu antioksidan?</h2>
-      <p>Antioksidan adalah molekul (ditemukan dalam vitamin dan mineral) yang memerangi radikal bebas dan mencegah kerusakan oksidatif pada sel.</p>
-      <p>Untuk lebih memahami kekuatan antioksidan yang sebenarnya, kita harus memahami sifat radikal bebas. Radikal bebas adalah molekul tidak stabil yang merusak sel, menyebabkan penyakit, kanker, peradangan, dan penuaan kulit yang cepat.</p>
-      <p>Radikal bebas tidak stabil karena rasio elektron dan protonnya yang tidak merata. (Molekul yang stabil memiliki jumlah elektron dan proton yang genap.) Ketika sebuah molekul terpecah dan ditinggalkan dengan elektron yang tidak berpasangan, molekul tersebut menjadi tidak stabil. Molekul yang tidak stabil akan mencoba menyeimbangkan dirinya dengan mencari elektron ekstra dan mencurinya dari molekul lain (dalam atom kulit Anda). Ini menciptakan efek domino pencurian elektron, yang merusak sel.</p>
-      <p>Antioksidan menyediakan elektron yang hilang untuk molekul yang tidak stabil, mencegah kebutuhan molekul ini untuk mencuri elektron dari molekul lain. Proses ini menghentikan efek domino dari pencurian elektron, yang menyembuhkan sel dan mencegah kerusakan akibat radikal bebas.</p>
-      <p>Tubuh kita secara alami menghasilkan antioksidan kuat seperti glutathione. Kita juga menyerap antioksidan melalui banyak makanan sehat yang kita makan, termasuk buah-buahan, sayuran, dan kacang-kacangan.</p>
-      <p>Antioksidan ditemukan secara alami di tubuh kita dan di beberapa makanan kita, tetapi mereka juga direplikasi secara sintetis sebagai produk perawatan kulit untuk memberi manfaat bagi kulit. Mereka juga direplikasi sebagai suplemen di beberapa makanan dan minuman.</p>
-      <h2>Apa saja manfaat antioksidan untuk perawatan kulit?</h2>
-      <p>Ada banyak manfaat antioksidan yang diketahui untuk kulit. Manfaat transformatifnya termasuk melembabkan dan mencerahkan kulit, mengurangi garis-garis halus dan kerutan, serta mengurangi peradangan dan rosacea.</p>
-      <p>Stres oksidatif (kerusakan sel yang disebabkan oleh radikal bebas) adalah penyebab utama penuaan kulit. Kulit kita mengalami stres oksidatif melalui faktor lingkungan, seperti polusi dan sinar UV dari matahari, dan melalui kebiasaan yang tidak sehat, seperti asap rokok dan konsumsi makanan olahan.</p>
-      <p>Dengan menstabilkan radikal bebas, antioksidan melindungi kulit dari stres oksidatif, memungkinkan sel-sel kulit untuk sembuh dan beregenerasi lebih cepat. Radikal bebas terkenal karena merusak kolagen alami dan elastisitas kulit kita, di situlah penuaan cepat muncul.</p>
-      <h2>5 Antioksidan terbaik untuk kulit Anda</h2>
-      <h3>1. VITAMIN A</h3>
-      <p>Vitamin A adalah antioksidan terkuat pertama dalam daftar ini. Retinol, turunan dari vitamin A, penuh dengan manfaat perawatan kulit. Antioksidan ini merangsang produksi kolagen, mengurangi garis-garis halus dan kerutan pada kulit untuk kulit yang kencang. Vitamin A juga meningkatkan pergantian sel, yang berarti mendukung kulit dalam melepaskan sel-sel kulit mati yang lama dan menghasilkan sel-sel kulit baru yang direvitalisasi.</p>
-      <p>Menambahkan serum wajah antioksidan seperti retinol ke rutinitas perawatan kulit Anda dapat memberikan perawatan yang ampuh dan memperbarui untuk mengurangi munculnya garis-garis halus dan ketidaksempurnaan untuk penampilan yang kencang dan muda.</p>
-      <h3>2.VITAMIN C</h3>
-      <p>Vitamin C harus ada di lemari perawatan kulit Anda karena sejumlah alasan. Terkenal karena efek mencerahkannya, vitamin C membantu meratakan warna kulit dengan mengurangi dan mencerahkan hiperpigmentasi.</p>
-      <p>Antioksidan ini sangat penting untuk kesehatan kulit yang optimal dan kesehatan tubuh secara keseluruhan. Faktanya, kekurangan vitamin C dapat menyebabkan penyakit kudis dan lesi kulit. Asupan vitamin C yang cukup dapat mengurangi peradangan, mengurangi kerusakan kulit yang disebabkan oleh radikal bebas, melembabkan kulit, dan membantu tubuh dalam penyembuhan luka.</p>
-      <p>Serum vitamin C topikal dapat mengurangi munculnya pori-pori yang membesar, menyeimbangkan pigmen kulit, dan mengurangi kerutan untuk menjaga kulit awet muda.</p>
-      <h3>3.VITAMIN E</h3>
-      <p>Untuk orang-orang yang berjuang dengan jerawat, psoriasis, atau kulit kering, vitamin E adalah bahan perawatan kulit yang sangat baik untuk dimasukkan dalam rejimen harian Anda. Dengan kemampuan untuk mengobati kerusakan akibat sinar matahari, mengurangi peradangan, melembabkan kulit dan mencegah kulit terbakar, antioksidan ini adalah komponen umum dalam banyak pelembab dan serum.</p>
-      <h3>4. RESVERATROL</h3>
-      <p>Antioksidan yang dapat Anda konsumsi melalui anggur merah? Resveratrol, antioksidan yang ditemukan dalam anggur, kulit anggur, kacang tanah, cranberry, dan blueberry, dapat mengurangi peradangan dalam tubuh dan mengurangi kemungkinan berkembangnya penyakit jantung, kanker, dan diabetes.</p>
-      <p>Resveratrol melawan kerusakan yang disebabkan oleh faktor lingkungan berbahaya yang kita temui setiap hari. Antioksidan ini mencerahkan kulit dan mengurangi tanda-tanda penuaan yang terlihat.</p>
-      <h3>5. NIACINAMIDE</h3>
-      <p>Niacinamide, juga dikenal sebagai nicotinamide, adalah bentuk vitamin B yang melindungi kulit dari kerusakan lingkungan, mengurangi garis-garis halus, mengurangi munculnya pori-pori yang membesar, dan mencerahkan kulit agar tampak segar.</p>
-      <p>Antioksidan ini bekerja dengan baik dengan bahan perawatan kulit seperti retinol, vitamin C, dan asam hialuronat. Menggunakan niacinamide bersama serum asam hialuronat yang menghidrasi akan membantu kulit Anda mempertahankan kelembapan dan mengatasi kerutan dengan efek wajah terlihat segar dan kenyal.</p>
-      <p>Untuk meningkatkan kualitas kulit Anda, integrasikan beberapa antioksidan ini ke dalam rutinitas perawatan kulit Anda. Antioksidan datang dalam berbagai bentuk, ukuran, dan rasa. Transisi ke gaya hidup kaya antioksidan tidak harus menjadi proses yang memakan waktu. Bagaimanapun, kita selalu mencari cara tercepat untuk memperbaiki kulit kita sambil tetap mengikuti kehidupan kita yang sibuk dan serba cepat.</p>
-      <p>Bayangkan apabila kulit Anda mendapatkan beragam manfaat antioksidan dalam satu perawatan wajah yang simpel, tanpa downtime dengan efek glowing yang instan. Telah hadir treatment Dash! And Glow dan Glow and Gloss by dr. Aldisa. Untuk Dash! And Glow, Formulasi perawatan yang memukau ini secara strategis memadukan bahan-bahan yang meningkatkan kualitas kulit dengan antioksidan dan agen pencerah untuk menyeimbangkan kembali kulit berminyak, dengan pori-pori besar dan tersumbat, serta mencerahkan penampakan wajah yang kusam. Sedangkan formulasi untuk Glow and Gloss dipersiapkan khusus untuk kulit yang lebih kering, menua, dengan bercak-bercak gelap, serta penampakan garis-garis halus. Dokter akan memeriksa dan menentukan treatment yang paling sesuai untuk kebutuhan kulit Anda.</p>
-      <p>Kombinasi racikan khusus ini didukung oleh micro-infusion technology untuk memantapkan penyerapan ke dalam kulit.</p>
-      <p>Bersiaplah untuk tampilan seperti filter!😍</p>
-    `
-  },
-  {
     id: 'ai-skin-analysis-explained',
     title: 'Understanding Your Skin Type: An AI-Powered Approach',
     excerpt: 'Our AI Skin Analysis tool demystifies your unique skin needs. Find out how technology can guide you to your most effective skincare routine ever.',
     imageSrc: '/images/insights/i4.png',
     imageHint: 'AI skin analysis',
     date: 'July 14, 2024',
-    href: '/articles/ai-skin-analysis-explained',
+    href: '/insights/ai-skin-analysis-explained',
     content: `
       <h2>Personalization Through Technology</h2>
       <p>The one-size-fits-all approach to skincare is a thing of the past. To achieve the best results, you need to understand your skin's unique characteristics and concerns. Our AI Skin Analysis tool takes the guesswork out of the equation. By analyzing a photo of your skin and your answers to a brief questionnaire, our advanced algorithm can identify your skin type, detect underlying conditions, and provide personalized recommendations for both at-home products and in-clinic treatments. It's the first step toward a truly effective, data-driven skincare journey.</p>

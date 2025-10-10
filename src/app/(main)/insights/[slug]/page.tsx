@@ -51,7 +51,7 @@ export default function ArticleDetailPage({ params }: { params: { slug: string }
       <SectionWrapper className="pt-12 pb-8 md:pt-20 md:pb-12 bg-secondary/30">
         <div className="max-w-4xl mx-auto">
           <Button asChild variant="ghost" className="mb-4">
-             <Link href="/articles"><ArrowLeft className="mr-2 h-4 w-4" /> Back to Articles</Link>
+             <Link href="/insights"><ArrowLeft className="mr-2 h-4 w-4" /> Back to Articles</Link>
           </Button>
           <div className="flex items-center text-sm text-muted-foreground mb-2">
             <CalendarDays className="h-4 w-4 mr-2" />

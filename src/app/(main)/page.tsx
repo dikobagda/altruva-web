@@ -354,7 +354,7 @@ export default function HomePage() {
         </Carousel>
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="default">
-            <Link href="/articles">{t({ en: 'Explore All Articles', id: 'Jelajahi Semua Artikel' })}</Link>
+            <Link href="/insights">{t({ en: 'Explore All Articles', id: 'Jelajahi Semua Artikel' })}</Link>
           </Button>
         </div>
       </SectionWrapper>
