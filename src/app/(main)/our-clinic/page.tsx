@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -110,7 +109,7 @@ export default function OurClinicPage() {
                 src="/images/treatment-clinic.jpeg"
                 alt="A detail shot of the clinic's calming decor"
                 fill
-                className="object-cover"
+                className="object-contain"
                 data-ai-hint="calm clinic decor"
               />
           </div>
