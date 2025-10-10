@@ -1,228 +1,261 @@
 
 'use client';
 
-import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Star, Zap, Gem, ArrowRight, ShieldCheck, Heart, Sparkles } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
+import { CheckCircle, Award, Star, Video } from 'lucide-react';
+import placeholderImages from '@/lib/placeholder-images.json';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 export default function FlyerPage() {
-  const { t, setLanguage } = useLanguage();
 
-  useEffect(() => {
-    setLanguage('id');
-  }, [setLanguage]);
-
-  const featuredOfferings = [
-    {
-      imageSrc: '/images/softwave.jpg',
-      imageHint: 'ultrasound facelift',
-      title: { en: 'A.R.T Lift by Sofwave', id: 'A.R.T Lift PRO' },
-      description: { en: 'Signature ultrasound lifting for deep, structural rejuvenation.', id: 'Pengangkatan ultrasound khas untuk peremajaan struktural yang mendalam.' },
-      href: '/services/art-lyft',
-    },
-    {
-      imageSrc: '/images/gouri.jpg',
-      imageHint: 'biostimulator injection',
-      title: { en: 'Gorgeous Lyft by dr. Aldisa', id: 'Gorgeous Lyft oleh dr. Aldisa' },
-      description: { en: 'Liquid collagen bio-activator for natural firmness and glow.', id: 'Bio-aktivator kolagen cair untuk kekencangan dan kilau alami.' },
-      href: '/services/gorgeous-lyft-rejuvenation',
-    },
-    {
-      imageSrc: '/images/369.jpg',
-      imageHint: 'holistic skincare diagram',
-      title: { en: '369 Harmony™', id: '369 Harmony™' },
-      description: { en: 'Your intelligent, year-round roadmap to lasting beauty.', id: 'Peta jalan cerdas Anda sepanjang tahun menuju kecantikan abadi.' },
-      href: '/about-us/369-harmony',
-    },
+  const highlights = [
+    "International KOL and Trainer for Sofwave",
+    "International KOL and Trainer for GOURI",
+    "Creator of Cocktail Contouring ™"
   ];
 
-  const whyChooseUs = [
-      {
-          Icon: Heart,
-          title: {en: "Expert-Led Care", id: "Perawatan oleh Ahli"},
-          description: {en: "Led by dr. Olivia Aldisa, an international KOL and expert in regenerative aesthetics.", id: "Dipimpin oleh dr. Olivia Aldisa, seorang KOL internasional dan ahli estetika regeneratif."},
-      },
-      {
-          Icon: ShieldCheck,
-          title: {en: "Advanced Technology", id: "Teknologi Canggih"},
-          description: {en: "We utilize only the latest, clinically-proven technologies for safe and effective treatments.", id: "Kami hanya menggunakan teknologi terbaru yang teruji secara klinis untuk perawatan yang aman dan efektif."},
-      },
-      {
-          Icon: Sparkles,
-          title: {en: "Natural Results", id: "Hasil Alami"},
-          description: {en: "Our philosophy is to enhance your unique beauty, not alter it. We believe in elegant, subtle outcomes.", id: "Filosofi kami adalah untuk menyempurnakan kecantikan unik Anda, bukan mengubahnya. Kami percaya pada hasil yang elegan dan halus."},
-      }
-  ]
+  const benefits = [
+    {
+      title: "Hasil kontur wajah yang harmonis dan natural",
+      image: placeholderImages.flyer.benefit1,
+      imageHint: "natural facial contour"
+    },
+    {
+      title: "Sofwave utk wajah kencang, kenyal, dan cerah (tanpa downtime)",
+      image: placeholderImages.flyer.benefit2,
+      imageHint: "sofwave treatment"
+    },
+    {
+      title: "Memproduksi ulang kolagen yang hilang",
+      image: placeholderImages.flyer.benefit3,
+      imageHint: "collagen stimulation"
+    },
+    {
+      title: "Prosedur yang nyaman berdasarkan standar intenasional",
+      image: placeholderImages.flyer.benefit4,
+      imageHint: "comfortable aesthetic procedure"
+    }
+  ];
+  
+  const treatmentVideos = [
+    { id: 'DOuyO3FgVUx', title: "dr. Aldisa & Atiqah Cocktail Contouring™" },
+    { id: 'DN7jtwzgZi2', title: "Paulina's Sofwave Journey" },
+    { id: 'DOLfZhBgTru', title: "Indy's Gouri Experience" },
+  ];
+
+  const beforeAfters = [
+    { before: placeholderImages.flyer.before1, after: placeholderImages.flyer.after1, beforeHint: 'face before', afterHint: 'face after' },
+    { before: placeholderImages.flyer.before2, after: placeholderImages.flyer.after2, beforeHint: 'profile before', afterHint: 'profile after' },
+    { before: placeholderImages.flyer.before3, after: placeholderImages.flyer.after3, beforeHint: 'skin before', afterHint: 'skin after' },
+  ];
+  
+  const socialVideos = [
+    { id: 'DNxwCZywnvQ' },
+    { id: 'DO2lscdAXll' },
+    { id: 'DNGQrSBBk2z' },
+    { id: 'DMSf9MbBbbe' },
+  ];
+  
+  const certificates = [
+    { image: placeholderImages.flyer.cert1, imageHint: "UMA Academy certificate" },
+    { image: placeholderImages.flyer.cert2, imageHint: "speaker award" },
+    { image: placeholderImages.flyer.cert3, imageHint: "AMWC Award certificate" },
+    { image: placeholderImages.flyer.cert4, imageHint: "GOURI trainer award" },
+    { image: placeholderImages.flyer.cert5, imageHint: "international certificate" },
+  ];
 
   return (
     <>
-      {/* Hero Section */}
-      <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
+      {/* Section 1: Hero */}
+      <SectionWrapper className="!py-0 min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
         <div className="absolute inset-0 z-0">
-          {/* Mobile Image */}
           <Image
-            src="/images/model1.png"
-            alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
+            src={placeholderImages.flyer.hero.src}
+            alt="Elegant aesthetic clinic background"
             fill
-            className="object-cover md:hidden"
-            data-ai-hint="elegant woman radiant skin"
-            priority
-          />
-          {/* Desktop Image */}
-          <Image
-            src="/images/herobackground-new.png"
-            alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
-            fill
-            className="object-cover hidden md:block"
-            data-ai-hint="elegant woman radiant skin"
+            className="object-cover"
+            data-ai-hint={placeholderImages.flyer.hero.hint}
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="relative z-20 w-full">
-            <div className="text-left max-w-3xl mx-auto p-4">
-                <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4 md:text-shadow">
-                    {t({ en: "Altruva — Jakarta's First Regenerative Contour Clinic", id: "Altruva — Klinik Kontur Regeneratif Pertama di Jakarta" })}
-                </h1>
-                <p className="text-lg md:text-xl text-foreground/90 mb-8 md:text-shadow-sm">
-                    {t({ en: 'Experience the art of aesthetic science at Altruva, where your unique beauty is enhanced, never changed.', id: 'Rasakan seni ilmu estetika di Altruva, di mana kecantikan unik Anda disempurnakan, bukan diubah.' })}
-                </p>
-                <Button asChild size="lg">
-                    <Link href="/book-appointment">{t({ en: 'Book Your Consultation', id: 'Pesan Konsultasi Anda' })}</Link>
-                </Button>
-            </div>
-        </div>
-      </SectionWrapper>
-      
-      {/* Philosophy Section */}
-       <SectionWrapper id="philosophy" className="bg-secondary/30">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
-                <Image
-                src="/images/altruva-hires.png"
-                alt="serene clinic interior"
-                fill
-                className="object-cover"
-                data-ai-hint="serene clinic interior"
-                />
-            </div>
-            <div className="space-y-4">
-                <h2 className="font-serif text-3xl font-bold text-primary">{t({ en: 'Our Philosophy', id: 'Filosofi Kami' })}</h2>
-                <p className="text-lg text-foreground/80">
-                {t({ 
-                    en: "True beauty is not about transformation, but revelation. We utilize the latest advancements in regenerative medicine and non-surgical treatments to work in harmony with your body, promoting cellular renewal and achieving authentic, lasting results.",
-                    id: "Kecantikan sejati bukan tentang transformasi, melainkan pengungkapan. Kami memanfaatkan kemajuan terbaru dalam pengobatan regeneratif dan perawatan non-bedah untuk bekerja selaras dengan tubuh Anda, mendorong pembaruan seluler dan mencapai hasil yang otentik dan tahan lama."
-                })}
-                </p>
+        <div className="container mx-auto px-6 relative z-10 text-center">
+            <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4">
+              Kencangkan wajah kendur di klinik kami
+            </h1>
+            <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-3xl mx-auto">
+              Klinik kecantikan dengan dokter ahli estetika unggulan Indonesia dengan teknologi terkini
+            </p>
+            <Button asChild size="lg">
+                <Link href="/book-appointment">Book Appointment Now!</Link>
+            </Button>
+            <div className="mt-12 flex flex-wrap justify-center gap-4 md:gap-6">
+                {highlights.map((text, index) => (
+                    <div key={index} className="flex items-center gap-2 bg-background/70 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold text-primary shadow-sm">
+                        <Star className="h-4 w-4 text-accent"/>
+                        <span>{text}</span>
+                    </div>
+                ))}
             </div>
         </div>
       </SectionWrapper>
 
-      {/* Featured Offerings Section */}
-      <SectionWrapper id="offerings">
+      {/* Section 2: Personalized Treatment */}
+      <SectionWrapper>
         <PageTitle
-          title={t({ en: 'Signature Treatments', id: 'Signature Treatments' })}
-          subtitle={t({ en: 'Clinically-proven solutions designed for natural, elegant, and lasting results.', id: 'Solusi teruji klinis yang dirancang untuk hasil yang alami, elegan, dan tahan lama.' })}
+          title="Personalized Treatment Paling Aman dan Efektif"
         />
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {featuredOfferings.map((offering) => (
-            <Card key={t(offering.title)} className="text-center shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden group">
-              <CardContent className="p-0 flex-grow">
-                <div className="relative aspect-video">
-                  <Image
-                    src={offering.imageSrc}
-                    alt={t(offering.title)}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={offering.imageHint}
-                  />
-                </div>
-                <div className="p-6">
-                    <CardTitle className="font-serif text-2xl text-primary mb-2">{t(offering.title)}</CardTitle>
-                    <p className="text-foreground/80">{t(offering.description)}</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {benefits.map((benefit, index) => (
+            <Card key={index} className="text-center shadow-lg overflow-hidden group">
+              <CardContent className="p-0">
+                <div className="relative aspect-square">
+                    <Image src={benefit.image.src} alt={benefit.title} fill className="object-cover group-hover:scale-105 transition-transform" data-ai-hint={benefit.imageHint}/>
                 </div>
               </CardContent>
-              <div className="p-6 pt-0 mt-auto">
-                  <Button asChild variant="link" className="font-semibold text-primary">
-                      <Link href={offering.href}>{t({ en: 'Learn More', id: 'Pelajari Lebih Lanjut' })} <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                  </Button>
-              </div>
+              <CardHeader>
+                <CardTitle className="font-serif text-xl text-primary">{benefit.title}</CardTitle>
+              </CardHeader>
             </Card>
           ))}
         </div>
-      </SectionWrapper>
-      
-       {/* Meet Dr. Aldisa Section */}
-      <SectionWrapper id="meet-the-doctor" className="bg-secondary/30">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
-                <Image
-                    src="/images/draldisanew.jpg"
-                    alt={t({ en: "dr. Olivia Aldisa, Founder of Altruva", id: "dr. Olivia Aldisa, Pendiri Altruva"})}
-                    width={500}
-                    height={625}
-                    className="object-cover object-top"
-                />
-            </div>
-            <div className="space-y-4">
-                <h2 className="font-serif text-3xl font-bold text-primary">{t({ en: 'Meet dr. Olivia Aldisa', id: 'Temui dr. Olivia Aldisa' })}</h2>
-                <p className="text-lg font-semibold text-accent">{t({ en: "A Globally-Recognized Expert in Regenerative Aesthetics", id: "Seorang Ahli Estetika Regeneratif yang Diakui Secara Global"})}</p>
-                <p className="text-foreground/80">
-                {t({ 
-                    en: "Known for her perfect balance of medical-scientific knowledge and artistic forte, dr. Olivia Aldisa is an international Key Opinion Leader (KOL) and trainer for premier aesthetic technologies. She brings her vision for natural, regenerative results to life at Altruva.",
-                    id: "Dikenal karena keseimbangan sempurna antara pengetahuan medis-ilmiah dan keahlian artistiknya, dr. Olivia Aldisa adalah seorang Key Opinion Leader (KOL) internasional dan pelatih untuk teknologi estetika terkemuka. Dia mewujudkan visinya untuk hasil yang alami dan regeneratif di Altruva."
-                })}
-                </p>
-                <Button asChild variant="outline">
-                    <Link href="/about-us/meet-dr-olivia-aldisa">{t({ en: 'Learn More About Dr. Aldisa', id: 'Pelajari Lebih Lanjut Tentang Dr. Aldisa' })}</Link>
-                </Button>
-            </div>
+        <div className="text-center mt-12">
+            <Button asChild size="lg">
+                <Link href="/book-appointment">Book Appointment Now!</Link>
+            </Button>
         </div>
       </SectionWrapper>
 
-      {/* Why Choose Altruva Section */}
-      <SectionWrapper id="why-choose">
-        <PageTitle
-          title={t({ en: 'Why Choose Altruva?', id: 'Mengapa Memilih Altruva?' })}
-          subtitle={t({ en: 'Your trust is our highest priority. We are committed to providing an exceptional experience.', id: 'Kepercayaan Anda adalah prioritas utama kami. Kami berkomitmen untuk memberikan pengalaman yang luar biasa.' })}
-        />
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {whyChooseUs.map((item) => (
-                <div key={t(item.title)} className="text-center">
-                    <div className="flex justify-center mb-4">
-                        <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center">
-                           <item.Icon className="w-8 h-8"/>
-                        </div>
+      {/* Section 3: Glimpse of Treatments */}
+      <SectionWrapper className="bg-secondary/30">
+        <PageTitle title="A Glimpse of Altruva Treatments" />
+        <div className="grid md:grid-cols-3 gap-8">
+            {treatmentVideos.map(video => (
+                <Card key={video.id} className="shadow-lg overflow-hidden">
+                    <div className="aspect-video w-full">
+                        <iframe
+                            className="w-full h-full"
+                            src={`https://www.instagram.com/reel/${video.id}/embed`}
+                            title={video.title}
+                            allowFullScreen
+                            loading="lazy"
+                        ></iframe>
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-primary mb-2">{t(item.title)}</h3>
-                    <p className="text-foreground/80">{t(item.description)}</p>
-                </div>
+                    <CardHeader>
+                        <CardTitle className="font-serif text-lg text-primary">{video.title}</CardTitle>
+                    </CardHeader>
+                </Card>
+            ))}
+        </div>
+        <div className="text-center mt-12">
+            <Button asChild size="lg">
+                <Link href="/book-appointment">Book Appointment Now!</Link>
+            </Button>
+        </div>
+      </SectionWrapper>
+
+      {/* Section 4: Proven Results */}
+      <SectionWrapper>
+        <PageTitle title="Proven Results" subtitle="Tampil cantik percaya diri di segala usia" />
+        <div className="grid md:grid-cols-3 gap-8">
+            {beforeAfters.map((item, index) => (
+                <Card key={index} className="shadow-lg overflow-hidden">
+                    <CardContent className="p-4">
+                        <div className="grid grid-cols-2 gap-2">
+                             <div>
+                                <h4 className="font-semibold text-sm mb-1 text-center text-muted-foreground">Before</h4>
+                                <div className="aspect-square relative rounded-md overflow-hidden border">
+                                    <Image src={item.before.src} alt="Before treatment" fill className="object-cover" data-ai-hint={item.beforeHint} />
+                                </div>
+                             </div>
+                             <div>
+                                <h4 className="font-semibold text-sm mb-1 text-center text-muted-foreground">After</h4>
+                                <div className="aspect-square relative rounded-md overflow-hidden border">
+                                    <Image src={item.after.src} alt="After treatment" fill className="object-cover" data-ai-hint={item.afterHint} />
+                                </div>
+                             </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            ))}
+        </div>
+        <div className="text-center mt-12">
+            <Button asChild size="lg">
+                <Link href="/book-appointment">Book Appointment Now!</Link>
+            </Button>
+        </div>
+      </SectionWrapper>
+
+      {/* Section 5: Social Media */}
+      <SectionWrapper className="bg-secondary/30">
+        <PageTitle title="Get to know us more at @altruvaclinic" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {socialVideos.map(video => (
+                 <a href={`https://www.instagram.com/reel/${video.id}/`} target="_blank" rel="noopener noreferrer" key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg group">
+                    <iframe
+                        className="w-full h-full absolute inset-0"
+                        src={`https://www.instagram.com/reel/${video.id}/embed`}
+                        scrolling="no"
+                        allowFullScreen
+                        title={`Instagram Reel ${video.id}`}
+                        loading="lazy"
+                    ></iframe>
+                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                        <Video className="w-12 h-12 text-white/70 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                </a>
             ))}
         </div>
       </SectionWrapper>
+      
+      {/* Section 6: Certificates */}
+      <SectionWrapper>
+        <PageTitle title="Certificates and Awards" />
+        <Carousel
+          opts={{ align: "start", loop: true }}
+          className="w-full max-w-5xl mx-auto"
+        >
+          <CarouselContent>
+            {certificates.map((cert, index) => (
+              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
+                <div className="p-1">
+                  <div className="relative aspect-[3/4] rounded-lg overflow-hidden border shadow-md">
+                     <Image src={cert.image.src} alt="Certificate" fill className="object-cover" data-ai-hint={cert.imageHint} />
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden lg:flex" />
+          <CarouselNext className="hidden lg:flex" />
+        </Carousel>
+      </SectionWrapper>
 
-      {/* Final CTA Section */}
+      {/* Section 7: Doctor's Profile */}
       <SectionWrapper className="bg-primary text-primary-foreground">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</h2>
-          <p className="text-lg md:text-xl mb-8 opacity-90">
-            {t({ en: 'Your journey to enhanced beauty and confidence starts here. Schedule your private consultation with our team of experts today.', id: 'Perjalanan Anda menuju kecantikan dan kepercayaan diri yang lebih baik dimulai di sini. Jadwalkan konsultasi pribadi Anda dengan tim ahli kami hari ini.' })}
-          </p>
-          <Button asChild size="lg" variant="secondary" className="font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-            <Link href="/book-appointment">{t({ en: 'Request a Consultation', id: 'Minta Konsultasi' })}</Link>
-          </Button>
+        <div className="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
+            <div className="md:col-span-1">
+                 <div className="relative aspect-square max-w-xs mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-primary-foreground">
+                     <Image src={placeholderImages.flyer.doctor.src} alt="dr Olivia Aldisa" fill className="object-cover object-top" data-ai-hint={placeholderImages.flyer.doctor.hint} />
+                 </div>
+            </div>
+            <div className="md:col-span-2">
+                 <h2 className="font-serif text-3xl font-bold">dr Olivia Aldisa, M.Sc.</h2>
+                 <p className="font-semibold text-lg text-primary-foreground/80">Aesthetic Medicine (UK)</p>
+                 <p className="font-semibold text-accent-foreground/90 mt-1">Founder and Medical Director</p>
+                 <p className="mt-4 text-lg opacity-90 max-w-xl mx-auto md:mx-0">
+                    Berpengalaman lebih dari 12 tahun sebagai dokter estetika dan juga trainer international. Pakar dalam combination treatment yang menggabungkan produk terbaik, presisi tindakan, dengan teknologi medical device terkini untuk hasil yang nyata.
+                 </p>
+            </div>
         </div>
       </SectionWrapper>
     </>
   );
 }
 
-    
-
-    
+  
