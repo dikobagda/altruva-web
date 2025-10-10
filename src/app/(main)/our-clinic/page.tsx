@@ -104,7 +104,7 @@ export default function OurClinicPage() {
               </li>
             </ul>
           </div>
-          <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-xl">
+          <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
              <Image
                 src="/images/treatment-clinic.jpeg"
                 alt="A detail shot of the clinic's calming decor"
