@@ -68,7 +68,7 @@ export default function FloatingAISkinAnalysisButton() {
               <Button
                 variant="default"
                 size="icon"
-                className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-xl z-50 animate-pulse hover:animate-none"
+                className="fixed bottom-[100px] right-6 h-14 w-14 rounded-full shadow-xl z-50 animate-pulse hover:animate-none"
                 aria-label="Open AI Assistant"
               >
                 <Sparkles className="h-7 w-7" /> {/* Changed from Bot to Sparkles */}

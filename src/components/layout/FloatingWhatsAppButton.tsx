@@ -41,7 +41,7 @@ export default function FloatingWhatsAppButton({ size = 'default' }: FloatingWha
               variant="default"
               size="icon"
               className={cn(
-                "fixed bottom-[100px] right-6 rounded-full shadow-xl z-50",
+                "fixed bottom-6 right-6 rounded-full shadow-xl z-50",
                 sizeClasses[size]
               )}
               style={{ backgroundColor: '#3ea81f' }}
