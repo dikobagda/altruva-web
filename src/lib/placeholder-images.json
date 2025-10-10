@@ -1,0 +1,57 @@
+{
+  "flyer": {
+    "hero": {
+      "src": "https://picsum.photos/seed/flyerhero/1920/1080",
+      "hint": "elegant clinic"
+    },
+    "benefit1": {
+      "src": "https://picsum.photos/seed/benefit1/600/600"
+    },
+    "benefit2": {
+      "src": "https://picsum.photos/seed/benefit2/600/600"
+    },
+    "benefit3": {
+      "src": "https://picsum.photos/seed/benefit3/600/600"
+    },
+    "benefit4": {
+      "src": "https://picsum.photos/seed/benefit4/600/600"
+    },
+    "before1": {
+      "src": "https://picsum.photos/seed/before1/400/400"
+    },
+    "after1": {
+      "src": "https://picsum.photos/seed/after1/400/400"
+    },
+    "before2": {
+      "src": "https://picsum.photos/seed/before2/400/400"
+    },
+    "after2": {
+      "src": "https://picsum.photos/seed/after2/400/400"
+    },
+    "before3": {
+      "src": "https://picsum.photos/seed/before3/400/400"
+    },
+    "after3": {
+      "src": "https://picsum.photos/seed/after3/400/400"
+    },
+    "cert1": {
+      "src": "https://picsum.photos/seed/cert1/300/400"
+    },
+    "cert2": {
+      "src": "https://picsum.photos/seed/cert2/300/400"
+    },
+    "cert3": {
+      "src": "https://picsum.photos/seed/cert3/300/400"
+    },
+    "cert4": {
+      "src": "https://picsum.photos/seed/cert4/300/400"
+    },
+    "cert5": {
+      "src": "https://picsum.photos/seed/cert5/300/400"
+    },
+    "doctor": {
+      "src": "https://picsum.photos/seed/flyerdoctor/500/500",
+      "hint": "professional doctor"
+    }
+  }
+}
