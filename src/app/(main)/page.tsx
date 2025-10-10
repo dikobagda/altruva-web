@@ -330,7 +330,7 @@ export default function HomePage() {
       {/* Featured Insights Section */}
       <SectionWrapper id="featured-insights" className="bg-secondary/30">
         <PageTitle 
-          title={t({ en: 'Featured Insights', id: 'Wawasan Unggulan' })}
+          title={t({ en: 'Featured Articles', id: 'Artikel Unggulan' })}
           subtitle={t({ en: 'Explore the latest in aesthetic science and wellness from our experts.', id: 'Jelajahi yang terbaru dalam ilmu estetika dan kesehatan dari para ahli kami.' })}
         />
         <Carousel
@@ -354,7 +354,7 @@ export default function HomePage() {
         </Carousel>
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="default">
-            <Link href="/insights">{t({ en: 'Explore All Insights', id: 'Jelajahi Semua Wawasan' })}</Link>
+            <Link href="/articles">{t({ en: 'Explore All Articles', id: 'Jelajahi Semua Artikel' })}</Link>
           </Button>
         </div>
       </SectionWrapper>
@@ -374,13 +374,3 @@ export default function HomePage() {
     </>
   );
 }
-
-    
-
-    
-
-
-
-
-    
-

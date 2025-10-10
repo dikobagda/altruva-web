@@ -1,4 +1,5 @@
 
+
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   if (!insight) {
     return {
-      title: 'Insight Not Found',
+      title: 'Article Not Found',
     };
   }
 
@@ -30,13 +31,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const dynamicKeywords = insight.keywords ? insight.keywords : insight.title.split(' ');
 
   return {
-    title: `${insight.title} - Altruva Insights`,
+    title: `${insight.title} - Altruva Articles`,
     description: insight.excerpt,
     keywords: [...new Set([...dynamicKeywords, ...baseKeywords])], // Combine and remove duplicates
   };
 }
 
-export default function InsightDetailPage({ params }: { params: { slug: string } }) {
+export default function ArticleDetailPage({ params }: { params: { slug: string } }) {
   const insight = insights.find((i) => i.href && i.href.endsWith(params.slug));
 
   if (!insight) {
@@ -50,7 +51,7 @@ export default function InsightDetailPage({ params }: { params: { slug: string }
       <SectionWrapper className="pt-12 pb-8 md:pt-20 md:pb-12 bg-secondary/30">
         <div className="max-w-4xl mx-auto">
           <Button asChild variant="ghost" className="mb-4">
-             <Link href="/insights"><ArrowLeft className="mr-2 h-4 w-4" /> Back to Insights</Link>
+             <Link href="/articles"><ArrowLeft className="mr-2 h-4 w-4" /> Back to Articles</Link>
           </Button>
           <div className="flex items-center text-sm text-muted-foreground mb-2">
             <CalendarDays className="h-4 w-4 mr-2" />
@@ -84,7 +85,7 @@ export default function InsightDetailPage({ params }: { params: { slug: string }
 
             <aside className="lg:col-span-1 space-y-8 sticky top-24">
                 <div className="p-6 rounded-lg bg-secondary/50">
-                    <h3 className="font-serif text-2xl text-primary mb-4">Related Insights</h3>
+                    <h3 className="font-serif text-2xl text-primary mb-4">Related Articles</h3>
                     <div className="space-y-6">
                         {relatedInsights.map(related => (
                             <Link href={related.href!} key={related.id} className="flex items-center space-x-4 group">

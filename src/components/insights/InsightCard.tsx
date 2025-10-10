@@ -11,6 +11,44 @@ interface InsightCardProps {
 }
 
 export default function InsightCard({ insight }: InsightCardProps) {
+  if (!insight.href) {
+    // Render a non-clickable card or null if an insight has no href
+    // This prevents the Link component from receiving an undefined href
+    return (
+      <Card className="flex flex-col overflow-hidden shadow-lg h-full w-full">
+        {insight.imageSrc && (
+          <div className="relative w-full aspect-video overflow-hidden">
+            <Image
+              src={insight.imageSrc}
+              alt={insight.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              data-ai-hint={insight.imageHint}
+            />
+          </div>
+        )}
+        <CardHeader>
+          <CardTitle className="font-serif text-xl text-primary leading-tight min-h-14">{insight.title}</CardTitle>
+           <div className="flex items-center text-sm text-muted-foreground pt-1">
+             <CalendarDays className="h-4 w-4 mr-2" />
+             <span>{insight.date}</span>
+           </div>
+        </CardHeader>
+        <CardContent className="flex-grow">
+          <p className="text-foreground/80 text-sm h-24 overflow-hidden text-ellipsis">
+            {insight.excerpt}
+          </p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="link" className="p-0 font-semibold text-primary" disabled>
+            Read More <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </CardFooter>
+      </Card>
+    );
+  }
+
   return (
     <Link href={insight.href} className="flex h-full">
       <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">

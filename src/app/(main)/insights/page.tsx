@@ -1,4 +1,5 @@
 
+
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import InsightCard from '@/components/insights/InsightCard';
@@ -11,19 +12,19 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Aesthetic Science & Beauty Insights | Altruva Clinic Blog',
+  title: 'Aesthetic Science & Beauty Articles | Altruva Clinic Blog',
   description: 'Explore the latest in aesthetic science, wellness, and beauty from the experts at Altruva Clinic in Jakarta. Your source for skincare tips and treatment information.',
   keywords: ['aesthetic science', 'beauty blog', 'skincare tips', 'Altruva Clinic', 'dr. Olivia Aldisa', 'regenerative aesthetics', 'Jakarta'],
 };
 
-export default function InsightsPage() {
+export default function ArticlesPage() {
   const featuredInsight = insights.find(i => i.href);
   const otherInsights = insights.slice(1).filter(i => i.href);
 
   return (
     <SectionWrapper>
       <PageTitle 
-        title="Insights from Altruva" 
+        title="Articles from Altruva" 
         subtitle="Explore the latest in aesthetic science, wellness, and beauty from our experts." 
       />
 

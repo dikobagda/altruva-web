@@ -19,7 +19,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i10.webp',
     imageHint: 'futuristic beauty trends',
     date: 'October 3, 2025',
-    href: '/insights/micro-trends-2025',
+    href: '/articles/micro-trends-2025',
     keywords: [
       'Klinik estetika premium Jakarta',
       'Treatment anti-aging regeneratif',
@@ -95,7 +95,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i9.jpeg',
     imageHint: 'elegant aesthetic treatment',
     date: 'September 16, 2025',
-    href: '/insights/quiet-luxury-face',
+    href: '/articles/quiet-luxury-face',
     keywords: [
       'Quiet Luxury Face',
       'Quiet Luxury Lift',
@@ -154,7 +154,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i8.png',
     imageHint: 'melasma treatment skin',
     date: 'September 13, 2025',
-    href: '/insights/melasma-treatment',
+    href: '/articles/melasma-treatment',
     keywords: ['melasma', 'MelaBooster', 'flek hitam', 'perawatan kulit', 'DNA Repair Pro'],
     content: `
       <h2>🌓 Mengapa Melasma Bukan Masalah Kulit Biasa?</h2>
@@ -234,6 +234,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i6.jpeg',
     imageHint: 'elegant aesthetic treatment',
     date: 'September 9, 2025',
+    href: '/articles/quiet-luxury-lift',
     keywords: [
       'skin tightening alami',
       'lifting wajah natural',
@@ -280,7 +281,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i5.jpeg',
     imageHint: 'refined skin pores',
     date: 'August 15, 2024',
-    href: '/insights/pore-refining-system',
+    href: '/articles/pore-refining-system',
     content: `
       <h2>Mengapa Pori-Pori itu Justru Sehat, Bukan Musuh?</h2>
       <p>Pori-pori adalah struktur alami kulit yang berperan sebagai akses keluar masuk sebum dan keringat. Komponen penting untuk menjaga kelembapan dan pertahanan kulit. Jadi, memiliki pori bukan aib, melainkan tanda kulit fungsional dan sehat.</p>
@@ -330,7 +331,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i7.jpeg',
     imageHint: 'wrinkled lips',
     date: 'August 12, 2024',
-    href: '/insights/lip-wrinkles-101',
+    href: '/articles/lip-wrinkles-101',
     content: `
       <p>By dr. Olivia Aldisa</p>
       <h2>Penyebab Kerutan Bibir</h2>
@@ -351,7 +352,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i2.png',
     imageHint: 'damaged skin barrier',
     date: 'August 5, 2024',
-    href: '/insights/skin-barrier-101',
+    href: '/articles/skin-barrier-101',
     content: `
       <p>By dr. Olivia Aldisa</p>
       <h2>Apa itu Skin Barrier?</h2>
@@ -373,7 +374,7 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i3.png',
     imageHint: 'healthy skin food',
     date: 'July 21, 2024',
-    href: '/insights/antioxidants-for-skin',
+    href: '/articles/antioxidants-for-skin',
     content: `
       <p>By dr. Olivia Aldisa</p>
       <p>Antioksidan memerangi radikal bebas berbahaya untuk mengurangi garis-garis halus dan menjaga kulit tampil awet muda. Berikut kita akan membahas 5 antioksidan terbaik untuk perawatan kulit dan manfaatnya.</p>
@@ -418,24 +419,10 @@ export const insights: Insight[] = [
     imageSrc: '/images/insights/i4.png',
     imageHint: 'AI skin analysis',
     date: 'July 14, 2024',
-    href: '/insights/ai-skin-analysis-explained',
+    href: '/articles/ai-skin-analysis-explained',
     content: `
       <h2>Personalization Through Technology</h2>
       <p>The one-size-fits-all approach to skincare is a thing of the past. To achieve the best results, you need to understand your skin's unique characteristics and concerns. Our AI Skin Analysis tool takes the guesswork out of the equation. By analyzing a photo of your skin and your answers to a brief questionnaire, our advanced algorithm can identify your skin type, detect underlying conditions, and provide personalized recommendations for both at-home products and in-clinic treatments. It's the first step toward a truly effective, data-driven skincare journey.</p>
     `
   },
 ];
-
-    
-
-    
-
-
-
-    
-
-    
-
-    
-
-

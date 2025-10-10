@@ -160,7 +160,13 @@ const navItems: NavItem[] = [
       { href: '/facial/happy-hour', label: { en: 'Happy Hour', id: 'Happy Hour' } },
     ],
   },
-  { href: '/insights', label: { en: 'Insights', id: 'Insights' } },
+  {
+    label: { en: 'Publications', id: 'Publikasi' },
+    subItems: [
+      { href: '/articles', label: { en: 'Articles', id: 'Artikel' } },
+      { href: '/beauty-journal', label: { en: 'Beauty Journal', id: 'Jurnal Kecantikan' } },
+    ],
+  },
   { href: '/contact', label: { en: 'Contact', id: 'Kontak' } },
 ];
 
@@ -510,5 +516,3 @@ export default function Header() {
     </header>
   );
 }
-
-    
