@@ -68,20 +68,13 @@ export default function OurDevicesPage() {
                 src={device.image}
                 alt={device.name}
                 fill
-                className="object-contain rounded-lg shadow-lg"
+                className="object-contain rounded-lg"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             <div className={cn("space-y-4", index % 2 === 1 && "md:order-1")}>
               <h3 className="font-serif text-3xl font-bold text-primary">{device.name}</h3>
               <p className="text-lg text-foreground/80">{t(device.description)}</p>
-              {device.href !== '#' && (
-                <Button asChild variant="link" className="p-0 text-base">
-                  <Link href={device.href}>
-                    {t({ en: 'Learn More', id: 'Pelajari Lebih Lanjut' })}
-                  </Link>
-                </Button>
-              )}
             </div>
           </div>
         ))}
