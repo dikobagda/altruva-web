@@ -163,7 +163,7 @@ const navItems: NavItem[] = [
   {
     label: { en: 'Publications', id: 'Publikasi' },
     subItems: [
-      { href: '/articles', label: { en: 'Articles', id: 'Artikel' } },
+      { href: '/articles', label: { en: 'Insights', id: 'Artikel' } },
       { href: '/beauty-journal', label: { en: 'Beauty Journal', id: 'Jurnal Kecantikan' } },
     ],
   },
