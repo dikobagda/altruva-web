@@ -19,7 +19,7 @@ export const beautyJournals: BeautyJournal[] = [
     id: '2',
     title: 'The Harmony Issue',
     issue: 'September 2025',
-    coverImage: 'https://placehold.co/600x800/E8DED5/b76631?text=Beauty+Journal',
+    coverImage: '/images/journal/2025/september/cover.png',
     downloadUrl: '/downloads/placeholder-journal.pdf',
   },
 ];
