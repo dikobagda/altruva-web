@@ -7,7 +7,7 @@ import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, Award, Star, Video } from 'lucide-react';
+import { Award, Star, Video } from 'lucide-react';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
@@ -259,3 +259,5 @@ export default function FlyerPage() {
 }
 
   
+
+    
