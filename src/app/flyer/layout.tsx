@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import Preloader from '@/components/layout/Preloader';
 import { usePathname } from 'next/navigation';
 import { LanguageProvider } from '@/context/LanguageContext';
+import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 
 export default function FlyerLayout({
   children,
@@ -32,6 +33,7 @@ export default function FlyerLayout({
         <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
           <main className="flex-grow">{children}</main>
           {isMounted && <Footer />}
+          <FloatingWhatsAppButton size="large" />
         </div>
       </div>
     </LanguageProvider>

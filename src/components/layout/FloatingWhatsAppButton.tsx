@@ -7,8 +7,13 @@ import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
-export default function FloatingWhatsAppButton() {
+interface FloatingWhatsAppButtonProps {
+  size?: 'default' | 'large';
+}
+
+export default function FloatingWhatsAppButton({ size = 'default' }: FloatingWhatsAppButtonProps) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -22,6 +27,11 @@ export default function FloatingWhatsAppButton() {
   const phoneNumber = "6281216119392";
   const whatsappLink = `https://wa.me/${phoneNumber}`;
 
+  const sizeClasses = {
+    default: 'h-14 w-14 p-3',
+    large: 'h-16 w-16 p-4', // Larger size
+  };
+
   return (
     <TooltipProvider delayDuration={100}>
       <Tooltip>
@@ -30,7 +40,10 @@ export default function FloatingWhatsAppButton() {
             <Button
               variant="default"
               size="icon"
-              className="fixed bottom-[100px] right-6 h-14 w-14 rounded-full shadow-xl z-50 p-3"
+              className={cn(
+                "fixed bottom-[100px] right-6 rounded-full shadow-xl z-50",
+                sizeClasses[size]
+              )}
               style={{ backgroundColor: '#3ea81f' }}
               onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#35931a')}
               onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#3ea81f')}
