@@ -38,11 +38,11 @@ export default function OurClinicPage() {
       <SectionWrapper className="pt-0">
         <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-2xl">
           <Image
-            src="/images/altruva-klinik.png"
-            alt="Panoramic view of the Altruva clinic interior"
+            src="/images/clinic-front.jpeg"
+            alt="The modern and welcoming entrance of Altruva Aesthetic Clinic"
             fill
             className="object-cover"
-            data-ai-hint="modern clinic interior panoramic"
+            data-ai-hint="modern clinic exterior"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
