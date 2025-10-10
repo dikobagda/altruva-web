@@ -17,7 +17,7 @@ export const beautyJournals: BeautyJournal[] = [
   },
   {
     id: '2',
-    title: 'menopause awareness',
+    title: 'Menopause Awareness',
     issue: 'September 2025',
     coverImage: '/images/journal/2025/september/cover.png',
     downloadUrl: '/downloads/placeholder-journal.pdf',
