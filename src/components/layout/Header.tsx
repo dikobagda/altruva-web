@@ -35,7 +35,6 @@ const navItems: NavItem[] = [
       { href: '/about-us', label: { en: 'Philosophy', id: 'Filosofi' } },
       { href: '/about-us/meet-dr-olivia-aldisa', label: { en: 'Meet dr. Olivia Aldisa', id: 'Temui dr. Olivia Aldisa' } },
       { href: '/our-clinic', label: { en: 'Our Clinic', id: 'Klinik Kami' } },
-      { href: '/news-media', label: { en: 'News & Media', id: 'Berita & Media' } },
     ],
   },
   { href: '/about-us/369-harmony', label: { en: '369 Harmony™', id: '369 Harmony™' } },
@@ -165,6 +164,7 @@ const navItems: NavItem[] = [
     subItems: [
       { href: '/insights', label: { en: 'Insights', id: 'Artikel' } },
       { href: '/beauty-journal', label: { en: 'Beauty Journal', id: 'Jurnal Kecantikan' } },
+      { href: '/news-media', label: { en: 'News & Media', id: 'Berita & Media' } },
     ],
   },
   { href: '/contact', label: { en: 'Contact', id: 'Kontak' } },
@@ -516,3 +516,5 @@ export default function Header() {
     </header>
   );
 }
+
+    
