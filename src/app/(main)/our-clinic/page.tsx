@@ -107,7 +107,7 @@ export default function OurClinicPage() {
           </div>
           <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-xl">
              <Image
-                src="/images/altruva-clinic-face.png"
+                src="/images/treatment-clinic.jpeg"
                 alt="A detail shot of the clinic's calming decor"
                 fill
                 className="object-cover"
