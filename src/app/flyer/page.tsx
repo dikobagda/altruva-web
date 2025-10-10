@@ -127,7 +127,7 @@ export default function FlyerPage() {
       {/* Featured Offerings Section */}
       <SectionWrapper id="offerings">
         <PageTitle
-          title={t({ en: 'Signature Treatments', id: 'Perawatan Khas' })}
+          title={t({ en: 'Signature Treatments', id: 'Signature Treatments' })}
           subtitle={t({ en: 'Clinically-proven solutions designed for natural, elegant, and lasting results.', id: 'Solusi teruji klinis yang dirancang untuk hasil yang alami, elegan, dan tahan lama.' })}
         />
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
