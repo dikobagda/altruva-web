@@ -51,8 +51,8 @@ export default function FlyerPage() {
 
   const beforeAfters = [
     { src: "/images/flyer/paulina-before-after.png", hint: 'facial contouring before after' },
-    { src: "/images/flyer/atiqah-before-after.png", hint: 'facial rejuvenation before after' },
-    { src: "/images/flyer/punky-before-after.png", hint: 'skin tightening before after' },
+    { src: "/images/flyer/atiqah-before-after.jpg", hint: 'facial rejuvenation before after' },
+    { src: "/images/flyer/paulina-before-after-v2.jpg", hint: 'skin tightening before after' },
   ];
   
   const socialVideos = [
@@ -73,7 +73,7 @@ export default function FlyerPage() {
   return (
     <>
       {/* Section 1: Hero */}
-      <SectionWrapper className="!py-0 min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
+      <SectionWrapper className="pt-20 pb-12 min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
         <div className="container mx-auto px-6 relative z-10 text-center">
             <div className="mb-6">
               <Image
@@ -163,12 +163,12 @@ export default function FlyerPage() {
         <PageTitle title="Proven results" subtitle="Tampil cantik percaya diri di segala usia" />
         <div className="grid md:grid-cols-3 gap-8">
           {beforeAfters.map((item, index) => (
-            <div key={index} className="relative w-full shadow-lg overflow-hidden rounded-lg">
+            <div key={index} className="relative w-full overflow-hidden rounded-lg shadow-lg">
               <Image
                 src={item.src}
                 alt="Before and after treatment"
                 width={600}
-                height={600}
+                height={300}
                 className="w-full h-auto"
                 data-ai-hint={item.hint}
               />

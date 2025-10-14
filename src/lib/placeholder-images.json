@@ -5,16 +5,16 @@
       "hint": "elegant clinic"
     },
     "benefit1": {
-      "src": "https://picsum.photos/seed/benefit1/600/600"
+      "src": "/images/flyer/atiqah1.jpeg"
     },
     "benefit2": {
-      "src": "https://picsum.photos/seed/benefit2/600/600"
+      "src": "/images/flyer/atiqah2.jpeg"
     },
     "benefit3": {
-      "src": "https://picsum.photos/seed/benefit3/600/600"
+      "src": "/images/flyer/maria1.jpeg"
     },
     "benefit4": {
-      "src": "https://picsum.photos/seed/benefit4/600/600"
+      "src": "/images/flyer/maria2.jpeg"
     },
     "before1": {
       "src": "/images/flyer/paulina-before-after.png"
