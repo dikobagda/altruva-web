@@ -13,6 +13,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import {
   Dialog,
   DialogContent,
+  DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 
@@ -229,6 +231,9 @@ export default function FlyerPage() {
                       </div>
                     </DialogTrigger>
                     <DialogContent className="p-0 border-0 max-w-3xl">
+                      <DialogHeader>
+                        <DialogTitle className="sr-only">Certificate</DialogTitle>
+                      </DialogHeader>
                       <Image 
                         src={cert.image.src} 
                         alt="Certificate" 
