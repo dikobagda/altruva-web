@@ -50,8 +50,6 @@ export default function FlyerPage() {
 
   const beforeAfters = [
     { before: placeholderImages.flyer.before1, after: placeholderImages.flyer.after1, beforeHint: 'face before', afterHint: 'face after' },
-    { before: placeholderImages.flyer.before2, after: placeholderImages.flyer.after2, beforeHint: 'profile before', afterHint: 'profile after' },
-    { before: placeholderImages.flyer.before3, after: placeholderImages.flyer.after3, beforeHint: 'skin before', afterHint: 'skin after' },
   ];
   
   const socialVideos = [
@@ -162,26 +160,30 @@ export default function FlyerPage() {
       {/* Section 4: Proven Results */}
       <SectionWrapper>
         <PageTitle title="Proven Results" subtitle="Tampil cantik percaya diri di segala usia" />
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {beforeAfters.map((item, index) => (
-                <Card key={index} className="shadow-lg overflow-hidden">
-                    <CardContent className="p-4">
-                        <div className="grid grid-cols-2 gap-2">
-                             <div>
-                                <h4 className="font-semibold text-sm mb-1 text-center text-muted-foreground">Before</h4>
-                                <div className="aspect-square relative rounded-md overflow-hidden border">
-                                    <Image src={item.before.src} alt="Before treatment" fill className="object-cover" data-ai-hint={item.beforeHint} />
-                                </div>
-                             </div>
-                             <div>
-                                <h4 className="font-semibold text-sm mb-1 text-center text-muted-foreground">After</h4>
-                                <div className="aspect-square relative rounded-md overflow-hidden border">
-                                    <Image src={item.after.src} alt="After treatment" fill className="object-cover" data-ai-hint={item.afterHint} />
-                                </div>
-                             </div>
-                        </div>
-                    </CardContent>
-                </Card>
+                <React.Fragment key={index}>
+                    <Card className="shadow-lg overflow-hidden">
+                        <CardHeader>
+                            <CardTitle className="text-center font-serif text-2xl text-primary">Before</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-4">
+                            <div className="relative aspect-square rounded-md overflow-hidden border">
+                                <Image src={item.before.src} alt="Before treatment" fill className="object-cover" data-ai-hint={item.beforeHint} />
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card className="shadow-lg overflow-hidden">
+                        <CardHeader>
+                            <CardTitle className="text-center font-serif text-2xl text-primary">After</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-4">
+                            <div className="relative aspect-square rounded-md overflow-hidden border">
+                                <Image src={item.after.src} alt="After treatment" fill className="object-cover" data-ai-hint={item.afterHint} />
+                            </div>
+                        </CardContent>
+                    </Card>
+                </React.Fragment>
             ))}
         </div>
         <div className="text-center mt-12">
@@ -257,7 +259,3 @@ export default function FlyerPage() {
     </>
   );
 }
-
-  
-
-    
