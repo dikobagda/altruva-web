@@ -73,7 +73,7 @@ export default function FlyerPage() {
   return (
     <>
       {/* Section 1: Hero */}
-      <SectionWrapper className="pt-20 pb-12 min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
+      <SectionWrapper className="pb-12 min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
         <div className="container mx-auto px-6 relative z-10 text-center">
             <div className="mb-6">
               <Image
@@ -233,7 +233,7 @@ export default function FlyerPage() {
         <div className="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
             <div className="md:col-span-1">
                  <div className="relative aspect-square max-w-xs mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-primary-foreground">
-                     <Image src={placeholderImages.flyer.doctor.src} alt="dr Olivia Aldisa" fill className="object-cover object-top" data-ai-hint={placeholderImages.flyer.doctor.hint} />
+                     <Image src="/images/draldisanew.jpg" alt="dr Olivia Aldisa" fill className="object-cover object-top" />
                  </div>
             </div>
             <div className="md:col-span-2">
