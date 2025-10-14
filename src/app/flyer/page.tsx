@@ -165,20 +165,16 @@ export default function FlyerPage() {
         <PageTitle title="Proven results" subtitle="Tampil cantik percaya diri di segala usia" />
         <div className="grid md:grid-cols-3 gap-8">
           {beforeAfters.map((item, index) => (
-            <Card key={index} className="shadow-lg overflow-hidden">
-              <CardContent className="p-0">
-                <div className="relative w-full">
-                  <Image
-                    src={item.src}
-                    alt="Before and after treatment"
-                    width={600}
-                    height={600}
-                    className="rounded-md w-full h-auto"
-                    data-ai-hint={item.hint}
-                  />
-                </div>
-              </CardContent>
-            </Card>
+            <div key={index} className="relative w-full shadow-lg overflow-hidden rounded-lg">
+              <Image
+                src={item.src}
+                alt="Before and after treatment"
+                width={600}
+                height={600}
+                className="w-full h-auto"
+                data-ai-hint={item.hint}
+              />
+            </div>
           ))}
         </div>
         <div className="text-center mt-12">
