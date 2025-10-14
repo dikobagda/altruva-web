@@ -51,6 +51,8 @@ export default function FlyerPage() {
 
   const beforeAfters = [
     { src: "/images/flyer/paulina-before-after.png", hint: 'facial contouring before after' },
+    { src: "/images/flyer/atiqah-before-after.png", hint: 'facial rejuvenation before after' },
+    { src: "/images/flyer/punky-before-after.png", hint: 'skin tightening before after' },
   ];
   
   const socialVideos = [
@@ -107,7 +109,7 @@ export default function FlyerPage() {
       {/* Section 2: Personalized Treatment */}
       <SectionWrapper>
         <PageTitle
-          title="Personalized Treatment Paling Aman dan Efektif"
+          title="Personalized Treatment paling aman dan efektif"
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
@@ -132,7 +134,7 @@ export default function FlyerPage() {
 
       {/* Section 3: Glimpse of Treatments */}
       <SectionWrapper className="bg-secondary/30">
-        <PageTitle title="A Glimpse of Altruva Treatments" />
+        <PageTitle title="A glimpse of Altruva treatments" />
         <div className="grid md:grid-cols-3 gap-8">
             {treatmentVideos.map(video => (
                 <Card key={video.id} className="shadow-lg overflow-hidden">
@@ -160,8 +162,8 @@ export default function FlyerPage() {
 
       {/* Section 4: Proven Results */}
       <SectionWrapper>
-        <PageTitle title="Proven Results" subtitle="Tampil cantik percaya diri di segala usia" />
-        <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
+        <PageTitle title="Proven results" subtitle="Tampil cantik percaya diri di segala usia" />
+        <div className="grid md:grid-cols-3 gap-8">
           {beforeAfters.map((item, index) => (
             <Card key={index} className="shadow-lg overflow-hidden">
               <CardContent className="p-4">
