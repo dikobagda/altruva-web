@@ -8,9 +8,8 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Award, Star, Video } from 'lucide-react';
-import placeholderImages from '@/lib/placeholder-images.json';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import React from 'react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 export default function FlyerPage() {
 
@@ -23,22 +22,22 @@ export default function FlyerPage() {
   const benefits = [
     {
       title: "Hasil kontur wajah yang harmonis dan natural",
-      image: placeholderImages.flyer.benefit1,
+      image: { src: "/images/flyer/atiqah1.jpeg" },
       imageHint: "natural facial contour"
     },
     {
       title: "Sofwave utk wajah kencang, kenyal, dan cerah (tanpa downtime)",
-      image: placeholderImages.flyer.benefit2,
+      image: { src: "/images/flyer/atiqah2.jpeg" },
       imageHint: "sofwave treatment"
     },
     {
       title: "Memproduksi ulang kolagen yang hilang",
-      image: placeholderImages.flyer.benefit3,
+      image: { src: "/images/flyer/maria1.jpeg" },
       imageHint: "collagen stimulation"
     },
     {
       title: "Prosedur yang nyaman berdasarkan standar intenasional",
-      image: placeholderImages.flyer.benefit4,
+      image: { src: "/images/flyer/maria2.jpeg" },
       imageHint: "comfortable aesthetic procedure"
     }
   ];
@@ -63,17 +62,17 @@ export default function FlyerPage() {
   ];
   
   const certificates = [
-    { image: placeholderImages.flyer.cert1, imageHint: "UMA Academy certificate" },
-    { image: placeholderImages.flyer.cert2, imageHint: "speaker award" },
-    { image: placeholderImages.flyer.cert3, imageHint: "AMWC Award certificate" },
-    { image: placeholderImages.flyer.cert4, imageHint: "GOURI trainer award" },
-    { image: placeholderImages.flyer.cert5, imageHint: "international certificate" },
+    { image: { src: "/images/flyer/cert1.png" }, imageHint: "UMA Academy certificate" },
+    { image: { src: "/images/flyer/cert2.png" }, imageHint: "speaker award" },
+    { image: { src: "/images/flyer/cert3.png" }, imageHint: "AMWC Award certificate" },
+    { image: { src: "/images/flyer/cert4.png" }, imageHint: "GOURI trainer award" },
+    { image: { src: "/images/flyer/cert5.png" }, imageHint: "international certificate" },
   ];
 
   return (
     <>
       {/* Section 1: Hero */}
-      <SectionWrapper className="pb-12 min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
+      <SectionWrapper className="pb-12 min-h-[80vh] flex items-start pt-24 relative overflow-hidden bg-secondary/30">
         <div className="container mx-auto px-6 relative z-10 text-center">
             <div className="mb-6">
               <Image
