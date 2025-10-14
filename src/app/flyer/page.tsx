@@ -166,7 +166,7 @@ export default function FlyerPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {beforeAfters.map((item, index) => (
             <Card key={index} className="shadow-lg overflow-hidden">
-              <CardContent className="p-4">
+              <CardContent className="p-0">
                 <div className="relative w-full">
                   <Image
                     src={item.src}
