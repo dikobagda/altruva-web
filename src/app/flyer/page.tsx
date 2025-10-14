@@ -10,6 +10,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Award, Star, Video } from 'lucide-react';
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 export default function FlyerPage() {
 
@@ -62,11 +67,12 @@ export default function FlyerPage() {
   ];
   
   const certificates = [
-    { image: { src: "/images/flyer/cert1.png" }, imageHint: "UMA Academy certificate" },
-    { image: { src: "/images/flyer/cert2.png" }, imageHint: "speaker award" },
-    { image: { src: "/images/flyer/cert3.png" }, imageHint: "AMWC Award certificate" },
-    { image: { src: "/images/flyer/cert4.png" }, imageHint: "GOURI trainer award" },
-    { image: { src: "/images/flyer/cert5.png" }, imageHint: "international certificate" },
+    { image: { src: "/images/flyer/cert1.webp" }, imageHint: "UMA Academy certificate" },
+    { image: { src: "/images/flyer/cert2.webp" }, imageHint: "speaker award" },
+    { image: { src: "/images/flyer/cert3.webp" }, imageHint: "AMWC Award certificate" },
+    { image: { src: "/images/flyer/cert4.webp" }, imageHint: "GOURI trainer award" },
+    { image: { src: "/images/flyer/cert5.webp" }, imageHint: "international certificate" },
+    { image: { src: "/images/flyer/cert6.webp" }, imageHint: "international certificate" },
   ];
 
   return (
@@ -215,9 +221,23 @@ export default function FlyerPage() {
             {certificates.map((cert, index) => (
               <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
                 <div className="p-1">
-                  <div className="relative aspect-[3/4] rounded-lg overflow-hidden border shadow-md">
-                     <Image src={cert.image.src} alt="Certificate" fill className="object-cover" data-ai-hint={cert.image.imageHint} />
-                  </div>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <div className="relative aspect-[3/4] rounded-lg overflow-hidden border shadow-md cursor-pointer group">
+                         <Image src={cert.image.src} alt="Certificate" fill className="object-cover group-hover:scale-105 transition-transform" />
+                         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors"></div>
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="p-0 border-0 max-w-3xl">
+                      <Image 
+                        src={cert.image.src} 
+                        alt="Certificate" 
+                        width={800} 
+                        height={1067} 
+                        className="w-full h-auto rounded-lg"
+                      />
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </CarouselItem>
             ))}

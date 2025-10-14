@@ -35,19 +35,22 @@
       "src": "https://picsum.photos/seed/after3/400/400"
     },
     "cert1": {
-      "src": "https://picsum.photos/seed/cert1/300/400"
+      "src": "/images/flyer/cert1.webp"
     },
     "cert2": {
-      "src": "https://picsum.photos/seed/cert2/300/400"
+      "src": "/images/flyer/cert2.webp"
     },
     "cert3": {
-      "src": "https://picsum.photos/seed/cert3/300/400"
+      "src": "/images/flyer/cert3.webp"
     },
     "cert4": {
-      "src": "https://picsum.photos/seed/cert4/300/400"
+      "src": "/images/flyer/cert4.webp"
     },
     "cert5": {
-      "src": "https://picsum.photos/seed/cert5/300/400"
+      "src": "/images/flyer/cert5.webp"
+    },
+    "cert6": {
+      "src": "/images/flyer/cert6.webp"
     },
     "doctor": {
       "src": "https://picsum.photos/seed/flyerdoctor/500/500",
