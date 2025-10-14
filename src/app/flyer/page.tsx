@@ -50,7 +50,7 @@ export default function FlyerPage() {
   ];
 
   const beforeAfters = [
-    { before: placeholderImages.flyer.before1, after: placeholderImages.flyer.after1, beforeHint: 'face before', afterHint: 'face after' },
+    { src: "/images/flyer/paulina-before-after.png", hint: 'facial contouring before after' },
   ];
   
   const socialVideos = [
@@ -161,38 +161,31 @@ export default function FlyerPage() {
       {/* Section 4: Proven Results */}
       <SectionWrapper>
         <PageTitle title="Proven Results" subtitle="Tampil cantik percaya diri di segala usia" />
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {beforeAfters.map((item, index) => (
-                <React.Fragment key={index}>
-                    <Card className="shadow-lg overflow-hidden">
-                        <CardHeader>
-                            <CardTitle className="text-center font-serif text-2xl text-primary">Before</CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-4">
-                            <div className="relative aspect-square rounded-md overflow-hidden border">
-                                <Image src={item.before.src} alt="Before treatment" fill className="object-cover" data-ai-hint={item.beforeHint} />
-                            </div>
-                        </CardContent>
-                    </Card>
-                    <Card className="shadow-lg overflow-hidden">
-                        <CardHeader>
-                            <CardTitle className="text-center font-serif text-2xl text-primary">After</CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-4">
-                            <div className="relative aspect-square rounded-md overflow-hidden border">
-                                <Image src={item.after.src} alt="After treatment" fill className="object-cover" data-ai-hint={item.afterHint} />
-                            </div>
-                        </CardContent>
-                    </Card>
-                </React.Fragment>
-            ))}
+        <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
+          {beforeAfters.map((item, index) => (
+            <Card key={index} className="shadow-lg overflow-hidden">
+              <CardContent className="p-4">
+                <div className="relative w-full">
+                  <Image
+                    src={item.src}
+                    alt="Before and after treatment"
+                    width={600}
+                    height={600}
+                    className="rounded-md w-full h-auto"
+                    data-ai-hint={item.hint}
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
         <div className="text-center mt-12">
-            <Button asChild size="lg">
-                <Link href="/book-appointment">Book Appointment Now!</Link>
-            </Button>
+          <Button asChild size="lg">
+            <Link href="/book-appointment">Book Appointment Now!</Link>
+          </Button>
         </div>
       </SectionWrapper>
+
 
       {/* Section 5: Social Media */}
       <SectionWrapper className="bg-secondary/30">
