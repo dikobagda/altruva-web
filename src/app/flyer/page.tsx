@@ -86,6 +86,15 @@ export default function FlyerPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
         <div className="container mx-auto px-6 relative z-10 text-center">
+            <div className="mb-6">
+              <Image
+                src="/images/logo-altruva.png"
+                width={120}
+                height={120}
+                alt="Altruva Logo"
+                className="mx-auto"
+              />
+            </div>
             <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4">
               Kencangkan wajah kendur di klinik kami
             </h1>
