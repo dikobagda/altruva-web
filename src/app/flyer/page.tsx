@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Award, Star, Video } from 'lucide-react';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import React from 'react';
 
 export default function FlyerPage() {
 
@@ -227,7 +228,7 @@ export default function FlyerPage() {
               <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
                 <div className="p-1">
                   <div className="relative aspect-[3/4] rounded-lg overflow-hidden border shadow-md">
-                     <Image src={cert.image.src} alt="Certificate" fill className="object-cover" data-ai-hint={cert.imageHint} />
+                     <Image src={cert.image.src} alt="Certificate" fill className="object-cover" data-ai-hint={cert.image.imageHint} />
                   </div>
                 </div>
               </CarouselItem>
