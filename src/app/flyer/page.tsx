@@ -74,17 +74,6 @@ export default function FlyerPage() {
     <>
       {/* Section 1: Hero */}
       <SectionWrapper className="!py-0 min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={placeholderImages.flyer.hero.src}
-            alt="Elegant aesthetic clinic background"
-            fill
-            className="object-cover"
-            data-ai-hint={placeholderImages.flyer.hero.hint}
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
-        </div>
         <div className="container mx-auto px-6 relative z-10 text-center">
             <div className="mb-6">
               <Image
