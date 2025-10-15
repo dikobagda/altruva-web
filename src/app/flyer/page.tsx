@@ -72,9 +72,10 @@ export default function FlyerPage() {
     { image: { src: "/images/flyer/cert1.webp" }, imageHint: "UMA Academy certificate" },
     { image: { src: "/images/flyer/cert2.webp" }, imageHint: "speaker award" },
     { image: { src: "/images/flyer/cert3.webp" }, imageHint: "AMWC Award certificate" },
-    { image: { src: "/images/flyer/cert4.webp" }, imageHint: "GOURI trainer award" },
-    { image: { src: "/images/flyer/cert5.webp" }, imageHint: "international certificate" },
     { image: { src: "/images/flyer/cert6.webp" }, imageHint: "international certificate" },
+    { image: { src: "/images/flyer/cert7.webp" }, imageHint: "international certificate" },
+    { image: { src: "/images/flyer/cert8.webp" }, imageHint: "international certificate" },
+    { image: { src: "/images/flyer/cert9.webp" }, imageHint: "international certificate" },
   ];
 
   return (
