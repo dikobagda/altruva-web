@@ -33,7 +33,7 @@ export default function OurDevicesPage() {
     },
     {
       name: 'Exion',
-      image: '/images/devices/exion.jpeg',
+      image: '/images/devices/exion.avif',
       description: {
         en: 'A multi-platform device offering radiofrequency and targeted ultrasound for skin tightening, textural refinement, and enhanced hyaluronic acid production.',
         id: 'Perangkat multi-platform yang menawarkan frekuensi radio dan ultrasound yang ditargetkan untuk pengencangan kulit, penyempurnaan tekstur, dan peningkatan produksi asam hialuronat.',
@@ -42,7 +42,7 @@ export default function OurDevicesPage() {
     },
     {
       name: 'Remee',
-      image: '/images/devices/remee.png',
+      image: '/images/devices/remee_trans.png',
       description: {
         en: 'Advanced technology for deep dermal analysis and diagnostics, allowing for hyper-personalized treatment planning.',
         id: 'Teknologi canggih untuk analisis dan diagnostik dermal mendalam, memungkinkan perencanaan perawatan yang sangat dipersonalisasi.',

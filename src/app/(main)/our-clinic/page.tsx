@@ -106,7 +106,7 @@ export default function OurClinicPage() {
           </div>
           <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
              <Image
-                src="/images/treatment-clinic.jpeg"
+                src="/images/atiqah-atclinic.jpeg"
                 alt="A detail shot of the clinic's calming decor"
                 fill
                 className="object-contain"
