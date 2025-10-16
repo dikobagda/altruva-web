@@ -57,8 +57,8 @@ export default function FlyerPage() {
 
   const beforeAfters = [
     { src: "/images/flyer/paulina-before-after.png", hint: 'facial contouring before after' },
-    { src: "/images/flyer/atiqah-before-after.jpg", hint: 'facial rejuvenation before after' },
-    { src: "/images/flyer/paulina-before-after-v2.jpg", hint: 'skin tightening before after' },
+    { src: "/images/flyer/atiqah-bf.png", hint: 'facial rejuvenation before after' },
+    { src: "/images/flyer/unk-bf.png", hint: 'skin tightening before after' },
   ];
   
   const socialVideos = [
