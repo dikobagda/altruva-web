@@ -69,7 +69,6 @@ export default function FlyerPage() {
   ];
   
   const certificates = [
-<<<<<<< HEAD
     { image: { src: "/images/flyer/cert/cert1.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert2.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert3.jpg" }, imageHint: "certificate" },
@@ -81,15 +80,6 @@ export default function FlyerPage() {
     { image: { src: "/images/flyer/cert/cert9.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert10.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert11.jpg" }, imageHint: "certificate" },
-=======
-    { image: { src: "/images/flyer/cert1.webp" }, imageHint: "UMA Academy certificate" },
-    { image: { src: "/images/flyer/cert2.webp" }, imageHint: "speaker award" },
-    { image: { src: "/images/flyer/cert3.webp" }, imageHint: "AMWC Award certificate" },
-    { image: { src: "/images/flyer/cert6.webp" }, imageHint: "international certificate" },
-    { image: { src: "/images/flyer/cert7.webp" }, imageHint: "international certificate" },
-    { image: { src: "/images/flyer/cert8.webp" }, imageHint: "international certificate" },
-    { image: { src: "/images/flyer/cert9.webp" }, imageHint: "international certificate" },
->>>>>>> 4a420235fc7673b335501cf715bc73e6b7018c07
   ];
 
   return (
