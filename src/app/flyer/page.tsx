@@ -89,7 +89,7 @@ export default function FlyerPage() {
         <div className="container mx-auto px-6 relative z-10 text-center">
             <div className="mb-6">
               <Image
-                src="/images/logo_altruva_new.png"
+                src="/images/logo-altruva-trans.png"
                 width={120}
                 height={120}
                 alt="Altruva Logo"
