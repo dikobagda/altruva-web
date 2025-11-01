@@ -84,7 +84,7 @@ export default function FlyerPage() {
         <div className="container mx-auto px-6 relative z-10 text-center">
             <div className="mb-6">
               <Image
-                src="/images/logo-altruva.png"
+                src="/images/logo_altruva_new.png"
                 width={120}
                 height={120}
                 alt="Altruva Logo"
@@ -143,7 +143,7 @@ export default function FlyerPage() {
         <div className="grid md:grid-cols-3 gap-8">
             {treatmentVideos.map(video => (
                 <Card key={video.id} className="shadow-lg overflow-hidden">
-                    <div className="aspect-video w-full">
+                    <div className="aspect-[9/16] w-full">
                         <iframe
                             className="w-full h-full"
                             src={`https://www.youtube.com/embed/${video.id}`}
@@ -167,7 +167,7 @@ export default function FlyerPage() {
         </div>
       </SectionWrapper>
 
-      {/* Section 4: Proven Results */}
+      {/* Section 4: Proven results */}
       <SectionWrapper>
         <PageTitle title="Proven results" subtitle="Tampil cantik percaya diri di segala usia" />
         <div className="grid md:grid-cols-3 gap-8">
