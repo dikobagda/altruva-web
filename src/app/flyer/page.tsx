@@ -62,10 +62,10 @@ export default function FlyerPage() {
   ];
   
   const socialVideos = [
-    { id: 'DNxwCZywnvQ' },
-    { id: 'DO2lscdAXll' },
-    { id: 'DNGQrSBBk2z' },
-    { id: 'DMSf9MbBbbe' },
+    { id: 'fyYd0wE4uDY' },
+    { id: '8j5eQI4nYA8' },
+    { id: 'm4asSg5piJY' },
+    { id: 'dODOyXmNSVA' },
   ];
   
   const certificates = [
@@ -85,7 +85,7 @@ export default function FlyerPage() {
   return (
     <>
       {/* Section 1: Hero */}
-      <SectionWrapper className="pb-12 min-h-[80vh] flex items-start pt-24 relative overflow-hidden bg-secondary/30">
+      <SectionWrapper className="pb-12 flex items-start pt-24 relative overflow-hidden bg-secondary/30">
         <div className="container mx-auto px-6 relative z-10 text-center">
             <div className="mb-6">
               <Image
@@ -202,13 +202,14 @@ export default function FlyerPage() {
         <PageTitle title="Get to know us more at @altruvaclinic" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {socialVideos.map(video => (
-                 <a href={`https://www.instagram.com/reel/${video.id}/`} target="_blank" rel="noopener noreferrer" key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg group">
+                 <a href={`https://www.youtube.com/shorts/${video.id}/`} target="_blank" rel="noopener noreferrer" key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg group">
                     <iframe
                         className="w-full h-full absolute inset-0"
-                        src={`https://www.instagram.com/reel/${video.id}/embed`}
-                        scrolling="no"
+                        src={`https://www.youtube.com/embed/${video.id}`}
+                        title={`YouTube Short ${video.id}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
-                        title={`Instagram Reel ${video.id}`}
                         loading="lazy"
                     ></iframe>
                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
