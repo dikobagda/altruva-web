@@ -17,7 +17,7 @@ export default function Preloader({ isLoading }: PreloaderProps) {
     >
       <div className="logo-container">
         <Image
-          src="/images/altruvanew.png"
+          src="/images/logoaltruvanew.png"
           alt="Altruva Logo"
           width={120}
           height={120}
