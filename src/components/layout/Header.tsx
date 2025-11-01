@@ -414,7 +414,7 @@ export default function Header() {
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center space-x-2" prefetch={false}>
             <Image
-              src="/images/logo-altruva.png"
+              src="/images/altruvanew.png"
               width={90}
               height={90}
               alt="Altruva Logo"
@@ -476,7 +476,7 @@ export default function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" prefetch={false}>
            <Image
-            src="/images/logo-altruva.png"
+            src="/images/altruvanew.png"
             width={90}
             height={90}
             alt="Altruva Logo"
