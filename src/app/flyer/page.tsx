@@ -69,12 +69,17 @@ export default function FlyerPage() {
   ];
   
   const certificates = [
-    { image: { src: "/images/flyer/cert1.webp" }, imageHint: "UMA Academy certificate" },
-    { image: { src: "/images/flyer/cert2.webp" }, imageHint: "speaker award" },
-    { image: { src: "/images/flyer/cert3.webp" }, imageHint: "AMWC Award certificate" },
-    { image: { src: "/images/flyer/cert4.webp" }, imageHint: "GOURI trainer award" },
-    { image: { src: "/images/flyer/cert5.webp" }, imageHint: "international certificate" },
-    { image: { src: "/images/flyer/cert6.webp" }, imageHint: "international certificate" },
+    { image: { src: "/images/flyer/cert/cert1.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert2.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert3.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert4.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert5.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert6.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert7.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert8.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert9.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert10.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert11.jpg" }, imageHint: "certificate" },
   ];
 
   return (
@@ -233,7 +238,7 @@ export default function FlyerPage() {
                       </div>
                     </DialogTrigger>
                     <DialogContent className="p-0 border-0 max-w-3xl">
-                      <DialogHeader>
+                       <DialogHeader>
                         <DialogTitle className="sr-only">Certificate</DialogTitle>
                       </DialogHeader>
                       <Image 
