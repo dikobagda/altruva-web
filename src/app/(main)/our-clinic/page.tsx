@@ -37,7 +37,7 @@ export default function OurClinicPage() {
       <SectionWrapper className="pt-0">
         <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-2xl">
           <Image
-            src="/images/clinic-front.jpeg"
+            src="/images/altruva-desk.webp"
             alt="The modern and welcoming entrance of Altruva Aesthetic Clinic"
             fill
             className="object-cover"
@@ -106,7 +106,7 @@ export default function OurClinicPage() {
           </div>
           <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
              <Image
-                src="/images/treatment-clinic.jpeg"
+                src="/images/atiqah-atclinic.jpeg"
                 alt="A detail shot of the clinic's calming decor"
                 fill
                 className="object-contain"
