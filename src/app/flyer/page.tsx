@@ -212,9 +212,6 @@ export default function FlyerPage() {
                         allowFullScreen
                         loading="lazy"
                     ></iframe>
-                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                        <Video className="w-12 h-12 text-white/70 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
                 </a>
             ))}
         </div>
