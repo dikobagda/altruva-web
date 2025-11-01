@@ -50,9 +50,9 @@ export default function FlyerPage() {
   ];
   
   const treatmentVideos = [
-    { id: 'DOuyO3FgVUx', title: "dr. Aldisa & Atiqah Cocktail Contouring™" },
-    { id: 'DN7jtwzgZi2', title: "Paulina's Sofwave Journey" },
-    { id: 'DOLfZhBgTru', title: "Indy's Gouri Experience" },
+    { id: 's3JGxiB-8R4', title: "dr. Aldisa & Atiqah Cocktail Contouring™" },
+    { id: 'AEHYP6BJsQU', title: "Paulina's Sofwave Journey" },
+    { id: 'gn_1wzedRAA', title: "Indy's Gouri Experience" },
   ];
 
   const beforeAfters = [
@@ -146,8 +146,10 @@ export default function FlyerPage() {
                     <div className="aspect-video w-full">
                         <iframe
                             className="w-full h-full"
-                            src={`https://www.instagram.com/reel/${video.id}/embed`}
+                            src={`https://www.youtube.com/embed/${video.id}`}
                             title={video.title}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
                             loading="lazy"
                         ></iframe>
