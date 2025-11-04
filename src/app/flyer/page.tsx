@@ -17,8 +17,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { useLanguage } from '@/context/LanguageContext';
+import { cn } from '@/lib/utils';
 
 export default function FlyerPage() {
+  const { t } = useLanguage();
 
   const highlights = [
     "International KOL and Trainer for Sofwave",
@@ -84,35 +87,47 @@ export default function FlyerPage() {
 
   return (
     <>
-      {/* Section 1: Hero */}
-      <SectionWrapper className="pb-12 flex items-start pt-24 relative overflow-hidden bg-secondary/30">
-        <div className="container mx-auto px-6 relative z-10 text-center">
-            <div className="mb-6">
-              <Image
-                src="/images/logoaltruvanew.png"
-                width={120}
-                height={120}
-                alt="Altruva Logo"
-                className="mx-auto"
-              />
+      {/* Hero Section */}
+      <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
+        <div className="absolute inset-0 z-0">
+           {/* Mobile Image */}
+          <Image
+            src="/images/model1-face.png"
+            alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
+            fill
+            className="object-cover object-top md:hidden"
+            data-ai-hint="elegant woman radiant skin"
+            priority
+          />
+          {/* Desktop Image */}
+          <Image
+            src="/images/herobackground-new.png"
+            alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
+            fill
+            className="object-cover hidden md:block"
+            data-ai-hint="elegant woman radiant skin"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="md:pr-8 leading-7">
+              <h1 className="font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
+                {t({ en: "Quiet Luxury of Aging Gracefully for Timeless Beauty", id: "Kemewahan Tenang dari Penuaan yang Anggun untuk Kecantikan Abadi" })}
+              </h1>
+              <h4 className="font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">
+                {t({ en: "Natural facial tightening without surgery and without downtime — at Jakarta's First Regenerative Contouring Clinic", id: "Wajah kencang alami tanpa operasi dan tanpa downtime — di Jakarta’s First Regenerative Contouring Clinic" })}
+              </h4>
+              <Button
+                asChild
+                size="lg"
+                className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
+              >
+                <Link href="/book-appointment">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+              </Button>
             </div>
-            <h1 className="font-serif text-4xl md:text-6xl font-bold text-primary mb-4">
-              Kencangkan wajah kendur di klinik kami
-            </h1>
-            <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-3xl mx-auto">
-              Klinik kecantikan dengan dokter ahli estetika unggulan Indonesia dengan teknologi terkini
-            </p>
-            <Button asChild size="lg">
-                <Link href="/book-appointment">Book Appointment Now!</Link>
-            </Button>
-            <div className="mt-12 flex flex-wrap justify-center gap-4 md:gap-6">
-                {highlights.map((text, index) => (
-                    <div key={index} className="flex items-center gap-2 bg-background/70 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-semibold text-primary shadow-sm">
-                        <Star className="h-4 w-4 text-accent"/>
-                        <span>{text}</span>
-                    </div>
-                ))}
-            </div>
+          </div>
         </div>
       </SectionWrapper>
 
