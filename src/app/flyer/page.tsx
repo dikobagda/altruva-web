@@ -110,7 +110,7 @@ export default function FlyerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col items-start">
             <div className="mb-8">
               <Image
                 src="/images/logoaltruvanew.png"
@@ -300,4 +300,5 @@ export default function FlyerPage() {
       </SectionWrapper>
     </>
   );
-}
+
+    
