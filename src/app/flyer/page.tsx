@@ -255,7 +255,6 @@ export default function FlyerPage() {
                     <DialogTrigger asChild>
                       <div className="relative aspect-[3/4] rounded-lg overflow-hidden border shadow-md cursor-pointer group">
                          <Image src={cert.image.src} alt="Certificate" fill className="object-cover group-hover:scale-105 transition-transform" />
-                         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors"></div>
                       </div>
                     </DialogTrigger>
                     <DialogContent className="p-0 border-0 max-w-3xl">
@@ -295,6 +294,9 @@ export default function FlyerPage() {
                  <p className="mt-4 text-lg opacity-90 max-w-xl mx-auto md:mx-0">
                     Berpengalaman lebih dari 12 tahun sebagai dokter estetika dan juga trainer international. Pakar dalam combination treatment yang menggabungkan produk terbaik, presisi tindakan, dengan teknologi medical device terkini untuk hasil yang nyata.
                  </p>
+                 <Button asChild size="lg" variant="secondary" className="mt-6 font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                    <Link href="/book-appointment">Book Consultation Now</Link>
+                </Button>
             </div>
         </div>
       </SectionWrapper>
@@ -303,3 +305,6 @@ export default function FlyerPage() {
 
     
 
+
+
+    
