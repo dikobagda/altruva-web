@@ -142,7 +142,7 @@ export default function FlyerPage() {
       {/* Section 2: Personalized Treatment */}
       <SectionWrapper>
         <PageTitle
-          title="Personalized Treatment paling aman dan efektif"
+          title="Sofwave - The Luxury of Looking Effortlessly Beautiful"
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
@@ -225,7 +225,7 @@ export default function FlyerPage() {
         <PageTitle title="Get to know us more at @altruvaclinic" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {socialVideos.map(video => (
-                 <a href={`https://www.youtube.com/shorts/${video.id}/`} target="_blank" rel="noopener noreferrer" key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg">
+                 <a href={`https://www.youtube.com/shorts/${video.id}/`} target="_blank" rel="noopener noreferrer" key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg group">
                     <iframe
                         className="w-full h-full absolute inset-0"
                         src={`https://www.youtube.com/embed/${video.id}`}
@@ -302,9 +302,4 @@ export default function FlyerPage() {
       </SectionWrapper>
     </>
   );
-
-    
-
-
-
-    
+}
