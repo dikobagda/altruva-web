@@ -125,7 +125,7 @@ export default function FlyerPage() {
                 {t({ en: "Quiet Luxury of Aging Gracefully for Timeless Beauty", id: "Kemewahan Tenang dari Penuaan yang Anggun untuk Kecantikan Abadi" })}
               </h1>
               <h4 className="font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">
-                {t({ en: "Natural facial tightening without surgery and without downtime — at Jakarta's First Regenerative Contouring Clinic", id: "Wajah kencang alami tanpa operasi dan tanpa downtime — di Jakarta’s First Regenerative Contouring Clinic" })}
+                Wajah kencang alami tanpa operasi dan tanpa downtime — di Jakarta’s First Regenerative Contouring Clinic
               </h4>
               <Button
                 asChild
@@ -302,3 +302,4 @@ export default function FlyerPage() {
   );
 
     
+
