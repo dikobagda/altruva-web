@@ -225,7 +225,7 @@ export default function FlyerPage() {
         <PageTitle title="Get to know us more at @altruvaclinic" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {socialVideos.map(video => (
-                 <a href={`https://www.youtube.com/shorts/${video.id}/`} target="_blank" rel="noopener noreferrer" key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg group">
+                 <a href={`https://www.youtube.com/shorts/${video.id}/`} target="_blank" rel="noopener noreferrer" key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg">
                     <iframe
                         className="w-full h-full absolute inset-0"
                         src={`https://www.youtube.com/embed/${video.id}`}
