@@ -106,7 +106,7 @@ export default function HomePage() {
                 size="lg"
                 className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
               >
-                <Link href="/book-appointment">{t({ en: 'Book an Appointment', id: 'Buat Janji Temu' })}</Link>
+                <Link href="/book-appointment">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
               </Button>
             </div>
           </div>
