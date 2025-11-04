@@ -36,7 +36,7 @@ export default function FlyerPage() {
       imageHint: "natural facial contour"
     },
     {
-      title: "Sofwave utk wajah kencang, kenyal, dan cerah (tanpa downtime)",
+      title: "Wajah kencang, kenyal, dan cerah tanpa downtime",
       image: { src: "/images/flyer/atiqah2.jpeg" },
       imageHint: "sofwave treatment"
     },
