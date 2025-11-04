@@ -110,7 +110,15 @@ export default function FlyerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
+            <div className="mb-8">
+              <Image
+                src="/images/logoaltruvanew.png"
+                width={120}
+                height={120}
+                alt="Altruva Logo"
+              />
+            </div>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
               <h1 className="font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
