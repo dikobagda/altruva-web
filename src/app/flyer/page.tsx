@@ -347,11 +347,11 @@ export default function FlyerPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="/images/altruva-face.jpg"
-              alt="Aesthetic professional consulting with a client"
+              src="/images/altruva-desk.webp"
+              alt="The modern and welcoming entrance of Altruva Aesthetic Clinic"
               fill
               className="object-cover"
-              data-ai-hint="professional aesthetic consultation"
+              data-ai-hint="modern clinic reception"
             />
           </div>
         </div>
@@ -359,3 +359,5 @@ export default function FlyerPage() {
     </>
   );
 }
+
+    
