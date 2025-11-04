@@ -314,7 +314,7 @@ export default function FlyerPage() {
       </SectionWrapper>
 
       {/* Why Choose Altruva Section */}
-      <SectionWrapper>
+      <SectionWrapper className="bg-secondary/30">
         <div className="grid md:grid-cols-2 gap-12 items-center">
            <div className="space-y-6">
             <h2 className="font-serif text-3xl font-bold text-primary">{t({ en: 'Why Choose Altruva?', id: 'Mengapa Memilih Altruva?' })}</h2>
