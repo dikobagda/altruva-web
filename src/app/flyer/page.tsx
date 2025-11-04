@@ -160,7 +160,7 @@ export default function FlyerPage() {
         </div>
         <div className="text-center mt-12">
             <Button asChild size="lg">
-                <Link href="/book-appointment">Book Appointment Now!</Link>
+                <Link href="/book-appointment">Begin Your Transformation</Link>
             </Button>
         </div>
       </SectionWrapper>
