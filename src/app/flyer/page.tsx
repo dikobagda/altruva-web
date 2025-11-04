@@ -7,7 +7,7 @@ import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Award, Star, Video, MapPin, Phone, Mail } from 'lucide-react';
+import { Award, Star, Video, MapPin, Phone, Mail, ShieldCheck, Zap, Diamond } from 'lucide-react';
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import {
@@ -176,7 +176,7 @@ export default function FlyerPage() {
             </Button>
         </div>
       </SectionWrapper>
-
+      
       {/* Section 7: Doctor's Profile */}
       <SectionWrapper className="bg-primary text-primary-foreground">
         <div className="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
@@ -313,62 +313,47 @@ export default function FlyerPage() {
         </Carousel>
       </SectionWrapper>
 
-      {/* Company Profile Section */}
+      {/* Why Choose Altruva Section */}
       <SectionWrapper>
-        <PageTitle title="Visit Our Clinic" />
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <Card className="shadow-lg overflow-hidden">
-            <div className="aspect-video w-full">
-              <iframe
-                src={mapEmbedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Altruva Clinic Location"
-              ></iframe>
-            </div>
-          </Card>
-          <div className="space-y-8">
-            <Card className="shadow-lg">
-              <CardContent className="pt-6 space-y-4">
-                <h3 className="font-serif text-xl text-primary mb-3">Contact Details</h3>
-                <div className="flex items-start">
-                  <MapPin className="h-6 w-6 text-accent mr-3 flex-shrink-0" />
-                  <p className="text-foreground/80">Jl. Ciasem I No.2, RT.2/RW.4, Rw. Bar, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</p>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+           <div className="space-y-6">
+            <h2 className="font-serif text-3xl font-bold text-primary">{t({ en: 'Why Choose Altruva?', id: 'Mengapa Memilih Altruva?' })}</h2>
+            <p className="text-lg text-foreground/80">
+              {t({ en: 'Your trust is our highest priority. We are committed to providing an exceptional experience founded on safety, innovation, and results that celebrate your unique beauty.', id: 'Kepercayaan Anda adalah prioritas utama kami. Kami berkomitmen untuk memberikan pengalaman luar biasa yang didasarkan pada keamanan, inovasi, dan hasil yang merayakan kecantikan unik Anda.' })}
+            </p>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <ShieldCheck className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-primary">{t({ en: 'Friend first, patient second', id: 'Teman dahulu, pasien kemudian' })}</h4>
+                  <p className="text-foreground/70">{t({ en: 'We build relationships based on trust and understanding, ensuring you feel heard and valued.', id: 'Kami membangun hubungan berdasarkan kepercayaan dan pengertian, memastikan Anda merasa didengar dan dihargai.' })}</p>
                 </div>
-                <div className="flex items-center">
-                  <Phone className="h-6 w-6 text-accent mr-3" />
-                  <Link href="tel:+6281216119392" className="text-foreground/80 hover:text-primary">+62 812 1611 9392</Link>
+              </li>
+              <li className="flex items-start">
+                <Zap className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-primary">{t({ en: 'Cutting-Edge Technology', id: 'Teknologi Mutakhir' })}</h4>
+                  <p className="text-foreground/70">{t({ en: 'We invest in the latest, clinically-proven technologies to ensure effective and efficient treatments.', id: 'Kami berinvestasi pada teknologi terbaru yang teruji secara klinis untuk memastikan perawatan yang efektif dan efisien.' })}</p>
                 </div>
-                <div className="flex items-center">
-                  <Mail className="h-6 w-6 text-accent mr-3" />
-                  <Link href="mailto:admin@altruva.com" className="text-foreground/80 hover:text-primary">admin@altruva.com</Link>
+              </li>
+               <li className="flex items-start">
+                <Diamond className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-primary">{t({ en: 'Natural, Elegant Results', id: 'Hasil Alami dan Elegan' })}</h4>
+                  <p className="text-foreground/70">{t({ en: 'Our philosophy is to enhance, not alter. We specialize in creating subtle, beautiful outcomes.', id: 'Filosofi kami adalah untuk menyempurnakan, bukan mengubah. Kami berspesialisasi dalam menciptakan hasil yang halus dan indah.' })}</p>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-lg">
-              <CardContent className="pt-6 space-y-2">
-                <h3 className="font-serif text-xl text-primary mb-3">Clinic Hours</h3>
-                <ul className="space-y-1 text-sm">
-                  {openingHours.map(item => (
-                    <li key={t(item.day)} className="flex justify-between w-full max-w-xs">
-                      <span className="font-medium mr-2">{t(item.day)}</span>
-                      <span className="text-right">{typeof item.hours === 'object' ? t(item.hours) : item.hours}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+              </li>
+            </ul>
           </div>
-        </div>
-         <div className="text-center mt-12">
-            <Button asChild size="lg">
-                <Link href="/book-appointment">Book Your Consultation</Link>
-            </Button>
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
+            <Image
+              src="/images/altruva-face.jpg"
+              alt="Aesthetic professional consulting with a client"
+              fill
+              className="object-cover"
+              data-ai-hint="professional aesthetic consultation"
+            />
+          </div>
         </div>
       </SectionWrapper>
     </>
