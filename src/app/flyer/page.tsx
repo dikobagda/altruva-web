@@ -344,6 +344,11 @@ export default function FlyerPage() {
                 </div>
               </li>
             </ul>
+            <div className="pt-4">
+              <Button asChild size="lg">
+                <Link href="/book-appointment">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+              </Button>
+            </div>
           </div>
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
             <Image
@@ -359,5 +364,3 @@ export default function FlyerPage() {
     </>
   );
 }
-
-    
