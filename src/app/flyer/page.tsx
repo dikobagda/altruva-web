@@ -103,21 +103,11 @@ export default function FlyerPage() {
       {/* Hero Section */}
       <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
         <div className="absolute inset-0 z-0">
-           {/* Mobile Image */}
-          <Image
-            src="/images/model1-face.png"
-            alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
-            fill
-            className="object-cover object-top md:hidden"
-            data-ai-hint="elegant woman radiant skin"
-            priority
-          />
-          {/* Desktop Image */}
           <Image
             src="/images/herobackground-new.png"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
-            className="object-cover hidden md:block"
+            className="object-cover"
             data-ai-hint="elegant woman radiant skin"
             priority
           />
@@ -365,5 +355,3 @@ export default function FlyerPage() {
     </>
   );
 }
-
-    
