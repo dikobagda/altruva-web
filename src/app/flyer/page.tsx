@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/dialog"
 import { useLanguage } from '@/context/LanguageContext';
 import { cn } from '@/lib/utils';
+import Script from 'next/script';
 
 export default function FlyerPage() {
   const { t } = useLanguage();
@@ -283,23 +284,23 @@ export default function FlyerPage() {
         >
           <CarouselContent>
             {certificates.map((cert, index) => (
-              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <div className="relative aspect-[3/4] rounded-lg overflow-hidden border shadow-md cursor-pointer group">
+                      <div className="relative aspect-video rounded-lg overflow-hidden border shadow-md cursor-pointer group">
                          <Image src={cert.image.src} alt="Certificate" fill className="object-cover group-hover:scale-105 transition-transform" />
                       </div>
                     </DialogTrigger>
-                    <DialogContent className="p-0 border-0 max-w-3xl">
+                    <DialogContent className="p-0 border-0 max-w-4xl">
                        <DialogHeader>
                         <DialogTitle className="sr-only">Certificate</DialogTitle>
                       </DialogHeader>
                       <Image 
                         src={cert.image.src} 
                         alt="Certificate" 
-                        width={800} 
-                        height={1067} 
+                        width={1200} 
+                        height={800} 
                         className="w-full h-auto rounded-lg"
                       />
                     </DialogContent>
