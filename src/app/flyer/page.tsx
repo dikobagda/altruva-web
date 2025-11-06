@@ -289,7 +289,7 @@ export default function FlyerPage() {
                   <Dialog>
                     <DialogTrigger asChild>
                       <div className="relative aspect-video rounded-lg overflow-hidden border shadow-md cursor-pointer group">
-                         <Image src={cert.image.src} alt="Certificate" fill className="object-cover group-hover:scale-105 transition-transform" />
+                         <Image src={cert.image.src} alt="Certificate" fill className="object-fill group-hover:scale-105 transition-transform" />
                       </div>
                     </DialogTrigger>
                     <DialogContent className="p-0 border-0 max-w-4xl">
@@ -300,8 +300,8 @@ export default function FlyerPage() {
                         src={cert.image.src} 
                         alt="Certificate" 
                         width={1200} 
-                        height={800} 
-                        className="w-full h-auto rounded-lg"
+                        height={675}
+                        className="w-full h-auto rounded-lg object-contain"
                       />
                     </DialogContent>
                   </Dialog>
@@ -365,3 +365,5 @@ export default function FlyerPage() {
     </>
   );
 }
+
+    
