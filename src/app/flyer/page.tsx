@@ -104,7 +104,7 @@ export default function FlyerPage() {
       <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/landingpage_banner_desktop.webp"
+            src="/images/landingpage_banner_2.webp"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
             className="object-cover"
@@ -350,6 +350,68 @@ export default function FlyerPage() {
               data-ai-hint="modern clinic reception"
             />
           </div>
+        </div>
+      </SectionWrapper>
+      
+      {/* Contact Section */}
+      <SectionWrapper>
+        <PageTitle title={t({ en: 'Visit Our Clinic', id: 'Kunjungi Klinik Kami' })} />
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <Card className="shadow-lg overflow-hidden">
+            <div className="aspect-video w-full">
+              <iframe
+                src={mapEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Altruva Clinic Location"
+              ></iframe>
+            </div>
+          </Card>
+
+          <div className="space-y-8">
+            <Card className="shadow-lg">
+              <CardContent className="pt-6 space-y-4">
+                <h3 className="font-serif text-xl text-primary mb-3">{t({ en: 'Contact Details', id: 'Detail Kontak' })}</h3>
+                <div className="flex items-start">
+                  <MapPin className="h-6 w-6 text-accent mr-3 flex-shrink-0" />
+                  <p className="text-foreground/80">Jl. Ciasem I No.2, RT.2/RW.4, Rw. Bar, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</p>
+                </div>
+                <div className="flex items-center">
+                  <Phone className="h-6 w-6 text-accent mr-3" />
+                  <Link href="tel:+6281216119392" className="text-foreground/80 hover:text-primary">+62 812 1611 9392</Link>
+                </div>
+                <div className="flex items-center">
+                  <Mail className="h-6 w-6 text-accent mr-3" />
+                  <Link href="mailto:admin@altruva.com" className="text-foreground/80 hover:text-primary">admin@altruva.com</Link>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-lg">
+              <CardContent className="pt-6 space-y-2">
+                <h3 className="font-serif text-xl text-primary mb-3">{t({ en: 'Clinic Hours', id: 'Jam Klinik' })}</h3>
+                <div className="flex items-start">
+                  <ul className="space-y-1 text-sm text-center sm:text-left">
+                    {openingHours.map(item => (
+                      <li key={t(item.day)} className="flex justify-between w-full max-w-xs sm:max-w-none">
+                        <span className="font-medium mr-2">{typeof item.day === 'object' ? t(item.day) : item.day}</span>
+                        <span className="text-right">{typeof item.hours === 'object' ? t(item.hours) : item.hours}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+         <div className="text-center mt-12">
+            <Button asChild size="lg">
+                <Link href="/book-appointment">Book Your Consultation Now</Link>
+            </Button>
         </div>
       </SectionWrapper>
     </>
