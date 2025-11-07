@@ -159,10 +159,10 @@ export default function FlyerPage() {
       </SectionWrapper>
       
       {/* Aging is Natural Section */}
-      <SectionWrapper className="bg-background relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          {/* Decorative background can be added here if needed */}
-        </div>
+      <SectionWrapper 
+        className="bg-cover bg-center" 
+        style={{ backgroundImage: "url('/images/flyer/aging/bg-section.png')" }}
+      >
         <div className="grid md:grid-cols-2 gap-12 items-center relative">
           <div className="space-y-4">
             <h2 className="font-serif text-5xl md:text-6xl text-primary leading-tight">
@@ -184,7 +184,7 @@ export default function FlyerPage() {
                   data-ai-hint={item.image.hint}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 flex flex-col justify-end">
-                  <p className="text-white font-bold text-4xl md:text-5xl drop-shadow-lg">{item.number}</p>
+                  <p className="text-white font-bold text-4xl md:text-5xl drop-shadow-lg italic">{item.number}</p>
                   <p className="text-white font-semibold text-sm md:text-base leading-tight drop-shadow-md">{item.text}</p>
                 </div>
               </div>
