@@ -160,7 +160,7 @@ export default function FlyerPage() {
       
       {/* Aging is Natural Section */}
       <SectionWrapper 
-        className="bg-cover bg-center" 
+        className="bg-contain bg-center bg-no-repeat" 
         style={{ backgroundImage: "url('/images/flyer/aging/bg-section.png')" }}
       >
         <div className="grid md:grid-cols-2 gap-12 items-center relative">
