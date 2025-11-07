@@ -90,22 +90,22 @@ export default function FlyerPage() {
     {
       number: '01',
       text: 'Kulit kendur di area pipi, rahang, & leher',
-      image: { src: '/images/aging/aging1.webp', hint: 'sagging skin' }
+      image: { src: '/images/flyer/aging/aging1.webp', hint: 'sagging skin' }
     },
     {
       number: '02',
       text: 'Garis halus & kerutan di sekitar mata dan dahi',
-      image: { src: '/images/aging/aging2.webp', hint: 'wrinkles forehead' }
+      image: { src: '/images/flyer/aging/aging2.webp', hint: 'wrinkles forehead' }
     },
     {
       number: '03',
       text: 'Kulit kusam efek penuaan dini',
-      image: { src: '/images/aging/aging3.webp', hint: 'dull skin' }
+      image: { src: '/images/flyer/aging/aging3.webp', hint: 'dull skin' }
     },
     {
       number: '04',
       text: 'Kontur wajah menurun',
-      image: { src: '/images/aging/aging4.webp', hint: 'drooping face' }
+      image: { src: '/images/flyer/aging/aging4.webp', hint: 'drooping face' }
     }
   ];
 
