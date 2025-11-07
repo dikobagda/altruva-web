@@ -104,7 +104,7 @@ export default function FlyerPage() {
       <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/herobackground-new.png"
+            src="/images/landingpage_banner_desktop.webp"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
             className="object-cover"
