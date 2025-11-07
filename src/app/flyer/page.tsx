@@ -107,21 +107,14 @@ export default function FlyerPage() {
             src="/images/landingpage_banner_desktop.webp"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
-            className="object-contain"
+            className="object-cover object-top"
             data-ai-hint="elegant woman radiant skin"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
         <div className="container mx-auto px-6 relative z-10 flex flex-col items-start">
-            <div className="mb-8">
-              <Image
-                src="/images/logoaltruvanew.png"
-                width={120}
-                height={120}
-                alt="Altruva Logo"
-              />
-            </div>
+          
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
               <h1 className="font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
