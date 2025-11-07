@@ -101,7 +101,7 @@ export default function FlyerPage() {
   return (
     <>
       {/* Hero Section */}
-      <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
+      <SectionWrapper className="!py-0 min-h-screen flex items-center relative overflow-hidden bg-secondary/30">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/landingpage_banner_2.webp"
@@ -279,7 +279,7 @@ export default function FlyerPage() {
                   <Dialog>
                     <DialogTrigger asChild>
                       <div className="relative aspect-video rounded-lg overflow-hidden border shadow-md cursor-pointer group">
-                         <Image src={cert.image.src} alt="Certificate" fill className="object-cover group-hover:scale-105 transition-transform" />
+                         <Image src={cert.image.src} alt="Certificate" fill className="object-fill group-hover:scale-105 transition-transform" />
                       </div>
                     </DialogTrigger>
                     <DialogContent className="p-0 border-0 max-w-4xl">
