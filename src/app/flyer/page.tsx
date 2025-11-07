@@ -107,7 +107,7 @@ export default function FlyerPage() {
             src="/images/landingpage_banner_2.webp"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
-            className="object-cover"
+            className="object-cover object-top md:object-center"
             data-ai-hint="elegant woman radiant skin"
             priority
           />
@@ -279,7 +279,7 @@ export default function FlyerPage() {
                   <Dialog>
                     <DialogTrigger asChild>
                       <div className="relative aspect-video rounded-lg overflow-hidden border shadow-md cursor-pointer group">
-                         <Image src={cert.image.src} alt="Certificate" fill className="object-fill group-hover:scale-105 transition-transform" />
+                         <Image src={cert.image.src} alt="Certificate" fill className="object-cover group-hover:scale-105 transition-transform" />
                       </div>
                     </DialogTrigger>
                     <DialogContent className="p-0 border-0 max-w-4xl">
