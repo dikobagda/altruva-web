@@ -107,7 +107,7 @@ export default function FlyerPage() {
             src="/images/landingpage_banner_2.webp"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
-            className="object-cover object-top md:object-center"
+            className="object-contain"
             data-ai-hint="elegant woman radiant skin"
             priority
           />
