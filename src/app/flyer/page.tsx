@@ -86,6 +86,29 @@ export default function FlyerPage() {
     { image: { src: "/images/flyer/cert/cert11.jpg" }, imageHint: "certificate" },
   ];
 
+  const agingConcerns = [
+    {
+      number: '01',
+      text: 'Kulit kendur di area pipi, rahang, & leher',
+      image: { src: 'https://picsum.photos/seed/concern1/400/400', hint: 'sagging skin' }
+    },
+    {
+      number: '02',
+      text: 'Garis halus & kerutan di sekitar mata dan dahi',
+      image: { src: 'https://picsum.photos/seed/concern2/400/400', hint: 'wrinkles forehead' }
+    },
+    {
+      number: '03',
+      text: 'Kulit kusam efek penuaan dini',
+      image: { src: 'https://picsum.photos/seed/concern3/400/400', hint: 'dull skin' }
+    },
+    {
+      number: '04',
+      text: 'Kontur wajah menurun',
+      image: { src: 'https://picsum.photos/seed/concern4/400/400', hint: 'drooping face' }
+    }
+  ];
+
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.191379435602!2d106.80900997591308!3d-6.238523561088915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f165d09075d7%3A0xab2d38304a455052!2sAltruva%20Aesthetic%20Clinic!5e0!3m2!1sen!2sid!4v1721890332819!5m2!1sen!2sid";
   const openingHours = [
     { day: { en: 'Tuesday', id: 'Selasa' }, hours: '10.00 am – 6.00 pm' },
@@ -104,7 +127,7 @@ export default function FlyerPage() {
       <SectionWrapper className="!py-0 min-h-screen flex items-center relative overflow-hidden bg-secondary/30">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/landingpage_banner_desktop_main.webp"
+            src="/images/landingpage_banner_desktop.webp"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
             className="object-cover object-top"
@@ -131,6 +154,41 @@ export default function FlyerPage() {
                 <Link href="/book-appointment">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
               </Button>
             </div>
+          </div>
+        </div>
+      </SectionWrapper>
+      
+      {/* Aging is Natural Section */}
+      <SectionWrapper className="bg-background relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          {/* Decorative background can be added here if needed */}
+        </div>
+        <div className="grid md:grid-cols-2 gap-12 items-center relative">
+          <div className="space-y-4">
+            <h2 className="font-serif text-5xl md:text-6xl text-primary leading-tight">
+              Aging is natural,
+              <br />
+              but don't let it
+              <br />
+              <span className="italic">take your confidence</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
+            {agingConcerns.map((item) => (
+              <div key={item.number} className="relative aspect-[3/4] rounded-2xl overflow-hidden group shadow-lg">
+                <Image 
+                  src={item.image.src} 
+                  alt={item.text} 
+                  fill 
+                  className="object-cover transition-transform duration-300 group-hover:scale-105" 
+                  data-ai-hint={item.image.hint}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 flex flex-col justify-end">
+                  <p className="text-white font-bold text-4xl md:text-5xl drop-shadow-lg">{item.number}</p>
+                  <p className="text-white font-semibold text-sm md:text-base leading-tight drop-shadow-md">{item.text}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </SectionWrapper>
