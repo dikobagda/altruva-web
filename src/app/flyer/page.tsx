@@ -160,7 +160,7 @@ export default function FlyerPage() {
       
       {/* Aging is Natural Section */}
       <SectionWrapper 
-        className="bg-contain bg-center bg-no-repeat" 
+        className="bg-contain bg-no-repeat bg-center"
         style={{ backgroundImage: "url('/images/flyer/aging/bg-section.png')" }}
       >
         <div className="grid md:grid-cols-2 gap-12 items-center relative">
@@ -193,6 +193,28 @@ export default function FlyerPage() {
         </div>
       </SectionWrapper>
 
+      {/* Section 7: Doctor's Profile */}
+      <SectionWrapper className="bg-primary text-primary-foreground">
+        <div className="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
+            <div className="md:col-span-1">
+                 <div className="relative aspect-square max-w-xs mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-primary-foreground">
+                     <Image src="/images/flyer/draldisa_new.webp" alt="dr Olivia Aldisa" fill className="object-cover object-top" />
+                 </div>
+            </div>
+            <div className="md:col-span-2">
+                 <h2 className="font-serif text-3xl font-bold">dr Olivia Aldisa, M.Sc.</h2>
+                 <p className="font-semibold text-lg text-primary-foreground/80">Aesthetic Medicine (UK)</p>
+                 <p className="font-semibold text-accent-foreground/90 mt-1">Founder and Medical Director</p>
+                 <p className="mt-4 text-lg opacity-90 max-w-xl mx-auto md:mx-0">
+                    Berpengalaman lebih dari 12 tahun sebagai dokter estetika dan juga trainer international. Pakar dalam combination treatment yang menggabungkan produk terbaik, presisi tindakan, dengan teknologi medical device terkini untuk hasil yang nyata.
+                 </p>
+                 <Button asChild size="lg" variant="secondary" className="mt-6 font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                    <Link href="/book-appointment">Book Consultation Now</Link>
+                </Button>
+            </div>
+        </div>
+      </SectionWrapper>
+      
       {/* Section 2: Personalized Treatment */}
       <SectionWrapper>
         <PageTitle
@@ -216,28 +238,6 @@ export default function FlyerPage() {
             <Button asChild size="lg">
                 <Link href="/book-appointment">Begin Your Transformation</Link>
             </Button>
-        </div>
-      </SectionWrapper>
-      
-      {/* Section 7: Doctor's Profile */}
-      <SectionWrapper className="bg-primary text-primary-foreground">
-        <div className="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
-            <div className="md:col-span-1">
-                 <div className="relative aspect-square max-w-xs mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-primary-foreground">
-                     <Image src="/images/draldisanew.jpg" alt="dr Olivia Aldisa" fill className="object-cover object-top" />
-                 </div>
-            </div>
-            <div className="md:col-span-2">
-                 <h2 className="font-serif text-3xl font-bold">dr Olivia Aldisa, M.Sc.</h2>
-                 <p className="font-semibold text-lg text-primary-foreground/80">Aesthetic Medicine (UK)</p>
-                 <p className="font-semibold text-accent-foreground/90 mt-1">Founder and Medical Director</p>
-                 <p className="mt-4 text-lg opacity-90 max-w-xl mx-auto md:mx-0">
-                    Berpengalaman lebih dari 12 tahun sebagai dokter estetika dan juga trainer international. Pakar dalam combination treatment yang menggabungkan produk terbaik, presisi tindakan, dengan teknologi medical device terkini untuk hasil yang nyata.
-                 </p>
-                 <Button asChild size="lg" variant="secondary" className="mt-6 font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                    <Link href="/book-appointment">Book Consultation Now</Link>
-                </Button>
-            </div>
         </div>
       </SectionWrapper>
 
