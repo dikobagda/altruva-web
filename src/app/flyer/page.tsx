@@ -160,7 +160,7 @@ export default function FlyerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="container mx-auto px-6 relative z-10 flex flex-col items-start justify-start h-full pt-32 md:pt-48">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col items-start justify-start h-full pt-32 md:pt-32">
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
@@ -464,3 +464,5 @@ export default function FlyerPage() {
     </>
   );
 }
+
+    
