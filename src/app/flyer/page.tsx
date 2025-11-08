@@ -215,7 +215,7 @@ export default function FlyerPage() {
       </SectionWrapper>
 
       {/* Jakarta's 1st Regenerative Clinic Section */}
-      <section className="relative w-full" style={{ minHeight: '600px' }}>
+      <section className="relative w-full" style={{ minHeight: '700px' }}>
         <Image
           src="/images/flyer/landingpage_banner_desktop.webp"
           alt="Jakarta's 1st Regenerative Contouring Clinic"
