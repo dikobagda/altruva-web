@@ -287,12 +287,12 @@ export default function FlyerPage() {
           <div className="grid md:grid-cols-3 gap-8 items-start">
             {signatureTreatments.map((treatment) => (
               <div key={treatment.number} className="relative group">
-                <div className="relative aspect-[3/4] bg-white rounded-3xl shadow-lg overflow-hidden p-6 text-center flex flex-col justify-end">
+                <div className="relative aspect-[3/4] bg-white rounded-3xl shadow-lg overflow-hidden p-6 flex flex-col justify-end">
                     <div className="absolute inset-0">
                        <Image src={treatment.image} alt={treatment.title} fill className="object-cover rounded-3xl" data-ai-hint={treatment.hint} />
                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-3xl" />
                     </div>
-                    <div className="relative text-white z-10">
+                    <div className="relative text-white z-10 text-left">
                         <p className="font-serif text-8xl font-bold opacity-80">{treatment.number}</p>
                         <h3 className="font-serif text-2xl font-bold">{treatment.title}</h3>
                         <p className="text-sm mt-2">{treatment.description}</p>
