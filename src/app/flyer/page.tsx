@@ -189,7 +189,7 @@ export default function FlyerPage() {
           </div>
         </div>
          <div className="relative z-20 w-full container mx-auto px-6 pb-8 md:hidden">
-           <Button
+            <Button
               asChild
               size="lg"
               className="w-full bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
