@@ -197,7 +197,7 @@ export default function FlyerPage() {
       <SectionWrapper className="bg-background">
         <div className="grid md:grid-cols-2 gap-8 items-center text-left">
             <div className="md:col-span-1 flex justify-center">
-                 <div className="relative aspect-square max-w-xs">
+                 <div className="relative aspect-square max-w-xs w-full">
                      <Image src="/images/flyer/draldisa_new.webp" alt="dr Olivia Aldisa" fill className="object-contain" />
                  </div>
             </div>
@@ -500,5 +500,3 @@ export default function FlyerPage() {
     </>
   );
 }
-
-    
