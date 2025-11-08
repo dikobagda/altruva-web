@@ -114,21 +114,21 @@ export default function FlyerPage() {
       number: '01',
       title: 'A.R.T Lift by Sofwave',
       description: 'Lifting alami dengan meningkatkan kolagen & elastin secara signifikan untuk wajah kencang, tanpa downtime, dan lebih nyaman dari HIFU generasi lama.',
-      image: 'https://picsum.photos/seed/sig1/400/600',
+      image: '/images/flyer/personalized/personalized1.webp',
       hint: 'sofwave treatment'
     },
     {
       number: '02',
       title: 'Altruva Coctail Contouring',
       description: 'Rasakan transformasi kulit dari dalam dengan menstimulasi kolagen dan meningkatkan struktur alami wajah untuk hasil natural, tanpa downtime, dan tahan lama.',
-      image: 'https://picsum.photos/seed/sig2/400/600',
+      image: '/images/flyer/personalized/personalized2.webp',
       hint: 'facial contouring'
     },
     {
       number: '03',
       title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
       description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
-      image: 'https://picsum.photos/seed/sig3/400/600',
+      image: '/images/flyer/personalized/personalized3.webp',
       hint: 'regenerative lifting'
     },
   ];
