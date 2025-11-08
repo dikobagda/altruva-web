@@ -196,9 +196,9 @@ export default function FlyerPage() {
       {/* Section 7: Doctor's Profile */}
       <SectionWrapper className="bg-background">
         <div className="grid md:grid-cols-2 gap-8 items-center text-center md:text-left">
-            <div className="md:col-span-1">
-                 <div className="relative aspect-square max-w-xs mx-auto">
-                     <Image src="/images/flyer/draldisa_new.webp" alt="dr Olivia Aldisa" fill className="object-cover object-top" />
+            <div className="md:col-span-1 flex justify-center">
+                 <div className="relative aspect-square max-w-xs">
+                     <Image src="/images/flyer/draldisa_new.webp" alt="dr Olivia Aldisa" fill className="object-contain" />
                  </div>
             </div>
             <div className="md:col-span-1">
@@ -211,6 +211,18 @@ export default function FlyerPage() {
                     <Link href="/book-appointment">Book Consultation Now</Link>
                 </Button>
             </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Jakarta's 1st Regenerative Clinic Section */}
+      <SectionWrapper className="!py-0">
+        <div className="relative w-full aspect-[16/9] md:aspect-[2.3/1]">
+          <Image
+            src="/images/flyer/landingpage_banner_desktop.webp"
+            alt="Jakarta's 1st Regenerative Contouring Clinic"
+            fill
+            className="object-cover"
+          />
         </div>
       </SectionWrapper>
       
@@ -467,3 +479,4 @@ export default function FlyerPage() {
     </>
   );
 }
+
