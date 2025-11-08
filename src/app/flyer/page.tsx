@@ -37,7 +37,7 @@ export default function FlyerPage() {
       imageHint: "natural facial contour"
     },
     {
-      title: "Wajah kencang, kenyal, dan cerah tanpa downtime",
+      title: "Wajah kencang, kenyal dan cerah tanpa downtime",
       image: { src: "/images/flyer/atiqah2.jpeg" },
       imageHint: "sofwave treatment"
     },
@@ -124,7 +124,7 @@ export default function FlyerPage() {
   return (
     <>
       {/* Hero Section */}
-      <SectionWrapper className="!py-0 min-h-screen flex items-center relative overflow-hidden bg-secondary/30">
+      <SectionWrapper className="!py-0 min-h-screen flex items-start justify-start text-left relative overflow-hidden bg-secondary/30">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/landingpage_banner_desktop_main.webp"
@@ -136,7 +136,7 @@ export default function FlyerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="container mx-auto px-6 relative z-10 flex flex-col items-start">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col items-start justify-center h-full pt-32 md:pt-48">
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
@@ -223,7 +223,7 @@ export default function FlyerPage() {
           className="object-cover object-top"
         />
         <div className="absolute inset-0 bg-black/10 z-10" />
-        <div className="relative z-20 h-full flex flex-col items-start justify-center text-left text-primary-foreground p-4 md:p-12">
+        <div className="relative z-20 h-full flex flex-col items-start justify-center text-left text-primary-foreground p-4 md:p-12 min-h-[700px]">
             <p className="font-serif text-8xl md:text-9xl text-white" style={{color: '#4a301b'}}>1st</p>
             <h2 className="font-serif text-4xl md:text-5xl text-white" style={{color: '#4a301b'}}>
                 Jakarta's Regenerative
@@ -247,31 +247,37 @@ export default function FlyerPage() {
         </div>
       </section>
       
-      {/* Section 2: Personalized Treatment */}
-      <SectionWrapper>
-        <PageTitle
-          title="Sofwave - The Luxury of Looking Effortlessly Beautiful"
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Section 2: Sofwave */}
+      <SectionWrapper 
+        className="relative !py-20"
+        style={{
+          backgroundImage: "url('/images/flyer/bg-softwave.webp')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="text-center">
+            <h2 className="font-serif text-5xl md:text-6xl text-primary" style={{color: '#4a301b'}}>Sofwave</h2>
+            <p className="font-serif text-3xl md:text-4xl text-primary/90" style={{color: '#4a301b'}}>The Luxury of Looking Effortlessly Beautiful</p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
           {benefits.map((benefit, index) => (
-            <Card key={index} className="text-center shadow-lg overflow-hidden group">
-              <CardContent className="p-0">
-                <div className="relative aspect-square">
-                    <Image src={benefit.image.src} alt={benefit.title} fill className="object-cover group-hover:scale-105 transition-transform" data-ai-hint={benefit.imageHint}/>
-                </div>
-              </CardContent>
-              <CardHeader>
-                <CardTitle className="font-serif text-xl text-primary">{benefit.title}</CardTitle>
-              </CardHeader>
-            </Card>
+            <div key={index} className="relative aspect-[3/4] rounded-2xl overflow-hidden group shadow-xl text-white">
+              <Image src={benefit.image.src} alt={benefit.title} fill className="object-cover transition-transform duration-300 group-hover:scale-105" data-ai-hint={benefit.imageHint}/>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-6 flex flex-col justify-end">
+                <p className="font-bold text-6xl md:text-7xl drop-shadow-lg italic opacity-80">0{index+1}</p>
+                <p className="font-semibold text-lg md:text-xl leading-tight drop-shadow-md mt-2">{benefit.title}</p>
+              </div>
+            </div>
           ))}
         </div>
         <div className="text-center mt-12">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="bg-[#4a301b] text-white hover:bg-[#5a402b] rounded-full px-10 py-6 text-lg font-semibold">
                 <Link href="/book-appointment">Begin Your Transformation</Link>
             </Button>
         </div>
       </SectionWrapper>
+
 
       {/* Section 3: Glimpse of Treatments */}
       <SectionWrapper className="bg-secondary/30">
