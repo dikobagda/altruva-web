@@ -109,6 +109,30 @@ export default function FlyerPage() {
     }
   ];
 
+  const signatureTreatments = [
+    {
+      number: '01',
+      title: 'A.R.T Lift by Sofwave',
+      description: 'Lifting alami dengan meningkatkan kolagen & elastin secara signifikan untuk wajah kencang, tanpa downtime, dan lebih nyaman dari HIFU generasi lama.',
+      image: 'https://picsum.photos/seed/sig1/400/600',
+      hint: 'sofwave treatment'
+    },
+    {
+      number: '02',
+      title: 'Altruva Coctail Contouring',
+      description: 'Rasakan transformasi kulit dari dalam dengan menstimulasi kolagen dan meningkatkan struktur alami wajah untuk hasil natural, tanpa downtime, dan tahan lama.',
+      image: 'https://picsum.photos/seed/sig2/400/600',
+      hint: 'facial contouring'
+    },
+    {
+      number: '03',
+      title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
+      description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
+      image: 'https://picsum.photos/seed/sig3/400/600',
+      hint: 'regenerative lifting'
+    },
+  ];
+
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.191379435602!2d106.80900997591308!3d-6.238523561088915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f165d09075d7%3A0xab2d38304a455052!2sAltruva%20Aesthetic%20Clinic!5e0!3m2!1sen!2sid!4v1721890332819!5m2!1sen!2sid";
   const openingHours = [
     { day: { en: 'Tuesday', id: 'Selasa' }, hours: '10.00 am – 6.00 pm' },
@@ -246,6 +270,44 @@ export default function FlyerPage() {
             </div>
         </div>
       </section>
+
+      {/* Personalized Signature Treatments Section */}
+      <SectionWrapper className="bg-secondary/30">
+        <div 
+          className="bg-contain bg-no-repeat bg-center py-12"
+          style={{backgroundImage: "url('https://picsum.photos/seed/sigbg/1200/800')"}}
+        >
+          <div className="text-center mb-8">
+              <h2 className="font-serif text-4xl md:text-5xl text-primary font-bold">Personalized Signature Treatments</h2>
+              <p className="font-serif text-3xl md:text-4xl text-primary/90">for Timeless Beauty</p>
+              <div className="mt-4 inline-block">
+                <Button variant="default" className="rounded-full bg-[#4a301b] text-white">Altruva Lift Tightening & Contouring</Button>
+              </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 items-start">
+            {signatureTreatments.map((treatment) => (
+              <div key={treatment.number} className="relative group">
+                <div className="relative aspect-[3/4] bg-white rounded-3xl shadow-lg overflow-hidden p-6 text-center flex flex-col justify-end">
+                    <div className="absolute inset-0">
+                       <Image src={treatment.image} alt={treatment.title} fill className="object-cover rounded-3xl" data-ai-hint={treatment.hint} />
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-3xl" />
+                    </div>
+                    <div className="relative text-white z-10">
+                        <p className="font-serif text-8xl font-bold opacity-80">{treatment.number}</p>
+                        <h3 className="font-serif text-2xl font-bold">{treatment.title}</h3>
+                        <p className="text-sm mt-2">{treatment.description}</p>
+                    </div>
+                </div>
+              </div>
+            ))}
+          </div>
+           <div className="text-center mt-12">
+            <Button size="lg" className="rounded-full bg-[#4a301b] text-white hover:bg-[#5a402b] px-10 py-6 text-lg font-semibold">
+              Get Your Personalized Assessment
+            </Button>
+          </div>
+        </div>
+      </SectionWrapper>
       
       {/* Section 2: Sofwave */}
       <SectionWrapper 
@@ -506,3 +568,5 @@ export default function FlyerPage() {
     </>
   );
 }
+
+    
