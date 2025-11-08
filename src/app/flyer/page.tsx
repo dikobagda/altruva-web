@@ -60,7 +60,7 @@ export default function FlyerPage() {
   ];
 
   const beforeAfters = [
-    { src: "/images/flyer/paulina-before-after.png", hint: 'facial contouring before after' },
+    { src: "/images/flyer/paulina-before-after-2.jpeg", hint: 'facial contouring before after' },
     { src: "/images/flyer/atiqah-bf.png", hint: 'facial rejuvenation before after' },
     { src: "/images/flyer/unk-bf.png", hint: 'skin tightening before after' },
   ];
@@ -119,17 +119,17 @@ export default function FlyerPage() {
     },
     {
       number: '02',
-      title: 'Altruva Coctail Contouring',
-      description: 'Rasakan transformasi kulit dari dalam dengan menstimulasi kolagen dan meningkatkan struktur alami wajah untuk hasil natural, tanpa downtime, dan tahan lama.',
-      image: '/images/flyer/personalized/personalized3.webp',
-      hint: 'facial contouring'
-    },
-    {
-      number: '03',
       title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
       description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
       image: '/images/flyer/personalized/personalized2.webp',
       hint: 'regenerative lifting'
+    },
+    {
+      number: '03',
+      title: 'Altruva Coctail Contouring',
+      description: 'Rasakan transformasi kulit dari dalam dengan menstimulasi kolagen dan meningkatkan struktur alami wajah untuk hasil natural, tanpa downtime, dan tahan lama.',
+      image: '/images/flyer/personalized/personalized3.webp',
+      hint: 'facial contouring'
     },
   ];
 
