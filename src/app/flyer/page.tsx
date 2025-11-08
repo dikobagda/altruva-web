@@ -275,7 +275,7 @@ export default function FlyerPage() {
       <SectionWrapper className="bg-secondary/30">
         <div 
           className="bg-contain bg-no-repeat bg-center py-12"
-          style={{backgroundImage: "url('https://picsum.photos/seed/sigbg/1200/800')"}}
+          style={{backgroundImage: "url('/images/flyer/bg-section.png')"}}
         >
           <div className="text-center mb-8">
               <h2 className="font-serif text-4xl md:text-5xl text-primary font-bold">Personalized Signature Treatments</h2>
@@ -568,5 +568,3 @@ export default function FlyerPage() {
     </>
   );
 }
-
-    
