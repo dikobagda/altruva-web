@@ -195,7 +195,7 @@ export default function FlyerPage() {
 
       {/* Section 7: Doctor's Profile */}
       <SectionWrapper className="bg-background">
-        <div className="grid md:grid-cols-2 gap-8 items-center text-center md:text-left">
+        <div className="grid md:grid-cols-2 gap-8 items-center text-left">
             <div className="md:col-span-1 flex justify-center">
                  <div className="relative aspect-square max-w-xs">
                      <Image src="/images/flyer/draldisa_new.webp" alt="dr Olivia Aldisa" fill className="object-contain" />
