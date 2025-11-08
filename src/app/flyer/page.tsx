@@ -220,7 +220,7 @@ export default function FlyerPage() {
           src="/images/flyer/landingpage_banner_desktop.webp"
           alt="Jakarta's 1st Regenerative Contouring Clinic"
           fill
-          className="object-cover"
+          className="object-cover object-top"
         />
         <div className="absolute inset-0 bg-black/10 z-10" />
         <div className="relative z-20 h-full flex flex-col items-start justify-center text-left text-primary-foreground p-4 md:p-12">
