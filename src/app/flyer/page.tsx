@@ -43,12 +43,12 @@ export default function FlyerPage() {
     },
     {
       title: "Memproduksi ulang kolagen yang hilang",
-      image: { src: "/images/flyer/maria1.jpeg" },
+      image: { src: "/images/flyer/softwave1.jpeg" },
       imageHint: "collagen stimulation"
     },
     {
       title: "Prosedur yang nyaman berdasarkan standar intenasional",
-      image: { src: "/images/flyer/maria2.jpeg" },
+      image: { src: "/images/flyer/softwave2.jpeg" },
       imageHint: "comfortable aesthetic procedure"
     }
   ];
