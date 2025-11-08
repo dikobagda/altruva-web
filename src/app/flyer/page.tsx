@@ -215,7 +215,7 @@ export default function FlyerPage() {
       </SectionWrapper>
 
       {/* Jakarta's 1st Regenerative Clinic Section */}
-      <SectionWrapper className="!py-0">
+      <section className="py-12 md:py-20">
         <div className="relative w-full aspect-[16/9] md:aspect-[2.3/1]">
           <Image
             src="/images/flyer/landingpage_banner_desktop.webp"
@@ -224,7 +224,7 @@ export default function FlyerPage() {
             className="object-cover"
           />
         </div>
-      </SectionWrapper>
+      </section>
       
       {/* Section 2: Personalized Treatment */}
       <SectionWrapper>
