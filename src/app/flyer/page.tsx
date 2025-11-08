@@ -215,14 +215,35 @@ export default function FlyerPage() {
       </SectionWrapper>
 
       {/* Jakarta's 1st Regenerative Clinic Section */}
-      <section className="py-12 md:py-20">
-        <div className="relative w-full aspect-[16/9] md:aspect-[2.3/1]">
-          <Image
-            src="/images/flyer/landingpage_banner_desktop.webp"
-            alt="Jakarta's 1st Regenerative Contouring Clinic"
-            fill
-            className="object-cover"
-          />
+      <section className="relative w-full aspect-[16/9] md:aspect-[2.3/1]">
+        <Image
+          src="/images/flyer/landingpage_banner_desktop.webp"
+          alt="Jakarta's 1st Regenerative Contouring Clinic"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/10 z-10" />
+        <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-primary-foreground p-4">
+            <p className="font-serif text-8xl md:text-9xl text-white" style={{color: '#4a301b'}}>1st</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-white" style={{color: '#4a301b'}}>
+                Jakarta's Regenerative
+                <br />
+                Contouring Clinic
+            </h2>
+            <div className="mt-8 grid grid-cols-3 gap-4 md:gap-8">
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 text-center" style={{color: '#4a301b'}}>
+                    <p className="text-3xl md:text-4xl font-bold">10+</p>
+                    <p className="text-sm md:text-base">Dokter & Staff<br/>Bersertifikasi</p>
+                </div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 text-center" style={{color: '#4a301b'}}>
+                    <p className="text-3xl md:text-4xl font-bold">12+</p>
+                    <p className="text-sm md:text-base">Tahun<br/>Pengalaman</p>
+                </div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 text-center" style={{color: '#4a301b'}}>
+                    <p className="text-3xl md:text-4xl font-bold">1000+</p>
+                    <p className="text-sm md:text-base">Pasien<br/>Ditangani</p>
+                </div>
+            </div>
         </div>
       </section>
       
@@ -479,4 +500,3 @@ export default function FlyerPage() {
     </>
   );
 }
-
