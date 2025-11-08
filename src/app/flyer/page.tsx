@@ -148,7 +148,7 @@ export default function FlyerPage() {
   return (
     <>
       {/* Hero Section */}
-      <SectionWrapper className="!py-0 min-h-screen flex items-start justify-start text-left relative overflow-hidden bg-secondary/30">
+      <SectionWrapper className="!py-0 min-h-screen flex flex-col justify-between text-left relative overflow-hidden bg-secondary/30">
         <div className="absolute inset-0 z-0">
            <Image
             src="/images/flyer/landingpage_banner_mobile.webp"
@@ -181,12 +181,21 @@ export default function FlyerPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
+                className="hidden md:inline-flex bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
               >
                 <Link href="/book-appointment">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
               </Button>
             </div>
           </div>
+        </div>
+         <div className="relative z-20 w-full container mx-auto px-6 pb-8 md:hidden">
+           <Button
+              asChild
+              size="lg"
+              className="w-full bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
+            >
+              <Link href="/book-appointment">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+            </Button>
         </div>
       </SectionWrapper>
       
