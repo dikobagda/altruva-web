@@ -202,9 +202,8 @@ export default function FlyerPage() {
                  </div>
             </div>
             <div className="md:col-span-2">
-                 <h2 className="font-serif text-3xl font-bold text-primary">dr Olivia Aldisa, M.Sc.</h2>
-                 <p className="font-semibold text-lg text-accent">Aesthetic Medicine (UK)</p>
-                 <p className="font-semibold text-foreground/80 mt-1">Founder and Medical Director</p>
+                 <h2 className="font-serif text-3xl font-bold text-primary">dr. Olivia Aldisa M.Sc Aest. Med (UK)</h2>
+                 <p className="font-semibold text-lg text-accent">Founder & Medical Director</p>
                  <p className="mt-4 text-lg text-foreground/80 max-w-xl mx-auto md:mx-0">
                     Berpengalaman lebih dari 12 tahun sebagai dokter estetika dan juga trainer international. Pakar dalam combination treatment yang menggabungkan produk terbaik, presisi tindakan, dengan teknologi medical device terkini untuk hasil yang nyata.
                  </p>
