@@ -249,10 +249,16 @@ export default function FlyerPage() {
       {/* Jakarta's 1st Regenerative Clinic Section */}
       <section className="relative w-full" style={{ minHeight: '700px' }}>
         <Image
+          src="/images/flyer/landingpage_personalize_mobile.webp"
+          alt="Jakarta's 1st Regenerative Contouring Clinic"
+          fill
+          className="object-cover object-top md:hidden"
+        />
+        <Image
           src="/images/flyer/landingpage_banner_desktop.webp"
           alt="Jakarta's 1st Regenerative Contouring Clinic"
           fill
-          className="object-cover object-top"
+          className="object-cover object-top hidden md:block"
         />
         <div className="absolute inset-0 bg-black/10 z-10" />
         <div className="relative z-20 h-full flex flex-col items-start justify-center text-left text-primary-foreground p-4 md:p-12" style={{minHeight: '700px'}}>
@@ -280,10 +286,12 @@ export default function FlyerPage() {
       </section>
 
       {/* Personalized Signature Treatments Section */}
-      <SectionWrapper className="bg-secondary/30">
+      <SectionWrapper
+        className="bg-contain bg-no-repeat bg-center"
+        style={{ backgroundImage: "url('/images/flyer/bg-section.png')" }}
+      >
         <div 
-          className="bg-contain bg-no-repeat bg-center py-12"
-          style={{backgroundImage: "url('/images/flyer/bg-section.png')"}}
+          className="py-12"
         >
           <div className="text-center mb-8">
               <h2 className="font-serif text-4xl md:text-5xl text-primary font-bold">Personalized Signature Treatments</h2>
