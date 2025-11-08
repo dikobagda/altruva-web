@@ -261,9 +261,9 @@ export default function FlyerPage() {
           className="object-cover object-top hidden md:block"
         />
         <div className="absolute inset-0 bg-black/10 z-10" />
-        <div className="relative z-20 h-full flex flex-col items-start justify-center text-left text-primary-foreground p-4 md:p-12" style={{minHeight: '700px'}}>
-            <p className="font-serif text-8xl md:text-9xl text-white" style={{color: '#4a301b'}}>1st</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-white" style={{color: '#4a301b'}}>
+        <div className="relative z-20 h-full flex flex-col items-center md:items-start justify-start text-center md:text-left text-primary-foreground p-4 pt-12 md:p-12 md:justify-center" style={{minHeight: '700px'}}>
+            <p className="font-serif text-7xl md:text-9xl text-white" style={{color: '#4a301b'}}>1st</p>
+            <h2 className="font-serif text-3xl md:text-5xl text-white" style={{color: '#4a301b'}}>
                 Jakarta's Regenerative
                 <br />
                 Contouring Clinic
