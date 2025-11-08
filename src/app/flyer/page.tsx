@@ -73,15 +73,15 @@ export default function FlyerPage() {
   ];
   
   const certificates = [
+    { image: { src: "/images/flyer/cert/cert7.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert8.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert9.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert1.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert2.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert3.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert4.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert5.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert6.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert7.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert8.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert9.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert10.jpg" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert11.jpg" }, imageHint: "certificate" },
   ];
@@ -121,15 +121,15 @@ export default function FlyerPage() {
       number: '02',
       title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
       description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
-      image: '/images/flyer/personalized/personalized2.webp',
-      hint: 'regenerative lifting'
+      image: '/images/flyer/personalized/personalized3.webp',
+      hint: 'facial contouring'
     },
     {
       number: '03',
       title: 'Altruva Coctail Contouring',
       description: 'Rasakan transformasi kulit dari dalam dengan menstimulasi kolagen dan meningkatkan struktur alami wajah untuk hasil natural, tanpa downtime, dan tahan lama.',
-      image: '/images/flyer/personalized/personalized3.webp',
-      hint: 'facial contouring'
+      image: '/images/flyer/personalized/personalized2.webp',
+      hint: 'regenerative lifting'
     },
   ];
 
@@ -489,5 +489,3 @@ export default function FlyerPage() {
     </>
   );
 }
-
-    
