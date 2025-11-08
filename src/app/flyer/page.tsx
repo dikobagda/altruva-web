@@ -223,7 +223,7 @@ export default function FlyerPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/10 z-10" />
-        <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-primary-foreground p-4">
+        <div className="relative z-20 h-full flex flex-col items-start justify-center text-left text-primary-foreground p-4 md:p-12">
             <p className="font-serif text-8xl md:text-9xl text-white" style={{color: '#4a301b'}}>1st</p>
             <h2 className="font-serif text-4xl md:text-5xl text-white" style={{color: '#4a301b'}}>
                 Jakarta's Regenerative
