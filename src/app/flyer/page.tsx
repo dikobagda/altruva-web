@@ -194,21 +194,21 @@ export default function FlyerPage() {
       </SectionWrapper>
 
       {/* Section 7: Doctor's Profile */}
-      <SectionWrapper className="bg-primary text-primary-foreground">
+      <SectionWrapper className="bg-background">
         <div className="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
             <div className="md:col-span-1">
-                 <div className="relative aspect-square max-w-xs mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-primary-foreground">
+                 <div className="relative aspect-square max-w-xs mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-secondary">
                      <Image src="/images/flyer/draldisa_new.webp" alt="dr Olivia Aldisa" fill className="object-cover object-top" />
                  </div>
             </div>
             <div className="md:col-span-2">
-                 <h2 className="font-serif text-3xl font-bold">dr Olivia Aldisa, M.Sc.</h2>
-                 <p className="font-semibold text-lg text-primary-foreground/80">Aesthetic Medicine (UK)</p>
-                 <p className="font-semibold text-accent-foreground/90 mt-1">Founder and Medical Director</p>
-                 <p className="mt-4 text-lg opacity-90 max-w-xl mx-auto md:mx-0">
+                 <h2 className="font-serif text-3xl font-bold text-primary">dr Olivia Aldisa, M.Sc.</h2>
+                 <p className="font-semibold text-lg text-accent">Aesthetic Medicine (UK)</p>
+                 <p className="font-semibold text-foreground/80 mt-1">Founder and Medical Director</p>
+                 <p className="mt-4 text-lg text-foreground/80 max-w-xl mx-auto md:mx-0">
                     Berpengalaman lebih dari 12 tahun sebagai dokter estetika dan juga trainer international. Pakar dalam combination treatment yang menggabungkan produk terbaik, presisi tindakan, dengan teknologi medical device terkini untuk hasil yang nyata.
                  </p>
-                 <Button asChild size="lg" variant="secondary" className="mt-6 font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                 <Button asChild size="lg" variant="default" className="mt-6 font-semibold">
                     <Link href="/book-appointment">Book Consultation Now</Link>
                 </Button>
             </div>
