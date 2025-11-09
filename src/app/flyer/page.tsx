@@ -47,7 +47,7 @@ export default function FlyerPage() {
       imageHint: "collagen stimulation"
     },
     {
-      title: "Prosedur yang nyaman berdasarkan standar intenasional",
+      title: "Prosedur yang nyaman berdasarkan standar international",
       image: { src: "/images/flyer/softwave2.jpeg" },
       imageHint: "comfortable aesthetic procedure"
     }
