@@ -23,6 +23,7 @@ import Script from 'next/script';
 
 export default function FlyerPage() {
   const { t } = useLanguage();
+  const whatsappLink = "https://wa.me/6281216119392";
 
   const highlights = [
     "International KOL and Trainer for Sofwave",
@@ -121,16 +122,16 @@ export default function FlyerPage() {
       number: '02',
       title: 'A.R.T Lift by Sofwave ',
       description: 'Lifting alami dengan meningkatkan kolagen & elastin secara signifikan untuk wajah kencang, tanpa downtime, dan lebih nyaman dari HIFU generasi lama.',
-      image: '/images/flyer/personalized/personalized3.webp',
+      image: '/images/flyer/personalized/personalized2.webp',
       hint: 'sofwave treatment'
       
     },
     {
       number: '03',
       title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
-
+    
       description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
-      image: '/images/flyer/personalized/personalized2.webp',
+      image: '/images/flyer/personalized/personalized3.webp',
       hint: 'facial contouring'
     },
   ];
@@ -185,7 +186,7 @@ export default function FlyerPage() {
                 size="lg"
                 className="hidden md:inline-flex bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
               >
-                <Link href="/book-appointment">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+                <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
               </Button>
             </div>
           </div>
@@ -196,7 +197,7 @@ export default function FlyerPage() {
               size="lg"
               className="w-full bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
             >
-              <Link href="/book-appointment">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+              <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
             </Button>
         </div>
       </SectionWrapper>
@@ -251,7 +252,7 @@ export default function FlyerPage() {
                     Berpengalaman lebih dari 12 tahun sebagai dokter estetika dan juga trainer international. Pakar dalam combination treatment yang menggabungkan produk terbaik, presisi tindakan, dengan teknologi medical device terkini untuk hasil yang nyata.
                  </p>
                  <Button asChild size="lg" variant="default" className="mt-6 font-semibold">
-                    <Link href="/book-appointment">Book Consultation Now</Link>
+                    <Link href={whatsappLink} target="_blank">Book Consultation Now</Link>
                 </Button>
             </div>
         </div>
@@ -329,8 +330,8 @@ export default function FlyerPage() {
             ))}
           </div>
            <div className="text-center mt-12">
-            <Button size="lg" className="rounded-full bg-[#4a301b] text-white hover:bg-[#5a402b] px-10 py-6 text-lg font-semibold">
-              Get Your Personalized Assessment
+            <Button asChild size="lg" className="rounded-full bg-[#4a301b] text-white hover:bg-[#5a402b] px-10 py-6 text-lg font-semibold">
+              <Link href={whatsappLink} target="_blank">Get Your Personalized Assessment</Link>
             </Button>
           </div>
         </div>
@@ -362,7 +363,7 @@ export default function FlyerPage() {
         </div>
         <div className="text-center mt-12">
             <Button asChild size="lg" className="bg-[#4a301b] text-white hover:bg-[#5a402b] rounded-full px-10 py-6 text-lg font-semibold">
-                <Link href="/book-appointment">Begin Your Transformation</Link>
+                <Link href={whatsappLink} target="_blank">Begin Your Transformation</Link>
             </Button>
         </div>
       </SectionWrapper>
@@ -393,7 +394,7 @@ export default function FlyerPage() {
         </div>
         <div className="text-center mt-12">
             <Button asChild size="lg">
-                <Link href="/book-appointment">Book Appointment Now!</Link>
+                <Link href={whatsappLink} target="_blank">Book Appointment Now!</Link>
             </Button>
         </div>
       </SectionWrapper>
@@ -417,7 +418,7 @@ export default function FlyerPage() {
         </div>
         <div className="text-center mt-12">
           <Button asChild size="lg">
-            <Link href="/book-appointment">Book Appointment Now!</Link>
+            <Link href={whatsappLink} target="_blank">Book Appointment Now!</Link>
           </Button>
         </div>
       </SectionWrapper>
