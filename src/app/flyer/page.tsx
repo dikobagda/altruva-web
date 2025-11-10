@@ -74,17 +74,18 @@ export default function FlyerPage() {
   ];
   
   const certificates = [
-    { image: { src: "/images/flyer/cert/cert7.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert8.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert9.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert1.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert2.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert3.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert4.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert5.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert6.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert10.jpg" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert11.jpg" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_1.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_2.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_3.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_4.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_5.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_6.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_7.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_8.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_9.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_10.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_11.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_12.png" }, imageHint: "certificate" },
   ];
 
   const agingConcerns = [
