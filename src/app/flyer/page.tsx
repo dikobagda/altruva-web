@@ -115,7 +115,7 @@ export default function FlyerPage() {
       number: '01',
       title: 'Altruva Cocktail Contouring',
       description: 'Rasakan transformasi kulit dari dalam dengan menstimulasi kolagen dan meningkatkan struktur alami wajah untuk hasil natural, tanpa downtime, dan tahan lama.',
-      image: '/images/flyer/personalized/personalized1.webp',
+      image: '/images/flyer/personalized/personalized4.jpg',
       hint: 'regenerative lifting'
     },
     {
@@ -330,9 +330,11 @@ export default function FlyerPage() {
             ))}
           </div>
            <div className="text-center mt-12">
-            <Button asChild size="lg" className="rounded-full bg-[#4a301b] text-white hover:bg-[#5a402b] px-10 py-6 text-lg font-semibold">
-              <Link href={whatsappLink} target="_blank">Get Your Personalized Assessment</Link>
-            </Button>
+             <Link href={whatsappLink} target="_blank" className="inline-block">
+                <Button asChild size="lg" className="rounded-full bg-[#4a301b] text-white hover:bg-[#5a402b] px-10 py-6 text-lg font-semibold">
+                  <span>Get Your Personalized Assessment</span>
+                </Button>
+              </Link>
           </div>
         </div>
       </SectionWrapper>
