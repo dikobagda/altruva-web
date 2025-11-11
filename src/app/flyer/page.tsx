@@ -172,7 +172,7 @@ export default function FlyerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="container mx-auto px-6 relative z-10 flex flex-col flex-grow items-start justify-between h-full pt-8 md:pt-32 pb-8 md:pb-0">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col flex-grow justify-between h-full pt-8 md:pt-12">
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
@@ -192,7 +192,7 @@ export default function FlyerPage() {
             </div>
           </div>
 
-           <div className="w-full md:hidden">
+           <div className="w-full md:hidden pb-8">
               <Button
                 asChild
                 size="lg"
@@ -461,7 +461,7 @@ export default function FlyerPage() {
                 <div className="p-1">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <div className="relative aspect-video rounded-lg overflow-hidden border shadow-md cursor-pointer group">
+                      <div className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group">
                          <Image src={cert.image.src} alt="Certificate" fill className="object-contain group-hover:scale-105 transition-transform" />
                       </div>
                     </DialogTrigger>
