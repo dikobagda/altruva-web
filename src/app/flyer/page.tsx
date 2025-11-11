@@ -123,7 +123,7 @@ export default function FlyerPage() {
       number: '02',
       title: 'A.R.T Lift by Sofwave ',
       description: 'Lifting alami dengan meningkatkan kolagen & elastin secara signifikan untuk wajah kencang, tanpa downtime, dan lebih nyaman dari HIFU generasi lama.',
-      image: '/images/flyer/personalized/personalized2.webp',
+      image: '/images/flyer/personalized/personalized3.webp',
       hint: 'sofwave treatment'
       
     },
@@ -132,7 +132,7 @@ export default function FlyerPage() {
       title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
     
       description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
-      image: '/images/flyer/personalized/personalized3.webp',
+      image: '/images/flyer/personalized/personalized2.webp',
       hint: 'facial contouring'
     },
   ];
@@ -278,9 +278,9 @@ export default function FlyerPage() {
         />
         <div className="absolute inset-0 bg-black/10 z-10" />
         <div className="relative z-20 h-full flex flex-col items-center md:items-start justify-start text-center md:text-left text-primary-foreground p-4 pt-12 md:p-12 md:justify-center" style={{minHeight: '700px'}}>
-            <p className="font-serif text-xl md:text-9xl text-white" style={{color: '#4a301b'}}>1st</p>
+            
             <h2 className="font-serif text-3xl md:text-5xl text-white" style={{color: '#4a301b'}}>
-                Jakarta's Regenerative
+                Jakarta's 1st Regenerative
                 <br />
                 Contouring Clinic
             </h2>
