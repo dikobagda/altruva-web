@@ -123,7 +123,7 @@ export default function FlyerPage() {
       number: '02',
       title: 'A.R.T Lift by Sofwave ',
       description: 'Lifting alami dengan meningkatkan kolagen & elastin secara signifikan untuk wajah kencang, tanpa downtime, dan lebih nyaman dari HIFU generasi lama.',
-      image: '/images/flyer/personalized/personalized2.webp',
+      image: '/images/flyer/personalized/personalized3.webp',
       hint: 'sofwave treatment'
       
     },
@@ -132,7 +132,7 @@ export default function FlyerPage() {
       title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
     
       description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
-      image: '/images/flyer/personalized/personalized3.webp',
+      image: '/images/flyer/personalized/personalized2.webp',
       hint: 'facial contouring'
     },
   ];
@@ -172,7 +172,7 @@ export default function FlyerPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
-        <div className="container mx-auto px-6 relative z-10 flex flex-col items-start justify-start h-full pt-8 md:pt-32">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col flex-grow items-start justify-between h-full pt-8 md:pt-32 pb-8 md:pb-0">
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
@@ -191,15 +191,16 @@ export default function FlyerPage() {
               </Button>
             </div>
           </div>
-        </div>
-         <div className="relative z-20 w-full container mx-auto px-6 pb-8 md:hidden">
-            <Button
-              asChild
-              size="lg"
-              className="w-full bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
-            >
-              <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
-            </Button>
+
+           <div className="w-full md:hidden">
+              <Button
+                asChild
+                size="lg"
+                className="w-full bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
+              >
+                <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+              </Button>
+          </div>
         </div>
       </SectionWrapper>
       
@@ -461,7 +462,7 @@ export default function FlyerPage() {
                   <Dialog>
                     <DialogTrigger asChild>
                       <div className="relative aspect-video rounded-lg overflow-hidden border shadow-md cursor-pointer group">
-                         <Image src={cert.image.src} alt="Certificate" fill className="object-fill group-hover:scale-105 transition-transform" />
+                         <Image src={cert.image.src} alt="Certificate" fill className="object-contain group-hover:scale-105 transition-transform" />
                       </div>
                     </DialogTrigger>
                     <DialogContent className="p-0 border-0 max-w-4xl">
@@ -495,5 +496,3 @@ export default function FlyerPage() {
     </>
   );
 }
-
-    
