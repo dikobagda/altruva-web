@@ -48,7 +48,7 @@ export default function FlyerPage() {
       imageHint: "collagen stimulation"
     },
     {
-      title: "Prosedur yang nyaman berdasarkan standar international",
+      title: "Prosedur yang nyaman berdasarkan standar internasional",
       image: { src: "/images/flyer/softwave2.jpeg" },
       imageHint: "comfortable aesthetic procedure"
     }
@@ -123,7 +123,7 @@ export default function FlyerPage() {
       number: '02',
       title: 'A.R.T Lift by Sofwave ',
       description: 'Lifting alami dengan meningkatkan kolagen & elastin secara signifikan untuk wajah kencang, tanpa downtime, dan lebih nyaman dari HIFU generasi lama.',
-      image: '/images/flyer/personalized/personalized3.webp',
+      image: '/images/flyer/personalized/personalized2.webp',
       hint: 'sofwave treatment'
       
     },
@@ -132,7 +132,7 @@ export default function FlyerPage() {
       title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
     
       description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
-      image: '/images/flyer/personalized/personalized2.webp',
+      image: '/images/flyer/personalized/personalized3.webp',
       hint: 'facial contouring'
     },
   ];
@@ -216,7 +216,9 @@ export default function FlyerPage() {
               <br />
               but don't let it
               <br />
-              <span className="italic">take your confidence</span>
+              <span className="italic">take away</span>
+              <br />
+              <span className="italic">your confidence</span>
             </h2>
           </div>
           <div className="grid grid-cols-2 gap-4 md:gap-6">
@@ -462,7 +464,7 @@ export default function FlyerPage() {
                   <Dialog>
                     <DialogTrigger asChild>
                       <div className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group">
-                         <Image src={cert.image.src} alt="Certificate" fill className="object-contain group-hover:scale-105 transition-transform" />
+                         <Image src={cert.image.src} alt="Certificate" fill className="object-contain group-hover:scale-105 transition-transform" data-ai-hint={cert.imageHint} />
                       </div>
                     </DialogTrigger>
                     <DialogContent className="p-0 border-0 max-w-4xl">
