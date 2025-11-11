@@ -23,7 +23,7 @@ import Script from 'next/script';
 
 export default function FlyerPage() {
   const { t } = useLanguage();
-  const whatsappLink = "https://wa.me/6281216119392";
+  const whatsappLink = "https://wa.me/6281216119392?text=Hai%20Altruva,%20saya%20tertarik%20booking%20konsultasi%20dengan%20dokter%20untuk%20tahu%20advanced%20treatment%20yang%20paling%20sesuai";
 
   const highlights = [
     "International KOL and Trainer for Sofwave",
@@ -74,15 +74,15 @@ export default function FlyerPage() {
   ];
   
   const certificates = [
+    { image: { src: "/images/flyer/cert/cert_7.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_8.png" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_9.png" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_1.png" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_2.png" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_3.png" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_4.png" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_5.png" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_6.png" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_7.png" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_8.png" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_9.png" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_10.png" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_11.png" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_12.png" }, imageHint: "certificate" },
@@ -495,3 +495,5 @@ export default function FlyerPage() {
     </>
   );
 }
+
+    
