@@ -25,7 +25,8 @@ export default function FloatingWhatsAppButton({ size = 'default' }: FloatingWha
   }
   
   const phoneNumber = "6281216119392";
-  const whatsappLink = `https://wa.me/${phoneNumber}`;
+  const message = "Hai Altruva, saya tertarik booking konsultasi dengan dokter untuk tahu advanced treatment yang paling sesuai";
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   const sizeClasses = {
     default: 'h-14 w-14 p-3',
