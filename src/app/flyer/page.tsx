@@ -123,7 +123,7 @@ export default function FlyerPage() {
       number: '02',
       title: 'A.R.T Lift by Sofwave ',
       description: 'Lifting alami dengan meningkatkan kolagen & elastin secara signifikan untuk wajah kencang, tanpa downtime, dan lebih nyaman dari HIFU generasi lama.',
-      image: '/images/flyer/personalized/personalized3.webp',
+      image: '/images/flyer/personalized/personalized2.webp',
       hint: 'sofwave treatment'
       
     },
@@ -132,7 +132,7 @@ export default function FlyerPage() {
       title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
     
       description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
-      image: '/images/flyer/personalized/personalized2.webp',
+      image: '/images/flyer/personalized/personalized3.webp',
       hint: 'facial contouring'
     },
   ];
@@ -311,7 +311,7 @@ export default function FlyerPage() {
         >
           <div className="text-center mb-8">
               <h2 className="font-serif text-4xl md:text-5xl text-primary font-bold">Personalized Signature Treatments</h2>
-              <p className="font-serif text-3xl md:text-4xl text-primary/90">for Timeless Beauty</p>
+              <p className="font-serif text-3xl md:text-4xl text-primary/90 mt-2">for Timeless Beauty</p>
               <div className="mt-4 inline-block">
                 <Button variant="default" className="rounded-full bg-[#4a301b] text-white">Altruva Lift Tightening & Contouring</Button>
               </div>
