@@ -16,7 +16,7 @@ export const insights: Insight[] = [
     id: 'sculpt-your-confidence-for-holiday',
     title: 'Sculpt Your Confidence for the Holidays',
     excerpt: '✨ Temukan seri perawatan regeneratif Altruva bulan November. Siapkan kulit dan percaya diri Anda menjelang liburan dengan hasil alami dan elegan.',
-    imageSrc: 'https://picsum.photos/seed/holidayprep/600/400',
+    imageSrc: '/images/insights/i11.png',
     imageHint: 'holiday beauty preparation',
     date: 'November 10, 2025',
     href: '/insights/sculpt-your-confidence-for-holiday',
@@ -450,3 +450,5 @@ export const insights: Insight[] = [
     `
   },
 ];
+
+    
