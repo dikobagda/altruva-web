@@ -16,8 +16,8 @@ export const insights: Insight[] = [
     id: 'sculpt-your-confidence-for-holiday',
     title: 'Sculpt Your Confidence for the Holidays',
     excerpt: '✨ Temukan seri perawatan regeneratif Altruva bulan November. Siapkan kulit dan percaya diri Anda menjelang liburan dengan hasil alami dan elegan.',
-    imageSrc: '/images/insights/i11.png',
-    imageHint: 'holiday beauty preparation',
+    imageSrc: '/images/services/LipoElixir.webp',
+    imageHint: 'fat dissolving injection',
     date: 'November 10, 2025',
     href: '/insights/sculpt-your-confidence-for-holiday',
     keywords: [
@@ -31,7 +31,6 @@ export const insights: Insight[] = [
       'Treatment kolagen booster'
     ],
     content: `
-      <h2>🌟 ALTRUVA BEAUTY JOURNAL — NOVEMBER 2025 ISSUE</h2>
       <h3>Sculpt Your Confidence for Holiday!</h3>
       <p>✨ Temukan seri perawatan regeneratif Altruva bulan November. Siapkan kulit dan percaya diri Anda menjelang liburan dengan hasil alami dan elegan.</p>
       
