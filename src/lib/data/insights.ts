@@ -13,6 +13,75 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: 'sculpt-your-confidence-for-holiday',
+    title: 'Sculpt Your Confidence for the Holidays',
+    excerpt: '✨ Temukan seri perawatan regeneratif Altruva bulan November. Siapkan kulit dan percaya diri Anda menjelang liburan dengan hasil alami dan elegan.',
+    imageSrc: 'https://picsum.photos/seed/holidayprep/600/400',
+    imageHint: 'holiday beauty preparation',
+    date: 'November 10, 2025',
+    href: '/insights/sculpt-your-confidence-for-holiday',
+    keywords: [
+      'Regenerative Contouring',
+      'Sofwave Indonesia',
+      'Exion FractioPro',
+      'EmSculpt Neo Jakarta',
+      'Perawatan wajah menjelang akhir tahun',
+      'Klinik estetika premium Jakarta',
+      'Rejuvenasi kulit alami',
+      'Treatment kolagen booster'
+    ],
+    content: `
+      <h2>🌟 ALTRUVA BEAUTY JOURNAL — NOVEMBER 2025 ISSUE</h2>
+      <h3>Sculpt Your Confidence for Holiday!</h3>
+      <p>✨ Temukan seri perawatan regeneratif Altruva bulan November. Siapkan kulit dan percaya diri Anda menjelang liburan dengan hasil alami dan elegan.</p>
+      
+      <h4>Catatan Editorial</h4>
+      <p>Menjelang akhir tahun, ritme hidup perlahan berubah. Agenda mulai padat, rencana disusun, dan refleksi kecil tentang perjalanan hidup pun muncul. Di Altruva, kami memandang November sebagai waktu untuk berhenti sejenak, mempersiapkan pikiran dan kulit sebelum dunia kembali merayakan.</p>
+      <p>Kecantikan sejati tidak diciptakan secara tergesa. Ia lahir dari niat dan konsistensi. Karena itu, filosofi kami sederhana: semakin awal Anda memulai, semakin anggun Anda sampai di tujuan.</p>
+      <p>Sculpt Your Confidence for Holiday adalah kurasi perawatan eksklusif dari Altruva yang dirancang untuk menonjolkan kontur alami wajah, mengembalikan keseimbangan kulit, dan menyiapkan pancaran alami Anda menjelang akhir tahun.</p>
+
+      <h3>💎 PERAWATAN ANDALAN BULAN NOVEMBER</h3>
+      
+      <h4>1. Holiday Confidence Plan</h4>
+      <p>Cara cerdas mempersiapkan tampilan terbaik menjelang liburan.</p>
+      <p>Menggabungkan ART Lyft by Sofwave, Cocktail Contouring, dan Botox Refinement, program ini bekerja sinergis untuk mengaktifkan kolagen, memperbaiki struktur wajah, dan memberikan relaksasi halus pada otot ekspresi.</p>
+      <p>Hasilnya bukan transformasi drastis, melainkan keseimbangan — angkat lembut yang membuat Anda tampak segar, tenang, dan percaya diri tanpa kehilangan karakter alami.</p>
+      <p><em>“Grace is never rushed.”</em></p>
+
+      <h4>2. Regenerative Contour Series</h4>
+      <p>Reset mewah untuk kulit dan semangat Anda.</p>
+      <p>Perpaduan Gorgeous Lyft, DNA Repair Refyne, dan Face Modulator ini merupakan manifestasi dari filosofi Regenerative Contouring — bekerja selaras dengan biologi kulit, bukan melawannya.</p>
+      <p>Program ini menstimulasi regenerasi kolagen, memperkuat jaringan dermal, dan mengembalikan harmoni wajah dengan hasil yang alami dan tahan lama. Cocok bagi mereka yang ingin terlihat segar tanpa jejak intervensi.</p>
+      <p><em>“The art of subtlety is the new sign of sophistication.”</em></p>
+
+      <h4>3. Weather-Proof Skin Set</h4>
+      <p>Karena kilau Anda harus bertahan di segala musim.</p>
+      <p>Kombinasi DNA Repair Pro dan Amino Booster memperkuat pertahanan alami kulit terhadap perubahan iklim, paparan sinar UV, dan stres akibat perjalanan panjang.</p>
+      <p>Diformulasikan untuk menjaga kelembapan, elastisitas, dan kejernihan kulit, menjadikannya pilihan ideal bagi mereka yang sering berpindah zona waktu dan ingin tetap tampil segar di mana pun berada.</p>
+      <p><em>“For those who move through time zones with composure.”</em></p>
+
+      <h4>4. All-in-One Transformation</h4>
+      <p>Efisiensi cerdas, hasil maksimal.</p>
+      <p>Dengan Exion FractioPro dan Cocktail Contouring, Altruva menghadirkan perawatan berteknologi AI yang memadukan energi fraksional dan teknik pembentukan wajah presisi tinggi.</p>
+      <p>Program ini memperbaiki tekstur kulit, mengecilkan pori, mengangkat kontur, dan menciptakan permukaan kulit yang lebih bercahaya — semua dalam satu sesi dengan waktu pemulihan minimal.</p>
+      <p><em>“Precision is the new indulgence.”</em></p>
+
+      <h4>5. Core & Glow Holiday Prep</h4>
+      <p>Perkuat dari dalam, pancarkan ke luar.</p>
+      <p>Sinergi antara NeoCurve by EmSculpt Neo dan ART Lyft by Sofwave bukan hanya merawat wajah, tetapi juga membangun kekuatan inti tubuh. Dengan meningkatkan tonus otot dan sirkulasi, program ini menciptakan harmoni antara ekspresi wajah dan postur tubuh — simbol sejati dari keanggunan yang kuat.</p>
+      <p><em>“Resilience is the foundation of radiance.”</em></p>
+
+      <h3>🧬 Refleksi tentang Regenerative Beauty</h3>
+      <p>Di Altruva, setiap perawatan adalah dialog antara sains dan intuisi. Kami tidak mengubah wajah , kami memahami dan mengembalikannya ke kondisi paling seimbang.</p>
+      <p>Mulai dari ART Lyft by Sofwave, Exion FractioPro, hingga NeoCurve by EmSculpt Neo, seluruh teknologi kami bertujuan untuk satu hal: meregenerasi, bukan menggantikan.</p>
+      <p>Inovasi ini bukan tentang mengejar kesempurnaan, tetapi tentang menghidupkan kembali ritme alami kulit agar dapat beradaptasi secara cerdas terhadap waktu, emosi, dan lingkungan.</p>
+
+      <h3>✨ Penutup</h3>
+      <p>Kepercayaan diri bukan aksesori musiman,	 ia adalah kondisi batin.<br/>Di bulan November ini, berikan waktu untuk mempersiapkan diri dengan penuh kesadaran.<br/>Bentuk kehadiran Anda sebelum dunia merayakan.<br/>Karena wajah paling bercahaya bukanlah yang paling berkilau,<br/>melainkan yang memancarkan ketenangan dan kesiapan dari dalam.</p>
+      <p>Dengan ketenangan dan elegansi,<br/>— Tim Altruva</p>
+    `
+  },
+  {
     id: 'micro-trends-2025',
     title: 'Micro Trends Kecantikan 2025 di Altruva Aesthetic',
     excerpt: 'Temukan tren kecantikan 2025: neuro-aesthetics, sunscreen baru, psiko-dermatologi, hingga regenerative & holistic treatments di Altruva Aesthetic.',
