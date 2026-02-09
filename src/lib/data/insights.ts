@@ -13,6 +13,103 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: 'prediksi-estetika-medis-2026',
+    title: 'Prediksi Estetika Medis 2026',
+    excerpt: 'Memasuki 2026, estetika medis bergerak ke fase yang lebih dewasa. Bukan lagi tentang hasil yang cepat, dramatis, atau mudah dikenali, melainkan tentang kualitas keputusan klinis, ketepatan strategi, dan keberanian untuk bersikap konservatif.',
+    imageSrc: '/images/insights/i13.png',
+    imageHint: 'futuristic aesthetics',
+    date: 'January 1, 2026',
+    href: '/insights/prediksi-estetika-medis-2026',
+    keywords: ['Prediksi Estetika 2026', 'Skin Longevity', 'Quiet Luxury Aesthetics', 'dr. Aldisa', 'Altruva', 'Skin Barrier'],
+    content: `
+      <h3>Versi dr. Aldisa – Arah Baru Estetika yang Lebih Tenang, Aman, dan Berkelanjutan</h3>
+      <p>Memasuki 2026, estetika medis bergerak ke fase yang lebih dewasa. Bukan lagi tentang hasil yang cepat, dramatis, atau mudah dikenali, melainkan tentang kualitas keputusan klinis, ketepatan strategi, dan keberanian untuk bersikap konservatif. Di Altruva, arah ini bukan tren musiman—ini adalah evolusi praktik.</p>
+      <p>Berikut adalah prediksi utama estetika medis 2026 versi dr. Aldisa, disesuaikan dengan konteks pasien Indonesia dan filosofi <strong>quiet luxury aesthetics</strong>.</p>
+      <hr class="my-6 border-border/50" />
+
+      <h2>1. Subtlety Menjadi Standar Keunggulan</h2>
+      <p>Pada 2026, hasil yang “terlihat diapa-apakan” tidak lagi dianggap prestasi. Justru sebaliknya—hasil terbaik adalah yang nyaris tidak terdeteksi. Perawatan dinilai berhasil ketika ekspresi tetap hidup, proporsi wajah terjaga, dan orang sekitar hanya melihat wajah yang tampak segar, bukan wajah yang “diubah”.</p>
+      <p>Subtlety bukan sekadar gaya, melainkan indikator presisi, perencanaan matang, dan kontrol teknik yang tinggi.</p>
+      <hr class="my-6 border-border/50" />
+
+      <h2>2. Pengalaman Dokter Menjadi Bagian dari Keamanan</h2>
+      <p>Sertifikat dan teknologi penting, tetapi pengalaman klinis nyata tidak tergantikan. Variasi anatomi wajah Asia, respon jaringan yang tidak terduga, hingga penanganan komplikasi hanya bisa dipelajari melalui jam terbang dan tanggung jawab jangka panjang.</p>
+      <p>Di 2026, pengalaman dokter akan semakin dipahami pasien sebagai bagian dari <em>informed consent</em>—bukan tambahan, melainkan fondasi keselamatan.</p>
+      <hr class="my-6 border-border/50" />
+
+      <h2>3. Menjaga Identitas Wajah Menjadi Kewajiban Klinis</h2>
+      <p>Pasien kini datang bukan untuk “berubah”, tetapi untuk tetap menjadi dirinya sendiri—versi yang lebih sehat dan terawat. Menghilangkan ciri khas wajah, karakter keluarga, atau identitas etnis akan dipandang sebagai kegagalan perencanaan.</p>
+      <p>Dalam konteks Indonesia yang kaya keberagaman wajah, preservasi identitas bukan hanya etika, tetapi keharusan klinis.</p>
+      <hr class="my-6 border-border/50" />
+
+      <h2>4. Kepercayaan Menggantikan Volume sebagai Mata Uang Utama</h2>
+      <p>Pasar estetika semakin padat. Di tengah kebisingan promosi, kepercayaan akan mengalahkan visibilitas. Dokter yang berani berkata <em>tidak</em>, menjelaskan risiko dengan jujur, dan merencanakan perawatan bertahap akan membangun praktik yang berumur panjang.</p>
+      <p>Relasi jangka panjang akan mengalahkan transaksi sesaat.</p>
+      <hr class="my-6 border-border/50" />
+
+      <h2>5. Hyaluronic Acid Tidak Ditinggalkan, Tapi Disempurnakan</h2>
+      <p>Hyaluronic acid (HA) tidak akan hilang. Yang berubah adalah cara penggunaannya. Volume besar dan pendekatan superfisial akan ditinggalkan. Digantikan oleh:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Dosis kecil</li>
+        <li>Penempatan lebih dalam</li>
+        <li>Tujuan struktural, bukan sekadar “mengisi”</li>
+      </ul>
+      <p>Di 2026, support lebih penting daripada fullness.</p>
+      <hr class="my-6 border-border/50" />
+
+      <h2>6. Skin Longevity Menggantikan Konsep Anti-Aging</h2>
+      <p>Bahasa “melawan penuaan” akan semakin ditinggalkan. Fokus berpindah ke <em>skin longevity</em>—bagaimana kulit tetap stabil, kuat, dan sehat dalam jangka panjang.</p>
+      <p>Parameter keberhasilan bukan lagi glow instan, melainkan:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Integritas skin barrier</li>
+        <li>Inflamasi yang terkontrol</li>
+        <li>Pigmentasi yang stabil</li>
+        <li>Preservasi kolagen bertahun-tahun ke depan</li>
+      </ul>
+      <hr class="my-6 border-border/50" />
+
+      <h2>7. Ilmu Skin Barrier Menjadi Panduan Praktik</h2>
+      <p>Skin barrier tidak lagi sekadar konsep skincare, tetapi dasar pengambilan keputusan klinis. Fungsi barrier, keseimbangan lipid, dan kemampuan kulit menahan air akan memengaruhi:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Pemilihan treatment</li>
+        <li>Intensitas prosedur</li>
+        <li>Waktu recovery</li>
+        <li>Hasil jangka panjang</li>
+      </ul>
+      <p>Kulit yang resilien adalah aset utama, bukan bonus.</p>
+      <hr class="my-6 border-border/50" />
+
+      <h2>8. Modulasi Inflamasi Menjadi Kunci Peremajaan</h2>
+      <p>Inflamasi kronis tingkat rendah kini dipahami sebagai salah satu penggerak utama penuaan. Pendekatan agresif yang memicu reaksi berlebihan akan ditinggalkan. Fokus bergeser ke:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Menenangkan jaringan</li>
+        <li>Memperbaiki, bukan memprovokasi</li>
+        <li>Menjaga stabilitas pasca-tindakan</li>
+      </ul>
+      <p><em>Calm skin is strong skin.</em></p>
+      <hr class="my-6 border-border/50" />
+
+      <h2>9. Alat & Mesin Menjadi Pendukung, Bukan Pusat</h2>
+      <p>Energy-based devices tetap relevan, tetapi bukan sebagai bintang utama. Di 2026, perangkat digunakan sebagai <em>adjunct</em>—mendukung injeksi, regenerasi, dan perencanaan jangka panjang.</p>
+      <p>Pendekatan kombinasi yang tepat sasaran akan jauh lebih bernilai dibandingkan satu teknologi yang digunakan berlebihan.</p>
+      <hr class="my-6 border-border/50" />
+
+      <h2>10. Excellence Menjadi Lebih Lambat dan Lebih Menuntut</h2>
+      <p>Ciri utama estetika medis masa depan adalah disiplin. Keunggulan tidak lagi diukur dari seberapa cepat hasil terlihat, tetapi dari:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Ketepatan indikasi</li>
+        <li>Penghormatan terhadap anatomi</li>
+        <li>Kerendahan hati klinis</li>
+      </ul>
+      <p>Sering kali, intervensi paling kuat adalah keputusan untuk menunda—atau tidak melakukan apa pun.</p>
+      <hr class="my-6 border-border/50" />
+
+      <h3>Penutup</h3>
+      <p>Estetika medis 2026 bukan tentang tren baru, tetapi tentang kedewasaan profesi. Di Altruva, arah ini sudah menjadi praktik sehari-hari: menghormati identitas, merawat kulit sebagai investasi jangka panjang, dan menempatkan kepercayaan di atas segalanya.</p>
+      <p>Karena estetika terbaik tidak pernah berteriak—ia bekerja dengan tenang, presisi, dan penuh tanggung jawab.</p>
+    `
+  },
+  {
     id: 'sculpt-your-confidence-for-holiday',
     title: 'Sculpt Your Confidence for the Holidays',
     excerpt: '✨ Temukan seri perawatan regeneratif Altruva bulan November. Siapkan kulit dan percaya diri Anda menjelang liburan dengan hasil alami dan elegan.',

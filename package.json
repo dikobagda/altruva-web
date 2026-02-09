@@ -44,7 +44,7 @@
     "firebase": "^11.8.1",
     "genkit": "^1.8.0",
     "lucide-react": "^0.475.0",
-    "next": "15.2.3",
+    "next": "15.2.8",
     "nextjs-toploader": "^1.6.12",
     "nodemailer": "^6.9.14",
     "patch-package": "^8.0.0",
