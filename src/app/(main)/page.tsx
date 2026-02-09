@@ -95,10 +95,10 @@ export default function HomePage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="md:pr-8 leading-7">
-              <h1 className="font-sans text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold text-primary mb-8 leading-tight">
                 {t({ en: "Quiet Luxury of Aging Gracefully for Timeless Beauty", id: "Kemewahan Tenang dari Penuaan yang Anggun untuk Kecantikan Abadi" })}
               </h1>
-              <h4 className="font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">
+              <h4 className="text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">
                 {t({ en: "Natural facial tightening without surgery and without downtime — at Jakarta's First Regenerative Contouring Clinic", id: "Wajah kencang alami tanpa operasi dan tanpa downtime — di Jakarta’s First Regenerative Contouring Clinic" })}
               </h4>
               <Button
