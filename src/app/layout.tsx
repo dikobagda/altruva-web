@@ -4,9 +4,7 @@ import { Libre_Baskerville, Nunito_Sans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import NextTopLoader from 'nextjs-toploader';
-import dynamic from 'next/dynamic';
-
-const Toaster = dynamic(() => import("@/components/ui/toaster").then(mod => mod.Toaster), { ssr: false });
+import { Toaster } from "@/components/ui/toaster";
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],

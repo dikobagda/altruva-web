@@ -6,9 +6,9 @@ import { usePathname } from 'next/navigation';
 import { LanguageProvider } from '@/context/LanguageContext';
 import Script from 'next/script';
 import dynamic from 'next/dynamic';
+import Footer from '@/components/layout/Footer';
+import Preloader from '@/components/layout/Preloader';
 
-const Footer = dynamic(() => import('@/components/layout/Footer'), { ssr: true });
-const Preloader = dynamic(() => import('@/components/layout/Preloader'), { ssr: true });
 const FloatingWhatsAppButton = dynamic(() => import('@/components/layout/FloatingWhatsAppButton'), { ssr: false });
 
 export default function FlyerLayout({

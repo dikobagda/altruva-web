@@ -5,13 +5,13 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { LanguageProvider } from '@/context/LanguageContext';
 import dynamic from 'next/dynamic';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import Preloader from '@/components/layout/Preloader';
 
-// Dynamic imports to reduce initial bundle size and "unused JS"
-const Header = dynamic(() => import('@/components/layout/Header'), { ssr: true });
-const Footer = dynamic(() => import('@/components/layout/Footer'), { ssr: true });
+// Only dynamically import heavy secondary widgets
 const FloatingAISkinAnalysisButton = dynamic(() => import('@/components/layout/FloatingAISkinAnalysisButton'), { ssr: false });
 const FloatingWhatsAppButton = dynamic(() => import('@/components/layout/FloatingWhatsAppButton'), { ssr: false });
-const Preloader = dynamic(() => import('@/components/layout/Preloader'), { ssr: true });
 
 export default function MainLayout({
   children,
