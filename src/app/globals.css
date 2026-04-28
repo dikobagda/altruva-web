@@ -13,16 +13,16 @@
     --popover: 40 50% 99%;
     --popover-foreground: 30 15% 15%;
 
-    --primary: 24 57% 45%; /* New: #b76631 - Warm Orange/Brown */
+    --primary: 24 57% 35%; /* Darkened for contrast */
     --primary-foreground: 24 50% 95%; /* Light color for text on primary */
 
     --secondary: 40 30% 92%; /* Softer warm off-white, complementary */
-    --secondary-foreground: 24 57% 45%; /* Primary color for text on secondary */
+    --secondary-foreground: 24 57% 35%;
 
     --muted: 40 30% 94%;
     --muted-foreground: 30 15% 40%; /* Darker muted text */
 
-    --accent: 24 45% 35%; /* Darker, less saturated version of primary for accents */
+    --accent: 24 45% 25%; /* Darkened for contrast */
     --accent-foreground: 24 50% 95%; /* Light color for text on accent */
 
     --destructive: 0 84.2% 60.2%;

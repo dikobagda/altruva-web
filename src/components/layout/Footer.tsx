@@ -47,7 +47,7 @@ export default function Footer() {
 
           </div>
           <div className="flex flex-col items-center sm:items-start">
-            <h4 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Opening Hours', id: 'Jam Buka' })}</h4>
+            <h3 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Opening Hours', id: 'Jam Buka' })}</h3>
             <ul className="space-y-1 text-sm text-center sm:text-left">
               {openingHours.map(item => (
                 <li key={t(item.day)} className="flex justify-between w-full max-w-xs sm:max-w-none">
@@ -58,7 +58,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="flex flex-col items-center sm:items-start">
-            <h4 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Quick Links', id: 'Tautan Cepat' })}</h4>
+            <h3 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Quick Links', id: 'Tautan Cepat' })}</h3>
             <ul className="space-y-2 text-center sm:text-left">
               <li><Link href="/about-us/369-harmony" className="hover:text-primary transition-colors">369 Harmony™</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">{t({ en: 'Contact Us', id: 'Hubungi Kami' })}</Link></li>
@@ -67,7 +67,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-center sm:items-start">
-            <h4 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Follow Us', id: 'Ikuti Kami' })}</h4>
+            <h3 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Follow Us', id: 'Ikuti Kami' })}</h3>
             <div className="flex space-x-4">
               <Link href="#" aria-label="Instagram" className="text-primary hover:text-accent transition-colors"><Instagram size={24} /></Link>
               <Link href="#" aria-label="Facebook" className="text-primary hover:text-accent transition-colors"><Facebook size={24} /></Link>

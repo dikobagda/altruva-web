@@ -48,9 +48,9 @@ export default function CertificatesSection() {
                 <div className="p-1">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <div className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group">
+                      <button className="relative aspect-video w-full rounded-lg overflow-hidden cursor-pointer group border-none p-0 bg-transparent block">
                         <Image src={cert.image.src} alt="Certificate" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-contain group-hover:scale-105 transition-transform" data-ai-hint={cert.imageHint} />
-                      </div>
+                      </button>
                     </DialogTrigger>
                     <DialogContent className="p-0 border-0 max-w-4xl">
                       <DialogHeader>
