@@ -30,7 +30,7 @@ export default function FlyerLayout({
   return (
     <LanguageProvider>
       {/* Google Tag Manager */}
-      <Script id="gtm-script" strategy="afterInteractive">
+      <Script id="gtm-script" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -52,12 +52,12 @@ export default function FlyerLayout({
       </div>
        {/* Google Analytics */}
        <Script 
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://www.googletagmanager.com/gtag/js?id=G-58LTL5Q4HE"
         />
         <Script 
           id="google-analytics"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         >
           {`
             window.dataLayer = window.dataLayer || [];

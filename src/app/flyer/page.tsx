@@ -9,14 +9,19 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Award, Star, Video, MapPin, Phone, Mail, ShieldCheck, Zap, Diamond } from 'lucide-react';
 import React from 'react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import dynamic from 'next/dynamic';
+
+const Carousel = dynamic(() => import('@/components/ui/carousel').then(mod => mod.Carousel), { ssr: true });
+const CarouselContent = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselContent), { ssr: true });
+const CarouselItem = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselItem), { ssr: true });
+const CarouselNext = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselNext), { ssr: true });
+const CarouselPrevious = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselPrevious), { ssr: true });
+
+const Dialog = dynamic(() => import('@/components/ui/dialog').then(mod => mod.Dialog), { ssr: false });
+const DialogContent = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogContent), { ssr: false });
+const DialogHeader = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogHeader), { ssr: false });
+const DialogTitle = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogTitle), { ssr: false });
+const DialogTrigger = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogTrigger), { ssr: false });
 import { useLanguage } from '@/context/LanguageContext';
 import { cn } from '@/lib/utils';
 import Script from 'next/script';
@@ -206,10 +211,18 @@ export default function FlyerPage() {
       
       {/* Aging is Natural Section */}
       <SectionWrapper
-        className="bg-contain bg-no-repeat bg-center"
-        style={{ backgroundImage: "url('/images/flyer/aging/bg-section.png')" }}
+        className="relative"
       >
-        <div className="grid md:grid-cols-2 gap-12 items-center relative">
+        <div className="absolute inset-0 z-0 opacity-40">
+           <Image 
+            src="/images/flyer/aging/bg-section.png" 
+            alt="background" 
+            fill 
+            className="object-cover" 
+          />
+        </div>
+        <div className="container mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center relative">
           <div className="space-y-4">
             <h2 className="font-serif text-5xl md:text-6xl text-primary leading-tight">
               Aging is natural,
@@ -237,6 +250,7 @@ export default function FlyerPage() {
                 </div>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </SectionWrapper>
@@ -303,11 +317,18 @@ export default function FlyerPage() {
 
       {/* Personalized Signature Treatments Section */}
       <SectionWrapper
-        className="bg-contain bg-no-repeat bg-center"
-        style={{ backgroundImage: "url('/images/flyer/bg-section.png')" }}
+        className="relative"
       >
+        <div className="absolute inset-0 z-0 opacity-40">
+           <Image 
+            src="/images/flyer/aging/bg-section.png" 
+            alt="background" 
+            fill 
+            className="object-cover" 
+          />
+        </div>
         <div 
-          className="py-12"
+          className="container mx-auto py-12 relative z-10"
         >
           <div className="text-center mb-8">
               <h2 className="font-serif text-4xl md:text-5xl text-primary font-bold">Personalized Signature Treatments</h2>
