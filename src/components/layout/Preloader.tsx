@@ -23,7 +23,6 @@ export default function Preloader({ isLoading }: PreloaderProps) {
           width={120}
           height={120}
           priority
-          fetchPriority="high"
         />
       </div>
     </div>
