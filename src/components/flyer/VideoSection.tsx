@@ -8,6 +8,8 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
+import VideoFacade from '@/components/shared/VideoFacade';
+
 interface VideoSectionProps {
   whatsappLink: string;
 }
@@ -33,16 +35,8 @@ export default function VideoSection({ whatsappLink }: VideoSectionProps) {
         <div className="grid md:grid-cols-3 gap-8">
           {treatmentVideos.map(video => (
             <Card key={video.id} className="shadow-lg overflow-hidden">
-              <div className="aspect-[9/16] w-full">
-                <iframe
-                  className="w-full h-full"
-                  src={`https://www.youtube.com/embed/${video.id}`}
-                  title={video.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
+              <div className="aspect-[9/16] w-full relative">
+                <VideoFacade videoId={video.id} title={video.title} />
               </div>
               <CardHeader>
                 <CardTitle className="font-serif text-lg text-primary">{video.title}</CardTitle>
@@ -61,17 +55,9 @@ export default function VideoSection({ whatsappLink }: VideoSectionProps) {
         <PageTitle title="Get to know us more at @altruvaclinic" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {socialVideos.map(video => (
-            <a href={`https://www.youtube.com/shorts/${video.id}/`} target="_blank" rel="noopener noreferrer" key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg group">
-              <iframe
-                className="w-full h-full absolute inset-0"
-                src={`https://www.youtube.com/embed/${video.id}`}
-                title={`YouTube Short ${video.id}`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-              ></iframe>
-            </a>
+            <div key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg group">
+              <VideoFacade videoId={video.id} isShort={true} />
+            </div>
           ))}
         </div>
       </SectionWrapper>
