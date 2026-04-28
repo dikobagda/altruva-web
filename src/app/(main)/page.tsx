@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -16,17 +16,18 @@ import { cn } from '@/lib/utils';
 import PageTitle from '@/components/shared/PageTitle';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import React from 'react';
-import InsightCard from '@/components/insights/InsightCard';
-import GlowQuiz from '@/components/quiz/GlowQuiz';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import TestimonialCard from '@/components/testimonials/TestimonialCard';
 import { useLanguage } from '@/context/LanguageContext';
+import dynamic from 'next/dynamic';
+
+// Dynamic imports for below-the-fold components to improve TBT and SI
+const GlowQuiz = dynamic(() => import('@/components/quiz/GlowQuiz'), { ssr: false });
+const Carousel = dynamic(() => import('@/components/ui/carousel').then(mod => mod.Carousel), { ssr: true });
+const CarouselContent = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselContent), { ssr: true });
+const CarouselItem = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselItem), { ssr: true });
+const CarouselNext = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselNext), { ssr: true });
+const CarouselPrevious = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselPrevious), { ssr: true });
+const TestimonialCard = dynamic(() => import('@/components/testimonials/TestimonialCard'), { ssr: true });
+const InsightCard = dynamic(() => import('@/components/insights/InsightCard'), { ssr: true });
 
 type TreatmentCategory = 'Prejuvenation' | 'Rejuvenation';
 
@@ -49,23 +50,25 @@ export default function HomePage() {
     },
   };
 
-  const groupedServices = filteredServices.reduce((acc, service) => {
-    const groupName = service.group;
-    if (!acc[groupName]) {
-      acc[groupName] = {
-        description: service.groupDescription, // This is a translation object
-        subgroups: {},
-      };
-    }
-    
-    const subgroupName = service.subgroup;
-    if (!acc[groupName].subgroups[subgroupName]) {
-      acc[groupName].subgroups[subgroupName] = [];
-    }
-    
-    acc[groupName].subgroups[subgroupName].push(service);
-    return acc;
-  }, {} as Record<string, { description: Record<'en'|'id', string>; subgroups: Record<string, typeof services> }>);
+  const groupedServices = useMemo(() => {
+    return filteredServices.reduce((acc, service) => {
+      const groupName = service.group;
+      if (!acc[groupName]) {
+        acc[groupName] = {
+          description: service.groupDescription,
+          subgroups: {},
+        };
+      }
+      
+      const subgroupName = service.subgroup;
+      if (!acc[groupName].subgroups[subgroupName]) {
+        acc[groupName].subgroups[subgroupName] = [];
+      }
+      
+      acc[groupName].subgroups[subgroupName].push(service);
+      return acc;
+    }, {} as Record<string, { description: Record<'en'|'id', string>; subgroups: Record<string, typeof services> }>);
+  }, [filteredServices]);
 
   return (
     <>

@@ -2,13 +2,16 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import FloatingAISkinAnalysisButton from '@/components/layout/FloatingAISkinAnalysisButton';
-import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
-import Preloader from '@/components/layout/Preloader';
 import { usePathname } from 'next/navigation';
 import { LanguageProvider } from '@/context/LanguageContext';
+import dynamic from 'next/dynamic';
+
+// Dynamic imports to reduce initial bundle size and "unused JS"
+const Header = dynamic(() => import('@/components/layout/Header'), { ssr: true });
+const Footer = dynamic(() => import('@/components/layout/Footer'), { ssr: true });
+const FloatingAISkinAnalysisButton = dynamic(() => import('@/components/layout/FloatingAISkinAnalysisButton'), { ssr: false });
+const FloatingWhatsAppButton = dynamic(() => import('@/components/layout/FloatingWhatsAppButton'), { ssr: false });
+const Preloader = dynamic(() => import('@/components/layout/Preloader'), { ssr: true });
 
 export default function MainLayout({
   children,
@@ -30,7 +33,9 @@ export default function MainLayout({
           <Header />
           <main className="flex-grow pt-20">{children}</main>
           <Footer />
-          <FloatingWhatsAppButton />
+          <div className="hidden md:block">
+            <FloatingWhatsAppButton />
+          </div>
           <FloatingAISkinAnalysisButton />
         </div>
       </div>
