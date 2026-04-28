@@ -19,23 +19,8 @@ export default function MainLayout({
   const pathname = usePathname();
 
   useEffect(() => {
-    // Let's rely on actual loading state rather than an arbitrary timer
-    const handleLoad = () => {
-      setIsLoading(false);
-    };
-
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      window.addEventListener('load', handleLoad);
-      // Fallback timeout in case the load event is finicky
-      const timer = setTimeout(handleLoad, 500); 
-      return () => {
-        window.removeEventListener('load', handleLoad);
-        clearTimeout(timer);
-      };
-    }
-  }, [pathname]);
+    setIsLoading(false);
+  }, []);
 
   return (
     <LanguageProvider>

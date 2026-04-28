@@ -1,6 +1,6 @@
 
 // src/components/layout/Preloader.tsx
-import Image from 'next/image';
+
 import { cn } from '@/lib/utils';
 
 interface PreloaderProps {
@@ -16,12 +16,13 @@ export default function Preloader({ isLoading }: PreloaderProps) {
       )}
     >
       <div className="logo-container">
-        <Image
+        <img
           src="/images/logoaltruvanew.png"
           alt="Altruva Logo"
-          width={120}
-          height={120}
-          priority
+          width="120"
+          height="120"
+          style={{ width: '120px', height: '120px' }}
+          fetchPriority="high"
         />
       </div>
     </div>

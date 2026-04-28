@@ -418,6 +418,7 @@ export default function Header() {
               width={90}
               height={90}
               alt="Altruva Logo"
+              priority
             />
           </Link>
           <div className="md:hidden">
@@ -480,6 +481,7 @@ export default function Header() {
             width={90}
             height={90}
             alt="Altruva Logo"
+            priority
           />
         </Link>
 
