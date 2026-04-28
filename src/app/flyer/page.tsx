@@ -101,7 +101,7 @@ export default function FlyerPage() {
             src="/images/landingpage_banner_desktop_main.webp"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
-            sizes="100vw"
+            sizes="(min-width: 1200px) 1400px, 100vw"
             className="object-cover object-top hidden md:block"
             data-ai-hint="elegant woman radiant skin"
             priority
@@ -149,7 +149,7 @@ export default function FlyerPage() {
             src="/images/flyer/aging/bg-section.webp"
             alt="background"
             fill
-            sizes="100vw"
+            sizes="(min-width: 1200px) 1400px, 100vw"
             className="object-cover"
           />
         </div>
@@ -215,14 +215,14 @@ export default function FlyerPage() {
           src="/images/flyer/landingpage_personalize_mobile.webp"
           alt="Jakarta's 1st Regenerative Contouring Clinic"
           fill
-          sizes="100vw"
+          sizes="(min-width: 1200px) 1400px, 100vw"
           className="object-cover object-top md:hidden"
         />
         <Image
           src="/images/flyer/landingpage_banner_desktop.webp"
           alt="Jakarta's 1st Regenerative Contouring Clinic"
           fill
-          sizes="100vw"
+          sizes="(min-width: 1200px) 1400px, 100vw"
           className="object-cover object-top hidden md:block"
         />
         <div className="absolute inset-0 bg-black/10 z-10" />
