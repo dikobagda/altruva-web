@@ -3,38 +3,25 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Award, Star, Video, MapPin, Phone, Mail, ShieldCheck, Zap, Diamond } from 'lucide-react';
 import React from 'react';
 import dynamic from 'next/dynamic';
-
-const Carousel = dynamic(() => import('@/components/ui/carousel').then(mod => mod.Carousel), { ssr: true });
-const CarouselContent = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselContent), { ssr: true });
-const CarouselItem = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselItem), { ssr: true });
-const CarouselNext = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselNext), { ssr: true });
-const CarouselPrevious = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselPrevious), { ssr: true });
-
-const Dialog = dynamic(() => import('@/components/ui/dialog').then(mod => mod.Dialog), { ssr: false });
-const DialogContent = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogContent), { ssr: false });
-const DialogHeader = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogHeader), { ssr: false });
-const DialogTitle = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogTitle), { ssr: false });
-const DialogTrigger = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogTrigger), { ssr: false });
 import { useLanguage } from '@/context/LanguageContext';
-import { cn } from '@/lib/utils';
-import Script from 'next/script';
+
+const CertificatesSection = dynamic(() => import('@/components/flyer/CertificatesSection'), { 
+  ssr: false,
+  loading: () => <div className="py-20 text-center">Loading certificates...</div>
+});
+
+const VideoSection = dynamic(() => import('@/components/flyer/VideoSection'), { 
+  ssr: false,
+  loading: () => <div className="py-20 text-center">Loading videos...</div>
+});
 
 export default function FlyerPage() {
   const { t } = useLanguage();
   const whatsappLink = "https://wa.me/6281216119392?text=Hai%20Altruva,%20saya%20tertarik%20booking%20konsultasi%20dengan%20dokter%20untuk%20tahu%20advanced%20treatment%20yang%20paling%20sesuai";
-
-  const highlights = [
-    "International KOL and Trainer for Sofwave",
-    "International KOL and Trainer for GOURI",
-    "Creator of Cocktail Contouring ™"
-  ];
 
   const benefits = [
     {
@@ -59,38 +46,10 @@ export default function FlyerPage() {
     }
   ];
 
-  const treatmentVideos = [
-    { id: 's3JGxiB-8R4', title: "dr. Aldisa & Atiqah Cocktail Contouring™" },
-    { id: 'AEHYP6BJsQU', title: "Paulina's Sofwave Journey" },
-    { id: 'gn_1wzedRAA', title: "Indy's Gouri Experience" },
-  ];
-
   const beforeAfters = [
     { src: "/images/flyer/paulina-before-after-2.webp", hint: 'facial contouring before after' },
     { src: "/images/flyer/atiqah-bf.webp", hint: 'facial rejuvenation before after' },
     { src: "/images/flyer/unk-bf.webp", hint: 'skin tightening before after' },
-  ];
-
-  const socialVideos = [
-    { id: 'fyYd0wE4uDY' },
-    { id: '8j5eQI4nYA8' },
-    { id: 'm4asSg5piJY' },
-    { id: 'dODOyXmNSVA' },
-  ];
-
-  const certificates = [
-    { image: { src: "/images/flyer/cert/cert_7.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_8.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_9.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_1.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_2.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_3.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_4.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_5.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_6.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_10.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_11.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_12.webp" }, imageHint: "certificate" },
   ];
 
   const agingConcerns = [
@@ -142,17 +101,6 @@ export default function FlyerPage() {
     },
   ];
 
-  const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.191379435602!2d106.80900997591308!3d-6.238523561088915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f165d09075d7%3A0xab2d38304a455052!2sAltruva%20Aesthetic%20Clinic!5e0!3m2!1sen!2sid!4v1721890332819!5m2!1sen!2sid";
-  const openingHours = [
-    { day: { en: 'Tuesday', id: 'Selasa' }, hours: '10.00 am – 6.00 pm' },
-    { day: { en: 'Wednesday', id: 'Rabu' }, hours: '10.00 am – 6.00 pm' },
-    { day: { en: 'Thursday', id: 'Kamis' }, hours: '10.00 am – 6.00 pm' },
-    { day: { en: 'Friday', id: 'Jumat' }, hours: '10.00 am – 6.00 pm' },
-    { day: { en: 'Saturday', id: 'Sabtu' }, hours: '10.00 am – 6.00 pm' },
-    { day: { en: 'Sunday', id: 'Minggu' }, hours: '9.00 am – 5.00 pm' },
-    { day: { en: 'Monday', id: 'Senin' }, hours: { en: 'Closed', id: 'Tutup' } },
-  ];
-
 
   return (
     <>
@@ -163,6 +111,7 @@ export default function FlyerPage() {
             src="/images/flyer/landingpage_banner_mobile.webp"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
+            sizes="100vw"
             className="object-cover object-top md:hidden"
             data-ai-hint="elegant woman radiant skin"
             priority
@@ -171,6 +120,7 @@ export default function FlyerPage() {
             src="/images/landingpage_banner_desktop_main.webp"
             alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
             fill
+            sizes="100vw"
             className="object-cover object-top hidden md:block"
             data-ai-hint="elegant woman radiant skin"
             priority
@@ -218,6 +168,7 @@ export default function FlyerPage() {
             src="/images/flyer/aging/bg-section.webp"
             alt="background"
             fill
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -241,6 +192,7 @@ export default function FlyerPage() {
                     src={item.image.src}
                     alt={item.text}
                     fill
+                    sizes="(max-width: 768px) 50vw, 300px"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={item.image.hint}
                   />
@@ -260,7 +212,7 @@ export default function FlyerPage() {
         <div className="grid md:grid-cols-2 gap-8 items-center text-left">
           <div className="md:col-span-1 flex justify-center">
             <div className="relative aspect-square max-w-xs w-full">
-              <Image src="/images/flyer/draldisa_new.webp" alt="dr Olivia Aldisa" fill className="object-contain" />
+              <Image src="/images/flyer/draldisa_new.webp" alt="dr Olivia Aldisa" fill sizes="320px" className="object-contain" />
             </div>
           </div>
           <div className="md:col-span-1">
@@ -282,12 +234,14 @@ export default function FlyerPage() {
           src="/images/flyer/landingpage_personalize_mobile.webp"
           alt="Jakarta's 1st Regenerative Contouring Clinic"
           fill
+          sizes="100vw"
           className="object-cover object-top md:hidden"
         />
         <Image
           src="/images/flyer/landingpage_banner_desktop.webp"
           alt="Jakarta's 1st Regenerative Contouring Clinic"
           fill
+          sizes="100vw"
           className="object-cover object-top hidden md:block"
         />
         <div className="absolute inset-0 bg-black/10 z-10" />
@@ -324,6 +278,7 @@ export default function FlyerPage() {
             src="/images/flyer/aging/bg-section.webp"
             alt="background"
             fill
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -342,7 +297,7 @@ export default function FlyerPage() {
               <div key={treatment.number} className="relative group">
                 <div className="relative aspect-[3/4] bg-white rounded-3xl shadow-lg overflow-hidden p-6 flex flex-col justify-end">
                   <div className="absolute inset-0">
-                    <Image src={treatment.image} alt={treatment.title} fill className="object-cover rounded-3xl" data-ai-hint={treatment.hint} />
+                    <Image src={treatment.image} alt={treatment.title} fill sizes="(max-width: 768px) 100vw, 400px" className="object-cover rounded-3xl" data-ai-hint={treatment.hint} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-3xl" />
                   </div>
                   <div className="relative text-white z-10 text-left">
@@ -380,7 +335,7 @@ export default function FlyerPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
           {benefits.map((benefit, index) => (
             <div key={index} className="relative aspect-[3/4] rounded-2xl overflow-hidden group shadow-xl text-white">
-              <Image src={benefit.image.src} alt={benefit.title} fill className="object-cover transition-transform duration-300 group-hover:scale-105" data-ai-hint={benefit.imageHint} />
+              <Image src={benefit.image.src} alt={benefit.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-300 group-hover:scale-105" data-ai-hint={benefit.imageHint} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-6 flex flex-col justify-end">
                 <p className="font-bold text-6xl md:text-7xl drop-shadow-lg italic opacity-80">0{index + 1}</p>
                 <p className="font-semibold text-lg md:text-xl leading-tight drop-shadow-md mt-2">{benefit.title}</p>
@@ -396,39 +351,13 @@ export default function FlyerPage() {
       </SectionWrapper>
 
 
-      {/* Section 3: Glimpse of Treatments */}
-      <SectionWrapper className="bg-secondary/30">
-        <PageTitle title="A glimpse of Altruva treatments" />
-        <div className="grid md:grid-cols-3 gap-8">
-          {treatmentVideos.map(video => (
-            <Card key={video.id} className="shadow-lg overflow-hidden">
-              <div className="aspect-[9/16] w-full">
-                <iframe
-                  className="w-full h-full"
-                  src={`https://www.youtube.com/embed/${video.id}`}
-                  title={video.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
-              </div>
-              <CardHeader>
-                <CardTitle className="font-serif text-lg text-primary">{video.title}</CardTitle>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
-        <div className="text-center mt-12">
-          <Button asChild size="lg">
-            <Link href={whatsappLink} target="_blank">Book Appointment Now!</Link>
-          </Button>
-        </div>
-      </SectionWrapper>
+      {/* Section 3 & 5: Video & Social Media (Dynamically Imported) */}
+      <VideoSection whatsappLink={whatsappLink} />
+
 
       {/* Section 4: Proven results */}
       <SectionWrapper>
-        <PageTitle title="Proven results" subtitle="Tampil cantik percaya diri di segala usia" />
+        <h2 className="font-serif text-3xl md:text-4xl text-center mb-12 text-primary font-bold">Proven results</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {beforeAfters.map((item, index) => (
             <div key={index} className="relative w-full overflow-hidden rounded-lg shadow-lg">
@@ -451,64 +380,8 @@ export default function FlyerPage() {
       </SectionWrapper>
 
 
-      {/* Section 5: Social Media */}
-      <SectionWrapper className="bg-secondary/30">
-        <PageTitle title="Get to know us more at @altruvaclinic" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {socialVideos.map(video => (
-            <a href={`https://www.youtube.com/shorts/${video.id}/`} target="_blank" rel="noopener noreferrer" key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg group">
-              <iframe
-                className="w-full h-full absolute inset-0"
-                src={`https://www.youtube.com/embed/${video.id}`}
-                title={`YouTube Short ${video.id}`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-              ></iframe>
-            </a>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      {/* Section 6: Certificates */}
-      <SectionWrapper>
-        <PageTitle title="Certificates and Awards" />
-        <Carousel
-          opts={{ align: "start", loop: true }}
-          className="w-full max-w-5xl mx-auto"
-        >
-          <CarouselContent>
-            {certificates.map((cert, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <div className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group">
-                        <Image src={cert.image.src} alt="Certificate" fill className="object-contain group-hover:scale-105 transition-transform" data-ai-hint={cert.imageHint} />
-                      </div>
-                    </DialogTrigger>
-                    <DialogContent className="p-0 border-0 max-w-4xl">
-                      <DialogHeader>
-                        <DialogTitle className="sr-only">Certificate</DialogTitle>
-                      </DialogHeader>
-                      <Image
-                        src={cert.image.src}
-                        alt="Certificate"
-                        width={1200}
-                        height={675}
-                        className="w-full h-auto rounded-lg object-contain"
-                      />
-                    </DialogContent>
-                  </Dialog>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden lg:flex" />
-          <CarouselNext className="hidden lg:flex" />
-        </Carousel>
-      </SectionWrapper>
+      {/* Section 6: Certificates (Dynamically Imported) */}
+      <CertificatesSection />
 
       <SectionWrapper className="!py-16 bg-primary">
         <div className="text-center">
