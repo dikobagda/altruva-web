@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preload" href="/images/logoaltruvanew.webp" as="image" fetchpriority="high" />
+        <link rel="preload" href="/images/logoaltruvanew.webp" as="image" fetchPriority="high" />
       </head>
       <body
         className={cn(
