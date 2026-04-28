@@ -1,9 +1,5 @@
 {
   "flyer": {
-    "hero": {
-      "src": "https://picsum.photos/seed/flyerhero/1920/1080",
-      "hint": "elegant clinic"
-    },
     "benefit1": {
       "src": "/images/flyer/atiqah1.jpeg"
     },
@@ -22,18 +18,6 @@
     "after1": {
       "src": "/images/flyer/paulina-before-after.png"
     },
-    "before2": {
-      "src": "https://picsum.photos/seed/before2/400/400"
-    },
-    "after2": {
-      "src": "https://picsum.photos/seed/after2/400/400"
-    },
-    "before3": {
-      "src": "https://picsum.photos/seed/before3/400/400"
-    },
-    "after3": {
-      "src": "https://picsum.photos/seed/after3/400/400"
-    },
     "cert1": {
       "src": "/images/flyer/cert1.webp"
     },
@@ -51,10 +35,6 @@
     },
     "cert6": {
       "src": "/images/flyer/cert6.webp"
-    },
-    "doctor": {
-      "src": "https://picsum.photos/seed/flyerdoctor/500/500",
-      "hint": "professional doctor"
     }
   }
 }
