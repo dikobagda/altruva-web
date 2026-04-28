@@ -48,31 +48,31 @@ const navItems: NavItem[] = [
           {
             label: { en: 'Altruva Lift', id: 'Altruva Lift' },
             subItems: [
-                { href: '/services/art-lyft-lite', label: { en: 'Altruva A.R.T Lift (Lite) by dr. Aldisa', id: 'Altruva A.R.T Lift (Lite) by dr. Aldisa' } },
-                { href: '/services/gorgeous-lyft-prejuvenation', label: { en: 'Altruva Gorgeous Lyft by dr. Aldisa', id: 'Altruva Gorgeous Lyft by dr. Aldisa' } },
-                { href: '/services/exion-lumi-rf', label: { en: 'Altruva Lumi RF', id: 'Altruva Lumi RF' } },
+              { href: '/services/art-lyft-lite', label: { en: 'Altruva A.R.T Lift (Lite) by dr. Aldisa', id: 'Altruva A.R.T Lift (Lite) by dr. Aldisa' } },
+              { href: '/services/gorgeous-lyft-prejuvenation', label: { en: 'Altruva Gorgeous Lyft by dr. Aldisa', id: 'Altruva Gorgeous Lyft by dr. Aldisa' } },
+              { href: '/services/exion-lumi-rf', label: { en: 'Altruva Lumi RF', id: 'Altruva Lumi RF' } },
             ]
           },
           {
             label: { en: 'Altruva Lift Signature', id: 'Altruva Lift Signature' },
             subItems: [
-                { href: '/services/slim-contour-injection', label: { en: 'Altruva Slim Contour Injection', id: 'Altruva Slim Contour Injection' } },
-                { href: '/services/face-modulator-half', label: { en: 'Altruva Face Modulator (Half Dose)', id: 'Altruva Face Modulator (Half Dose)' } },
-                { href: '/services/dermal-fillers', label: { en: 'Altruva Dermal Fillers', id: 'Altruva Dermal Fillers' } },
+              { href: '/services/slim-contour-injection', label: { en: 'Altruva Slim Contour Injection', id: 'Altruva Slim Contour Injection' } },
+              { href: '/services/face-modulator-half', label: { en: 'Altruva Face Modulator (Half Dose)', id: 'Altruva Face Modulator (Half Dose)' } },
+              { href: '/services/dermal-fillers', label: { en: 'Altruva Dermal Fillers', id: 'Altruva Dermal Fillers' } },
             ]
           },
           {
             label: { en: 'Signature Laser', id: 'Signature Laser' },
             subItems: [
-                { href: '/services/exion-lumi-laser', label: { en: 'Altruva Lumi Laser', id: 'Altruva Lumi Laser' } },
-                { href: '/services/exion-scar-solver', label: { en: 'Altruva Scar Solver', id: 'Altruva Scar Solver' } },
+              { href: '/services/exion-lumi-laser', label: { en: 'Altruva Lumi Laser', id: 'Altruva Lumi Laser' } },
+              { href: '/services/exion-scar-solver', label: { en: 'Altruva Scar Solver', id: 'Altruva Scar Solver' } },
             ]
           },
           {
             label: { en: 'Signature Peels', id: 'Signature Peels' },
             subItems: [
-                { href: '/services/clarify-peel', label: { en: 'Altruva Clarify Peel', id: 'Altruva Clarify Peel' } },
-                { href: '/services/korean-luminous-peel', label: { en: 'Altruva Korean Luminous Peel', id: 'Altruva Korean Luminous Peel' } },
+              { href: '/services/clarify-peel', label: { en: 'Altruva Clarify Peel', id: 'Altruva Clarify Peel' } },
+              { href: '/services/korean-luminous-peel', label: { en: 'Altruva Korean Luminous Peel', id: 'Altruva Korean Luminous Peel' } },
             ]
           },
           {
@@ -90,7 +90,7 @@ const navItems: NavItem[] = [
       {
         label: { en: 'Rejuvenation', id: 'Rejuvenation' },
         subItems: [
-           {
+          {
             label: { en: 'Altruva Lift', id: 'Altruva Lift' },
             subItems: [
               { href: '/services/art-lyft', label: { en: 'Altruva A.R.T Lift PRO by dr. Aldisa', id: 'Altruva A.R.T Lift PRO by dr. Aldisa' } },
@@ -98,9 +98,9 @@ const navItems: NavItem[] = [
               { href: '/services/radiance-lyft', label: { en: 'Altruva Regenerative RF', id: 'Altruva Regenerative RF' } },
             ],
           },
-           {
+          {
             label: { en: 'Altruva Lift Signature', id: 'Altruva Lift Signature' },
-             subItems: [
+            subItems: [
               { href: '/services/cocktail-contouring', label: { en: 'Altruva Cocktail Contouring', id: 'Altruva Cocktail Contouring' } },
               { href: '/services/face-modulator-full', label: { en: 'Altruva Face Modulator (Full Dose)', id: 'Altruva Face Modulator (Full Dose)' } },
               { href: '/services/dermal-fillers-pro', label: { en: 'Altruva Dermal Filler Pro', id: 'Altruva Dermal Filler Pro' } },
@@ -108,20 +108,20 @@ const navItems: NavItem[] = [
           },
           {
             label: { en: 'Signature Laser', id: 'Signature Laser' },
-             subItems: [
+            subItems: [
               { href: '/services/exion-regen-laser', label: { en: 'Altruva Regenerative Laser', id: 'Altruva Regenerative Laser' } },
               { href: '/services/exion-fractiopro', label: { en: 'Altruva FractioPro', id: 'Altruva FractioPro' } },
             ],
           },
-           {
+          {
             label: { en: 'Signature Peels', id: 'Signature Peels' },
-             subItems: [
+            subItems: [
               { href: '/services/radiant-advanced-peel', label: { en: 'Altruva Radiant Advanced Peel', id: 'Altruva Radiant Advanced Peel' } },
             ],
           },
-           {
+          {
             label: { en: 'Skingeneering Boosters', id: 'Skingeneering Boosters' },
-             subItems: [
+            subItems: [
               { href: '/services/dna-repair-pro', label: { en: 'Altruva DNA Repair Pro', id: 'Altruva DNA Repair Pro' } },
               { href: '/services/dna-repair-eye', label: { en: 'Altruva DNA Repair Eye', id: 'Altruva DNA Repair Eye' } },
               { href: '/services/exoprime-pro', label: { en: 'Altruva Exoprime Pro', id: 'Altruva Exoprime Pro' } },
@@ -147,9 +147,9 @@ const navItems: NavItem[] = [
   {
     label: { en: 'Hair', id: 'Hair' },
     subItems: [
-        { href: '/services/altruva-micrograft-technology', label: { en: 'Altruva Micrograft Technology', id: 'Altruva Micrograft Technology' } },
-        { href: '/services/altruva-hair-prf', label: { en: 'Altruva Hair PRF', id: 'Altruva Hair PRF' } },
-        { href: '/services/altruva-hair-booster', label: { en: 'Altruva Hair Booster', id: 'Altruva Hair Booster' } },
+      { href: '/services/altruva-micrograft-technology', label: { en: 'Altruva Micrograft Technology', id: 'Altruva Micrograft Technology' } },
+      { href: '/services/altruva-hair-prf', label: { en: 'Altruva Hair PRF', id: 'Altruva Hair PRF' } },
+      { href: '/services/altruva-hair-booster', label: { en: 'Altruva Hair Booster', id: 'Altruva Hair Booster' } },
     ]
   },
   {
@@ -227,23 +227,23 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
         </Button>
       );
     }
-    
+
     // For Mobile
     return (
-        <div className='p-0'>
-            <Link
-            href={item.href}
-            className={cn(
-                "w-full text-left",
-                "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary",
-                isActive ? "text-primary bg-primary/5" : "text-foreground/80"
-            )}
-            onClick={handleLinkClick}
-            prefetch={false}
-            >
-            {itemLabel}
-            </Link>
-        </div>
+      <div className='p-0'>
+        <Link
+          href={item.href}
+          className={cn(
+            "w-full text-left",
+            "block font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md hover:bg-primary/10 hover:text-primary",
+            isActive ? "text-primary bg-primary/5" : "text-foreground/80"
+          )}
+          onClick={handleLinkClick}
+          prefetch={false}
+        >
+          {itemLabel}
+        </Link>
+      </div>
     );
   }
 
@@ -274,33 +274,33 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
         </DropdownMenu>
       );
     }
-    
+
     // Mobile Dropdowns
     if (isMobile) {
-        return (
-          <div>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                  <Button
-                  variant="ghost"
-                  className={cn(
-                      "w-full justify-between font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md flex items-center h-auto text-left",
-                      "hover:bg-primary/10 hover:text-primary",
-                      isActive ? "text-primary" : "text-foreground/80"
-                  )}
-                  >
-                  <span>{itemLabel}</span>
-                  <ChevronDown className="h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
-                  </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-popover shadow-lg mt-1">
-                  {item.subItems?.map((subItem) => (
-                      <NavSubMenuItem key={t(subItem.label)} item={subItem} isMobile={isMobile} onLinkClick={handleLinkClick} />
-                  ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        )
+      return (
+        <div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className={cn(
+                  "w-full justify-between font-sans font-semibold transition-colors duration-200 py-2 px-3 rounded-md flex items-center h-auto text-left",
+                  "hover:bg-primary/10 hover:text-primary",
+                  isActive ? "text-primary" : "text-foreground/80"
+                )}
+              >
+                <span>{itemLabel}</span>
+                <ChevronDown className="h-4 w-4 opacity-70 group-data-[state=open]:rotate-180 transition-transform" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent side="bottom" align="start" className="w-[calc(100vw-theme(spacing.12))] bg-popover shadow-lg mt-1">
+              {item.subItems?.map((subItem) => (
+                <NavSubMenuItem key={t(subItem.label)} item={subItem} isMobile={isMobile} onLinkClick={handleLinkClick} />
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      )
     }
   }
 
@@ -311,63 +311,63 @@ const NavMenuItem = ({ item, isMobile, closeMobileMenu }: { item: NavItem, isMob
 
 // Helper component for items inside a dropdown menu
 const NavSubMenuItem = ({ item, isMobile, onLinkClick }: { item: NavItem, isMobile: boolean, onLinkClick: () => void }) => {
-    const { t } = useLanguage();
-    const pathname = usePathname();
-    const hasSubItems = item.subItems && item.subItems.length > 0;
-    
-    const getIsActive = (navItem: NavItem): boolean => {
-        if (navItem.href) {
-            return pathname === navItem.href || (navItem.href !== '/' && pathname.startsWith(navItem.href + '/'));
-        }
-        if (navItem.subItems) {
-            return navItem.subItems.some(sub => getIsActive(sub));
-        }
-        return false;
-    };
-    const isActive = getIsActive(item);
-    const itemLabel = t(item.label);
+  const { t } = useLanguage();
+  const pathname = usePathname();
+  const hasSubItems = item.subItems && item.subItems.length > 0;
 
-    if (item.href) {
-        return (
-            <DropdownMenuItem className='p-0'>
-                <Link
-                    href={item.href}
-                    className={cn(
-                        "w-full h-full text-left",
-                        "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start hover:bg-primary/10",
-                        isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:text-primary"
-                    )}
-                    onClick={onLinkClick}
-                    prefetch={false}
-                >
-                    {itemLabel}
-                </Link>
-            </DropdownMenuItem>
-        );
+  const getIsActive = (navItem: NavItem): boolean => {
+    if (navItem.href) {
+      return pathname === navItem.href || (navItem.href !== '/' && pathname.startsWith(navItem.href + '/'));
     }
-    
-    if (hasSubItems) {
-        return (
-            <DropdownMenuSub>
-                <DropdownMenuSubTrigger className={cn(
-                    "w-full cursor-pointer flex justify-between items-center",
-                    "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md h-auto hover:bg-primary/10",
-                    isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:text-primary"
-                )}>
-                    <span>{itemLabel}</span>
-                </DropdownMenuSubTrigger>
-                <DropdownMenuPortal>
-                    <DropdownMenuSubContent className="bg-popover w-56">
-                    {item.subItems?.map((subItem) => (
-                        <NavSubMenuItem key={t(subItem.label)} item={subItem} isMobile={isMobile} onLinkClick={onLinkClick} />
-                    ))}
-                    </DropdownMenuSubContent>
-                </DropdownMenuPortal>
-            </DropdownMenuSub>
-        );
+    if (navItem.subItems) {
+      return navItem.subItems.some(sub => getIsActive(sub));
     }
-    
-    return <span className="px-3 py-2 text-foreground/60">{itemLabel}</span>;
+    return false;
+  };
+  const isActive = getIsActive(item);
+  const itemLabel = t(item.label);
+
+  if (item.href) {
+    return (
+      <DropdownMenuItem className='p-0'>
+        <Link
+          href={item.href}
+          className={cn(
+            "w-full h-full text-left",
+            "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md flex items-center justify-start hover:bg-primary/10",
+            isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:text-primary"
+          )}
+          onClick={onLinkClick}
+          prefetch={false}
+        >
+          {itemLabel}
+        </Link>
+      </DropdownMenuItem>
+    );
+  }
+
+  if (hasSubItems) {
+    return (
+      <DropdownMenuSub>
+        <DropdownMenuSubTrigger className={cn(
+          "w-full cursor-pointer flex justify-between items-center",
+          "font-sans font-semibold transition-colors duration-200 px-3 py-2 rounded-md h-auto hover:bg-primary/10",
+          isActive ? "text-primary bg-primary/5" : "text-foreground/80 hover:text-primary"
+        )}>
+          <span>{itemLabel}</span>
+        </DropdownMenuSubTrigger>
+        <DropdownMenuPortal>
+          <DropdownMenuSubContent className="bg-popover w-56">
+            {item.subItems?.map((subItem) => (
+              <NavSubMenuItem key={t(subItem.label)} item={subItem} isMobile={isMobile} onLinkClick={onLinkClick} />
+            ))}
+          </DropdownMenuSubContent>
+        </DropdownMenuPortal>
+      </DropdownMenuSub>
+    );
+  }
+
+  return <span className="px-3 py-2 text-foreground/60">{itemLabel}</span>;
 }
 
 
@@ -376,11 +376,11 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  
+
   const selectedLanguage = languages.find(lang => lang.code === language) || languages[0];
 
   useEffect(() => {
@@ -400,7 +400,7 @@ export default function Header() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-  
+
   const closeMobileMenu = () => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
@@ -414,7 +414,7 @@ export default function Header() {
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center space-x-2" prefetch={false}>
             <Image
-              src="/images/logoaltruvanew.png"
+              src="/images/logoaltruvanew.webp"
               width={90}
               height={90}
               alt="Altruva Logo"
@@ -441,10 +441,10 @@ export default function Header() {
             inMobileMenu
               ? "w-full justify-start px-2 py-1"
               : "px-4 py-2 rounded-full bg-primary text-primary-foreground text-foreground/80 hover:bg-primary/10",
-             !inMobileMenu && "border-none"
+            !inMobileMenu && "border-none"
           )}
         >
-          <selectedLanguage.Icon className={cn("h-4 w-auto", !inMobileMenu && "text-primary-foreground" )} />
+          <selectedLanguage.Icon className={cn("h-4 w-auto", !inMobileMenu && "text-primary-foreground")} />
           {!inMobileMenu && <span className="text-xs text-primary-foreground">{selectedLanguage.code.toUpperCase()}</span>}
           {inMobileMenu && <span className="text-base font-semibold text-foreground/80">{selectedLanguage.label}</span>}
           <ChevronDown
@@ -476,8 +476,8 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2" prefetch={false}>
-           <Image
-            src="/images/logoaltruvanew.png"
+          <Image
+            src="/images/logoaltruvanew.webp"
             width={90}
             height={90}
             alt="Altruva Logo"
@@ -496,7 +496,7 @@ export default function Header() {
         </div>
 
         <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu" 
+          <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle mobile menu"
             className={cn("text-primary")}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -508,12 +508,12 @@ export default function Header() {
         <div className="md:hidden absolute top-20 left-0 w-full bg-background shadow-lg py-4 animate-accordion-down">
           <nav className="flex flex-col space-y-1 px-4">
             {navItems.map((item) => (
-               <NavMenuItem key={t(item.label)} item={item} isMobile={true} closeMobileMenu={closeMobileMenu} />
+              <NavMenuItem key={t(item.label)} item={item} isMobile={true} closeMobileMenu={closeMobileMenu} />
             ))}
             <div className="border-t border-border pt-4 mt-2 space-y-2">
-                 <div className="py-2 px-3">
-                    <LanguageSelector inMobileMenu={true} />
-                 </div>
+              <div className="py-2 px-3">
+                <LanguageSelector inMobileMenu={true} />
+              </div>
             </div>
           </nav>
         </div>

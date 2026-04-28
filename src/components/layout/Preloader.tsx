@@ -17,7 +17,7 @@ export default function Preloader({ isLoading }: PreloaderProps) {
     >
       <div className="logo-container">
         <img
-          src="/images/logoaltruvanew.png"
+          src="/images/logoaltruvanew.webp"
           alt="Altruva Logo"
           width="120"
           height="120"

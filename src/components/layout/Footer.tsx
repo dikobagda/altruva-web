@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image
-                src="/images/logoaltruvanew.png"
+                src="/images/logoaltruvanew.webp"
                 width={90}
                 height={90}
                 alt="Altruva Logo"
@@ -44,7 +44,7 @@ export default function Footer() {
                 id: "Rangkul kecantikanmu. Temukan perawatan estetika yang dipersonalisasi di Altruva."
               })}
             </p>
-            
+
           </div>
           <div className="flex flex-col items-center sm:items-start">
             <h4 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Opening Hours', id: 'Jam Buka' })}</h4>

@@ -35,12 +35,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preload" href="/images/logoaltruvanew.png" as="image" fetchpriority="high" />
+        <link rel="preload" href="/images/logoaltruvanew.webp" as="image" fetchpriority="high" />
       </head>
-      <body 
+      <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          libreBaskerville.variable, 
+          libreBaskerville.variable,
           nunitoSans.variable
         )}
       >
