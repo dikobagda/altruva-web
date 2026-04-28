@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { LanguageProvider } from '@/context/LanguageContext';
 import Script from 'next/script';
 import dynamic from 'next/dynamic';
-import Footer from '@/components/layout/Footer';
+const Footer = dynamic(() => import('@/components/layout/Footer'), { ssr: false });
 import Preloader from '@/components/layout/Preloader';
 
 const FloatingWhatsAppButton = dynamic(() => import('@/components/layout/FloatingWhatsAppButton'), { ssr: false });
