@@ -22,11 +22,7 @@ export default function FlyerLayout({
 
   useEffect(() => {
     setIsMounted(true);
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500); 
-
-    return () => clearTimeout(timer);
+    setIsLoading(false);
   }, [pathname]);
 
   return (
