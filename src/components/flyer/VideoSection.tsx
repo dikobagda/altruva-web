@@ -15,17 +15,11 @@ interface VideoSectionProps {
 }
 
 const treatmentVideos = [
-    { id: 's3JGxiB-8R4', title: "dr. Aldisa & Atiqah Cocktail Contouring™" },
-    { id: 'AEHYP6BJsQU', title: "Paulina's Sofwave Journey" },
-    { id: 'gn_1wzedRAA', title: "Indy's Gouri Experience" },
+  { id: 's3JGxiB-8R4', title: "dr. Aldisa & Atiqah Cocktail Contouring™" },
+  { id: 'AEHYP6BJsQU', title: "Paulina's Sofwave Journey" },
+  { id: 'gn_1wzedRAA', title: "Indy's Gouri Experience" },
 ];
 
-const socialVideos = [
-    { id: 'fyYd0wE4uDY' },
-    { id: '8j5eQI4nYA8' },
-    { id: 'm4asSg5piJY' },
-    { id: 'dODOyXmNSVA' },
-];
 
 export default function VideoSection({ whatsappLink }: VideoSectionProps) {
   return (
@@ -51,16 +45,6 @@ export default function VideoSection({ whatsappLink }: VideoSectionProps) {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-secondary/30">
-        <PageTitle title="Get to know us more at @altruvaclinic" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {socialVideos.map(video => (
-            <div key={video.id} className="block relative aspect-[9/16] rounded-lg overflow-hidden shadow-lg group">
-              <VideoFacade videoId={video.id} isShort={true} />
-            </div>
-          ))}
-        </div>
-      </SectionWrapper>
     </>
   );
 }
