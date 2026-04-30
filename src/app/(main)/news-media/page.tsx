@@ -107,6 +107,78 @@ const pressFeatures = [
     link: 'https://manado.antaranews.com/berita/292417/dokter-estetika-kecantikan-perempuan-melalui-pendekatan-regeneratif',
     type: 'article'
   },
+  {
+    publication: 'Kompas',
+    title: 'Waspada Efek Wajah Cekung Akibat Prosedur Pengencangan Kulit Tak Tepat',
+    link: 'https://lifestyle.kompas.com/read/2026/04/19/203300320/waspada-efek-wajah-cekung-akibat-prosedur-pengencangan-kulit-tak-tepat',
+    type: 'article'
+  },
+  {
+    publication: 'Antara News',
+    title: 'Pakar Estetika Sebut Pentingnya Presisi Energi Hindari Salah Perawatan',
+    link: 'https://www.antaranews.com/berita/5530737/pakar-estetika-sebut-pentingnya-presisi-energi-hindari-salah-perawatan?utm_source=antaranews&utm_medium=mobile&utm_campaign=latest_category',
+    type: 'article'
+  },
+  {
+    publication: 'Akurat',
+    title: 'Fenomena Wajah Kempot Usai Treatment Jadi Sorotan, Perlu Solusi Presisi Teknologi Estetika Modern',
+    link: 'https://www.akurat.co/health/849544/fenomena-wajah-kempot-usai-treatment-jadi-sorotan-perlu-solusi-presisi-teknologi-estetika-modern',
+    type: 'article'
+  },
+  {
+    publication: 'Kontan',
+    title: 'Takut Wajah Kempot, Ini Cara dan Teknologi Untuk Mencegahnya',
+    link: 'https://amp.kontan.co.id/news/takut-wajah-kempot-ini-cara-dan-teknologi-untuk-mencegahnya',
+    type: 'article'
+  },
+  {
+    publication: 'Wanita Indonesia',
+    title: 'Efek Wajah Kempot Usai Lifting Ketika Estetika Gagal Teknologi Harus Bicara',
+    link: 'https://wanitaindonesia.co/efek-wajah-kempot-usai-lifting-ketika-estetika-gagal-teknologi-harus-bicara/?amp=1',
+    type: 'article'
+  },
+  {
+    publication: 'Media Indonesia',
+    title: 'Waspada Fenomena Wajah Kempot, Ini Pentingnya Presisi Lifting',
+    link: 'https://mediaindonesia.com/humaniora/880627/waspada-fenomena-wajah-kempot-ini-pentingnya-presisi-lifting',
+    type: 'article'
+  },
+  {
+    publication: 'Suara Karya',
+    title: 'Altruva Clinic Tawarkan Solusi Wajah Kempot Pasca Lifting Dengan Teknologi Modern Yang Presisi',
+    link: 'https://www.suarakarya.id/muda/26017009095/altruva-clinic-tawarkan-solusi-wajah-kempot-pasca-liftinng-dengan-teknologi-modern-yang-presisi',
+    type: 'article'
+  },
+  {
+    publication: 'Warta Kota',
+    title: 'Fenomena Wajah Kempot Risiko Tersembunyi di Balik Prosedur Lifting Yang Tidak Presisi',
+    link: 'https://wartakota.tribunnews.com/lifestyle/887444/fenomena-wajah-kempot-risiko-tersembunyi-di-balik-prosedur-lifting-yang-tidak-presisi',
+    type: 'article'
+  },
+  {
+    publication: 'HerStory',
+    title: 'Mau Kulit Kencang Tapi Natural? Ini Rahasia Lifting Wajah Tanpa Kempot',
+    link: 'https://herstory.co.id/read158926/mau-kulit-kencang-tapi-natural-ini-rahasia-lifting-wajah-tanpa-kempot',
+    type: 'article'
+  },
+  {
+    publication: 'Investor ID',
+    title: 'Perawatan Lifting Sembarangan Justru Percepat Wajah Kempot',
+    link: 'https://investor.id/lifestyle/435775/perawatan-lifting-sembarangan-justru-percepat-wajah-kempot',
+    type: 'article'
+  },
+  {
+    publication: 'Suara',
+    title: 'Bukan Cuma Faktor Usia, Kombinasi Kolagen Turun dan Teknik Salah Picu Wajah Kempot',
+    link: 'https://www.suara.com/lifestyle/2026/04/19/090703/bukan-cuma-faktor-usia-kombinasi-kolagen-turun-dan-teknik-salah-picu-wajah-kempot',
+    type: 'article'
+  },
+  {
+    publication: 'Peran Perempuan',
+    title: 'Ladies, 90 Persen Penuaan Berasal dari Pola Hidup Loh!',
+    link: 'https://peranperempuan.id/ladies-90-persen-penuaan-berasal-dari-pola-hidup-loh/',
+    type: 'article'
+  }
 ];
 
 const ITEMS_PER_PAGE = 8;

@@ -13,6 +13,79 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: 'the-new-40',
+    title: 'The New 40: Mengapa Usia 40 Kini Terlihat Lebih Muda',
+    excerpt: 'Persepsi penuaan telah berubah. The New 40 menggambarkan fenomena di mana perempuan usia 40-an kini tampak lebih muda, lebih segar, dan lebih terawat. Perubahan ini bukan semata angka, melainkan kombinasi kesadaran perawatan kulit, teknologi estetika yang lebih canggih, serta pendekatan medis yang memahami proses biologis penuaan.',
+    imageSrc: '/images/insights/i14.png',
+    imageHint: 'elegant woman in her 40s with glowing skin',
+    date: 'April 30, 2026',
+    href: '/insights/the-new-40',
+    keywords: [
+      'perawatan wajah usia 40',
+      'aesthetic clinic Jakarta premium',
+      'Sofwave treatment Indonesia',
+      'skin quality treatment Jakarta',
+      'regenerative aesthetics Indonesia',
+      'perimenopause skin aging',
+      'collagen stimulation treatment'
+    ],
+    content: `
+      <h2>Evolusi Standar Penuaan: Apa itu The New 40?</h2>
+      <p>Persepsi penuaan telah berubah. The New 40 menggambarkan fenomena di mana perempuan usia 40-an kini tampak lebih muda, lebih segar, dan lebih terawat. Perubahan ini bukan semata angka, melainkan kombinasi kesadaran perawatan kulit, teknologi estetika yang lebih canggih, serta pendekatan medis yang memahami proses biologis penuaan.</p>
+
+      <h2>Kesadaran Perawatan Kulit di Usia 40: Dari Pencegahan ke Precision Aesthetics</h2>
+      <p>Generasi modern semakin memahami pentingnya kualitas kulit (skin quality), peran hormon dalam aging, dan dampak stres terhadap skin barrier. Pendekatan pencegahan—memulai perawatan sejak usia 30-an menggeser fokus dari koreksi besar ke strategi terukur yang mempertahankan integritas wajah dan menghasilkan perubahan yang lebih natural.</p>
+
+      <h2>Peran Hormon dan Gaya Hidup dalam Kualitas Kulit Usia 40</h2>
+      <p>Fluktuasi hormon selama perimenopause, kualitas tidur, nutrisi, dan level stres secara langsung memengaruhi tekstur, kelembapan, dan elastisitas kulit. Kombinasi faktor ini menentukan seberapa cepat tanda penuaan tampak dan seberapa efektif intervensi estetika bekerja.</p>
+
+      <h2>Apa yang Terjadi pada Kulit di Usia 40: Kolagen, Elastisitas, dan Perimenopause</h2>
+      <p>Memasuki usia 40, produksi kolagen dan elastin menurun sehingga kulit menjadi lebih tipis dan kurang kenyal. Fluktuasi hormon menyebabkan kekeringan dan skin laxity, sementara kemampuan regenerasi kulit berkurang. Memahami perubahan biologis ini penting untuk merancang perawatan yang tepat.</p>
+
+      <h2>Inflammaging dan Dampaknya pada Skin Barrier</h2>
+      <p>Inflamasi kronis rendah tingkat (inflammaging) dan peningkatan kortisol akibat stres melemahkan skin barrier, mempercepat hilangnya struktur kulit, serta menurunkan efektivitas perbaikan alami. Mengendalikan inflamasi menjadi langkah awal yang krusial sebelum stimulasi regeneratif dilakukan.</p>
+
+      <h2>Precision Aging Strategy: Stabilize, Stimulate, Refine</h2>
+      <p>Di Altruva kami menerapkan strategi tiga tahap: Stabilize, Stimulate, dan Refine. Pertama, Stabilize : mengontrol inflamasi dan memperbaiki skin barrier agar kulit siap. Kedua, Stimulate: mengaktifkan produksi kolagen dan regenerasi jaringan. Ketiga, Refine : memperbaiki struktur dan kontur wajah secara presisi sehingga hasil tetap natural dan terukur.</p>
+
+      <h2>Perawatan Anti Aging Natural di Altruva: Filosofi dan Metode</h2>
+      <p>Filosofi kami menekankan perawatan yang mempertahankan karakter wajah. Kami menggabungkan teknologi seperti Sofwave untuk lifting terkontrol, terapi exosomes dan DNA Repair untuk regenerasi, serta protokol non-invasif yang menitikberatkan pada kualitas kulit daripada perubahan drastis.</p>
+
+      <h2>The First 40s Makeover: Perawatan Awal untuk Hasil Natural</h2>
+      <p>Program ini dirancang untuk pasien yang mulai melihat perubahan dan ingin menanganinya sejak dini. Kombinasi ART Lift by Sofwave, Gorgeous Lyft by Gouri, dan Ultra BBL memberikan lifting terkontrol, stimulasi kolagen, dan perbaikan tone kulit tanpa membuat tampilan berlebihan.</p>
+
+      <h2>The 40s Monthly Ritual: Perawatan Rutin untuk Menjaga Skin Quality</h2>
+      <p>Pemeliharaan berkala adalah kunci mempertahankan hasil jangka panjang. Protokol seperti Exion Regen RF dan Advanced Exosomes membantu menjaga kualitas jaringan, merangsang perbaikan berkelanjutan, dan memperlambat proses degeneratif.</p>
+
+      <h2>40’s Neck and Fabulous: Protokol Regeneratif untuk Struktur Leher</h2>
+      <p>Untuk pasien yang menginginkan perbaikan kerutan dan kekenduran leher secara mendalam, kombinasi Exion Scar Solver, Gorgeous Lyft by Gouri, dan Toksin Botulinum untuk menargetkan perbaikan struktur kulit, memperbaiki pori dan bekas jerawat, serta mengembalikan fungsi barrier secara optimal.</p>
+
+      <h2>40’s Arms Going 30: Perawatan Body Contouring dan Skin Tightening</h2>
+      <p>Penuaan tidak hanya pada wajah. Program ini menggabungkan aktivasi otot, modulasi lemak, dan skin tightening menggunakan NeoCurve by Emsculpt Neo, Exion BodyFirm, serta LipoFirming Injection untuk memperbaiki kontur lengan dan tekstur kulit tubuh.</p>
+
+      <h2>Signature 40’s Lift: Refinement Kontur Tanpa Terlihat Berlebihan</h2>
+      <p>Untuk refinement presisi, Signature 40’s Lift menargetkan definisi kontur, area mata yang lebih terbuka, dan keseimbangan wajah tanpa mengubah karakter asli. Protokol kami melibatkan Cocktail Contouring dan Eye Booster Complex agar hasil tetap subtle namun signifikan.</p>
+
+      <h2>Sofwave di Indonesia: ART Lift untuk Lifting Terkontrol</h2>
+      <p>Sofwave menawarkan teknologi ultrasound yang efektif untuk stimulasi kolagen dan lifting tanpa downtime panjang—cocok untuk pasien yang menginginkan perbaikan natural dan terukur.</p>
+
+      <h2>Exosomes dan DNA Repair: Terapi Regeneratif untuk Kulit</h2>
+      <p>Terapi exosomes dan DNA Repair Pro mendukung regenerasi sel, meningkatkan kemampuan perbaikan kulit, dan membantu pemulihan fungsi barrier membawa pendekatan medis regeneratif ke dalam estetika sehari-hari.</p>
+
+      <h2>Kapan Mulai Perawatan Anti Aging? Tanda Anda Perlu Strategi Terstruktur</h2>
+      <p>Tidak ada kata terlambat, tetapi intervensi lebih dini memberikan peluang terbaik. Bila Anda melihat perubahan dalam beberapa bulan terakhir : kekeringan yang meningkat, garis halus baru, atau penurunan kontur—itulah saat tepat memulai strategi terstruktur.</p>
+
+      <h2>Mid-Year Assessment Altruva: Evaluasi Kulit dan Rencana Jangka Panjang</h2>
+      <p>Altruva menyediakan Mid-Year Assessment terbatas setiap bulan: evaluasi menyeluruh, analisis biologis kulit, dan rencana jangka panjang yang disesuaikan untuk mencapai hasil natural dan presisi.</p>
+
+      <h2>Hasil yang Diharapkan: Natural, Terukur, dan Berkelanjutan</h2>
+      <p>The New 40 bukan hanya soal terlihat lebih muda, melainkan tampil lebih optimal dan selaras dengan diri sendiri. Perawatan yang tepat menghasilkan kulit lebih sehat, wajah lebih segar, dan kontur terdefinisi tanpa kehilangan karakter.</p>
+
+      <h2>Daftar untuk Mid-Year Assessment: Cara Kontak dan Prioritas Jadwal</h2>
+      <p>Ingin merencanakan perawatan yang sesuai kondisi Anda? Hubungi tim Altruva untuk informasi Mid-Year Assessment dan prioritas jadwal. Mulailah strategi aging yang lebih cerdas hari ini.</p>
+    `
+  },
+  {
     id: 'prediksi-estetika-medis-2026',
     title: 'Prediksi Estetika Medis 2026',
     excerpt: 'Memasuki 2026, estetika medis bergerak ke fase yang lebih dewasa. Bukan lagi tentang hasil yang cepat, dramatis, atau mudah dikenali, melainkan tentang kualitas keputusan klinis, ketepatan strategi, dan keberanian untuk bersikap konservatif.',
