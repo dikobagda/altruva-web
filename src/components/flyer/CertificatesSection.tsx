@@ -32,6 +32,11 @@ const certificates = [
     { image: { src: "/images/flyer/cert/cert_10.webp" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_11.webp" }, imageHint: "certificate" },
     { image: { src: "/images/flyer/cert/cert_12.webp" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_13.webp" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_14.webp" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_15.webp" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_16.webp" }, imageHint: "certificate" },
+    { image: { src: "/images/flyer/cert/cert_17.webp" }, imageHint: "certificate" },
 ];
 
 export default function CertificatesSection() {
