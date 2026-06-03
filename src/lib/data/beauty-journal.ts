@@ -10,6 +10,14 @@ export interface BeautyJournal {
 
 export const beautyJournals: BeautyJournal[] = [
   {
+    id: '4',
+    title: 'Pause Within the Pace: Saat Perawatan Menjadi Lebih Terarah di Bulan yang Menuntut',
+    issue: 'June 2026',
+    coverImage: '/images/insights/i15.png',
+    downloadUrl: '/images/journal/2026/june.pdf',
+    slug: 'pause-within-the-pace',
+  },
+  {
     id: '3',
     title: 'Ramadan & Eid Combination Treatments',
     issue: 'March 2026',

@@ -13,6 +13,145 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: 'pause-within-the-pace',
+    title: 'Pause Within the Pace: Saat Perawatan Menjadi Lebih Terarah di Bulan yang Menuntut',
+    excerpt: 'Bulan Juni sering menjadi titik tekanan dalam satu tahun. Target pekerjaan mendekati penutupan semester, sementara di rumah, anak-anak mulai memasuki masa liburan. Bagi banyak Wanita, terutama ibu bekerja ini berarti menjalani dua peran besar secara bersamaan, tanpa jeda yang jelas.',
+    imageSrc: '/images/insights/i15.png',
+    imageHint: 'elegant woman taking a pause in a peaceful aesthetic clinic setting',
+    date: 'June 3, 2026',
+    href: '/insights/pause-within-the-pace',
+    keywords: [
+      'treatment estetika untuk wanita sibuk',
+      'perawatan kulit untuk ibu bekerja',
+      'treatment anti aging natural',
+      'perawatan wajah tanpa downtime',
+      'treatment pigmentasi wajah',
+      'skin booster terbaik',
+      'collagen stimulation treatment',
+      'perawatan wajah minimal invasive',
+      'laser wajah gentle',
+      'perawatan kulit berkelanjutan'
+    ],
+    content: `
+      <p class="italic text-muted-foreground mb-6">Altruva Beauty Journal — June 2026 Edition<br />Oleh dr. Aldisa</p>
+
+      <h2>Mengapa Bulan Juni Terasa Lebih Intens?</h2>
+      <p>Bulan Juni sering menjadi titik tekanan dalam satu tahun. Target pekerjaan mendekati penutupan semester, sementara di rumah, anak-anak mulai memasuki masa liburan. Bagi banyak Wanita, terutama ibu bekerja ini berarti menjalani dua peran besar secara bersamaan, tanpa jeda yang jelas.</p>
+      <p>Dalam kondisi ini, respons yang paling umum adalah mencoba melakukan lebih banyak. Lebih banyak perawatan, lebih banyak koreksi, lebih banyak usaha untuk “mengejar” kondisi ideal.</p>
+      <p>Namun dalam praktik klinis, pendekatan seperti ini sering kali justru menciptakan hasil yang sebaliknya: kulit menjadi lebih reaktif, sistem tubuh lebih mudah lelah, dan keputusan perawatan menjadi kurang terarah.</p>
+      <p>Di Altruva, kami melihat bahwa perawatan yang efektif seharusnya menyesuaikan dengan ritme hidup Anda—bukan menambah beban di dalamnya.</p>
+
+      <h2>Pendekatan Baru: Regulated Beauty, Bukan Reactive Treatment</h2>
+      <p>Dunia estetika saat ini sedang bergeser. Bukan lagi tentang perubahan drastis, tetapi tentang presisi, keberlanjutan, dan keselarasan biologis.</p>
+      <p>Bulan ini, kami mengambil inspirasi dari:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>World Environment Day</li>
+        <li>International Yoga Day</li>
+      </ul>
+      <p>Keduanya mengingatkan kita bahwa keberlanjutan bukan hanya tentang lingkungan, tetapi juga tentang bagaimana kita merawat diri sendiri.</p>
+      <p>Artinya:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Tidak semua hal perlu dilakukan sekaligus</li>
+        <li>Tidak semua kondisi membutuhkan intervensi agresif</li>
+        <li>Perawatan yang tepat adalah yang mempertimbangkan kondisi tubuh secara menyeluruh</li>
+      </ul>
+
+      <h2>Apa Itu “Regulated Beauty”?</h2>
+      <p>Regulated beauty adalah pendekatan di mana setiap perawatan:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Memiliki tujuan yang jelas</li>
+        <li>Tidak saling tumpang tindih</li>
+        <li>Minim beban bagi tubuh dan jadwal</li>
+        <li>Memberikan hasil yang berkelanjutan</li>
+      </ul>
+      <p>Bukan lagi bertanya, <em>“Apa lagi yang bisa dilakukan?”</em></p>
+      <p>Tetapi, <em>“Apa yang benar-benar dibutuhkan saat ini?”</em></p>
+
+      <h2>Altruva June Protocols: Dirancang untuk Kehidupan Nyata</h2>
+      <p>Berikut lima pendekatan perawatan yang disusun agar tetap efektif tanpa mengganggu ritme hidup Anda di bulan yang padat.</p>
+
+      <h3>1. The Calm Mother Ritual</h3>
+      <p class="font-semibold italic mb-2">Mengembalikan keseimbangan di tengah kelelahan</p>
+      <p><strong>Kombinasi:</strong></p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Signature Pore Facial with Lymphatic Massage</li>
+        <li>ReGeneva Peel (Microbiome Support Peel)</li>
+        <li>DNA Revive (microneedling)</li>
+        <li>Red Light Therapy</li>
+      </ul>
+      <p>Ditujukan untuk kondisi kulit yang lelah, sensitif, atau mengalami stres. Protokol ini membantu memperbaiki fungsi kulit sekaligus memberikan efek menenangkan secara keseluruhan.</p>
+      <p>Ketika sistem tubuh Anda lebih tenang, kulit akan ikut menyesuaikan.</p>
+
+      <h3>2. The Sustainable Lift</h3>
+      <p class="font-semibold italic mb-2">Pendekatan lifting yang strategis dan berkelanjutan</p>
+      <p><strong>Kombinasi:</strong></p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>A.R.T Lift by Sofwave</li>
+        <li>Gorgeous Lyft by Gouri</li>
+        <li>Nefertiti Tox</li>
+      </ul>
+      <p>Fokus pada stimulasi kolagen dan penopang struktur wajah secara bertahap, tanpa ketergantungan pada intervensi berulang.</p>
+      <p>Satu tindakan yang tepat dapat menggantikan banyak koreksi di kemudian hari.</p>
+
+      <h3>3. Body Confidence Reset</h3>
+      <p class="font-semibold italic mb-2">Perubahan terarah tanpa mengganggu rutinitas</p>
+      <p><strong>Kombinasi:</strong></p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Weight Loss Plan by Wegovy</li>
+        <li>Exion BodyFirm</li>
+        <li>LipoFirming Injection</li>
+      </ul>
+      <p>Dirancang untuk memberikan perbaikan bentuk tubuh secara terukur, tanpa pendekatan ekstrem yang sulit dipertahankan.</p>
+      <p>Perubahan yang terarah, tanpa tekanan berlebihan.</p>
+
+      <h3>4. Summer Ready Skin</h3>
+      <p class="font-semibold italic mb-2">Kulit lebih cerah, halus, dan terkontrol</p>
+      <p><strong>Kombinasi:</strong></p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Korean Luminous Peel</li>
+        <li>Ultra BBL</li>
+        <li>Exion Regen Laser / Scar Solver</li>
+      </ul>
+      <p>Membantu memperbaiki warna kulit, tekstur, dan tampilan keseluruhan dengan pendekatan yang tetap menjaga integritas kulit.</p>
+      <p>Perbaikan ringan, hasil yang terlihat.</p>
+
+      <h3>5. Pigment Regulation Loop</h3>
+      <p class="font-semibold italic mb-2">Pendekatan bertahap untuk pigmentasi yang persisten</p>
+      <p><strong>Kombinasi:</strong></p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>MelaBooster</li>
+        <li>Advanced Exosomes</li>
+        <li>Ultra BBL Facial</li>
+      </ul>
+      <p>Pigmentasi membutuhkan konsistensi, bukan agresivitas. Protokol ini bekerja secara bertahap untuk memperbaiki warna kulit tanpa memicu inflamasi berlebihan.</p>
+      <p>Perbaiki yang perlu diperbaiki—tidak lebih.</p>
+
+      <h2>Mengapa Pendekatan “Lebih Sedikit” Sering Kali Lebih Efektif?</h2>
+      <p>Banyak pasien berasumsi bahwa semakin banyak perawatan yang dilakukan, semakin baik hasilnya. Namun kenyataannya, pendekatan berlebihan dapat:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Mengganggu skin barrier</li>
+        <li>Meningkatkan inflamasi</li>
+        <li>Menghasilkan tampilan yang kurang natural</li>
+        <li>Menciptakan ketergantungan terhadap perawatan</li>
+      </ul>
+      <p>Pendekatan yang lebih tepat berfokus pada:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Timing</li>
+        <li>Sequencing</li>
+        <li>Respons biologis kulit</li>
+      </ul>
+      <p>Perawatan yang paling berkelanjutan adalah yang mengurangi kebutuhan perawatan berikutnya.</p>
+
+      <h2>Penutup: Menjadi Lebih Terarah di Tengah Kesibukan</h2>
+      <p>Bulan Juni mungkin tidak akan menjadi lebih ringan. Namun, cara Anda merawat diri dapat menjadi lebih jelas dan terstruktur.</p>
+      <p>Di Altruva, kami tidak berfokus pada menambah perawatan, tetapi pada menyusun sistem yang benar-benar mendukung Anda—baik secara fisik maupun emosional.</p>
+      <p class="font-serif text-primary text-xl italic mt-6 mb-6">Karena di bulan yang menuntut banyak dari Anda, perawatan terbaik adalah yang tidak menambah beban.</p>
+      
+      <h2>Jika Pendekatan Ini Relevan untuk Anda</h2>
+      <p>Kami dapat membantu merancang perawatan yang sesuai dengan kondisi dan ritme hidup Anda saat ini secara personal, terarah, dan berkelanjutan.</p>
+    `
+  },
+  {
     id: 'the-new-40',
     title: 'The New 40: Mengapa Usia 40 Kini Terlihat Lebih Muda',
     excerpt: 'Persepsi penuaan telah berubah. The New 40 menggambarkan fenomena di mana perempuan usia 40-an kini tampak lebih muda, lebih segar, dan lebih terawat. Perubahan ini bukan semata angka, melainkan kombinasi kesadaran perawatan kulit, teknologi estetika yang lebih canggih, serta pendekatan medis yang memahami proses biologis penuaan.',

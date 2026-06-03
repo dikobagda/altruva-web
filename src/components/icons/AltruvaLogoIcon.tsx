@@ -3,7 +3,7 @@ import type { SVGProps } from 'react';
 
 // This is a simplified representation of the Altruva logo's sunburst/eye element.
 // It uses a central filled dot and 8 main rays + 8 shorter intermediate rays for a sun-like appearance.
-export function AltruvaLogoIcon(props: SVGProps<SVGSVGElement>) {
+export function AltruvaLogoIconDetailed(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

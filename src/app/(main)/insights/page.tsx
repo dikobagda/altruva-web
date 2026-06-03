@@ -29,7 +29,7 @@ export default function ArticlesPage() {
       />
 
       {/* Featured Insight */}
-      {featuredInsight && (
+      {featuredInsight && featuredInsight.href && (
         <Link href={featuredInsight.href} className="block mb-12 group">
             <Card className="grid md:grid-cols-2 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 {featuredInsight.imageSrc && (

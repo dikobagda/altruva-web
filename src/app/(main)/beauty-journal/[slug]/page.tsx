@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, DownloadCloud } from 'lucide-react';
 import Link from 'next/link';
 import SectionWrapper from '@/components/shared/SectionWrapper';
+import { Button } from '@/components/ui/button';
 import { beautyJournals } from '@/lib/data/beauty-journal';
 import { journalArticles } from '@/lib/data/journal-articles';
 
@@ -36,15 +37,27 @@ export default async function BeautyJournalArticlePage({ params }: { params: Pro
     return (
         <SectionWrapper className="pt-24 md:pt-32 pb-16">
             <article className="max-w-4xl mx-auto">
-                <Link
-                    href="/beauty-journal"
-                    className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-10 group"
-                >
-                    <div className="bg-muted w-8 h-8 rounded-full flex items-center justify-center mr-3 group-hover:bg-primary/10 transition-colors">
-                        <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform duration-300" />
-                    </div>
-                    Back to Beauty Journals
-                </Link>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
+                    <Link
+                        href="/beauty-journal"
+                        className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors group"
+                    >
+                        <div className="bg-muted w-8 h-8 rounded-full flex items-center justify-center mr-3 group-hover:bg-primary/10 transition-colors">
+                            <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform duration-300" />
+                        </div>
+                        Back to Beauty Journals
+                    </Link>
+
+                    {journal.downloadUrl && (
+                        <Button asChild variant="outline" className="sm:self-auto self-start font-semibold group relative overflow-hidden">
+                            <a href={journal.downloadUrl} download>
+                                <DownloadCloud className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1" />
+                                <span className="relative z-10">Download PDF Version</span>
+                                <div className="absolute inset-0 bg-muted/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                        </Button>
+                    )}
+                </div>
 
                 <header className="mb-14 text-center">
                     <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wider uppercase mb-6">

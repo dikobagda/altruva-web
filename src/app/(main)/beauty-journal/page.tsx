@@ -38,23 +38,24 @@ export default function BeautyJournalPage() {
               <CardTitle className="font-serif text-2xl text-primary">{journal.title}</CardTitle>
               <CardDescription>{journal.issue}</CardDescription>
             </CardHeader>
-            <CardFooter className="mt-auto">
-              {journal.slug ? (
-                <Button asChild className="w-full font-semibold group relative overflow-hidden">
+            <CardFooter className="mt-auto flex gap-3 flex-row">
+              {journal.slug && (
+                <Button asChild className="flex-1 font-semibold group relative overflow-hidden">
                   <Link href={`/beauty-journal/${journal.slug}`}>
-                    <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Read Article</span>
+                    <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Read Online</span>
                     <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                 </Button>
-              ) : journal.downloadUrl ? (
-                <Button asChild className="w-full font-semibold group relative overflow-hidden" variant="outline">
+              )}
+              {journal.downloadUrl && (
+                <Button asChild className="flex-1 font-semibold group relative overflow-hidden" variant="outline">
                   <a href={journal.downloadUrl} download>
                     <DownloadCloud className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1" />
-                    <span className="relative z-10">Download PDF</span>
+                    <span className="relative z-10">{journal.slug ? "Download" : "Download PDF"}</span>
                     <div className="absolute inset-0 bg-muted/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </a>
                 </Button>
-              ) : null}
+              )}
             </CardFooter>
           </Card>
         ))}

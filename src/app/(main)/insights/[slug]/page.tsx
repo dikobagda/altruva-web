@@ -14,12 +14,13 @@ export async function generateStaticParams() {
   return insights
     .filter((insight) => insight.href) // Filter out insights without an href
     .map((insight) => ({
-      slug: insight.href.split('/').pop(),
+      slug: insight.href!.split('/').pop(),
     }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const insight = insights.find((i) => i.href && i.href.endsWith(params.slug));
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const insight = insights.find((i) => i.href && i.href.endsWith(slug));
 
   if (!insight) {
     return {
@@ -37,8 +38,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function ArticleDetailPage({ params }: { params: { slug: string } }) {
-  const insight = insights.find((i) => i.href && i.href.endsWith(params.slug));
+export default async function ArticleDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const insight = insights.find((i) => i.href && i.href.endsWith(slug));
 
   if (!insight) {
     notFound();

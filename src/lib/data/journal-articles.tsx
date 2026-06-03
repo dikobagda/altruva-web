@@ -136,5 +136,148 @@ export const journalArticles: Record<string, React.ReactNode> = {
                 </div>
             </div>
         </div>
+    ),
+    'pause-within-the-pace': (
+        <div className="text-muted-foreground w-full space-y-6 text-lg xl:text-xl leading-relaxed">
+            <p className="text-xl md:text-2xl font-serif italic text-foreground mb-8">
+                Pause Within the Pace: Saat Perawatan Menjadi Lebih Terarah di Bulan yang Menuntut
+                <br />
+                <span className="text-base md:text-lg not-italic font-semibold block mt-4 text-primary uppercase tracking-wide">
+                    — Oleh dr. Olivia Aldisa
+                </span>
+            </p>
+
+            <p className="italic text-muted-foreground mb-6">Altruva Beauty Journal — June 2026 Edition<br />Oleh dr. Aldisa</p>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Mengapa Bulan Juni Terasa Lebih Intens?</h2>
+            <p>Bulan Juni sering menjadi titik tekanan dalam satu tahun. Target pekerjaan mendekati penutupan semester, sementara di rumah, anak-anak mulai memasuki masa liburan. Bagi banyak Wanita, terutama ibu bekerja ini berarti menjalani dua peran besar secara bersamaan, tanpa jeda yang jelas.</p>
+            <p>Dalam kondisi ini, respons yang paling umum adalah mencoba melakukan lebih banyak. Lebih banyak perawatan, lebih banyak koreksi, lebih banyak usaha untuk “mengejar” kondisi ideal.</p>
+            <p>Namun dalam praktik klinis, pendekatan seperti ini sering kali justru menciptakan hasil yang sebaliknya: kulit menjadi lebih reaktif, sistem tubuh lebih mudah lelah, dan keputusan perawatan menjadi kurang terarah.</p>
+            <p>Di Altruva, kami melihat bahwa perawatan yang efektif seharusnya menyesuaikan dengan ritme hidup Anda—bukan menambah beban di dalamnya.</p>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Pendekatan Baru: Regulated Beauty, Bukan Reactive Treatment</h2>
+            <p>Dunia estetika saat ini sedang bergeser. Bukan lagi tentang perubahan drastis, tetapi tentang presisi, keberlanjutan, dan keselarasan biologis.</p>
+            <p>Bulan ini, kami mengambil inspirasi dari:</p>
+            <ul className="list-disc pl-8 space-y-2 mb-4">
+                <li>World Environment Day</li>
+                <li>International Yoga Day</li>
+            </ul>
+            <p>Keduanya mengingatkan kita bahwa keberlanjutan bukan hanya tentang lingkungan, tetapi juga tentang bagaimana kita merawat diri sendiri.</p>
+            <p>Artinya:</p>
+            <ul className="list-disc pl-8 space-y-2 mb-4">
+                <li>Tidak semua hal perlu dilakukan sekaligus</li>
+                <li>Tidak semua kondisi membutuhkan intervensi agresif</li>
+                <li>Perawatan yang tepat adalah yang mempertimbangkan kondisi tubuh secara menyeluruh</li>
+            </ul>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Apa Itu “Regulated Beauty”?</h2>
+            <p>Regulated beauty adalah pendekatan di mana setiap perawatan:</p>
+            <ul className="list-disc pl-8 space-y-2 mb-4">
+                <li>Memiliki tujuan yang jelas</li>
+                <li>Tidak saling tumpang tindih</li>
+                <li>Minim beban bagi tubuh dan jadwal</li>
+                <li>Memberikan hasil yang berkelanjutan</li>
+            </ul>
+            <p>Bukan lagi bertanya, <em>“Apa lagi yang bisa dilakukan?”</em></p>
+            <p>Tetapi, <em>“Apa yang benar-benar dibutuhkan saat ini?”</em></p>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Altruva June Protocols: Dirancang untuk Kehidupan Nyata</h2>
+            <p>Berikut lima pendekatan perawatan yang disusun agar tetap efektif tanpa mengganggu ritme hidup Anda di bulan yang padat.</p>
+
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">1. The Calm Mother Ritual</h3>
+                <p className="font-semibold text-foreground text-lg italic">Mengembalikan keseimbangan di tengah kelelahan</p>
+                <p><strong>Kombinasi:</strong></p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>Signature Pore Facial with Lymphatic Massage</li>
+                    <li>ReGeneva Peel (Microbiome Support Peel)</li>
+                    <li>DNA Revive (microneedling)</li>
+                    <li>Red Light Therapy</li>
+                </ul>
+                <p>Ditujukan untuk kondisi kulit yang lelah, sensitif, atau mengalami stres. Protokol ini membantu memperbaiki fungsi kulit sekaligus memberikan efek menenangkan secara keseluruhan.</p>
+                <p>Ketika sistem tubuh Anda lebih tenang, kulit akan ikut menyesuaikan.</p>
+            </div>
+
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">2. The Sustainable Lift</h3>
+                <p className="font-semibold text-foreground text-lg italic">Pendekatan lifting yang strategis dan berkelanjutan</p>
+                <p><strong>Kombinasi:</strong></p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>A.R.T Lift by Sofwave</li>
+                    <li>Gorgeous Lyft by Gouri</li>
+                    <li>Nefertiti Tox</li>
+                </ul>
+                <p>Fokus pada stimulasi kolagen dan penopang struktur wajah secara bertahap, tanpa ketergantungan pada intervensi berulang.</p>
+                <p>Satu tindakan yang tepat dapat menggantikan banyak koreksi di kemudian hari.</p>
+            </div>
+
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">3. Body Confidence Reset</h3>
+                <p className="font-semibold text-foreground text-lg italic">Perubahan terarah tanpa mengganggu rutinitas</p>
+                <p><strong>Kombinasi:</strong></p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>Weight Loss Plan by Wegovy</li>
+                    <li>Exion BodyFirm</li>
+                    <li>LipoFirming Injection</li>
+                </ul>
+                <p>Dirancang untuk memberikan perbaikan bentuk tubuh secara terukur, tanpa pendekatan ekstrem yang sulit dipertahankan.</p>
+                <p>Perubahan yang terarah, tanpa tekanan berlebihan.</p>
+            </div>
+
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">4. Summer Ready Skin</h3>
+                <p className="font-semibold text-foreground text-lg italic">Kulit lebih cerah, halus, dan terkontrol</p>
+                <p><strong>Kombinasi:</strong></p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>Korean Luminous Peel</li>
+                    <li>Ultra BBL</li>
+                    <li>Exion Regen Laser / Scar Solver</li>
+                </ul>
+                <p>Membantu memperbaiki warna kulit, tekstur, dan tampilan keseluruhan dengan pendekatan yang tetap menjaga integritas kulit.</p>
+                <p>Perbaikan ringan, hasil yang terlihat.</p>
+            </div>
+
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">5. Pigment Regulation Loop</h3>
+                <p className="font-semibold text-foreground text-lg italic">Pendekatan bertahap untuk pigmentasi yang persisten</p>
+                <p><strong>Kombinasi:</strong></p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>MelaBooster</li>
+                    <li>Advanced Exosomes</li>
+                    <li>Ultra BBL Facial</li>
+                </ul>
+                <p>Pigmentasi membutuhkan konsistensi, bukan agresivitas. Protokol ini bekerja secara bertahap untuk memperbaiki warna kulit tanpa memicu inflamasi berlebihan.</p>
+                <p>Perbaiki yang perlu diperbaiki—tidak lebih.</p>
+            </div>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Mengapa Pendekatan “Lebih Sedikit” Sering Kali Lebih Efektif?</h2>
+            <p>Banyak pasien berasumsi bahwa semakin banyak perawatan yang dilakukan, semakin baik hasilnya. Namun kenyataannya, pendekatan berlebihan dapat:</p>
+            <ul className="list-disc pl-8 space-y-2 mb-4">
+                <li>Mengganggu skin barrier</li>
+                <li>Meningkatkan inflamasi</li>
+                <li>Menghasilkan tampilan yang kurang natural</li>
+                <li>Menciptakan ketergantungan terhadap perawatan</li>
+            </ul>
+            <p>Pendekatan yang lebih tepat berfokus pada:</p>
+            <ul className="list-disc pl-8 space-y-2 mb-4">
+                <li>Timing</li>
+                <li>Sequencing</li>
+                <li>Respons biologis kulit</li>
+            </ul>
+            <p>Perawatan yang paling berkelanjutan adalah yang mengurangi kebutuhan perawatan berikutnya.</p>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Penutup: Menjadi Lebih Terarah di Tengah Kesibukan</h2>
+            <p>Bulan Juni mungkin tidak akan menjadi lebih ringan. Namun, cara Anda merawat diri dapat menjadi lebih jelas dan terstruktur.</p>
+            <p>Di Altruva, kami tidak berfokus pada menambah perawatan, tetapi pada menyusun sistem yang benar-benar mendukung Anda—baik secara fisik maupun emosional.</p>
+            <p className="font-serif text-primary text-xl italic mt-6 mb-6">Karena di bulan yang menuntut banyak dari Anda, perawatan terbaik adalah yang tidak menambah beban.</p>
+            
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Jika Pendekatan Ini Relevan untuk Anda</h2>
+            <p>Kami dapat membantu merancang perawatan yang sesuai dengan kondisi dan ritme hidup Anda saat ini secara personal, terarah, dan berkelanjutan.</p>
+            
+            <div className="pt-8">
+                <p className="font-bold text-foreground text-lg mb-1">dr. Olivia Aldisa</p>
+                <p className="text-primary font-medium tracking-wide">Medical Director, Altruva Aesthetic Clinic</p>
+            </div>
+        </div>
     )
 };
