@@ -17,7 +17,7 @@ import {
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Harmony369Page() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const keyPrinciples = [
       { title: { en: 'Aging is 3M', id: 'Penuaan adalah 3M' }, description: { en: 'Multilayered, Multifactorial, and Multimodal, requiring a comprehensive strategy.', id: 'Berlapis, multifaktorial, dan multimodal, membutuhkan strategi yang komprehensif.' }, Icon: Diamond },
@@ -199,7 +199,7 @@ export default function Harmony369Page() {
                   <p className="mb-4">{t({ en: '"Structural repositioning, long-term support." This phase focuses on structural refinement, fat pad modulation, and collagen densification to reset the aging trajectory.', id: '"Reposisi struktural, dukungan jangka panjang." Fase ini berfokus pada penyempurnaan struktural, modulasi bantalan lemak, dan densifikasi kolagen untuk mengatur ulang lintasan penuaan.' })}</p>
                   <p className="font-semibold text-primary">{t({ en: "Example Treatments:", id: "Contoh Perawatan:" })}</p>
                   <ul className="list-disc list-inside mt-1">
-                      <li>{t({ en: "Energy-Based Device (Sofwave™)", id: "Energy-Based Device (Sofwave™)" })}</li>
+                      <li>{language === 'id' ? 'Energy-Based Device (' : 'Energy-Based Device ('}<a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sofwave™</a>{')'}</li>
                       <li>{t({ en: "SculptLift+ Lipolysis (targeted jaw/cheeks)", id: "SculptLift+ Lipolysis (targeted jaw/cheeks)" })}</li>
                       <li>{t({ en: "Filler / Cocktail Contouring (restorative or repositioning)", id: "Filler / Cocktail Contouring (restorative or repositioning)" })}</li>
                   </ul>

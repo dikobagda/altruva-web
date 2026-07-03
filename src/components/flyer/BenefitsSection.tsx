@@ -45,7 +45,7 @@ export default function BenefitsSection({ whatsappLink }: BenefitsSectionProps) 
       }}
     >
       <div className="text-center">
-        <h2 className="font-serif text-5xl md:text-6xl text-primary" style={{ color: '#4a301b' }}>Sofwave</h2>
+        <h2 className="font-serif text-5xl md:text-6xl text-primary" style={{ color: '#4a301b' }}><a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">Sofwave</a></h2>
         <p className="font-serif text-3xl md:text-4xl text-primary/90" style={{ color: '#4a301b' }}>The Luxury of Looking Effortlessly Beautiful</p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">

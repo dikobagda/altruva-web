@@ -73,7 +73,11 @@ export default function OurDevicesPage() {
               />
             </div>
             <div className={cn("space-y-4", index % 2 === 1 && "md:order-1")}>
-              <h3 className="font-serif text-3xl font-bold text-primary">{device.name}</h3>
+              <h3 className="font-serif text-3xl font-bold text-primary">
+                {device.name === 'Sofwave' ? (
+                  <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">{device.name}</a>
+                ) : device.name}
+              </h3>
               <p className="text-lg text-foreground/80">{t(device.description)}</p>
             </div>
           </div>
