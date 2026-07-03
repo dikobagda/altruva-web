@@ -1,6 +1,104 @@
 import React from 'react';
 
 export const journalArticles: Record<string, React.ReactNode> = {
+    'presence-has-no-gender': (
+        <div className="text-muted-foreground w-full space-y-6 text-lg xl:text-xl leading-relaxed">
+            <p className="text-xl md:text-2xl font-serif italic text-foreground mb-8">
+                Presence Has No Gender: Mengapa Self-Investment Menjadi Bentuk Perawatan Diri yang Paling Relevan di Era Modern
+                <br />
+                <span className="text-base md:text-lg not-italic font-semibold block mt-4 text-primary uppercase tracking-wide">
+                    — Oleh dr. Olivia Aldisa
+                </span>
+            </p>
+
+            <p className="italic text-muted-foreground mb-6">Altruva Beauty Journal — July 2026 Edition<br />Oleh dr. Aldisa</p>
+
+            <p>Banyak hal dalam hidup berubah seiring waktu. Karier berkembang. Tanggung jawab bertambah. Prioritas bergeser. Tubuh dan kulit pun ikut berubah.</p>
+            <p>Namun ada satu hal yang tetap penting di setiap fase kehidupan: bagaimana kita hadir di dunia.</p>
+            <p>Di Altruva, kami percaya bahwa estetika bukan tentang mengubah siapa diri kita. Estetika adalah tentang memastikan bahwa penampilan tetap selaras dengan energi, kesehatan, pengalaman, dan kehidupan yang sedang kita bangun.</p>
+            <p>Karena pada akhirnya, presence tidak ditentukan oleh gender. Presence dibentuk oleh bagaimana kita merawat diri, menjaga kesehatan, dan berinvestasi pada masa depan diri kita sendiri.</p>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Mengapa Self-Investment Menjadi Semakin Penting Setelah Usia 35 Tahun?</h2>
+            <p>Setelah usia 30–35 tahun, tubuh mulai mengalami perubahan biologis yang nyata. Produksi kolagen menurun secara bertahap. Massa otot mulai berkurang. Elastisitas kulit menurun. Proses regenerasi berlangsung lebih lambat dibandingkan dekade sebelumnya.</p>
+            <p>Inilah alasan mengapa pendekatan estetika modern tidak lagi hanya berfokus pada memperbaiki masalah yang sudah muncul. Pendekatan yang lebih efektif adalah menjaga kualitas jaringan sejak dini melalui strategi prevention dan regenerative aesthetics.</p>
+            <p>Semakin dini kita berinvestasi pada kualitas kulit, struktur wajah, dan kesehatan tubuh, semakin baik kualitas penuaan yang dapat dicapai di masa depan.</p>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Estetika Modern Bukan Tentang Terlihat Lebih Muda</h2>
+            <p>Banyak orang masih menganggap bahwa perawatan estetika bertujuan untuk membuat seseorang terlihat lebih muda. Kami melihatnya secara berbeda.</p>
+            <p>Tujuan estetika modern adalah membantu seseorang terlihat sehat, segar, dan relevan dengan energi yang dimilikinya. Hasil terbaik bukanlah ketika orang lain bertanya, <em>“Apa yang Anda lakukan?”</em> Melainkan ketika mereka berkata, <em>"Anda terlihat sangat baik."</em></p>
+            <p>Natural. Harmonis. Tanpa terlihat berlebihan.</p>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Lima Pendekatan Self-Investment yang Kami Soroti Bulan Ini</h2>
+            
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">1. The Couple's Power Sculpt</h3>
+                <p className="font-semibold text-foreground text-lg italic">Perjalanan menuju tubuh yang lebih sehat sering kali menjadi lebih mudah ketika dijalani bersama</p>
+                <p>Program ini mengombinasikan:</p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>EmSculpt Neo</li>
+                    <li>Exion Body</li>
+                </ul>
+                <p>Pendekatan ini dirancang untuk membantu membangun massa otot, mengurangi lemak membandel, dan meningkatkan kualitas kulit tubuh secara simultan. Ideal bagi pasangan yang ingin meningkatkan kesehatan, kebugaran, dan kepercayaan diri bersama.</p>
+            </div>
+
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">2. The Ageless Investment</h3>
+                <p className="font-semibold text-foreground text-lg italic">Penuaan bukan hanya tentang munculnya kerutan</p>
+                <p>Perubahan terbesar sering kali terjadi pada struktur penyangga wajah yang perlahan berkurang seiring waktu. Program ini mengombinasikan:</p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>A.R.T Lift by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sofwave</a> (250 shots)</li>
+                    <li>Revanesse PRO Filler</li>
+                </ul>
+                <p>Tujuannya adalah mempertahankan facial support, memperbaiki kualitas jaringan, dan mendukung proses penuaan yang lebih elegan serta alami.</p>
+            </div>
+
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">3. The Executive Presence</h3>
+                <p className="font-semibold text-foreground text-lg italic">Wajah yang terlihat segar dan berenergi memberikan kesan pertama yang lebih kuat</p>
+                <p>Dalam dunia profesional, wajah yang terlihat segar dan berenergi sering kali memberikan kesan pertama yang lebih kuat dibandingkan wajah yang tampak lelah. Program ini mengombinasikan:</p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>Exion Lumi RF</li>
+                    <li>DNA Repair PRO</li>
+                    <li>Lymphatic Pore Facial</li>
+                </ul>
+                <p>Dirancang untuk meningkatkan hidrasi, mengurangi kesan lelah, dan membantu kulit tampak lebih sehat tanpa downtime yang berarti.</p>
+            </div>
+
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">4. The Urban Skin Reset</h3>
+                <p className="font-semibold text-foreground text-lg italic">Memperbaiki tekstur kulit di tengah ritme hidup perkotaan</p>
+                <p>Polusi, stres, paparan sinar UV, dan ritme hidup perkotaan dapat mempercepat penurunan kualitas kulit. Program ini mengombinasikan:</p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>Exion Fractional RF</li>
+                    <li>Advanced Exosome</li>
+                    <li>UltraGlo BBL Facial</li>
+                </ul>
+                <p>Fokus utama program ini adalah memperbaiki tekstur kulit, membantu mengecilkan pori, dan mengembalikan kualitas kulit yang lebih sehat serta bercahaya.</p>
+            </div>
+
+            <div className="py-6 space-y-4">
+                <h3 className="text-2xl font-serif text-primary mt-4 mb-2">5. The Performance Face</h3>
+                <p className="font-semibold text-foreground text-lg italic">Mempersiapkan penampilan terbaik Anda untuk momen-momen penting</p>
+                <p>Ada momen-momen tertentu dalam hidup yang membutuhkan penampilan terbaik kita, seperti wedding, corporate event, family celebration, photoshoot, atau public speaking engagement. Program ini mengombinasikan:</p>
+                <ul className="list-disc pl-8 space-y-2">
+                    <li>Exion Lumi RF</li>
+                    <li>UltraGlo BBL</li>
+                    <li>Korean Luminous Peel</li>
+                </ul>
+                <p>Untuk membantu kulit tampak lebih cerah, terhidrasi, dan siap tampil dalam waktu yang relatif singkat.</p>
+            </div>
+
+            <h2 className="text-3xl font-serif text-primary mt-8 mb-4">Presence Has No Gender</h2>
+            <p>Setiap orang memiliki perjalanan yang berbeda. Sebagian sedang membangun karier, sebagian sedang membesarkan keluarga, sebagian sedang memasuki fase kehidupan yang baru. Namun semua memiliki satu kesamaan: Keinginan untuk menjadi versi terbaik dari dirinya sendiri.</p>
+            <p>Melalui Altruva Beauty Journal edisi Juli 2026, kami mengajak Anda untuk melihat estetika bukan sebagai pengeluaran, melainkan sebagai investasi jangka panjang terhadap kualitas hidup.</p>
+            <p className="font-serif text-primary text-xl italic mt-6 mb-6">Karena pada akhirnya, bagaimana kita hadir di dunia akan selalu menjadi bagian dari cerita yang kita tinggalkan. Presence Has No Gender. Because how you show up matters.</p>
+
+            <div className="pt-8">
+                <p className="font-bold text-foreground text-lg mb-1">dr. Olivia Aldisa</p>
+                <p className="text-primary font-medium tracking-wide">Medical Director, Altruva Aesthetic Clinic</p>
+            </div>
+        </div>
+    ),
     'ramadan-eid-2026': (
         <div className="text-muted-foreground w-full space-y-6 text-lg xl:text-xl leading-relaxed">
             <p className="text-xl md:text-2xl font-serif italic text-foreground mb-8">

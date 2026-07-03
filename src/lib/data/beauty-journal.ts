@@ -10,10 +10,17 @@ export interface BeautyJournal {
 
 export const beautyJournals: BeautyJournal[] = [
   {
+    id: '5',
+    title: 'Presence Has No Gender: Mengapa Self-Investment Menjadi Bentuk Perawatan Diri yang Paling Relevan di Era Modern',
+    issue: 'July 2026',
+    coverImage: '/images/insights/presence-has-no-gender.png',
+    slug: 'presence-has-no-gender',
+  },
+  {
     id: '4',
     title: 'Pause Within the Pace: Saat Perawatan Menjadi Lebih Terarah di Bulan yang Menuntut',
     issue: 'June 2026',
-    coverImage: '/images/insights/i15.png',
+    coverImage: '/images/insights/i17.jpg',
     downloadUrl: '/images/journal/2026/june.pdf',
     slug: 'pause-within-the-pace',
   },

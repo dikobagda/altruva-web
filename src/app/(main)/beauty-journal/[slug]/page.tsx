@@ -6,6 +6,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { beautyJournals } from '@/lib/data/beauty-journal';
 import { journalArticles } from '@/lib/data/journal-articles';
+import { insights } from '@/lib/data/insights';
 
 export function generateStaticParams() {
     return beautyJournals
@@ -17,10 +18,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const resolvedParams = await params;
-    const journal = beautyJournals.find((j) => j.slug === resolvedParams.slug);
+    const { slug } = resolvedParams;
+    const journal = beautyJournals.find((j) => j.slug === slug);
+    const matchingInsight = insights.find((i) => i.href && i.href.endsWith(slug));
+
+    const baseKeywords = ['Altruva', 'Beauty Journal', 'Aesthetic Clinic Jakarta', 'dr. Olivia Aldisa'];
+    const dynamicKeywords = matchingInsight?.keywords 
+        ? matchingInsight.keywords 
+        : journal?.title.split(' ') || [];
+    const keywords = [...new Set([...dynamicKeywords, ...baseKeywords])];
+
     return {
         title: journal ? `${journal.title} - Beauty Journal | Altruva` : 'Beauty Journal - Altruva',
-        description: journal ? `Read the ${journal.issue} edition of Altruva Beauty Journal: ${journal.title}.` : 'Altruva Beauty Journal Article',
+        description: matchingInsight?.excerpt || (journal ? `Read the ${journal.issue} edition of Altruva Beauty Journal: ${journal.title}.` : 'Altruva Beauty Journal Article'),
+        keywords: keywords,
     };
 }
 

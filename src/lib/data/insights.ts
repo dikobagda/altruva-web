@@ -13,10 +13,106 @@ export interface Insight {
 
 export const insights: Insight[] = [
   {
+    id: 'presence-has-no-gender',
+    title: 'Presence Has No Gender: Mengapa Self-Investment Menjadi Bentuk Perawatan Diri yang Paling Relevan di Era Modern',
+    excerpt: 'Presence tidak ditentukan oleh gender. Presence dibentuk oleh bagaimana kita merawat diri, menjaga kesehatan, dan berinvestasi pada masa depan diri kita sendiri.',
+    imageSrc: '/images/insights/presence-has-no-gender.png',
+    imageHint: 'modern minimalist gender-neutral aesthetic clinic lobby with warm lighting',
+    date: 'July 3, 2026',
+    href: '/insights/presence-has-no-gender',
+    keywords: [
+      'self investment modern',
+      'regenerative aesthetics',
+      'prevention skin treatment',
+      'Emsculpt Neo Jakarta',
+      'Exion Body',
+      'Sofwave Jakarta',
+      'executive presence skin',
+      'urban skin reset',
+      'genderless beauty care',
+      'Altruva Beauty Journal'
+    ],
+    content: `
+      <p class="italic text-muted-foreground mb-6">Altruva Beauty Journal — July 2026 Edition<br />Oleh dr. Olivia Aldisa</p>
+
+      <p>Banyak hal dalam hidup berubah seiring waktu. Karier berkembang. Tanggung jawab bertambah. Prioritas bergeser. Tubuh dan kulit pun ikut berubah.</p>
+      <p>Namun ada satu hal yang tetap penting di setiap fase kehidupan: bagaimana kita hadir di dunia.</p>
+      <p>Di Altruva, kami percaya bahwa estetika bukan tentang mengubah siapa diri kita. Estetika adalah tentang memastikan bahwa penampilan tetap selaras dengan energi, kesehatan, pengalaman, dan kehidupan yang sedang kita bangun.</p>
+      <p>Karena pada akhirnya, presence tidak ditentukan oleh gender. Presence dibentuk oleh bagaimana kita merawat diri, menjaga kesehatan, dan berinvestasi pada masa depan diri kita sendiri.</p>
+
+      <h2>Mengapa Self-Investment Menjadi Semakin Penting Setelah Usia 35 Tahun?</h2>
+      <p>Setelah usia 30–35 tahun, tubuh mulai mengalami perubahan biologis yang nyata. Produksi kolagen menurun secara bertahap. Massa otot mulai berkurang. Elastisitas kulit menurun. Proses regenerasi berlangsung lebih lambat dibandingkan dekade sebelumnya.</p>
+      <p>Inilah alasan mengapa pendekatan estetika modern tidak lagi hanya berfokus pada memperbaiki masalah yang sudah muncul. Pendekatan yang lebih efektif adalah menjaga kualitas jaringan sejak dini melalui strategi prevention dan regenerative aesthetics.</p>
+      <p>Semakin dini kita berinvestasi pada kualitas kulit, struktur wajah, dan kesehatan tubuh, semakin baik kualitas penuaan yang dapat dicapai di masa depan.</p>
+
+      <h2>Estetika Modern Bukan Tentang Terlihat Lebih Muda</h2>
+      <p>Banyak orang masih menganggap bahwa perawatan estetika bertujuan untuk membuat seseorang terlihat lebih muda. Kami melihatnya secara berbeda.</p>
+      <p>Tujuan estetika modern adalah membantu seseorang terlihat sehat, segar, dan relevan dengan energi yang dimilikinya. Hasil terbaik bukanlah ketika orang lain bertanya, <em>“Apa yang Anda lakukan?”</em> Melainkan ketika mereka berkata, <em>"Anda terlihat sangat baik."</em></p>
+      <p>Natural. Harmonis. Tanpa terlihat berlebihan.</p>
+
+      <h2>Lima Pendekatan Self-Investment yang Kami Soroti Bulan Ini</h2>
+      
+      <h3>1. The Couple's Power Sculpt</h3>
+      <p class="font-semibold italic mb-2">Perjalanan menuju tubuh yang lebih sehat sering kali menjadi lebih mudah ketika dijalani bersama</p>
+      <p>Program ini mengombinasikan:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>EmSculpt Neo</li>
+        <li>Exion Body</li>
+      </ul>
+      <p>Pendekatan ini dirancang untuk membantu membangun massa otot, mengurangi lemak membandel, dan meningkatkan kualitas kulit tubuh secara simultan. Ideal bagi pasangan yang ingin meningkatkan kesehatan, kebugaran, dan kepercayaan diri bersama.</p>
+
+      <h3>2. The Ageless Investment</h3>
+      <p class="font-semibold italic mb-2">Penuaan bukan hanya tentang munculnya kerutan</p>
+      <p>Perubahan terbesar sering kali terjadi pada struktur penyangga wajah yang perlahan berkurang seiring waktu. Program ini mengombinasikan:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>A.R.T Lift by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a> (250 shots)</li>
+        <li>Revanesse PRO Filler</li>
+      </ul>
+      <p>Tujuannya adalah mempertahankan facial support, memperbaiki kualitas jaringan, dan mendukung proses penuaan yang lebih elegan serta alami.</p>
+
+      <h3>3. The Executive Presence</h3>
+      <p class="font-semibold italic mb-2">Wajah yang terlihat segar dan berenergi memberikan kesan pertama yang lebih kuat</p>
+      <p>Dalam dunia profesional, wajah yang terlihat segar dan berenergi sering kali memberikan kesan pertama yang lebih kuat dibandingkan wajah yang tampak lelah. Program ini mengombinasikan:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Exion Lumi RF</li>
+        <li>DNA Repair PRO</li>
+        <li>Lymphatic Pore Facial</li>
+      </ul>
+      <p>Dirancang untuk meningkatkan hidrasi, mengurangi kesan lelah, dan membantu kulit tampak lebih sehat tanpa downtime yang berarti.</p>
+
+      <h3>4. The Urban Skin Reset</h3>
+      <p class="font-semibold italic mb-2">Memperbaiki tekstur kulit di tengah ritme hidup perkotaan</p>
+      <p>Polusi, stres, paparan sinar UV, dan ritme hidup perkotaan dapat mempercepat penurunan kualitas kulit. Program ini mengombinasikan:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Exion Fractional RF</li>
+        <li>Advanced Exosome</li>
+        <li>UltraGlo BBL Facial</li>
+      </ul>
+      <p>Fokus utama program ini adalah memperbaiki tekstur kulit, membantu mengecilkan pori, dan mengembalikan kualitas kulit yang lebih sehat serta bercahaya.</p>
+
+      <h3>5. The Performance Face</h3>
+      <p class="font-semibold italic mb-2">Mempersiapkan penampilan terbaik Anda untuk momen-momen penting</p>
+      <p>Ada momen-momen tertentu dalam hidup yang membutuhkan penampilan terbaik kita, seperti wedding, corporate event, family celebration, photoshoot, or public speaking engagement. Program ini mengombinasikan:</p>
+      <ul class="list-disc pl-5 mb-4 space-y-1">
+        <li>Exion Lumi RF</li>
+        <li>UltraGlo BBL</li>
+        <li>Korean Luminous Peel</li>
+      </ul>
+      <p>Untuk membantu kulit tampak lebih cerah, terhidrasi, dan siap tampil dalam waktu yang relatif singkat.</p>
+
+      <h2>Presence Has No Gender</h2>
+      <p>Setiap orang memiliki perjalanan yang berbeda. Sebagian sedang membangun karier, sebagian sedang membesarkan keluarga, sebagian sedang memasuki fase kehidupan yang baru. Namun semua memiliki satu kesamaan: Keinginan untuk menjadi versi terbaik dari dirinya sendiri.</p>
+      <p>Melalui Altruva Beauty Journal edisi Juli 2026, kami mengajak Anda untuk melihat estetika bukan sebagai pengeluaran, melainkan sebagai investasi jangka panjang terhadap kualitas hidup.</p>
+      <p class="font-serif text-primary text-xl italic mt-6 mb-6">Karena pada akhirnya, bagaimana kita hadir di dunia akan selalu menjadi bagian dari cerita yang kita tinggalkan. Presence Has No Gender. Because how you show up matters.</p>
+
+      <p class="mt-8"><strong>dr. Olivia Aldisa, MSc. Aesth. Med. (UK)</strong><br />Founder & Medical Director<br />Altruva Aesthetic Clinic</p>
+    `
+  },
+  {
     id: 'pause-within-the-pace',
     title: 'Pause Within the Pace: Saat Perawatan Menjadi Lebih Terarah di Bulan yang Menuntut',
     excerpt: 'Bulan Juni sering menjadi titik tekanan dalam satu tahun. Target pekerjaan mendekati penutupan semester, sementara di rumah, anak-anak mulai memasuki masa liburan. Bagi banyak Wanita, terutama ibu bekerja ini berarti menjalani dua peran besar secara bersamaan, tanpa jeda yang jelas.',
-    imageSrc: '/images/insights/i15.png',
+    imageSrc: '/images/insights/i17.jpg',
     imageHint: 'elegant woman taking a pause in a peaceful aesthetic clinic setting',
     date: 'June 3, 2026',
     href: '/insights/pause-within-the-pace',
@@ -86,7 +182,7 @@ export const insights: Insight[] = [
       <p class="font-semibold italic mb-2">Pendekatan lifting yang strategis dan berkelanjutan</p>
       <p><strong>Kombinasi:</strong></p>
       <ul class="list-disc pl-5 mb-4 space-y-1">
-        <li>A.R.T Lift by Sofwave</li>
+        <li>A.R.T Lift by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a></li>
         <li>Gorgeous Lyft by Gouri</li>
         <li>Nefertiti Tox</li>
       </ul>
@@ -155,7 +251,7 @@ export const insights: Insight[] = [
     id: 'the-new-40',
     title: 'The New 40: Mengapa Usia 40 Kini Terlihat Lebih Muda',
     excerpt: 'Persepsi penuaan telah berubah. The New 40 menggambarkan fenomena di mana perempuan usia 40-an kini tampak lebih muda, lebih segar, dan lebih terawat. Perubahan ini bukan semata angka, melainkan kombinasi kesadaran perawatan kulit, teknologi estetika yang lebih canggih, serta pendekatan medis yang memahami proses biologis penuaan.',
-    imageSrc: '/images/insights/i14.png',
+    imageSrc: '/images/insights/i16.jpg',
     imageHint: 'elegant woman in her 40s with glowing skin',
     date: 'April 30, 2026',
     href: '/insights/the-new-40',
@@ -188,10 +284,10 @@ export const insights: Insight[] = [
       <p>Di Altruva kami menerapkan strategi tiga tahap: Stabilize, Stimulate, dan Refine. Pertama, Stabilize : mengontrol inflamasi dan memperbaiki skin barrier agar kulit siap. Kedua, Stimulate: mengaktifkan produksi kolagen dan regenerasi jaringan. Ketiga, Refine : memperbaiki struktur dan kontur wajah secara presisi sehingga hasil tetap natural dan terukur.</p>
 
       <h2>Perawatan Anti Aging Natural di Altruva: Filosofi dan Metode</h2>
-      <p>Filosofi kami menekankan perawatan yang mempertahankan karakter wajah. Kami menggabungkan teknologi seperti Sofwave untuk lifting terkontrol, terapi exosomes dan DNA Repair untuk regenerasi, serta protokol non-invasif yang menitikberatkan pada kualitas kulit daripada perubahan drastis.</p>
+      <p>Filosofi kami menekankan perawatan yang mempertahankan karakter wajah. Kami menggabungkan teknologi seperti <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a> untuk lifting terkontrol, terapi exosomes dan DNA Repair untuk regenerasi, serta protokol non-invasif yang menitikberatkan pada kualitas kulit daripada perubahan drastis.</p>
 
       <h2>The First 40s Makeover: Perawatan Awal untuk Hasil Natural</h2>
-      <p>Program ini dirancang untuk pasien yang mulai melihat perubahan dan ingin menanganinya sejak dini. Kombinasi ART Lift by Sofwave, Gorgeous Lyft by Gouri, dan Ultra BBL memberikan lifting terkontrol, stimulasi kolagen, dan perbaikan tone kulit tanpa membuat tampilan berlebihan.</p>
+      <p>Program ini dirancang untuk pasien yang mulai melihat perubahan dan ingin menanganinya sejak dini. Kombinasi ART Lift by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a>, Gorgeous Lyft by Gouri, dan Ultra BBL memberikan lifting terkontrol, stimulasi kolagen, dan perbaikan tone kulit tanpa membuat tampilan berlebihan.</p>
 
       <h2>The 40s Monthly Ritual: Perawatan Rutin untuk Menjaga Skin Quality</h2>
       <p>Pemeliharaan berkala adalah kunci mempertahankan hasil jangka panjang. Protokol seperti Exion Regen RF dan Advanced Exosomes membantu menjaga kualitas jaringan, merangsang perbaikan berkelanjutan, dan memperlambat proses degeneratif.</p>
@@ -200,13 +296,13 @@ export const insights: Insight[] = [
       <p>Untuk pasien yang menginginkan perbaikan kerutan dan kekenduran leher secara mendalam, kombinasi Exion Scar Solver, Gorgeous Lyft by Gouri, dan Toksin Botulinum untuk menargetkan perbaikan struktur kulit, memperbaiki pori dan bekas jerawat, serta mengembalikan fungsi barrier secara optimal.</p>
 
       <h2>40’s Arms Going 30: Perawatan Body Contouring dan Skin Tightening</h2>
-      <p>Penuaan tidak hanya pada wajah. Program ini menggabungkan aktivasi otot, modulasi lemak, dan skin tightening menggunakan NeoCurve by Emsculpt Neo, Exion BodyFirm, serta LipoFirming Injection untuk memperbaiki kontur lengan dan tekstur kulit tubuh.</p>
+      <p>Penuaan tidak hanya pada wajah. Program ini menggabungkan aktivasi otot, modulasi lemak, dan skin tightening menggunakan NeoCurve by EmSculpt Neo, Exion BodyFirm, serta LipoFirming Injection untuk memperbaiki kontur lengan dan tekstur kulit tubuh.</p>
 
       <h2>Signature 40’s Lift: Refinement Kontur Tanpa Terlihat Berlebihan</h2>
       <p>Untuk refinement presisi, Signature 40’s Lift menargetkan definisi kontur, area mata yang lebih terbuka, dan keseimbangan wajah tanpa mengubah karakter asli. Protokol kami melibatkan Cocktail Contouring dan Eye Booster Complex agar hasil tetap subtle namun signifikan.</p>
 
-      <h2>Sofwave di Indonesia: ART Lift untuk Lifting Terkontrol</h2>
-      <p>Sofwave menawarkan teknologi ultrasound yang efektif untuk stimulasi kolagen dan lifting tanpa downtime panjang—cocok untuk pasien yang menginginkan perbaikan natural dan terukur.</p>
+      <h2><a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a> di Indonesia: ART Lift untuk Lifting Terkontrol</h2>
+      <p><a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a> menawarkan teknologi ultrasound yang efektif untuk stimulasi kolagen dan lifting tanpa downtime panjang—cocok untuk pasien yang menginginkan perbaikan natural dan terukur.</p>
 
       <h2>Exosomes dan DNA Repair: Terapi Regeneratif untuk Kulit</h2>
       <p>Terapi exosomes dan DNA Repair Pro mendukung regenerasi sel, meningkatkan kemampuan perbaikan kulit, dan membantu pemulihan fungsi barrier membawa pendekatan medis regeneratif ke dalam estetika sehari-hari.</p>
@@ -228,7 +324,7 @@ export const insights: Insight[] = [
     id: 'prediksi-estetika-medis-2026',
     title: 'Prediksi Estetika Medis 2026',
     excerpt: 'Memasuki 2026, estetika medis bergerak ke fase yang lebih dewasa. Bukan lagi tentang hasil yang cepat, dramatis, atau mudah dikenali, melainkan tentang kualitas keputusan klinis, ketepatan strategi, dan keberanian untuk bersikap konservatif.',
-    imageSrc: '/images/insights/i13.png',
+    imageSrc: '/images/insights/i18.jpg',
     imageHint: 'futuristic aesthetics',
     date: 'January 1, 2026',
     href: '/insights/prediksi-estetika-medis-2026',
@@ -352,7 +448,7 @@ export const insights: Insight[] = [
       
       <h4>1. Holiday Confidence Plan</h4>
       <p>Cara cerdas mempersiapkan tampilan terbaik menjelang liburan.</p>
-      <p>Menggabungkan ART Lyft by Sofwave, Cocktail Contouring, dan Botox Refinement, program ini bekerja sinergis untuk mengaktifkan kolagen, memperbaiki struktur wajah, dan memberikan relaksasi halus pada otot ekspresi.</p>
+      <p>Menggabungkan ART Lyft by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a>, Cocktail Contouring, dan Botox Refinement, program ini bekerja sinergis untuk mengaktifkan kolagen, memperbaiki struktur wajah, dan memberikan relaksasi halus pada otot ekspresi.</p>
       <p>Hasilnya bukan transformasi drastis, melainkan keseimbangan — angkat lembut yang membuat Anda tampak segar, tenang, dan percaya diri tanpa kehilangan karakter alami.</p>
       <p><em>“Grace is never rushed.”</em></p>
 
@@ -376,12 +472,12 @@ export const insights: Insight[] = [
 
       <h4>5. Core & Glow Holiday Prep</h4>
       <p>Perkuat dari dalam, pancarkan ke luar.</p>
-      <p>Sinergi antara NeoCurve by EmSculpt Neo dan ART Lyft by Sofwave bukan hanya merawat wajah, tetapi juga membangun kekuatan inti tubuh. Dengan meningkatkan tonus otot dan sirkulasi, program ini menciptakan harmoni antara ekspresi wajah dan postur tubuh — simbol sejati dari keanggunan yang kuat.</p>
+      <p>Sinergi antara NeoCurve by EmSculpt Neo dan ART Lyft by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a> bukan hanya merawat wajah, tetapi juga membangun kekuatan inti tubuh. Dengan meningkatkan tonus otot dan sirkulasi, program ini menciptakan harmoni antara ekspresi wajah dan postur tubuh — simbol sejati dari keanggunan yang kuat.</p>
       <p><em>“Resilience is the foundation of radiance.”</em></p>
 
       <h3>🧬 Refleksi tentang Regenerative Beauty</h3>
       <p>Di Altruva, setiap perawatan adalah dialog antara sains dan intuisi. Kami tidak mengubah wajah , kami memahami dan mengembalikannya ke kondisi paling seimbang.</p>
-      <p>Mulai dari ART Lyft by Sofwave, Exion FractioPro, hingga NeoCurve by EmSculpt Neo, seluruh teknologi kami bertujuan untuk satu hal: meregenerasi, bukan menggantikan.</p>
+      <p>Mulai dari ART Lyft by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a>, Exion FractioPro, hingga NeoCurve by EmSculpt Neo, seluruh teknologi kami bertujuan untuk satu hal: meregenerasi, bukan menggantikan.</p>
       <p>Inovasi ini bukan tentang mengejar kesempurnaan, tetapi tentang menghidupkan kembali ritme alami kulit agar dapat beradaptasi secara cerdas terhadap waktu, emosi, dan lingkungan.</p>
 
       <h3>✨ Penutup</h3>
@@ -503,14 +599,14 @@ export const insights: Insight[] = [
       <h2>Quiet Luxury Lift di Altruva Aesthetic Clinic</h2>
       <p>Di Altruva, filosofi ini diwujudkan melalui Quiet Luxury Lift, protokol eksklusif yang merupakan bagian dari Regenerative Contouring.</p>
       <ul class="list-disc pl-5 mt-2 space-y-1" style="padding-left: 1.25rem;">
-        <li><strong>✨ A.R.T Lift by Sofwave</strong> – teknologi ultrasound untuk skin tightening dan collagen remodeling.</li>
+        <li><strong>✨ A.R.T Lift by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a></strong> – teknologi ultrasound untuk skin tightening dan collagen remodeling.</li>
         <li><strong>✨ Gorgeous Lyft by Gouri</strong> – liquid PCL pertama di dunia untuk collagen banking.</li>
         <li><strong>✨ SculptLift+ (Swiss Technology)</strong> – injeksi untuk mengurangi lemak dan cairan berlebih, tanpa bengkak, agar wajah kembali netral sebelum dilakukan lifting.</li>
       </ul>
 
       <h2>Step by Step Quiet Luxury Lift</h2>
       <p><strong>Priming wajah</strong> – SculptLift+ digunakan untuk membantu mengurangi massa berlebih, sehingga wajah siap untuk proses lifting.</p>
-      <p><strong>Regenerative Lifting</strong> – kombinasi Sofwave dan Gouri bekerja sinergis untuk mengencangkan, membentuk, dan merangsang kolagen baru.</p>
+      <p><strong>Regenerative Lifting</strong> – kombinasi <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a> dan Gouri bekerja sinergis untuk mengencangkan, membentuk, dan merangsang kolagen baru.</p>
       <p><strong>Strategic Contouring</strong> – setelah 1 bulan, dilakukan evaluasi. Jika masih ada area yang memerlukan kontur, maka filler atau hybrid filler ditempatkan dengan sangat strategis.</p>
       <p>Misalnya C-Frame Contouring, penempatan filler di area atas wajah (alis, pelipis, sisi luar mata) sebagai anchor yang menopang bentuk wajah dan sering kehilangan volume akibat penuaan.</p>
 
@@ -640,7 +736,7 @@ export const insights: Insight[] = [
       
       <h2>Quiet Luxury Lift: Standar Baru Lifting Wajah di Altruva</h2>
       <p>Quiet Luxury Lift adalah kombinasi canggih yang menyatukan teknologi medis dengan regenerative aesthetics, sehingga mampu menjadi standar baru perawatan lifting wajah.</p>
-      <h3>A.R.T Lyft by Sofwave</h3>
+      <h3>A.R.T Lyft by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Sofwave</a></h3>
       <p>Treatment ultrasound berbasis energi tinggi yang dipersonalisasi sesuai kebutuhan wajah. Baik untuk menambah volume pada area tertentu maupun menargetkan pengencangan (skin tightening) secara presisi di lapisan kulit terdalam.</p>
       <h3>Gorgeous Lyft by Gouri</h3>
       <p>Injeksi polikaprolakton cair (liquid PCL) yang bekerja membentuk interconnected scaffold. Struktur ini berfungsi sebagai kerangka penyangga yang memungkinkan fibroblas menghasilkan kolagen baru secara padat, merata, dan berkesinambungan.</p>
