@@ -180,7 +180,7 @@ export const journalArticles: Record<string, React.ReactNode> = {
                 <p>Penuaan wajah bukan hanya soal kerutan. Ia melibatkan: penurunan elastisitas kulit, perubahan volume, aktivitas otot yang semakin dominan.</p>
                 <p>Sculpted Eid Ritual menggabungkan:</p>
                 <ul className="list-disc pl-8 space-y-2">
-                    <li><strong>Sofwave</strong> untuk lifting dan stimulasi kolagen</li>
+                    <li><strong><a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sofwave</a></strong> untuk lifting dan stimulasi kolagen</li>
                     <li><strong>Gorgeous Lyft</strong> untuk dukungan struktur wajah</li>
                     <li><strong>Toxin</strong> yang dipersonalisasi untuk melembutkan ekspresi tanpa menghilangkan karakter wajah</li>
                 </ul>
@@ -301,7 +301,7 @@ export const journalArticles: Record<string, React.ReactNode> = {
                 <p className="font-semibold text-foreground text-lg italic">Pendekatan lifting yang strategis dan berkelanjutan</p>
                 <p><strong>Kombinasi:</strong></p>
                 <ul className="list-disc pl-8 space-y-2">
-                    <li>A.R.T Lift by Sofwave</li>
+                    <li>A.R.T Lift by <a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sofwave</a></li>
                     <li>Gorgeous Lyft by Gouri</li>
                     <li>Nefertiti Tox</li>
                 </ul>
