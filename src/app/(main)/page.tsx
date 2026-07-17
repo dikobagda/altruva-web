@@ -346,7 +346,7 @@ export default function HomePage() {
           <CarouselContent>
             {insights.filter(insight => insight.href).map((insight) => (
               <CarouselItem key={insight.id} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
+                <div className="p-1 h-full">
                   <InsightCard insight={insight} />
                 </div>
               </CarouselItem>
