@@ -73,7 +73,7 @@ export default function Footer() {
               <Link href="#" aria-label="Facebook" className="text-primary hover:text-accent transition-colors"><Facebook size={24} /></Link>
             </div>
             <div className="mt-4 text-sm text-center sm:text-left">
-              <p>Jl. Ciasem I No.2, RT.2/RW.4, Rw. Bar, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</p>
+              <p>Jl. Ciasem I No.2 <br />Kebayoran Baru, Jakarta Selatan. <br />Jakarta 12180</p>
               <p>0812-1611-9392</p>
             </div>
           </div>

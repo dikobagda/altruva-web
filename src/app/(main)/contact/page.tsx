@@ -29,7 +29,7 @@ export default function ContactPage() {
   return (
     <>
       <SectionWrapper className="pt-0">
-         <Card className="shadow-lg overflow-hidden">
+        <Card className="shadow-lg overflow-hidden">
           <div className="aspect-video w-full">
             <iframe
               src={mapEmbedUrl}
@@ -43,7 +43,7 @@ export default function ContactPage() {
             ></iframe>
           </div>
         </Card>
-      
+
         <div className="grid md:grid-cols-2 gap-12 items-start pt-8">
           <Card className="shadow-xl">
             <CardHeader>
@@ -77,7 +77,7 @@ export default function ContactPage() {
                 <h3 className="font-serif text-xl text-primary mb-3">{t({ en: 'Contact Details', id: 'Detail Kontak' })}</h3>
                 <div className="flex items-start">
                   <MapPin className="h-6 w-6 text-accent mr-3 flex-shrink-0" />
-                  <p className="text-foreground/80">Jl. Ciasem I No.2, RT.2/RW.4, Rw. Bar, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</p>
+                  <p className="text-foreground/80">Jl. Ciasem I No.2 Kebayoran Baru, Jakarta Selatan, Jakarta 12180</p>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-6 w-6 text-accent mr-3" />
