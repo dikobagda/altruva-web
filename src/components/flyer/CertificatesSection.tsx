@@ -20,63 +20,59 @@ const DialogTitle = dynamic(() => import('@/components/ui/dialog').then(mod => m
 const DialogTrigger = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogTrigger), { ssr: false });
 
 const certificates = [
-    { image: { src: "/images/flyer/cert/cert_7.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_8.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_9.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_1.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_2.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_3.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_4.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_5.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_6.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_10.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_11.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_12.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_13.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_14.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_15.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_16.webp" }, imageHint: "certificate" },
-    { image: { src: "/images/flyer/cert/cert_17.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/1.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/2.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/3.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/4.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/5.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/6.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/7.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/8.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/9.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/10.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/11.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/12.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/13.png" }, imageHint: "certificate" },
 ];
 
 export default function CertificatesSection() {
   return (
     <SectionWrapper>
-        <PageTitle title="Certificates and Awards" />
-        <Carousel
-          opts={{ align: "start", loop: true }}
-          className="w-full max-w-5xl mx-auto"
-        >
-          <CarouselContent>
-            {certificates.map((cert, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <button className="relative aspect-video w-full rounded-lg overflow-hidden cursor-pointer group border-none p-0 bg-transparent block">
-                        <Image src={cert.image.src} alt="Certificate" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-contain group-hover:scale-105 transition-transform" data-ai-hint={cert.imageHint} />
-                      </button>
-                    </DialogTrigger>
-                    <DialogContent className="p-0 border-0 max-w-4xl">
-                      <DialogHeader>
-                        <DialogTitle className="sr-only">Certificate</DialogTitle>
-                      </DialogHeader>
-                      <Image
-                        src={cert.image.src}
-                        alt="Certificate"
-                        width={1200}
-                        height={675}
-                        className="w-full h-auto rounded-lg object-contain"
-                      />
-                    </DialogContent>
-                  </Dialog>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden lg:flex" />
-          <CarouselNext className="hidden lg:flex" />
-        </Carousel>
-      </SectionWrapper>
+      <PageTitle title="Certificates and Awards" />
+      <Carousel
+        opts={{ align: "start", loop: true }}
+        className="w-full max-w-5xl mx-auto"
+      >
+        <CarouselContent>
+          {certificates.map((cert, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button className="relative aspect-video w-full rounded-lg overflow-hidden cursor-pointer group border-none p-0 bg-transparent block">
+                      <Image src={cert.image.src} alt="Certificate" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-contain group-hover:scale-105 transition-transform" data-ai-hint={cert.imageHint} />
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="p-0 border-0 max-w-4xl">
+                    <DialogHeader>
+                      <DialogTitle className="sr-only">Certificate</DialogTitle>
+                    </DialogHeader>
+                    <Image
+                      src={cert.image.src}
+                      alt="Certificate"
+                      width={1200}
+                      height={675}
+                      className="w-full h-auto rounded-lg object-contain"
+                    />
+                  </DialogContent>
+                </Dialog>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="hidden lg:flex" />
+        <CarouselNext className="hidden lg:flex" />
+      </Carousel>
+    </SectionWrapper>
   );
 }
