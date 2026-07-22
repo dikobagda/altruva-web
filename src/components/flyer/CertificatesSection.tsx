@@ -20,7 +20,7 @@ const DialogTitle = dynamic(() => import('@/components/ui/dialog').then(mod => m
 const DialogTrigger = dynamic(() => import('@/components/ui/dialog').then(mod => mod.DialogTrigger), { ssr: false });
 
 const certificates = [
-  { image: { src: "/images/flyer/cert_new/1.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/1.jpeg" }, imageHint: "certificate" },
   { image: { src: "/images/flyer/cert_new/2.png" }, imageHint: "certificate" },
   { image: { src: "/images/flyer/cert_new/3.png" }, imageHint: "certificate" },
   { image: { src: "/images/flyer/cert_new/4.png" }, imageHint: "certificate" },
