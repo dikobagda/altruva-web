@@ -13,10 +13,16 @@ interface VideoFacadeProps {
 
 export default function VideoFacade({ videoId, title, isShort = false }: VideoFacadeProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [imgUrl, setImgUrl] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
 
-  // Get high quality thumbnail from YouTube
-  // hqdefault or maxresdefault
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  const handleImageError = () => {
+    // Fallback chain: maxresdefault (1280x720) -> sddefault (640x480) -> hqdefault (480x360)
+    if (imgUrl.includes('maxresdefault')) {
+      setImgUrl(`https://img.youtube.com/vi/${videoId}/sddefault.jpg`);
+    } else if (imgUrl.includes('sddefault')) {
+      setImgUrl(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
+    }
+  };
 
   if (isPlaying) {
     return (
@@ -37,11 +43,12 @@ export default function VideoFacade({ videoId, title, isShort = false }: VideoFa
       onClick={() => setIsPlaying(true)}
     >
       <Image
-        src={thumbnailUrl}
+        src={imgUrl}
         alt={title || "Video thumbnail"}
         fill
         className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
         sizes="(max-width: 768px) 100vw, 33vw"
+        onError={handleImageError}
       />
       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
       <div className="relative z-20 bg-primary/90 text-white p-4 rounded-full shadow-xl transform group-hover:scale-110 transition-transform">
