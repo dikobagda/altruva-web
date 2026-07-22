@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
@@ -8,7 +8,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Download, ArrowLeft, MessageCircle } from 'lucide-react';
 
-export default function ThankYouPage() {
+function ThankYouContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const shouldDownload = searchParams.get('download') !== 'false';
@@ -83,5 +83,21 @@ export default function ThankYouPage() {
         </div>
       </div>
     </SectionWrapper>
+  );
+}
+
+export default function ThankYouPage() {
+  return (
+    <Suspense fallback={
+      <SectionWrapper className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-secondary/20 to-background">
+        <div className="container mx-auto px-4 max-w-xl text-center">
+          <div className="animate-pulse bg-white/80 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-2xl border border-primary/10 h-64 flex items-center justify-center">
+            <p className="text-muted-foreground">Loading...</p>
+          </div>
+        </div>
+      </SectionWrapper>
+    }>
+      <ThankYouContent />
+    </Suspense>
   );
 }
