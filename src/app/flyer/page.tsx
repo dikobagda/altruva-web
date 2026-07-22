@@ -9,6 +9,11 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageContext';
 
+import { useRouter } from 'next/navigation';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+
 const CertificatesSection = dynamic(() => import('@/components/flyer/CertificatesSection'), { 
   ssr: false,
   loading: () => <div className="py-20 text-center">Loading certificates...</div>
@@ -31,7 +36,27 @@ const ProvenResultsSection = dynamic(() => import('@/components/flyer/ProvenResu
 
 export default function FlyerPage() {
   const { t } = useLanguage();
+  const router = useRouter();
+  const [isDialogOpen, setIsDialogOpen] = React.useState(false);
+  const [formName, setFormName] = React.useState('');
+  const [formWa, setFormWa] = React.useState('');
   const whatsappLink = "https://wa.me/6281216119392?text=Hai%20Altruva,%20saya%20tertarik%20booking%20konsultasi%20dengan%20dokter%20untuk%20tahu%20advanced%20treatment%20yang%20paling%20sesuai";
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formName.trim() || !formWa.trim()) return;
+
+    // Log lead data (simulated save)
+    console.log('Lead registered:', { name: formName, wa: formWa });
+
+    // Close the dialog and clean form
+    setIsDialogOpen(false);
+    setFormName('');
+    setFormWa('');
+
+    // Redirect to Thank You page which automatically triggers the download
+    router.push('/flyer/thank-you?download=true');
+  };
 
   const agingConcerns = [
     {
@@ -118,23 +143,41 @@ export default function FlyerPage() {
               <h2 className="font-sans text-xl sm:text-xl md:text-xl font-bold text-primary mb-8 leading-tight">
                 Wajah kencang alami tanpa operasi dan tanpa downtime — di Jakarta’s First Regenerative Contouring Clinic
               </h2>
-              <Button
-                asChild
-                size="lg"
-                className="hidden md:inline-flex bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
-              >
-                <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
-              </Button>
+              <div className="hidden md:flex flex-wrap gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
+                >
+                  <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+                </Button>
+                <Button
+                  onClick={() => setIsDialogOpen(true)}
+                  size="lg"
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary/5 font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
+                >
+                  {t({ en: 'Download Complimentary Guide', id: 'Unduh Panduan Gratis' })}
+                </Button>
+              </div>
             </div>
           </div>
 
-          <div className="w-full md:hidden pb-8">
+          <div className="w-full md:hidden pb-8 flex flex-col gap-3">
             <Button
               asChild
               size="lg"
               className="w-full bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
             >
               <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+            </Button>
+            <Button
+              onClick={() => setIsDialogOpen(true)}
+              size="lg"
+              variant="outline"
+              className="w-full border-primary text-primary hover:bg-primary/5 font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
+            >
+              {t({ en: 'Download Complimentary Guide', id: 'Unduh Panduan Gratis' })}
             </Button>
           </div>
         </div>
@@ -315,12 +358,86 @@ export default function FlyerPage() {
       {/* Section 6: Certificates (Dynamically Imported) */}
       <CertificatesSection />
 
+      {/* Dedicated Complimentary Guide CTA Section */}
+      <SectionWrapper className="bg-secondary/20 py-16 border-y border-primary/10">
+        <div className="container mx-auto px-6 max-w-4xl text-center">
+          <h2 className="font-serif text-3xl md:text-4xl text-[#4a301b] font-bold mb-4">
+            {t({ en: 'Download Our Complimentary Guide', id: 'Unduh Panduan Eksklusif Gratis Kami' })}
+          </h2>
+          <p className="text-foreground/80 max-w-xl mx-auto mb-8 text-base md:text-lg">
+            {t({ 
+              en: 'Discover how to age gracefully with the latest non-surgical regenerative contouring treatments by dr. Olivia Aldisa.', 
+              id: 'Temukan rahasia penuaan yang anggun dengan perawatan regenerative contouring non-bedah terbaru dari dr. Olivia Aldisa.' 
+            })}
+          </p>
+          <Button 
+            onClick={() => setIsDialogOpen(true)}
+            size="lg" 
+            className="bg-[#4a301b] hover:bg-[#5a402b] text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200 shadow-md"
+          >
+            {t({ en: 'Download Complimentary Guide', id: 'Unduh Panduan Gratis' })}
+          </Button>
+        </div>
+      </SectionWrapper>
+
       <SectionWrapper className="!py-16 bg-primary">
         <div className="text-center">
           <p className="font-serif text-4xl italic text-primary-foreground">Your skin has a story</p>
           <p className="font-serif text-4xl italic text-primary-foreground mt-2">let's make it a beautiful one</p>
         </div>
       </SectionWrapper>
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[425px] rounded-3xl border border-primary/10 shadow-2xl p-6 bg-white/95 backdrop-blur-md">
+          <DialogHeader className="text-center sm:text-center">
+            <DialogTitle className="font-serif text-2xl text-primary font-bold">
+              {t({ en: 'Download Complimentary Guide', id: 'Unduh Panduan Gratis' })}
+            </DialogTitle>
+            <DialogDescription className="text-sm text-foreground/75 mt-1">
+              {t({ 
+                en: 'Fill in your details below to get instant access to our exclusive beauty guide.', 
+                id: 'Lengkapi data Anda di bawah ini untuk mendapatkan akses langsung ke panduan kecantikan eksklusif kami.' 
+              })}
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleFormSubmit} className="space-y-5 mt-4">
+            <div className="space-y-2 text-left">
+              <Label htmlFor="guide-name" className="text-sm font-semibold text-foreground/80">
+                {t({ en: 'Name', id: 'Nama' })}
+              </Label>
+              <Input
+                id="guide-name"
+                type="text"
+                placeholder={t({ en: 'Your full name', id: 'Nama lengkap Anda' })}
+                value={formName}
+                onChange={(e) => setFormName(e.target.value)}
+                required
+                className="rounded-xl border-foreground/20 focus-visible:ring-[#4a301b]"
+              />
+            </div>
+            <div className="space-y-2 text-left">
+              <Label htmlFor="guide-wa" className="text-sm font-semibold text-foreground/80">
+                {t({ en: 'WhatsApp Number', id: 'Nomor WhatsApp' })}
+              </Label>
+              <Input
+                id="guide-wa"
+                type="tel"
+                placeholder={t({ en: 'e.g. 08123456789', id: 'contoh: 08123456789' })}
+                value={formWa}
+                onChange={(e) => setFormWa(e.target.value.replace(/[^0-9+]/g, ''))}
+                required
+                className="rounded-xl border-foreground/20 focus-visible:ring-[#4a301b]"
+              />
+            </div>
+            <Button 
+              type="submit" 
+              className="w-full bg-[#4a301b] hover:bg-[#5a402b] text-white font-semibold py-6 rounded-xl transition-all duration-200 mt-2 shadow-sm hover:shadow-md"
+            >
+              {t({ en: 'Submit & Download', id: 'Kirim & Unduh' })}
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
