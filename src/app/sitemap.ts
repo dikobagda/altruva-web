@@ -3,6 +3,8 @@ import { services } from '@/lib/data/services';
 import { insights } from '@/lib/data/insights';
 import { beautyJournals } from '@/lib/data/beauty-journal';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://altruva.co.id';
 
