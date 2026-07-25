@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, CalendarDays } from 'lucide-react';
 import InsightCard from '@/components/insights/InsightCard';
 import type { Metadata } from 'next';
+import JsonLd from '@/components/shared/JsonLd';
 
 export async function generateStaticParams() {
   return insights
@@ -48,8 +49,72 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
 
   const relatedInsights = insights.filter(i => i.id !== insight.id && i.href).slice(0, 3);
 
+  let datePublished: string | undefined;
+  try {
+    if (insight.date) {
+      datePublished = new Date(insight.date).toISOString();
+    }
+  } catch (e) {
+    // Ignore and fallback
+  }
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `https://altruva.co.id/insights/${slug}#post`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://altruva.co.id/insights/${slug}`
+    },
+    "headline": insight.title,
+    "description": insight.excerpt,
+    "image": insight.imageSrc ? `https://altruva.co.id${insight.imageSrc}` : undefined,
+    "datePublished": datePublished,
+    "author": {
+      "@type": "Person",
+      "name": "dr. Olivia Aldisa",
+      "jobTitle": "Aesthetic Doctor & Clinic Founder",
+      "url": "https://altruva.co.id/about-us/meet-dr-olivia-aldisa"
+    },
+    "publisher": {
+      "@type": "MedicalBusiness",
+      "@id": "https://altruva.co.id/#clinic",
+      "name": "Altruva Aesthetic Clinic",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://altruva.co.id/images/logoaltruvanew.webp"
+      }
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://altruva.co.id"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Insights",
+        "item": "https://altruva.co.id/insights"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": insight.title,
+        "item": `https://altruva.co.id/insights/${slug}`
+      }
+    ]
+  };
+
   return (
     <>
+      <JsonLd schema={[articleSchema, breadcrumbSchema]} />
       <SectionWrapper className="pt-12 pb-8 md:pt-20 md:pb-12 bg-secondary/30">
         <div className="max-w-4xl mx-auto">
           <Button asChild variant="ghost" className="mb-4">

@@ -5,6 +5,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from "@/components/ui/toaster";
+import JsonLd from '@/components/shared/JsonLd';
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
@@ -27,6 +28,59 @@ export const metadata: Metadata = {
   },
 };
 
+const clinicSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "@id": "https://altruva.co.id/#clinic",
+  "name": "Altruva Aesthetic Clinic",
+  "url": "https://altruva.co.id",
+  "logo": "https://altruva.co.id/images/logoaltruvanew.webp",
+  "image": "https://altruva.co.id/images/herobackground-new.png",
+  "description": "Premier regenerative and aesthetic treatments clinic in Kebayoran Baru, Jakarta Selatan. Specializing in non-invasive procedures like Sofwave, EmSculpt Neo, and Gouri, led by dr. Olivia Aldisa.",
+  "telephone": "+6281216119392",
+  "email": "admin@altruva.co.id",
+  "priceRange": "$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jl. Ciasem I No.2 Kebayoran Baru",
+    "addressLocality": "Jakarta Selatan",
+    "addressRegion": "DKI Jakarta",
+    "postalCode": "12180",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-6.2385236",
+    "longitude": "106.80901"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "10:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "dr. Olivia Aldisa",
+    "jobTitle": "Aesthetic Doctor & Clinic Founder"
+  }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Altruva Aesthetic Clinic",
+  "url": "https://altruva.co.id"
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,6 +98,7 @@ export default function RootLayout({
           nunitoSans.variable
         )}
       >
+        <JsonLd schema={[clinicSchema, websiteSchema]} />
         <NextTopLoader
           color="hsl(var(--primary))"
           initialPosition={0.08}

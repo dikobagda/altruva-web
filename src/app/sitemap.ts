@@ -4,7 +4,7 @@ import { insights } from '@/lib/data/insights';
 import { beautyJournals } from '@/lib/data/beauty-journal';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://altruva.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://altruva.co.id';
 
   // 1. Static Routes
   const staticPaths = [

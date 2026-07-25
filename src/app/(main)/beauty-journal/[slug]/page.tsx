@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { beautyJournals } from '@/lib/data/beauty-journal';
 import { journalArticles } from '@/lib/data/journal-articles';
 import { insights } from '@/lib/data/insights';
+import JsonLd from '@/components/shared/JsonLd';
 
 export function generateStaticParams() {
     return beautyJournals
@@ -45,8 +46,75 @@ export default async function BeautyJournalArticlePage({ params }: { params: Pro
         notFound();
     }
 
+    const matchingInsight = insights.find((i) => i.href && i.href.endsWith(slug));
+
+    let datePublished: string | undefined;
+    try {
+        if (matchingInsight?.date) {
+            datePublished = new Date(matchingInsight.date).toISOString();
+        }
+    } catch (e) {
+        // Ignore and fallback
+    }
+
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": `https://altruva.co.id/beauty-journal/${slug}#article`,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://altruva.co.id/beauty-journal/${slug}`
+        },
+        "headline": journal.title,
+        "description": matchingInsight?.excerpt || `Read the ${journal.issue} edition of Altruva Beauty Journal: ${journal.title}.`,
+        "image": journal.coverImage ? `https://altruva.co.id${journal.coverImage}` : undefined,
+        "datePublished": datePublished,
+        "author": {
+            "@type": "Person",
+            "name": "dr. Olivia Aldisa",
+            "jobTitle": "Aesthetic Doctor & Clinic Founder",
+            "url": "https://altruva.co.id/about-us/meet-dr-olivia-aldisa"
+        },
+        "publisher": {
+            "@type": "MedicalBusiness",
+            "@id": "https://altruva.co.id/#clinic",
+            "name": "Altruva Aesthetic Clinic",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://altruva.co.id/images/logoaltruvanew.webp"
+            }
+        }
+    };
+
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://altruva.co.id"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Beauty Journal",
+                "item": "https://altruva.co.id/beauty-journal"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": journal.title,
+                "item": `https://altruva.co.id/beauty-journal/${slug}`
+            }
+        ]
+    };
+
     return (
-        <SectionWrapper className="pt-24 md:pt-32 pb-16">
+        <>
+            <JsonLd schema={[articleSchema, breadcrumbSchema]} />
+            <SectionWrapper className="pt-24 md:pt-32 pb-16">
             <article className="max-w-4xl mx-auto">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
                     <Link
