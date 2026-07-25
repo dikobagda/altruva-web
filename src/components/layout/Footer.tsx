@@ -33,8 +33,9 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image
                 src="/images/logoaltruvanew.webp"
-                width={90}
-                height={90}
+                width={270}
+                height={270}
+                className="w-[90px] h-[90px]"
                 alt="Altruva Logo"
               />
             </Link>
