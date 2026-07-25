@@ -170,5 +170,6 @@ export default async function BeautyJournalArticlePage({ params }: { params: Pro
                 </div>
             </article>
         </SectionWrapper>
+        </>
     );
 }
