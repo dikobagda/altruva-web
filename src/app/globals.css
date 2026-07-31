@@ -139,3 +139,61 @@
 .preloader .logo-container {
   animation: pulse 2.5s infinite ease-in-out;
 }
+
+/* Ensure all H2 and H3 headings inside blog editor and article reader are Altruva brown and serif font */
+.prose h2,
+.prose h3 {
+  color: hsl(var(--primary)) !important;
+  font-family: var(--font-libre-baskerville), serif !important;
+}
+
+/* Force pasted styles (like inline span colors, font sizes, weights) inside H2/H3 to inherit the parent properties */
+.prose h2 *,
+.prose h3 * {
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Force bullet points and numbers to render inside editor & live article prose */
+.prose ul,
+.prose [contenteditable] ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.prose ol,
+.prose [contenteditable] ol {
+  list-style-type: decimal !important;
+  padding-left: 1.5rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.prose li,
+.prose [contenteditable] li {
+  display: list-item !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Ensure all input and textarea placeholders are light slate color (muted) and have regular font weight */
+input::placeholder,
+textarea::placeholder,
+::placeholder {
+  color: #94a3b8 !important; /* slate-400 */
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+/* Enable smooth scrolling globally */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add margin offset for jumping to headings via anchor links so they aren't hidden under the sticky header */
+h2[id], h3[id] {
+  scroll-margin-top: 100px;
+}

@@ -34,9 +34,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const baseKeywords = ['Altruva', 'Aesthetic Clinic', 'dr. Olivia Aldisa'];
   const dynamicKeywords = insight.keywords ? insight.keywords : insight.title.split(' ');
 
+  // Auto-generate meta description if excerpt is missing
+  let metaDescription = insight.excerpt?.trim();
+  if (!metaDescription && insight.content) {
+    const plainText = insight.content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    metaDescription = plainText.substring(0, 155).trim();
+    if (plainText.length > 155) {
+      metaDescription += '...';
+    }
+  }
+  if (!metaDescription) {
+    metaDescription = `${insight.title}. Baca artikel ilmiah selengkapnya tentang kesehatan kulit wajah hanya di Altruva Aesthetic Clinic Jakarta.`;
+  }
+
   return {
     title: `${insight.title} - Altruva Articles`,
-    description: insight.excerpt,
+    description: metaDescription,
     keywords: [...new Set([...dynamicKeywords, ...baseKeywords])], // Combine and remove duplicates
   };
 }
@@ -51,6 +64,24 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
 
   const blogsList = await getDbBlogs();
   const relatedInsights = blogsList.filter(i => i.id !== insight.id && i.href).slice(0, 3);
+
+  // Parse headings for Table of Contents
+  const headings: { id: string; text: string; level: number }[] = [];
+  let modifiedContent = insight.content || '';
+  
+  if (insight.content) {
+    let idCounter = 0;
+    modifiedContent = insight.content.replace(/<(h[23])([^>]*)>([\s\S]*?)<\/h[23]>/gi, (match, tag, attrs, text) => {
+      const cleanText = text.replace(/<[^>]*>/g, '').trim();
+      const id = `heading-${idCounter++}-${cleanText.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+      headings.push({
+        id,
+        text: cleanText,
+        level: tag.toLowerCase() === 'h2' ? 2 : 3
+      });
+      return `<${tag}${attrs} id="${id}">${text}</${tag}>`;
+    });
+  }
 
   // Track page view — forward visitor real IP, fire and forget
   try {
@@ -200,11 +231,32 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
 
                 <div 
                     className="prose prose-lg max-w-none text-foreground/80 [&_p]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-3xl [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-primary" 
-                    dangerouslySetInnerHTML={{ __html: insight.content || "<p>Content coming soon.</p>" }} 
+                    dangerouslySetInnerHTML={{ __html: modifiedContent || "<p>Content coming soon.</p>" }} 
                 />
             </article>
 
-            <aside className="lg:col-span-1 space-y-8 sticky top-24">
+             <aside className="lg:col-span-1 space-y-8 sticky top-28">
+                {headings.length > 0 && (
+                  <div className="p-6 rounded-lg bg-secondary/30 border border-slate-100/50">
+                    <h3 className="font-serif text-xl text-primary mb-4 font-bold border-b pb-2 border-slate-200/50">Daftar Isi</h3>
+                    <nav className="space-y-3">
+                      {headings.map(h => (
+                        <a 
+                          href={`#${h.id}`} 
+                          key={h.id} 
+                          className={`block text-sm transition-all duration-200 hover:text-primary leading-snug ${
+                            h.level === 3 
+                              ? 'pl-4 text-slate-500 hover:pl-5 border-l border-slate-200 focus:border-primary' 
+                              : 'text-slate-700 font-semibold hover:translate-x-0.5'
+                          }`}
+                        >
+                          {h.text}
+                        </a>
+                      ))}
+                    </nav>
+                  </div>
+                )}
+
                 <div className="p-6 rounded-lg bg-secondary/50">
                     <h3 className="font-serif text-2xl text-primary mb-4">Related Articles</h3>
                     <div className="space-y-6">

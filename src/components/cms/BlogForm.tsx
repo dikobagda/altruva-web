@@ -43,7 +43,93 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
   const [imageUploading, setImageUploading] = useState(false);
   const dateInputRef = useRef<HTMLInputElement>(null);
   const thumbnailInputRef = useRef<HTMLInputElement>(null);
+  const [isGeneratingKeywords, setIsGeneratingKeywords] = useState(false);
+  const [isGeneratingExcerpt, setIsGeneratingExcerpt] = useState(false);
+  const [isGeneratingAltText, setIsGeneratingAltText] = useState(false);
+  const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   const router = useRouter();
+
+  const generateAiImage = async () => {
+    // Flow Requirement: check if title or content is empty
+    const plainText = content?.replace(/<[^>]*>/g, '').trim();
+    if (!title || !plainText) {
+      alert("Please fill in the Title and Article Body first before generating a Cover Image with AI.");
+      return;
+    }
+
+    setIsGeneratingImage(true);
+    try {
+      const res = await fetch('/api/cms/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, promptHint: plainText.substring(0, 500) }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (data.url) {
+          setImageSrc(data.url);
+          if (!imageHint) {
+            setImageHint(title.toLowerCase() + ' treatment at altruva');
+          }
+        }
+      } else {
+        alert('Failed to generate image. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('An error occurred during image generation.');
+    } finally {
+      setIsGeneratingImage(false);
+    }
+  };
+
+  const generateAiField = async (field: 'keywords' | 'excerpt' | 'altText') => {
+    // Flow Requirement: check if content (article body) is empty
+    const plainText = content?.replace(/<[^>]*>/g, '').trim();
+    if (!plainText) {
+      alert("Please fill in the Article Body first before generating SEO metadata with AI.");
+      return;
+    }
+
+    if (field === 'keywords') setIsGeneratingKeywords(true);
+    if (field === 'excerpt') setIsGeneratingExcerpt(true);
+    if (field === 'altText') setIsGeneratingAltText(true);
+
+    try {
+      const res = await fetch('/api/cms/seo-optimize', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title,
+          slug,
+          excerpt,
+          content,
+          imageHint,
+        }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (field === 'keywords' && data.optimizedKeywords) {
+          setKeywordsInput(Array.isArray(data.optimizedKeywords) ? data.optimizedKeywords.join(', ') : data.optimizedKeywords);
+        } else if (field === 'excerpt' && data.optimizedExcerpt) {
+          setExcerpt(data.optimizedExcerpt);
+        } else if (field === 'altText' && data.optimizedImageHint) {
+          setImageHint(data.optimizedImageHint);
+        }
+      } else {
+        alert('Failed to generate metadata using AI. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('An error occurred during generation.');
+    } finally {
+      if (field === 'keywords') setIsGeneratingKeywords(false);
+      if (field === 'excerpt') setIsGeneratingExcerpt(false);
+      if (field === 'altText') setIsGeneratingAltText(false);
+    }
+  };
 
   useEffect(() => {
     if (initialData) {
@@ -223,10 +309,18 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
               />
             </div>
 
+            {/* Content (HTML Editor/TextArea) */}
+            <div className="space-y-2">
+              <Label htmlFor="content" className="text-primary font-medium">Article Body</Label>
+              <WysiwygEditor value={content} onChange={setContent} />
+            </div>
+
             <div className="grid md:grid-cols-2 gap-6">
               {/* Publish Date */}
               <div className="space-y-2">
-                <Label htmlFor="date" className="text-primary font-medium">Publish Date</Label>
+                <div className="flex items-center justify-between h-6">
+                  <Label htmlFor="date" className="text-primary font-medium">Publish Date</Label>
+                </div>
                 <div className="relative">
                   {/* Display value */}
                   <input
@@ -259,7 +353,21 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
 
               {/* Keywords */}
               <div className="space-y-2">
-                <Label htmlFor="keywords" className="text-primary font-medium">Keywords / Tags (comma-separated)</Label>
+                <div className="flex items-center justify-between h-6">
+                  <Label htmlFor="keywords" className="text-primary font-medium">Keywords / Tags (comma-separated)</Label>
+                  <button
+                    type="button"
+                    onClick={() => generateAiField('keywords')}
+                    disabled={isGeneratingKeywords}
+                    className="text-xs text-primary font-semibold hover:underline flex items-center gap-1"
+                  >
+                    {isGeneratingKeywords ? (
+                      <><Loader2 className="h-3 w-3 animate-spin" /> Generating...</>
+                    ) : (
+                      '✨ Generate with AI'
+                    )}
+                  </button>
+                </div>
                 <Input
                   id="keywords"
                   type="text"
@@ -299,7 +407,21 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
 
             {/* Thumbnail Upload */}
             <div className="space-y-2">
-              <Label className="text-primary font-medium">Cover Image</Label>
+              <div className="flex items-center justify-between">
+                <Label className="text-primary font-medium">Cover Image</Label>
+                <button
+                  type="button"
+                  onClick={generateAiImage}
+                  disabled={isGeneratingImage}
+                  className="text-xs text-primary font-semibold hover:underline flex items-center gap-1"
+                >
+                  {isGeneratingImage ? (
+                    <><Loader2 className="h-3 w-3 animate-spin" /> Generating Image...</>
+                  ) : (
+                    '✨ Generate with AI'
+                  )}
+                </button>
+              </div>
               <input
                 ref={thumbnailInputRef}
                 type="file"
@@ -358,7 +480,21 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
 
             {/* Image Alt Text */}
             <div className="space-y-2">
-              <Label htmlFor="imageHint" className="text-primary font-medium">Image Alt Text (SEO)</Label>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="imageHint" className="text-primary font-medium">Image Alt Text (SEO)</Label>
+                <button
+                  type="button"
+                  onClick={() => generateAiField('altText')}
+                  disabled={isGeneratingAltText}
+                  className="text-xs text-primary font-semibold hover:underline flex items-center gap-1"
+                >
+                  {isGeneratingAltText ? (
+                    <><Loader2 className="h-3 w-3 animate-spin" /> Generating...</>
+                  ) : (
+                    '✨ Generate with AI'
+                  )}
+                </button>
+              </div>
               <Input
                 id="imageHint"
                 type="text"
@@ -375,7 +511,21 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
 
             {/* Excerpt */}
             <div className="space-y-2">
-              <Label htmlFor="excerpt" className="text-primary font-medium">Excerpt / Summary</Label>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="excerpt" className="text-primary font-medium">Excerpt / Summary</Label>
+                <button
+                  type="button"
+                  onClick={() => generateAiField('excerpt')}
+                  disabled={isGeneratingExcerpt}
+                  className="text-xs text-primary font-semibold hover:underline flex items-center gap-1"
+                >
+                  {isGeneratingExcerpt ? (
+                    <><Loader2 className="h-3 w-3 animate-spin" /> Generating...</>
+                  ) : (
+                    '✨ Generate with AI'
+                  )}
+                </button>
+              </div>
               <Textarea
                 id="excerpt"
                 rows={3}
@@ -384,12 +534,6 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
                 placeholder="Write a brief overview of the article..."
                 className="border-slate-200 focus:border-primary bg-white resize-none"
               />
-            </div>
-
-            {/* Content (HTML Editor/TextArea) */}
-            <div className="space-y-2">
-              <Label htmlFor="content" className="text-primary font-medium">Article Body</Label>
-              <WysiwygEditor value={content} onChange={setContent} />
             </div>
 
             <Button

@@ -46,6 +46,7 @@ Rules for optimization:
 4. Image Alt: Descriptive alt tag for image SEO (e.g. clinics, treatments, modern lobbies).
 5. Content Body (HTML): Enhance the text structure to improve AI capture score. Keep original paragraphs, but inject a short bullet list summary of key points at the top (within <ul>/<li>), ensure clear semantic headings (<h2> and <h3>), and include clear definition statements (e.g. "X adalah...") for direct Q&A boxes. Keep all HTML tags valid.
 6. Content Improvements: Actionable suggestions for hierarchy, bullet points, readability.
+7. Keywords: An array of 5-8 highly relevant aesthetic clinic SEO keywords or tags based on content.
 
 Return response strictly as a JSON object with this shape:
 {
@@ -54,6 +55,7 @@ Return response strictly as a JSON object with this shape:
   "optimizedExcerpt": "New excerpt summary here...",
   "optimizedImageHint": "new image alt description here",
   "optimizedContent": "New HTML Content Body Here",
+  "optimizedKeywords": ["keyword1", "keyword2", "keyword3"],
   "contentSuggestions": [
     "Suggestion 1...",
     "Suggestion 2..."
@@ -179,12 +181,15 @@ Return response strictly as a JSON object with this shape:
       contentSuggestions.push('Content structure is fully optimized for readability and keyword density!');
     }
 
+    const optimizedKeywords = ['altruva clinic', 'aesthetic clinic jakarta', 'skincare tips', ...title.toLowerCase().split(' ').filter(w => w.length > 4)];
+
     return NextResponse.json({
       optimizedTitle,
       optimizedSlug,
       optimizedExcerpt,
       optimizedImageHint,
       optimizedContent,
+      optimizedKeywords,
       contentSuggestions,
     });
   } catch (error: any) {

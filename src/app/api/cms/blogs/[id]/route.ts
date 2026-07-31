@@ -36,6 +36,22 @@ export async function GET(
   }
 }
 
+function generateExcerptFromContent(contentHtml: string, title: string): string {
+  if (!contentHtml) {
+    return `${title}. Pelajari selengkapnya di Altruva Aesthetic Clinic Jakarta.`;
+  }
+  const plainText = contentHtml
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (plainText.length <= 155) {
+    return plainText || `${title}. Pelajari selengkapnya di Altruva Aesthetic Clinic Jakarta.`;
+  }
+  const cropped = plainText.substring(0, 155);
+  const lastSpace = cropped.lastIndexOf(' ');
+  return lastSpace > 40 ? cropped.substring(0, lastSpace).trim() + '...' : cropped.trim() + '...';
+}
+
 export async function PUT(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -54,6 +70,8 @@ export async function PUT(
       return NextResponse.json({ error: 'Slug and Title are required' }, { status: 400 });
     }
 
+    const finalExcerpt = excerpt?.trim() ? excerpt.trim() : generateExcerptFromContent(content || '', title);
+
     await pool.query(
       `UPDATE blogs 
        SET slug = ?, title = ?, excerpt = ?, content = ?, image_src = ?, image_hint = ?, date = ?, keywords = ?, author = ?, reviewed_by = ?
@@ -61,7 +79,7 @@ export async function PUT(
       [
         slug,
         title,
-        excerpt || '',
+        finalExcerpt,
         content || '',
         imageSrc || '',
         imageHint || '',

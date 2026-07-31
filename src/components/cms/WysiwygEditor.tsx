@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Bold, Italic, Underline, Heading2, Heading3, List, Link as LinkIcon, Image as ImageIcon, Code, Eye, Eraser, Loader2 } from 'lucide-react';
+import { Bold, Italic, Underline, Heading2, Heading3, List, Link as LinkIcon, Image as ImageIcon, Code, Eye, Eraser, Loader2, AlignLeft, AlignCenter, AlignRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 
@@ -98,7 +98,7 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
   };
 
   return (
-    <div className="border border-slate-200 rounded-lg overflow-hidden focus-within:ring-1 focus-within:ring-primary focus-within:border-primary">
+    <div className="border border-slate-200 rounded-lg focus-within:ring-1 focus-within:ring-primary focus-within:border-primary">
       {/* Hidden File Input for Image Upload */}
       <input
         type="file"
@@ -109,7 +109,7 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
       />
 
       {/* Toolbar */}
-      <div className="bg-white border-b border-slate-200 px-3 py-2 flex flex-wrap gap-1.5 items-center justify-between">
+      <div className="sticky top-0 z-20 bg-slate-50 border-b border-slate-200 px-3 py-2 flex flex-wrap gap-1.5 items-center justify-between rounded-t-lg shadow-sm">
         <div className="flex flex-wrap gap-1 items-center">
           {/* Formatting Buttons */}
           <Button
@@ -153,34 +153,34 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
             type="button"
             variant="ghost"
             size="sm"
-            className="h-8 px-2 hover:bg-slate-200 text-slate-700"
-            onClick={() => executeCommand('formatBlock', 'h2')}
+            className="h-8 w-8 p-0 hover:bg-slate-200 text-slate-700"
+            onClick={() => executeCommand('formatBlock', '<h2>')}
             title="Heading 2"
             disabled={isCodeView}
           >
-            <Heading2 className="h-4 w-4 mr-1" /> H2
+            <Heading2 className="h-4 w-4" />
           </Button>
           <Button
             type="button"
             variant="ghost"
             size="sm"
-            className="h-8 px-2 hover:bg-slate-200 text-slate-700"
-            onClick={() => executeCommand('formatBlock', 'h3')}
+            className="h-8 w-8 p-0 hover:bg-slate-200 text-slate-700"
+            onClick={() => executeCommand('formatBlock', '<h3>')}
             title="Heading 3"
             disabled={isCodeView}
           >
-            <Heading3 className="h-4 w-4 mr-1" /> H3
+            <Heading3 className="h-4 w-4" />
           </Button>
           <Button
             type="button"
             variant="ghost"
             size="sm"
-            className="h-8 px-2 hover:bg-slate-200 text-slate-700"
-            onClick={() => executeCommand('formatBlock', 'p')}
+            className="h-8 w-8 p-0 hover:bg-slate-200 text-slate-700"
+            onClick={() => executeCommand('formatBlock', '<p>')}
             title="Paragraph"
             disabled={isCodeView}
           >
-            P
+            <span className="font-serif font-bold text-sm">P</span>
           </Button>
 
           <div className="w-px h-6 bg-slate-200 mx-1" />
@@ -197,6 +197,43 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
           >
             <List className="h-4 w-4" />
           </Button>
+
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="h-8 w-8 p-0 hover:bg-slate-200 text-slate-700"
+            onClick={() => executeCommand('justifyLeft')}
+            title="Align Left"
+            disabled={isCodeView}
+          >
+            <AlignLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="h-8 w-8 p-0 hover:bg-slate-200 text-slate-700"
+            onClick={() => executeCommand('justifyCenter')}
+            title="Align Center"
+            disabled={isCodeView}
+          >
+            <AlignCenter className="h-4 w-4" />
+          </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="h-8 w-8 p-0 hover:bg-slate-200 text-slate-700"
+            onClick={() => executeCommand('justifyRight')}
+            title="Align Right"
+            disabled={isCodeView}
+          >
+            <AlignRight className="h-4 w-4" />
+          </Button>
+
+          <div className="w-px h-6 bg-slate-200 mx-1" />
+
           <Button
             type="button"
             variant="ghost"
@@ -257,7 +294,7 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
       </div>
 
       {/* Editor Content Area */}
-      <div className="bg-white">
+      <div className="bg-white rounded-b-lg">
         {isCodeView ? (
           <Textarea
             value={internalValue}
