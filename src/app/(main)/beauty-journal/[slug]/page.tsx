@@ -6,7 +6,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { beautyJournals } from '@/lib/data/beauty-journal';
 import { journalArticles } from '@/lib/data/journal-articles';
-import { insights } from '@/lib/data/insights';
+import { getDbBlogs } from '@/lib/api/db-blog';
 import JsonLd from '@/components/shared/JsonLd';
 
 export function generateStaticParams() {
@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const resolvedParams = await params;
     const { slug } = resolvedParams;
     const journal = beautyJournals.find((j) => j.slug === slug);
-    const matchingInsight = insights.find((i) => i.href && i.href.endsWith(slug));
+    const blogsList = await getDbBlogs();
+    const matchingInsight = blogsList.find((b) => b.href && b.href.endsWith(slug));
 
     const baseKeywords = ['Altruva', 'Beauty Journal', 'Aesthetic Clinic Jakarta', 'dr. Olivia Aldisa'];
     const dynamicKeywords = matchingInsight?.keywords 
@@ -46,7 +47,8 @@ export default async function BeautyJournalArticlePage({ params }: { params: Pro
         notFound();
     }
 
-    const matchingInsight = insights.find((i) => i.href && i.href.endsWith(slug));
+    const blogsList = await getDbBlogs();
+    const matchingInsight = blogsList.find((b) => b.href && b.href.endsWith(slug));
 
     let datePublished: string | undefined;
     try {

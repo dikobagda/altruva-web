@@ -2,8 +2,8 @@
 
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
-import InsightCard from '@/components/insights/InsightCard';
-import { insights } from '@/lib/data/insights';
+import BlogCard from '@/components/blog/BlogCard';
+import { getDbBlogs } from '@/lib/api/db-blog';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -17,9 +17,15 @@ export const metadata: Metadata = {
   keywords: ['aesthetic science', 'beauty blog', 'skincare tips', 'Altruva Clinic', 'dr. Olivia Aldisa', 'regenerative aesthetics', 'Jakarta'],
 };
 
-export default function ArticlesPage() {
-  const featuredInsight = insights.find(i => i.href);
-  const otherInsights = insights.slice(1).filter(i => i.href);
+export default async function ArticlesPage() {
+  const blogsList = await getDbBlogs();
+  const blogs = [...blogsList].sort((a, b) => {
+    const da = new Date(a.date).getTime() || 0;
+    const db = new Date(b.date).getTime() || 0;
+    return db - da;
+  });
+  const featuredInsight = blogs.find(i => i.href);
+  const otherInsights = blogs.slice(1).filter(i => i.href);
 
   return (
     <SectionWrapper>
@@ -69,7 +75,7 @@ export default function ArticlesPage() {
       {/* Other Insights */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {otherInsights.map((insight) => (
-          <InsightCard key={insight.id} insight={insight} />
+          <BlogCard key={insight.id} blog={insight} />
         ))}
       </div>
     </SectionWrapper>

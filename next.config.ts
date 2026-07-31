@@ -58,6 +58,30 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/insights',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/insights/:slug',
+        destination: '/blog/:slug',
+        permanent: true,
+      },
+      {
+        source: '/services',
+        destination: '/treatments',
+        permanent: true,
+      },
+      {
+        source: '/services/:slug',
+        destination: '/treatments/:slug',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -21,7 +21,7 @@ export default function TreatmentCard({ id, title, description, price, imageSrc,
   const { t } = useLanguage();
   
   return (
-    <Link href={`/services/${id}`} className="flex h-full">
+    <Link href={`/treatments/${id}`} className="flex h-full">
       <Card id={id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">
         <div className="relative w-full aspect-video overflow-hidden">
           <Image

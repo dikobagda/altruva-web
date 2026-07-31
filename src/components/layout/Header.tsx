@@ -48,41 +48,41 @@ const navItems: NavItem[] = [
           {
             label: { en: 'Altruva Lift', id: 'Altruva Lift' },
             subItems: [
-              { href: '/services/art-lyft-lite', label: { en: 'Altruva A.R.T Lift (Lite) by dr. Aldisa', id: 'Altruva A.R.T Lift (Lite) by dr. Aldisa' } },
-              { href: '/services/gorgeous-lyft-prejuvenation', label: { en: 'Altruva Gorgeous Lyft by dr. Aldisa', id: 'Altruva Gorgeous Lyft by dr. Aldisa' } },
-              { href: '/services/exion-lumi-rf', label: { en: 'Altruva Lumi RF', id: 'Altruva Lumi RF' } },
+              { href: '/treatments/art-lyft-lite', label: { en: 'Altruva A.R.T Lift (Lite) by dr. Aldisa', id: 'Altruva A.R.T Lift (Lite) by dr. Aldisa' } },
+              { href: '/treatments/gorgeous-lyft-prejuvenation', label: { en: 'Altruva Gorgeous Lyft by dr. Aldisa', id: 'Altruva Gorgeous Lyft by dr. Aldisa' } },
+              { href: '/treatments/exion-lumi-rf', label: { en: 'Altruva Lumi RF', id: 'Altruva Lumi RF' } },
             ]
           },
           {
             label: { en: 'Altruva Lift Signature', id: 'Altruva Lift Signature' },
             subItems: [
-              { href: '/services/slim-contour-injection', label: { en: 'Altruva Slim Contour Injection', id: 'Altruva Slim Contour Injection' } },
-              { href: '/services/face-modulator-half', label: { en: 'Altruva Face Modulator (Half Dose)', id: 'Altruva Face Modulator (Half Dose)' } },
-              { href: '/services/dermal-fillers', label: { en: 'Altruva Dermal Fillers', id: 'Altruva Dermal Fillers' } },
+              { href: '/treatments/slim-contour-injection', label: { en: 'Altruva Slim Contour Injection', id: 'Altruva Slim Contour Injection' } },
+              { href: '/treatments/face-modulator-half', label: { en: 'Altruva Face Modulator (Half Dose)', id: 'Altruva Face Modulator (Half Dose)' } },
+              { href: '/treatments/dermal-fillers', label: { en: 'Altruva Dermal Fillers', id: 'Altruva Dermal Fillers' } },
             ]
           },
           {
             label: { en: 'Signature Laser', id: 'Signature Laser' },
             subItems: [
-              { href: '/services/exion-lumi-laser', label: { en: 'Altruva Lumi Laser', id: 'Altruva Lumi Laser' } },
-              { href: '/services/exion-scar-solver', label: { en: 'Altruva Scar Solver', id: 'Altruva Scar Solver' } },
+              { href: '/treatments/exion-lumi-laser', label: { en: 'Altruva Lumi Laser', id: 'Altruva Lumi Laser' } },
+              { href: '/treatments/exion-scar-solver', label: { en: 'Altruva Scar Solver', id: 'Altruva Scar Solver' } },
             ]
           },
           {
             label: { en: 'Signature Peels', id: 'Signature Peels' },
             subItems: [
-              { href: '/services/clarify-peel', label: { en: 'Altruva Clarify Peel', id: 'Altruva Clarify Peel' } },
-              { href: '/services/korean-luminous-peel', label: { en: 'Altruva Korean Luminous Peel', id: 'Altruva Korean Luminous Peel' } },
+              { href: '/treatments/clarify-peel', label: { en: 'Altruva Clarify Peel', id: 'Altruva Clarify Peel' } },
+              { href: '/treatments/korean-luminous-peel', label: { en: 'Altruva Korean Luminous Peel', id: 'Altruva Korean Luminous Peel' } },
             ]
           },
           {
             label: { en: 'Skingeneering booster', id: 'Skingeneering booster' },
             subItems: [
-              { href: '/services/glacier-skin', label: { en: 'Altruva Glacier Skin', id: 'Altruva Glacier Skin' } },
-              { href: '/services/dark-spot-booster', label: { en: 'Altruva Darkspots-Boosters', id: 'Altruva Darkspots-Boosters' } },
-              { href: '/services/purifying-booster', label: { en: 'Altruva Purifying Booster', id: 'Altruva Purifying Booster' } },
-              { href: '/services/dna-repair', label: { en: 'Altruva DNA Repair', id: 'Altruva DNA Repair' } },
-              { href: '/services/bio-prf', label: { en: 'Altruva Bio-PRF', id: 'Altruva Bio-PRF' } },
+              { href: '/treatments/glacier-skin', label: { en: 'Altruva Glacier Skin', id: 'Altruva Glacier Skin' } },
+              { href: '/treatments/dark-spot-booster', label: { en: 'Altruva Darkspots-Boosters', id: 'Altruva Darkspots-Boosters' } },
+              { href: '/treatments/purifying-booster', label: { en: 'Altruva Purifying Booster', id: 'Altruva Purifying Booster' } },
+              { href: '/treatments/dna-repair', label: { en: 'Altruva DNA Repair', id: 'Altruva DNA Repair' } },
+              { href: '/treatments/bio-prf', label: { en: 'Altruva Bio-PRF', id: 'Altruva Bio-PRF' } },
             ]
           }
         ],
@@ -93,42 +93,42 @@ const navItems: NavItem[] = [
           {
             label: { en: 'Altruva Lift', id: 'Altruva Lift' },
             subItems: [
-              { href: '/services/art-lyft', label: { en: 'Altruva A.R.T Lift PRO by dr. Aldisa', id: 'Altruva A.R.T Lift PRO by dr. Aldisa' } },
-              { href: '/services/gorgeous-lyft-rejuvenation', label: { en: 'Altruva Gorgeous Lyft by dr. Aldisa', id: 'Altruva Gorgeous Lyft by dr. Aldisa' } },
-              { href: '/services/radiance-lyft', label: { en: 'Altruva Regenerative RF', id: 'Altruva Regenerative RF' } },
+              { href: '/treatments/art-lyft', label: { en: 'Altruva A.R.T Lift PRO by dr. Aldisa', id: 'Altruva A.R.T Lift PRO by dr. Aldisa' } },
+              { href: '/treatments/gorgeous-lyft-rejuvenation', label: { en: 'Altruva Gorgeous Lyft by dr. Aldisa', id: 'Altruva Gorgeous Lyft by dr. Aldisa' } },
+              { href: '/treatments/radiance-lyft', label: { en: 'Altruva Regenerative RF', id: 'Altruva Regenerative RF' } },
             ],
           },
           {
             label: { en: 'Altruva Lift Signature', id: 'Altruva Lift Signature' },
             subItems: [
-              { href: '/services/cocktail-contouring', label: { en: 'Altruva Cocktail Contouring', id: 'Altruva Cocktail Contouring' } },
-              { href: '/services/face-modulator-full', label: { en: 'Altruva Face Modulator (Full Dose)', id: 'Altruva Face Modulator (Full Dose)' } },
-              { href: '/services/dermal-fillers-pro', label: { en: 'Altruva Dermal Filler Pro', id: 'Altruva Dermal Filler Pro' } },
+              { href: '/treatments/cocktail-contouring', label: { en: 'Altruva Cocktail Contouring', id: 'Altruva Cocktail Contouring' } },
+              { href: '/treatments/face-modulator-full', label: { en: 'Altruva Face Modulator (Full Dose)', id: 'Altruva Face Modulator (Full Dose)' } },
+              { href: '/treatments/dermal-fillers-pro', label: { en: 'Altruva Dermal Filler Pro', id: 'Altruva Dermal Filler Pro' } },
             ],
           },
           {
             label: { en: 'Signature Laser', id: 'Signature Laser' },
             subItems: [
-              { href: '/services/exion-regen-laser', label: { en: 'Altruva Regenerative Laser', id: 'Altruva Regenerative Laser' } },
-              { href: '/services/exion-fractiopro', label: { en: 'Altruva FractioPro', id: 'Altruva FractioPro' } },
+              { href: '/treatments/exion-regen-laser', label: { en: 'Altruva Regenerative Laser', id: 'Altruva Regenerative Laser' } },
+              { href: '/treatments/exion-fractiopro', label: { en: 'Altruva FractioPro', id: 'Altruva FractioPro' } },
             ],
           },
           {
             label: { en: 'Signature Peels', id: 'Signature Peels' },
             subItems: [
-              { href: '/services/radiant-advanced-peel', label: { en: 'Altruva Radiant Advanced Peel', id: 'Altruva Radiant Advanced Peel' } },
+              { href: '/treatments/radiant-advanced-peel', label: { en: 'Altruva Radiant Advanced Peel', id: 'Altruva Radiant Advanced Peel' } },
             ],
           },
           {
             label: { en: 'Skingeneering Boosters', id: 'Skingeneering Boosters' },
             subItems: [
-              { href: '/services/dna-repair-pro', label: { en: 'Altruva DNA Repair Pro', id: 'Altruva DNA Repair Pro' } },
-              { href: '/services/dna-repair-eye', label: { en: 'Altruva DNA Repair Eye', id: 'Altruva DNA Repair Eye' } },
-              { href: '/services/exoprime-pro', label: { en: 'Altruva Exoprime Pro', id: 'Altruva Exoprime Pro' } },
-              { href: '/services/melabooster', label: { en: 'Altruva Mela-Boosters', id: 'Altruva Mela-Boosters' } },
-              { href: '/services/amino-booster', label: { en: 'Altruva Amino Booster', id: 'Altruva Amino Booster' } },
-              { href: '/services/bio-prf-rejuvenation', label: { en: 'Altruva Bio-PRF', id: 'Altruva Bio-PRF' } },
-              { href: '/services/altruva-youth-elixir', label: { en: 'Altruva Youth Elixir', id: 'Altruva Youth Elixir' } },
+              { href: '/treatments/dna-repair-pro', label: { en: 'Altruva DNA Repair Pro', id: 'Altruva DNA Repair Pro' } },
+              { href: '/treatments/dna-repair-eye', label: { en: 'Altruva DNA Repair Eye', id: 'Altruva DNA Repair Eye' } },
+              { href: '/treatments/exoprime-pro', label: { en: 'Altruva Exoprime Pro', id: 'Altruva Exoprime Pro' } },
+              { href: '/treatments/melabooster', label: { en: 'Altruva Mela-Boosters', id: 'Altruva Mela-Boosters' } },
+              { href: '/treatments/amino-booster', label: { en: 'Altruva Amino Booster', id: 'Altruva Amino Booster' } },
+              { href: '/treatments/bio-prf-rejuvenation', label: { en: 'Altruva Bio-PRF', id: 'Altruva Bio-PRF' } },
+              { href: '/treatments/altruva-youth-elixir', label: { en: 'Altruva Youth Elixir', id: 'Altruva Youth Elixir' } },
             ],
           },
         ],
@@ -138,32 +138,32 @@ const navItems: NavItem[] = [
   {
     label: { en: 'Body', id: 'Body' },
     subItems: [
-      { href: '/services/altruva-neocurve', label: { en: 'Altruva NeoCurve by EmSculpt Neo', id: 'Altruva NeoCurve by EmSculpt Neo' } },
-      { href: '/services/altruva-lipo-elixir', label: { en: 'Altruva Lipo Elixir', id: 'Altruva Lipo Elixir' } },
-      { href: '/services/altruva-regenerative-rf-body', label: { en: 'Altruva Regenerative RF (Body)', id: 'Altruva Regenerative RF (Body)' } },
-      { href: '/services/altruva-lipofreeze', label: { en: 'Altruva LipoFreeze by CoolSculpting®', id: 'Altruva LipoFreeze by CoolSculpting®' } },
+      { href: '/treatments/altruva-neocurve', label: { en: 'Altruva NeoCurve by EmSculpt Neo', id: 'Altruva NeoCurve by EmSculpt Neo' } },
+      { href: '/treatments/altruva-lipo-elixir', label: { en: 'Altruva Lipo Elixir', id: 'Altruva Lipo Elixir' } },
+      { href: '/treatments/altruva-regenerative-rf-body', label: { en: 'Altruva Regenerative RF (Body)', id: 'Altruva Regenerative RF (Body)' } },
+      { href: '/treatments/altruva-lipofreeze', label: { en: 'Altruva LipoFreeze by CoolSculpting®', id: 'Altruva LipoFreeze by CoolSculpting®' } },
     ],
   },
   {
     label: { en: 'Hair', id: 'Hair' },
     subItems: [
-      { href: '/services/altruva-micrograft-technology', label: { en: 'Altruva Micrograft Technology', id: 'Altruva Micrograft Technology' } },
-      { href: '/services/altruva-hair-prf', label: { en: 'Altruva Hair PRF', id: 'Altruva Hair PRF' } },
-      { href: '/services/altruva-hair-booster', label: { en: 'Altruva Hair Booster', id: 'Altruva Hair Booster' } },
+      { href: '/treatments/altruva-micrograft-technology', label: { en: 'Altruva Micrograft Technology', id: 'Altruva Micrograft Technology' } },
+      { href: '/treatments/altruva-hair-prf', label: { en: 'Altruva Hair PRF', id: 'Altruva Hair PRF' } },
+      { href: '/treatments/altruva-hair-booster', label: { en: 'Altruva Hair Booster', id: 'Altruva Hair Booster' } },
     ]
   },
   {
     label: { en: 'Facial', id: 'Facial' },
     subItems: [
-      { href: '/services/altruva-signature-facial', label: { en: 'Altruva Signature Facial (Pore Clean Facial)', id: 'Altruva Signature Facial (Pore Clean Facial)' } },
-      { href: '/services/altruva-hydraglow-facial', label: { en: 'Altruva HydraGlow Facial', id: 'Altruva HydraGlow Facial' } },
+      { href: '/treatments/altruva-signature-facial', label: { en: 'Altruva Signature Facial (Pore Clean Facial)', id: 'Altruva Signature Facial (Pore Clean Facial)' } },
+      { href: '/treatments/altruva-hydraglow-facial', label: { en: 'Altruva HydraGlow Facial', id: 'Altruva HydraGlow Facial' } },
       { href: '/facial/happy-hour', label: { en: 'Happy Hour', id: 'Happy Hour' } },
     ],
   },
   {
     label: { en: 'Publications', id: 'Publikasi' },
     subItems: [
-      { href: '/insights', label: { en: 'Insights', id: 'Artikel' } },
+      { href: '/blog', label: { en: 'Blog', id: 'Blog' } },
       { href: '/beauty-journal', label: { en: 'Beauty Journal', id: 'Jurnal Kecantikan' } },
       { href: '/news-media', label: { en: 'News & Media', id: 'Berita & Media' } },
     ],

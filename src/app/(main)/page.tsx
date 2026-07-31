@@ -10,7 +10,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services } from '@/lib/data/services';
 import { testimonials } from '@/lib/data/testimonials';
 import { aiAnalysisFeatures } from '@/lib/data/ai-features';
-import { insights } from '@/lib/data/insights';
+import { blogs } from '@/lib/data/blog';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageTitle from '@/components/shared/PageTitle';
@@ -27,7 +27,7 @@ const CarouselItem = dynamic(() => import('@/components/ui/carousel').then(mod =
 const CarouselNext = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselNext), { ssr: true });
 const CarouselPrevious = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselPrevious), { ssr: true });
 const TestimonialCard = dynamic(() => import('@/components/testimonials/TestimonialCard'), { ssr: true });
-const InsightCard = dynamic(() => import('@/components/insights/InsightCard'), { ssr: true });
+const BlogCard = dynamic(() => import('@/components/blog/BlogCard'), { ssr: true });
 
 type TreatmentCategory = 'Prejuvenation' | 'Rejuvenation';
 
@@ -183,7 +183,7 @@ export default function HomePage() {
                              {subgroupServices.map((service) => (
                               <TableRow key={service.id}>
                                 <TableCell className="font-semibold text-primary">
-                                  <Link href={`/services/${service.id}`} className="hover:underline">{service.title}</Link>
+                                  <Link href={`/treatments/${service.id}`} className="hover:underline">{service.title}</Link>
                                 </TableCell>
                                 <TableCell className="text-foreground/80">{t(service.description)}</TableCell>
                               </TableRow>
@@ -330,8 +330,8 @@ export default function HomePage() {
         </Carousel>
       </SectionWrapper>
 
-      {/* Featured Insights Section */}
-      <SectionWrapper id="featured-insights" className="bg-secondary/30">
+      {/* Featured Blogs Section */}
+      <SectionWrapper id="featured-blogs" className="bg-secondary/30">
         <PageTitle 
           title={t({ en: 'Featured Articles', id: 'Artikel Unggulan' })}
           subtitle={t({ en: 'Explore the latest in aesthetic science and wellness from our experts.', id: 'Jelajahi yang terbaru dalam ilmu estetika dan kesehatan dari para ahli kami.' })}
@@ -344,10 +344,10 @@ export default function HomePage() {
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent>
-            {insights.filter(insight => insight.href).map((insight) => (
-              <CarouselItem key={insight.id} className="md:basis-1/2 lg:basis-1/3">
+            {blogs.filter(blog => blog.href).map((blog) => (
+              <CarouselItem key={blog.id} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 h-full">
-                  <InsightCard insight={insight} />
+                  <BlogCard blog={blog} />
                 </div>
               </CarouselItem>
             ))}
@@ -357,7 +357,7 @@ export default function HomePage() {
         </Carousel>
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="default">
-            <Link href="/insights">{t({ en: 'Explore All Articles', id: 'Jelajahi Semua Artikel' })}</Link>
+            <Link href="/blog">{t({ en: 'Explore All Articles', id: 'Jelajahi Semua Artikel' })}</Link>
           </Button>
         </div>
       </SectionWrapper>

@@ -1,5 +1,5 @@
 
-export interface Insight {
+export interface Blog {
   id: string;
   title: string;
   excerpt: string;
@@ -9,17 +9,20 @@ export interface Insight {
   href?: string;
   content?: string;
   keywords?: string[];
+  author?: string;
+  reviewedBy?: string;
+  updatedAt?: string;
 }
 
-export const insights: Insight[] = [
+export const blogs: Blog[] = [
   {
     id: 'presence-has-no-gender',
     title: 'Presence Has No Gender: Mengapa Self-Investment Menjadi Bentuk Perawatan Diri yang Paling Relevan di Era Modern',
     excerpt: 'Presence tidak ditentukan oleh gender. Presence dibentuk oleh bagaimana kita merawat diri, menjaga kesehatan, dan berinvestasi pada masa depan diri kita sendiri.',
-    imageSrc: '/images/insights/presence-has-no-gender.png',
+    imageSrc: '/images/blog/presence-has-no-gender.png',
     imageHint: 'modern minimalist gender-neutral aesthetic clinic lobby with warm lighting',
     date: 'July 3, 2026',
-    href: '/insights/presence-has-no-gender',
+    href: '/blog/presence-has-no-gender',
     keywords: [
       'self investment modern',
       'regenerative aesthetics',
@@ -112,10 +115,10 @@ export const insights: Insight[] = [
     id: 'pause-within-the-pace',
     title: 'Pause Within the Pace: Saat Perawatan Menjadi Lebih Terarah di Bulan yang Menuntut',
     excerpt: 'Bulan Juni sering menjadi titik tekanan dalam satu tahun. Target pekerjaan mendekati penutupan semester, sementara di rumah, anak-anak mulai memasuki masa liburan. Bagi banyak Wanita, terutama ibu bekerja ini berarti menjalani dua peran besar secara bersamaan, tanpa jeda yang jelas.',
-    imageSrc: '/images/insights/i17.jpg',
+    imageSrc: '/images/blog/i17.jpg',
     imageHint: 'elegant woman taking a pause in a peaceful aesthetic clinic setting',
     date: 'June 3, 2026',
-    href: '/insights/pause-within-the-pace',
+    href: '/blog/pause-within-the-pace',
     keywords: [
       'treatment estetika untuk wanita sibuk',
       'perawatan kulit untuk ibu bekerja',
@@ -251,10 +254,10 @@ export const insights: Insight[] = [
     id: 'the-new-40',
     title: 'The New 40: Mengapa Usia 40 Kini Terlihat Lebih Muda',
     excerpt: 'Persepsi penuaan telah berubah. The New 40 menggambarkan fenomena di mana perempuan usia 40-an kini tampak lebih muda, lebih segar, dan lebih terawat. Perubahan ini bukan semata angka, melainkan kombinasi kesadaran perawatan kulit, teknologi estetika yang lebih canggih, serta pendekatan medis yang memahami proses biologis penuaan.',
-    imageSrc: '/images/insights/i16.jpg',
+    imageSrc: '/images/blog/i16.jpg',
     imageHint: 'elegant woman in her 40s with glowing skin',
     date: 'April 30, 2026',
-    href: '/insights/the-new-40',
+    href: '/blog/the-new-40',
     keywords: [
       'perawatan wajah usia 40',
       'aesthetic clinic Jakarta premium',
@@ -324,10 +327,10 @@ export const insights: Insight[] = [
     id: 'prediksi-estetika-medis-2026',
     title: 'Prediksi Estetika Medis 2026',
     excerpt: 'Memasuki 2026, estetika medis bergerak ke fase yang lebih dewasa. Bukan lagi tentang hasil yang cepat, dramatis, atau mudah dikenali, melainkan tentang kualitas keputusan klinis, ketepatan strategi, dan keberanian untuk bersikap konservatif.',
-    imageSrc: '/images/insights/i18.jpg',
+    imageSrc: '/images/blog/i18.jpg',
     imageHint: 'futuristic aesthetics',
     date: 'January 1, 2026',
-    href: '/insights/prediksi-estetika-medis-2026',
+    href: '/blog/prediksi-estetika-medis-2026',
     keywords: ['Prediksi Estetika 2026', 'Skin Longevity', 'Quiet Luxury Aesthetics', 'dr. Aldisa', 'Altruva', 'Skin Barrier'],
     content: `
       <h3>Versi dr. Aldisa – Arah Baru Estetika yang Lebih Tenang, Aman, dan Berkelanjutan</h3>
@@ -421,10 +424,10 @@ export const insights: Insight[] = [
     id: 'sculpt-your-confidence-for-holiday',
     title: 'Sculpt Your Confidence for the Holidays',
     excerpt: '✨ Temukan seri perawatan regeneratif Altruva bulan November. Siapkan kulit dan percaya diri Anda menjelang liburan dengan hasil alami dan elegan.',
-    imageSrc: '/images/insights/i12.png',
+    imageSrc: '/images/blog/i12.png',
     imageHint: 'holiday beauty',
     date: 'November 10, 2025',
-    href: '/insights/sculpt-your-confidence-for-holiday',
+    href: '/blog/sculpt-your-confidence-for-holiday',
     keywords: [
       'Regenerative Contouring',
       'Sofwave Indonesia',
@@ -489,10 +492,10 @@ export const insights: Insight[] = [
     id: 'micro-trends-2025',
     title: 'Micro Trends Kecantikan 2025 di Altruva Aesthetic',
     excerpt: 'Temukan tren kecantikan 2025: neuro-aesthetics, sunscreen baru, psiko-dermatologi, hingga regenerative & holistic treatments di Altruva Aesthetic.',
-    imageSrc: '/images/insights/i10.webp',
+    imageSrc: '/images/blog/i10.webp',
     imageHint: 'futuristic beauty trends',
     date: 'October 3, 2025',
-    href: '/insights/micro-trends-2025',
+    href: '/blog/micro-trends-2025',
     keywords: [
       'Klinik estetika premium Jakarta',
       'Treatment anti-aging regeneratif',
@@ -565,10 +568,10 @@ export const insights: Insight[] = [
     id: 'quiet-luxury-face',
     title: 'Quiet Luxury Face: Rahasia Lifting Elegan di Altruva',
     excerpt: 'Temukan Quiet Luxury Lift di Altruva Aesthetic Clinic: kombinasi Sofwave, Gouri, dan SculptLift+ untuk hasil natural, elegan, dan tahan lama.',
-    imageSrc: '/images/insights/i9.jpeg',
+    imageSrc: '/images/blog/i9.jpeg',
     imageHint: 'elegant aesthetic treatment',
     date: 'September 16, 2025',
-    href: '/insights/quiet-luxury-face',
+    href: '/blog/quiet-luxury-face',
     keywords: [
       'Quiet Luxury Face',
       'Quiet Luxury Lift',
@@ -624,10 +627,10 @@ export const insights: Insight[] = [
     id: 'melasma-treatment',
     title: 'Treatment Melasma Efektif dan Aman: Lebih dari Sekadar Memutihkan',
     excerpt: 'Melasma sering dipersepsikan hanya sebagai “flek hitam” yang perlu diputihkan. Padahal, melasma adalah kondisi kronis yang kompleks, dipengaruhi oleh banyak faktor internal maupun eksternal.',
-    imageSrc: '/images/insights/i8.png',
+    imageSrc: '/images/blog/i8.png',
     imageHint: 'melasma treatment skin',
     date: 'September 13, 2025',
-    href: '/insights/melasma-treatment',
+    href: '/blog/melasma-treatment',
     keywords: ['melasma', 'MelaBooster', 'flek hitam', 'perawatan kulit', 'DNA Repair Pro'],
     content: `
       <h2>🌓 Mengapa Melasma Bukan Masalah Kulit Biasa?</h2>
@@ -704,10 +707,10 @@ export const insights: Insight[] = [
     id: 'quiet-luxury-lift',
     title: 'Mengapa Quiet Luxury Lift di Altruva Menjadi Standar Baru Perawatan Lifting Wajah',
     excerpt: 'Di tengah tren perawatan estetika yang semakin berkembang, ada satu prinsip mendasar yang sering terlupakan: aesthetic treatments bukanlah pengganti gaya hidup sehat, melainkan perpanjangan darinya.',
-    imageSrc: '/images/insights/i6.jpeg',
+    imageSrc: '/images/blog/i6.jpeg',
     imageHint: 'elegant aesthetic treatment',
     date: 'September 9, 2025',
-    href: '/insights/quiet-luxury-lift',
+    href: '/blog/quiet-luxury-lift',
     keywords: [
       'skin tightening alami',
       'lifting wajah natural',
@@ -751,10 +754,10 @@ export const insights: Insight[] = [
     id: 'pore-refining-system',
     title: 'Pori-Pori Kulit: Normal, Penting, dan Cara Meredupkan Tampakannya',
     excerpt: 'Pori-pori adalah struktur alami kulit yang penting. Kulit yang bercahaya dan sehat bukan hasil dari "menghapus" pori, melainkan menjaga agar tetap bersih dan kencang. Pelajari pendekatan holistik kami.',
-    imageSrc: '/images/insights/i5.jpeg',
+    imageSrc: '/images/blog/i5.jpeg',
     imageHint: 'refined skin pores',
     date: 'August 15, 2024',
-    href: '/insights/pore-refining-system',
+    href: '/blog/pore-refining-system',
     content: `
       <h2>Mengapa Pori-Pori itu Justru Sehat, Bukan Musuh?</h2>
       <p>Pori-pori adalah struktur alami kulit yang berperan sebagai akses keluar masuk sebum dan keringat. Komponen penting untuk menjaga kelembapan dan pertahanan kulit. Jadi, memiliki pori bukan aib, melainkan tanda kulit fungsional dan sehat.</p>
@@ -801,10 +804,10 @@ export const insights: Insight[] = [
     id: 'lip-wrinkles-101',
     title: 'Kerutan Bibir Bikin 10 Tahun Lebih Tua? No way!',
     excerpt: 'Keriput bibir, yang kadang-kadang disebut garis bibir, garis lipstik, atau garis perokok, adalah garis vertikal kecil yang terbentuk di bibir orang dewasa yang lebih tua. Garis-garis ini terkenal sulit untuk disembunyikan. Daripada ditutupi terus-menerus, lebih baik kita bahas cara untuk memperbaikinya.',
-    imageSrc: '/images/insights/i7.jpeg',
+    imageSrc: '/images/blog/i7.jpeg',
     imageHint: 'wrinkled lips',
     date: 'August 12, 2024',
-    href: '/insights/lip-wrinkles-101',
+    href: '/blog/lip-wrinkles-101',
     content: `
       <p>By dr. Olivia Aldisa</p>
       <h2>Penyebab Kerutan Bibir</h2>
@@ -822,10 +825,10 @@ export const insights: Insight[] = [
     id: 'skin-barrier-101',
     title: 'Bagaimana Cara Kita Mengenali Sawar Kulit (Skin Barrier) yang Rusak',
     excerpt: 'Setelah bertahun-tahun mendongkrak pemakaian agen pengelupasan dan retinol, tren kecantikan terbaru yang tidak diragukan lagi adalah produk yang menyehatkan sawar kulit, yang membawa kita ke satu pertanyaan yang sangat penting: Apakah sawar kulit (skin barrier) itu?',
-    imageSrc: '/images/insights/i2.png',
+    imageSrc: '/images/blog/i2.png',
     imageHint: 'damaged skin barrier',
     date: 'August 5, 2024',
-    href: '/insights/skin-barrier-101',
+    href: '/blog/skin-barrier-101',
     content: `
       <p>By dr. Olivia Aldisa</p>
       <h2>Apa itu Skin Barrier?</h2>
@@ -844,10 +847,10 @@ export const insights: Insight[] = [
     id: 'ai-skin-analysis-explained',
     title: 'Understanding Your Skin Type: An AI-Powered Approach',
     excerpt: 'Our AI Skin Analysis tool demystifies your unique skin needs. Find out how technology can guide you to your most effective skincare routine ever.',
-    imageSrc: '/images/insights/i4.png',
+    imageSrc: '/images/blog/i4.png',
     imageHint: 'AI skin analysis',
     date: 'July 14, 2024',
-    href: '/insights/ai-skin-analysis-explained',
+    href: '/blog/ai-skin-analysis-explained',
     content: `
       <h2>Personalization Through Technology</h2>
       <p>The one-size-fits-all approach to skincare is a thing of the past. To achieve the best results, you need to understand your skin's unique characteristics and concerns. Our AI Skin Analysis tool takes the guesswork out of the equation. By analyzing a photo of your skin and your answers to a brief questionnaire, our advanced algorithm can identify your skin type, detect underlying conditions, and provide personalized recommendations for both at-home products and in-clinic treatments. It's the first step toward a truly effective, data-driven skincare journey.</p>

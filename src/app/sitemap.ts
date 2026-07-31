@@ -1,11 +1,11 @@
 import { MetadataRoute } from 'next';
 import { services } from '@/lib/data/services';
-import { insights } from '@/lib/data/insights';
+import { getDbBlogs } from '@/lib/api/db-blog';
 import { beautyJournals } from '@/lib/data/beauty-journal';
 
 export const dynamic = 'force-static';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://altruva.co.id';
 
   // 1. Static Routes
@@ -20,10 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/facial',
     '/gallery',
-    '/insights',
+    '/blog',
     '/news-media',
     '/our-clinic',
-    '/services',
+    '/treatments',
     '/skin-analysis',
   ];
 
@@ -36,16 +36,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // 2. Dynamic Services Routes
   const serviceEntries: MetadataRoute.Sitemap = services.map((service) => ({
-    url: `${baseUrl}/services/${service.id}`,
+    url: `${baseUrl}/treatments/${service.id}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.7,
   }));
 
-  // 3. Dynamic Insights Routes
-  const insightEntries: MetadataRoute.Sitemap = insights.map((insight) => ({
-    url: `${baseUrl}/insights/${insight.id}`,
-    lastModified: new Date(insight.date || new Date()),
+  // 3. Dynamic Blog Routes
+  const blogsList = await getDbBlogs();
+  const insightEntries: MetadataRoute.Sitemap = blogsList.map((blog) => ({
+    url: `${baseUrl}/blog/${blog.id}`,
+    lastModified: new Date(blog.date || new Date()),
     changeFrequency: 'weekly',
     priority: 0.6,
   }));

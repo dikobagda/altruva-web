@@ -20,7 +20,7 @@ export default function OurDevicesPage() {
         en: 'Next-generation SUPERB™ Synchronous Ultrasound Parallel Beam technology for non-invasive wrinkle reduction and lifting of the eyebrows, neck, and submental area.',
         id: 'Teknologi SUPERB™ Synchronous Ultrasound Parallel Beam generasi berikutnya untuk pengurangan kerutan non-invasif dan pengencangan alis, leher, dan area submental.',
       },
-      href: '/services/art-lyft',
+      href: '/treatments/art-lyft',
     },
     {
       name: 'Emsculpt Neo',
@@ -29,7 +29,7 @@ export default function OurDevicesPage() {
         en: 'The first and only non-invasive body shaping procedure that provides simultaneous fat elimination and muscle building in a combined 30-minute session.',
         id: 'Prosedur pembentukan tubuh non-invasif pertama dan satu-satunya yang menyediakan eliminasi lemak dan pembentukan otot secara bersamaan dalam sesi gabungan 30 menit.',
       },
-      href: '/services/altruva-neocurve',
+      href: '/treatments/altruva-neocurve',
     },
     {
       name: 'Exion',
@@ -38,7 +38,7 @@ export default function OurDevicesPage() {
         en: 'A multi-platform device offering radiofrequency and targeted ultrasound for skin tightening, textural refinement, and enhanced hyaluronic acid production.',
         id: 'Perangkat multi-platform yang menawarkan frekuensi radio dan ultrasound yang ditargetkan untuk pengencangan kulit, penyempurnaan tekstur, dan peningkatan produksi asam hialuronat.',
       },
-      href: '/services/exion-lumi-rf',
+      href: '/treatments/exion-lumi-rf',
     },
     {
       name: 'Remee',

@@ -17,7 +17,7 @@ export default function TreatmentCard({ service }: TreatmentCardProps) {
   const { t } = useLanguage();
 
   return (
-    <Link href={`/services/${service.id}`} className="flex h-full">
+    <Link href={`/treatments/${service.id}`} className="flex h-full">
       <Card id={service.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">
         <div className="relative w-full aspect-video overflow-hidden">
           <Image

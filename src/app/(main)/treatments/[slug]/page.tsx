@@ -58,7 +58,7 @@ export default function ServiceDetailPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": ["Service", "MedicalProcedure"],
-    "@id": `https://altruva.co.id/services/${service.id}#service`,
+    "@id": `https://altruva.co.id/treatments/${service.id}#service`,
     "name": service.title,
     "description": t(service.description),
     "provider": {
@@ -98,14 +98,14 @@ export default function ServiceDetailPage() {
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Services",
-        "item": "https://altruva.co.id/services"
+        "name": "Treatments",
+        "item": "https://altruva.co.id/treatments"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": service.title,
-        "item": `https://altruva.co.id/services/${service.id}`
+        "item": `https://altruva.co.id/treatments/${service.id}`
       }
     ]
   };
