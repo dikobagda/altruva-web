@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
+import { revalidatePath } from 'next/cache';
 import pool, { initializeDatabase } from '@/lib/db';
 import { verifySessionToken } from '@/lib/cms-auth';
 
@@ -72,6 +73,17 @@ export async function PUT(
       ]
     );
 
+    try {
+      revalidatePath('/blog');
+      revalidatePath('/blog/' + slug);
+      if (oldSlug !== slug) {
+        revalidatePath('/blog/' + oldSlug);
+      }
+      revalidatePath('/sitemap.xml');
+    } catch (e) {
+      console.error('Failed to revalidate cache:', e);
+    }
+
     return NextResponse.json({ success: true, message: 'Blog updated successfully' });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -91,6 +103,13 @@ export async function DELETE(
   await initializeDatabase();
   try {
     await pool.query('DELETE FROM blogs WHERE slug = ?', [slug]);
+    try {
+      revalidatePath('/blog');
+      revalidatePath('/blog/' + slug);
+      revalidatePath('/sitemap.xml');
+    } catch (e) {
+      console.error('Failed to revalidate cache:', e);
+    }
     return NextResponse.json({ success: true, message: 'Blog deleted successfully' });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

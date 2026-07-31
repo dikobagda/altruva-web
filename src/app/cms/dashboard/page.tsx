@@ -10,6 +10,14 @@ import {
   BookOpen, Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Download, Copy
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 interface Blog {
   id: number;
@@ -49,6 +57,8 @@ export default function DashboardPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [leads, setLeads] = useState<Lead[]>([]);
   const [activeTab, setActiveTab] = useState<'articles' | 'leads'>('articles');
+  const [deleteTargetSlug, setDeleteTargetSlug] = useState<string | null>(null);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [analytics, setAnalytics] = useState<Record<string, AnalyticsRow>>({});
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -109,11 +119,18 @@ export default function DashboardPage() {
     router.refresh();
   };
 
-  const handleDelete = async (slug: string) => {
-    if (!confirm('Are you sure you want to delete this article?')) return;
-    const res = await fetch(`/api/cms/blogs/${slug}`, { method: 'DELETE' });
+  const confirmDelete = (slug: string) => {
+    setDeleteTargetSlug(slug);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleDelete = async () => {
+    if (!deleteTargetSlug) return;
+    const res = await fetch(`/api/cms/blogs/${deleteTargetSlug}`, { method: 'DELETE' });
     if (res.ok) {
-      setBlogs(blogs.filter((b) => b.slug !== slug));
+      setBlogs(blogs.filter((b) => b.slug !== deleteTargetSlug));
+      setIsDeleteDialogOpen(false);
+      setDeleteTargetSlug(null);
     } else {
       alert('Failed to delete article.');
     }
@@ -380,7 +397,7 @@ export default function DashboardPage() {
                                 variant="ghost"
                                 size="sm"
                                 className="h-7 text-xs text-destructive hover:bg-destructive/10"
-                                onClick={() => handleDelete(blog.slug)}
+                                onClick={() => confirmDelete(blog.slug)}
                               >
                                 <Trash2 className="h-3.5 w-3.5" />
                               </Button>
@@ -573,6 +590,39 @@ export default function DashboardPage() {
           })()
         )}
       </main>
+
+      {/* Custom Delete Confirmation Dialog */}
+      <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+        <DialogContent className="sm:max-w-[400px] rounded-2xl border border-slate-200 shadow-xl bg-white p-6">
+          <DialogHeader className="text-center sm:text-left">
+            <DialogTitle className="font-serif text-xl text-primary font-bold">
+              Confirm Delete
+            </DialogTitle>
+            <DialogDescription className="text-sm text-slate-500 mt-2">
+              Are you sure you want to delete this article? This action is permanent and cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="mt-6 flex flex-col sm:flex-row gap-2 justify-end">
+            <Button
+              variant="outline"
+              onClick={() => {
+                setIsDeleteDialogOpen(false);
+                setDeleteTargetSlug(null);
+              }}
+              className="w-full sm:w-auto rounded-full"
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={handleDelete}
+              className="w-full sm:w-auto rounded-full bg-destructive text-white hover:bg-destructive/90"
+            >
+              Delete
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

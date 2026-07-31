@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
+import { revalidatePath } from 'next/cache';
 import pool, { initializeDatabase } from '@/lib/db';
 import { verifySessionToken } from '@/lib/cms-auth';
 
@@ -58,6 +59,14 @@ export async function POST(request: Request) {
         reviewedBy || 'dr. Olivia Aldisa',
       ]
     );
+
+    try {
+      revalidatePath('/blog');
+      revalidatePath(`/blog/${slug}`);
+      revalidatePath('/sitemap.xml');
+    } catch (e) {
+      console.error('Failed to revalidate cache:', e);
+    }
 
     return NextResponse.json({ success: true, message: 'Blog created successfully' });
   } catch (error: any) {
