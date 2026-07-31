@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: 'Aesthetic Science & Beauty Articles | Altruva Clinic Blog',
   description: 'Explore the latest in aesthetic science, wellness, and beauty from the experts at Altruva Clinic in Jakarta. Your source for skincare tips and treatment information.',
   keywords: ['aesthetic science', 'beauty blog', 'skincare tips', 'Altruva Clinic', 'dr. Olivia Aldisa', 'regenerative aesthetics', 'Jakarta'],
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 export default async function ArticlesPage() {

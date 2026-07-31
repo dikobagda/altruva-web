@@ -33,7 +33,7 @@ type TreatmentCategory = 'Prejuvenation' | 'Rejuvenation';
 
 export default function HomePage() {
   const { t } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<TreatmentCategory | null>(null);
+  const [activeCategory, setActiveCategory] = useState<TreatmentCategory | null>('Rejuvenation');
 
   const filteredServices = activeCategory ? services.filter(service => service.category === activeCategory) : [];
 

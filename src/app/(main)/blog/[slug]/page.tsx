@@ -51,6 +51,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${insight.title} - Altruva Articles`,
     description: metaDescription,
     keywords: [...new Set([...dynamicKeywords, ...baseKeywords])], // Combine and remove duplicates
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
   };
 }
 
