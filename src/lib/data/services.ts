@@ -2261,7 +2261,7 @@ export const services: Service[] = [
     imageHint: 'advanced ultrasound lift',
     group: 'Altruva Lift',
     groupDescription: { en: 'Aging is an evolution. Let’s refine the process.', id: 'Penuaan adalah evolusi. Mari kita perbaiki prosesnya.' },
-    subgroup: 'Restoration &amp; Lifting',
+    subgroup: 'Restoration & Lifting',
     subtitle: {
       en: 'Anatomic Regenerative Targeting for Restorative Contour, Lift & Radiance. The Signature Over-40 Protocol | Powered by Sofwave',
       id: 'Penargetan Regeneratif Anatomis untuk Kontur Restoratif, Pengangkatan & Pancaran. Protokol Khas di Atas 40 Tahun | Didukung oleh Sofwave'
@@ -2370,7 +2370,7 @@ export const services: Service[] = [
     imageHint: 'collagen biostimulator',
     group: 'Altruva Lift',
     groupDescription: { en: 'Aging is an evolution. Let’s refine the process.', id: 'Penuaan adalah evolusi. Mari kita perbaiki prosesnya.' },
-    subgroup: 'Restoration &amp; Lifting',
+    subgroup: 'Restoration & Lifting',
     subtitle: {
       en: "The Signature Liquid Collagen Bioactivator Experience",
       id: "Pengalaman Bioaktivator Kolagen Cair Khas"
@@ -2471,7 +2471,7 @@ export const services: Service[] = [
     imageHint: 'deep skin tightening',
     group: 'Altruva Lift',
     groupDescription: { en: 'Aging is an evolution. Let’s refine the process.', id: 'Penuaan adalah evolusi. Mari kita perbaiki prosesnya.' },
-    subgroup: 'Restoration &amp; Lifting',
+    subgroup: 'Restoration & Lifting',
     subtitle: {
       en: 'The Intelligent RF Lift for Skin Over 40',
       id: 'Pengangkatan RF Cerdas untuk Kulit di Atas 40 Tahun'
@@ -3616,6 +3616,6 @@ Ideal untuk pria dan wanita pada tahap awal hingga sedang penipisan atau keronto
     imageHint: 'signature facelift procedure',
     group: 'Altruva Lift',
     groupDescription: { en: 'Aging is an evolution. Let’s refine the process.', id: 'Penuaan adalah evolusi. Mari kita perbaiki prosesnya.' },
-    subgroup: 'Restoration &amp; Lifting'
+    subgroup: 'Restoration & Lifting'
   }
 ];
