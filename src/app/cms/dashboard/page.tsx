@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Plus, Edit, Trash2, ExternalLink, LogOut, Search,
-  BookOpen, Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Download, Copy
+  BookOpen, Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Download, Copy, Calendar, CheckCircle, XCircle, Clock
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import {
@@ -46,6 +46,19 @@ interface Lead {
   created_at: string;
 }
 
+interface Appointment {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  treatment: string;
+  preferred_date: string;
+  preferred_time: string;
+  notes: string | null;
+  status: 'pending' | 'confirmed' | 'cancelled';
+  created_at: string;
+}
+
 function estimateReadTime(content: string): number {
   const words = content?.replace(/<[^>]*>/g, '').split(/\s+/).length || 0;
   return Math.max(1, Math.round(words / 200));
@@ -56,9 +69,13 @@ type SortKey = 'title' | 'date' | 'view_count' | 'views_7d' | 'read_time';
 export default function DashboardPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [leads, setLeads] = useState<Lead[]>([]);
-  const [activeTab, setActiveTab] = useState<'articles' | 'leads'>('articles');
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [activeTab, setActiveTab] = useState<'articles' | 'leads' | 'appointments'>('articles');
   const [deleteTargetSlug, setDeleteTargetSlug] = useState<string | null>(null);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [appointmentToDelete, setAppointmentToDelete] = useState<number | null>(null);
+  const [isApptDeleteDialogOpen, setIsApptDeleteDialogOpen] = useState(false);
+  const [updatingApptId, setUpdatingApptId] = useState<number | null>(null);
   const [analytics, setAnalytics] = useState<Record<string, AnalyticsRow>>({});
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -79,10 +96,11 @@ export default function DashboardPage() {
 
   const fetchData = async () => {
     try {
-      const [blogsRes, analyticsRes, leadsRes] = await Promise.all([
+      const [blogsRes, analyticsRes, leadsRes, appointmentsRes] = await Promise.all([
         fetch('/api/cms/blogs'),
         fetch('/api/analytics/view'),
         fetch('/api/cms/leads'),
+        fetch('/api/cms/appointments'),
       ]);
 
       if (blogsRes.status === 401) {
@@ -105,6 +123,11 @@ export default function DashboardPage() {
       if (leadsRes.ok) {
         const data: Lead[] = await leadsRes.json();
         setLeads(data);
+      }
+
+      if (appointmentsRes.ok) {
+        const data: Appointment[] = await appointmentsRes.json();
+        setAppointments(data);
       }
     } catch (error) {
       console.error('Failed to fetch data:', error);
@@ -139,6 +162,42 @@ export default function DashboardPage() {
   const toggleSort = (key: SortKey) => {
     if (sortKey === key) setSortAsc(!sortAsc);
     else { setSortKey(key); setSortAsc(false); }
+  };
+
+  const handleUpdateApptStatus = async (id: number, status: 'pending' | 'confirmed' | 'cancelled') => {
+    setUpdatingApptId(id);
+    try {
+      const res = await fetch('/api/cms/appointments', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, status }),
+      });
+      if (res.ok) {
+        setAppointments(prev => prev.map(a => a.id === id ? { ...a, status } : a));
+      }
+    } catch (e) {
+      console.error('Failed to update appointment status', e);
+    } finally {
+      setUpdatingApptId(null);
+    }
+  };
+
+  const handleDeleteAppointment = async () => {
+    if (!appointmentToDelete) return;
+    try {
+      const res = await fetch('/api/cms/appointments', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: appointmentToDelete }),
+      });
+      if (res.ok) {
+        setAppointments(prev => prev.filter(a => a.id !== appointmentToDelete));
+        setIsApptDeleteDialogOpen(false);
+        setAppointmentToDelete(null);
+      }
+    } catch (e) {
+      console.error('Failed to delete appointment', e);
+    }
   };
 
   const filteredBlogs = blogs
@@ -204,12 +263,14 @@ export default function DashboardPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="font-serif text-3xl font-bold text-primary">
-              {activeTab === 'articles' ? 'Blog Articles' : 'E-Book Downloads'}
+              {activeTab === 'articles' ? 'Blog Articles' : activeTab === 'leads' ? 'E-Book Downloads' : 'Appointments'}
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
-              {activeTab === 'articles' 
-                ? `${blogs.length} articles · Manage and track your content` 
-                : `${leads.length} leads registered · Prospective clients`}
+              {activeTab === 'articles'
+                ? `${blogs.length} articles · Manage and track your content`
+                : activeTab === 'leads'
+                ? `${leads.length} leads registered · Prospective clients`
+                : `${appointments.length} bookings · ${appointments.filter(a => a.status === 'pending').length} pending`}
             </p>
           </div>
           {activeTab === 'articles' ? (
@@ -218,17 +279,31 @@ export default function DashboardPage() {
                 <Plus className="mr-2 h-4 w-4" /> New Article
               </Link>
             </Button>
-          ) : (
-            <Button 
+          ) : activeTab === 'leads' ? (
+            <Button
               onClick={() => {
                 const header = "ID,Name,WhatsApp,Date\n";
                 const rows = leads.map(l => `${l.id},"${l.name.replace(/"/g, '""')}",${l.whatsapp},${new Date(l.created_at).toLocaleString()}`).join('\n');
                 navigator.clipboard.writeText(header + rows);
                 alert('Leads list copied to clipboard as CSV format!');
-              }} 
+              }}
               className="bg-primary text-primary-foreground font-semibold"
             >
               <Copy className="mr-2 h-4 w-4" /> Copy CSV to Clipboard
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                const header = "ID,Name,Email,Phone,Treatment,Date,Time,Status,Notes,Submitted\n";
+                const rows = appointments.map(a =>
+                  `${a.id},"${a.name}",${a.email},${a.phone},"${a.treatment}",${a.preferred_date},${a.preferred_time},${a.status},"${(a.notes || '').replace(/"/g, '""')}",${new Date(a.created_at).toLocaleString()}`
+                ).join('\n');
+                navigator.clipboard.writeText(header + rows);
+                alert('Appointments copied to clipboard as CSV!');
+              }}
+              className="bg-primary text-primary-foreground font-semibold"
+            >
+              <Copy className="mr-2 h-4 w-4" /> Export CSV
             </Button>
           )}
         </div>
@@ -240,6 +315,17 @@ export default function DashboardPage() {
             className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'articles' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
           >
             <FileText className="h-4 w-4" /> Articles ({blogs.length})
+          </button>
+          <button
+            onClick={() => { setActiveTab('appointments'); setSearchTerm(''); setCurrentPage(1); }}
+            className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'appointments' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          >
+            <Calendar className="h-4 w-4" /> Appointments ({appointments.length})
+            {appointments.filter(a => a.status === 'pending').length > 0 && (
+              <span className="ml-1 bg-amber-100 text-amber-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                {appointments.filter(a => a.status === 'pending').length}
+              </span>
+            )}
           </button>
           <button
             onClick={() => { setActiveTab('leads'); setSearchTerm(''); setCurrentPage(1); }}
@@ -469,6 +555,145 @@ export default function DashboardPage() {
               </div>
             </div>
           )
+        ) : activeTab === 'appointments' ? (
+          /* Appointments Tab View */
+          (() => {
+            const filteredAppts = appointments.filter(a =>
+              a.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              a.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              a.phone.includes(searchTerm) ||
+              a.treatment.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            const totalApptPages = Math.ceil(filteredAppts.length / pageSize);
+            const paginatedAppts = filteredAppts.slice(
+              (currentPage - 1) * pageSize,
+              currentPage * pageSize
+            );
+
+            const statusBadge = (status: Appointment['status']) => {
+              const map = {
+                pending: 'bg-amber-50 text-amber-700 border border-amber-200',
+                confirmed: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
+                cancelled: 'bg-red-50 text-red-600 border border-red-200',
+              };
+              return (
+                <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold capitalize ${map[status]}`}>
+                  {status === 'confirmed' && <CheckCircle className="h-3 w-3" />}
+                  {status === 'cancelled' && <XCircle className="h-3 w-3" />}
+                  {status === 'pending' && <Clock className="h-3 w-3" />}
+                  {status}
+                </span>
+              );
+            };
+
+            return filteredAppts.length === 0 ? (
+              <div className="text-center py-20 text-muted-foreground">
+                {searchTerm ? 'No appointments match your search.' : 'No appointments yet.'}
+              </div>
+            ) : (
+              <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead className="bg-slate-50 border-b border-slate-200">
+                      <tr>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">ID</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Patient</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Treatment</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Date &amp; Time</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100">
+                      {paginatedAppts.map((appt) => (
+                        <tr key={appt.id} className="hover:bg-slate-50/50 transition-colors">
+                          <td className="px-4 py-4 whitespace-nowrap text-slate-400 font-mono text-xs">#{appt.id}</td>
+                          <td className="px-4 py-4">
+                            <div className="font-semibold text-slate-800">{appt.name}</div>
+                            <div className="text-xs text-slate-500">{appt.email}</div>
+                            <div className="text-xs text-slate-500">{appt.phone}</div>
+                          </td>
+                          <td className="px-4 py-4">
+                            <div className="text-slate-700 max-w-[180px] truncate" title={appt.treatment}>{appt.treatment}</div>
+                            {appt.notes && <div className="text-xs text-slate-400 mt-1 max-w-[180px] truncate" title={appt.notes}>Note: {appt.notes}</div>}
+                          </td>
+                          <td className="px-4 py-4 whitespace-nowrap">
+                            <div className="text-slate-700 font-medium">{new Date(appt.preferred_date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                            <div className="text-xs text-slate-500">{appt.preferred_time}</div>
+                          </td>
+                          <td className="px-4 py-4 whitespace-nowrap">
+                            {statusBadge(appt.status)}
+                          </td>
+                          <td className="px-4 py-4 whitespace-nowrap">
+                            <div className="flex items-center gap-1.5">
+                              {appt.status !== 'confirmed' && (
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="h-7 px-2 text-xs text-emerald-600 border-emerald-200 hover:bg-emerald-50"
+                                  disabled={updatingApptId === appt.id}
+                                  onClick={() => handleUpdateApptStatus(appt.id, 'confirmed')}
+                                >
+                                  <CheckCircle className="h-3 w-3 mr-1" /> Confirm
+                                </Button>
+                              )}
+                              {appt.status !== 'cancelled' && (
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="h-7 px-2 text-xs text-red-500 border-red-200 hover:bg-red-50"
+                                  disabled={updatingApptId === appt.id}
+                                  onClick={() => handleUpdateApptStatus(appt.id, 'cancelled')}
+                                >
+                                  <XCircle className="h-3 w-3 mr-1" /> Cancel
+                                </Button>
+                              )}
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                className="h-7 w-7 p-0 text-slate-400 hover:text-destructive"
+                                onClick={() => { setAppointmentToDelete(appt.id); setIsApptDeleteDialogOpen(true); }}
+                              >
+                                <Trash2 className="h-3.5 w-3.5" />
+                              </Button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Pagination */}
+                <div className="flex flex-col sm:flex-row items-center justify-between border-t border-slate-200 px-6 py-4 bg-slate-50 text-slate-500 gap-4 text-xs">
+                  <div className="flex items-center gap-2">
+                    <span>Show</span>
+                    <select
+                      value={pageSize}
+                      onChange={(e) => { setPageSize(Number(e.target.value)); setCurrentPage(1); }}
+                      className="bg-white border border-slate-200 rounded px-2.5 py-1 text-slate-700 outline-none focus:border-primary"
+                    >
+                      <option value={5}>5</option>
+                      <option value={10}>10</option>
+                      <option value={20}>20</option>
+                      <option value={50}>50</option>
+                    </select>
+                    <span>entries</span>
+                    <span className="ml-4">
+                      Showing {filteredAppts.length === 0 ? 0 : (currentPage - 1) * pageSize + 1} to {Math.min(currentPage * pageSize, filteredAppts.length)} of {filteredAppts.length} entries
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Button variant="outline" size="sm" className="h-8 px-3" onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))} disabled={currentPage === 1}>Previous</Button>
+                    {Array.from({ length: totalApptPages }, (_, i) => i + 1).map((page) => (
+                      <Button key={page} variant={page === currentPage ? 'default' : 'outline'} size="sm" className="h-8 w-8 p-0 text-xs" onClick={() => setCurrentPage(page)}>{page}</Button>
+                    ))}
+                    <Button variant="outline" size="sm" className="h-8 px-3" onClick={() => setCurrentPage(prev => Math.min(totalApptPages, prev + 1))} disabled={currentPage === totalApptPages || totalApptPages === 0}>Next</Button>
+                  </div>
+                </div>
+              </div>
+            );
+          })()
         ) : (
           /* Leads Tab View */
           (() => {
@@ -591,7 +816,7 @@ export default function DashboardPage() {
         )}
       </main>
 
-      {/* Custom Delete Confirmation Dialog */}
+      {/* Article Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
         <DialogContent className="sm:max-w-[400px] rounded-2xl border border-slate-200 shadow-xl bg-white p-6">
           <DialogHeader className="text-center sm:text-left">
@@ -616,6 +841,36 @@ export default function DashboardPage() {
             <Button
               variant="destructive"
               onClick={handleDelete}
+              className="w-full sm:w-auto rounded-full bg-destructive text-white hover:bg-destructive/90"
+            >
+              Delete
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Appointment Delete Confirmation Dialog */}
+      <Dialog open={isApptDeleteDialogOpen} onOpenChange={setIsApptDeleteDialogOpen}>
+        <DialogContent className="sm:max-w-[400px] rounded-2xl border border-slate-200 shadow-xl bg-white p-6">
+          <DialogHeader className="text-center sm:text-left">
+            <DialogTitle className="font-serif text-xl text-primary font-bold">
+              Delete Appointment
+            </DialogTitle>
+            <DialogDescription className="text-sm text-slate-500 mt-2">
+              Are you sure you want to delete this appointment record? This action cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="mt-6 flex flex-col sm:flex-row gap-2 justify-end">
+            <Button
+              variant="outline"
+              onClick={() => { setIsApptDeleteDialogOpen(false); setAppointmentToDelete(null); }}
+              className="w-full sm:w-auto rounded-full"
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={handleDeleteAppointment}
               className="w-full sm:w-auto rounded-full bg-destructive text-white hover:bg-destructive/90"
             >
               Delete

@@ -24,6 +24,8 @@ import { cn } from '@/lib/utils';
 import { services } from '@/lib/data/services';
 import { handleAppointmentSubmit, type AppointmentFormValues } from './actions';
 
+import { ScrollArea } from '@/components/ui/scroll-area';
+
 const appointmentFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
@@ -35,8 +37,8 @@ const appointmentFormSchema = z.object({
 });
 
 const timeSlots = [
-  '10:00 AM', '11:00 AM', '12:00 PM', 
-  '01:00 PM', '02:00 PM', '03:00 PM', 
+  '10:00 AM', '11:00 AM', '12:00 PM',
+  '01:00 PM', '02:00 PM', '03:00 PM',
   '04:00 PM', '05:00 PM'
 ];
 
@@ -52,6 +54,8 @@ export default function BookAppointmentPage() {
   const { toast } = useToast();
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
+  const [isTreatmentOpen, setIsTreatmentOpen] = useState(false);
+  const [treatmentSearch, setTreatmentSearch] = useState('');
   const [submittedData, setSubmittedData] = useState<AppointmentFormValues | null>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
   const form = useForm<AppointmentFormValues>({
@@ -82,7 +86,7 @@ export default function BookAppointmentPage() {
       });
     }
   };
-  
+
   const handlePrint = () => {
     const printContent = summaryRef.current;
     if (printContent) {
@@ -96,6 +100,10 @@ export default function BookAppointmentPage() {
       newWindow?.print();
     }
   };
+
+  const filteredTreatments = uniqueTreatments.filter((t) =>
+    t.title.toLowerCase().includes(treatmentSearch.toLowerCase())
+  );
 
   return (
     <>
@@ -116,71 +124,113 @@ export default function BookAppointmentPage() {
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
-                     <FormField
+                    <FormField
                       control={form.control}
                       name="name"
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Full Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your Name" {...field} />
+                            <Input placeholder="Your Name" className="bg-white" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                     <FormField
+                    <FormField
                       control={form.control}
                       name="email"
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Email Address</FormLabel>
                           <FormControl>
-                            <Input placeholder="your.email@example.com" {...field} />
+                            <Input placeholder="your.email@example.com" className="bg-white" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                     <FormField
+                    <FormField
                       control={form.control}
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Phone Number</FormLabel>
                           <FormControl>
-                            <Input placeholder="(123) 456-7890" {...field} />
+                            <Input placeholder="(123) 456-7890" className="bg-white" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                     <FormField
+                    <FormField
                       control={form.control}
                       name="treatment"
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Treatment</FormLabel>
-                          <Select onValueChange={field.onChange} value={field.value}>
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Select a treatment" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              {uniqueTreatments.map((service) => (
-                                <SelectItem key={service.id} value={service.title}>
-                                  {service.title}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                        <FormItem className="flex flex-col">
+                          <FormLabel className="mb-2">Treatment</FormLabel>
+                          <Popover open={isTreatmentOpen} onOpenChange={setIsTreatmentOpen}>
+                            <PopoverTrigger asChild>
+                              <FormControl>
+                                <Button
+                                  variant="outline"
+                                  role="combobox"
+                                  className={cn(
+                                    "w-full justify-between text-left font-normal h-10 px-3 bg-white border-slate-200",
+                                    !field.value && "text-muted-foreground"
+                                  )}
+                                >
+                                  <span className="truncate">
+                                    {field.value ? field.value : "Select a treatment"}
+                                  </span>
+                                  <span className="ml-2 shrink-0 opacity-50 text-[10px]">▼</span>
+                                </Button>
+                              </FormControl>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-[350px] p-0 bg-white border border-slate-200 shadow-lg rounded-md" align="start">
+                              <div className="p-2 border-b border-slate-100">
+                                <Input
+                                  placeholder="Search treatment..."
+                                  value={treatmentSearch}
+                                  onChange={(e) => setTreatmentSearch(e.target.value)}
+                                  className="h-9 text-xs bg-slate-50 border-slate-200 focus:bg-white"
+                                />
+                              </div>
+                              <ScrollArea className="h-64 overflow-y-auto">
+                                {filteredTreatments.length === 0 ? (
+                                  <div className="p-4 text-xs text-muted-foreground text-center">
+                                    No treatments found.
+                                  </div>
+                                ) : (
+                                  <div className="p-1 space-y-0.5">
+                                    {filteredTreatments.map((service) => (
+                                      <button
+                                        key={service.id}
+                                        type="button"
+                                        className={cn(
+                                          "w-full text-left px-3 py-2 text-sm rounded hover:bg-slate-50 transition-colors text-slate-700",
+                                          field.value === service.title && "bg-primary/5 font-semibold text-primary"
+                                        )}
+                                        onClick={() => {
+                                          field.onChange(service.title);
+                                          setIsTreatmentOpen(false);
+                                          setTreatmentSearch('');
+                                        }}
+                                      >
+                                        {service.title}
+                                      </button>
+                                    ))}
+                                  </div>
+                                )}
+                              </ScrollArea>
+                            </PopoverContent>
+                          </Popover>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-8">
                     <FormField
                       control={form.control}
@@ -194,7 +244,7 @@ export default function BookAppointmentPage() {
                                 <Button
                                   variant={"outline"}
                                   className={cn(
-                                    "w-full pl-3 text-left font-normal",
+                                    "w-full pl-3 text-left font-normal bg-white",
                                     !field.value && "text-muted-foreground"
                                   )}
                                 >
@@ -216,7 +266,7 @@ export default function BookAppointmentPage() {
                                   setIsDatePickerOpen(false);
                                 }}
                                 disabled={(date) =>
-                                  date < new Date(new Date().setHours(0,0,0,0))
+                                  date < new Date(new Date().setHours(0, 0, 0, 0))
                                 }
                                 initialFocus
                               />
@@ -226,16 +276,16 @@ export default function BookAppointmentPage() {
                         </FormItem>
                       )}
                     />
-                     <FormField
+                    <FormField
                       control={form.control}
                       name="time"
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="flex flex-col">
                           <FormLabel>Preferred Time</FormLabel>
                           <Select onValueChange={field.onChange} value={field.value}>
                             <FormControl>
-                              <SelectTrigger>
-                                 <Clock className="mr-2 h-4 w-4 opacity-50" />
+                              <SelectTrigger className="h-10 bg-white">
+                                <Clock className="mr-2 h-4 w-4 opacity-50" />
                                 <SelectValue placeholder="Select a time" />
                               </SelectTrigger>
                             </FormControl>
@@ -262,7 +312,7 @@ export default function BookAppointmentPage() {
                         <FormControl>
                           <Textarea
                             placeholder="Tell us anything else that might be helpful."
-                            className="resize-none"
+                            className="resize-none bg-white"
                             {...field}
                           />
                         </FormControl>

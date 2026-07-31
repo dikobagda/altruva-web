@@ -17,6 +17,33 @@ const appointmentFormSchema = z.object({
 
 export type AppointmentFormValues = z.infer<typeof appointmentFormSchema>;
 
+async function saveAppointmentToDatabase(data: AppointmentFormValues) {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cms/appointments`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        treatment: data.treatment,
+        preferred_date: format(data.date, 'yyyy-MM-dd'),
+        preferred_time: data.time,
+        notes: data.notes || null,
+      }),
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      console.error('Failed to save appointment to database:', err);
+    } else {
+      console.log('Appointment saved to database successfully.');
+    }
+  } catch (error) {
+    console.error('Error saving appointment to database:', error);
+  }
+}
+
 async function sendAppointmentEmail(data: AppointmentFormValues) {
   try {
     const transporter = nodemailer.createTransport({
@@ -30,7 +57,7 @@ async function sendAppointmentEmail(data: AppointmentFormValues) {
 
     const mailOptions = {
       from: process.env.EMAIL_FROM,
-      to: 'altruvaofficial@gmail.com', // The email address to receive notifications
+      to: 'altruvaofficial@gmail.com',
       cc: 'dikobagda@gmail.com',
       subject: 'New Appointment Request from Altruva Website',
       html: `
@@ -49,26 +76,23 @@ async function sendAppointmentEmail(data: AppointmentFormValues) {
     await transporter.sendMail(mailOptions);
     console.log('Appointment request email sent successfully in the background.');
   } catch (error) {
-    // If email sending fails, log the error to the server console for debugging.
-    // The user will NOT see this error as this runs asynchronously.
     console.error('Failed to send appointment email in the background. Please check your .env configuration.', error);
   }
 }
 
 export async function handleAppointmentSubmit(data: AppointmentFormValues) {
-  // Log the submission to the server console. This is the primary record of the request.
   console.log('New Appointment Request Received:', data);
 
-  // Send the email in the background without waiting for it to complete.
-  // We use a self-invoking async function to fire-and-forget the email sending.
+  // Fire-and-forget: save to DB and send email simultaneously
   (async () => {
-    await sendAppointmentEmail(data);
+    await Promise.allSettled([
+      saveAppointmentToDatabase(data),
+      sendAppointmentEmail(data),
+    ]);
   })();
 
-  // Always return a success response to the user immediately.
-  // The booking is successfully received by the server, and the email is just a notification.
-  return { 
-    success: true, 
+  return {
+    success: true,
     message: 'Your appointment request has been submitted!',
     data: data,
   };

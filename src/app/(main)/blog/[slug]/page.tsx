@@ -71,7 +71,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   // Parse headings for Table of Contents
   const headings: { id: string; text: string; level: number }[] = [];
   let modifiedContent = insight.content || '';
-  
+
   if (insight.content) {
     let idCounter = 0;
     modifiedContent = insight.content.replace(/<(h[23])([^>]*)>([\s\S]*?)<\/h[23]>/gi, (match, tag, attrs, text) => {
@@ -102,8 +102,8 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         'x-forwarded-for': ip,
       },
       body: JSON.stringify({ slug }),
-    }).catch(() => {});
-  } catch (_) {}
+    }).catch(() => { });
+  } catch (_) { }
 
   // Words count calculation
   const wordCount = insight.content ? insight.content.replace(/<[^>]*>/g, '').split(/\s+/).length : 0;
@@ -178,12 +178,9 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       <SectionWrapper className="pt-12 pb-8 md:pt-20 md:pb-12 bg-secondary/30">
         <div className="max-w-4xl mx-auto">
           <Button asChild variant="ghost" className="mb-4">
-             <Link href="/blog"><ArrowLeft className="mr-2 h-4 w-4" /> Back to Articles</Link>
+            <Link href="/blog"><ArrowLeft className="mr-2 h-4 w-4" /> Back to Articles</Link>
           </Button>
-          <div className="flex items-center text-sm text-muted-foreground mb-2">
-            <CalendarDays className="h-4 w-4 mr-2" />
-            <span>{insight.date}</span>
-          </div>
+
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">{insight.title}</h1>
           <p className="text-xl text-foreground/80">{insight.excerpt}</p>
         </div>
@@ -191,100 +188,99 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
 
       <SectionWrapper className="pt-0">
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-            <article className="lg:col-span-2 prose prose-lg max-w-none text-foreground/90">
-                {insight.imageSrc && (
-                  <div className="relative aspect-video w-full rounded-lg overflow-hidden mb-4 shadow-lg">
-                      <Image 
-                          src={insight.imageSrc}
-                          alt={insight.title}
+          <article className="lg:col-span-2 prose prose-lg max-w-none text-foreground/90">
+            {insight.imageSrc && (
+              <div className="relative aspect-video w-full rounded-lg overflow-hidden mb-4 shadow-lg">
+                <Image
+                  src={insight.imageSrc}
+                  alt={insight.title}
+                  fill
+                  className="object-cover"
+                  data-ai-hint={insight.imageHint}
+                  priority
+                />
+              </div>
+            )}
+
+            {/* Article Meta Bar below image */}
+            <div className="flex flex-col gap-3 text-xs text-slate-500 mb-8 border-b pb-6 border-slate-100/80">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <span className="flex items-center gap-1.5">
+                  <CalendarDays className="h-4 w-4 text-slate-400" /> {insight.date}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-4 w-4 text-slate-400" /> {readTime} min read ({wordCount} words)
+                </span>
+                {insight.updatedAt && (
+                  <span className="text-slate-400 font-medium">
+                    Terakhir Dimodifikasi: {new Date(insight.updatedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  </span>
+                )}
+              </div>
+              <div className="flex flex-wrap gap-x-5 gap-y-2 border-t pt-2.5 border-slate-100/40">
+                <span>Ditulis oleh: <strong className="text-slate-700 font-semibold">{insight.author || 'Altruva Aesthetic Clinic'}</strong></span>
+                <span>Ditinjau oleh: <strong className="text-slate-700 font-semibold">{insight.reviewedBy || 'dr. Olivia Aldisa'}</strong></span>
+              </div>
+              {insight.keywords && insight.keywords.length > 0 && (
+                <div className="flex items-start gap-2 leading-relaxed mt-1">
+                  <Tag className="h-3.5 w-3.5 text-slate-400 mt-0.5 shrink-0" />
+                  <span className="break-words">{insight.keywords.join(', ')}</span>
+                </div>
+              )}
+            </div>
+
+            <div
+              className="prose prose-lg max-w-none text-foreground/80 [&_p]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-3xl [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-primary"
+              dangerouslySetInnerHTML={{ __html: modifiedContent || "<p>Content coming soon.</p>" }}
+            />
+          </article>
+
+          <aside className="lg:col-span-1 space-y-8 sticky top-28">
+            {headings.length > 0 && (
+              <div className="p-6 rounded-lg bg-secondary/30 border border-slate-100/50">
+                <h3 className="font-serif text-xl text-primary mb-4 font-bold border-b pb-2 border-slate-200/50">Daftar Isi</h3>
+                <nav className="space-y-3">
+                  {headings.map(h => (
+                    <a
+                      href={`#${h.id}`}
+                      key={h.id}
+                      className={`block text-sm transition-all duration-200 hover:text-primary leading-snug ${h.level === 3
+                          ? 'pl-4 text-slate-500 hover:pl-5 border-l border-slate-200 focus:border-primary'
+                          : 'text-slate-700 font-semibold hover:translate-x-0.5'
+                        }`}
+                    >
+                      {h.text}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            )}
+
+            <div className="p-6 rounded-lg bg-secondary/50">
+              <h3 className="font-serif text-2xl text-primary mb-4">Related Articles</h3>
+              <div className="space-y-6">
+                {relatedInsights.map(related => (
+                  <Link href={related.href!} key={related.id} className="flex items-center space-x-4 group">
+                    {related.imageSrc && (
+                      <div className="relative h-20 w-20 rounded-md overflow-hidden shrink-0">
+                        <Image
+                          src={related.imageSrc}
+                          alt={related.title}
                           fill
                           className="object-cover"
-                          data-ai-hint={insight.imageHint}
-                          priority
-                      />
-                  </div>
-                )}
-
-                {/* Article Meta Bar below image */}
-                <div className="flex flex-col gap-3 text-xs text-slate-500 mb-8 border-b pb-6 border-slate-100/80">
-                  <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                    <span className="flex items-center gap-1.5">
-                      <CalendarDays className="h-4 w-4 text-slate-400" /> {insight.date}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Clock className="h-4 w-4 text-slate-400" /> {readTime} min read ({wordCount} words)
-                    </span>
-                    {insight.updatedAt && (
-                      <span className="text-slate-400 font-medium">
-                        Terakhir Dimodifikasi: {new Date(insight.updatedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
-                      </span>
+                          data-ai-hint={related.imageHint}
+                        />
+                      </div>
                     )}
-                  </div>
-                  <div className="flex flex-wrap gap-x-5 gap-y-2 border-t pt-2.5 border-slate-100/40">
-                    <span>Ditulis oleh: <strong className="text-slate-700 font-semibold">{insight.author || 'Altruva Aesthetic Clinic'}</strong></span>
-                    <span>Ditinjau oleh: <strong className="text-slate-700 font-semibold">{insight.reviewedBy || 'dr. Olivia Aldisa'}</strong></span>
-                  </div>
-                  {insight.keywords && insight.keywords.length > 0 && (
-                    <div className="flex items-start gap-2 leading-relaxed mt-1">
-                      <Tag className="h-3.5 w-3.5 text-slate-400 mt-0.5 shrink-0" />
-                      <span className="break-words">{insight.keywords.join(', ')}</span>
+                    <div>
+                      <p className="font-semibold text-primary group-hover:underline leading-tight">{related.title}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{related.date}</p>
                     </div>
-                  )}
-                </div>
-
-                <div 
-                    className="prose prose-lg max-w-none text-foreground/80 [&_p]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-3xl [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-primary" 
-                    dangerouslySetInnerHTML={{ __html: modifiedContent || "<p>Content coming soon.</p>" }} 
-                />
-            </article>
-
-             <aside className="lg:col-span-1 space-y-8 sticky top-28">
-                {headings.length > 0 && (
-                  <div className="p-6 rounded-lg bg-secondary/30 border border-slate-100/50">
-                    <h3 className="font-serif text-xl text-primary mb-4 font-bold border-b pb-2 border-slate-200/50">Daftar Isi</h3>
-                    <nav className="space-y-3">
-                      {headings.map(h => (
-                        <a 
-                          href={`#${h.id}`} 
-                          key={h.id} 
-                          className={`block text-sm transition-all duration-200 hover:text-primary leading-snug ${
-                            h.level === 3 
-                              ? 'pl-4 text-slate-500 hover:pl-5 border-l border-slate-200 focus:border-primary' 
-                              : 'text-slate-700 font-semibold hover:translate-x-0.5'
-                          }`}
-                        >
-                          {h.text}
-                        </a>
-                      ))}
-                    </nav>
-                  </div>
-                )}
-
-                <div className="p-6 rounded-lg bg-secondary/50">
-                    <h3 className="font-serif text-2xl text-primary mb-4">Related Articles</h3>
-                    <div className="space-y-6">
-                        {relatedInsights.map(related => (
-                            <Link href={related.href!} key={related.id} className="flex items-center space-x-4 group">
-                                {related.imageSrc && (
-                                <div className="relative h-20 w-20 rounded-md overflow-hidden shrink-0">
-                                    <Image 
-                                        src={related.imageSrc}
-                                        alt={related.title}
-                                        fill
-                                        className="object-cover"
-                                        data-ai-hint={related.imageHint}
-                                    />
-                                </div>
-                                )}
-                                <div>
-                                    <p className="font-semibold text-primary group-hover:underline leading-tight">{related.title}</p>
-                                    <p className="text-xs text-muted-foreground mt-1">{related.date}</p>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </aside>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
 
       </SectionWrapper>

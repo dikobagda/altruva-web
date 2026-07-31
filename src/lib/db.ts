@@ -102,6 +102,28 @@ export async function initializeDatabase() {
       )
     `);
 
+    // 2c. Create appointments table if not exists
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS appointments (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        phone VARCHAR(100) NOT NULL,
+        treatment VARCHAR(500) NOT NULL,
+        preferred_date DATE NOT NULL,
+        preferred_time VARCHAR(50) NOT NULL,
+        notes TEXT,
+        status ENUM('pending','confirmed','cancelled') DEFAULT 'pending',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+      )
+    `);
+
+    // 2d. Add status column to existing appointments table if missing
+    try {
+      await pool.query(`ALTER TABLE appointments ADD COLUMN status ENUM('pending','confirmed','cancelled') DEFAULT 'pending' AFTER notes`);
+    } catch (_) { /* already exists */ }
+
     // 3. Seed initial blog articles if empty
     const [blogRows]: any = await pool.query('SELECT COUNT(*) as count FROM blogs');
     const blogCount = blogRows[0]?.count || 0;
