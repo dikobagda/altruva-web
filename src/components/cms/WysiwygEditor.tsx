@@ -270,7 +270,7 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
             ref={editorRef}
             contentEditable
             onInput={handleInput}
-            className="min-h-[350px] p-5 focus:outline-none prose prose-slate max-w-none text-foreground/80 overflow-y-auto bg-white [&>h2]:font-serif [&>h2]:text-primary [&>h2]:text-2xl [&>h2]:mt-6 [&>h2]:mb-3 [&>h3]:font-serif [&>h3]:text-primary [&>h3]:text-xl [&>h3]:mt-4 [&>h3]:mb-2 [&>p]:mb-4"
+            className="min-h-[350px] p-5 focus:outline-none prose prose-slate max-w-none text-foreground/80 overflow-y-auto bg-white [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-2xl [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:font-serif [&_h3]:text-primary [&_h3]:text-xl [&_h3]:mt-4 [&_h3]:mb-2 [&_p]:mb-4"
           />
         )}
       </div>

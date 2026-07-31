@@ -42,12 +42,19 @@ export default function FlyerPage() {
   const [formWa, setFormWa] = React.useState('');
   const whatsappLink = "https://wa.me/6281216119392?text=Hai%20Altruva,%20saya%20tertarik%20booking%20konsultasi%20dengan%20dokter%20untuk%20tahu%20advanced%20treatment%20yang%20paling%20sesuai";
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formName.trim() || !formWa.trim()) return;
 
-    // Log lead data (simulated save)
-    console.log('Lead registered:', { name: formName, wa: formWa });
+    try {
+      await fetch('/api/cms/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: formName, whatsapp: formWa }),
+      });
+    } catch (err) {
+      console.error('Failed to register lead:', err);
+    }
 
     // Close the dialog and clean form
     setIsDialogOpen(false);
@@ -151,14 +158,6 @@ export default function FlyerPage() {
                 >
                   <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
                 </Button>
-                <Button
-                  onClick={() => setIsDialogOpen(true)}
-                  size="lg"
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary/5 font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
-                >
-                  {t({ en: 'Download Complimentary Guide', id: 'Unduh Panduan Gratis' })}
-                </Button>
               </div>
             </div>
           </div>
@@ -170,14 +169,6 @@ export default function FlyerPage() {
               className="w-full bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
             >
               <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
-            </Button>
-            <Button
-              onClick={() => setIsDialogOpen(true)}
-              size="lg"
-              variant="outline"
-              className="w-full border-primary text-primary hover:bg-primary/5 font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
-            >
-              {t({ en: 'Download Complimentary Guide', id: 'Unduh Panduan Gratis' })}
             </Button>
           </div>
         </div>

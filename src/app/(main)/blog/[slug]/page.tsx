@@ -199,7 +199,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                 </div>
 
                 <div 
-                    className="prose prose-lg max-w-none text-foreground/80 [&>p]:mb-4 [&>h2]:font-serif [&>h2]:text-primary [&>h2]:text-3xl [&>h2]:mb-4 [&>h3]:font-serif [&>h3]:text-primary" 
+                    className="prose prose-lg max-w-none text-foreground/80 [&_p]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-3xl [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-primary" 
                     dangerouslySetInnerHTML={{ __html: insight.content || "<p>Content coming soon.</p>" }} 
                 />
             </article>

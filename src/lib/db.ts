@@ -92,6 +92,16 @@ export async function initializeDatabase() {
       )
     `);
 
+    // 2b. Create leads table if not exists
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS leads (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        whatsapp VARCHAR(100) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
     // 3. Seed initial blog articles if empty
     const [blogRows]: any = await pool.query('SELECT COUNT(*) as count FROM blogs');
     const blogCount = blogRows[0]?.count || 0;
