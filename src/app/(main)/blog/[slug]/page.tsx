@@ -11,6 +11,7 @@ import { ArrowLeft, CalendarDays, Clock, Tag } from 'lucide-react';
 import BlogCard from '@/components/blog/BlogCard';
 import type { Metadata } from 'next';
 import JsonLd from '@/components/shared/JsonLd';
+import BlogAnalyticsTracker from '@/components/blog/BlogAnalyticsTracker';
 
 export async function generateStaticParams() {
   const blogsList = await getDbBlogs();
@@ -86,25 +87,6 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
     });
   }
 
-  // Track page view — forward visitor real IP, fire and forget
-  try {
-    const reqHeaders = await headers();
-    const ip =
-      reqHeaders.get('cf-connecting-ip') ||
-      reqHeaders.get('x-real-ip') ||
-      reqHeaders.get('x-forwarded-for')?.split(',')[0].trim() ||
-      '0.0.0.0';
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    fetch(`${baseUrl}/api/analytics/view`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-forwarded-for': ip,
-      },
-      body: JSON.stringify({ slug }),
-    }).catch(() => { });
-  } catch (_) { }
-
   // Words count calculation
   const wordCount = insight.content ? insight.content.replace(/<[^>]*>/g, '').split(/\s+/).length : 0;
   const readTime = Math.max(1, Math.round(wordCount / 200));
@@ -177,6 +159,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   return (
     <>
       <JsonLd schema={[articleSchema, breadcrumbSchema]} />
+      <BlogAnalyticsTracker slug={slug} />
       <SectionWrapper className="pt-12 pb-8 md:pt-20 md:pb-12 bg-secondary/30">
         <div className="max-w-4xl mx-auto">
           <Button asChild variant="ghost" className="mb-4">
