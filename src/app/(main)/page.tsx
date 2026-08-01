@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, Fragment, useMemo } from 'react';
+import { useState, Fragment, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -10,7 +10,7 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services } from '@/lib/data/services';
 import { testimonials } from '@/lib/data/testimonials';
 import { aiAnalysisFeatures } from '@/lib/data/ai-features';
-import { blogs } from '@/lib/data/blog';
+import type { Blog } from '@/lib/data/blog';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageTitle from '@/components/shared/PageTitle';
@@ -34,6 +34,25 @@ type TreatmentCategory = 'Prejuvenation' | 'Rejuvenation';
 export default function HomePage() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<TreatmentCategory | null>('Rejuvenation');
+  const [dynamicBlogs, setDynamicBlogs] = useState<Blog[]>([]);
+
+  // Fetch blogs from DB API on mount
+  useEffect(() => {
+    fetch('/api/cms/blogs')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          // Urutkan berdasarkan tanggal terbaru
+          const sorted = [...data].sort((a, b) => {
+            const da = new Date(a.date).getTime() || 0;
+            const db = new Date(b.date).getTime() || 0;
+            return db - da;
+          });
+          setDynamicBlogs(sorted);
+        }
+      })
+      .catch((err) => console.error('Error fetching dynamic blogs:', err));
+  }, []);
 
   const filteredServices = activeCategory ? services.filter(service => service.category === activeCategory) : [];
 
@@ -344,7 +363,7 @@ export default function HomePage() {
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent>
-            {blogs.filter(blog => blog.href).map((blog) => (
+            {dynamicBlogs.filter(blog => blog.href).slice(0, 6).map((blog) => (
               <CarouselItem key={blog.id} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 h-full">
                   <BlogCard blog={blog} />
