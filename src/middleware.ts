@@ -5,7 +5,13 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const host = request.headers.get('host') || '';
 
-  // 1. Subdomain Rewrite: If request is from cms.altruva.co.id
+  // 1. WWW to Non-WWW Redirect Consistency
+  if (host === 'www.altruva.co.id') {
+    url.host = 'altruva.co.id';
+    return NextResponse.redirect(url, 301);
+  }
+
+  // 2. Subdomain Rewrite: If request is from cms.altruva.co.id
   if (host.startsWith('cms.altruva.') || host.startsWith('cms.localhost:')) {
     if (!url.pathname.startsWith('/cms')) {
       url.pathname = `/cms${url.pathname}`;

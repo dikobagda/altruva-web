@@ -7,6 +7,8 @@ import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from "@/components/ui/toaster";
 import JsonLd from '@/components/shared/JsonLd';
 
+import Script from 'next/script';
+
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -90,10 +92,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Gunakan Google Analytics Measurement ID untuk Altruva (menggunakan env atau fallback default jika belum diset)
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-K3L4EYNW4X';
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preload" href="/images/logoaltruvanew.webp" as="image" fetchPriority="high" />
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaId}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
       </head>
       <body
         className={cn(
