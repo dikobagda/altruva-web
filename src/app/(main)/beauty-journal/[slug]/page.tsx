@@ -75,7 +75,7 @@ export default async function BeautyJournalArticlePage({ params }: { params: Pro
             "@type": "Person",
             "name": "dr. Olivia Aldisa",
             "jobTitle": "Aesthetic Doctor & Clinic Founder",
-            "url": "https://altruva.co.id/about-us/meet-dr-olivia-aldisa"
+            "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa"
         },
         "publisher": {
             "@type": "MedicalBusiness",

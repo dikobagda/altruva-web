@@ -10,6 +10,9 @@ import { Award, BookOpen, Mic, Star, CheckCircle, Briefcase, GraduationCap, Targ
 export const metadata = {
   title: 'Meet dr. Olivia Aldisa, dipl. AAAM',
   description: 'Learn about dr. Olivia Aldisa, a leading expert in non-surgical profiloplasty, international KOL, and the founder of Altruva.',
+  alternates: {
+    canonical: '/about/meet-dr-olivia-aldisa',
+  },
 };
 
 const keyExpertise = [

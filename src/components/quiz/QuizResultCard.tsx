@@ -25,7 +25,7 @@ const QuizResultCard = React.memo(function QuizResultCard({ result }: QuizResult
       </CardContent>
       <CardFooter className="flex justify-center">
         <Button asChild>
-          <Link href="/about-us/369-harmony">
+          <Link href="/about/369-harmony">
             Explore Your Plan <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>

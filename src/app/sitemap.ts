@@ -3,7 +3,7 @@ import { services } from '@/lib/data/services';
 import { getDbBlogs } from '@/lib/api/db-blog';
 import { beautyJournals } from '@/lib/data/beauty-journal';
 
-export const dynamic = 'force-static';
+export const revalidate = 86400;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://altruva.co.id';
@@ -11,10 +11,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 1. Static Routes
   const staticPaths = [
     '',
-    '/about-us',
-    '/about-us/369-harmony',
-    '/about-us/meet-dr-olivia-aldisa',
-    '/about-us/our-devices',
+    '/about',
+    '/about/369-harmony',
+    '/about/meet-dr-olivia-aldisa',
+    '/about/our-devices',
     '/beauty-journal',
     '/book-appointment',
     '/contact',

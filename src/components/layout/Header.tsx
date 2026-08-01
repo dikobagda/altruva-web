@@ -32,13 +32,13 @@ const navItems: NavItem[] = [
   {
     label: { en: 'About', id: 'Tentang Kami' },
     subItems: [
-      { href: '/about-us', label: { en: 'Philosophy', id: 'Filosofi' } },
-      { href: '/about-us/meet-dr-olivia-aldisa', label: { en: 'Meet dr. Olivia Aldisa', id: 'Temui dr. Olivia Aldisa' } },
+      { href: '/about', label: { en: 'Philosophy', id: 'Filosofi' } },
+      { href: '/about/meet-dr-olivia-aldisa', label: { en: 'Meet dr. Olivia Aldisa', id: 'Temui dr. Olivia Aldisa' } },
       { href: '/our-clinic', label: { en: 'Our Clinic', id: 'Klinik Kami' } },
-      { href: '/about-us/our-devices', label: { en: 'Our Devices', id: 'Perangkat Kami' } },
+      { href: '/about/our-devices', label: { en: 'Our Devices', id: 'Perangkat Kami' } },
     ],
   },
-  { href: '/about-us/369-harmony', label: { en: '369 Harmony™', id: '369 Harmony™' } },
+  { href: '/about/369-harmony', label: { en: '369 Harmony™', id: '369 Harmony™' } },
   {
     label: { en: 'Face', id: 'Face' },
     subItems: [

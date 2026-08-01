@@ -86,6 +86,16 @@ const nextConfig: NextConfig = {
         destination: '/treatments/:slug',
         permanent: true,
       },
+      {
+        source: '/about-us',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/about-us/:path*',
+        destination: '/about/:path*',
+        permanent: true,
+      },
     ];
   },
   webpack: (config, { webpack }) => {

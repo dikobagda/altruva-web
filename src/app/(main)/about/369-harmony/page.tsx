@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: '369 Harmony Approach',
   description: 'The Altruva 369 Harmony Approach is your intelligent, year-round beauty roadmap for natural, long-term rejuvenation based on regenerative medicine.',
   alternates: {
-    canonical: '/about-us/369-harmony',
+    canonical: '/about/369-harmony',
   },
 };
 
