@@ -124,9 +124,18 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
       "@type": "MedicalBusiness",
       "@id": "https://altruva.co.id/#clinic",
       "name": "Altruva Aesthetic Clinic",
+      "url": "https://altruva.co.id",
       "logo": {
         "@type": "ImageObject",
         "url": "https://altruva.co.id/images/logoaltruvanew.webp"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Ciasem I No.2 Kebayoran Baru",
+        "addressLocality": "Jakarta Selatan",
+        "addressRegion": "DKI Jakarta",
+        "postalCode": "12180",
+        "addressCountry": "ID"
       }
     }
   };
