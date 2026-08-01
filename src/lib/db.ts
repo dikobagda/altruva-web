@@ -11,6 +11,7 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+  connectTimeout: 5000, // Abort after 5 seconds to prevent 504 gateway hanging
 });
 
 let initialized = false;
