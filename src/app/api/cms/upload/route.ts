@@ -39,15 +39,8 @@ export async function POST(request: Request) {
       resumable: false,
     });
 
-    // Make the file publicly readable (if your GCS bucket is not configured to allow public reads by default)
-    try {
-      await gcsFile.makePublic();
-    } catch (err) {
-      // If uniform bucket-level access prevents explicit makePublic, log and bypass
-      console.log('Skipping explicit makePublic - checking uniform bucket policy', err);
-    }
-
-    // Public absolute GCS link URL to prevent file system deletion issues
+    // Public URL — bucket must have allUsers:objectViewer IAM policy set at bucket level
+    // (Uniform bucket-level access prevents per-object makePublic())
     const publicUrl = `https://storage.googleapis.com/${bucket.name}/uploads/${filename}`;
     
     return NextResponse.json({ success: true, url: publicUrl });

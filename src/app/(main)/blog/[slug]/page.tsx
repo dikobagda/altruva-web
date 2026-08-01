@@ -128,7 +128,9 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
     },
     "headline": insight.title,
     "description": insight.excerpt,
-    "image": insight.imageSrc ? `https://altruva.co.id${insight.imageSrc}` : undefined,
+    "image": insight.imageSrc
+      ? (insight.imageSrc.startsWith('http') ? insight.imageSrc : `https://altruva.co.id${insight.imageSrc}`)
+      : undefined,
     "datePublished": datePublished,
     "author": {
       "@type": "Person",
