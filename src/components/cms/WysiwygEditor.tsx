@@ -264,6 +264,20 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
             type="button"
             variant="ghost"
             size="sm"
+            className="h-8 w-8 p-0 hover:bg-slate-200 text-slate-700 font-serif italic text-base font-bold"
+            onClick={() => executeCommand('formatBlock', '<blockquote>')}
+            title="Quote"
+            disabled={isCodeView}
+          >
+            "
+          </Button>
+
+          <div className="w-px h-6 bg-slate-200 mx-1" />
+
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
             className="h-8 w-8 p-0 hover:bg-slate-200 text-slate-700"
             onClick={() => executeCommand('removeFormat')}
             title="Clear Formatting"

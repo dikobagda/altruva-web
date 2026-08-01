@@ -38,6 +38,7 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
   const [seoOptimizations, setSeoOptimizations] = useState<any>(null);
   const [optimizing, setOptimizing] = useState(false);
   const [applyingField, setApplyingField] = useState<string | null>(null);
+  const [isEeatReasonOpen, setIsEeatReasonOpen] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -594,9 +595,7 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
                     Evaluated for SearchGPT, Gemini, & Perplexity indexing.
                   </p>
                 </div>
-              </div>
-
-              {/* Aspects Checklist with Explanations */}
+              </div>              {/* Aspects Checklist with Explanations */}
               <div className="space-y-4">
                 {aiData.checks.map((check, index) => (
                   <div key={index} className="flex gap-3 items-start">
@@ -605,10 +604,19 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
                     ) : (
                       <AlertCircle className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" />
                     )}
-                    <div className="space-y-0.5">
-                      <div className="flex items-center gap-1.5">
+                    <div className="space-y-0.5 flex-1">
+                      <div className="flex items-center gap-1.5 flex-wrap">
                         <span className="text-xs font-semibold text-slate-700">{check.title}</span>
                         <span className="text-[10px] text-slate-400 font-mono">({check.impact} pts)</span>
+                        {check.title === "E-E-A-T Trust Attribution" && (
+                          <button
+                            type="button"
+                            onClick={() => setIsEeatReasonOpen(true)}
+                            className="text-[10px] text-primary hover:underline font-semibold"
+                          >
+                            See reason
+                          </button>
+                        )}
                       </div>
                       <p className="text-[11px] text-slate-500 leading-relaxed">
                         {check.desc}
@@ -621,6 +629,78 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
           </Card>
         </div>
       </main>
+
+      {/* EEAT Reason Modal Dialog */}
+      {isEeatReasonOpen && (
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-lg overflow-hidden flex flex-col p-6">
+            <div className="flex items-center justify-between border-b pb-3 mb-4">
+              <h3 className="font-serif text-lg font-bold text-primary">E-E-A-T Analyzer Report</h3>
+              <button 
+                onClick={() => setIsEeatReasonOpen(false)}
+                className="text-slate-400 hover:text-slate-600 text-sm font-semibold"
+              >
+                Close
+              </button>
+            </div>
+            
+            <div className="space-y-4 text-xs text-slate-600 leading-relaxed">
+              <p>
+                Analisis E-E-A-T didasarkan pada keberadaan sinyal kredibilitas berikut di dalam teks artikel:
+              </p>
+              
+              <div className="space-y-3 bg-slate-50 p-4 rounded-lg border border-slate-100 font-sans">
+                <div>
+                  <div className="flex items-center justify-between font-semibold text-slate-700 mb-1">
+                    <span>1. Medical Disclaimer (Penafian Medis)</span>
+                    <span className={blog.content?.toLowerCase().includes('disclaimer') || blog.content?.toLowerCase().includes('bukan pengganti') || blog.content?.toLowerCase().includes('saran medis') || blog.content?.toLowerCase().includes('konsultasikan dengan dokter') || blog.content?.toLowerCase().includes('konsultasikan ke dokter') ? "text-green-600" : "text-amber-600"}>
+                      {blog.content?.toLowerCase().includes('disclaimer') || blog.content?.toLowerCase().includes('bukan pengganti') || blog.content?.toLowerCase().includes('saran medis') || blog.content?.toLowerCase().includes('konsultasikan dengan dokter') || blog.content?.toLowerCase().includes('konsultasikan ke dokter') ? "✓ Found" : "✗ Missing"}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-slate-400">
+                    Mencari kata kunci: <em>disclaimer, bukan pengganti, saran medis, konsultasikan dengan dokter, konsultasikan ke dokter</em>
+                  </p>
+                </div>
+
+                <div className="border-t pt-2.5">
+                  <div className="flex items-center justify-between font-semibold text-slate-700 mb-1">
+                    <span>2. Clinical Citations (Rujukan Riset &amp; Studi)</span>
+                    <span className={blog.content?.toLowerCase().includes('riset') || blog.content?.toLowerCase().includes('studi') || blog.content?.toLowerCase().includes('jurnal') || blog.content?.toLowerCase().includes('penelitian') || blog.content?.toLowerCase().includes('clinical') || blog.content?.toLowerCase().includes('menurut dr.') || blog.content?.toLowerCase().includes('berdasarkan penelitian') ? "text-green-600" : "text-amber-600"}>
+                      {blog.content?.toLowerCase().includes('riset') || blog.content?.toLowerCase().includes('studi') || blog.content?.toLowerCase().includes('jurnal') || blog.content?.toLowerCase().includes('penelitian') || blog.content?.toLowerCase().includes('clinical') || blog.content?.toLowerCase().includes('menurut dr.') || blog.content?.toLowerCase().includes('berdasarkan penelitian') ? "✓ Found" : "✗ Missing"}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-slate-400">
+                    Mencari kata kunci: <em>riset, studi, jurnal, penelitian, clinical, menurut dr., berdasarkan penelitian</em>
+                  </p>
+                </div>
+
+                <div className="border-t pt-2.5">
+                  <div className="flex items-center justify-between font-semibold text-slate-700 mb-1">
+                    <span>3. Expert Attributions (Penulis &amp; Reviewer)</span>
+                    <span className={blog.author && blog.reviewed_by ? "text-green-600" : "text-amber-600"}>
+                      {blog.author && blog.reviewed_by ? "✓ Found" : "✗ Missing"}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-slate-400">
+                    Memastikan kolom <strong>Author</strong> dan <strong>Reviewed By</strong> pada artikel terisi.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-amber-50 border border-amber-200 rounded p-3 text-amber-800 text-[11px]">
+                <strong className="block mb-0.5">💡 Tips Optimasi:</strong>
+                Anda dapat menambahkan disclaimer medis seperti <em>"Artikel ini bukan pengganti saran medis profesional, selalu konsultasikan dengan dokter Anda..."</em> dan rujukan riset <em>"Berdasarkan penelitian/studi klinis..."</em> di bagian bawah artikel.
+              </div>
+            </div>
+            
+            <div className="mt-5 flex justify-end">
+              <Button onClick={() => setIsEeatReasonOpen(false)} className="h-9 px-4 rounded-full">
+                Close Report
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* AI SEO Optimizer Modal Overlay */}
       {isOptimizeOpen && seoOptimizations && (
