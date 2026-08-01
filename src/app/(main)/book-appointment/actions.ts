@@ -17,30 +17,30 @@ const appointmentFormSchema = z.object({
 
 export type AppointmentFormValues = z.infer<typeof appointmentFormSchema>;
 
+import pool, { initializeDatabase } from '@/lib/db';
+
 async function saveAppointmentToDatabase(data: AppointmentFormValues) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cms/appointments`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        treatment: data.treatment,
-        preferred_date: format(data.date, 'yyyy-MM-dd'),
-        preferred_time: data.time,
-        notes: data.notes || null,
-      }),
-    });
-
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      console.error('Failed to save appointment to database:', err);
-    } else {
-      console.log('Appointment saved to database successfully.');
-    }
+    await initializeDatabase();
+    const formattedDate = format(data.date, 'yyyy-MM-dd');
+    
+    await pool.query(
+      `INSERT INTO appointments (name, email, phone, treatment, preferred_date, preferred_time, notes, status)
+       VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')`,
+      [
+        data.name,
+        data.email,
+        data.phone,
+        data.treatment,
+        formattedDate,
+        data.time,
+        data.notes || null
+      ]
+    );
+    console.log('Appointment saved to database directly via pool successfully.');
   } catch (error) {
-    console.error('Error saving appointment to database:', error);
+    console.error('Error saving appointment to database directly:', error);
+    throw error; // Re-throw to allow validation on caller side if needed
   }
 }
 
