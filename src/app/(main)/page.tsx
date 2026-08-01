@@ -38,7 +38,7 @@ export default function HomePage() {
 
   // Fetch blogs from DB API on mount
   useEffect(() => {
-    fetch('/api/cms/blogs')
+    fetch('/api/blogs')
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
