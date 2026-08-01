@@ -34,6 +34,7 @@ export default function TreatmentsClientList() {
   return (
     <SectionWrapper>
       <PageTitle 
+        as="h1"
         title={t({ en: "Our Treatments", id: "Perawatan Kami" })} 
         subtitle={t({ en: "Discover our comprehensive range of regenerative and aesthetic treatments, tailored to your unique needs.", id: "Temukan rangkaian lengkap perawatan regeneratif dan estetika kami, yang disesuaikan dengan kebutuhan unik Anda."})} 
       />

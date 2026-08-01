@@ -95,6 +95,7 @@ export default function Harmony369Content() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent z-10"></div>
         <div className="relative z-20 max-w-4xl mx-auto p-4 pb-16">
           <PageTitle
+            as="h1"
             className="pt-32"
             title={t({ en: "The Altruva 369 Harmony Approach™", id: "Pendekatan Altruva 369 Harmony™" })}
             subtitle={t({ en: "Your intelligent, year-round beauty roadmap for natural, long-term rejuvenation.", id: "Peta jalan kecantikan cerdas Anda sepanjang tahun untuk peremajaan alami dan jangka panjang." })}

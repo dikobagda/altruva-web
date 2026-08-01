@@ -27,7 +27,7 @@ export default function AboutUsContent() {
             />
           </div>
           <div className="space-y-6">
-            <h2 className="font-serif text-3xl font-bold text-primary">{t({ en: 'Our Philosophy', id: 'Filosofi Kami' })}</h2>
+            <h1 className="font-serif text-3xl font-bold text-primary">{t({ en: 'Our Philosophy', id: 'Filosofi Kami' })}</h1>
             <p className="text-lg text-foreground/80">
               {t({ 
                 en: "True beauty is not about transformation, but revelation. We utilize the latest advancements in regenerative medicine and non-surgical treatments to work in harmony with your body, promoting cellular renewal and achieving authentic, lasting results.",

@@ -20,7 +20,12 @@ export default function SkinAnalysisContent() {
 
   return (
     <SectionWrapper>
-      
+      <PageTitle
+        as="h1"
+        title="AI Skin Analysis"
+        subtitle="Upload a photo and answer a few questions to receive your personalized AI-powered skin analysis."
+      />
+
       {!analysisResult && (
         <SkinAnalysisForm onAnalysisComplete={handleAnalysisComplete} setIsLoading={setIsLoading} />
       )}

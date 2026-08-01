@@ -54,6 +54,7 @@ export default function OurDevicesContent() {
   return (
     <SectionWrapper>
       <PageTitle
+        as="h1"
         title={t({ en: 'Our Technology', id: 'Teknologi Kami' })}
         subtitle={t({
           en: 'We invest in the world’s leading, clinically-proven technologies to ensure every treatment is safe, effective, and delivers superior results.',

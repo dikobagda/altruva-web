@@ -200,6 +200,7 @@ export default function NewsMediaContent() {
     <>
       <SectionWrapper>
         <PageTitle 
+          as="h1"
           title={t({ en: "Altruva in the Media", id: "Altruva di Media" })}
           subtitle={t({ en: "Discover what the press is saying about our innovative treatments and philosophy.", id: "Temukan apa yang media katakan tentang perawatan dan filosofi inovatif kami." })}
         />

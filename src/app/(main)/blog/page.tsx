@@ -35,6 +35,7 @@ export default async function ArticlesPage() {
   return (
     <SectionWrapper>
       <PageTitle 
+        as="h1"
         title="Articles from Altruva" 
         subtitle="Explore the latest in aesthetic science, wellness, and beauty from our experts." 
       />

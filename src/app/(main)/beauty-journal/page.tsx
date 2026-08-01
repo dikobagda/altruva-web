@@ -17,6 +17,7 @@ export default function BeautyJournalPage() {
   return (
     <SectionWrapper>
       <PageTitle
+        as="h1"
         title="Beauty Journal"
         subtitle="Your monthly source for regenerative aesthetics, wellness, and timeless beauty. Download the latest edition."
       />

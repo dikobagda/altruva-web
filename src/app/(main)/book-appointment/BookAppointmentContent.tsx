@@ -109,6 +109,7 @@ export default function BookAppointmentContent() {
     <>
       <SectionWrapper>
         <PageTitle
+          as="h1"
           title="Request an Appointment"
           subtitle="Fill out the form below to request an appointment. Our team will contact you to confirm the schedule."
         />
