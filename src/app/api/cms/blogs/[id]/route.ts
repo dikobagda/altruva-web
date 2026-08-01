@@ -64,17 +64,18 @@ export async function PUT(
   const { id: oldSlug } = await params;
   await initializeDatabase();
   try {
-    const { slug, title, excerpt, content, imageSrc, imageHint, date, keywords, author, reviewedBy } = await request.json();
+    const { slug, title, excerpt, content, imageSrc, imageHint, date, keywords, author, reviewedBy, status } = await request.json();
     
     if (!slug || !title) {
       return NextResponse.json({ error: 'Slug and Title are required' }, { status: 400 });
     }
 
     const finalExcerpt = excerpt?.trim() ? excerpt.trim() : generateExcerptFromContent(content || '', title);
+    const finalStatus = status === 'draft' ? 'draft' : 'published';
 
     await pool.query(
       `UPDATE blogs 
-       SET slug = ?, title = ?, excerpt = ?, content = ?, image_src = ?, image_hint = ?, date = ?, keywords = ?, author = ?, reviewed_by = ?
+       SET slug = ?, title = ?, excerpt = ?, content = ?, image_src = ?, image_hint = ?, date = ?, keywords = ?, author = ?, reviewed_by = ?, status = ?
        WHERE slug = ?`,
       [
         slug,
@@ -87,6 +88,7 @@ export async function PUT(
         JSON.stringify(keywords || []),
         author || 'Altruva Aesthetic Clinic',
         reviewedBy || 'dr. Olivia Aldisa',
+        finalStatus,
         oldSlug,
       ]
     );

@@ -11,6 +11,7 @@ export interface Blog {
   keywords?: string[];
   author?: string;
   reviewedBy?: string;
+  status?: 'published' | 'draft';
   updatedAt?: string;
 }
 

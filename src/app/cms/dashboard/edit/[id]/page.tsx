@@ -8,7 +8,7 @@ export default async function EditBlogPage({
   params: Promise<{ id: string }>;
 }) {
   const { id: slug } = await params;
-  const blog = await getDbBlogBySlug(slug);
+  const blog = await getDbBlogBySlug(slug, true);
 
   if (!blog) {
     notFound();
@@ -24,6 +24,7 @@ export default async function EditBlogPage({
     image_hint: blog.imageHint,
     date: blog.date,
     keywords: blog.keywords || [],
+    status: blog.status,
   };
 
   return (

@@ -18,6 +18,7 @@ interface Blog {
   keywords: string[];
   author?: string;
   reviewed_by?: string;
+  status?: 'published' | 'draft';
 }
 
 interface TrendDay {

@@ -28,6 +28,7 @@ interface Blog {
   content: string;
   keywords: string[];
   view_count: number;
+  status?: 'published' | 'draft';
   updated_at: string;
 }
 
@@ -415,6 +416,7 @@ export default function DashboardPage() {
                       <SortTh label="Title" k="title" />
                       <SortTh label="Published" k="date" />
                       <SortTh label="Total Views" k="view_count" />
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider whitespace-nowrap">Status</th>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider whitespace-nowrap">Unique Visitors</th>
                       <SortTh label="Views (7d)" k="views_7d" />
                       <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider whitespace-nowrap">Unique (7d)</th>
@@ -447,6 +449,19 @@ export default function DashboardPage() {
                               <Eye className="h-3.5 w-3.5 text-slate-400" />
                               {(blog.view_count || 0).toLocaleString()}
                             </div>
+                          </td>
+
+                          {/* Publishing Status */}
+                          <td className="px-4 py-3 whitespace-nowrap">
+                            {blog.status === 'draft' ? (
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200">
+                                🟡 Draft
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800 border border-green-200">
+                                🟢 Live
+                              </span>
+                            )}
                           </td>
 
                           {/* Unique Visitors (all time) */}

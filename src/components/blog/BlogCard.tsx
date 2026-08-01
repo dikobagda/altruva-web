@@ -18,12 +18,10 @@ export default function BlogCard({ blog }: BlogCardProps) {
       <Card className="flex flex-col overflow-hidden shadow-lg h-full w-full">
         {blog.imageSrc && (
           <div className="relative w-full aspect-video overflow-hidden">
-            <Image
+            <img
               src={blog.imageSrc}
               alt={blog.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="w-full h-full object-cover"
               data-ai-hint={blog.imageHint}
             />
           </div>
@@ -54,12 +52,10 @@ export default function BlogCard({ blog }: BlogCardProps) {
       <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full w-full group">
         {blog.imageSrc && (
           <div className="relative w-full aspect-video overflow-hidden">
-            <Image
+            <img
               src={blog.imageSrc}
               alt={blog.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               data-ai-hint={blog.imageHint}
             />
           </div>

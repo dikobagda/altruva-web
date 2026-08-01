@@ -191,13 +191,11 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
           <article className="lg:col-span-2 prose prose-lg max-w-none text-foreground/90">
             {insight.imageSrc && (
               <div className="relative aspect-video w-full rounded-lg overflow-hidden mb-4 shadow-lg">
-                <Image
+                <img
                   src={insight.imageSrc}
                   alt={insight.title}
-                  fill
-                  className="object-cover"
+                  className="w-full h-full object-cover"
                   data-ai-hint={insight.imageHint}
-                  priority
                 />
               </div>
             )}
@@ -263,11 +261,10 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
                   <Link href={related.href!} key={related.id} className="flex items-center space-x-4 group">
                     {related.imageSrc && (
                       <div className="relative h-20 w-20 rounded-md overflow-hidden shrink-0">
-                        <Image
+                        <img
                           src={related.imageSrc}
                           alt={related.title}
-                          fill
-                          className="object-cover"
+                          className="w-full h-full object-cover"
                           data-ai-hint={related.imageHint}
                         />
                       </div>

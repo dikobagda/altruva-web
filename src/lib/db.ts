@@ -35,6 +35,7 @@ export async function initializeDatabase() {
         unique_view_count INT DEFAULT 0,
         author VARCHAR(255) DEFAULT 'Altruva Aesthetic Clinic',
         reviewed_by VARCHAR(255) DEFAULT 'dr. Olivia Aldisa',
+        status ENUM('published', 'draft') DEFAULT 'published',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
       )
@@ -78,6 +79,11 @@ export async function initializeDatabase() {
     // 1g. Add reviewed_by column to blogs if missing
     try {
       await pool.query(`ALTER TABLE blogs ADD COLUMN reviewed_by VARCHAR(255) DEFAULT 'dr. Olivia Aldisa'`);
+    } catch (_) { /* already exists */ }
+
+    // 1h. Add status column to blogs if missing
+    try {
+      await pool.query(`ALTER TABLE blogs ADD COLUMN status ENUM('published', 'draft') DEFAULT 'published'`);
     } catch (_) { /* already exists */ }
 
 

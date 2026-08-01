@@ -10,6 +10,13 @@ import { Label } from '@/components/ui/label';
 import { ArrowLeft, Calendar, ImagePlus, Loader2, Save, X } from 'lucide-react';
 import Link from 'next/link';
 import WysiwygEditor from './WysiwygEditor';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 interface BlogFormProps {
   initialData?: {
@@ -23,6 +30,7 @@ interface BlogFormProps {
     keywords: string[];
     author?: string;
     reviewed_by?: string;
+    status?: 'published' | 'draft';
   };
   isEdit?: boolean;
 }
@@ -38,6 +46,7 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
   const [keywordsInput, setKeywordsInput] = useState('');
   const [author, setAuthor] = useState('Altruva Aesthetic Clinic');
   const [reviewedBy, setReviewedBy] = useState('dr. Olivia Aldisa');
+  const [status, setStatus] = useState<'published' | 'draft'>('published');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [imageUploading, setImageUploading] = useState(false);
@@ -149,10 +158,12 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
       setKeywordsInput(Array.isArray(initialData.keywords) ? initialData.keywords.join(', ') : '');
       setAuthor(initialData.author || 'Altruva Aesthetic Clinic');
       setReviewedBy(initialData.reviewed_by || 'dr. Olivia Aldisa');
+      setStatus(initialData.status || 'published');
     } else {
       // Default date to today in YYYY-MM-DD format
       const today = new Date().toISOString().split('T')[0];
       setDate(today);
+      setStatus('published');
     }
   }, [initialData]);
 
@@ -227,6 +238,7 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
       keywords,
       author,
       reviewedBy,
+      status,
     };
 
     try {
@@ -379,8 +391,8 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
               </div>
             </div>
 
-            {/* Author + Reviewer fields */}
-            <div className="grid md:grid-cols-2 gap-6">
+            {/* Author + Reviewer + Status fields */}
+            <div className="grid md:grid-cols-3 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="author" className="text-primary font-medium">Written By</Label>
                 <Input
@@ -402,6 +414,28 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
                   placeholder="e.g. dr. Olivia Aldisa"
                   className="border-slate-200 focus:border-primary bg-white"
                 />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="status" className="text-primary font-medium">Publishing Status</Label>
+                <Select value={status} onValueChange={(val: 'published' | 'draft') => setStatus(val)}>
+                  <SelectTrigger id="status" className="w-full bg-white border-slate-200 focus:ring-primary focus:border-primary">
+                    <SelectValue placeholder="Select status" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white border-slate-200 shadow-md">
+                    <SelectItem value="published">
+                      <span className="flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-green-500 shrink-0" />
+                        Published
+                      </span>
+                    </SelectItem>
+                    <SelectItem value="draft">
+                      <span className="flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-amber-500 shrink-0" />
+                        Draft
+                      </span>
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
 
