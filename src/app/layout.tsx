@@ -32,6 +32,28 @@ export const metadata: Metadata = {
   icons: {
     icon: '/images/altruva.ico',
   },
+  openGraph: {
+    title: 'Altruva Aesthetic Clinic - Regenerative Contouring in Jakarta',
+    description: 'Discover premier regenerative & aesthetic treatments at Altruva Clinic Jakarta. Specializing in Sofwave, EmSculpt Neo, & Gouri led by dr. Olivia Aldisa.',
+    url: 'https://altruva.co.id',
+    siteName: 'Altruva Aesthetic Clinic',
+    images: [
+      {
+        url: '/images/herobackground-new.png',
+        width: 1200,
+        height: 630,
+        alt: 'Altruva Aesthetic Clinic',
+      },
+    ],
+    locale: 'id_ID',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Altruva Aesthetic Clinic - Regenerative Contouring in Jakarta',
+    description: 'Discover premier regenerative & aesthetic treatments at Altruva Clinic Jakarta. Specializing in Sofwave, EmSculpt Neo, & Gouri led by dr. Olivia Aldisa.',
+    images: ['/images/herobackground-new.png'],
+  },
 };
 
 const clinicSchema = {
