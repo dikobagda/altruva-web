@@ -47,3 +47,12 @@ firestore-debug.log
 # CMS uploaded images (keep folder, ignore files)
 /public/uploads/*
 !/public/uploads/.gitkeep
+
+# Google Service Account Credentials JSON keys
+vinsengroup-*.json
+altruva-*.json
+*.json
+!package.json
+!components.json
+!tsconfig.json
+!apphosting.json

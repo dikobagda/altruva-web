@@ -1,9 +1,16 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Bold, Italic, Underline, Heading2, Heading3, List, Link as LinkIcon, Image as ImageIcon, Code, Eye, Eraser, Loader2, AlignLeft, AlignCenter, AlignRight } from 'lucide-react';
+import { Bold, Italic, Underline, Heading2, Heading3, List, Link as LinkIcon, Image as ImageIcon, Code, Eye, Eraser, Loader2, AlignLeft, AlignCenter, AlignRight, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 interface WysiwygEditorProps {
   value: string;
@@ -48,6 +55,45 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
     const url = prompt('Enter the link URL (e.g. https://altruva.co.id):');
     if (url) {
       executeCommand('createLink', url);
+    }
+  };
+
+  const changeLineHeight = (height: string) => {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return;
+
+    const range = selection.getRangeAt(0);
+    let container = range.commonAncestorContainer as HTMLElement;
+
+    // Resolve text nodes to parent elements
+    if (container.nodeType === 3) {
+      container = container.parentNode as HTMLElement;
+    }
+
+    // Traverse up to find block element or contenteditable root
+    while (
+      container &&
+      container !== editorRef.current &&
+      !['P', 'H2', 'H3', 'LI', 'BLOCKQUOTE', 'DIV'].includes(container.nodeName)
+    ) {
+      container = container.parentNode as HTMLElement;
+    }
+
+    if (container && container !== editorRef.current) {
+      container.style.lineHeight = height;
+      handleInput();
+    } else {
+      // If root editor is selected, wrap selection in span with line-height
+      const span = document.createElement('span');
+      span.style.lineHeight = height;
+      span.style.display = 'inline-block'; // force span to respect height
+      try {
+        range.surroundContents(span);
+        handleInput();
+      } catch (e) {
+        // Fallback if range cross boundaries
+        executeCommand('insertHTML', `<span style="line-height: ${height}; display: inline-block;">${selection.toString()}</span>`);
+      }
     }
   };
 
@@ -271,6 +317,24 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
           >
             "
           </Button>
+
+          <div className="w-px h-6 bg-slate-200 mx-1" />
+
+          {/* Line Height Selector */}
+          <div className="w-28" title="Text Line Height">
+            <Select onValueChange={changeLineHeight} disabled={isCodeView}>
+              <SelectTrigger className="h-8 bg-white border-slate-200 text-xs px-2.5">
+                <SelectValue placeholder="Line Height" />
+              </SelectTrigger>
+              <SelectContent className="bg-white border-slate-200 shadow-md">
+                <SelectItem value="1.0">Single (1.0)</SelectItem>
+                <SelectItem value="1.2">Compact (1.2)</SelectItem>
+                <SelectItem value="1.5">Normal (1.5)</SelectItem>
+                <SelectItem value="1.8">Loose (1.8)</SelectItem>
+                <SelectItem value="2.0">Double (2.0)</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
           <div className="w-px h-6 bg-slate-200 mx-1" />
 

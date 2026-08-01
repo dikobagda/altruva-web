@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { promises as fs } from 'fs';
-import path from 'path';
 import { verifySessionToken } from '@/lib/cms-auth';
+import { bucket } from '@/lib/gcs';
 
 async function checkAuth() {
   const cookieStore = await cookies();
@@ -28,19 +27,32 @@ export async function POST(request: Request) {
     
     // Create a URL-safe unique filename
     const filename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
 
-    // Ensure public/uploads directory exists
-    await fs.mkdir(uploadDir, { recursive: true });
+    // Upload to Google Cloud Storage bucket
+    const gcsFile = bucket.file(`uploads/${filename}`);
+    
+    // Save buffer content to GCS
+    await gcsFile.save(buffer, {
+      metadata: {
+        contentType: file.type,
+      },
+      resumable: false,
+    });
 
-    // Save the file
-    const filePath = path.join(uploadDir, filename);
-    await fs.writeFile(filePath, buffer);
+    // Make the file publicly readable (if your GCS bucket is not configured to allow public reads by default)
+    try {
+      await gcsFile.makePublic();
+    } catch (err) {
+      // If uniform bucket-level access prevents explicit makePublic, log and bypass
+      console.log('Skipping explicit makePublic - checking uniform bucket policy', err);
+    }
 
-    const relativeUrl = `/uploads/${filename}`;
-    return NextResponse.json({ success: true, url: relativeUrl });
+    // Public absolute GCS link URL to prevent file system deletion issues
+    const publicUrl = `https://storage.googleapis.com/${bucket.name}/uploads/${filename}`;
+    
+    return NextResponse.json({ success: true, url: publicUrl });
   } catch (error: any) {
-    console.error('File upload error:', error);
+    console.error('File upload to GCS error:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
