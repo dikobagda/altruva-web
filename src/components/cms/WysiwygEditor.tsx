@@ -46,6 +46,56 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
     setInternalValue(val);
   };
 
+  const handlePaste = (e: React.ClipboardEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    
+    // Ambil data HTML dari clipboard jika ada (biasanya dari MS Word)
+    const html = e.clipboardData.getData('text/html');
+    const text = e.clipboardData.getData('text/plain');
+
+    if (html) {
+      // 1. Bersihkan tags dan style sampah dari MS Word / Eksternal
+      let cleanHtml = html;
+
+      // Hapus tag XML, Namespace, dan tag Meta Office
+      cleanHtml = cleanHtml.replace(/<!--[\s\S]*?-->/g, '');
+      cleanHtml = cleanHtml.replace(/<xml>[\s\S]*?<\/xml>/gi, '');
+      cleanHtml = cleanHtml.replace(/<(meta|link|style|o:|[wst]:)[^>]*>/gi, '');
+      cleanHtml = cleanHtml.replace(/<\/(o:|[wst]:)[^>]*>/gi, '');
+
+      // Hapus inline styling class yang berantakan (MsoNormal, MsoListParagraph, dll)
+      cleanHtml = cleanHtml.replace(/\s*class="[^"]*"/gi, '');
+      cleanHtml = cleanHtml.replace(/\s*style="[^"]*"/gi, '');
+      cleanHtml = cleanHtml.replace(/\s*lang="[^"]*"/gi, '');
+
+      // Bersihkan spasi kosong ganda, tag kosong & tag pembungkus yang tidak diperlukan
+      cleanHtml = cleanHtml.replace(/<span[^>]*>([\s\S]*?)<\/span>/gi, '$1');
+      cleanHtml = cleanHtml.replace(/<font[^>]*>([\s\S]*?)<\/font>/gi, '$1');
+      
+      // Sederhanakan list (mengganti list paragraph dari MS Word ke Standard HTML list)
+      cleanHtml = cleanHtml.replace(/<p[^>]*>•&nbsp;\s*([\s\S]*?)<\/p>/gi, '<li>$1</li>');
+      cleanHtml = cleanHtml.replace(/<p[^>]*>·&nbsp;\s*([\s\S]*?)<\/p>/gi, '<li>$1</li>');
+
+      // Pastikan paragraf tidak memiliki wrapper aneh
+      cleanHtml = cleanHtml.replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, '<p>$1</p>');
+      
+      // Bersihkan spasi berlebih
+      cleanHtml = cleanHtml.trim();
+
+      // Sisipkan HTML yang bersih ke posisi kursor saat ini
+      document.execCommand('insertHTML', false, cleanHtml);
+    } else if (text) {
+      // Jika hanya ada plain text, sisipkan dengan aman
+      const textHtml = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\n/g, '<br>');
+      document.execCommand('insertHTML', false, textHtml);
+    }
+    handleInput();
+  };
+
   const executeCommand = (command: string, value: string = '') => {
     document.execCommand(command, false, value);
     handleInput();
@@ -385,6 +435,7 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
             ref={editorRef}
             contentEditable
             onInput={handleInput}
+            onPaste={handlePaste}
             className="min-h-[350px] p-5 focus:outline-none prose prose-slate max-w-none text-foreground/80 overflow-y-auto bg-white [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-2xl [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:font-serif [&_h3]:text-primary [&_h3]:text-xl [&_h3]:mt-4 [&_h3]:mb-2 [&_p]:mb-4"
           />
         )}
