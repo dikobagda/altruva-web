@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import AboutUsContent from './AboutUsContent';
 
 export const metadata: Metadata = {
-  title: 'About Us | Altruva Aesthetic Clinic',
-  description: 'Learn about Altruva Aesthetic Clinic in Jakarta, our philosophy of regenerative contouring, and why patients choose us for natural, elegant results led by dr. Olivia Aldisa.',
+  title: 'About Altruva Aesthetic Clinic',
+  description: 'Discover Altruva Aesthetic Clinic Jakarta\'s philosophy of regenerative contouring and why patients trust us for natural, elegant, non-surgical results.',
   alternates: {
     canonical: '/about-us',
   },

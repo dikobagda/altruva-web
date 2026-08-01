@@ -9,8 +9,8 @@ import { DownloadCloud } from 'lucide-react';
 import { beautyJournals } from '@/lib/data/beauty-journal';
 
 export const metadata = {
-  title: 'Beauty Journal - Altruva',
-  description: 'Download the latest monthly e-magazine from Altruva for beauty insights and trends.',
+  title: 'Beauty Journal',
+  description: 'Download Altruva\'s Beauty Journal — monthly e-magazines on regenerative aesthetics, skincare, wellness, and timeless beauty insights from Jakarta experts.',
 };
 
 export default function BeautyJournalPage() {

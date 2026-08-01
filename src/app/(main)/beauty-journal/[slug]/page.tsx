@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const keywords = [...new Set([...dynamicKeywords, ...baseKeywords])];
 
     return {
-        title: journal ? `${journal.title} - Beauty Journal | Altruva` : 'Beauty Journal - Altruva',
+        title: journal ? `${journal.title} - Beauty Journal` : 'Beauty Journal',
         description: matchingInsight?.excerpt || (journal ? `Read the ${journal.issue} edition of Altruva Beauty Journal: ${journal.title}.` : 'Altruva Beauty Journal Article'),
         keywords: keywords,
     };

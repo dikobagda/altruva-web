@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Award, BookOpen, Mic, Star, CheckCircle, Briefcase, GraduationCap, Target, Eye, Lightbulb } from 'lucide-react';
 
 export const metadata = {
-  title: 'Meet dr. Olivia Aldisa, dipl. AAAM - Altruva Aesthetic Clinic',
+  title: 'Meet dr. Olivia Aldisa, dipl. AAAM',
   description: 'Learn about dr. Olivia Aldisa, a leading expert in non-surgical profiloplasty, international KOL, and the founder of Altruva.',
 };
 

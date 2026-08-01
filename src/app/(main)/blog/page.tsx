@@ -12,8 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Aesthetic Science & Beauty Articles | Altruva Clinic Blog',
-  description: 'Explore the latest in aesthetic science, wellness, and beauty from the experts at Altruva Clinic in Jakarta. Your source for skincare tips and treatment information.',
+  title: 'Aesthetic Science & Beauty Articles',
+  description: 'Expert insights on aesthetic science, skincare, and regenerative beauty from Altruva Clinic Jakarta. Your source for treatment tips and wellness guidance.',
   keywords: ['aesthetic science', 'beauty blog', 'skincare tips', 'Altruva Clinic', 'dr. Olivia Aldisa', 'regenerative aesthetics', 'Jakarta'],
   alternates: {
     canonical: '/blog',

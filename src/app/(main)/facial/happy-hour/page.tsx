@@ -8,8 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { CheckCircle, Clock, Sparkles } from 'lucide-react';
 
 export const metadata = {
-  title: 'Happy Hour Specials - Altruva',
-  description: 'Limited-time express glow rituals for luxurious results with no downtime.',
+  title: 'Happy Hour Specials',
+  description: 'Discover Altruva Happy Hour specials — limited-time express glow rituals and facial treatments for radiant skin with no downtime in Jakarta.',
 };
 
 const happyHourOptions = [

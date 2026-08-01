@@ -6,7 +6,6 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Microscope, Dna, Star, Layers, Info, BookOpen } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import JsonLd from '@/components/shared/JsonLd';
 
 const DetailSection: React.FC<{ title: string; children: React.ReactNode; Icon: React.ElementType, className?: string }> = ({ title, children, Icon, className }) => (
   <Card className={className}>
@@ -40,68 +39,8 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
     notFound();
   }
 
-  // Generate Service & Breadcrumb JSON-LD
-  const isConsultationPrice = !service.price || service.price === "Price on consultation";
-  const numericPrice = !isConsultationPrice ? parseFloat(service.price.replace(/[^\d]/g, '')) : undefined;
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": ["Service", "MedicalProcedure"],
-    "@id": `https://altruva.co.id/treatments/${service.id}#service`,
-    "name": service.title,
-    "description": t(service.description),
-    "provider": {
-      "@type": "MedicalBusiness",
-      "@id": "https://altruva.co.id/#clinic",
-      "name": "Altruva Aesthetic Clinic",
-      "url": "https://altruva.co.id"
-    },
-    "image": service.imageSrc ? `https://altruva.co.id${service.imageSrc}` : undefined,
-    "category": service.category,
-    ...(numericPrice ? {
-      "offers": {
-        "@type": "Offer",
-        "price": numericPrice,
-        "priceCurrency": "IDR",
-        "valueAddedTaxIncluded": true,
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "priceType": "https://schema.org/ListPrice",
-          "price": numericPrice,
-          "priceCurrency": "IDR"
-        }
-      }
-    } : {})
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://altruva.co.id"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Treatments",
-        "item": "https://altruva.co.id/treatments"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": service.title,
-        "item": `https://altruva.co.id/treatments/${service.id}`
-      }
-    ]
-  };
-
   return (
     <>
-      <JsonLd schema={[serviceSchema, breadcrumbSchema]} />
       <SectionWrapper className="bg-secondary/30 pt-24 md:pt-32 pb-12">
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-accent font-semibold mb-2">{service.group}</p>

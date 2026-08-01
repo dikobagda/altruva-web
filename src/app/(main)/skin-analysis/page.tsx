@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import SkinAnalysisContent from './SkinAnalysisContent';
 
 export const metadata: Metadata = {
-  title: 'AI Skin Analysis | Altruva Aesthetic Clinic',
+  title: 'AI Skin Analysis',
   description: 'Upload your photo and get a personalized AI-powered skin analysis with tailored recommendations from Altruva Aesthetic Clinic Jakarta.',
   alternates: {
     canonical: '/skin-analysis',

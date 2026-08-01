@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/shared/JsonLd';
+import { services } from '@/lib/data/services';
 import TreatmentsClientList from '@/components/treatments/TreatmentsClientList';
 
 export const metadata: Metadata = {
-  title: 'Advanced Regenerative & Aesthetic Treatments | Altruva Clinic Jakarta',
-  description: 'Explore Altruva Aesthetic Clinic range of advanced non-invasive procedures including Sofwave, EmSculpt Neo, Gouri, and Exion. Expert skin rejuvenations in Jakarta.',
+  title: 'Regenerative & Aesthetic Treatments',
+  description: 'Explore Altruva Aesthetic Clinic\'s non-invasive treatments — Sofwave, EmSculpt Neo, Gouri, and Exion — for expert skin rejuvenation in Jakarta.',
   keywords: [
     'perawatan estetika jakarta',
     'aesthetic treatments indonesia',
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Aesthetic & Regenerative Treatments | Altruva Clinic Jakarta',
-    description: 'Explore Altruva Aesthetic Clinic range of advanced non-invasive procedures including Sofwave, EmSculpt Neo, Gouri, and Exion.',
+    description: 'Explore Altruva Aesthetic Clinic\'s non-invasive treatments — Sofwave, EmSculpt Neo, Gouri, and Exion.',
     url: 'https://altruva.co.id/treatments',
     siteName: 'Altruva Aesthetic Clinic',
     images: [
@@ -34,6 +36,43 @@ export const metadata: Metadata = {
   },
 };
 
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "https://altruva.co.id/treatments#services",
+  "name": "Advanced Regenerative & Aesthetic Treatments",
+  "itemListElement": services.map((service, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": service.title,
+    "url": `https://altruva.co.id/treatments/${service.id}`,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://altruva.co.id",
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Treatments",
+      "item": "https://altruva.co.id/treatments",
+    },
+  ],
+};
+
 export default function ServicesPage() {
-  return <TreatmentsClientList />;
+  return (
+    <>
+      <JsonLd schema={[itemListSchema, breadcrumbSchema]} />
+      <TreatmentsClientList />
+    </>
+  );
 }
