@@ -1,0 +1,17 @@
+# Altruva Aesthetic & Regenerative Clinic
+
+Altruva is a premier regenerative and aesthetic clinic based in Jakarta, Indonesia. Specializing in advanced, non-invasive procedures led by dr. Olivia Aldisa.
+
+## Information Resources
+
+- [Home](https://altruva.co.id/) - Official homepage with medical services, brand vision, and values.
+- [Services & Treatments](https://altruva.co.id/#treatments) - Comprehensive non-invasive treatments including Sofwave, EmSculpt Neo, Gouri, and regenerative aesthetic therapies.
+- [Blog](https://altruva.co.id/blog) - Medical insights, skincare updates, perimenopause education, and clinic news.
+- [Book Appointment](https://altruva.co.id/book-appointment) - Real-time schedule booking and consultation appointments with medical professionals.
+- [About Meet the Doctor](https://altruva.co.id/about-us/meet-dr-olivia-aldisa) - Professional profile of founder dr. Olivia Aldisa and clinical background.
+
+## Technical Details
+
+- **Technology Stack**: Next.js, React, Tailwind CSS, Radix UI primitives.
+- **CMS Platform**: Secure custom admin panel for managing dynamic articles, keywords, metadata, and blog formatting.
+- **Content Delivery**: Optimized local upload asset storage for responsive medical imagery and layout responsiveness.
