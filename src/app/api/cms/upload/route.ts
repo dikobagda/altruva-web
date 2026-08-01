@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
+import { promises as fs } from 'fs';
+import path from 'path';
 import { verifySessionToken } from '@/lib/cms-auth';
-import { bucket } from '@/lib/gcs';
 
 async function checkAuth() {
   const cookieStore = await cookies();
@@ -27,25 +28,19 @@ export async function POST(request: Request) {
     
     // Create a URL-safe unique filename
     const filename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
 
-    // Upload to Google Cloud Storage bucket
-    const gcsFile = bucket.file(`uploads/${filename}`);
-    
-    // Save buffer content to GCS
-    await gcsFile.save(buffer, {
-      metadata: {
-        contentType: file.type,
-      },
-      resumable: false,
-    });
+    // Ensure public/uploads directory exists
+    await fs.mkdir(uploadDir, { recursive: true });
 
-    // Public URL — bucket must have allUsers:objectViewer IAM policy set at bucket level
-    // (Uniform bucket-level access prevents per-object makePublic())
-    const publicUrl = `https://storage.googleapis.com/${bucket.name}/uploads/${filename}`;
-    
-    return NextResponse.json({ success: true, url: publicUrl });
+    // Save the file
+    const filePath = path.join(uploadDir, filename);
+    await fs.writeFile(filePath, buffer);
+
+    const relativeUrl = `/uploads/${filename}`;
+    return NextResponse.json({ success: true, url: relativeUrl });
   } catch (error: any) {
-    console.error('File upload to GCS error:', error);
+    console.error('File upload error:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
