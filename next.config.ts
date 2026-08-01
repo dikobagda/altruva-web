@@ -88,6 +88,19 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  webpack: (config, { webpack }) => {
+    // Abaikan warning ekspresi dinamis yang tidak kritis dari protobufjs
+    config.plugins.push(
+      new webpack.ContextReplacementPlugin(
+        /\/@protobufjs\/inquire/,
+        (data: any) => {
+          delete data.dependencies[0].critical;
+          return data;
+        }
+      )
+    );
+    return config;
+  },
 };
 
 export default nextConfig;
