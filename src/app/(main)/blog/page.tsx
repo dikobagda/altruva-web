@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   },
 };
 
+import BlogList from '@/components/blog/BlogList';
+
 export default async function ArticlesPage() {
   const blogsList = await getDbBlogs();
   const blogs = [...blogsList].sort((a, b) => {
@@ -75,12 +77,8 @@ export default async function ArticlesPage() {
         </Link>
       )}
 
-      {/* Other Insights */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {otherInsights.map((insight) => (
-          <BlogCard key={insight.id} blog={insight} />
-        ))}
-      </div>
+      {/* Other Insights with Load More */}
+      <BlogList initialBlogs={otherInsights} itemsPerPage={6} />
     </SectionWrapper>
   );
 }
