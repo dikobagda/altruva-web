@@ -141,7 +141,6 @@ const navItems: NavItem[] = [
       { href: '/treatments/altruva-neocurve', label: { en: 'Altruva NeoCurve by EmSculpt Neo', id: 'Altruva NeoCurve by EmSculpt Neo' } },
       { href: '/treatments/altruva-lipo-elixir', label: { en: 'Altruva Lipo Elixir', id: 'Altruva Lipo Elixir' } },
       { href: '/treatments/altruva-regenerative-rf-body', label: { en: 'Altruva Regenerative RF (Body)', id: 'Altruva Regenerative RF (Body)' } },
-      { href: '/treatments/altruva-lipofreeze', label: { en: 'Altruva LipoFreeze by CoolSculpting®', id: 'Altruva LipoFreeze by CoolSculpting®' } },
     ],
   },
   {
