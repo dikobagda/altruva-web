@@ -74,7 +74,7 @@ export default function ContactContent() {
           <div className="space-y-8">
             <Card className="shadow-lg">
               <CardContent className="pt-6 space-y-4">
-                <h3 className="font-serif text-xl text-primary mb-3">{t({ en: 'Contact Details', id: 'Detail Kontak' })}</h3>
+                <h3 className="font-serif text-xl text-primary mb-3">{t({ en: 'Address', id: 'Alamat' })}</h3>
                 <div className="flex items-start">
                   <MapPin className="h-6 w-6 text-accent mr-3 flex-shrink-0" />
                   <p className="text-foreground/80">Jl. Ciasem I No.2 Kebayoran Baru, Jakarta Selatan, Jakarta 12180</p>
