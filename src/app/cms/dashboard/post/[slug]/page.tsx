@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, Edit, Eye, TrendingUp, Calendar, Clock, Tag, ExternalLink, ShieldCheck, CheckCircle2, AlertCircle, Cpu } from 'lucide-react';
+import { ArrowLeft, Edit, Eye, TrendingUp, Calendar, Clock, Tag, ExternalLink, ShieldCheck, CheckCircle2, AlertCircle, Cpu, Wand2, X, ListTree, Loader2 } from 'lucide-react';
 
 interface Blog {
   slug: string;
@@ -40,6 +40,12 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
   const [optimizing, setOptimizing] = useState(false);
   const [applyingField, setApplyingField] = useState<string | null>(null);
   const [isEeatReasonOpen, setIsEeatReasonOpen] = useState(false);
+
+  // Heading Hierarchy Auto-fix state variables
+  const [isHeadingFixOpen, setIsHeadingFixOpen] = useState(false);
+  const [headingFix, setHeadingFix] = useState<{ content: string; outline: { level: 'h2' | 'h3'; text: string }[]; suggestions: string[] } | null>(null);
+  const [fixingHeadings, setFixingHeadings] = useState(false);
+  const [applyingHeadings, setApplyingHeadings] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -128,6 +134,64 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
       alert('Error updating field.');
     } finally {
       setApplyingField(null);
+    }
+  };
+
+  const handleFixHeadings = async () => {
+    if (!blog) return;
+    setFixingHeadings(true);
+    try {
+      const res = await fetch('/api/cms/fix-headings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: blog.title, content: blog.content }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setHeadingFix(data);
+        setIsHeadingFixOpen(true);
+      } else {
+        alert('Failed to generate heading suggestions.');
+      }
+    } catch {
+      alert('Error generating heading suggestions.');
+    } finally {
+      setFixingHeadings(false);
+    }
+  };
+
+  const handleApplyHeadings = async () => {
+    if (!blog || !headingFix) return;
+    setApplyingHeadings(true);
+    try {
+      const updatedBlog = {
+        title: blog.title,
+        slug: blog.slug,
+        excerpt: blog.excerpt,
+        content: headingFix.content,
+        imageSrc: blog.image_src,
+        imageHint: blog.image_hint,
+        date: blog.date,
+        keywords: blog.keywords,
+      };
+
+      const res = await fetch(`/api/cms/blogs/${blog.slug}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedBlog),
+      });
+
+      if (res.ok) {
+        setBlog({ ...blog, content: headingFix.content });
+        setHeadingFix(null);
+        setIsHeadingFixOpen(false);
+      } else {
+        alert('Failed to apply heading fix.');
+      }
+    } catch {
+      alert('Error applying heading fix.');
+    } finally {
+      setApplyingHeadings(false);
     }
   };
 
@@ -609,6 +673,16 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <span className="text-xs font-semibold text-slate-700">{check.title}</span>
                         <span className="text-[10px] text-slate-400 font-mono">({check.impact} pts)</span>
+                        {check.title === "Semantic Heading Hierarchy" && !check.passed && (
+                          <button
+                            type="button"
+                            onClick={handleFixHeadings}
+                            disabled={fixingHeadings}
+                            className="text-[10px] text-primary hover:underline font-semibold disabled:opacity-50"
+                          >
+                            {fixingHeadings ? 'Fixing...' : 'Suggest Headings'}
+                          </button>
+                        )}
                         {check.title === "E-E-A-T Trust Attribution" && (
                           <button
                             type="button"
@@ -887,6 +961,106 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       )}
+
+      {/* Heading Hierarchy Auto-fix Modal */}
+      {isHeadingFixOpen && headingFix && (
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-3xl overflow-hidden max-h-[90vh] flex flex-col">
+            {/* Modal Header */}
+            <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+              <div className="flex items-center gap-2">
+                <ListTree className="h-5 w-5 text-primary" />
+                <div>
+                  <h3 className="font-serif text-lg font-bold text-primary">Heading Hierarchy Suggestion</h3>
+                  <p className="text-[11px] text-slate-500">Review the proposal below, then approve to save changes</p>
+                </div>
+              </div>
+              <Button variant="ghost" size="sm" onClick={() => setIsHeadingFixOpen(false)} className="text-slate-400 hover:text-slate-600">
+                <X className="h-4 w-4" /> Close
+              </Button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 overflow-y-auto space-y-6 flex-grow">
+              {/* Approval Notice */}
+              <div className="flex gap-2.5 items-start bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                <AlertCircle className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
+                <p className="text-[11px] text-amber-800 leading-relaxed">
+                  <strong className="font-semibold">Nothing has been changed yet.</strong> This is a generated suggestion
+                  (headings added based on your content). Your article is only updated after you click
+                  <strong className="font-semibold"> "Approve &amp; Apply"</strong> below. You can also cancel to keep your current content.
+                </p>
+              </div>
+
+              {/* Proposed Outline */}
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold text-slate-800 border-b pb-2">Proposed Heading Structure</h4>
+                {headingFix.outline && headingFix.outline.length > 0 ? (
+                  <ul className="space-y-1.5">
+                    {headingFix.outline.map((item, i) => (
+                      <li key={i} className={`flex items-center gap-2 text-xs leading-relaxed ${item.level === 'h2' ? 'font-semibold text-slate-800' : 'text-slate-500 ml-6'}`}>
+                        <span className={`font-mono text-[9px] px-1.5 py-0.5 rounded ${item.level === 'h2' ? 'bg-primary/10 text-primary' : 'bg-slate-100 text-slate-500'}`}>
+                          {item.level.toUpperCase()}
+                        </span>
+                        <span>{item.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-xs text-slate-500 italic">No outline could be derived from the current content.</p>
+                )}
+              </div>
+
+              {/* Suggestions */}
+              {headingFix.suggestions && headingFix.suggestions.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-sm font-semibold text-slate-800 border-b pb-2">Suggestions</h4>
+                  <ul className="space-y-2">
+                    {headingFix.suggestions.map((s: string, i: number) => (
+                      <li key={i} className="flex gap-2.5 text-xs text-slate-600 leading-relaxed items-start">
+                        <span className="text-primary font-bold">•</span>
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Content Preview */}
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold text-slate-800 border-b pb-2">Restructured Article Preview</h4>
+                <div className="border rounded-lg bg-slate-50/50 max-h-64 overflow-y-auto">
+                  <article
+                    className="prose prose-slate max-w-none text-slate-800 leading-relaxed p-4 [&_h1]:font-serif [&_h1]:text-primary [&_h1]:text-3xl [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-2xl [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:font-serif [&_h3]:text-primary [&_h3]:text-xl [&_h3]:mt-4 [&_h3]:mb-2 [&_p]:mb-4"
+                    dangerouslySetInnerHTML={{ __html: headingFix.content }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="px-6 py-4 border-t border-slate-100 flex items-center justify-end gap-3 bg-slate-50/50">
+              <Button variant="ghost" size="sm" onClick={() => setIsHeadingFixOpen(false)} className="text-slate-500">
+                Keep Current
+              </Button>
+              <Button
+                size="sm"
+                className="h-9 px-5 rounded-full font-semibold"
+                onClick={handleApplyHeadings}
+                disabled={applyingHeadings}
+              >
+                {applyingHeadings ? (
+                  <Loader2 className="h-4 w-4 animate-spin mr-1.5" />
+                ) : (
+                  <Wand2 className="h-4 w-4 mr-1.5" />
+                )}
+                {applyingHeadings ? 'Applying...' : 'Approve & Apply'}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
