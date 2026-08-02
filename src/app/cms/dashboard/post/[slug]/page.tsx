@@ -407,7 +407,7 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
 
               {/* HTML Body Render */}
               <article 
-                className="prose prose-slate max-w-none text-slate-800 leading-relaxed [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-2xl [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:font-serif [&_h3]:text-primary [&_h3]:text-xl [&_h3]:mt-4 [&_h3]:mb-2 [&_p]:mb-4"
+                className="prose prose-slate max-w-none text-slate-800 leading-relaxed [&_h1]:font-serif [&_h1]:text-primary [&_h1]:text-3xl [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-2xl [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:font-serif [&_h3]:text-primary [&_h3]:text-xl [&_h3]:mt-4 [&_h3]:mb-2 [&_p]:mb-4"
                 dangerouslySetInnerHTML={{ __html: blog.content }}
               />
             </CardContent>

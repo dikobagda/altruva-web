@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Bold, Italic, Underline, Heading2, Heading3, List, Link as LinkIcon, Image as ImageIcon, Code, Eye, Eraser, Loader2, AlignLeft, AlignCenter, AlignRight, Menu } from 'lucide-react';
+import { Bold, Italic, Underline, Heading1, Heading2, Heading3, List, Link as LinkIcon, Image as ImageIcon, Code, Eye, Eraser, Loader2, AlignLeft, AlignCenter, AlignRight, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import {
@@ -124,7 +124,7 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
     while (
       container &&
       container !== editorRef.current &&
-      !['P', 'H2', 'H3', 'LI', 'BLOCKQUOTE', 'DIV'].includes(container.nodeName)
+      !['H1', 'P', 'H2', 'H3', 'LI', 'BLOCKQUOTE', 'DIV'].includes(container.nodeName)
     ) {
       container = container.parentNode as HTMLElement;
     }
@@ -245,6 +245,17 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
           <div className="w-px h-6 bg-slate-200 mx-1" />
 
           {/* Headings */}
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            className="h-8 w-8 p-0 hover:bg-slate-200 text-slate-700"
+            onClick={() => executeCommand('formatBlock', '<h1>')}
+            title="Heading 1"
+            disabled={isCodeView}
+          >
+            <Heading1 className="h-4 w-4" />
+          </Button>
           <Button
             type="button"
             variant="ghost"
@@ -436,7 +447,7 @@ export default function WysiwygEditor({ value, onChange }: WysiwygEditorProps) {
             contentEditable
             onInput={handleInput}
             onPaste={handlePaste}
-            className="min-h-[350px] p-5 focus:outline-none prose prose-slate max-w-none text-foreground/80 overflow-y-auto bg-white [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-2xl [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:font-serif [&_h3]:text-primary [&_h3]:text-xl [&_h3]:mt-4 [&_h3]:mb-2 [&_p]:mb-4"
+            className="min-h-[350px] p-5 focus:outline-none prose prose-slate max-w-none text-foreground/80 overflow-y-auto bg-white [&_h1]:font-serif [&_h1]:text-primary [&_h1]:text-3xl [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-2xl [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:font-serif [&_h3]:text-primary [&_h3]:text-xl [&_h3]:mt-4 [&_h3]:mb-2 [&_p]:mb-4"
           />
         )}
       </div>
