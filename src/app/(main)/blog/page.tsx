@@ -44,6 +44,7 @@ export default async function ArticlesPage() {
       {featuredInsight && featuredInsight.href && (
         <Link href={featuredInsight.href} className="block mb-12 group">
             <Card className="grid md:grid-cols-2 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                 {featuredInsight.imageSrc && (
                  <div className="relative w-full h-64 md:h-auto min-h-[300px]">
                      <img
                          src={featuredInsight.imageSrc}
@@ -52,6 +53,7 @@ export default async function ArticlesPage() {
                          data-ai-hint={featuredInsight.imageHint}
                      />
                  </div>
+                 )}
                 <div className={`flex flex-col p-8 justify-center ${!featuredInsight.imageSrc && 'md:col-span-2'}`}>
                     <CardHeader className="p-0 mb-4">
                         <p className="text-sm text-accent font-semibold mb-2">Featured Article</p>

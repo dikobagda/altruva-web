@@ -140,14 +140,16 @@
   animation: pulse 2.5s infinite ease-in-out;
 }
 
-/* Ensure all H2 and H3 headings inside blog editor and article reader are Altruva brown and serif font */
+/* Ensure all H1, H2 and H3 headings inside blog editor and article reader are Altruva brown and serif font */
+.prose h1,
 .prose h2,
 .prose h3 {
   color: hsl(var(--primary)) !important;
   font-family: var(--font-libre-baskerville), serif !important;
 }
 
-/* Force pasted styles (like inline span colors, font sizes, weights) inside H2/H3 to inherit the parent properties */
+/* Force pasted styles (like inline span colors, font sizes, weights) inside H1/H2/H3 to inherit the parent properties */
+.prose h1 *,
 .prose h2 *,
 .prose h3 * {
   color: inherit !important;

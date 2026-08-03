@@ -220,7 +220,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
             </div>
 
             <div
-              className="prose prose-lg max-w-none text-foreground/80 [&_p]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-3xl [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-primary"
+              className="prose prose-lg max-w-none text-foreground/80 [&_h1]:font-serif [&_h1]:text-primary [&_h1]:text-3xl [&_h1]:mt-8 [&_h1]:mb-4 [&_p]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-3xl [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-primary"
               dangerouslySetInnerHTML={{ __html: modifiedContent || "<p>Content coming soon.</p>" }}
             />
           </article>
