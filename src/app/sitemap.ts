@@ -18,7 +18,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/beauty-journal',
     '/book-appointment',
     '/contact',
-    '/facial',
     '/gallery',
     '/faq',
     '/blog',
