@@ -57,7 +57,6 @@ export const metadata: Metadata = {
 };
 
 const clinicSchema = {
-  "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   "@id": "https://altruva.co.id/#clinic",
   "name": "Altruva Aesthetic Clinic",
@@ -103,7 +102,6 @@ const clinicSchema = {
 };
 
 const websiteSchema = {
-  "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Altruva Aesthetic Clinic",
   "url": "https://altruva.co.id"

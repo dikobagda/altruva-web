@@ -74,18 +74,22 @@ export default function ContactContent() {
           <div className="space-y-8">
             <Card className="shadow-lg">
               <CardContent className="pt-6 space-y-4">
-                <h3 className="font-serif text-xl text-primary mb-3">{t({ en: 'Address', id: 'Alamat' })}</h3>
+                <h3 className="font-serif text-xl text-primary mb-3">{t({ en: 'Location', id: 'Lokasi' })}</h3>
                 <div className="flex items-start">
                   <MapPin className="h-6 w-6 text-accent mr-3 flex-shrink-0" />
-                  <p className="text-foreground/80">Jl. Ciasem I No.2 Kebayoran Baru, Jakarta Selatan, Jakarta 12180</p>
+                  <address className="text-foreground/80 not-italic leading-relaxed">
+                    Jl. Ciasem I No.2<br />
+                    Kebayoran Baru, Jakarta Selatan.<br />
+                    Jakarta 12180
+                  </address>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-6 w-6 text-accent mr-3" />
-                  <Link href="tel:+1234567890" className="text-foreground/80 hover:text-primary">+62 812 1611 9392</Link>
+                  <a href="tel:+6281216119392" className="text-foreground/80 hover:text-primary">0812-1611-9392</a>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-6 w-6 text-accent mr-3" />
-                  <Link href="mailto:admin@altruva.com" className="text-foreground/80 hover:text-primary">admin@altruva.com</Link>
+                  <Link href="mailto:admin@altruva.co.id" className="text-foreground/80 hover:text-primary">admin@altruva.co.id</Link>
                 </div>
               </CardContent>
             </Card>

@@ -60,7 +60,6 @@ export default async function BeautyJournalArticlePage({ params }: { params: Pro
     }
 
     const articleSchema = {
-        "@context": "https://schema.org",
         "@type": "Article",
         "@id": `https://altruva.co.id/beauty-journal/${slug}#article`,
         "mainEntityOfPage": {
@@ -98,7 +97,6 @@ export default async function BeautyJournalArticlePage({ params }: { params: Pro
     };
 
     const breadcrumbSchema = {
-        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
             {

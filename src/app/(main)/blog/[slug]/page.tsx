@@ -101,7 +101,6 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   }
 
   const articleSchema = {
-    "@context": "https://schema.org",
     "@type": "BlogPosting",
     "@id": `https://altruva.co.id/blog/${slug}#post`,
     "mainEntityOfPage": {
@@ -141,7 +140,6 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   };
 
   const breadcrumbSchema = {
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       {

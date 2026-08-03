@@ -37,7 +37,6 @@ export const metadata: Metadata = {
 };
 
 const itemListSchema = {
-  "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": "https://altruva.co.id/treatments#services",
   "name": "Advanced Regenerative & Aesthetic Treatments",
@@ -50,7 +49,6 @@ const itemListSchema = {
 };
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

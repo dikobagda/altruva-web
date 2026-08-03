@@ -5,10 +5,15 @@ interface JsonLdProps {
 }
 
 export default function JsonLd({ schema }: JsonLdProps) {
+  // When multiple entities are provided, group them under @graph (Google best practice)
+  const ld = Array.isArray(schema)
+    ? { '@context': 'https://schema.org', '@graph': schema }
+    : schema;
+
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
     />
   );
 }

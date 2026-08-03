@@ -1,10 +1,13 @@
 'use client';
 
-import { notFound, useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { services } from '@/lib/data/services';
+import { buildServiceSummary, buildServiceFaqs } from '@/lib/treatment-seo';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Microscope, Dna, Star, Layers, Info, BookOpen } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { CheckCircle, Microscope, Dna, Star, Layers, Info, BookOpen, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 const DetailSection: React.FC<{ title: string; children: React.ReactNode; Icon: React.ElementType, className?: string }> = ({ title, children, Icon, className }) => (
@@ -39,6 +42,14 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
     notFound();
   }
 
+  const summary = buildServiceSummary(service);
+  const faqs = buildServiceFaqs(service);
+
+  const related = services
+    .filter((s) => s.id !== service.id && s.group === service.group)
+    .concat(services.filter((s) => s.id !== service.id && s.category === service.category && s.group !== service.group))
+    .slice(0, 3);
+
   return (
     <>
       <SectionWrapper className="bg-secondary/30 pt-24 md:pt-32 pb-12">
@@ -46,6 +57,7 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
             <p className="text-accent font-semibold mb-2">{service.group}</p>
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">{service.title}</h1>
             {service.subtitle && <p className="text-xl md:text-2xl text-foreground/80">{t(service.subtitle)}</p>}
+            <p className="text-base md:text-lg text-foreground/70 mt-6 max-w-3xl mx-auto">{t(summary)}</p>
           </div>
       </SectionWrapper>
 
@@ -159,6 +171,56 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
 
         </div>
       </SectionWrapper>
+
+      {faqs.length > 0 && (
+        <SectionWrapper className="pt-0">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-center mb-8">
+              {t({ en: 'Frequently Asked Questions', id: 'Pertanyaan yang Sering Diajukan' })}
+            </h2>
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`faq-${index}`}>
+                  <AccordionTrigger className="text-left text-base md:text-lg font-semibold text-primary/90">
+                    {t(faq.question)}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-foreground/80">{t(faq.answer)}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </SectionWrapper>
+      )}
+
+      {related.length > 0 && (
+        <SectionWrapper className="pt-0">
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-center mb-2">
+            {t({ en: 'Related Treatments', id: 'Perawatan Terkait' })}
+          </h2>
+          <p className="text-center text-foreground/70 mb-8">
+            {t({ en: 'Explore more treatments tailored to your goals.', id: 'Jelajahi lebih banyak perawatan yang disesuaikan dengan tujuan Anda.' })}
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {related.map((item) => (
+              <Card key={item.id} className="shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-primary mb-2 leading-snug">
+                    <Link href={`/treatments/${item.id}`} className="hover:underline">{item.title}</Link>
+                  </h3>
+                  <p className="text-sm text-foreground/70 mb-4">{t(item.description)}</p>
+                  <Link
+                    href={`/treatments/${item.id}`}
+                    className="inline-flex items-center text-accent font-semibold text-sm hover:underline"
+                  >
+                    {t({ en: 'View Treatment', id: 'Lihat Perawatan' })}
+                    <ArrowRight className="h-4 w-4 ml-1" />
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </SectionWrapper>
+      )}
     </>
   );
 }

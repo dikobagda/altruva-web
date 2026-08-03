@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { services } from '@/lib/data/services';
+import { buildServiceSummary, buildServiceFaqs } from '@/lib/treatment-seo';
 import type { Metadata } from 'next';
 import JsonLd from '@/components/shared/JsonLd';
 import ServiceDetailClient from '@/components/treatments/ServiceDetailClient';
@@ -26,8 +27,9 @@ export async function generateMetadata(
     };
   }
 
-  // Fallback to English description for SEO parser if ID description is missing
-  const desc = service.description.en || service.description.id;
+  // SEO-rich summary combining short description + protocol details
+  const summary = buildServiceSummary(service);
+  const desc = summary.en || service.description.en || service.description.id;
 
   return {
     title: `${service.title}`,
@@ -76,7 +78,6 @@ export default async function ServiceDetailPage({ params }: Props) {
     : parseFloat(service.price.replace(/[^\d.]/g, ''));
 
   const serviceSchema = {
-    '@context': 'https://schema.org',
     '@type': ['Service', 'MedicalProcedure'],
     '@id': `https://altruva.co.id/treatments/${service.id}#service`,
     name: service.title,
@@ -103,7 +104,6 @@ export default async function ServiceDetailPage({ params }: Props) {
   };
 
   const breadcrumbSchema = {
-    '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       {
@@ -127,9 +127,22 @@ export default async function ServiceDetailPage({ params }: Props) {
     ],
   };
 
+  const faqs = buildServiceFaqs(service);
+  const faqSchema = {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question.en,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer.en,
+      },
+    })),
+  };
+
   return (
     <>
-      <JsonLd schema={[serviceSchema, breadcrumbSchema]} />
+      <JsonLd schema={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <ServiceDetailClient slug={slug} />
     </>
   );

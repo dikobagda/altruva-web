@@ -73,10 +73,31 @@ export default function Footer() {
               <Link href="#" aria-label="Instagram" className="text-primary hover:text-accent transition-colors"><Instagram size={24} /></Link>
               <Link href="#" aria-label="Facebook" className="text-primary hover:text-accent transition-colors"><Facebook size={24} /></Link>
             </div>
-            <h3 className="font-serif text-lg font-semibold mb-3 text-primary mt-4">{t({ en: 'Address', id: 'Alamat' })}</h3>
-            <div className="mt-4 text-sm text-center sm:text-left">
-              <p>Jl. Ciasem I No.2 <br />Kebayoran Baru, Jakarta Selatan. <br />Jakarta 12180</p>
-              <p>0812-1611-9392</p>
+            <h3 className="font-serif text-lg font-semibold mb-1 text-primary mt-4">{t({ en: 'Location', id: 'Lokasi' })}</h3>
+            <div className="mt-0 text-sm text-center sm:text-left space-y-2" itemScope itemType="https://schema.org/PostalAddress">
+              <p className="leading-relaxed">
+                <span itemProp="streetAddress">Jl. Ciasem I No.2</span><br />
+                <span itemProp="addressLocality">Kebayoran Baru, Jakarta Selatan.</span><br />
+                <span itemProp="postalCode">Jakarta 12180</span>
+              </p>
+              <p>
+                <a
+                  href="mailto:admin@altruva.co.id"
+                  className="hover:text-primary transition-colors"
+                  aria-label="Email"
+                >
+                  admin@altruva.co.id
+                </a>
+              </p>
+              <p>
+                <a
+                  href="tel:+6281216119392"
+                  className="hover:text-primary transition-colors"
+                  aria-label="Phone"
+                >
+                  0812-1611-9392
+                </a>
+              </p>
             </div>
           </div>
         </div>
