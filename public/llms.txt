@@ -6,7 +6,6 @@ Altruva is a premier regenerative and aesthetic clinic based in Jakarta, Indones
 
 - [Home](https://altruva.co.id/) - Official homepage with medical services, brand vision, and values.
 - [Services & Treatments](https://altruva.co.id/treatments) - Comprehensive non-invasive treatments including Sofwave, EmSculpt Neo, Gouri, and regenerative aesthetic therapies.
-- [Facial Treatments](https://altruva.co.id/facial) - Medical facial protocols and skin therapies.
 - [Skin Analysis](https://altruva.co.id/skin-analysis) - AI-powered skin analysis and personalized treatment planning.
 - [Blog](https://altruva.co.id/blog) - Medical insights, skincare updates, perimenopause education, and clinic news.
 - [Beauty Journal](https://altruva.co.id/beauty-journal) - Clinical case studies and treatment deep-dives.
