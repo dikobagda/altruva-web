@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { ArrowLeft, Calendar, ImagePlus, Loader2, Save, X } from 'lucide-react';
+import { ArrowLeft, Calendar, FileUp, ImagePlus, Loader2, Save, X } from 'lucide-react';
 import Link from 'next/link';
 import WysiwygEditor from './WysiwygEditor';
 import {
@@ -56,6 +56,11 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
   const [isGeneratingExcerpt, setIsGeneratingExcerpt] = useState(false);
   const [isGeneratingAltText, setIsGeneratingAltText] = useState(false);
   const [isGeneratingImage, setIsGeneratingImage] = useState(false);
+  const [isImporting, setIsImporting] = useState(false);
+  const [importProgress, setImportProgress] = useState(0);
+  const [importError, setImportError] = useState('');
+  const [importedMeta, setImportedMeta] = useState<{ wordCount: number; usedAi: boolean } | null>(null);
+  const docxInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   const generateAiImage = async () => {
@@ -182,6 +187,74 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
     }
   };
 
+  const handleDocxImport = async (file: File) => {
+    if (isEdit && (title || content)) {
+      const ok = window.confirm('Importing a .docx file will replace the current Title, Excerpt, and Article Body. Continue?');
+      if (!ok) return;
+    }
+
+    setIsImporting(true);
+    setImportProgress(0);
+    setImportError('');
+    setImportedMeta(null);
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const data = await new Promise<any>((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/api/cms/import-docx');
+        xhr.upload.onprogress = (e) => {
+          if (e.lengthComputable) {
+            setImportProgress(Math.round((e.loaded / e.total) * 100));
+          }
+        };
+        xhr.onload = () => {
+          try {
+            const parsed = JSON.parse(xhr.responseText);
+            if (xhr.status >= 200 && xhr.status < 300) {
+              resolve(parsed);
+            } else {
+              reject({ status: xhr.status, data: parsed });
+            }
+          } catch {
+            reject(new Error('Invalid server response'));
+          }
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.send(formData);
+      });
+
+      if (data.success) {
+        setImportProgress(100);
+        setTitle(data.title);
+        if (!isEdit && data.slug) {
+          setSlug(data.slug);
+        }
+        if (data.content) setContent(data.content);
+        if (data.excerpt) setExcerpt(data.excerpt);
+        if (!date) {
+          setDate(new Date().toISOString().split('T')[0]);
+        }
+        setImportedMeta({ wordCount: data.wordCount || 0, usedAi: Boolean(data.usedAi) });
+      } else {
+        setImportError(data.error || 'Import failed. Please try again.');
+      }
+    } catch (err: any) {
+      console.error(err);
+      setImportError(err?.data?.error || 'Import failed. Please try again.');
+    } finally {
+      setIsImporting(false);
+      if (docxInputRef.current) docxInputRef.current.value = '';
+    }
+  };
+
+  const handleDocxDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    if (file && file.name.toLowerCase().endsWith('.docx')) handleDocxImport(file);
+  };
+
   const handleThumbnailUpload = async (file: File) => {
     setImageUploading(true);
     const formData = new FormData();
@@ -291,6 +364,80 @@ export default function BlogForm({ initialData, isEdit = false }: BlogFormProps)
                 {error}
               </div>
             )}
+
+            {/* Docx Import */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div>
+                  <Label className="text-primary font-medium">Import from .docx</Label>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Upload a Microsoft Word file to auto-fill the Title, Excerpt, and Article Body.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => docxInputRef.current?.click()}
+                  disabled={isImporting}
+                  className="text-xs text-primary font-semibold hover:underline flex items-center gap-1 disabled:opacity-50"
+                >
+                  {isImporting ? (
+                    <><Loader2 className="h-3 w-3 animate-spin" /> Importing...</>
+                  ) : (
+                    <><FileUp className="h-3 w-3" /> Choose File</>
+                  )}
+                </button>
+              </div>
+              <input
+                ref={docxInputRef}
+                type="file"
+                accept=".docx"
+                className="hidden"
+                onChange={(e) => { const f = e.target.files?.[0]; if (f) handleDocxImport(f); }}
+              />
+              <div
+                onClick={() => !isImporting && docxInputRef.current?.click()}
+                onDrop={handleDocxDrop}
+                onDragOver={(e) => e.preventDefault()}
+                className={`flex flex-col items-center justify-center h-28 rounded-lg border-2 border-dashed border-slate-200 bg-white hover:border-primary hover:bg-primary/5 transition-colors cursor-pointer ${
+                  isImporting ? 'opacity-60 pointer-events-none' : ''
+                }`}
+              >
+                {isImporting ? (
+                  <div className="w-full max-w-xs px-4">
+                    <div className="flex items-center gap-2 justify-center mb-2">
+                      <Loader2 className="h-5 w-5 text-primary animate-spin" />
+                      <p className="text-sm text-slate-500">Uploading... {importProgress}%</p>
+                    </div>
+                    <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-primary rounded-full transition-all duration-200"
+                        style={{ width: `${importProgress}%` }}
+                      />
+                    </div>
+                    {importProgress >= 100 && (
+                      <p className="text-xs text-slate-400 mt-2 text-center">Parsing & structuring document...</p>
+                    )}
+                  </div>
+                ) : importedMeta ? (
+                  <>
+                    <p className="text-sm font-medium text-primary">Imported successfully</p>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      {importedMeta.wordCount.toLocaleString()} words{importedMeta.usedAi ? ' · structured with AI' : ''}
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <FileUp className="h-6 w-6 text-slate-300 mb-1.5" />
+                    <p className="text-sm font-medium text-slate-500">Click or drag a .docx file here</p>
+                  </>
+                )}
+              </div>
+              {importError && (
+                <p className="text-xs text-destructive bg-destructive/5 border border-destructive/20 rounded-lg px-3 py-2">
+                  {importError}
+                </p>
+              )}
+            </div>
 
             {/* Title — full width */}
             <div className="space-y-2">
