@@ -62,6 +62,7 @@ export default function Footer() {
             <h3 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Quick Links', id: 'Tautan Cepat' })}</h3>
             <ul className="space-y-2 text-center sm:text-left">
               <li><Link href="/about/369-harmony" className="hover:text-primary transition-colors">369 Harmony™</Link></li>
+              <li><Link href="/faq" className="hover:text-primary transition-colors">{t({ en: 'FAQ', id: 'FAQ' })}</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">{t({ en: 'Contact Us', id: 'Hubungi Kami' })}</Link></li>
               <li><Link href="/book-appointment" className="hover:text-primary transition-colors">{t({ en: 'Book Appointment', id: 'Buat Janji Temu' })}</Link></li>
             </ul>
