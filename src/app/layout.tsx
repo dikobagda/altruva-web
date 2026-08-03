@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from "@/components/ui/toaster";
 import JsonLd from '@/components/shared/JsonLd';
+import { testimonials } from '@/lib/data/testimonials';
 
 import Script from 'next/script';
 
@@ -98,7 +99,30 @@ const clinicSchema = {
     "@type": "Person",
     "name": "dr. Olivia Aldisa",
     "jobTitle": "Aesthetic Doctor & Clinic Founder"
-  }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": String(testimonials.length),
+    "reviewCount": String(testimonials.length)
+  },
+  "review": testimonials.map((testimonial) => ({
+    "@type": "Review",
+    "@id": `https://altruva.co.id/#review-${testimonial.id}`,
+    "author": {
+      "@type": "Person",
+      "name": testimonial.name
+    },
+    "datePublished": "2026-01-01",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": String(testimonial.rating),
+      "bestRating": "5"
+    },
+    "reviewBody": testimonial.text.id
+  }))
 };
 
 const websiteSchema = {

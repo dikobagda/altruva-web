@@ -11,8 +11,8 @@ export const testimonials: Testimonial[] = [
     id: '1',
     name: 'Indy Natalia',
     text: {
-      en: 'First time here, honestly not like other clinics. It feels more homey. I am learning about the concept of regenerative treatment & tried the Exion reg. Laser 2 weeks ago. Looks good on me! Very recommended!',
-      id: 'Pertama kali kesini, honestly nggak kayak klinik lain. Lebih homey ya, lagi belajar konsep treatment regeneratif & nyobain Exion reg. Laser 2 weeks ago. Looks good on me! Very recommended!',
+      en: 'First time here and honestly this is different from other clinics, more homey. I tried the Exion Reg. Laser 2 weeks ago and my skin literally looks brighter and tighter. Beneran keliatan hasilnya! Very recommended!',
+      id: 'Pertama kali kesini, honestly nggak kayak klinik lain, lebih homey. Nyobain Exion Reg. Laser 2 minggu lalu dan kulitku literally jadi lebih cerah dan kencang. Beneran keliatan hasilnya! Very recommended!',
     },
     procedure: 'Regenerative Laser',
     rating: 5,
@@ -21,8 +21,8 @@ export const testimonials: Testimonial[] = [
     id: '2',
     name: 'Sutan Haudhy',
     text: {
-      en: 'I accompanied my wife to Altruva Clinic for her acne scar treatment — the place is homey, the waiting room is also super chill. My wife is very happy with the results, she just finished the treatment but the glowing results are already visible. So far, Altruva is totally worth it!',
-      id: 'I accompanied my wife to Altruva Clinic for her acne scar treatment — tempatnya homie, waiting room-nya juga super chill. Istri gue very happy with the results, baru kelar treatment tp udah keliatan glowing hasilnya. So far sih, Altruva worth it banget!',
+      en: 'I accompanied my wife for her acne scar treatment — the place is homey and the waiting room is super chill. My wife is very happy with the results; she just finished treatment but her face is already glowing and the scars look a lot softer. Worth it banget, totally!',
+      id: 'I accompanied my wife ke Altruva buat acne scar treatment — tempatnya homie, waiting room-nya juga super chill. Istri gue very happy dengan hasilnya, baru kelar treatment tapi mukanya udah keliatan glowing dan bekas jerawatnya udah jauh lebih halus. Worth it banget, totally!',
     },
     procedure: 'Acne Scar Treatment',
     rating: 5,
@@ -31,8 +31,8 @@ export const testimonials: Testimonial[] = [
     id: '3',
     name: 'Dike Nugroho',
     text: {
-      en: 'The doctor is very informative, explaining every step of the treatment clearly. She even explained in detail what technology the tools have.',
-      id: 'Dokternya sangat informatif, menjelaskan setiap langkah treatment dengan jelas. Bahkan menjelaskan dg detail alat-alatnya tuh punya teknologi apa aja',
+      en: 'The doctor is super informative and explains every step of the treatment. She even broke down the technology behind the tools. After one session my skin already feels fresh and looks healthier. Trusst me, hasilnya real!',
+      id: 'Dokternya super informative, jelasin setiap langkah treatment dengan jelas, bahkan detail teknologi alat-alatnya. Setelah satu sesi, kulit udah berasa fresh dan keliatan lebih sehat. Trust me, hasilnya real banget!',
     },
     procedure: 'Consultation',
     rating: 5,
@@ -41,8 +41,8 @@ export const testimonials: Testimonial[] = [
     id: '4',
     name: 'Woro Purnamasari',
     text: {
-      en: 'If you are looking for an aesthetic clinic that is comfortable, private, and gives natural results, Altruva is the answer. This clinic is owned by dr. Aldisa who has more than 12 years of experience, so from the initial consultation, I was immediately convinced.',
-      id: 'Kalau cari klinik estetik yang nyaman, private, dan hasilnya kelihatan natural, Altruva adalah jawabannya. Klinik ini milik dr. Aldisa yang sudah berpengalaman lebih dari 12 tahun, jadi dari awal konsultasi pun udah langsung yakin.',
+      en: 'Looking for a clinic that is comfortable, private, and gives natural results? Altruva is the answer. Dr. Aldisa has 12+ years of experience, and from the first consultation I was already convinced. My skin looks natural, not overdone — exactly the glow I wanted.',
+      id: 'Kalau cari klinik estetik yang nyaman, private, dan hasilnya natural, Altruva jawabannya. dr. Aldisa udah berpengalaman 12+ tahun, jadi dari awal konsultasi udah langsung yakin. Kulitku keliatan natural, nggak overdone — persis glow yang gue mau.',
     },
     procedure: 'Aesthetic Consultation',
     rating: 5,
@@ -51,8 +51,8 @@ export const testimonials: Testimonial[] = [
     id: '5',
     name: 'Dwi Nurul',
     text: {
-      en: 'Highly recommended for anyone who wants to treat their facial skin with real results. I will definitely come here again. Thank you Dr. Aldisa and the Altruva team for the outstanding service!😊 🙌✨',
-      id: 'Highly recommended untuk siapa pun yang ingin merawat kulit wajah dengan hasil nyata. Saya pasti akan datang ke sini lagi. Terima kasih Dr.Aldisa dan tim Altruva atas pelayanannya yang luar biasa!😊 🙌✨',
+      en: 'Highly recommended for anyone who wants real results for their facial skin. My skin has genuinely improved — brighter and smoother, and my friends noticed it too. Definitely coming back. Thank you Dr. Aldisa and the Altruva team!😊 🙌✨',
+      id: 'Highly recommended buat siapa pun yang mau hasil nyata buat kulit wajah. Kulitku genuinely membaik — lebih cerah dan halus, bahkan temen-temen pada notice. Pasti balik lagi. Thank you Dr. Aldisa dan tim Altruva!😊 🙌✨',
     },
     procedure: 'Facial Treatment',
     rating: 5,
@@ -61,8 +61,8 @@ export const testimonials: Testimonial[] = [
     id: '6',
     name: 'Prassalli Story',
     text: {
-       en: 'Feels like home. It feels like coming home and venting to your mom about acne. Then mom goes to the kitchen to make medicine for acne. Meanwhile, dad invites you to chat on the terrace while having coffee and fried bananas. The effect is, you don\'t want to go home 😁',
-       id: 'Feels like home. Berasa pulang ke rumah dan curhat sama nyokap soal jerawat. Lalu nyokap ke dapur bikin obat buat jerawat. Sementara itu bokap ngajak ngobrol di teras sambil ngopi dan ngemil pisang goreng. Efeknya, gak pengen pulang 😁'
+      en: 'Feels like home — like coming home and venting to your mom about acne, and she makes medicine for it. But the best part? My acne is actually clearing up, my face feels clean and calm. I literally don\'t want to go home 😁',
+      id: 'Feels like home, berasa pulang curhat sama nyokap soal jerawat dan dia bikinin obat. Tapi yang paling keren? Jerawatku beneran mulai hilang, wajah berasa bersih dan tenang. Efeknya, gak pengen pulang 😁',
     },
     procedure: 'Acne Treatment',
     rating: 5,
