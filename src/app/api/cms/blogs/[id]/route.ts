@@ -96,6 +96,7 @@ export async function PUT(
     try {
       revalidatePath('/blog');
       revalidatePath('/blog/' + slug);
+      revalidatePath('/blog/[slug]', 'page');
       if (oldSlug !== slug) {
         revalidatePath('/blog/' + oldSlug);
       }
@@ -126,6 +127,7 @@ export async function DELETE(
     try {
       revalidatePath('/blog');
       revalidatePath('/blog/' + slug);
+      revalidatePath('/blog/[slug]', 'page');
       revalidatePath('/sitemap.xml');
     } catch (e) {
       console.error('Failed to revalidate cache:', e);

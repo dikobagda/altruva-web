@@ -1,5 +1,6 @@
 import pool, { initializeDatabase } from '../db';
 import type { Blog } from '../data/blog';
+import { resolveBlogContent, resolveBlogImageUrl } from '../blog-image';
 
 export async function getDbBlogs(): Promise<Blog[]> {
   await initializeDatabase();
@@ -11,7 +12,7 @@ export async function getDbBlogs(): Promise<Blog[]> {
       id: row.slug,
       title: row.title,
       excerpt: row.excerpt,
-      imageSrc: row.image_src,
+      imageSrc: resolveBlogImageUrl(row.image_src),
       imageHint: row.image_hint,
       date: row.date,
       href: `/blog/${row.slug}`,
@@ -39,8 +40,8 @@ export async function getDbBlogBySlug(slug: string, includeDrafts = false): Prom
       id: row.slug,
       title: row.title,
       excerpt: row.excerpt,
-      content: row.content,
-      imageSrc: row.image_src,
+      content: resolveBlogContent(row.content),
+      imageSrc: resolveBlogImageUrl(row.image_src),
       imageHint: row.image_hint,
       date: row.date,
       href: `/blog/${row.slug}`,

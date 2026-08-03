@@ -83,6 +83,7 @@ export async function POST(request: Request) {
     try {
       revalidatePath('/blog');
       revalidatePath(`/blog/${slug}`);
+      revalidatePath('/blog/[slug]', 'page');
       revalidatePath('/sitemap.xml');
     } catch (e) {
       console.error('Failed to revalidate cache:', e);
