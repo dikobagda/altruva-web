@@ -98,3 +98,5 @@ function getPrivateKey(): string {
 
 export const bucket = storage.bucket(bucketName);
 export { storage };
+
+// Altruva — GCS storage client
