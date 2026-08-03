@@ -13,6 +13,16 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/shared/JsonLd';
 import BlogAnalyticsTracker from '@/components/blog/BlogAnalyticsTracker';
 
+function decodeHtmlEntities(input: string): string {
+  return input
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#0?39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&');
+}
+
 export async function generateStaticParams() {
   const blogsList = await getDbBlogs();
   return blogsList
@@ -38,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   // Auto-generate meta description if excerpt is missing
   let metaDescription = insight.excerpt?.trim();
   if (!metaDescription && insight.content) {
-    const plainText = insight.content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    const plainText = decodeHtmlEntities(insight.content.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
     metaDescription = plainText.substring(0, 155).trim();
     if (plainText.length > 155) {
       metaDescription += '...';
@@ -76,7 +86,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   if (insight.content) {
     let idCounter = 0;
     modifiedContent = insight.content.replace(/<(h[23])([^>]*)>([\s\S]*?)<\/h[23]>/gi, (match, tag, attrs, text) => {
-      const cleanText = text.replace(/<[^>]*>/g, '').trim();
+      const cleanText = decodeHtmlEntities(text.replace(/<[^>]*>/g, '').trim());
       const id = `heading-${idCounter++}-${cleanText.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
       headings.push({
         id,
