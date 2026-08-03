@@ -1,0 +1,193 @@
+# Altruva Aesthetic & Regenerative Clinic — Full Content for LLM Context
+
+Altruva is a premier regenerative and aesthetic clinic based in Jakarta, Indonesia. Specializing in advanced, non-invasive procedures led by dr. Olivia Aldisa. Jakarta's First Regenerative Contouring Clinic.
+
+---
+
+## HOME — https://altruva.co.id/
+
+**Purpose:** Landing page communicating brand positioning, core philosophy, and primary conversion paths.
+
+**Key Messages:**
+- "Quiet Luxury treatments for Aging Gracefully and Timeless Beauty"
+- "Natural facial tightening without surgery and without downtime — at Jakarta's First Regenerative Contouring Clinic"
+- Brand pillars: Regenerative, Evidence-based, Personalized, Quiet Luxury
+
+**Primary CTAs:** Book Appointment, View Treatments, Read Blog
+
+**Features:** Hero with dual CTA, treatment highlights carousel, blog preview, doctor credibility section, clinic stats, testimonials (aggregate rating), footer with navigation and contact.
+
+---
+
+## TREATMENTS INDEX — https://altruva.co.id/treatments
+
+**Purpose:** Full catalog of all non-invasive aesthetic and regenerative treatments.
+
+**Categories:** Facial Rejuvenation, Body Contouring, Skin Quality, Hair Restoration, Wellness
+
+**Key Treatments (selected):**
+- **Sofwave** — Synchronous Ultrasound Parallel Beam (SUPERB™) technology for collagen remodeling and skin tightening. FDA-cleared for brow lift, submental/neck, acne scars.
+- **EmSculpt Neo** — HIFEM + RF for simultaneous muscle building and fat reduction. Abdomen, buttocks, arms, thighs, calves.
+- **Gouri (PCL)** — Polycaprolactone injectable for whole-face collagen stimulation and lifting.
+- **Exion** — Fractional RF + Targeted Ultrasound platform: Lumi Laser (pigmentation/scars), FractioPro (resurfacing), Regen Laser, Face Modulator (contouring).
+- **ART Lyft / Gorgeous Lyft** — Thread lifting with regenerative components (PCL, PLLA).
+- **ExoPrime Pro / DNA Repair** — Exosome and polynucleotide therapies for cellular regeneration.
+- **Altruva Regenerative RF Body** — Non-surgical body contouring with RF microneedling.
+- **Altruva Hair PRF / Booster** — Regenerative hair restoration.
+
+**Each treatment page includes:** Indication, mechanism, protocol, downtime, ideal candidate, frequency, FAQ schema.
+
+---
+
+## FACIAL TREATMENTS — https://altruva.co.id/facial
+
+**Purpose:** Medical-grade facial protocols beyond spa facials.
+
+**Core Protocols:**
+- **Altruva Signature Facial** — Deep pore purification + PDT light therapy + dermal restoration in one ritual. Customized by in-house skin therapist. 60–75 min, no downtime.
+- **HydraGlow Facial** — Hydration-focused protocol with gentle exfoliation and barrier repair.
+- **Glacier Skin** — Cooling + brightening protocol for pigment and dullness.
+- **DNA Repair Facial** — Polynucleotide/exosome infusion for cellular repair.
+- **Purifying / Dark Spot Boosters** — Targeted add-ons for congestion or pigmentation.
+- **Clarify Peel / Korean Luminous Peel / Radiant Advanced Peel** — Chemical peel ladder for resurfacing.
+
+---
+
+## SKIN ANALYSIS — https://altruva.co.id/skin-analysis
+
+**Purpose:** AI-powered skin analysis for objective assessment and treatment planning.
+
+**Capabilities:**
+- Multi-spectral imaging (RGB, UV, polarized)
+- Quantitative metrics: pores, wrinkles, pigmentation, vascular, hydration, oil, texture, elasticity
+- AI-driven treatment recommendation engine
+- Longitudinal tracking across visits
+- Integration with treatment protocols for personalized plans
+
+---
+
+## BLOG — https://altruva.co.id/blog
+
+**Purpose:** Medical education, evidence-based skincare content, clinic updates.
+
+**Content Pillars:**
+- **Regenerative Aesthetics** — Mechanisms, protocols, evidence (e.g., "Prediksi Estetika Medis 2026")
+- **Perimenopause & Menopause Skin** — Hormonal changes, barrier, collagen, treatment strategies (e.g., "Apa yang Berubah pada Kulit Perempuan saat Memasuki Perimenopause", "The New 40")
+- **Treatment Deep-Dives** — Sofwave vs HIFU, pore refining systems, viral treatments critique
+- **Muscle Mass & Healthy Aging** — Sarcopenia, metabolic health, aesthetic correlation
+- **Skin Barrier Science** — Ceramides, microbiome, repair protocols
+- **Quiet Luxury Philosophy** — Minimal intervention, natural results, long-term skin health
+
+**Structure:** Each article has Table of Contents (auto-generated from H2/H3), related articles, author/reviewer (dr. Olivia Aldisa), JSON-LD BlogPosting schema, estimated read time.
+
+**Recent Articles:** "Wajah Kencang di Usia 50: 5 Solusi Non-Operasi Terbaik", "Sofwave atau HIFU: Mana yang Lebih Tepat untuk Wajah", "Cara Membuat Rahang Tegas", "Pore Refining System", "Treatment Viral Belum Tentu Tepat untuk Kulit Anda", "Apa Hubungan Muscle Mass dengan Healthy Aging", "Wajah Usia 40-an Tak Lagi Glowing", "AI Skin Analysis Explained", "Prediksi Estetika Medis 2026".
+
+---
+
+## BEAUTY JOURNAL — https://altruva.co.id/beauty-journal
+
+**Purpose:** Clinical case studies and treatment deep-dives with visual documentation.
+
+**Entries:** "Presence Has No Gender", "Pause Within the Pace", "Ramadan Eid 2026". Each includes patient context, treatment protocol, timeline, and outcomes.
+
+---
+
+## BOOK APPOINTMENT — https://altruva.co.id/book-appointment
+
+**Purpose:** Real-time scheduling with calendar integration.
+
+**Features:**
+- Live availability calendar (Google Calendar sync)
+- Treatment/service selection
+- Patient intake form (medical history, concerns, goals)
+- Confirmation via email/WhatsApp
+- Pre-appointment instructions
+- Reschedule/cancel self-service
+
+---
+
+## ABOUT — MEET THE DOCTOR — https://altruva.co.id/about/meet-dr-olivia-aldisa
+
+**Profile:** dr. Olivia Aldisa, Founder & Medical Director
+- **Specialization:** Regenerative Aesthetic Medicine, Anti-Aging, Skin Health Optimization
+- **Philosophy:** "Regenerative Contouring — restoring biology, not just masking aging"
+- **Credentials:** Medical degree, advanced aesthetic certifications, international training (Korea, Europe, USA)
+- **Clinical Focus:** Non-surgical lifting, collagen biostimulation, energy-based devices, regenerative injectables, perimenopausal skin health
+- **Publications/Speaking:** Regular speaker at aesthetic conferences, key opinion leader for multiple device/pharma brands
+
+---
+
+## ABOUT — OUR CLINIC — https://altruva.co.id/our-clinic
+
+**Purpose:** Facility tour, patient experience, clinical standards.
+
+**Highlights:**
+- Location: Jakarta, Indonesia (premium medical district)
+- Private consultation suites, treatment rooms with latest platforms
+- Sterile compounding area for regenerative preparations
+- Patient lounge, recovery spaces
+- Protocols: JCI-aligned safety, cold-chain for biologics, device calibration schedules
+
+---
+
+## CONTACT — https://altruva.co.id/contact
+
+**Details:**
+- Address: [Clinic address from footer/contact page]
+- Phone: [Clinic phone]
+- Email: [Clinic email]
+- Hours: Mon–Sat 09:00–18:00, Sun by appointment
+- Map embed, WhatsApp direct link, social media links (Instagram, LinkedIn)
+
+---
+
+## FAQ — https://altruva.co.id/faq
+
+**Purpose:** Structured answers to common patient questions.
+
+**Categories:** General, Treatments, Pre/Post Care, Pricing/Packages, Booking, Safety.
+
+**Schema:** FAQPage JSON-LD for rich results.
+
+---
+
+## GALLERY — https://altruva.co.id/gallery
+
+**Purpose:** Visual evidence of treatment outcomes.
+
+**Content:** Before/after pairs (anonymized, consented), categorized by treatment (Sofwave, Threads, Fillers, Facials, Body, Hair). Lightbox viewer with treatment metadata.
+
+---
+
+## NEWS & MEDIA — https://altruva.co.id/news-media
+
+**Purpose:** Press coverage, media features, clinic announcements.
+
+**Content:** Magazine features, TV appearances, conference presentations, product launch events, awards/recognitions.
+
+---
+
+## TECHNICAL IMPLEMENTATION NOTES
+
+**Stack:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS v4, Radix UI primitives, Lucide icons.
+
+**CMS:** Custom admin panel at `/cms/dashboard` — authentication via httpOnly cookie session, role-based access. CRUD for blogs, services, images. AI-assisted content structuring (docx import → mammoth parse → LLM structure → review → publish).
+
+**Database:** MySQL (production), local dev DB. Tables: blogs, services, users, sessions, media.
+
+**Images:** Google Cloud Storage (GCS) bucket. Upload via signed URLs. Automatic optimization (WebP, responsive sizes). CDN via Hostinger hcdn.
+
+**SEO/Structured Data:**
+- Dynamic sitemap (`revalidate: 86400`)
+- robots.txt via Next.js MetadataRoute
+- Per-page JSON-LD: WebSite, Organization, MedicalClinic, Physician, BlogPosting, FAQPage, Service, AggregateRating/Review
+- Canonical URLs, Open Graph, Twitter Cards
+- hreflang (en/id) where applicable
+
+**Performance:** Static generation (`generateStaticParams`) for blog posts and service pages. ISR for sitemap. Image optimization via Next/Image with GCS remote patterns. Font optimization (next/font). Bundle analysis via webpack.
+
+**Analytics:** Custom BlogAnalyticsTracker component (page view, scroll depth, CTA clicks). Consent-aware.
+
+**Security:** CSP headers (via next.config), httpOnly auth cookies, CSRF protection on mutations, input sanitization (DOMPurify for HTML content), rate limiting on API routes.
+
+**Deployment:** Hostinger Node.js hosting. Git push to master triggers build. `x-nextjs-prerender: 1`, `x-nextjs-stale-time: 4294967294` indicates fully static pages with ISR for dynamic routes (sitemap). Environment variables managed via Hostinger panel.

@@ -5,13 +5,21 @@ Altruva is a premier regenerative and aesthetic clinic based in Jakarta, Indones
 ## Information Resources
 
 - [Home](https://altruva.co.id/) - Official homepage with medical services, brand vision, and values.
-- [Services & Treatments](https://altruva.co.id/#treatments) - Comprehensive non-invasive treatments including Sofwave, EmSculpt Neo, Gouri, and regenerative aesthetic therapies.
+- [Services & Treatments](https://altruva.co.id/treatments) - Comprehensive non-invasive treatments including Sofwave, EmSculpt Neo, Gouri, and regenerative aesthetic therapies.
+- [Facial Treatments](https://altruva.co.id/facial) - Medical facial protocols and skin therapies.
+- [Skin Analysis](https://altruva.co.id/skin-analysis) - AI-powered skin analysis and personalized treatment planning.
 - [Blog](https://altruva.co.id/blog) - Medical insights, skincare updates, perimenopause education, and clinic news.
+- [Beauty Journal](https://altruva.co.id/beauty-journal) - Clinical case studies and treatment deep-dives.
 - [Book Appointment](https://altruva.co.id/book-appointment) - Real-time schedule booking and consultation appointments with medical professionals.
-- [About Meet the Doctor](https://altruva.co.id/about-us/meet-dr-olivia-aldisa) - Professional profile of founder dr. Olivia Aldisa and clinical background.
+- [About Meet the Doctor](https://altruva.co.id/about/meet-dr-olivia-aldisa) - Professional profile of founder dr. Olivia Aldisa and clinical background.
+- [About Our Clinic](https://altruva.co.id/our-clinic) - Clinic facilities, philosophy, and patient experience.
+- [Contact](https://altruva.co.id/contact) - Clinic location, hours, and contact information.
+- [FAQ](https://altruva.co.id/faq) - Frequently asked questions about treatments and procedures.
+- [Gallery](https://altruva.co.id/gallery) - Before/after treatment results and clinic gallery.
+- [News & Media](https://altruva.co.id/news-media) - Press coverage, media features, and clinic announcements.
 
 ## Technical Details
 
 - **Technology Stack**: Next.js, React, Tailwind CSS, Radix UI primitives.
 - **CMS Platform**: Secure custom admin panel for managing dynamic articles, keywords, metadata, and blog formatting.
-- **Content Delivery**: Optimized local upload asset storage for responsive medical imagery and layout responsiveness.
+- **Content Delivery**: Google Cloud Storage (GCS) for optimized medical imagery and responsive asset delivery.
