@@ -1,59 +1,12 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { promises as fs } from 'fs';
-import path from 'path';
 import { verifySessionToken } from '@/lib/cms-auth';
-import { bucket } from '@/lib/gcs';
-
-const GCS_PUBLIC_BASE = `https://storage.googleapis.com/${bucket.name}`;
-
-function getMimeType(filename: string, fallback?: string): string {
-  if (fallback && fallback.startsWith('image/')) return fallback;
-  const ext = path.extname(filename).toLowerCase();
-  switch (ext) {
-    case '.webp': return 'image/webp';
-    case '.png': return 'image/png';
-    case '.jpg':
-    case '.jpeg': return 'image/jpeg';
-    case '.gif': return 'image/gif';
-    case '.svg': return 'image/svg+xml';
-    default: return 'application/octet-stream';
-  }
-}
+import { getMimeType, sanitizeFilename, uploadToGCS, uploadToLocal } from '@/lib/storage';
 
 async function checkAuth() {
   const cookieStore = await cookies();
   const token = cookieStore.get('cms_session')?.value;
   return token && verifySessionToken(token);
-}
-
-async function uploadToGCS(buffer: Buffer, filename: string, contentType: string): Promise<string> {
-  const destPath = `uploads/${filename}`;
-  const gcsFile = bucket.file(destPath);
-
-  await gcsFile.save(buffer, {
-    resumable: false,
-    metadata: {
-      contentType,
-      cacheControl: 'public, max-age=31536000',
-    },
-  });
-
-  try {
-    await gcsFile.makePublic();
-  } catch (_) {
-    // Ignore if the bucket is already public / ACLs disabled
-  }
-
-  return `${GCS_PUBLIC_BASE}/${destPath}`;
-}
-
-async function uploadToLocal(buffer: Buffer, filename: string): Promise<string> {
-  const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-  await fs.mkdir(uploadDir, { recursive: true });
-  const filePath = path.join(uploadDir, filename);
-  await fs.writeFile(filePath, buffer);
-  return `/uploads/${filename}`;
 }
 
 export async function POST(request: Request) {
@@ -73,7 +26,7 @@ export async function POST(request: Request) {
     const buffer = Buffer.from(await file.arrayBuffer());
 
     // Create a URL-safe unique filename
-    const filename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+    const filename = `${Date.now()}-${sanitizeFilename(file.name)}`;
     const contentType = getMimeType(filename, file.type);
 
     try {

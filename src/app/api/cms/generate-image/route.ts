@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { promises as fs } from 'fs';
-import path from 'path';
 import { verifySessionToken } from '@/lib/cms-auth';
+import { uploadToGCS, uploadToLocal } from '@/lib/storage';
 
 async function checkAuth() {
   const cookieStore = await cookies();
@@ -79,19 +78,20 @@ Keep the prompt under 60 words. Do not wrap in quotes or code blocks, return ONL
     const imageArrayBuffer = await imageResponse.arrayBuffer();
     const buffer = Buffer.from(imageArrayBuffer);
 
-    // Save image locally
+    // Upload generated image to GCS (with local fallback)
     const filename = `${Date.now()}-ai-cover.jpg`;
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-    await fs.mkdir(uploadDir, { recursive: true });
+    let url: string;
 
-    const filePath = path.join(uploadDir, filename);
-    await fs.writeFile(filePath, buffer);
-
-    const relativeUrl = `/uploads/${filename}`;
+    try {
+      url = await uploadToGCS(buffer, filename, 'image/jpeg');
+    } catch (gcsErr) {
+      console.error('[GCS] AI image upload failed, falling back to local storage:', gcsErr);
+      url = await uploadToLocal(buffer, filename);
+    }
 
     return NextResponse.json({
       success: true,
-      url: relativeUrl,
+      url,
       prompt: finalPrompt
     });
 
