@@ -14,7 +14,6 @@ Altruva is a premier regenerative and aesthetic clinic based in Jakarta, Indones
 - [About Our Clinic](https://altruva.co.id/our-clinic) - Clinic facilities, philosophy, and patient experience.
 - [Contact](https://altruva.co.id/contact) - Clinic location, hours, and contact information.
 - [FAQ](https://altruva.co.id/faq) - Frequently asked questions about treatments and procedures.
-- [Gallery](https://altruva.co.id/gallery) - Before/after treatment results and clinic gallery.
 - [News & Media](https://altruva.co.id/news-media) - Press coverage, media features, and clinic announcements.
 
 ## Technical Details

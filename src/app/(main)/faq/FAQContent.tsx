@@ -16,6 +16,7 @@ export default function FAQContent() {
     <>
       <SectionWrapper className="bg-secondary/30">
         <PageTitle
+          as="h1"
           title={t({ en: 'Frequently Asked Questions', id: 'Pertanyaan yang Sering Diajukan' })}
           subtitle={t({
             en: 'Everything you need to know about Altruva Aesthetic Clinic — our approach, treatments, location, and how to book.',

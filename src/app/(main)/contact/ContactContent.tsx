@@ -29,6 +29,14 @@ export default function ContactContent() {
   return (
     <>
       <SectionWrapper className="pt-0">
+        <PageTitle
+          as="h1"
+          title={t({ en: 'Contact Us', id: 'Hubungi Kami' })}
+          subtitle={t({
+            en: 'Reach out to Altruva Aesthetic Clinic for consultations, inquiries, or to schedule your visit.',
+            id: 'Hubungi Altruva Aesthetic Clinic untuk konsultasi, pertanyaan, atau menjadwalkan kunjungan Anda.',
+          })}
+        />
         <Card className="shadow-lg overflow-hidden">
           <div className="aspect-video w-full">
             <iframe

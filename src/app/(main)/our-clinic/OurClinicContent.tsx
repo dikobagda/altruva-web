@@ -46,9 +46,9 @@ export default function OurClinicContent() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           <div className="absolute bottom-0 left-0 p-8">
-            <h2 className="text-4xl font-serif font-bold text-white shadow-lg">
+            <h1 className="text-4xl font-serif font-bold text-white shadow-lg">
               {t({ en: 'A Sanctuary for Your Transformation', id: 'Sebuah Suaka untuk Transformasi Anda' })}
-            </h2>
+            </h1>
           </div>
         </div>
       </SectionWrapper>
