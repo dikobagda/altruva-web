@@ -97,8 +97,10 @@ const clinicSchema = {
   ],
   "founder": {
     "@type": "Person",
+    "@id": "https://altruva.co.id/about/meet-dr-olivia-aldisa#person",
     "name": "dr. Olivia Aldisa",
-    "jobTitle": "Aesthetic Doctor & Clinic Founder"
+    "jobTitle": "Aesthetic Doctor & Clinic Founder",
+    "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

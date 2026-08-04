@@ -61,6 +61,7 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Quick Links', id: 'Tautan Cepat' })}</h3>
             <ul className="space-y-2 text-center sm:text-left">
+              <li><Link href="/about/meet-dr-olivia-aldisa" className="hover:text-primary transition-colors">{t({ en: 'Meet dr. Olivia Aldisa', id: 'Temui dr. Olivia Aldisa' })}</Link></li>
               <li><Link href="/about/369-harmony" className="hover:text-primary transition-colors">369 Harmony™</Link></li>
               <li><Link href="/faq" className="hover:text-primary transition-colors">{t({ en: 'FAQ', id: 'FAQ' })}</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">{t({ en: 'Contact Us', id: 'Hubungi Kami' })}</Link></li>

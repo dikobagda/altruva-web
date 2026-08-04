@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
+import JsonLd from '@/components/shared/JsonLd';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Award, BookOpen, Mic, Star, CheckCircle, Briefcase, GraduationCap, Target, Eye, Lightbulb } from 'lucide-react';
@@ -76,10 +77,74 @@ const certifications = [
   "Advanced Filler Techniques - UMA Academy, Netherlands, 2022"
 ];
 
+const personSchema = {
+  "@type": "Person",
+  "@id": "https://altruva.co.id/about/meet-dr-olivia-aldisa#person",
+  "name": "dr. Olivia Aldisa",
+  "honorificPrefix": "dr.",
+  "honorificSuffix": "dipl. AAAM",
+  "jobTitle": "Aesthetic Doctor & Clinic Founder",
+  "description": "Founder and Head Doctor of Altruva Aesthetic Clinic, expert in non-surgical profiloplasty, international Key Opinion Leader and trainer for cutting-edge aesthetic technologies.",
+  "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa",
+  "image": "https://altruva.co.id/images/draldisanew.jpg",
+  "alumniOf": education.map((edu) => ({
+    "@type": edu.university.toLowerCase().includes('american academy')
+      ? 'EducationalOrganization'
+      : 'CollegeOrUniversity',
+    name: edu.university,
+  })),
+  "worksFor": {
+    "@type": "MedicalBusiness",
+    "@id": "https://altruva.co.id/#clinic",
+    "name": "Altruva Aesthetic Clinic",
+  },
+  "hasCredential": [
+    ...education.map((edu) => ({
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Degree",
+      "name": edu.degree,
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": edu.university,
+      },
+    })),
+    ...certifications.map((cert) => ({
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Certification",
+      "name": cert,
+      ...(cert.match(/\(([^)]+)\)$/) ? { "recognizedBy": { "@type": "Organization", "name": cert.match(/\(([^)]+)\)$/)![1] } } : {}),
+    })),
+  ],
+  "knowsAbout": [
+    "Non-Surgical Profiloplasty",
+    "Dermal Fillers",
+    "Botox",
+    "Ultherapy",
+    "CoolSculpting",
+    "Facial Harmonization",
+    "Regenerative Aesthetics",
+    "Body Contouring",
+    "Skin Boosters",
+    "Medical Aesthetics",
+  ],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "American Academy of Aesthetic Medicine",
+  },
+  "award": [
+    "CoolSculpting Medical Trainer - Allergan",
+    "Train The Trainer (Obesity Management) - PT. Soho Industri Pharmasi",
+    "International Master Course on Aging Science (IMCAS) World Congress - Paris, France, 2023",
+    "Facial Aesthetic Master Class Beverly Hills 2019 - Galderma",
+    "MERZ Expert Summit Copenhagen, Denmark - Merz Aesthetics",
+  ],
+};
+
 
 export default function MeetTheDoctorPage() {
   return (
     <>
+      <JsonLd schema={[personSchema]} />
       <SectionWrapper className="bg-secondary/30 pt-24 md:pt-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square md:aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
@@ -106,6 +171,21 @@ export default function MeetTheDoctorPage() {
             </Button>
           </div>
         </div>
+      </SectionWrapper>
+
+      <SectionWrapper className="bg-background pt-6 pb-0 md:pt-10 md:pb-0">
+        <nav aria-label="Quick Links" className="flex flex-wrap items-center justify-center gap-3">
+          <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mr-1">Quick Links:</span>
+          <Button asChild variant="outline" size="sm">
+            <a href="#education">Education</a>
+          </Button>
+          <Button asChild variant="outline" size="sm">
+            <a href="#experience">Experience</a>
+          </Button>
+          <Button asChild variant="outline" size="sm">
+            <a href="#certifications">Licenses &amp; Certifications</a>
+          </Button>
+        </nav>
       </SectionWrapper>
 
       <SectionWrapper>
@@ -161,30 +241,30 @@ export default function MeetTheDoctorPage() {
           subtitle="A journey of continuous learning and leadership in aesthetic medicine."
         />
         <div className="grid lg:grid-cols-2 gap-12">
-            <Card className="shadow-lg">
+            <Card id="education" className="shadow-lg scroll-mt-28">
                 <CardHeader>
-                    <CardTitle className="flex items-center font-serif text-2xl text-primary"><GraduationCap className="mr-3" />Education</CardTitle>
+                    <h3 className="flex items-center font-serif text-2xl text-primary"><GraduationCap className="mr-3" />Education</h3>
                 </CardHeader>
                 <CardContent>
                     <ul className="space-y-4">
                         {education.map(edu => (
                             <li key={edu.degree}>
-                                <p className="font-semibold text-lg text-foreground">{edu.degree}</p>
+                                <h4 className="font-semibold text-lg text-foreground">{edu.degree}</h4>
                                 <p className="text-muted-foreground">{edu.university} ({edu.years})</p>
                             </li>
                         ))}
                     </ul>
                 </CardContent>
             </Card>
-            <Card className="shadow-lg">
+            <Card id="experience" className="shadow-lg scroll-mt-28">
                 <CardHeader>
-                    <CardTitle className="flex items-center font-serif text-2xl text-primary"><Briefcase className="mr-3" />Experience</CardTitle>
+                    <h3 className="flex items-center font-serif text-2xl text-primary"><Briefcase className="mr-3" />Experience</h3>
                 </CardHeader>
                 <CardContent>
                      <ul className="space-y-4">
                         {experiences.map(exp => (
                             <li key={exp.role}>
-                                <p className="font-semibold text-lg text-foreground">{exp.role}</p>
+                                <h4 className="font-semibold text-lg text-foreground">{exp.role}</h4>
                                 <p className="text-muted-foreground">{exp.years}</p>
                             </li>
                         ))}
@@ -193,9 +273,9 @@ export default function MeetTheDoctorPage() {
             </Card>
         </div>
         <div className="mt-12">
-            <Card className="shadow-lg">
+            <Card id="certifications" className="shadow-lg scroll-mt-28">
                  <CardHeader>
-                    <CardTitle className="flex items-center font-serif text-2xl text-primary"><Award className="mr-3" />Licenses & Certifications</CardTitle>
+                    <h3 className="flex items-center font-serif text-2xl text-primary"><Award className="mr-3" />Licenses &amp; Certifications</h3>
                     <CardDescription>Committed to global standards and continuous professional development.</CardDescription>
                 </CardHeader>
                 <CardContent>
