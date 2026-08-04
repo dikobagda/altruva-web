@@ -5,7 +5,7 @@ import HomePage from '@/components/home/HomePage';
 const siteUrl = 'https://altruva.co.id';
 
 export const metadata: Metadata = {
-  title: 'Altruva Aesthetic Clinic - Regenerative Contouring in Jakarta',
+  title: { absolute: 'Altruva Aesthetic Clinic - Regenerative Contouring in Jakarta' },
   description:
     'Klinik estetika premium di Jakarta Selatan untuk perawatan wajah kencang alami tanpa operasi. Sofwave, EmSculpt Neo, Gouri & regenerative treatment oleh dr. Olivia Aldisa.',
   alternates: {

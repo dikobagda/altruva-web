@@ -32,7 +32,7 @@ export async function generateMetadata(
   const desc = summary.en || service.description.en || service.description.id;
 
   return {
-    title: `${service.title}`,
+    title: { absolute: service.title },
     description: desc.length > 155 ? desc.substring(0, 152) + '...' : desc,
     keywords: [
       service.title.toLowerCase(),
