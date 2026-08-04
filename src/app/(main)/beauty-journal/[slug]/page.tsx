@@ -9,6 +9,13 @@ import { journalArticles } from '@/lib/data/journal-articles';
 import { getDbBlogs } from '@/lib/api/db-blog';
 import JsonLd from '@/components/shared/JsonLd';
 
+function truncateDescription(text: string, maxLength = 155): string {
+    const trimmed = text.trim();
+    if (trimmed.length <= maxLength) return trimmed;
+    const cut = trimmed.slice(0, maxLength - 1);
+    return cut.slice(0, cut.lastIndexOf(' ')) + '…';
+}
+
 export function generateStaticParams() {
     return beautyJournals
         .filter((journal) => journal.slug)
@@ -30,9 +37,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         : journal?.title.split(' ') || [];
     const keywords = [...new Set([...dynamicKeywords, ...baseKeywords])];
 
+    const rawDescription = matchingInsight?.excerpt || (journal ? `Read the ${journal.issue} edition of Altruva Beauty Journal: ${journal.title}.` : 'Altruva Beauty Journal Article');
+
     return {
         title: { absolute: journal ? `${journal.title} - Beauty Journal` : 'Beauty Journal' },
-        description: matchingInsight?.excerpt || (journal ? `Read the ${journal.issue} edition of Altruva Beauty Journal: ${journal.title}.` : 'Altruva Beauty Journal Article'),
+        description: truncateDescription(rawDescription),
         keywords: keywords,
     };
 }

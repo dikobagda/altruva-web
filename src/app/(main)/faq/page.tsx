@@ -7,7 +7,7 @@ import { faqCategories } from '@/lib/data/faqs';
 export const metadata: Metadata = {
   title: 'FAQ - Frequently Asked Questions',
   description:
-    'Pertanyaan yang sering diajukan tentang Altruva Aesthetic Clinic di Jakarta Selatan: pendekatan regenerative contouring, treatment non-surgical, lokasi, konsultasi, dan cara membuat appointment.',
+    'Pertanyaan umum seputar Altruva Aesthetic Clinic Jakarta Selatan: regenerative contouring, treatment non-surgical, lokasi, konsultasi, dan cara membuat appointment.',
   alternates: {
     canonical: '/faq',
   },
