@@ -1,0 +1,4 @@
+# Redirect www to non-www (Apache level - works before Node proxy)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.altruva\.co\.id [NC]
+RewriteRule ^(.*)$ https://altruva.co.id/$1 [L,R=301]
