@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/about/our-devices',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/about/our-devices',
+  },
 };
 
 export default function OurDevicesPage() {

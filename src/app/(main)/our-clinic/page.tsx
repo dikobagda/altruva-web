@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/our-clinic',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/our-clinic',
+  },
 };
 
 export default function OurClinicPage() {

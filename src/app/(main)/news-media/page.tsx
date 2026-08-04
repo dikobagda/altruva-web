@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/news-media',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/news-media',
+  },
 };
 
 export default function NewsAndMediaPage() {

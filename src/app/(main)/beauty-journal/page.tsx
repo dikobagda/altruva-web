@@ -11,6 +11,9 @@ import { beautyJournals } from '@/lib/data/beauty-journal';
 export const metadata = {
   title: 'Beauty Journal',
   description: 'Download Altruva\'s Beauty Journal — monthly e-magazines on regenerative aesthetics, skincare, wellness, and timeless beauty insights from Jakarta experts.',
+  openGraph: {
+    url: 'https://altruva.co.id/beauty-journal',
+  },
 };
 
 export default function BeautyJournalPage() {

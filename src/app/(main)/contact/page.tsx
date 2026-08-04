@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/contact',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/contact',
+  },
 };
 
 export default function ContactPage() {

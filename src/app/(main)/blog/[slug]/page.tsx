@@ -65,6 +65,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: {
       canonical: `/blog/${slug}`,
     },
+    openGraph: {
+      url: `https://altruva.co.id/blog/${slug}`,
+    },
   };
 }
 

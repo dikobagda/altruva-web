@@ -10,6 +10,9 @@ import { CheckCircle, Clock, Sparkles } from 'lucide-react';
 export const metadata = {
   title: 'Happy Hour Specials',
   description: 'Discover Altruva Happy Hour specials — limited-time express glow rituals and facial treatments for radiant skin with no downtime in Jakarta.',
+  openGraph: {
+    url: 'https://altruva.co.id/facial/happy-hour',
+  },
 };
 
 const happyHourOptions = [

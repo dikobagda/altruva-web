@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/skin-analysis',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/skin-analysis',
+  },
 };
 
 export default function SkinAnalysisPage() {

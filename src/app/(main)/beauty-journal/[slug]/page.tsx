@@ -43,6 +43,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title: { absolute: journal ? `${journal.title} - Beauty Journal` : 'Beauty Journal' },
         description: truncateDescription(rawDescription),
         keywords: keywords,
+        openGraph: {
+            url: `https://altruva.co.id/beauty-journal/${slug}`,
+        },
     };
 }
 

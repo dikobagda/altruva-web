@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/about/369-harmony',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/about/369-harmony',
+  },
 };
 
 export default function Harmony369Page() {

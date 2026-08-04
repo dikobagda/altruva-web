@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/blog',
+  },
 };
 
 import BlogList from '@/components/blog/BlogList';

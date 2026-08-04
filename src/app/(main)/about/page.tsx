@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/about',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/about',
+  },
 };
 
 export default function AboutUsPage() {

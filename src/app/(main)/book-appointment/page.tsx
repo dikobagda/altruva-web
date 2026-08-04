@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/book-appointment',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/book-appointment',
+  },
 };
 
 export default function BookAppointmentPage() {

@@ -13,6 +13,9 @@ export const metadata = {
   alternates: {
     canonical: '/about/meet-dr-olivia-aldisa',
   },
+  openGraph: {
+    url: 'https://altruva.co.id/about/meet-dr-olivia-aldisa',
+  },
 };
 
 const keyExpertise = [
