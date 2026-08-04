@@ -11,6 +11,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(secureUrl, 301);
   }
 
+  // 1b. Redirect legacy singular robot.txt → robots.txt
+  if (url.pathname === '/robot.txt') {
+    return NextResponse.redirect(new URL('/robots.txt', request.url), 301);
+  }
+
   // 2. Subdomain Rewrite: If request is from cms.altruva.co.id
   if (host.startsWith('cms.altruva.') || host.startsWith('cms.localhost:')) {
     if (!url.pathname.startsWith('/cms')) {
