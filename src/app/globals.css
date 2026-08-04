@@ -217,3 +217,24 @@ h2[id], h3[id] {
   padding-right: 1rem;
   border-radius: 0 0.375rem 0.375rem 0;
 }
+
+/* Custom hyperlink styling for editor and article content */
+.prose a,
+.prose [contenteditable] a {
+  color: hsl(var(--primary)) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.prose a:hover,
+.prose [contenteditable] a:hover {
+  color: hsl(var(--accent)) !important;
+  text-decoration-color: hsl(var(--accent)) !important;
+}
+
+.prose a:visited,
+.prose [contenteditable] a:visited {
+  color: hsl(var(--accent) / 0.7) !important;
+}
