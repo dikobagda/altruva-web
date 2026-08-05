@@ -4,9 +4,13 @@ import Link from 'next/link';
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import JsonLd from '@/components/shared/JsonLd';
+import DoctorBio from './DoctorBio';
+import LinkedInLink from './LinkedInLink';
+import VisionMission from './VisionMission';
+import KeyExpertise from './KeyExpertise';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Award, BookOpen, Mic, Star, CheckCircle, Briefcase, GraduationCap, Target, Eye, Lightbulb } from 'lucide-react';
+import { Award, CheckCircle, Briefcase, GraduationCap } from 'lucide-react';
 
 export const metadata = {
   title: 'Meet dr. Olivia Aldisa, dipl. AAAM',
@@ -18,29 +22,6 @@ export const metadata = {
     url: 'https://altruva.co.id/about/meet-dr-olivia-aldisa',
   },
 };
-
-const keyExpertise = [
-  {
-    Icon: Star,
-    title: 'Non-Surgical Profiloplasty Expert',
-    description: 'Specializes in fillers, botox, and ultherapy to achieve balanced and natural facial harmony.',
-  },
-  {
-    Icon: Award,
-    title: 'International KOL & Trainer',
-    description: 'A globally recognized Key Opinion Leader and trainer for cutting-edge technologies like CoolSculpting®.',
-  },
-  {
-    Icon: Briefcase,
-    title: 'Experienced Head Doctor & Founder',
-    description: 'Previously led award-winning clinics and now brings her vision to life with her own brand, Altruva.',
-  },
-  {
-    Icon: BookOpen,
-    title: 'Regenerative Aesthetics Pioneer',
-    description: 'Combines global technology with the beauty of Indonesian heritage for unique, effective treatments.',
-  },
-];
 
 const education = [
     { degree: "Doctor of Medicine (MD)", university: "Universitas Padjadjaran", years: "2006 - 2012" },
@@ -197,16 +178,14 @@ export default function MeetTheDoctorPage() {
           </div>
           <div className="space-y-6">
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary">dr. Olivia Aldisa, dipl. AAAM</h1>
-            <h2 className="text-xl font-semibold text-accent">A Rising Star in Indonesia’s Aesthetics Medicine</h2>
-            <p className="text-lg text-foreground/80">
-              Known for her perfect balance of medical-scientific knowledge and artistic forte, dr. Olivia Aldisa is an expert in non-surgical profiloplasty. As an experienced senior doctor and a Key Opinion Leader, she specializes in cutting-edge treatments that combine global technology with the beauty of Indonesian heritage.
-            </p>
-            <p className="text-foreground/80">
-              After years as a trainer for an award-winning clinic, Dr. Aldisa is now channeling her expertise into her own brand, Altruva, to provide a uniquely personalized and artistic aesthetic journey for every patient.
-            </p>
-            <Button asChild size="lg">
-              <Link href="/book-appointment">Book a Consultation with Dr. Aldisa</Link>
-            </Button>
+            <h2 className="text-xl font-semibold text-accent">A Rising Star in Indonesia's Aesthetics Medicine</h2>
+            <DoctorBio />
+            <div className="flex flex-wrap items-center gap-3">
+              <Button asChild size="lg">
+                <Link href="/book-appointment">Book a Consultation with Dr. Aldisa</Link>
+              </Button>
+            </div>
+            <LinkedInLink />
           </div>
         </div>
       </SectionWrapper>
@@ -226,52 +205,9 @@ export default function MeetTheDoctorPage() {
         </nav>
       </SectionWrapper>
 
-      <SectionWrapper>
-        <PageTitle
-          title="Vision & Mission"
-          subtitle="A philosophy rooted in artistry, expertise, and personalized care."
-        />
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="shadow-lg">
-                <CardHeader>
-                    <CardTitle className="font-serif text-2xl text-primary">Our Vision</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-foreground/80">To be a leading aesthetic clinic known for a harmonious balance of medical-scientific knowledge and artistic forte in every non-surgical treatment.</p>
-                </CardContent>
-            </Card>
-            <Card className="shadow-lg">
-                <CardHeader>
-                    <CardTitle className="font-serif text-2xl text-primary">Our Mission</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-foreground/80">To provide the best experience in our patients' aesthetics journey through expertise, artistic flare, and personalized treatments based on their unique ethno-beauty.</p>
-                </CardContent>
-            </Card>
-        </div>
-      </SectionWrapper>
+      <VisionMission />
 
-      <SectionWrapper id="key-expertise" className="bg-secondary/30">
-        <PageTitle
-          title="Key Expertise"
-          subtitle="A commitment to science, artistry, and patient-centric care."
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {keyExpertise.map((cred) => (
-            <Card key={cred.title} className="text-center shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary text-primary-foreground rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <cred.Icon className="w-6 h-6" />
-                </div>
-                <CardTitle className="font-serif text-xl text-primary">{cred.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/80">{cred.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </SectionWrapper>
+      <KeyExpertise />
 
        <SectionWrapper id="career-highlights">
         <PageTitle
