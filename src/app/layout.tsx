@@ -68,6 +68,10 @@ const clinicSchema = {
   "telephone": "+6281216119392",
   "email": "admin@altruva.co.id",
   "priceRange": "$$$",
+  "sameAs": [
+    "https://www.instagram.com/altruvaclinic/",
+    "https://www.linkedin.com/in/droliviaaldisa"
+  ],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Jl. Ciasem I No.2 Kebayoran Baru",

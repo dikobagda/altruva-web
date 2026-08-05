@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { useState, useEffect } from 'react';
@@ -72,8 +72,15 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="font-serif text-lg font-semibold mb-3 text-primary">{t({ en: 'Follow Us', id: 'Ikuti Kami' })}</h3>
             <div className="flex space-x-4">
-              <Link href="#" aria-label="Instagram" className="text-primary hover:text-accent transition-colors"><Instagram size={24} /></Link>
-              <Link href="#" aria-label="Facebook" className="text-primary hover:text-accent transition-colors"><Facebook size={24} /></Link>
+              <Link
+                href="https://www.instagram.com/altruvaclinic/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-primary hover:text-accent transition-colors"
+              >
+                <Instagram size={24} />
+              </Link>
             </div>
             <h3 className="font-serif text-lg font-semibold mb-1 text-primary mt-4">{t({ en: 'Location', id: 'Lokasi' })}</h3>
             <div className="mt-0 text-sm text-center sm:text-left space-y-2" itemScope itemType="https://schema.org/PostalAddress">

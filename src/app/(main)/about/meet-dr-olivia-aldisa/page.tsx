@@ -87,6 +87,11 @@ const personSchema = {
   "description": "Founder and Head Doctor of Altruva Aesthetic Clinic, expert in non-surgical profiloplasty, international Key Opinion Leader and trainer for cutting-edge aesthetic technologies.",
   "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa",
   "image": "https://altruva.co.id/images/draldisanew.jpg",
+  "sameAs": [
+    "https://www.instagram.com/altruvaclinic/",
+    "https://id.linkedin.com/in/droliviaaldisa",
+    "https://www.linkedin.com/in/droliviaaldisa",
+  ],
   "alumniOf": education.map((edu) => ({
     "@type": edu.university.toLowerCase().includes('american academy')
       ? 'EducationalOrganization'
@@ -140,11 +145,44 @@ const personSchema = {
   ],
 };
 
+const profilePageSchema = {
+  "@type": "ProfilePage",
+  "@id": "https://altruva.co.id/about/meet-dr-olivia-aldisa#profile",
+  "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa",
+  "mainEntity": {
+    "@id": "https://altruva.co.id/about/meet-dr-olivia-aldisa#person",
+  },
+};
+
+const breadcrumbSchema = {
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://altruva.co.id",
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://altruva.co.id/about",
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Meet dr. Olivia Aldisa",
+      "item": "https://altruva.co.id/about/meet-dr-olivia-aldisa",
+    },
+  ],
+};
+
 
 export default function MeetTheDoctorPage() {
   return (
     <>
-      <JsonLd schema={[personSchema]} />
+      <JsonLd schema={[profilePageSchema, personSchema, breadcrumbSchema]} />
       <SectionWrapper className="bg-secondary/30 pt-24 md:pt-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square md:aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
