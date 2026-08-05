@@ -4,7 +4,6 @@ import { useLanguage } from '@/context/LanguageContext';
 import PageTitle from '@/components/shared/PageTitle';
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Star, Award, Briefcase, BookOpen } from 'lucide-react';
 
 const title = { en: 'Key Expertise', id: 'Keahlian Utama' };
 const subtitle = {
@@ -14,7 +13,6 @@ const subtitle = {
 
 const keyExpertise = [
   {
-    Icon: Star,
     title: {
       en: 'Non-Surgical Profiloplasty Expert',
       id: 'Ahli Profiloplasty Non-Bedah',
@@ -25,7 +23,6 @@ const keyExpertise = [
     },
   },
   {
-    Icon: Award,
     title: {
       en: 'International KOL & Trainer',
       id: 'KOL & Trainer Internasional',
@@ -36,7 +33,6 @@ const keyExpertise = [
     },
   },
   {
-    Icon: Briefcase,
     title: {
       en: 'Experienced Head Doctor & Founder',
       id: 'Head Doctor & Founder Berpengalaman',
@@ -47,7 +43,6 @@ const keyExpertise = [
     },
   },
   {
-    Icon: BookOpen,
     title: {
       en: 'Regenerative Aesthetics Pioneer',
       id: 'Pelopor Regenerative Aesthetics',
@@ -68,9 +63,6 @@ export default function KeyExpertise() {
         {keyExpertise.map((cred) => (
           <Card key={cred.title.en} className="text-center shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
-              <div className="w-12 h-12 bg-primary text-primary-foreground rounded-lg flex items-center justify-center mx-auto mb-4">
-                <cred.Icon className="w-6 h-6" />
-              </div>
               <CardTitle className="font-serif text-xl text-primary">{t(cred.title)}</CardTitle>
             </CardHeader>
             <CardContent>

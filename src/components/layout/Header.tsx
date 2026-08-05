@@ -156,7 +156,6 @@ const navItems: NavItem[] = [
     subItems: [
       { href: '/treatments/altruva-signature-facial', label: { en: 'Altruva Signature Facial (Pore Clean Facial)', id: 'Altruva Signature Facial (Pore Clean Facial)' } },
       { href: '/treatments/altruva-hydraglow-facial', label: { en: 'Altruva HydraGlow Facial', id: 'Altruva HydraGlow Facial' } },
-      { href: '/facial/happy-hour', label: { en: 'Happy Hour', id: 'Happy Hour' } },
     ],
   },
   {
