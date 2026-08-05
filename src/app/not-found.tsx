@@ -11,7 +11,7 @@ function NotFoundContent() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow flex items-center justify-center py-24 px-4">
+      <main className="flex-grow flex items-center justify-center py-40 md:py-48 px-4">
         <div className="text-center max-w-xl mx-auto">
           <h1 className="font-serif text-xl md:text-2xl font-semibold text-foreground">
             404 | {t({ en: 'Oops, this page seems not found.', id: 'Ups, sepertinya halaman ini tidak ditemukan.' })}
