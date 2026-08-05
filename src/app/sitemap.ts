@@ -60,10 +60,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     }));
 
+  // 5. LLM / AI Readiness Files (llms.txt convention)
+  const aiEntries: MetadataRoute.Sitemap = [
+    `${baseUrl}/llms.txt`,
+    `${baseUrl}/llms-full.txt`,
+  ].map((url) => ({
+    url,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.3,
+  }));
+
   return [
     ...staticEntries,
     ...serviceEntries,
     ...insightEntries,
     ...beautyJournalEntries,
+    ...aiEntries,
   ];
 }

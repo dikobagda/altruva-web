@@ -13,6 +13,8 @@ export default function robots(): MetadataRoute.Robots {
           '/',
           '/_next/static/',
           '/_next/image',
+          '/llms.txt',
+          '/llms-full.txt',
         ],
         disallow: [
           '/api/',

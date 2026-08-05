@@ -2,8 +2,21 @@
 
 Altruva is a premier regenerative and aesthetic clinic based in Jakarta, Indonesia. Specializing in advanced, non-invasive procedures led by dr. Olivia Aldisa.
 
+## Key Facts
+
+- **Name:** Altruva Aesthetic Clinic (altruva.co.id)
+- **Positioning:** Jakarta's 1st Regenerative Contouring Clinic — regenerative aesthetics combining skin/soft-tissue quality restoration with natural facial contouring.
+- **Founded & Led By:** dr. Olivia Aldisa, dipl. AAAM — Aesthetic Doctor, Founder, Medical Director & Head Doctor; international Key Opinion Leader and trainer (e.g., CoolSculpting Medical Trainer, Allergan).
+- **Credentials:** Doctor of Medicine (Universitas Padjadjaran), Master's in Business & Management (Universitas Pelita Harapan), Diploma in Aesthetic Medicine (American Academy of Aesthetic Medicine), plus international certifications (Merz, Galderma, IMCAS, AAAM).
+- **Philosophy:** "Quiet Luxury" — natural, non-surgical, personalized, evidence-based treatments for aging gracefully and timeless beauty.
+- **Focus:** Non-surgical profiloplasty, collagen biostimulation, energy-based devices (Sofwave, EmSculpt Neo, Exion), regenerative injectables (Gouri, Bio-PRF, exosomes/polynucleotides), skin quality optimization, and hair restoration; dedicated focus on women aged 40+.
+- **Location:** Jl. Ciasem I No.2, Kebayoran Baru, Jakarta Selatan 12180, Indonesia.
+- **Contact:** +62 812-1611-9392 · admin@altruva.co.id
+- **Hours:** Tue–Sat 10:00–18:00, Sun 09:00–17:00, Mon closed.
+
 ## Information Resources
 
+- [Full Version with all page details](https://altruva.co.id/llms-full.txt)
 - [Home](https://altruva.co.id/) - Official homepage with medical services, brand vision, and values.
 - [Services & Treatments](https://altruva.co.id/treatments) - Comprehensive non-invasive treatments including Sofwave, EmSculpt Neo, Gouri, and regenerative aesthetic therapies.
 - [Skin Analysis](https://altruva.co.id/skin-analysis) - AI-powered skin analysis and personalized treatment planning.

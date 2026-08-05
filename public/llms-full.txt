@@ -37,6 +37,59 @@ Altruva is a premier regenerative and aesthetic clinic based in Jakarta, Indones
 
 **Each treatment page includes:** Indication, mechanism, protocol, downtime, ideal candidate, frequency, FAQ schema.
 
+**Complete Treatment Catalog (41):**
+
+Signature Facials:
+- Altruva Signature Facial (Pore Clean Facial) — /treatments/altruva-signature-facial
+- Altruva HydraGlow Facial — /treatments/altruva-hydraglow-facial
+
+Altruva Glow (skin quality, regeneration, boosters & lasers):
+- Altruva Glacier Skin — /treatments/glacier-skin
+- Altruva DNA Repair — /treatments/dna-repair
+- Altruva Purifying Booster — /treatments/purifying-booster
+- Altruva Darkspots-Boosters — /treatments/dark-spot-booster
+- Altruva Bio-PRF — /treatments/bio-prf
+- Altruva Clarify Peel — /treatments/clarify-peel
+- Altruva Korean Luminous Peel — /treatments/korean-luminous-peel
+- Altruva Lumi Laser — /treatments/exion-lumi-laser
+- Altruva Scar Solver — /treatments/exion-scar-solver
+- Altruva Exoprime Pro — /treatments/exoprime-pro
+- Altruva DNA Repair Pro — /treatments/dna-repair-pro
+- Altruva DNA Repair Eye — /treatments/dna-repair-eye
+- Altruva Amino Booster — /treatments/amino-booster
+- Altruva Mela-Boosters — /treatments/melabooster
+- Altruva Bio-PRF Rejuvenation — /treatments/bio-prf-rejuvenation
+- Altruva Youth Elixir — /treatments/altruva-youth-elixir
+- Altruva Radiant Advanced Peel — /treatments/radiant-advanced-peel
+- Altruva Regenerative Laser — /treatments/exion-regen-laser
+- Altruva FractioPro — /treatments/exion-fractiopro
+
+Altruva Lift (non-surgical face & contour):
+- Altruva A.R.T Lift (Lite) by dr. Aldisa — /treatments/art-lyft-lite
+- Altruva Gorgeous Lyft by dr. Aldisa (Prejuvenation) — /treatments/gorgeous-lyft-prejuvenation
+- Altruva Lumi RF — /treatments/exion-lumi-rf
+- Altruva Slim Contour Injection — /treatments/slim-contour-injection
+- Altruva Face Modulator (Half Dose) — /treatments/face-modulator-half
+- Altruva Dermal Fillers — /treatments/dermal-fillers
+- Altruva A.R.T Lift PRO by dr. Aldisa — /treatments/art-lyft
+- Altruva Gorgeous Lyft by dr. Aldisa (Rejuvenation) — /treatments/gorgeous-lyft-rejuvenation
+- Altruva Regenerative RF — /treatments/radiance-lyft
+- Altruva Cocktail Contouring — /treatments/cocktail-contouring
+- Altruva Dermal Filler Pro — /treatments/dermal-fillers-pro
+- Altruva Face Modulator (Full Dose) — /treatments/face-modulator-full
+- Sculpt Lift + — /treatments/sculpt-lift-plus
+- Altruva Lift Signature — /treatments/altruva-lift-signature
+
+Body Contouring:
+- Altruva NeoCurve by EmSculpt Neo — /treatments/altruva-neocurve
+- Altruva Lipo Elixir — /treatments/altruva-lipo-elixir
+- Altruva Regenerative RF (Body) — /treatments/altruva-regenerative-rf-body
+
+Hair Restoration:
+- Altruva Micrograft Technology — /treatments/altruva-micrograft-technology
+- Altruva Hair PRF — /treatments/altruva-hair-prf
+- Altruva Hair Booster — /treatments/altruva-hair-booster
+
 ---
 
 ## SKIN ANALYSIS — https://altruva.co.id/skin-analysis
