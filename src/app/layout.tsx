@@ -52,6 +52,17 @@ export const metadata: Metadata = {
     description: 'Discover premier regenerative & aesthetic treatments at Altruva Clinic Jakarta. Specializing in Sofwave, EmSculpt Neo, & Gouri led by dr. Olivia Aldisa.',
     images: ['/images/herobackground-new.png'],
   },
+  icons: {
+    icon: [
+      { url: '/images/favicon/favicon.ico', sizes: 'any' },
+      { url: '/images/favicon/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/images/favicon/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+    ],
+    apple: [
+      { url: '/images/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/images/favicon/site.webmanifest',
 };
 
 const clinicSchema = {
