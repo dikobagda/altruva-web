@@ -25,6 +25,8 @@ export const metadata: Metadata = {
 
 import BlogList from '@/components/blog/BlogList';
 
+export const dynamic = 'force-dynamic';
+
 export default async function ArticlesPage() {
   const blogsList = await getDbBlogs();
   const blogs = [...blogsList].sort((a, b) => {

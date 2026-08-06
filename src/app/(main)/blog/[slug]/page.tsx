@@ -13,6 +13,8 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/shared/JsonLd';
 import BlogAnalyticsTracker from '@/components/blog/BlogAnalyticsTracker';
 
+export const dynamic = 'force-dynamic';
+
 function decodeHtmlEntities(input: string): string {
   return input
     .replace(/&lt;/g, '<')
