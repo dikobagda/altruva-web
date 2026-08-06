@@ -236,6 +236,18 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
               className="prose prose-lg max-w-none text-foreground/80 [&_h1]:font-serif [&_h1]:text-primary [&_h1]:text-3xl [&_h1]:mt-8 [&_h1]:mb-4 [&_p]:mb-4 [&_h2]:font-serif [&_h2]:text-primary [&_h2]:text-3xl [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-primary"
               dangerouslySetInnerHTML={{ __html: modifiedContent || "<p>Content coming soon.</p>" }}
             />
+
+            <aside className="mt-12 p-6 md:p-8 rounded-lg bg-secondary/30 border border-slate-100/50">
+              <div className="flex flex-col sm:flex-row gap-6">
+                <div className="relative w-28 h-28 shrink-0 rounded-full overflow-hidden shadow-lg mx-auto sm:mx-0">
+                  <img src="/images/dr_aldisa.jpeg" alt="dr. Olivia Aldisa, Founder of Altruva Aesthetic Clinic" className="w-full h-full object-cover" />
+                </div>
+                <div className="text-sm text-foreground/80 leading-relaxed space-y-3">
+                  <p>Altruva adalah Jakarta's 1<sup>st</sup> Regenerative Contouring Clinic yang didirikan, dimiliki, dan dijalankan langsung oleh dr. Olivia Aldisa, MSc Aesthetic Medicine (UK). Dengan pendekatan regenerative contouring, Altruva berfokus pada kualitas kulit dan jaringan terlebih dahulu sebelum menangani kontur dan proporsi wajah, dengan tujuan menghasilkan perubahan yang natural, harmonis, dan berjangka panjang.</p>
+                  <p>dr. Olivia Aldisa, MSc Aesthetic Medicine (UK) adalah dokter aesthetic dengan pengalaman lebih dari 13 tahun, dengan fokus pada regenerative contouring. Sebagai trainer dan speaker di bidang aesthetic medicine, ia telah berbagi keahliannya di berbagai forum nasional dan internasional, termasuk sebagai speaker di AMWC Monaco 2026, salah satu konferensi aesthetic medicine internasional terkemuka.</p>
+                </div>
+              </div>
+            </aside>
           </article>
 
           <aside className="lg:col-span-1 space-y-8 sticky top-28">
