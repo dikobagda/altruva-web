@@ -134,6 +134,50 @@ const websiteSchema = {
   "url": "https://altruva.co.id"
 };
 
+const organizationSchema = {
+  "@type": "Organization",
+  "@id": "https://altruva.co.id/#organization",
+  "name": "Altruva Aesthetic Clinic",
+  "url": "https://altruva.co.id",
+  "logo": "https://altruva.co.id/images/logoaltruvanew.webp",
+  "image": "https://altruva.co.id/images/herobackground-new.png",
+  "description": "Premier regenerative and aesthetic treatments clinic in Kebayoran Baru, Jakarta Selatan. Specializing in non-invasive procedures like Sofwave, EmSculpt Neo, and Gouri, led by dr. Olivia Aldisa.",
+  "sameAs": [
+    "https://www.instagram.com/altruvaclinic/",
+    "https://www.linkedin.com/in/droliviaaldisa"
+  ],
+  "founder": {
+    "@type": "Person",
+    "@id": "https://altruva.co.id/about/meet-dr-olivia-aldisa#person",
+    "name": "dr. Olivia Aldisa",
+    "jobTitle": "Aesthetic Doctor & Clinic Founder",
+    "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+6281216119392",
+      "contactType": "customer service",
+      "email": "admin@altruva.co.id",
+      "areaServed": "ID",
+      "availableLanguage": ["Indonesian", "English"]
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jl. Ciasem I No.2 Kebayoran Baru",
+    "addressLocality": "Jakarta Selatan",
+    "addressRegion": "DKI Jakarta",
+    "postalCode": "12180",
+    "addressCountry": "ID"
+  },
+  "subOrganization": {
+    "@type": "MedicalBusiness",
+    "@id": "https://altruva.co.id/#clinic",
+    "name": "Altruva Aesthetic Clinic"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -169,7 +213,7 @@ export default function RootLayout({
           nunitoSans.variable
         )}
       >
-        <JsonLd schema={[clinicSchema, websiteSchema]} />
+        <JsonLd schema={[organizationSchema, clinicSchema, websiteSchema]} />
         <NextTopLoader
           color="hsl(var(--primary))"
           initialPosition={0.08}

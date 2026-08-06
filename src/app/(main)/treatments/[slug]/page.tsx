@@ -73,10 +73,6 @@ export default async function ServiceDetailPage({ params }: Props) {
     notFound();
   }
 
-  const numericPrice = !service.price || service.price === 'Price on consultation'
-    ? undefined
-    : parseFloat(service.price.replace(/[^\d.]/g, ''));
-
   const serviceSchema = {
     '@type': ['Service', 'MedicalProcedure'],
     '@id': `https://altruva.co.id/treatments/${service.id}#service`,
@@ -91,17 +87,44 @@ export default async function ServiceDetailPage({ params }: Props) {
     image: service.imageSrc ? `https://altruva.co.id${service.imageSrc}` : undefined,
     category: service.category,
     areaServed: 'Jakarta',
-    ...(numericPrice
-      ? {
-          offers: {
-            '@type': 'Offer',
-            price: numericPrice,
-            priceCurrency: 'IDR',
-            availability: 'https://schema.org/InStock',
-          },
-        }
-      : {}),
   };
+
+  const hasPrice = !!service.price && service.price !== 'Price on consultation';
+
+  const productSchema = {
+    '@type': 'Product',
+    '@id': `https://altruva.co.id/treatments/${service.id}#product`,
+    name: service.title,
+    description: service.description.en,
+    image: service.imageSrc ? `https://altruva.co.id${service.imageSrc}` : undefined,
+    category: service.category,
+    brand: {
+      '@type': 'Brand',
+      name: 'Altruva Aesthetic Clinic',
+    },
+    provider: {
+      '@type': 'MedicalBusiness',
+      '@id': 'https://altruva.co.id/#clinic',
+      name: 'Altruva Aesthetic Clinic',
+      url: 'https://altruva.co.id',
+    },
+    areaServed: 'Jakarta',
+  };
+
+  const howToSchema = service.mechanism && service.mechanism.length
+    ? {
+        '@type': 'HowTo',
+        '@id': `https://altruva.co.id/treatments/${service.id}#howto`,
+        name: `How ${service.title} Works`,
+        description: service.description.en,
+        step: service.mechanism.map((step, index) => ({
+          '@type': 'HowToStep',
+          position: index + 1,
+          name: step.title.en,
+          text: step.description.en.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(),
+        })),
+      }
+    : undefined;
 
   const breadcrumbSchema = {
     '@type': 'BreadcrumbList',
@@ -140,9 +163,13 @@ export default async function ServiceDetailPage({ params }: Props) {
     })),
   };
 
+  const schemas: Record<string, any>[] = [serviceSchema, breadcrumbSchema, faqSchema];
+  if (hasPrice) schemas.push(productSchema);
+  if (howToSchema) schemas.push(howToSchema);
+
   return (
     <>
-      <JsonLd schema={[serviceSchema, breadcrumbSchema, faqSchema]} />
+      <JsonLd schema={schemas} />
       <ServiceDetailClient slug={slug} />
     </>
   );
