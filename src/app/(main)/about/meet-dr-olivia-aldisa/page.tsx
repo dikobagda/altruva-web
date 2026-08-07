@@ -11,6 +11,7 @@ import KeyExpertise from './KeyExpertise';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Award, CheckCircle, Briefcase, GraduationCap } from 'lucide-react';
+import { certifications, drOliviaCredentials } from '@/lib/data/dr-olivia';
 
 export const metadata = {
   title: 'Meet dr. Olivia Aldisa, dipl. AAAM',
@@ -36,26 +37,6 @@ const experiences = [
     { role: "Head Doctor - De Vie Medical Aesthetics", years: "2021 - 2023" },
     { role: "Medical Doctor - Jakarta Aesthetic Clinic", years: "2015 - 2021" },
     { role: "Medical Doctor - Impressions Aesthetic Clinic", years: "2013 - 2015" },
-];
-
-const certifications = [
-  "Train The Trainer CoolSculpting - Allergan",
-  "Cadaver Joint Research - Merz Aesthetics",
-  "CoolSculpting Education Bangkok - Allergan",
-  "Facial Aesthetic Master Class Beverly Hills 2019 - Galderma",
-  "Non-Surgical Symposium Sydney 2019 - Australasian Society of Aesthetic Plastic Surgeons",
-  "Ultherapy University (Phase I & II) - Merz Aesthetics",
-  "Train The Trainer (Obesity Management) - PT. Soho Industri Pharmasi",
-  "MERZ Expert Summit Copenhagen, Denmark - Merz Aesthetics",
-  "IMCAS Asia Bangkok 2018 & 2017 - IMCAS",
-  "MD Codes (Unlocking The Code to Lower Face Harmonization) - Allergan",
-  "AMWC ASIA Taiwan 2018 - EuroMediCom",
-  "Facial Anatomy Master Class Bangkok - Mahidol University",
-  "CoolSculpting University Bangkok - ZELTIQ",
-  "Member of American Academy of Aesthetic Medicine - International",
-  "International Master Course on Aging Science (IMCAS) World Congress - (Paris, France, 2023)",
-  "Beauty Through Science (BTS) Congress - Stockholm, Sweden, June 2022",
-  "Advanced Filler Techniques - UMA Academy, Netherlands, 2022"
 ];
 
 const personSchema = {
@@ -94,11 +75,14 @@ const personSchema = {
         "name": edu.university,
       },
     })),
-    ...certifications.map((cert) => ({
+    ...drOliviaCredentials.map((cred) => ({
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "Certification",
-      "name": cert,
-      ...(cert.match(/\(([^)]+)\)$/) ? { "recognizedBy": { "@type": "Organization", "name": cert.match(/\(([^)]+)\)$/)![1] } } : {}),
+      "name": cred.location ? `${cred.name} (${cred.location})` : cred.name,
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": cred.issuer,
+      },
     })),
   ],
   "knowsAbout": [
@@ -117,13 +101,7 @@ const personSchema = {
     "@type": "Organization",
     "name": "American Academy of Aesthetic Medicine",
   },
-  "award": [
-    "CoolSculpting Medical Trainer - Allergan",
-    "Train The Trainer (Obesity Management) - PT. Soho Industri Pharmasi",
-    "International Master Course on Aging Science (IMCAS) World Congress - Paris, France, 2023",
-    "Facial Aesthetic Master Class Beverly Hills 2019 - Galderma",
-    "MERZ Expert Summit Copenhagen, Denmark - Merz Aesthetics",
-  ],
+  "award": certifications,
 };
 
 const profilePageSchema = {

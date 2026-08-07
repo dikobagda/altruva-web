@@ -7,6 +7,7 @@ import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from "@/components/ui/toaster";
 import JsonLd from '@/components/shared/JsonLd';
 import { testimonials } from '@/lib/data/testimonials';
+import { drOliviaCredentials } from '@/lib/data/dr-olivia';
 
 import Script from 'next/script';
 
@@ -112,7 +113,16 @@ const clinicSchema = {
     "@id": "https://altruva.co.id/about/meet-dr-olivia-aldisa#person",
     "name": "dr. Olivia Aldisa",
     "jobTitle": "Aesthetic Doctor & Clinic Founder",
-    "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa"
+    "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa",
+    "hasCredential": drOliviaCredentials.map((cred) => ({
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Certification",
+      "name": cred.location ? `${cred.name} (${cred.location})` : cred.name,
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": cred.issuer,
+      },
+    })),
   },
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -162,7 +172,16 @@ const organizationSchema = {
     "@id": "https://altruva.co.id/about/meet-dr-olivia-aldisa#person",
     "name": "dr. Olivia Aldisa",
     "jobTitle": "Aesthetic Doctor & Clinic Founder",
-    "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa"
+    "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa",
+    "hasCredential": drOliviaCredentials.map((cred) => ({
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Certification",
+      "name": cred.location ? `${cred.name} (${cred.location})` : cred.name,
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": cred.issuer,
+      },
+    })),
   },
   "contactPoint": [
     {
