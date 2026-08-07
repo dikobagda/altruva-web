@@ -66,6 +66,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Redirect www → non-www
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.altruva.co.id' }],
+        destination: 'https://altruva.co.id/:path*',
+        permanent: true,
+      },
       {
         source: '/insights',
         destination: '/blog',
