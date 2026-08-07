@@ -10,7 +10,6 @@ import Footer from '@/components/layout/Footer';
 import Preloader from '@/components/layout/Preloader';
 
 // Only dynamically import heavy secondary widgets
-const FloatingAISkinAnalysisButton = dynamic(() => import('@/components/layout/FloatingAISkinAnalysisButton'), { ssr: false });
 const FloatingWhatsAppButton = dynamic(() => import('@/components/layout/FloatingWhatsAppButton'), { ssr: false });
 
 export default function MainLayout({
@@ -33,10 +32,7 @@ export default function MainLayout({
           <Header />
           <main className="flex-grow pt-20">{children}</main>
           <Footer />
-          <div className="hidden md:block">
-            <FloatingWhatsAppButton />
-          </div>
-          <FloatingAISkinAnalysisButton />
+          <FloatingWhatsAppButton />
         </div>
       </div>
     </LanguageProvider>

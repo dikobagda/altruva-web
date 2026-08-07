@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Instagram } from 'lucide-react';
+import { Instagram, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { useState, useEffect } from 'react';
@@ -88,6 +88,18 @@ export default function Footer() {
                 <span itemProp="streetAddress">Jl. Ciasem I No.2</span><br />
                 <span itemProp="addressLocality">Kebayoran Baru, Jakarta Selatan.</span><br />
                 <span itemProp="postalCode">Jakarta 12180</span>
+              </p>
+              <p className="flex items-center justify-center sm:justify-start gap-2">
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Jl.+Ciasem+I+No.2+Kebayoran+Baru+Jakarta+Selatan+12180"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+                  aria-label="Get directions on Google Maps"
+                >
+                  <MapPin size={16} />
+                  <span>{t({ en: 'Get Directions', id: 'Petunjuk Arah' })}</span>
+                </a>
               </p>
               <p>
                 <a
