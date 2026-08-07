@@ -89,28 +89,6 @@ export default async function ServiceDetailPage({ params }: Props) {
     areaServed: 'Jakarta',
   };
 
-  const hasPrice = !!service.price && service.price !== 'Price on consultation';
-
-  const productSchema = {
-    '@type': 'Product',
-    '@id': `https://altruva.co.id/treatments/${service.id}#product`,
-    name: service.title,
-    description: service.description.en,
-    image: service.imageSrc ? `https://altruva.co.id${service.imageSrc}` : undefined,
-    category: service.category,
-    brand: {
-      '@type': 'Brand',
-      name: 'Altruva Aesthetic Clinic',
-    },
-    provider: {
-      '@type': 'MedicalBusiness',
-      '@id': 'https://altruva.co.id/#clinic',
-      name: 'Altruva Aesthetic Clinic',
-      url: 'https://altruva.co.id',
-    },
-    areaServed: 'Jakarta',
-  };
-
   const howToSchema = service.mechanism && service.mechanism.length
     ? {
         '@type': 'HowTo',
@@ -164,7 +142,6 @@ export default async function ServiceDetailPage({ params }: Props) {
   };
 
   const schemas: Record<string, any>[] = [serviceSchema, breadcrumbSchema, faqSchema];
-  if (hasPrice) schemas.push(productSchema);
   if (howToSchema) schemas.push(howToSchema);
 
   return (
