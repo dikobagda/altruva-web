@@ -195,7 +195,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Gunakan Google Analytics Measurement ID untuk Altruva (menggunakan env atau fallback default jika belum diset)
-  const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-K3L4EYNW4X';
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-58LTL5Q4HE';
 
   return (
     <html lang="en" suppressHydrationWarning>

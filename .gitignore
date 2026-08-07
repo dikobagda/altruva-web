@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# static flyer export
+/flyer/
+
 # production
 /build
 
