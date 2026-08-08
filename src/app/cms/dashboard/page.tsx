@@ -96,6 +96,8 @@ export default function DashboardPage() {
   const [sortAsc, setSortAsc] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [waDateFrom, setWaDateFrom] = useState('');
+  const [waDateTo, setWaDateTo] = useState('');
   const router = useRouter();
 
   // Reset pagination on search or sorting change
@@ -109,12 +111,17 @@ export default function DashboardPage() {
 
   const fetchData = async () => {
     try {
+      const waParams = new URLSearchParams();
+      if (waDateFrom) waParams.set('from', waDateFrom);
+      if (waDateTo) waParams.set('to', waDateTo);
+      const waQuery = waParams.toString();
+
       const [blogsRes, analyticsRes, leadsRes, appointmentsRes, whatsappRes] = await Promise.all([
         fetch('/api/cms/blogs'),
         fetch('/api/analytics/view'),
         fetch('/api/cms/leads'),
         fetch('/api/cms/appointments'),
-        fetch('/api/analytics/whatsapp'),
+        fetch(`/api/analytics/whatsapp${waQuery ? `?${waQuery}` : ''}`),
       ]);
 
       if (blogsRes.status === 401) {
@@ -895,6 +902,54 @@ export default function DashboardPage() {
 
             return (
               <div className="space-y-8">
+                {/* Date range filter */}
+                <Card className="bg-white border-slate-200">
+                  <CardContent className="px-6 py-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4 text-slate-400" />
+                        <span className="text-sm font-medium text-slate-600">Date range</span>
+                      </div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <input
+                          type="date"
+                          value={waDateFrom}
+                          onChange={(e) => setWaDateFrom(e.target.value)}
+                          className="bg-white border border-slate-200 rounded-md px-3 py-1.5 text-sm text-slate-700 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                        />
+                        <span className="text-slate-400 text-sm">to</span>
+                        <input
+                          type="date"
+                          value={waDateTo}
+                          onChange={(e) => setWaDateTo(e.target.value)}
+                          className="bg-white border border-slate-200 rounded-md px-3 py-1.5 text-sm text-slate-700 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                        />
+                        <Button
+                          size="sm"
+                          className="h-8"
+                          onClick={() => { fetchData(); }}
+                        >
+                          <RefreshCw className="mr-1.5 h-3.5 w-3.5" /> Apply
+                        </Button>
+                        {(waDateFrom || waDateTo) && (
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            className="h-8 text-slate-500"
+                            onClick={() => {
+                              setWaDateFrom('');
+                              setWaDateTo('');
+                              setTimeout(fetchData, 0);
+                            }}
+                          >
+                            Clear
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
                 {/* Summary cards */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <Card className="bg-white border-slate-200">
