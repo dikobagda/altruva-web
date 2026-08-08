@@ -90,6 +90,7 @@ export default function DashboardPage() {
   const [updatingApptId, setUpdatingApptId] = useState<number | null>(null);
   const [analytics, setAnalytics] = useState<Record<string, AnalyticsRow>>({});
   const [whatsappAnalytics, setWhatsappAnalytics] = useState<WhatsAppAnalytics | null>(null);
+  const [waLoading, setWaLoading] = useState(true);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortKey, setSortKey] = useState<SortKey>('date');
@@ -111,6 +112,7 @@ export default function DashboardPage() {
 
   const fetchData = async () => {
     try {
+      setWaLoading(true);
       const waParams = new URLSearchParams();
       if (waDateFrom) waParams.set('from', waDateFrom);
       if (waDateTo) waParams.set('to', waDateTo);
@@ -158,6 +160,7 @@ export default function DashboardPage() {
     } catch (error) {
       console.error('Failed to fetch data:', error);
     } finally {
+      setWaLoading(false);
       setLoading(false);
     }
   };
@@ -888,17 +891,6 @@ export default function DashboardPage() {
               p.url.toLowerCase().includes(searchTerm.toLowerCase())
             );
             const maxTrend = Math.max(...(wa?.trend || []).map(t => t.count), 0);
-            const findTypeCount = (type: string) => (wa?.byType || []).find(t => t.event_type === type)?.count || 0;
-
-            if (!wa || wa.total === 0) {
-              return (
-                <div className="text-center py-20 text-muted-foreground">
-                  <MessageCircle className="h-10 w-10 mx-auto mb-3 opacity-40" />
-                  <p>No WhatsApp clicks tracked yet.</p>
-                  <p className="text-sm mt-1">Clicks on the floating WhatsApp button and WhatsApp CTAs will appear here.</p>
-                </div>
-              );
-            }
 
             return (
               <div className="space-y-8">
@@ -950,6 +942,22 @@ export default function DashboardPage() {
                   </CardContent>
                 </Card>
 
+                {waLoading ? (
+                  /* Lazy-load placeholder while fetching */
+                  <div className="flex flex-col items-center justify-center py-16 text-muted-foreground">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+                    <p className="text-sm mt-3">Loading WhatsApp analytics...</p>
+                  </div>
+                ) : !wa || wa.total === 0 ? (
+                  <div className="text-center py-16 text-muted-foreground">
+                    <MessageCircle className="h-10 w-10 mx-auto mb-3 opacity-40" />
+                    <p>No WhatsApp clicks in this period.</p>
+                    <p className="text-sm mt-1">
+                      {(waDateFrom || waDateTo) ? 'Try a different date range.' : 'Clicks on the floating WhatsApp button and WhatsApp CTAs will appear here.'}
+                    </p>
+                  </div>
+                ) : (
+                  <>
                 {/* Summary cards */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <Card className="bg-white border-slate-200">
@@ -1076,6 +1084,8 @@ export default function DashboardPage() {
                     </CardContent>
                   </Card>
                 </div>
+                  </>
+                )}
               </div>
             );
           })()
