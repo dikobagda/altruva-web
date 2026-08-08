@@ -37,7 +37,7 @@ export default function FloatingWhatsAppButton({ size = 'default' }: FloatingWha
     <TooltipProvider delayDuration={100}>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">
+          <Link href={whatsappLink} target="_blank" rel="noopener noreferrer" data-track="whatsapp-button">
             <Button
               variant="default"
               size="icon"

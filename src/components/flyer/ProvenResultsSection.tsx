@@ -37,7 +37,7 @@ export default function ProvenResultsSection({ whatsappLink }: ProvenResultsSect
       </div>
       <div className="text-center mt-12">
         <Button asChild size="lg">
-          <Link href={whatsappLink} target="_blank">Book Appointment Now!</Link>
+          <Link href={whatsappLink} target="_blank" data-track="whatsapp-cta">Book Appointment Now!</Link>
         </Button>
       </div>
     </SectionWrapper>

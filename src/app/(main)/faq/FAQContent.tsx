@@ -61,7 +61,7 @@ export default function FAQContent() {
             })}
           </p>
           <Button asChild size="lg" variant="secondary" className="font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-            <Link href="https://wa.me/6281216119392" target="_blank" rel="noopener noreferrer">
+            <Link href="https://wa.me/6281216119392" target="_blank" rel="noopener noreferrer" data-track="whatsapp-cta">
               {t({ en: 'Chat on WhatsApp', id: 'Chat via WhatsApp' })}
             </Link>
           </Button>

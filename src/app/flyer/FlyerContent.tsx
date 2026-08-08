@@ -123,7 +123,7 @@ export default function FlyerContent() {
                   size="lg"
                   className="bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
                 >
-                  <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+                  <Link href={whatsappLink} target="_blank" data-track="whatsapp-cta">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
                 </Button>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function FlyerContent() {
               size="lg"
               className="w-full bg-primary text-white font-semibold text-base px-10 py-6 rounded-full transition-colors duration-200"
             >
-              <Link href={whatsappLink} target="_blank">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
+              <Link href={whatsappLink} target="_blank" data-track="whatsapp-cta">{t({ en: 'Begin Your Transformation', id: 'Mulailah Transformasi Anda' })}</Link>
             </Button>
           </div>
         </div>
@@ -204,7 +204,7 @@ export default function FlyerContent() {
               Berpengalaman lebih dari 12 tahun sebagai dokter estetika dan juga trainer international. Pakar dalam combination treatment yang menggabungkan produk terbaik, presisi tindakan, dengan teknologi medical device terkini untuk hasil yang nyata.
             </p>
             <Button asChild size="lg" variant="default" className="mt-6 font-semibold">
-              <Link href={whatsappLink} target="_blank">Book Consultation Now</Link>
+              <Link href={whatsappLink} target="_blank" data-track="whatsapp-cta">Book Consultation Now</Link>
             </Button>
           </div>
         </div>
@@ -292,7 +292,7 @@ export default function FlyerContent() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Link href={whatsappLink} target="_blank" className="inline-block">
+            <Link href={whatsappLink} target="_blank" className="inline-block" data-track="whatsapp-cta">
               <Button asChild size="lg" className="rounded-full bg-[#4a301b] text-white hover:bg-[#5a402b] px-10 py-6 text-lg font-semibold">
                 <span>Get Your Personalized Assessment</span>
               </Button>

@@ -61,7 +61,7 @@ export default function BenefitsSection({ whatsappLink }: BenefitsSectionProps) 
       </div>
       <div className="text-center mt-12">
         <Button asChild size="lg" className="bg-[#4a301b] text-white hover:bg-[#5a402b] rounded-full px-10 py-6 text-lg font-semibold">
-          <Link href={whatsappLink} target="_blank">Begin Your Transformation</Link>
+          <Link href={whatsappLink} target="_blank" data-track="whatsapp-cta">Begin Your Transformation</Link>
         </Button>
       </div>
     </SectionWrapper>

@@ -74,7 +74,7 @@ function ThankYouContent() {
             </Button>
 
             <Button asChild className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba5a] text-white gap-2 rounded-full py-6 px-8">
-              <Link href={whatsappLink} target="_blank">
+              <Link href={whatsappLink} target="_blank" data-track="whatsapp-cta">
                 <MessageCircle className="w-4 h-4" />
                 {t({ en: 'Chat with Us', id: 'Hubungi Kami via WA' })}
               </Link>
