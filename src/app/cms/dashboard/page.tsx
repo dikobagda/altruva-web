@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Plus, Edit, Trash2, ExternalLink, LogOut, Search,
-  BookOpen, Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Download, Copy, Calendar, CheckCircle, XCircle, Clock
+  Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Download, Copy, Calendar, CheckCircle, XCircle, Clock, MessageCircle, MousePointerClick, RefreshCw
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import {
@@ -60,6 +61,16 @@ interface Appointment {
   created_at: string;
 }
 
+interface WhatsAppAnalytics {
+  total: number;
+  unique_ips: number;
+  clicks_7d: number;
+  clicks_30d: number;
+  byType: { event_type: string; count: number }[];
+  byPage: { url: string; count: number }[];
+  trend: { day: string; count: number }[];
+}
+
 function estimateReadTime(content: string): number {
   const words = content?.replace(/<[^>]*>/g, '').split(/\s+/).length || 0;
   return Math.max(1, Math.round(words / 200));
@@ -71,13 +82,14 @@ export default function DashboardPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [leads, setLeads] = useState<Lead[]>([]);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
-  const [activeTab, setActiveTab] = useState<'articles' | 'leads' | 'appointments'>('articles');
+  const [activeTab, setActiveTab] = useState<'articles' | 'leads' | 'appointments' | 'whatsapp'>('articles');
   const [deleteTargetSlug, setDeleteTargetSlug] = useState<string | null>(null);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [appointmentToDelete, setAppointmentToDelete] = useState<number | null>(null);
   const [isApptDeleteDialogOpen, setIsApptDeleteDialogOpen] = useState(false);
   const [updatingApptId, setUpdatingApptId] = useState<number | null>(null);
   const [analytics, setAnalytics] = useState<Record<string, AnalyticsRow>>({});
+  const [whatsappAnalytics, setWhatsappAnalytics] = useState<WhatsAppAnalytics | null>(null);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortKey, setSortKey] = useState<SortKey>('date');
@@ -97,11 +109,12 @@ export default function DashboardPage() {
 
   const fetchData = async () => {
     try {
-      const [blogsRes, analyticsRes, leadsRes, appointmentsRes] = await Promise.all([
+      const [blogsRes, analyticsRes, leadsRes, appointmentsRes, whatsappRes] = await Promise.all([
         fetch('/api/cms/blogs'),
         fetch('/api/analytics/view'),
         fetch('/api/cms/leads'),
         fetch('/api/cms/appointments'),
+        fetch('/api/analytics/whatsapp'),
       ]);
 
       if (blogsRes.status === 401) {
@@ -129,6 +142,11 @@ export default function DashboardPage() {
       if (appointmentsRes.ok) {
         const data: Appointment[] = await appointmentsRes.json();
         setAppointments(data);
+      }
+
+      if (whatsappRes.ok) {
+        const data: WhatsAppAnalytics = await whatsappRes.json();
+        setWhatsappAnalytics(data);
       }
     } catch (error) {
       console.error('Failed to fetch data:', error);
@@ -244,7 +262,13 @@ export default function DashboardPage() {
       {/* CMS Navbar */}
       <header className="border-b bg-white sticky top-0 z-10 px-6 py-3.5 flex items-center justify-between shadow-sm">
         <div className="flex items-center space-x-3">
-          <BookOpen className="h-5 w-5 text-primary" />
+          <Image
+            src="/images/logoaltruvanew.webp"
+            alt="Altruva Logo"
+            width={80}
+            height={80}
+            className="h-8 w-8 object-contain"
+          />
           <span className="font-serif text-xl font-bold text-primary">Altruva CMS</span>
         </div>
         <div className="flex items-center space-x-3">
@@ -264,17 +288,27 @@ export default function DashboardPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="font-serif text-3xl font-bold text-primary">
-              {activeTab === 'articles' ? 'Blog Articles' : activeTab === 'leads' ? 'E-Book Downloads' : 'Appointments'}
+              {activeTab === 'articles' ? 'Blog Articles' : activeTab === 'leads' ? 'E-Book Downloads' : activeTab === 'whatsapp' ? 'WhatsApp Analytics' : 'Appointments'}
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
               {activeTab === 'articles'
                 ? `${blogs.length} articles · Manage and track your content`
                 : activeTab === 'leads'
                 ? `${leads.length} leads registered · Prospective clients`
+                : activeTab === 'whatsapp'
+                ? `${whatsappAnalytics?.total || 0} tracked clicks · WhatsApp button & CTA performance`
                 : `${appointments.length} bookings · ${appointments.filter(a => a.status === 'pending').length} pending`}
             </p>
           </div>
-          {activeTab === 'articles' ? (
+          {activeTab === 'whatsapp' ? (
+            <Button
+              variant="outline"
+              onClick={() => fetchData()}
+              className="text-primary border-primary/30 hover:bg-primary/5"
+            >
+              <RefreshCw className="mr-2 h-4 w-4" /> Refresh
+            </Button>
+          ) : activeTab === 'articles' ? (
             <Button asChild className="bg-primary text-primary-foreground font-semibold">
               <Link href="/cms/dashboard/new">
                 <Plus className="mr-2 h-4 w-4" /> New Article
@@ -334,6 +368,17 @@ export default function DashboardPage() {
           >
             <Users className="h-4 w-4" /> E-book Downloads ({leads.length})
           </button>
+          <button
+            onClick={() => { setActiveTab('whatsapp'); setSearchTerm(''); setCurrentPage(1); }}
+            className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'whatsapp' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          >
+            <MessageCircle className="h-4 w-4" /> WhatsApp Analytics
+            {(whatsappAnalytics?.clicks_7d || 0) > 0 && (
+              <span className="ml-1 bg-green-100 text-green-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                {whatsappAnalytics?.clicks_7d}
+              </span>
+            )}
+          </button>
         </div>
 
         {/* Analytics Summary Cards (Only on Articles tab) */}
@@ -389,7 +434,7 @@ export default function DashboardPage() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             type="text"
-            placeholder={activeTab === 'articles' ? "Search articles..." : "Search leads by name or whatsapp..."}
+            placeholder={activeTab === 'articles' ? "Search articles..." : activeTab === 'whatsapp' ? "Filter pages..." : "Search leads by name or whatsapp..."}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-9 bg-white border-slate-200"
@@ -709,7 +754,7 @@ export default function DashboardPage() {
               </div>
             );
           })()
-        ) : (
+        ) : activeTab === 'leads' ? (
           /* Leads Tab View */
           (() => {
             const filteredLeads = leads.filter(l => 
@@ -824,6 +869,157 @@ export default function DashboardPage() {
                       Next
                     </Button>
                   </div>
+                </div>
+              </div>
+            );
+          })()
+        ) : (
+          /* WhatsApp Analytics Tab View */
+          (() => {
+            const wa = whatsappAnalytics;
+            const byPage = (wa?.byPage || []).filter(p =>
+              p.url.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            const maxTrend = Math.max(...(wa?.trend || []).map(t => t.count), 0);
+            const findTypeCount = (type: string) => (wa?.byType || []).find(t => t.event_type === type)?.count || 0;
+
+            if (!wa || wa.total === 0) {
+              return (
+                <div className="text-center py-20 text-muted-foreground">
+                  <MessageCircle className="h-10 w-10 mx-auto mb-3 opacity-40" />
+                  <p>No WhatsApp clicks tracked yet.</p>
+                  <p className="text-sm mt-1">Clicks on the floating WhatsApp button and WhatsApp CTAs will appear here.</p>
+                </div>
+              );
+            }
+
+            return (
+              <div className="space-y-8">
+                {/* Summary cards */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <MousePointerClick className="h-3.5 w-3.5" /> Total Clicks
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{wa.total.toLocaleString()}</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <TrendingUp className="h-3.5 w-3.5" /> Clicks (7 days)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{wa.clicks_7d.toLocaleString()}</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <BarChart2 className="h-3.5 w-3.5" /> Clicks (30 days)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{wa.clicks_30d.toLocaleString()}</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <Users className="h-3.5 w-3.5" /> Unique Visitors
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{wa.unique_ips.toLocaleString()}</p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Trend chart */}
+                <Card className="bg-white border-slate-200">
+                  <CardHeader className="pb-2 pt-4 px-6">
+                    <CardTitle className="text-sm text-slate-600 font-semibold">Clicks Trend (Last 30 Days)</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-6 pb-6">
+                    {wa.trend.length === 0 ? (
+                      <p className="text-slate-400 text-sm py-8 text-center">No data in the last 30 days.</p>
+                    ) : (
+                      <div className="flex items-end gap-1.5 h-40 pt-2 border-b border-slate-100 px-1">
+                        {wa.trend.map((d) => {
+                          const heightPct = maxTrend > 0 ? (d.count / maxTrend) * 100 : 0;
+                          const label = new Date(`${d.day}T00:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                          return (
+                            <div key={d.day} className="flex-1 flex flex-col items-center h-full group relative">
+                              <div className="opacity-0 group-hover:opacity-100 absolute bottom-full mb-1 bg-slate-800 text-white text-[10px] px-2 py-1 rounded whitespace-nowrap z-10 transition-opacity">
+                                {label}: {d.count} clicks
+                              </div>
+                              <div className="w-full flex items-end h-full">
+                                <div style={{ height: `${Math.max(4, heightPct)}%` }} className="w-full bg-primary/20 group-hover:bg-primary rounded-t transition-colors" />
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* By type */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-2 pt-4 px-6">
+                      <CardTitle className="text-sm text-slate-600 font-semibold">By Click Type</CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-6 pb-6">
+                      {(wa.byType || []).length === 0 ? (
+                        <p className="text-slate-400 text-sm py-4">No data yet.</p>
+                      ) : (
+                        <div className="space-y-3">
+                          {wa.byType.map((t) => {
+                            const pct = wa.total > 0 ? Math.round((t.count / wa.total) * 100) : 0;
+                            return (
+                              <div key={t.event_type}>
+                                <div className="flex items-center justify-between text-sm mb-1">
+                                  <span className="font-medium text-slate-700">
+                                    {t.event_type === 'whatsapp-button' ? 'Floating Button' : 'WhatsApp CTA'}
+                                  </span>
+                                  <span className="text-slate-500">{t.count.toLocaleString()} ({pct}%)</span>
+                                </div>
+                                <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                  <div className="h-full bg-primary rounded-full" style={{ width: `${pct}%` }} />
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+
+                  {/* By page */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-2 pt-4 px-6">
+                      <CardTitle className="text-sm text-slate-600 font-semibold">Top Pages ({byPage.length})</CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-6 pb-6">
+                      {byPage.length === 0 ? (
+                        <p className="text-slate-400 text-sm py-4">No pages tracked yet.</p>
+                      ) : (
+                        <div className="space-y-2.5">
+                          {byPage.slice(0, 10).map((p) => (
+                            <div key={p.url + p.count} className="flex items-center justify-between text-sm gap-3">
+                              <span className="text-slate-600 font-mono text-xs truncate">{p.url || '/'}</span>
+                              <span className="text-slate-800 font-semibold whitespace-nowrap">{p.count.toLocaleString()}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
                 </div>
               </div>
             );

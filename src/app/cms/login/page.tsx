@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Loader2, Lock } from 'lucide-react';
+import Image from 'next/image';
+import { Loader2 } from 'lucide-react';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -45,8 +46,14 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-secondary/40 via-background to-secondary/30 p-4">
       <Card className="w-full max-w-md border-primary/20 shadow-2xl backdrop-blur-sm bg-background/90">
         <CardHeader className="space-y-2 text-center pb-8 border-b border-primary/10">
-          <div className="mx-auto bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center mb-2">
-            <Lock className="w-6 h-6" />
+          <div className="mx-auto bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-2 overflow-hidden">
+            <Image
+              src="/images/logoaltruvanew.webp"
+              alt="Altruva Logo"
+              width={80}
+              height={80}
+              className="h-12 w-12 object-contain"
+            />
           </div>
           <CardTitle className="font-serif text-3xl text-primary font-bold">Altruva CMS</CardTitle>
           <CardDescription className="text-muted-foreground">

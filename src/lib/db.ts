@@ -67,6 +67,20 @@ export async function initializeDatabase() {
       await pool.query(`ALTER TABLE page_views ADD COLUMN ip_address VARCHAR(45) AFTER slug`);
     } catch (_) { /* already exists */ }
 
+    // 1d2. Create whatsapp_clicks table for WhatsApp button analytics
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS whatsapp_clicks (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        event_type VARCHAR(50) NOT NULL,
+        ip_address VARCHAR(45),
+        url VARCHAR(500),
+        href VARCHAR(500),
+        clicked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_event_type (event_type),
+        INDEX idx_clicked_at (clicked_at)
+      )
+    `);
+
     // 1e. Add unique_view_count column to blogs if missing
     try {
       await pool.query(`ALTER TABLE blogs ADD COLUMN unique_view_count INT DEFAULT 0`);
