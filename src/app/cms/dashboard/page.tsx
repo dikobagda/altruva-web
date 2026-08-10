@@ -8,7 +8,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Plus, Edit, Trash2, ExternalLink, LogOut, Search,
-  Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Download, Copy, Calendar, CheckCircle, XCircle, Clock, MessageCircle, MousePointerClick, RefreshCw
+  Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Download, Copy, Calendar, CheckCircle, XCircle, Clock, MessageCircle, MousePointerClick, RefreshCw,
+  Monitor, Smartphone, Tablet, Globe, Hourglass, ArrowUpRight, ArrowDownRight,
+  FileSpreadsheet, Send
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import {
@@ -19,6 +21,19 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip as ChartTooltip,
+  Legend,
+  Cell
+} from 'recharts';
 
 interface Blog {
   id: number;
@@ -71,6 +86,59 @@ interface WhatsAppAnalytics {
   trend: { day: string; count: number }[];
 }
 
+interface GA4Stats {
+  activeUsers: number;
+  pageViews: number;
+  sessions: number;
+  avgSessionDuration: number;
+}
+
+interface GA4TrendPoint {
+  date: string;
+  rawDate: string;
+  activeUsers: number;
+  pageViews: number;
+}
+
+interface GA4TopPage {
+  path: string;
+  users: number;
+  views: number;
+}
+
+interface GA4Device {
+  device: string;
+  users: number;
+}
+
+interface GA4Browser {
+  browser: string;
+  users: number;
+}
+
+interface GA4TrafficSource {
+  source: string;
+  users: number;
+}
+
+interface GA4City {
+  city: string;
+  users: number;
+}
+
+interface GA4Data {
+  success: boolean;
+  current: GA4Stats;
+  previous: GA4Stats;
+  trend: GA4TrendPoint[];
+  topPages: GA4TopPage[];
+  devices: GA4Device[];
+  browsers: GA4Browser[];
+  browserBuckets: Record<string, number>;
+  trafficSources: GA4TrafficSource[];
+  cities: GA4City[];
+}
+
 function estimateReadTime(content: string): number {
   const words = content?.replace(/<[^>]*>/g, '').split(/\s+/).length || 0;
   return Math.max(1, Math.round(words / 200));
@@ -82,7 +150,7 @@ export default function DashboardPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [leads, setLeads] = useState<Lead[]>([]);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
-  const [activeTab, setActiveTab] = useState<'articles' | 'leads' | 'appointments' | 'whatsapp'>('articles');
+  const [activeTab, setActiveTab] = useState<'articles' | 'leads' | 'appointments' | 'whatsapp' | 'ga4'>('articles');
   const [deleteTargetSlug, setDeleteTargetSlug] = useState<string | null>(null);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [appointmentToDelete, setAppointmentToDelete] = useState<number | null>(null);
@@ -99,6 +167,19 @@ export default function DashboardPage() {
   const [pageSize, setPageSize] = useState(10);
   const [waDateFrom, setWaDateFrom] = useState('');
   const [waDateTo, setWaDateTo] = useState('');
+  
+  // GA4 Analytics States
+  const [ga4Data, setGa4Data] = useState<GA4Data | null>(null);
+  const [ga4Loading, setGa4Loading] = useState(false);
+  const [ga4Error, setGa4Error] = useState<string | null>(null);
+  const [ga4Preset, setGa4Preset] = useState<'today' | 'yesterday' | '7daysAgo' | '30daysAgo' | 'custom'>('30daysAgo');
+  const [ga4DateFrom, setGa4DateFrom] = useState('');
+  const [ga4DateTo, setGa4DateTo] = useState('');
+
+  // Google Sheets export states
+  const [sheetSyncing, setSheetSyncing] = useState(false);
+  const [sheetStatus, setSheetStatus] = useState<{ ok: boolean; message: string } | null>(null);
+
   const router = useRouter();
 
   // Reset pagination on search or sorting change
@@ -106,9 +187,94 @@ export default function DashboardPage() {
     setCurrentPage(1);
   }, [searchTerm, sortKey, sortAsc]);
 
+  // Fetch GA4 data when tab is active or preset changes
+  useEffect(() => {
+    if (activeTab === 'ga4') {
+      if (ga4Preset !== 'custom') {
+        fetchGa4Data();
+      } else if (ga4DateFrom && ga4DateTo) {
+        fetchGa4Data();
+      } else if (!ga4Data) {
+        fetchGa4Data('30daysAgo', 'today');
+      }
+    }
+  }, [activeTab, ga4Preset]);
+
+  const fetchGa4Data = async (forceFrom?: string, forceTo?: string) => {
+    setGa4Loading(true);
+    setGa4Error(null);
+    try {
+      let from = '30daysAgo';
+      let to = 'today';
+
+      if (forceFrom !== undefined && forceTo !== undefined) {
+        from = forceFrom;
+        to = forceTo;
+      } else if (ga4Preset === 'today') {
+        from = 'today';
+        to = 'today';
+      } else if (ga4Preset === 'yesterday') {
+        from = 'yesterday';
+        to = 'yesterday';
+      } else if (ga4Preset === '7daysAgo') {
+        from = '7daysAgo';
+        to = 'today';
+      } else if (ga4Preset === 'custom') {
+        if (!ga4DateFrom || !ga4DateTo) {
+          from = '30daysAgo';
+          to = 'today';
+        } else {
+          from = ga4DateFrom;
+          to = ga4DateTo;
+        }
+      }
+
+      const params = new URLSearchParams();
+      params.set('from', from);
+      params.set('to', to);
+
+      const res = await fetch(`/api/analytics/ga4?${params.toString()}`);
+      if (res.ok) {
+        const data = await res.json();
+        setGa4Data(data);
+      } else {
+        const errorData = await res.json().catch(() => ({ error: 'Failed to parse response' }));
+        setGa4Error(errorData.error || 'Failed to fetch GA4 analytics.');
+      }
+    } catch (e) {
+      console.error('Failed to fetch GA4 analytics:', e);
+      setGa4Error('An unexpected error occurred while fetching GA4 data.');
+    } finally {
+      setGa4Loading(false);
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  const syncToSheets = async () => {
+    setSheetSyncing(true);
+    setSheetStatus(null);
+    try {
+      const res = await fetch('/api/sheets/sync', { method: 'POST' });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        const total = (data.worksheets || []).reduce((sum: number, w: any) => sum + (w.rowsAppended || 0), 0);
+        const timeNote = data.syncedAt ? ` pada ${data.syncedAt} WIB` : '';
+        setSheetStatus({
+          ok: true,
+          message: `Data berhasil dikirim ke Google Sheets${timeNote} (${total} baris baru).${data.warning ? ` ${data.warning}` : ''}`,
+        });
+      } else {
+        setSheetStatus({ ok: false, message: data.error || 'Gagal mengirim data ke Google Sheets.' });
+      }
+    } catch {
+      setSheetStatus({ ok: false, message: 'Terjadi kesalahan saat menghubungi server.' });
+    } finally {
+      setSheetSyncing(false);
+    }
+  };
 
   const fetchData = async () => {
     try {
@@ -298,7 +464,7 @@ export default function DashboardPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="font-serif text-3xl font-bold text-primary">
-              {activeTab === 'articles' ? 'Blog Articles' : activeTab === 'leads' ? 'E-Book Downloads' : activeTab === 'whatsapp' ? 'WhatsApp Analytics' : 'Appointments'}
+              {activeTab === 'articles' ? 'Blog Articles' : activeTab === 'leads' ? 'E-Book Downloads' : activeTab === 'whatsapp' ? 'WhatsApp Analytics' : activeTab === 'ga4' ? 'Google Analytics (GA4)' : 'Appointments'}
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
               {activeTab === 'articles'
@@ -307,6 +473,8 @@ export default function DashboardPage() {
                 ? `${leads.length} leads registered · Prospective clients`
                 : activeTab === 'whatsapp'
                 ? `${whatsappAnalytics?.total || 0} tracked clicks · WhatsApp button & CTA performance`
+                : activeTab === 'ga4'
+                ? 'Website traffic, trends, and visitor demographics'
                 : `${appointments.length} bookings · ${appointments.filter(a => a.status === 'pending').length} pending`}
             </p>
           </div>
@@ -318,6 +486,30 @@ export default function DashboardPage() {
             >
               <RefreshCw className="mr-2 h-4 w-4" /> Refresh
             </Button>
+          ) : activeTab === 'ga4' ? (
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                onClick={() => syncToSheets()}
+                className="text-primary border-primary/30 hover:bg-primary/5"
+                disabled={sheetSyncing}
+              >
+                {sheetSyncing ? (
+                  <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <FileSpreadsheet className="mr-2 h-4 w-4" />
+                )}
+                {sheetSyncing ? 'Mengirim...' : 'Kirim ke Google Sheets'}
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => fetchGa4Data()}
+                className="text-primary border-primary/30 hover:bg-primary/5"
+                disabled={ga4Loading}
+              >
+                <RefreshCw className={`mr-2 h-4 w-4 ${ga4Loading ? 'animate-spin' : ''}`} /> Refresh GA4
+              </Button>
+            </div>
           ) : activeTab === 'articles' ? (
             <Button asChild className="bg-primary text-primary-foreground font-semibold">
               <Link href="/cms/dashboard/new">
@@ -354,7 +546,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex border-b border-slate-200 mb-6 gap-2">
+        <div className="flex flex-wrap border-b border-slate-200 mb-6 gap-2">
           <button
             onClick={() => { setActiveTab('articles'); setSearchTerm(''); setCurrentPage(1); }}
             className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'articles' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
@@ -382,12 +574,13 @@ export default function DashboardPage() {
             onClick={() => { setActiveTab('whatsapp'); setSearchTerm(''); setCurrentPage(1); }}
             className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'whatsapp' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
           >
-            <MessageCircle className="h-4 w-4" /> WhatsApp Analytics
-            {(whatsappAnalytics?.clicks_7d || 0) > 0 && (
-              <span className="ml-1 bg-green-100 text-green-700 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
-                {whatsappAnalytics?.clicks_7d}
-              </span>
-            )}
+            <MessageCircle className="h-4 w-4" /> WhatsApp ({whatsappAnalytics?.clicks_7d || 0})
+          </button>
+          <button
+            onClick={() => { setActiveTab('ga4'); setSearchTerm(''); setCurrentPage(1); }}
+            className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'ga4' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          >
+            <BarChart2 className="h-4 w-4" /> Google Analytics (GA4)
           </button>
         </div>
 
@@ -883,7 +1076,7 @@ export default function DashboardPage() {
               </div>
             );
           })()
-        ) : (
+        ) : activeTab === 'whatsapp' ? (
           /* WhatsApp Analytics Tab View */
           (() => {
             const wa = whatsappAnalytics;
@@ -1086,6 +1279,419 @@ export default function DashboardPage() {
                 </div>
                   </>
                 )}
+              </div>
+            );
+          })()
+        ) : (
+          /* GA4 Analytics Tab View */
+          (() => {
+            if (ga4Loading) {
+              return (
+                <div className="flex flex-col items-center justify-center py-24 text-muted-foreground">
+                  <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary mb-4" />
+                  <p className="text-sm">Fetching real-time report from Google Analytics (GA4)...</p>
+                </div>
+              );
+            }
+
+            if (ga4Error) {
+              return (
+                <Card className="bg-red-50/50 border-red-200/60 p-6 text-center">
+                  <div className="max-w-md mx-auto py-8">
+                    <XCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
+                    <h3 className="font-serif text-lg font-bold text-slate-800 mb-2">GA4 Integration Error</h3>
+                    <p className="text-sm text-slate-600 mb-6">{ga4Error}</p>
+                    <p className="text-xs text-slate-500 mb-4">
+                      Please check that your service account credentials and project configurations are correctly defined in your environment variables (`GA4_PROPERTY_ID`, `GCS_CLIENT_EMAIL`, and `GCS_PRIVATE_KEY`).
+                    </p>
+                    <Button onClick={() => fetchGa4Data()} variant="outline" className="border-red-200 text-red-700 hover:bg-red-50">
+                      <RefreshCw className="mr-2 h-4 w-4" /> Try Again
+                    </Button>
+                  </div>
+                </Card>
+              );
+            }
+
+            if (!ga4Data) {
+              return (
+                <div className="text-center py-16 text-muted-foreground">
+                  <BarChart2 className="h-10 w-10 mx-auto mb-3 opacity-40" />
+                  <p>No Google Analytics data retrieved.</p>
+                </div>
+              );
+            }
+
+            const calculateChange = (current: number, previous: number) => {
+              if (!previous) return { text: '--', up: true, val: 0 };
+              const diff = current - previous;
+              const pct = (diff / previous) * 100;
+              return {
+                text: `${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%`,
+                up: pct >= 0,
+                val: Math.abs(pct)
+              };
+            };
+
+            const formatDuration = (seconds: number) => {
+              const m = Math.floor(seconds / 60);
+              const s = Math.round(seconds % 60);
+              return `${m}m ${s}s`;
+            };
+
+            const userChange = calculateChange(ga4Data.current.activeUsers, ga4Data.previous.activeUsers);
+            const viewChange = calculateChange(ga4Data.current.pageViews, ga4Data.previous.pageViews);
+            const sessionChange = calculateChange(ga4Data.current.sessions, ga4Data.previous.sessions);
+            const durationChange = calculateChange(ga4Data.current.avgSessionDuration, ga4Data.previous.avgSessionDuration);
+
+            // Device category helper
+            const totalDevices = ga4Data.devices.reduce((acc, d) => acc + d.users, 0);
+
+            // Filter Top Pages by search term if exists
+            const filteredPages = ga4Data.topPages.filter(p =>
+              p.path.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            return (
+              <div className="space-y-8 animate-in fade-in duration-300">
+                {/* Date range filter card */}
+                <Card className="bg-white border-slate-200">
+                  <CardContent className="px-6 py-4">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                      {/* Preset Select */}
+                      <div className="flex items-center gap-3">
+                        <Calendar className="h-4 w-4 text-slate-400" />
+                        <span className="text-sm font-medium text-slate-600">Period</span>
+                        <select
+                          value={ga4Preset}
+                          onChange={(e) => setGa4Preset(e.target.value as any)}
+                          className="bg-white border border-slate-200 rounded-md px-3 py-1.5 text-sm text-slate-700 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                        >
+                          <option value="today">Today</option>
+                          <option value="yesterday">Yesterday</option>
+                          <option value="7daysAgo">Last 7 Days</option>
+                          <option value="30daysAgo">Last 30 Days</option>
+                          <option value="custom">Custom Date Range</option>
+                        </select>
+                      </div>
+
+                      {/* Custom inputs */}
+                      {ga4Preset === 'custom' && (
+                        <div className="flex flex-wrap items-center gap-2 animate-in fade-in slide-in-from-left-2 duration-200">
+                          <input
+                            type="date"
+                            value={ga4DateFrom}
+                            onChange={(e) => setGa4DateFrom(e.target.value)}
+                            className="bg-white border border-slate-200 rounded-md px-3 py-1.5 text-sm text-slate-700 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                          />
+                          <span className="text-slate-400 text-sm">to</span>
+                          <input
+                            type="date"
+                            value={ga4DateTo}
+                            onChange={(e) => setGa4DateTo(e.target.value)}
+                            className="bg-white border border-slate-200 rounded-md px-3 py-1.5 text-sm text-slate-700 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                          />
+                          <Button
+                            size="sm"
+                            className="h-8"
+                            onClick={() => { fetchGa4Data(); }}
+                          >
+                            Apply
+                          </Button>
+                        </div>
+                      )}
+                    </div>
+
+                    {sheetStatus && (
+                      <div className={`mt-3 text-sm rounded-md px-3 py-2 flex items-start gap-2 ${
+                        sheetStatus.ok ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'
+                      }`}>
+                        {sheetStatus.ok
+                          ? <CheckCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                          : <XCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />}
+                        <span>{sheetStatus.message}</span>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+
+                {/* Metric Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {/* Users */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <Users className="h-3.5 w-3.5" /> Active Users
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${userChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {userChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {userChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{ga4Data.current.activeUsers.toLocaleString()}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {ga4Data.previous.activeUsers.toLocaleString()} last period</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Views */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <Eye className="h-3.5 w-3.5" /> Page Views
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${viewChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {viewChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {viewChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{ga4Data.current.pageViews.toLocaleString()}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {ga4Data.previous.pageViews.toLocaleString()} last period</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Sessions */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <BarChart2 className="h-3.5 w-3.5" /> Sessions
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${sessionChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {sessionChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {sessionChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{ga4Data.current.sessions.toLocaleString()}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {ga4Data.previous.sessions.toLocaleString()} last period</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Avg Session Duration */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <Hourglass className="h-3.5 w-3.5" /> Session Duration
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${durationChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {durationChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {durationChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{formatDuration(ga4Data.current.avgSessionDuration)}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {formatDuration(ga4Data.previous.avgSessionDuration)} last period</p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Daily Trend Chart */}
+                <Card className="bg-white border-slate-200 shadow-sm overflow-hidden">
+                  <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100 flex flex-row items-center justify-between">
+                    <CardTitle className="text-sm font-semibold text-slate-800">Traffic Trend (Last 30 Days)</CardTitle>
+                    <div className="flex items-center gap-4 text-xs font-medium">
+                      <span className="flex items-center gap-1.5 text-[#824123]"><span className="h-2.5 w-2.5 rounded-full bg-[#824123] inline-block" /> Page Views</span>
+                      <span className="flex items-center gap-1.5 text-[#b76631]"><span className="h-2.5 w-2.5 rounded-full bg-[#b76631] inline-block" /> Active Users</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="px-6 py-6">
+                    <div className="h-[300px] w-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <AreaChart data={ga4Data.trend} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                          <defs>
+                            <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#824123" stopOpacity={0.2}/>
+                              <stop offset="95%" stopColor="#824123" stopOpacity={0}/>
+                            </linearGradient>
+                            <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#b76631" stopOpacity={0.2}/>
+                              <stop offset="95%" stopColor="#b76631" stopOpacity={0}/>
+                            </linearGradient>
+                          </defs>
+                          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                          <XAxis dataKey="date" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
+                          <YAxis stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
+                          <ChartTooltip contentStyle={{ borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+                          <Area type="monotone" dataKey="pageViews" name="Page Views" stroke="#824123" strokeWidth={2.5} fillOpacity={1} fill="url(#colorViews)" />
+                          <Area type="monotone" dataKey="activeUsers" name="Active Users" stroke="#b76631" strokeWidth={2.5} fillOpacity={1} fill="url(#colorUsers)" />
+                        </AreaChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Sub panels Row 1: Cities & Sources */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Top Cities */}
+                  <Card className="bg-white border-slate-200 shadow-sm lg:col-span-2">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800 flex items-center justify-between">
+                        <span>Top Visitor Locations (Cities)</span>
+                        <span className="text-xs font-normal text-slate-400">by active users</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <div className="max-h-[350px] overflow-y-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50 border-b border-slate-100 text-xs font-medium text-slate-400 uppercase tracking-wider sticky top-0">
+                            <tr>
+                              <th className="px-6 py-3 text-left">City</th>
+                              <th className="px-6 py-3 text-right">Active Users</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            {ga4Data.cities.map((city, idx) => (
+                              <tr key={city.city + idx} className="hover:bg-slate-50/50">
+                                <td className="px-6 py-3 font-medium text-slate-700 flex items-center gap-2">
+                                  <Globe className="h-3.5 w-3.5 text-slate-400" />
+                                  {city.city}
+                                </td>
+                                <td className="px-6 py-3 text-right font-semibold text-slate-800">
+                                  {city.users.toLocaleString()}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Traffic Sources */}
+                  <Card className="bg-white border-slate-200 shadow-sm lg:col-span-1">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800">Traffic Source / Medium</CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <div className="max-h-[350px] overflow-y-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50 border-b border-slate-100 text-xs font-medium text-slate-400 uppercase tracking-wider sticky top-0">
+                            <tr>
+                              <th className="px-4 py-3 text-left">Source / Medium</th>
+                              <th className="px-4 py-3 text-right">Users</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            {ga4Data.trafficSources.map((src, idx) => (
+                              <tr key={src.source + idx} className="hover:bg-slate-50/50">
+                                <td className="px-4 py-3 text-slate-600 truncate max-w-[150px]" title={src.source}>
+                                  {src.source}
+                                </td>
+                                <td className="px-4 py-3 text-right font-semibold text-slate-800">
+                                  {src.users.toLocaleString()}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Sub panels Row 2: Pages & Devices */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Top Pages */}
+                  <Card className="bg-white border-slate-200 shadow-sm lg:col-span-2">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800 flex items-center justify-between">
+                        <span>Top Visited Pages</span>
+                        <span className="text-xs font-normal text-slate-400">{filteredPages.length} active paths</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <div className="max-h-[350px] overflow-y-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50 border-b border-slate-100 text-xs font-medium text-slate-400 uppercase tracking-wider sticky top-0">
+                            <tr>
+                              <th className="px-6 py-3 text-left">Page Path</th>
+                              <th className="px-6 py-3 text-right">Users</th>
+                              <th className="px-6 py-3 text-right">Views</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            {filteredPages.map((page, idx) => (
+                              <tr key={page.path + idx} className="hover:bg-slate-50/50">
+                                <td className="px-6 py-3 font-mono text-xs text-slate-600 truncate max-w-[200px]" title={page.path}>
+                                  {page.path}
+                                </td>
+                                <td className="px-6 py-3 text-right font-medium text-slate-800">
+                                  {page.users.toLocaleString()}
+                                </td>
+                                <td className="px-6 py-3 text-right font-semibold text-primary">
+                                  {page.views.toLocaleString()}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Device Breakdown */}
+                  <div className="lg:col-span-1 space-y-6">
+                  <Card className="bg-white border-slate-200 shadow-sm">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800">Device Share</CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-6 py-5">
+                      <div className="space-y-4">
+                        {ga4Data.devices.map((dev) => {
+                          const pct = totalDevices > 0 ? (dev.users / totalDevices) * 100 : 0;
+                          const isMobile = dev.device.toLowerCase() === 'mobile';
+                          const isTablet = dev.device.toLowerCase() === 'tablet';
+                          return (
+                            <div key={dev.device} className="space-y-1.5">
+                              <div className="flex items-center justify-between text-xs font-medium text-slate-700">
+                                <span className="flex items-center gap-1.5 capitalize">
+                                  {isMobile ? <Smartphone className="h-3.5 w-3.5 text-slate-400" /> : isTablet ? <Tablet className="h-3.5 w-3.5 text-slate-400" /> : <Monitor className="h-3.5 w-3.5 text-slate-400" />}
+                                  {dev.device}
+                                </span>
+                                <span>{pct.toFixed(1)}% ({dev.users.toLocaleString()})</span>
+                              </div>
+                              <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                <div className="h-full bg-primary rounded-full" style={{ width: `${pct}%` }} />
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Browser Breakdown */}
+                  <Card className="bg-white border-slate-200 shadow-sm">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800">Browser Share</CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-6 py-5">
+                      <div className="space-y-4">
+                        {ga4Data.browsers.map((brs) => {
+                          const pct = ga4Data.current.activeUsers > 0 ? (brs.users / ga4Data.current.activeUsers) * 100 : 0;
+                          return (
+                            <div key={brs.browser} className="space-y-1.5">
+                              <div className="flex items-center justify-between text-xs font-medium text-slate-700">
+                                <span className="flex items-center gap-1.5">
+                                  <Globe className="h-3.5 w-3.5 text-slate-400" />
+                                  {brs.browser}
+                                </span>
+                                <span>{pct.toFixed(1)}% ({brs.users.toLocaleString()})</span>
+                              </div>
+                              <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                <div className="h-full bg-[#b76631] rounded-full" style={{ width: `${pct}%` }} />
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {ga4Data.browsers.length === 0 && (
+                          <p className="text-xs text-slate-400">No browser data for the selected period.</p>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                  </div>
+                </div>
               </div>
             );
           })()

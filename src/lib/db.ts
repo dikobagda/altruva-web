@@ -145,6 +145,15 @@ export async function initializeDatabase() {
       await pool.query(`ALTER TABLE appointments ADD COLUMN status ENUM('pending','confirmed','cancelled') DEFAULT 'pending' AFTER notes`);
     } catch (_) { /* already exists */ }
 
+    // 2e. Create sheet_sync_state table for Google Sheets incremental exports
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS sheet_sync_state (
+        source VARCHAR(50) PRIMARY KEY,
+        last_id BIGINT NOT NULL DEFAULT 0,
+        last_synced_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
     // 3. Seed initial blog articles if empty
     const [blogRows]: any = await pool.query('SELECT COUNT(*) as count FROM blogs');
     const blogCount = blogRows[0]?.count || 0;
