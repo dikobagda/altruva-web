@@ -8,9 +8,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Plus, Edit, Trash2, ExternalLink, LogOut, Search,
-  Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Download, Copy, Calendar, CheckCircle, XCircle, Clock, MessageCircle, MousePointerClick, RefreshCw,
+  Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Copy, Calendar, CheckCircle, XCircle, Clock, MessageCircle, MousePointerClick, RefreshCw,
   Monitor, Smartphone, Tablet, Globe, Hourglass, ArrowUpRight, ArrowDownRight,
-  FileSpreadsheet, Send
+  FileSpreadsheet
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import {
@@ -56,13 +56,6 @@ interface AnalyticsRow {
   unique_7d: number;
 }
 
-interface Lead {
-  id: number;
-  name: string;
-  whatsapp: string;
-  created_at: string;
-}
-
 interface Appointment {
   id: number;
   name: string;
@@ -88,6 +81,7 @@ interface WhatsAppAnalytics {
 
 interface GA4Stats {
   activeUsers: number;
+  newUsers: number;
   pageViews: number;
   sessions: number;
   avgSessionDuration: number;
@@ -97,6 +91,7 @@ interface GA4TrendPoint {
   date: string;
   rawDate: string;
   activeUsers: number;
+  newUsers: number;
   pageViews: number;
 }
 
@@ -144,13 +139,18 @@ function estimateReadTime(content: string): number {
   return Math.max(1, Math.round(words / 200));
 }
 
+function todayLocal(): string {
+  const d = new Date();
+  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+  return d.toISOString().slice(0, 10);
+}
+
 type SortKey = 'title' | 'date' | 'view_count' | 'views_7d' | 'read_time';
 
 export default function DashboardPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [leads, setLeads] = useState<Lead[]>([]);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
-  const [activeTab, setActiveTab] = useState<'articles' | 'leads' | 'appointments' | 'whatsapp' | 'ga4'>('articles');
+  const [activeTab, setActiveTab] = useState<'articles' | 'appointments' | 'whatsapp' | 'ga4'>('ga4');
   const [deleteTargetSlug, setDeleteTargetSlug] = useState<string | null>(null);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [appointmentToDelete, setAppointmentToDelete] = useState<number | null>(null);
@@ -172,7 +172,7 @@ export default function DashboardPage() {
   const [ga4Data, setGa4Data] = useState<GA4Data | null>(null);
   const [ga4Loading, setGa4Loading] = useState(false);
   const [ga4Error, setGa4Error] = useState<string | null>(null);
-  const [ga4Preset, setGa4Preset] = useState<'today' | 'yesterday' | '7daysAgo' | '30daysAgo' | 'custom'>('30daysAgo');
+  const [ga4Preset, setGa4Preset] = useState<'today' | 'yesterday' | '7daysAgo' | '30daysAgo' | 'custom'>('today');
   const [ga4DateFrom, setGa4DateFrom] = useState('');
   const [ga4DateTo, setGa4DateTo] = useState('');
 
@@ -284,10 +284,9 @@ export default function DashboardPage() {
       if (waDateTo) waParams.set('to', waDateTo);
       const waQuery = waParams.toString();
 
-      const [blogsRes, analyticsRes, leadsRes, appointmentsRes, whatsappRes] = await Promise.all([
+      const [blogsRes, analyticsRes, appointmentsRes, whatsappRes] = await Promise.all([
         fetch('/api/cms/blogs'),
         fetch('/api/analytics/view'),
-        fetch('/api/cms/leads'),
         fetch('/api/cms/appointments'),
         fetch(`/api/analytics/whatsapp${waQuery ? `?${waQuery}` : ''}`),
       ]);
@@ -307,11 +306,6 @@ export default function DashboardPage() {
         const map: Record<string, AnalyticsRow> = {};
         rows.forEach((r) => { map[r.slug] = r; });
         setAnalytics(map);
-      }
-
-      if (leadsRes.ok) {
-        const data: Lead[] = await leadsRes.json();
-        setLeads(data);
       }
 
       if (appointmentsRes.ok) {
@@ -464,17 +458,15 @@ export default function DashboardPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="font-serif text-3xl font-bold text-primary">
-              {activeTab === 'articles' ? 'Blog Articles' : activeTab === 'leads' ? 'E-Book Downloads' : activeTab === 'whatsapp' ? 'WhatsApp Analytics' : activeTab === 'ga4' ? 'Google Analytics (GA4)' : 'Appointments'}
+              {activeTab === 'ga4' ? 'Google Analytics (GA4)' : activeTab === 'articles' ? 'Blog Articles' : activeTab === 'whatsapp' ? 'WhatsApp Analytics' : 'Appointments'}
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
-              {activeTab === 'articles'
+              {activeTab === 'ga4'
+                ? 'Website traffic, trends, and visitor demographics'
+                : activeTab === 'articles'
                 ? `${blogs.length} articles · Manage and track your content`
-                : activeTab === 'leads'
-                ? `${leads.length} leads registered · Prospective clients`
                 : activeTab === 'whatsapp'
                 ? `${whatsappAnalytics?.total || 0} tracked clicks · WhatsApp button & CTA performance`
-                : activeTab === 'ga4'
-                ? 'Website traffic, trends, and visitor demographics'
                 : `${appointments.length} bookings · ${appointments.filter(a => a.status === 'pending').length} pending`}
             </p>
           </div>
@@ -516,18 +508,6 @@ export default function DashboardPage() {
                 <Plus className="mr-2 h-4 w-4" /> New Article
               </Link>
             </Button>
-          ) : activeTab === 'leads' ? (
-            <Button
-              onClick={() => {
-                const header = "ID,Name,WhatsApp,Date\n";
-                const rows = leads.map(l => `${l.id},"${l.name.replace(/"/g, '""')}",${l.whatsapp},${new Date(l.created_at).toLocaleString()}`).join('\n');
-                navigator.clipboard.writeText(header + rows);
-                alert('Leads list copied to clipboard as CSV format!');
-              }}
-              className="bg-primary text-primary-foreground font-semibold"
-            >
-              <Copy className="mr-2 h-4 w-4" /> Copy CSV to Clipboard
-            </Button>
           ) : (
             <Button
               onClick={() => {
@@ -548,6 +528,12 @@ export default function DashboardPage() {
         {/* Navigation Tabs */}
         <div className="flex flex-wrap border-b border-slate-200 mb-6 gap-2">
           <button
+            onClick={() => { setActiveTab('ga4'); setSearchTerm(''); setCurrentPage(1); }}
+            className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'ga4' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          >
+            <BarChart2 className="h-4 w-4" /> Google Analytics (GA4)
+          </button>
+          <button
             onClick={() => { setActiveTab('articles'); setSearchTerm(''); setCurrentPage(1); }}
             className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'articles' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
           >
@@ -565,22 +551,10 @@ export default function DashboardPage() {
             )}
           </button>
           <button
-            onClick={() => { setActiveTab('leads'); setSearchTerm(''); setCurrentPage(1); }}
-            className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'leads' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
-          >
-            <Users className="h-4 w-4" /> E-book Downloads ({leads.length})
-          </button>
-          <button
             onClick={() => { setActiveTab('whatsapp'); setSearchTerm(''); setCurrentPage(1); }}
             className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'whatsapp' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
           >
             <MessageCircle className="h-4 w-4" /> WhatsApp ({whatsappAnalytics?.clicks_7d || 0})
-          </button>
-          <button
-            onClick={() => { setActiveTab('ga4'); setSearchTerm(''); setCurrentPage(1); }}
-            className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'ga4' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
-          >
-            <BarChart2 className="h-4 w-4" /> Google Analytics (GA4)
           </button>
         </div>
 
@@ -637,7 +611,7 @@ export default function DashboardPage() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             type="text"
-            placeholder={activeTab === 'articles' ? "Search articles..." : activeTab === 'whatsapp' ? "Filter pages..." : "Search leads by name or whatsapp..."}
+            placeholder={activeTab === 'articles' ? "Search articles..." : activeTab === 'whatsapp' || activeTab === 'ga4' ? "Filter pages..." : "Search appointments..."}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-9 bg-white border-slate-200"
@@ -957,125 +931,6 @@ export default function DashboardPage() {
               </div>
             );
           })()
-        ) : activeTab === 'leads' ? (
-          /* Leads Tab View */
-          (() => {
-            const filteredLeads = leads.filter(l => 
-              l.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-              l.whatsapp.includes(searchTerm)
-            );
-            const totalLeadsPages = Math.ceil(filteredLeads.length / pageSize);
-            const paginatedLeads = filteredLeads.slice(
-              (currentPage - 1) * pageSize,
-              currentPage * pageSize
-            );
-
-            return filteredLeads.length === 0 ? (
-              <div className="text-center py-20 text-muted-foreground">
-                {searchTerm ? 'No leads match your search.' : 'No leads registered yet.'}
-              </div>
-            ) : (
-              <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead className="bg-slate-50 border-b border-slate-200">
-                      <tr>
-                        <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">ID</th>
-                        <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Name</th>
-                        <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">WhatsApp Number</th>
-                        <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Date Registered</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      {paginatedLeads.map((lead) => (
-                        <tr key={lead.id} className="hover:bg-slate-50/50 transition-colors">
-                          <td className="px-6 py-4 whitespace-nowrap text-slate-500 font-mono">#{lead.id}</td>
-                          <td className="px-6 py-4 whitespace-nowrap font-medium text-slate-800">{lead.name}</td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <a 
-                              href={`https://wa.me/${lead.whatsapp.replace(/[^0-9]/g, '')}`} 
-                              target="_blank" 
-                              rel="noreferrer" 
-                              className="text-primary hover:underline font-medium"
-                            >
-                              {lead.whatsapp}
-                            </a>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-slate-500">
-                            {new Date(lead.created_at).toLocaleString('id-ID', {
-                              day: 'numeric',
-                              month: 'long',
-                              year: 'numeric',
-                              hour: '2-digit',
-                              minute: '2-digit'
-                            })}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Pagination Controls for Leads */}
-                <div className="flex flex-col sm:flex-row items-center justify-between border-t border-slate-200 px-6 py-4 bg-slate-50 text-slate-500 gap-4 text-xs">
-                  <div className="flex items-center gap-2">
-                    <span>Show</span>
-                    <select
-                      value={pageSize}
-                      onChange={(e) => {
-                        setPageSize(Number(e.target.value));
-                        setCurrentPage(1);
-                      }}
-                      className="bg-white border border-slate-200 rounded px-2.5 py-1 text-slate-700 outline-none focus:border-primary"
-                    >
-                      <option value={5}>5</option>
-                      <option value={10}>10</option>
-                      <option value={20}>20</option>
-                      <option value={50}>50</option>
-                    </select>
-                    <span>entries</span>
-                    <span className="ml-4">
-                      Showing {filteredLeads.length === 0 ? 0 : (currentPage - 1) * pageSize + 1} to {Math.min(currentPage * pageSize, filteredLeads.length)} of {filteredLeads.length} entries
-                    </span>
-                  </div>
-                  
-                  <div className="flex items-center gap-1.5">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-8 px-3"
-                      onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-                      disabled={currentPage === 1}
-                    >
-                      Previous
-                    </Button>
-                    
-                    {Array.from({ length: totalLeadsPages }, (_, i) => i + 1).map((page) => (
-                      <Button
-                        key={page}
-                        variant={page === currentPage ? 'default' : 'outline'}
-                        size="sm"
-                        className="h-8 w-8 p-0 text-xs"
-                        onClick={() => setCurrentPage(page)}
-                      >
-                        {page}
-                      </Button>
-                    ))}
-                    
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-8 px-3"
-                      onClick={() => setCurrentPage(prev => Math.min(totalLeadsPages, prev + 1))}
-                      disabled={currentPage === totalLeadsPages || totalLeadsPages === 0}
-                    >
-                      Next
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            );
-          })()
         ) : activeTab === 'whatsapp' ? (
           /* WhatsApp Analytics Tab View */
           (() => {
@@ -1096,6 +951,20 @@ export default function DashboardPage() {
                         <span className="text-sm font-medium text-slate-600">Date range</span>
                       </div>
                       <div className="flex flex-wrap items-center gap-2">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="h-8 text-primary border-primary/30 hover:bg-primary/5"
+                          onClick={() => {
+                            const today = todayLocal();
+                            setWaDateFrom(today);
+                            setWaDateTo(today);
+                            setTimeout(fetchData, 0);
+                          }}
+                        >
+                          Today
+                        </Button>
+                        <span className="text-slate-300 text-sm">|</span>
                         <input
                           type="date"
                           value={waDateFrom}
@@ -1339,6 +1208,7 @@ export default function DashboardPage() {
             };
 
             const userChange = calculateChange(ga4Data.current.activeUsers, ga4Data.previous.activeUsers);
+            const newUserChange = calculateChange(ga4Data.current.newUsers, ga4Data.previous.newUsers);
             const viewChange = calculateChange(ga4Data.current.pageViews, ga4Data.previous.pageViews);
             const sessionChange = calculateChange(ga4Data.current.sessions, ga4Data.previous.sessions);
             const durationChange = calculateChange(ga4Data.current.avgSessionDuration, ga4Data.previous.avgSessionDuration);
@@ -1415,7 +1285,7 @@ export default function DashboardPage() {
                 </Card>
 
                 {/* Metric Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {/* Users */}
                   <Card className="bg-white border-slate-200">
                     <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
@@ -1430,6 +1300,23 @@ export default function DashboardPage() {
                     <CardContent className="px-4 pb-4">
                       <p className="text-3xl font-bold text-primary">{ga4Data.current.activeUsers.toLocaleString()}</p>
                       <p className="text-[10px] text-slate-400 mt-1">vs {ga4Data.previous.activeUsers.toLocaleString()} last period</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* New Users */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <Users className="h-3.5 w-3.5" /> New Users
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${newUserChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {newUserChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {newUserChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{ga4Data.current.newUsers.toLocaleString()}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {ga4Data.previous.newUsers.toLocaleString()} last period</p>
                     </CardContent>
                   </Card>
 
@@ -1492,6 +1379,7 @@ export default function DashboardPage() {
                     <div className="flex items-center gap-4 text-xs font-medium">
                       <span className="flex items-center gap-1.5 text-[#824123]"><span className="h-2.5 w-2.5 rounded-full bg-[#824123] inline-block" /> Page Views</span>
                       <span className="flex items-center gap-1.5 text-[#b76631]"><span className="h-2.5 w-2.5 rounded-full bg-[#b76631] inline-block" /> Active Users</span>
+                      <span className="flex items-center gap-1.5 text-[#0d9488]"><span className="h-2.5 w-2.5 rounded-full bg-[#0d9488] inline-block" /> New Users</span>
                     </div>
                   </CardHeader>
                   <CardContent className="px-6 py-6">
@@ -1507,6 +1395,10 @@ export default function DashboardPage() {
                               <stop offset="5%" stopColor="#b76631" stopOpacity={0.2}/>
                               <stop offset="95%" stopColor="#b76631" stopOpacity={0}/>
                             </linearGradient>
+                            <linearGradient id="colorNewUsers" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#0d9488" stopOpacity={0.2}/>
+                              <stop offset="95%" stopColor="#0d9488" stopOpacity={0}/>
+                            </linearGradient>
                           </defs>
                           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
                           <XAxis dataKey="date" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
@@ -1514,6 +1406,7 @@ export default function DashboardPage() {
                           <ChartTooltip contentStyle={{ borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
                           <Area type="monotone" dataKey="pageViews" name="Page Views" stroke="#824123" strokeWidth={2.5} fillOpacity={1} fill="url(#colorViews)" />
                           <Area type="monotone" dataKey="activeUsers" name="Active Users" stroke="#b76631" strokeWidth={2.5} fillOpacity={1} fill="url(#colorUsers)" />
+                          <Area type="monotone" dataKey="newUsers" name="New Users" stroke="#0d9488" strokeWidth={2.5} fillOpacity={1} fill="url(#colorNewUsers)" />
                         </AreaChart>
                       </ResponsiveContainer>
                     </div>

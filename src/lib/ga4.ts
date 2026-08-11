@@ -68,7 +68,7 @@ export interface GA4Snapshot {
     sessions: number;
     avgSessionDuration: number;
   };
-  trend: { date: string; rawDate: string; activeUsers: number; pageViews: number }[];
+  trend: { date: string; rawDate: string; activeUsers: number; newUsers: number; pageViews: number }[];
   topPages: { path: string; users: number; views: number }[];
   devices: { device: string; users: number }[];
   browsers: { browser: string; users: number }[];
@@ -127,6 +127,7 @@ export async function fetchGa4Snapshot(from: string, to: string): Promise<GA4Sna
       dimensions: [{ name: 'date' }],
       metrics: [
         { name: 'activeUsers' },
+        { name: 'newUsers' },
         { name: 'screenPageViews' }
       ],
       orderBys: [{ dimension: { dimensionName: 'date' } }]
@@ -211,7 +212,8 @@ export async function fetchGa4Snapshot(from: string, to: string): Promise<GA4Sna
       date: formattedDate,
       rawDate,
       activeUsers: parseInt(row.metricValues?.[0]?.value || '0', 10),
-      pageViews: parseInt(row.metricValues?.[1]?.value || '0', 10),
+      newUsers: parseInt(row.metricValues?.[1]?.value || '0', 10),
+      pageViews: parseInt(row.metricValues?.[2]?.value || '0', 10),
     };
   });
 
