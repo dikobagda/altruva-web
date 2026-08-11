@@ -1,4 +1,5 @@
 import { BetaAnalyticsDataClient } from '@google-analytics/data';
+import { getGoogleCredentials } from '@/lib/google-credentials';
 
 export function getPreviousPeriod(fromStr: string, toStr: string) {
   const parseDate = (val: string): Date => {
@@ -44,25 +45,10 @@ export function getPreviousPeriod(fromStr: string, toStr: string) {
 }
 
 export function createGa4Client() {
-  const clientEmail = process.env.GCS_CLIENT_EMAIL;
-  let privateKey = process.env.GCS_PRIVATE_KEY;
-
-  if (!clientEmail || !privateKey) {
-    throw new Error(
-      'Google Service Account credentials (GCS_CLIENT_EMAIL / GCS_PRIVATE_KEY) are missing.'
-    );
-  }
-
-  // Strip wrapping quotes if they exist (common when read from .env files)
-  if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
-    privateKey = privateKey.substring(1, privateKey.length - 1);
-  }
+  const credentials = getGoogleCredentials();
 
   return new BetaAnalyticsDataClient({
-    credentials: {
-      client_email: clientEmail,
-      private_key: privateKey.replace(/\\n/g, '\n'),
-    },
+    credentials,
     fallback: true,
   });
 }
@@ -94,11 +80,7 @@ export interface GA4Snapshot {
 }
 
 export async function fetchGa4Snapshot(from: string, to: string): Promise<GA4Snapshot> {
-  const propertyId = process.env.GA4_PROPERTY_ID;
-
-  if (!propertyId) {
-    throw new Error('GA4_PROPERTY_ID environment variable is missing.');
-  }
+  const propertyId = '499923251';
 
   const client = createGa4Client();
   const property = `properties/${propertyId}`;

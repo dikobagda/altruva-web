@@ -36,10 +36,32 @@ async function runProductionMigration() {
     storage = new Storage({ projectId, keyFilename: keyPath });
   } else {
     const clientEmail = process.env.GCS_CLIENT_EMAIL;
-    const privateKey = (process.env.GCS_PRIVATE_KEY || '').replace(/\\n/g, '\n');
+    let privateKey = '';
+    
+    const base64Key = (process.env.GCS_PRIVATE_KEY_BASE64 || '').trim();
+    if (base64Key) {
+      try {
+        privateKey = Buffer.from(base64Key, 'base64').toString('utf8');
+      } catch (e) {
+        console.warn('Failed to decode GCS_PRIVATE_KEY_BASE64');
+      }
+    }
+    
+    if (!privateKey && process.env.GCS_PRIVATE_KEY) {
+      privateKey = process.env.GCS_PRIVATE_KEY;
+    }
+    
+    privateKey = privateKey.trim();
+    if (
+      (privateKey.startsWith('"') && privateKey.endsWith('"')) ||
+      (privateKey.startsWith("'") && privateKey.endsWith("'"))
+    ) {
+      privateKey = privateKey.slice(1, -1);
+    }
+    privateKey = privateKey.replace(/\\n/g, '\n').replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
     
     if (!privateKey || !clientEmail) {
-      console.error('Error: Either GCS_KEYFILE_PATH or both GCS_PRIVATE_KEY and GCS_CLIENT_EMAIL must be set.');
+      console.error('Error: Either GCS_KEYFILE_PATH or both (GCS_PRIVATE_KEY/GCS_PRIVATE_KEY_BASE64) and GCS_CLIENT_EMAIL must be set.');
       process.exit(1);
     }
     console.log('Using direct environment variable credentials (Private Key).');

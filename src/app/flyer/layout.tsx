@@ -9,7 +9,6 @@ import dynamic from 'next/dynamic';
 const Footer = dynamic(() => import('@/components/layout/Footer'), { ssr: false });
 import Preloader from '@/components/layout/Preloader';
 import WhatsAppClickTracker from '@/components/analytics/WhatsAppClickTracker';
-import IpLocationTracker from '@/components/analytics/IpLocationTracker';
 
 const FloatingWhatsAppButton = dynamic(() => import('@/components/layout/FloatingWhatsAppButton'), { ssr: false });
 
@@ -44,7 +43,6 @@ export default function FlyerLayout({
         {/* End Google Tag Manager (noscript) */}
       <div className="flex flex-col min-h-screen">
         <WhatsAppClickTracker />
-        <IpLocationTracker />
         <Preloader isLoading={isLoading} />
         <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
           <main className="flex-grow">{children}</main>

@@ -1,25 +1,11 @@
 import { sheets, auth } from '@googleapis/sheets';
+import { getGoogleCredentials, getServiceAccountPrivateKey } from '@/lib/google-credentials';
 
 export function getSheetsClient() {
-  const clientEmail = process.env.GCS_CLIENT_EMAIL;
-  let privateKey = process.env.GCS_PRIVATE_KEY;
-
-  if (!clientEmail || !privateKey) {
-    throw new Error(
-      'Google Service Account credentials (GCS_CLIENT_EMAIL / GCS_PRIVATE_KEY) are missing.'
-    );
-  }
-
-  // Strip wrapping quotes if they exist (common when read from .env files)
-  if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
-    privateKey = privateKey.substring(1, privateKey.length - 1);
-  }
+  const credentials = getGoogleCredentials();
 
   const googleAuth = new auth.GoogleAuth({
-    credentials: {
-      client_email: clientEmail,
-      private_key: privateKey.replace(/\\n/g, '\n'),
-    },
+    credentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
@@ -31,11 +17,7 @@ export interface SheetInfo {
 }
 
 export function getSpreadsheetId(): string {
-  const id = process.env.GOOGLE_SHEET_ID;
-  if (!id) {
-    throw new Error('GOOGLE_SHEET_ID environment variable is missing.');
-  }
-  return id;
+  return '17sc3xJm5Mi0Qg98aOv8_FlzFQmcrR71gX90DreGnLzI';
 }
 
 /**

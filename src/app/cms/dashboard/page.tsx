@@ -1302,7 +1302,7 @@ export default function DashboardPage() {
                     <h3 className="font-serif text-lg font-bold text-slate-800 mb-2">GA4 Integration Error</h3>
                     <p className="text-sm text-slate-600 mb-6">{ga4Error}</p>
                     <p className="text-xs text-slate-500 mb-4">
-                      Please check that your service account credentials and project configurations are correctly defined in your environment variables (`GA4_PROPERTY_ID`, `GCS_CLIENT_EMAIL`, and `GCS_PRIVATE_KEY`).
+                      Please check that your service account credentials and project configurations are correctly defined in your environment variables (`GA4_PROPERTY_ID`, `GCS_CLIENT_EMAIL`, and `GCS_PRIVATE_KEY_BASE64`).
                     </p>
                     <Button onClick={() => fetchGa4Data()} variant="outline" className="border-red-200 text-red-700 hover:bg-red-50">
                       <RefreshCw className="mr-2 h-4 w-4" /> Try Again

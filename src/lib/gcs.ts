@@ -1,6 +1,7 @@
 import { Storage } from '@google-cloud/storage';
 import path from 'path';
 import fs from 'fs';
+import { getServiceAccountPrivateKey } from '@/lib/google-credentials';
 
 const projectId = process.env.GCS_PROJECT_ID || 'vinsengroup';
 const bucketName = process.env.GCS_BUCKET_NAME || 'altruva-dev';
@@ -49,33 +50,7 @@ if (keyFilePath) {
 // strip surrounding quotes, unescape \n, and fall back to the local keyfile
 // if the env value is missing/malformed.
 function getPrivateKey(): string {
-  // Prefer base64 single-line value (immune to newline/escaping issues)
-  const base64Key = (process.env.GCS_PRIVATE_KEY_BASE64 || '').trim();
-  if (base64Key) {
-    try {
-      const decoded = Buffer.from(base64Key, 'base64').toString('utf8');
-      if (decoded.includes('-----BEGIN')) {
-        return decoded;
-      }
-      console.warn('[GCS] GCS_PRIVATE_KEY_BASE64 decodes to an invalid PEM, falling back.');
-    } catch (e) {
-      console.warn('[GCS] Failed to decode GCS_PRIVATE_KEY_BASE64, falling back.');
-    }
-  }
-
-  let key = process.env.GCS_PRIVATE_KEY || '';
-
-  // Remove wrapping double/single quotes (common when copying from .env files)
-  key = key.trim();
-  if (
-    (key.startsWith('"') && key.endsWith('"')) ||
-    (key.startsWith("'") && key.endsWith("'"))
-  ) {
-    key = key.slice(1, -1);
-  }
-
-  // Unescape literal \n sequences into real newlines
-  key = key.replace(/\\n/g, '\n');
+  let key = getServiceAccountPrivateKey();
 
   // Validate the PEM structure; fall back to the local keyfile if malformed
   if (!key.includes('-----BEGIN PRIVATE KEY-----')) {
