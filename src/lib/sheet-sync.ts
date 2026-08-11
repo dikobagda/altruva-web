@@ -155,7 +155,7 @@ export async function syncToSheets(): Promise<SyncResult> {
             title: 'GA Device Share',
             metrics: ga4.devices.map((d) => ({
               label: d.device,
-              value: Math.round((d.users / totalDeviceUsers) * 1000) / 10,
+              value: Math.round((d.users / totalDeviceUsers) * 1000) / 10 + ' %',
             })),
           },
           {
