@@ -92,8 +92,8 @@ export async function fetchGa4Snapshot(from: string, to: string): Promise<GA4Sna
     trendRes,
     pagesRes,
     devicesRes,
-    browsersRes,
     trafficRes,
+    browsersRes,
     citiesRes
   ] = await Promise.all([
     // 1. Current Period Overview
