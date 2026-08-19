@@ -152,13 +152,6 @@ export async function syncToSheets(): Promise<SyncResult> {
             })),
           },
           {
-            title: 'GA Device Share',
-            metrics: ga4.devices.map((d) => ({
-              label: d.device,
-              value: Math.round((d.users / totalDeviceUsers) * 1000) / 10 + ' %',
-            })),
-          },
-          {
             title: 'GA Browser',
             metrics: BROWSER_BUCKET_LABELS.filter((l) => l !== 'Others').map((label) => ({
               label,
@@ -168,6 +161,13 @@ export async function syncToSheets(): Promise<SyncResult> {
           {
             title: 'WA Clicks',
             metrics: [{ label: 'Unique Visitors', value: waDayCount }],
+          },
+          {
+            title: 'GA Device Share',
+            metrics: ga4.devices.map((d) => ({
+              label: d.device,
+              value: Math.round((d.users / totalDeviceUsers) * 1000) / 10 + ' %',
+            })),
           },
         ];
 

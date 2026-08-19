@@ -97,7 +97,7 @@ function columnLetter(n: number): string {
 
 export interface TrafficMetricValue {
   label: string;
-  value: number;
+  value: string | number;
 }
 
 export interface TrafficSection {
@@ -167,14 +167,22 @@ export async function appendTrafficSnapshot(
 
   // Target layout for column A (rows 3+): blank row before each section label
   const layoutRows: string[] = [];
-  for (const section of sections) {
-    layoutRows.push('');
-    layoutRows.push(section.title);
-    for (const m of section.metrics) layoutRows.push(m.label);
-  }
   const labelRows: Record<string, number> = {};
-  layoutRows.forEach((label, idx) => {
-    if (label) labelRows[label] = 3 + idx;
+
+  sections.forEach((section) => {
+    // Blank separator row
+    layoutRows.push('');
+    // Section Title row
+    const titleRowIndex = 3 + layoutRows.length;
+    layoutRows.push(section.title);
+    labelRows[`SECTION_${section.title}`] = titleRowIndex;
+
+    // Metric rows
+    section.metrics.forEach((m) => {
+      const metricRowIndex = 3 + layoutRows.length;
+      layoutRows.push(m.label);
+      labelRows[`${section.title}__${m.label}`] = metricRowIndex;
+    });
   });
 
   const getMeta = () =>
@@ -186,26 +194,7 @@ export async function appendTrafficSnapshot(
   let meta = await getMeta();
   let sheet = (meta.data.sheets || []).find((s) => s.properties?.title === sheetName);
 
-  // Reset when the existing column A layout differs (handles legacy formats too)
-  let needsLayoutWrite = false;
-  if (sheet) {
-    const probe = await client.spreadsheets.values.get({
-      spreadsheetId,
-      range: `${sheetName}!A3:A${Math.max(3, 2 + layoutRows.length)}`,
-    });
-    const current = (probe.data.values || []).map((r) => (r?.[0] ?? '').trim());
-    const expected = layoutRows.map((r) => r.trim());
-    const matches =
-      current.length === expected.length &&
-      expected.every((v, i) => current[i] === v);
-    if (!matches) {
-      await resetWorksheet(client, spreadsheetId, sheet);
-      needsLayoutWrite = true;
-      meta = await getMeta();
-      sheet = (meta.data.sheets || []).find((s) => s.properties?.title === sheetName)!;
-    }
-  }
-
+  // Ensure sheet exists
   if (!sheet) {
     await client.spreadsheets.batchUpdate({
       spreadsheetId,
@@ -213,17 +202,83 @@ export async function appendTrafficSnapshot(
         requests: [{ addSheet: { properties: { title: sheetName } } }],
       },
     });
-    needsLayoutWrite = true;
     meta = await getMeta();
     sheet = (meta.data.sheets || []).find((s) => s.properties?.title === sheetName)!;
   }
 
-  if (needsLayoutWrite) {
+  // Read existing Column A rows to prevent overwriting existing section titles / labels
+  let existingColumnA: string[] = [];
+  if (sheet) {
+    const colARes = await client.spreadsheets.values.get({
+      spreadsheetId,
+      range: `${sheetName}!A1:A500`,
+    });
+    existingColumnA = (colARes.data.values || []).map((r) => r[0] ?? '');
+  }
+
+  // If Sheet is empty or new, populate Column A from layoutRows
+  if (existingColumnA.length <= 2) {
     await client.spreadsheets.values.update({
       spreadsheetId,
       range: `${sheetName}!A3:A${2 + layoutRows.length}`,
       valueInputOption: 'USER_ENTERED',
       requestBody: { values: layoutRows.map((label) => [label]) },
+    });
+    // Build labelRows index based on layoutRows
+    sections.forEach((section) => {
+      layoutRows.forEach((label, idx) => {
+        if (label === section.title) {
+          labelRows[`SECTION_${section.title}`] = 3 + idx;
+        }
+      });
+      section.metrics.forEach((m) => {
+        const idx = layoutRows.findIndex((l) => l === m.label);
+        if (idx !== -1) {
+          labelRows[`${section.title}__${m.label}`] = 3 + idx;
+        }
+      });
+    });
+  } else {
+    // Map existing rows dynamically so we match exact row indexes in the actual sheet
+    let currentSection = '';
+    existingColumnA.forEach((cellVal, idx) => {
+      const rowNum = idx + 1;
+      const trimmed = cellVal.trim();
+      if (!trimmed) return;
+
+      // Check if trimmed matches any section title
+      const matchingSection = sections.find((s) => s.title.trim() === trimmed);
+      if (matchingSection) {
+        currentSection = matchingSection.title;
+        labelRows[`SECTION_${currentSection}`] = rowNum;
+      } else if (currentSection) {
+        labelRows[`${currentSection}__${trimmed}`] = rowNum;
+      }
+    });
+
+    // Also write any missing labels/sections dynamically to Column A if new metrics were added
+    sections.forEach((section) => {
+      if (!labelRows[`SECTION_${section.title}`]) {
+        const nextRow = existingColumnA.length + 1;
+        existingColumnA.push('');
+        existingColumnA.push(section.title);
+        labelRows[`SECTION_${section.title}`] = nextRow + 1;
+      }
+      section.metrics.forEach((m) => {
+        if (!labelRows[`${section.title}__${m.label}`]) {
+          const nextRow = existingColumnA.length + 1;
+          existingColumnA.push(m.label);
+          labelRows[`${section.title}__${m.label}`] = nextRow;
+        }
+      });
+    });
+
+    // Update Column A to ensure all labels/sections are populated without deleting existing ones
+    await client.spreadsheets.values.update({
+      spreadsheetId,
+      range: `${sheetName}!A1:A${existingColumnA.length}`,
+      valueInputOption: 'USER_ENTERED',
+      requestBody: { values: existingColumnA.map((label) => [label]) },
     });
   }
 
@@ -248,8 +303,8 @@ export async function appendTrafficSnapshot(
   const existingMerge =
     lastCol > 1
       ? row1Merges.find(
-          (m) => m.startColumnIndex <= lastCol - 1 && m.endColumnIndex >= lastCol
-        )
+        (m) => m.startColumnIndex <= lastCol - 1 && m.endColumnIndex >= lastCol
+      )
       : undefined;
   if (existingMerge) {
     groupStartCol = existingMerge.startColumnIndex + 1;
@@ -269,7 +324,7 @@ export async function appendTrafficSnapshot(
   rowMap[2] = [timeLabel];
   for (const section of sections) {
     for (const m of section.metrics) {
-      const r = labelRows[m.label];
+      const r = labelRows[`${section.title}__${m.label}`];
       if (r) rowMap[r] = [m.value];
     }
   }
