@@ -7,18 +7,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const title = { en: 'Vision & Mission', id: 'Visi & Misi' };
 const subtitle = {
-  en: 'A philosophy rooted in artistry, expertise, and personalized care.',
-  id: 'Filosofi yang berakar pada seni, keahlian, dan perawatan yang dipersonalisasi.',
+  en: 'A philosophy rooted in regenerative aesthetics, medical expertise, artistry, and the belief that beauty should remain uniquely your own.',
+  id: 'Filosofi yang berakar pada estetika regeneratif, keahlian medis, seni, dan keyakinan bahwa kecantikan harus tetap menjadi keunikan diri Anda.',
 };
 
 const vision = {
-  en: 'To be a leading aesthetic clinic known for a harmonious balance of medical-scientific knowledge and artistic forte in every non-surgical treatment.',
-  id: 'Menjadi klinik aesthetic terdepan yang dikenal atas keseimbangan harmonis antara pengetahuan medis-ilmiah dan keahlian artistik dalam setiap perawatan non-bedah.',
+  en: 'To advance aesthetic medicine through a regenerative approach—prioritizing tissue quality while enhancing natural beauty, harmony, and individual identity.',
+  id: 'Memajukan estetika medis melalui pendekatan regeneratif—memprioritaskan kualitas jaringan seraya meningkatkan kecantikan alami, keharmonisan, dan identitas individu.',
 };
 
 const mission = {
-  en: "To provide the best experience in our patients' aesthetics journey through expertise, artistic flare, and personalized treatments based on their unique ethno-beauty.",
-  id: 'Memberikan pengalaman terbaik dalam perjalanan aesthetic pasien melalui keahlian, sentuhan artistik, dan perawatan yang dipersonalisasi berdasarkan etno-kecantikan unik masing-masing.',
+  en: 'To provide personalized aesthetic care grounded in global medical knowledge and clinical expertise, using regenerative treatments and advanced aesthetic techniques to enhance each patient’s natural features rather than impose a predetermined beauty ideal.',
+  id: 'Memberikan perawatan estetika yang dipersonalisasi berdasarkan pengetahuan medis global dan keahlian klinis, menggunakan perawatan regeneratif dan teknik estetika tingkat lanjut untuk menonjolkan fitur alami setiap pasien daripada memaksakan standar kecantikan yang telah ditentukan.',
 };
 
 export default function VisionMission() {

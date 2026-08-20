@@ -14,42 +14,42 @@ const subtitle = {
 const keyExpertise = [
   {
     title: {
-      en: 'Non-Surgical Profiloplasty Expert',
-      id: 'Ahli Profiloplasty Non-Bedah',
+      en: 'Regenerative Contouring Expert',
+      id: 'Ahli Regenerative Contouring',
     },
     description: {
-      en: 'Specializes in fillers, botox, and ultherapy to achieve balanced and natural facial harmony.',
-      id: 'Spesialis dalam filler, botox, dan ultherapy untuk mencapai keseimbangan keharmonisan wajah secara natural.',
+      en: 'Specializes in regenerative contouring, combining ultrasound technology, collagen stimulators, fillers, and Botox to create balanced, natural-looking results.',
+      id: 'Spesialis dalam regenerative contouring, menggabungkan teknologi ultrasound, collagen stimulator, filler, dan Botox untuk menciptakan hasil yang seimbang dan alami.',
     },
   },
   {
     title: {
-      en: 'International KOL & Trainer',
-      id: 'KOL & Trainer Internasional',
+      en: 'Global Key Opinion Leader & International Speaker',
+      id: 'Key Opinion Leader Global & Pembicara Internasional',
     },
     description: {
-      en: 'A globally recognized Key Opinion Leader and trainer for cutting-edge technologies like CoolSculpting®.',
-      id: 'Key Opinion Leader dan trainer yang diakui secara global untuk teknologi mutakhir seperti CoolSculpting®.',
+      en: 'A globally recognized Key Opinion Leader and international speaker for Sofwave, GOURI, Plinest, BTL Exion, and CoolSculpting.',
+      id: 'Key Opinion Leader yang diakui secara global dan pembicara internasional untuk Sofwave, GOURI, Plinest, BTL Exion, dan CoolSculpting.',
     },
   },
   {
     title: {
-      en: 'Experienced Head Doctor & Founder',
-      id: 'Head Doctor & Founder Berpengalaman',
+      en: 'Medical Director & Founder',
+      id: 'Direktur Medis & Pendiri',
     },
     description: {
-      en: 'Previously led award-winning clinics and now brings her vision to life with her own brand, Altruva.',
-      id: 'Sebelumnya memimpin klinik-klinik pemenang penghargaan dan kini mewujudkan visinya melalui brand-nya sendiri, Altruva.',
+      en: 'With 13+ years in aesthetic medicine, Dr. Aldisa leads Altruva with a physician-led approach to advanced aesthetic and regenerative treatments.',
+      id: 'Dengan pengalaman 13+ tahun di bidang estetika medis, dr. Aldisa memimpin Altruva dengan pendekatan berbasis dokter untuk perawatan estetika dan regeneratif tingkat lanjut.',
     },
   },
   {
     title: {
-      en: 'Regenerative Aesthetics Pioneer',
-      id: 'Pelopor Regenerative Aesthetics',
+      en: 'A Distinctly Indonesian Approach to Beauty',
+      id: 'Pendekatan Kecantikan Khas Indonesia',
     },
     description: {
-      en: 'Combines global technology with the beauty of Indonesian heritage for unique, effective treatments.',
-      id: 'Menggabungkan teknologi global dengan keindahan warisan Indonesia untuk perawatan yang unik dan efektif.',
+      en: 'Dr. Aldisa applies global knowledge and clinical expertise while embracing the diversity of Indonesian features — enhancing natural individuality rather than following a single beauty ideal.',
+      id: 'Dr. Aldisa menerapkan pengetahuan global dan keahlian klinis seraya merangkul keberagaman fitur Indonesia — menonjolkan individualitas alami, bukan mengikuti satu standar kecantikan.',
     },
   },
 ];
