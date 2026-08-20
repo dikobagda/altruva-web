@@ -15,7 +15,7 @@ interface EnrichedPressFeature {
   title: string;
   link: string;
   type: string;
-  date: string;
+  date?: string;
   slug: string;
   thumbnail: string | null;
   excerpt: string | null;
@@ -65,20 +65,28 @@ export default function NewsMediaContent({ initialFeatures }: NewsMediaContentPr
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {initialFeatures.slice(0, visibleItems).map((feature, index) => (
             <Card key={feature.slug || index} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border-secondary/20 hover:-translate-y-1">
-              <div className="relative w-full aspect-video bg-muted flex items-center justify-center">
+              <div className="relative w-full aspect-video bg-muted flex items-center justify-center overflow-hidden">
                 {feature.thumbnail ? (
                   <img
                     src={feature.thumbnail}
                     alt={feature.title}
                     className="absolute inset-0 w-full h-full object-cover"
                     loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      const fallback = target.nextElementSibling as HTMLElement | null;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
                   />
-                ) : (
-                  <div className="flex flex-col items-center justify-center text-muted-foreground p-4">
-                    <Newspaper className="h-12 w-12 text-accent/40 mb-2" />
-                    <span className="text-xs uppercase tracking-wider font-semibold">{feature.publication}</span>
-                  </div>
-                )}
+                ) : null}
+                <div
+                  className="flex flex-col items-center justify-center text-muted-foreground p-4 w-full h-full"
+                  style={{ display: feature.thumbnail ? 'none' : 'flex' }}
+                >
+                  <Newspaper className="h-12 w-12 text-accent/40 mb-2" />
+                  <span className="text-xs uppercase tracking-wider font-semibold">{feature.publication}</span>
+                </div>
               </div>
 
               <CardHeader className="flex-grow p-6 pb-4">
@@ -86,10 +94,12 @@ export default function NewsMediaContent({ initialFeatures }: NewsMediaContentPr
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-accent/10 text-accent uppercase tracking-wider">
                     {feature.publication}
                   </span>
-                  <span className="flex items-center text-xs text-muted-foreground gap-1">
-                    <Calendar className="h-3.5 w-3.5" />
-                    {formatDate(feature.date)}
-                  </span>
+                  {feature.date && (
+                    <span className="flex items-center text-xs text-muted-foreground gap-1 shrink-0">
+                      <Calendar className="h-3.5 w-3.5" />
+                      {formatDate(feature.date)}
+                    </span>
+                  )}
                 </div>
                 <CardTitle className="font-serif text-lg leading-snug line-clamp-2 text-primary hover:text-accent transition-colors">
                   <Link href={`/news-media/${feature.slug}`}>

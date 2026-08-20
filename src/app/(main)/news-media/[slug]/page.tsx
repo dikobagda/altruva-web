@@ -118,9 +118,11 @@ export default async function NewsArticlePage({ params }: Props) {
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-accent/10 text-accent uppercase tracking-wider">
                 <Newspaper className="h-3 w-3" /> {feature.publication}
               </span>
-              <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
-                <Calendar className="h-4 w-4" /> {formatDate(feature.date)}
-              </span>
+              {feature.date && (
+                <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+                  <Calendar className="h-4 w-4" /> {formatDate(feature.date)}
+                </span>
+              )}
             </div>
             <h1 className="font-serif text-3xl md:text-5xl font-bold text-primary leading-tight">
               {feature.title}
@@ -134,6 +136,10 @@ export default async function NewsArticlePage({ params }: Props) {
                   src={meta.image}
                   alt={feature.title}
                   className="w-full aspect-video md:aspect-[21/9] object-cover"
+                  onError={(e) => {
+                    const container = e.currentTarget.parentElement;
+                    if (container) container.style.display = 'none';
+                  }}
                 />
               </div>
             )}

@@ -3,7 +3,7 @@ export interface PressFeature {
   title: string;
   link: string;
   type: string;
-  date: string; // ISO date string or formatted date for ordering and display
+  date?: string; // Optional date
   slug: string;
 }
 
@@ -20,8 +20,8 @@ export function slugify(text: string): string {
     .replace(/-+$/, ''); // trim trailing -
 }
 
-// Exactly the 13 articles specified in the user's document, manually sorted from newest to oldest.
 export const rawPressFeatures = [
+  // 1. Articles with dates (newest first)
   {
     publication: 'Kompas.com',
     date: '2026-04-21',
@@ -111,6 +111,104 @@ export const rawPressFeatures = [
     date: '2026-04-17',
     title: 'Pakar estetika sebut pentingnya presisi energi hindari salah perawatan',
     link: 'https://www.antaranews.com/berita/5530737/pakar-estetika-sebut-pentingnya-presisi-energi-hindari-salah-perawatan?utm_source=antaranews&utm_medium=mobile&utm_campaign=latest_category',
+    type: 'article'
+  },
+
+  // 2. Old articles without specific exact dates
+  {
+    publication: 'Fajar',
+    title: 'Ingin Awet Muda? Lakukan Perawatan Regeneratif dan Filosofi Quiet Luxury',
+    link: 'https://harian.fajar.co.id/2025/08/20/ingin-awet-muda-lakukan-perawatan-regeneratif-dan-filosofi-quiet-luxury/',
+    type: 'article'
+  },
+  {
+    publication: 'Lampung Post',
+    title: 'Altruva Mengukir Keindahan Alami, Bukan Sekadar Mengubah Wajah',
+    link: 'https://lampost.co/ekonomi-dan-bisnis/altruva-mengukir-keindahan-alami-bukan-sekadar-mengubah-wajah',
+    type: 'article'
+  },
+  {
+    publication: 'Warta Pontianak',
+    title: 'Regeneratif dan Filosofi Quiet Luxury',
+    link: 'https://wartapontianak.pikiran-rakyat.com/nasional/pr-1179596920/regeneratif-dan-filosofi-quiet-luxury?page=all',
+    type: 'article'
+  },
+  {
+    publication: 'Barito Post',
+    title: 'Regeneratif dan Filosofi Quiet Luxury',
+    link: 'https://www.baritopost.co.id/regeneratif-dan-filos',
+    type: 'article'
+  },
+  {
+    publication: 'Radar Lampung',
+    title: 'Regeneratif dan Filosofi Quiet Luxury',
+    link: 'https://radarlampung.bacakoran.co/read/25096/regeneratif-dan-filosofi-quiet-luxury',
+    type: 'article'
+  },
+  {
+    publication: 'Radar Banjarmasin',
+    title: 'Regeneratif dan Filosofi Quiet Luxury',
+    link: 'https://radarbanjarmasin.jawapos.com/ragam-info/1976477511/regeneratif-dan-filosofi-quiet-luxury?page=all',
+    type: 'article'
+  },
+  {
+    publication: 'Manado Post',
+    title: 'Altruva Menghadirkan Estetika Regeneratif dengan Filosofi Quiet Luxury',
+    link: 'https://manadopost.jawapos.com/ekbis/286477540/altruva-menghadirkan-estetika-regeneratif-dengan-filosofi-quiet-luxury',
+    type: 'article'
+  },
+  {
+    publication: 'Pontianak Post',
+    title: 'Mengenal Autentisitas yang Jadi Fokus Layanan Estetika di Klinik Altruva',
+    link: 'https://pontianakpost.jawapos.com/kesehatan/1466480189/mengenal-autentisitas-yang-jadi-fokus-layanan-estetika-di-klinik-altruva',
+    type: 'article'
+  },
+  {
+    publication: 'Balikpapan Pos',
+    title: 'Altruva Aesthetic Clinic, Klinik Estetika Regeneratif Berkelas dengan Filosofi Quiet Luxury',
+    link: 'https://www.balpos.com/ekonomi/1796482186/altruva-aesthetic-clinic-klinik-estetika-regeneratif-berkelas-dengan-filosofi-quiet-luxury',
+    type: 'article'
+  },
+  {
+    publication: 'Samarinda Pos',
+    title: 'Regeneratif dan Filosofi Quiet Luxury',
+    link: 'https://www.sapos.co.id/breaking-news/2456482231/regeneratif-dan-filosofi-quiet-luxury?page=all',
+    type: 'article'
+  },
+  {
+    publication: 'GoPos.id',
+    title: 'Altruva Aesthetic Clinic Hadirkan Estetika Regeneratif dengan Sentuhan Quiet Luxury',
+    link: 'https://gopos.id/altruva-aesthetic-clinic-hadirkan-estetika-regeneratif-dengan-sentuhan-quiet-luxury/',
+    type: 'article'
+  },
+  {
+    publication: 'Barometer News',
+    title: 'Regeneratif dan Filosofi Quiet Luxury',
+    link: 'https://barometernewsgo.com/2025/08/25/regeneratif-dan-filosofi-quiet-luxury/',
+    type: 'article'
+  },
+  {
+    publication: 'Radar Balikpapan',
+    title: 'Altruva Aesthetic Clinic Kini Hadir di Jaksel',
+    link: 'https://radarbalikpapan.com/altruva-aesthetic-clinic-kini-hadir-di-jaksel/',
+    type: 'article'
+  },
+  {
+    publication: 'Pojok Satu Sulsel',
+    title: 'dr. Aldisa Buka Altruva Aesthetic Clinic, Hadir dengan Perawatan Quiet Luxury di Senopati',
+    link: 'https://sulsel.pojoksatu.id/lifestyle/1146483693/dr-aldisa-buka-altruva-aesthetic-clinic-hadir-dengan-perawatan-quiet-luxury-di-senopati',
+    type: 'article'
+  },
+  {
+    publication: 'Kaltim Post',
+    title: 'Enggak Perlu ke Luar Negeri, Rasakan Sensasi Perawatan Internasional di Altruva Aesthetic Clinic',
+    link: 'https://kaltimpost.jawapos.com/selebritas/2386491466/enggak-perlu-ke-luar-negeri-rasakan-sensasi-perawatan-internasional-di-altruva-aesthetic-clinic',
+    type: 'article'
+  },
+  {
+    publication: 'Antara News Manado',
+    title: 'Dokter Estetika: Kecantikan Perempuan Melalui Pendekatan Regeneratif',
+    link: 'https://manado.antaranews.com/berita/292417/dokter-estetika-kecantikan-perempuan-melalui-pendekatan-regeneratif',
     type: 'article'
   }
 ];
