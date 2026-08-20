@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { services } from '@/lib/data/services';
 import { getDbBlogs } from '@/lib/api/db-blog';
 import { beautyJournals } from '@/lib/data/beauty-journal';
+import { pressFeatures } from '@/lib/data/news-media';
 
 export const revalidate = 86400;
 
@@ -60,7 +61,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     }));
 
-  // 5. LLM / AI Readiness Files (llms.txt convention)
+  // 5. Dynamic News & Media Routes
+  const newsMediaEntries: MetadataRoute.Sitemap = pressFeatures.map((feature) => ({
+    url: `${baseUrl}/news-media/${feature.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.6,
+  }));
+
+  // 6. LLM / AI Readiness Files (llms.txt convention)
   const aiEntries: MetadataRoute.Sitemap = [
     `${baseUrl}/llms.txt`,
     `${baseUrl}/llms-full.txt`,
@@ -76,6 +85,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...serviceEntries,
     ...insightEntries,
     ...beautyJournalEntries,
+    ...newsMediaEntries,
     ...aiEntries,
   ];
 }
