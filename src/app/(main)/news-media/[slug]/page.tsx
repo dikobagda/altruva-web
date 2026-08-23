@@ -131,17 +131,11 @@ export default async function NewsArticlePage({ params }: Props) {
 
           <Card className="overflow-hidden shadow-xl border-secondary/20">
             {meta.image && (
-              <div className="relative w-full aspect-video md:aspect-[21/9]">
                 <img
                   src={meta.image}
                   alt={feature.title}
                   className="w-full aspect-video md:aspect-[21/9] object-cover"
-                  onError={(e) => {
-                    const container = e.currentTarget.parentElement;
-                    if (container) container.style.display = 'none';
-                  }}
                 />
-              </div>
             )}
             <CardContent className="p-6 md:p-8 space-y-6">
               {meta.description && (
