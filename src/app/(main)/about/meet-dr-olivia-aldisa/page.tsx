@@ -14,7 +14,7 @@ import { Award, CheckCircle, Briefcase, GraduationCap } from 'lucide-react';
 import { certifications, drOliviaCredentials } from '@/lib/data/dr-olivia';
 
 export const metadata = {
-  title: 'Meet dr. Olivia Aldisa, dipl. AAAM',
+  title: 'Meet dr. Olivia Aldisa, MSc Aesthetic Med. (UK)',
   description: 'Learn about dr. Olivia Aldisa, a leading expert in non-surgical profiloplasty, international KOL, and the founder of Altruva.',
   alternates: {
     canonical: '/about/meet-dr-olivia-aldisa',
@@ -25,19 +25,19 @@ export const metadata = {
 };
 
 const education = [
-    { degree: "Master of Science in Aesthetic Medicine", university: "Queen Mary - London", years: "2024 - 2026" },
-    { degree: "Doctor of Medicine (MD)", university: "Universitas Padjadjaran", years: "2006 - 2012" },
-    { degree: "Master's Degree, Business & Management", university: "Universitas Pelita Harapan", years: "2017 - 2019" },
-    { degree: "Diploma in Aesthetic Medicine", university: "American Academy of Aesthetic Medicine", years: "International" },
+  { degree: "Master of Science in Aesthetic Medicine", university: "Queen Mary - London", years: "2024 - 2026" },
+  { degree: "Doctor of Medicine (MD)", university: "Universitas Padjadjaran", years: "2006 - 2012" },
+  { degree: "Master's Degree, Business & Management", university: "Universitas Pelita Harapan", years: "2017 - 2019" },
+  { degree: "Diploma in Aesthetic Medicine", university: "American Academy of Aesthetic Medicine", years: "International" },
 ];
 
 const experiences = [
-    { role: "CoolSculpting Medical Trainer", years: "2022 - Present" },
-    { role: "Head Doctor - QuickGlam Clinic Kemang", years: "2023 - Present" },
-    { role: "Scientific Researcher", years: "2021 - Present" },
-    { role: "Head Doctor - De Vie Medical Aesthetics", years: "2021 - 2023" },
-    { role: "Medical Doctor - Jakarta Aesthetic Clinic", years: "2015 - 2021" },
-    { role: "Medical Doctor - Impressions Aesthetic Clinic", years: "2013 - 2015" },
+  { role: "CoolSculpting Medical Trainer", years: "2022 - Present" },
+  { role: "Head Doctor - QuickGlam Clinic Kemang", years: "2023 - Present" },
+  { role: "Scientific Researcher", years: "2021 - Present" },
+  { role: "Head Doctor - De Vie Medical Aesthetics", years: "2021 - 2023" },
+  { role: "Medical Doctor - Jakarta Aesthetic Clinic", years: "2015 - 2021" },
+  { role: "Medical Doctor - Impressions Aesthetic Clinic", years: "2013 - 2015" },
 ];
 
 const personSchema = {
@@ -146,7 +146,7 @@ export default function MeetTheDoctorPage() {
       <SectionWrapper className="bg-secondary/30 pt-24 md:pt-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square md:aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
-          <Image
+            <Image
               src="/images/draldisanew.jpg"
               alt="dr. Olivia Aldisa, Founder of Altruva"
               width={500}
@@ -156,8 +156,8 @@ export default function MeetTheDoctorPage() {
             />
           </div>
           <div className="space-y-6">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary">dr. Olivia Aldisa, dipl. AAAM</h1>
-            <h2 className="text-xl font-semibold text-accent">A Rising Star in Indonesia's Aesthetics Medicine</h2>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary">dr. Olivia Aldisa, MSc Aesthetic Med. (UK)</h1>
+            <h2 className="text-xl font-semibold text-accent">A Rising Star in Indonesia’s Aesthetic Medicine</h2>
             <DoctorBio />
             <div className="flex flex-wrap items-center gap-3">
               <Button asChild size="lg">
@@ -188,63 +188,63 @@ export default function MeetTheDoctorPage() {
 
       <KeyExpertise />
 
-       <SectionWrapper id="career-highlights">
+      <SectionWrapper id="career-highlights">
         <PageTitle
           title="Medical Career Highlights"
           subtitle="A journey of continuous learning and leadership in aesthetic medicine."
         />
         <div className="grid lg:grid-cols-2 gap-12">
-            <Card id="education" className="shadow-lg scroll-mt-28">
-                <CardHeader>
-                    <h3 className="flex items-center font-serif text-2xl text-primary"><GraduationCap className="mr-3" />Education</h3>
-                </CardHeader>
-                <CardContent>
-                    <ul className="space-y-4">
-                        {education.map(edu => (
-                            <li key={edu.degree}>
-                                <h4 className="font-semibold text-lg text-foreground">{edu.degree}</h4>
-                                <p className="text-muted-foreground">{edu.university} ({edu.years})</p>
-                            </li>
-                        ))}
-                    </ul>
-                </CardContent>
-            </Card>
-            <Card id="experience" className="shadow-lg scroll-mt-28">
-                <CardHeader>
-                    <h3 className="flex items-center font-serif text-2xl text-primary"><Briefcase className="mr-3" />Experience</h3>
-                </CardHeader>
-                <CardContent>
-                     <ul className="space-y-4">
-                        {experiences.map(exp => (
-                            <li key={exp.role}>
-                                <h4 className="font-semibold text-lg text-foreground">{exp.role}</h4>
-                                <p className="text-muted-foreground">{exp.years}</p>
-                            </li>
-                        ))}
-                    </ul>
-                </CardContent>
-            </Card>
+          <Card id="education" className="shadow-lg scroll-mt-28">
+            <CardHeader>
+              <h3 className="flex items-center font-serif text-2xl text-primary"><GraduationCap className="mr-3" />Education</h3>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-4">
+                {education.map(edu => (
+                  <li key={edu.degree}>
+                    <h4 className="font-semibold text-lg text-foreground">{edu.degree}</h4>
+                    <p className="text-muted-foreground">{edu.university} ({edu.years})</p>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+          <Card id="experience" className="shadow-lg scroll-mt-28">
+            <CardHeader>
+              <h3 className="flex items-center font-serif text-2xl text-primary"><Briefcase className="mr-3" />Experience</h3>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-4">
+                {experiences.map(exp => (
+                  <li key={exp.role}>
+                    <h4 className="font-semibold text-lg text-foreground">{exp.role}</h4>
+                    <p className="text-muted-foreground">{exp.years}</p>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         </div>
         <div className="mt-12">
-            <Card id="certifications" className="shadow-lg scroll-mt-28">
-                 <CardHeader>
-                    <h3 className="flex items-center font-serif text-2xl text-primary"><Award className="mr-3" />Licenses &amp; Certifications</h3>
-                    <CardDescription>Committed to global standards and continuous professional development.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
-                       {certifications.map(cert => (
-                            <li key={cert} className="flex items-start">
-                                <CheckCircle className="h-5 w-5 text-accent mr-2 mt-1 shrink-0" />
-                                <span className="text-foreground/80">{cert}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </CardContent>
-            </Card>
+          <Card id="certifications" className="shadow-lg scroll-mt-28">
+            <CardHeader>
+              <h3 className="flex items-center font-serif text-2xl text-primary"><Award className="mr-3" />Licenses &amp; Certifications</h3>
+              <CardDescription>Committed to global standards and continuous professional development.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
+                {certifications.map(cert => (
+                  <li key={cert} className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-accent mr-2 mt-1 shrink-0" />
+                    <span className="text-foreground/80">{cert}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         </div>
-       </SectionWrapper>
-      
+      </SectionWrapper>
+
       <SectionWrapper className="bg-primary text-primary-foreground">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">Begin Your Regenerative Journey</h2>

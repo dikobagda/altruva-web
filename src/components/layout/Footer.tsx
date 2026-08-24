@@ -63,6 +63,7 @@ export default function Footer() {
             <ul className="space-y-2 text-center sm:text-left">
               <li><Link href="/about/meet-dr-olivia-aldisa" className="hover:text-primary transition-colors">{t({ en: 'Meet dr. Olivia Aldisa', id: 'Temui dr. Olivia Aldisa' })}</Link></li>
               <li><Link href="/about/369-harmony" className="hover:text-primary transition-colors">369 Harmony™</Link></li>
+              <li><Link href="/treatments" className="hover:text-primary transition-colors">{t({ en: 'Treatments', id: 'Perawatan' })}</Link></li>
               <li><Link href="/faq" className="hover:text-primary transition-colors">{t({ en: 'FAQ', id: 'FAQ' })}</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">{t({ en: 'Contact Us', id: 'Hubungi Kami' })}</Link></li>
               <li><Link href="/book-appointment" className="hover:text-primary transition-colors">{t({ en: 'Book Appointment', id: 'Buat Janji Temu' })}</Link></li>
