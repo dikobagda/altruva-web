@@ -45,7 +45,7 @@ const personSchema = {
   "@id": "https://altruva.co.id/about/meet-dr-olivia-aldisa#person",
   "name": "dr. Olivia Aldisa",
   "honorificPrefix": "dr.",
-  "honorificSuffix": "dipl. AAAM",
+  "honorificSuffix": "MSc Aesthetic Med. (UK)",
   "jobTitle": "Aesthetic Doctor & Clinic Founder",
   "description": "Founder and Head Doctor of Altruva Aesthetic Clinic, expert in non-surgical profiloplasty, international Key Opinion Leader and trainer for cutting-edge aesthetic technologies.",
   "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa",
