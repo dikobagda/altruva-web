@@ -144,13 +144,12 @@ export default function MeetTheDoctorPage() {
     <>
       <JsonLd schema={[profilePageSchema, personSchema, breadcrumbSchema]} />
       <SectionWrapper className="bg-secondary/30 pt-24 md:pt-32">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-square md:aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="relative aspect-square md:aspect-[4/5] rounded-lg overflow-hidden shadow-xl max-w-md mx-auto w-full">
             <Image
               src="/images/draldisanew.jpg"
               alt="dr. Olivia Aldisa, Founder of Altruva"
-              width={500}
-              height={500}
+              fill
               className="rounded-lg shadow-xl object-cover"
               priority
             />
