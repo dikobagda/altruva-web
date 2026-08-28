@@ -25,7 +25,7 @@ export const metadata = {
 };
 
 const education = [
-  { degree: "Master of Science (MSc) in Aesthetic Medicine", university: "Queen Mary - London", years: "2024 - 2026" },
+  { degree: "Master of Science (MSc) in Aesthetic Medicine", university: "Queen Mary University of London", years: "2024 - 2026" },
   { degree: "Doctor of Medicine (MD)", university: "Universitas Padjadjaran", years: "2006 - 2012" },
   { degree: "Master's Degree, Business & Management", university: "Universitas Pelita Harapan", years: "2017 - 2019" },
   { degree: "Diploma in Aesthetic Medicine", university: "American Academy of Aesthetic Medicine", years: "International" },
