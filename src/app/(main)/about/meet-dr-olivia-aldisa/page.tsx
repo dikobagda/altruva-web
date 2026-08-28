@@ -32,11 +32,11 @@ const education = [
 ];
 
 const experiences = [
-  { role: "CoolSculpting Medical Trainer", years: "2022 - Present" },
-  { role: "Head Doctor - QuickGlam Clinic Kemang", years: "2023 - Present" },
-  { role: "Scientific Researcher", years: "2021 - Present" },
+  { role: "Founder and Medical Director - Altruva Aesthetic Clinic", years: "2025 - Present" },
+  { role: "Medical Director & Head Doctor - Skinholic Clinic Pati Unus", years: "2024 - 2025" },
+  { role: "Head Doctor - QuickGlam Clinic Kemang", years: "2023 - 2024" },
   { role: "Head Doctor - De Vie Medical Aesthetics", years: "2021 - 2023" },
-  { role: "Medical Doctor - Jakarta Aesthetic Clinic", years: "2015 - 2021" },
+  { role: "Sr. Medical Doctor - Jakarta Aesthetic Clinic", years: "2015 - 2021" },
   { role: "Medical Doctor - Impressions Aesthetic Clinic", years: "2013 - 2015" },
 ];
 
@@ -210,7 +210,7 @@ export default function MeetTheDoctorPage() {
           </Card>
           <Card id="experience" className="shadow-lg scroll-mt-28">
             <CardHeader>
-              <h3 className="flex items-center font-serif text-2xl text-primary"><Briefcase className="mr-3" />Experience</h3>
+              <h3 className="flex items-center font-serif text-2xl text-primary"><Briefcase className="mr-3" />Clinical Leadership & Practice</h3>
             </CardHeader>
             <CardContent>
               <ul className="space-y-4">
