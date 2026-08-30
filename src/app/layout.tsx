@@ -162,7 +162,7 @@ const organizationSchema = {
   "url": "https://altruva.co.id",
   "logo": "https://altruva.co.id/images/logoaltruvanew.webp",
   "image": "https://altruva.co.id/images/herobackground-new.png",
-  "description": "Premier regenerative and aesthetic treatments clinic in Kebayoran Baru, Jakarta Selatan. Specializing in non-invasive procedures like Sofwave, EmSculpt Neo, and Gouri, led by dr. Olivia Aldisa.",
+  "description": "Klinik estetika premium di Jakarta Selatan untuk wajah kencang alami tanpa operasi. Sofwave, EmSculpt Neo, Gouri, dan regenerative treatment dr. Olivia Aldisa.",
   "sameAs": [
     "https://www.instagram.com/altruvaclinic/",
     "https://www.linkedin.com/in/droliviaaldisa"

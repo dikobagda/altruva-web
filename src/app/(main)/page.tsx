@@ -1,6 +1,8 @@
 
 import type { Metadata } from 'next';
+import JsonLd from '@/components/shared/JsonLd';
 import HomePage from '@/components/home/HomePage';
+import { faqCategories } from '@/lib/data/faqs';
 
 const siteUrl = 'https://altruva.co.id';
 
@@ -37,6 +39,27 @@ export const metadata: Metadata = {
   },
 };
 
+const faqSchema = {
+  '@type': 'FAQPage',
+  '@id': 'https://altruva.co.id/#faqpage',
+  mainEntity: faqCategories.flatMap((category) =>
+    category.items.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question.id,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer.id,
+      },
+    }))
+  ),
+};
+
 export default function Page() {
-  return <HomePage />;
+  return (
+    <>
+      <JsonLd schema={faqSchema} />
+      <HomePage />
+    </>
+  );
 }
+
