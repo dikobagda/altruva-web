@@ -158,10 +158,10 @@ const navItems: NavItem[] = [
       { href: '/treatments/altruva-hydraglow-facial', label: { en: 'Altruva HydraGlow Facial', id: 'Altruva HydraGlow Facial' } },
     ],
   },
+  { href: '/blog', label: { en: 'Blog', id: 'Blog' } },
   {
     label: { en: 'Publications', id: 'Publikasi' },
     subItems: [
-      { href: '/blog', label: { en: 'Blog', id: 'Blog' } },
       { href: '/beauty-journal', label: { en: 'Beauty Journal', id: 'Jurnal Kecantikan' } },
       { href: '/news-media', label: { en: 'News & Media', id: 'Berita & Media' } },
     ],

@@ -23,6 +23,13 @@ export function slugify(text: string): string {
 export const rawPressFeatures = [
   // 1. Articles with dates (newest first)
   {
+    publication: 'Aestheticplusonline.com',
+    date: '2026-08-31',
+    title: 'Gandeng JULÄINE™, Altruva Aesthetic Clinic Hadirkan The Art of Presence untuk Perempuan Eksekutif',
+    link: 'https://www.aestheticplusonline.com/2026/08/31/gandeng-julaine-altruva-aesthetic-clinic-hadirkan-the-art-of-presence-untuk-perempuan-eksekutif/',
+    type: 'article'
+  },
+  {
     publication: 'Kompas.com',
     date: '2026-04-21',
     title: 'Cara Efektif Merangsang Produksi Kolagen di Usia 40-an',
