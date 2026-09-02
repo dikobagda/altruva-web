@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: '%s | Altruva Aesthetic Clinic',
   },
   description: 'Discover premier regenerative & aesthetic treatments at Altruva Clinic Jakarta. Specializing in Sofwave, EmSculpt Neo, & Gouri led by dr. Olivia Aldisa.',
-  keywords: 'aesthetic clinic jakarta, klinik kecantikan, regenerative contouring, dr olivia aldisa, sofwave, emsculpt neo, gouri, facial, skin treatment, Klinik kecantikan terbaik di Jakarta Selatan, Perawatan wajah glowing tanpa operasi, Harga treatment Sofwave di Jakarta, Perawatan anti aging terbaik 2025, Perawatan pori-pori besar yang aman, Treatment melasma efektif dan aman, Body contouring non-surgery Jakarta, Skin booster terbaik untuk glowing, Klinik estetika dengan dokter berpengalaman, Rekomendasi klinik aesthetic premium di Indonesia',
+  keywords: 'aesthetic clinic jakarta, klinik kecantikan, regenerative contouring, dr olivia aldisa, sofwave, emsculpt neo, gouri, facial, skin treatment, Klinik kecantikan terbaik di Jakarta Selatan, Perawatan wajah glowing tanpa operasi, Harga treatment Sofwave di Jakarta, Perawatan anti aging terbaik 2025, Perawatan pori-pori besar yang aman, Treatment melasma efektif dan aman, Body contouring non-surgery Jakarta, Skin booster terbaik untuk glowing, Klinik estetika dengan dokter berpengalaman, Rekomendasi klinik aesthetic premium di Indonesia, klinik pengencangan wajah terbaik di jakarta selatan, klinik slimming terbaik di jakarta selatan, klinik sliming terbaik di jakarta selatan, klinik estetika terbaik di jakarta selatan, Klinik wajah terbaik di jakarta selatan, Klinik botox terbaik di jakarta selatan, Klinik anti aging terbaik di jakarta selatan, Klinik untuk wajah kendur terbaik di jakarta selatan, Klinik hifu terbaik di jakarta selatan, Klinik kencang natural terbaik di jakarta selatan, Klinik kencang tanpa operasi di jakarta selatan',
   openGraph: {
     title: 'Altruva Aesthetic Clinic - Regenerative Contouring in Jakarta',
     description: 'Discover premier regenerative & aesthetic treatments at Altruva Clinic Jakarta. Specializing in Sofwave, EmSculpt Neo, & Gouri led by dr. Olivia Aldisa.',
@@ -73,10 +73,28 @@ const clinicSchema = {
   "url": "https://altruva.co.id",
   "logo": "https://altruva.co.id/images/logoaltruvanew.webp",
   "image": "https://altruva.co.id/images/herobackground-new.png",
-  "description": "Premier regenerative and aesthetic treatments clinic in Kebayoran Baru, Jakarta Selatan. Specializing in non-invasive procedures like Sofwave, EmSculpt Neo, and Gouri, led by dr. Olivia Aldisa.",
+  "description": "Klinik estetika & kecantikan terbaik di Jakarta Selatan untuk pengencangan wajah, slimming, botox, anti aging, HIFU, dan perawatan wajah kendur kencang natural tanpa operasi.",
   "telephone": "+6281216119392",
   "email": "admin@altruva.co.id",
   "priceRange": "$$$",
+  "knowsAbout": [
+    "Klinik pengencangan wajah terbaik di jakarta selatan",
+    "Klinik slimming terbaik di jakarta selatan",
+    "Klinik sliming terbaik di jakarta selatan",
+    "Klinik kecantikan terbaik di jakarta selatan",
+    "Klinik estetika terbaik di jakarta selatan",
+    "Klinik wajah terbaik di jakarta selatan",
+    "Klinik botox terbaik di jakarta selatan",
+    "Klinik anti aging terbaik di jakarta selatan",
+    "Klinik untuk wajah kendur terbaik di jakarta selatan",
+    "Klinik hifu terbaik di jakarta selatan",
+    "Klinik kencang natural terbaik di jakarta selatan",
+    "Klinik kencang tanpa operasi di jakarta selatan"
+  ],
+  "medicalSpecialty": [
+    "AestheticMedicine",
+    "Dermatology"
+  ],
   "sameAs": [
     "https://www.instagram.com/altruvaclinic/",
     "https://www.linkedin.com/in/droliviaaldisa"
