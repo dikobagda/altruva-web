@@ -937,7 +937,7 @@ export const services: Service[] = [
     imageHint: 'biostimulator injection',
     group: 'Altruva Lift',
     groupDescription: { en: 'A sculpted face begins with structural integrity.', id: 'Wajah terpahat dimulai dengan integritas struktural.' },
-    subgroup: 'Tightening &amp; Contouring',
+    subgroup: 'Tightening & Contouring',
     subtitle: {
       en: "The Signature Liquid Collagen Bioactivator Experience",
       id: "Pengalaman Bioaktivator Kolagen Cair Khas"
@@ -1041,7 +1041,7 @@ export const services: Service[] = [
     imageHint: 'rf skin tightening',
     group: 'Altruva Lift',
     groupDescription: { en: 'A sculpted face begins with structural integrity.', id: 'Wajah terpahat dimulai dengan integritas struktural.' },
-    subgroup: 'Tightening &amp; Contouring',
+    subgroup: 'Tightening & Contouring',
     subtitle: {
       en: 'Next-Generation Needle-Free Skin Tightening & Radiance Activation',
       id: 'Pengencangan Kulit Tanpa Jarum Generasi Berikutnya & Aktivasi Cahaya'
@@ -3505,16 +3505,85 @@ Ideal untuk pria dan wanita pada tahap awal hingga sedang penipisan atau keronto
     id: 'altruva-lift-signature',
     title: 'Altruva Lift Signature',
     description: {
-      en: 'A combination therapy for maximum lift and rejuvenation, tailored to you.',
-      id: 'Terapi kombinasi untuk pengangkatan dan peremajaan maksimal, disesuaikan untuk Anda.'
+      en: 'The pinnacle of bespoke non-surgical facial lifting, combining advanced energy-based tightening with precision bio-stimulatory contouring.',
+      id: 'Puncak dari pengencangan wajah non-bedah khusus, menggabungkan pengencangan berbasis energi canggih dengan konturing bio-stimulasi presisi.'
     },
     price: 'Price on consultation',
     category: 'Rejuvenation',
     Icon: Star,
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/images/services/altruva-lift-signature.png',
     imageHint: 'signature facelift procedure',
     group: 'Altruva Lift',
     groupDescription: { en: 'Aging is an evolution. Let’s refine the process.', id: 'Penuaan adalah evolusi. Mari kita perbaiki prosesnya.' },
-    subgroup: 'Restoration & Lifting'
+    subgroup: 'Restoration & Lifting',
+    subtitle: {
+      en: 'Customized Multi-Layer Non-Surgical Profiloplasty & Tissue Regeneration',
+      id: 'Profiloplasti Non-Bedah Multi-Layer Khusus & Regenerasi Jaringan'
+    },
+    longDescription: {
+      en: 'Altruva Lift Signature is the flagship treatment protocol at Altruva Aesthetic Clinic, meticulously curated by dr. Olivia Aldisa. Designed for individuals seeking comprehensive, structural facial rejuvenation without surgery or extended downtime, this treatment synergistically combines state-of-the-art energy-based lifting (Sofwave / Exion RF) with targeted regenerative bio-stimulators (Gouri / PCL) and dermal matrix restorers.<br/><br/>By addressing all layers of facial aging—from deep structural support down to surface skin elasticity—Altruva Lift Signature restores natural contours, tightens sagging tissue, and activates long-term neocollagenesis for timeless, harmonious beauty.',
+      id: 'Altruva Lift Signature adalah protokol perawatan unggulan di Altruva Aesthetic Clinic, yang dikurasi secara cermat oleh dr. Olivia Aldisa. Dirancang untuk individu yang menginginkan peremajaan wajah struktural secara menyeluruh tanpa operasi atau waktu henti yang lama, perawatan ini secara sinergis menggabungkan pengangkatan berbasis energi mutakhir (Sofwave / Exion RF) dengan bio-stimulator regeneratif bertarget (Gouri / PCL) dan pemulih matriks dermal.<br/><br/>Dengan mengatasi semua lapisan penuaan wajah—mulai dari dukungan struktural dalam hingga elastisitas permukaan kulit—Altruva Lift Signature mengembalikan kontur alami, mengencangkan jaringan yang kendur, dan mengaktifkan neokolagenesis jangka panjang untuk kecantikan yang abadi dan harmonis.'
+    },
+    quote: {
+      text: {
+        en: "True rejuvenation does not alter your unique facial features — it restores structural youth and vitality from within.",
+        id: "Peremajaan sejati tidak mengubah keunikan fitur wajah Anda — ini mengembalikan pemudaan struktural dan vitalitas dari dalam."
+      },
+      author: {
+        en: "dr. Olivia Aldisa, Expert in Regenerative Aesthetic Medicine",
+        id: "dr. Olivia Aldisa, Ahli Kedokteran Estetika Regeneratif"
+      }
+    },
+    whatIsIt: {
+      title: { en: 'What It Is', id: 'Apa Itu' },
+      description: {
+        en: 'A comprehensive multi-modality facial lifting and contouring program tailored individually after an in-depth AI skin analysis and doctor consultation. It harmonizes energy-based collagen remodeling with liquid bio-stimulation to redefine jawline definition, lift mid-face volume, and restore cheekbone contours naturally.',
+        id: 'Program pengangkatan dan konturing wajah multi-modalitas komprehensif yang disesuaikan secara individual setelah analisis kulit AI yang mendalam dan konsultasi dokter. Ini menyelaraskan pemodelan ulang kolagen berbasis energi dengan bio-stimulasi cair untuk mendefinisikan kembali garis rahang, mengangkat volume wajah bagian tengah, dan mengembalikan kontur tulang pipi secara alami.'
+      }
+    },
+    mechanism: [
+      {
+        title: { en: 'Deep Structural Ultrasound / RF Remodeling', id: 'Pemodelan Ulang USG / RF Struktural Dalam' },
+        description: {
+          en: 'Delivers precise thermal coagulation zones into the mid-to-deep dermis, contracting lax fibers and triggering immediate collagen contraction.',
+          id: 'Memberikan zona koagulasi termal yang presisi ke dalam dermis tengah hingga dalam, mengencangkan serat yang kendur dan memicu kontraksi kolagen seketika.'
+        }
+      },
+      {
+        title: { en: 'Targeted Regenerative Bio-Stimulation', id: 'Bio-Stimulasi Regeneratif Bertarget' },
+        description: {
+          en: 'Spreads liquid bio-stimulators to continuously generate Type I & III collagen, restoring loss of structural density and elasticity.',
+          id: 'Menyebarkan bio-stimulator cair untuk secara terus menerus menghasilkan Kolagen Tipe I & III, mengembalikan kepadatan struktural dan elastisitas yang hilang.'
+        }
+      },
+      {
+        title: { en: 'Profiloplasty & Line Refinement', id: 'Profiloplasti & Penyelarasan Garis Wajah' },
+        description: {
+          en: 'Sculpts the lower face, refines nasolabial folds, and lifts submental tissue for a sharp, natural jawline and refined profile.',
+          id: 'Membentuk wajah bagian bawah, menyempurnakan lipatan nasolabial, dan mengangkat jaringan submental untuk garis rahang yang tegas dan profil alami.'
+        }
+      }
+    ],
+    benefits: [
+      { en: 'Comprehensive 3D non-surgical face lifting', id: 'Pengangkatan wajah non-bedah 3D yang komprehensif' },
+      { en: 'Restores volume loss and tightens sagging tissue', id: 'Mengembalikan volume yang hilang dan mengencangkan jaringan kendur' },
+      { en: 'Stimulates long-term natural collagen production', id: 'Merangsang produksi kolagen alami jangka panjang' },
+      { en: 'Refines jawline, cheekbones, and facial profile', id: 'Meringkas garis rahang, tulang pipi, dan profil wajah' },
+      { en: 'Natural results without over-filled appearance', id: 'Hasil alami tanpa penampilan yang berlebihan (over-filled)' },
+      { en: 'Minimal downtime with immediate structural improvement', id: 'Waktu henti minimal dengan peningkatan struktural seketika' }
+    ],
+    protocol: [
+      { label: { en: 'Duration', id: 'Durasi' }, value: { en: '90–120 minutes', id: '90–120 menit' } },
+      { label: { en: 'Discomfort', id: 'Ketidaknyamanan' }, value: { en: 'Mild to moderate – topical numbing applied', id: 'Ringan hingga sedang – anestesi topikal diterapkan' } },
+      { label: { en: 'Sessions', id: 'Sesi' }, value: { en: 'Customized protocol (1–2 main sessions)', id: 'Protokol khusus (1–2 sesi utama)' } },
+      { label: { en: 'Maintenance', id: 'Pemeliharaan' }, value: { en: 'Once every 12–18 months', id: 'Sekali setiap 12–18 bulan' } },
+      { label: { en: 'Downtime', id: 'Waktu Henti' }, value: { en: '1–2 days of mild redness/swelling', id: '1–2 hari kemerahan/bengkak ringan' } }
+    ],
+    whyLoveIt: [
+      { en: 'Tailored specifically by dr. Olivia Aldisa for your unique facial anatomy', id: 'Disesuaikan secara khusus oleh dr. Olivia Aldisa untuk anatomi wajah unik Anda' },
+      { en: 'Combines FDA-cleared technologies with premium bio-stimulators', id: 'Menggabungkan teknologi terdaftar FDA dengan bio-stimulator premium' },
+      { en: 'Restores youthfulness while preserving original facial character', id: 'Mengembalikan keremajaan sambil mempertahankan karakter wajah asli' },
+      { en: 'Progressive improvement that peaks between 2–6 months', id: 'Peningkatan bertahap yang mencapai puncak antara 2–6 bulan' }
+    ]
   }
 ];
