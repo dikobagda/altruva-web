@@ -10,7 +10,8 @@ import {
   Plus, Edit, Trash2, ExternalLink, LogOut, Search,
   Eye, TrendingUp, FileText, ArrowUpDown, BarChart2, Users, Copy, Calendar, CheckCircle, XCircle, Clock, MessageCircle, MousePointerClick, RefreshCw,
   Monitor, Smartphone, Tablet, Globe, Hourglass, ArrowUpRight, ArrowDownRight,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Activity
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import {
@@ -21,6 +22,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
 import {
   ResponsiveContainer,
   AreaChart,
@@ -150,7 +153,7 @@ type SortKey = 'title' | 'date' | 'view_count' | 'views_7d' | 'read_time';
 export default function DashboardPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
-  const [activeTab, setActiveTab] = useState<'articles' | 'appointments' | 'whatsapp' | 'ga4'>('ga4');
+  const [activeTab, setActiveTab] = useState<'articles' | 'appointments' | 'whatsapp' | 'ga4' | 'internal_analytics'>('ga4');
   const [deleteTargetSlug, setDeleteTargetSlug] = useState<string | null>(null);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [appointmentToDelete, setAppointmentToDelete] = useState<number | null>(null);
@@ -176,6 +179,15 @@ export default function DashboardPage() {
   const [ga4DateFrom, setGa4DateFrom] = useState('');
   const [ga4DateTo, setGa4DateTo] = useState('');
 
+  // Internal Analytics States
+  const [internalData, setInternalData] = useState<GA4Data | null>(null);
+  const [internalLoading, setInternalLoading] = useState(false);
+  const [internalError, setInternalError] = useState<string | null>(null);
+  const [internalPreset, setInternalPreset] = useState<'today' | 'yesterday' | '7daysAgo' | '30daysAgo' | 'custom'>('today');
+  const [internalDateFrom, setInternalDateFrom] = useState('');
+  const [internalDateTo, setInternalDateTo] = useState('');
+  const [internalTrackingEnabled, setInternalTrackingEnabled] = useState(true);
+
   // Google Sheets export states
   const [sheetSyncing, setSheetSyncing] = useState(false);
   const [sheetStatus, setSheetStatus] = useState<{ ok: boolean; message: string } | null>(null);
@@ -199,6 +211,37 @@ export default function DashboardPage() {
       }
     }
   }, [activeTab, ga4Preset]);
+
+  // Fetch settings on mount
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const res = await fetch('/api/settings?keys=internal_analytics_enabled');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.settings && data.settings.internal_analytics_enabled !== undefined) {
+            setInternalTrackingEnabled(data.settings.internal_analytics_enabled === 'true');
+          }
+        }
+      } catch (e) {
+        console.error('Failed to fetch settings', e);
+      }
+    };
+    fetchSettings();
+  }, []);
+
+  const handleToggleInternalTracking = async (checked: boolean) => {
+    setInternalTrackingEnabled(checked);
+    try {
+      await fetch('/api/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ settings: { internal_analytics_enabled: checked ? 'true' : 'false' } })
+      });
+    } catch (e) {
+      console.error('Failed to update settings', e);
+    }
+  };
 
   const fetchGa4Data = async (forceFrom?: string, forceTo?: string) => {
     setGa4Loading(true);
@@ -252,6 +295,69 @@ export default function DashboardPage() {
   useEffect(() => {
     fetchData();
   }, []);
+
+
+  // Fetch Internal data when tab is active or preset changes
+  useEffect(() => {
+    if (activeTab === 'internal_analytics') {
+      if (internalPreset !== 'custom') {
+        fetchInternalData();
+      } else if (internalDateFrom && internalDateTo) {
+        fetchInternalData();
+      } else if (!internalData) {
+        fetchInternalData('30daysAgo', 'today');
+      }
+    }
+  }, [activeTab, internalPreset]);
+
+  const fetchInternalData = async (forceFrom?: string, forceTo?: string) => {
+    setInternalLoading(true);
+    setInternalError(null);
+    try {
+      let from = '30daysAgo';
+      let to = 'today';
+
+      if (forceFrom !== undefined && forceTo !== undefined) {
+        from = forceFrom;
+        to = forceTo;
+      } else if (internalPreset === 'today') {
+        from = 'today';
+        to = 'today';
+      } else if (internalPreset === 'yesterday') {
+        from = 'yesterday';
+        to = 'yesterday';
+      } else if (internalPreset === '7daysAgo') {
+        from = '7daysAgo';
+        to = 'today';
+      } else if (internalPreset === 'custom') {
+        if (!internalDateFrom || !internalDateTo) {
+          from = '30daysAgo';
+          to = 'today';
+        } else {
+          from = internalDateFrom;
+          to = internalDateTo;
+        }
+      }
+
+      const params = new URLSearchParams();
+      params.set('from', from);
+      params.set('to', to);
+
+      const res = await fetch("/api/analytics/internal?" + params.toString());
+      if (res.ok) {
+        const data = await res.json();
+        setInternalData(data);
+      } else {
+        const errorData = await res.json().catch(() => ({ error: 'Failed to parse response' }));
+        setInternalError(errorData.error || 'Failed to fetch Internal analytics.');
+      }
+    } catch (e) {
+      console.error('Failed to fetch Internal analytics:', e);
+      setInternalError('An unexpected error occurred while fetching Internal data.');
+    } finally {
+      setInternalLoading(false);
+    }
+  };
 
   const syncToSheets = async () => {
     setSheetSyncing(true);
@@ -458,10 +564,10 @@ export default function DashboardPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="font-serif text-3xl font-bold text-primary">
-              {activeTab === 'ga4' ? 'Google Analytics (GA4)' : activeTab === 'articles' ? 'Blog Articles' : activeTab === 'whatsapp' ? 'WhatsApp Analytics' : 'Appointments'}
+              {activeTab === 'ga4' ? 'Google Analytics (GA4)' : activeTab === 'internal_analytics' ? 'Internal Analytics' : activeTab === 'articles' ? 'Blog Articles' : activeTab === 'whatsapp' ? 'WhatsApp Analytics' : 'Appointments'}
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
-              {activeTab === 'ga4'
+              {activeTab === 'ga4' || activeTab === 'internal_analytics'
                 ? 'Website traffic, trends, and visitor demographics'
                 : activeTab === 'articles'
                 ? `${blogs.length} articles · Manage and track your content`
@@ -478,29 +584,43 @@ export default function DashboardPage() {
             >
               <RefreshCw className="mr-2 h-4 w-4" /> Refresh
             </Button>
-          ) : activeTab === 'ga4' ? (
+          ) : activeTab === 'ga4' || activeTab === 'internal_analytics' ? (
             <div className="flex items-center gap-2">
-              <Button
-                variant="outline"
-                onClick={() => syncToSheets()}
-                className="text-primary border-primary/30 hover:bg-primary/5"
-                disabled={sheetSyncing}
-              >
-                {sheetSyncing ? (
-                  <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <FileSpreadsheet className="mr-2 h-4 w-4" />
-                )}
-                {sheetSyncing ? 'Mengirim...' : 'Kirim ke Google Sheets'}
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => fetchGa4Data()}
-                className="text-primary border-primary/30 hover:bg-primary/5"
-                disabled={ga4Loading}
-              >
-                <RefreshCw className={`mr-2 h-4 w-4 ${ga4Loading ? 'animate-spin' : ''}`} /> Refresh GA4
-              </Button>
+              {activeTab === 'internal_analytics' && (
+                <Button
+                  variant="outline"
+                  onClick={() => fetchInternalData()}
+                  className="text-primary border-primary/30 hover:bg-primary/5"
+                  disabled={internalLoading}
+                >
+                  <RefreshCw className={`mr-2 h-4 w-4 ${internalLoading ? 'animate-spin' : ''}`} /> Refresh Data
+                </Button>
+              )}
+              {activeTab === 'ga4' && (
+                <Button
+                  variant="outline"
+                  onClick={() => syncToSheets()}
+                  className="text-primary border-primary/30 hover:bg-primary/5"
+                  disabled={sheetSyncing}
+                >
+                  {sheetSyncing ? (
+                    <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
+                  ) : (
+                    <FileSpreadsheet className="mr-2 h-4 w-4" />
+                  )}
+                  {sheetSyncing ? 'Mengirim...' : 'Kirim ke Google Sheets'}
+                </Button>
+              )}
+              {activeTab === 'ga4' && (
+                <Button
+                  variant="outline"
+                  onClick={() => fetchGa4Data()}
+                  className="text-primary border-primary/30 hover:bg-primary/5"
+                  disabled={ga4Loading}
+                >
+                  <RefreshCw className={`mr-2 h-4 w-4 ${ga4Loading ? 'animate-spin' : ''}`} /> Refresh GA4
+                </Button>
+              )}
             </div>
           ) : activeTab === 'articles' ? (
             <Button asChild className="bg-primary text-primary-foreground font-semibold">
@@ -527,6 +647,12 @@ export default function DashboardPage() {
 
         {/* Navigation Tabs */}
         <div className="flex flex-wrap border-b border-slate-200 mb-6 gap-2">
+          <button
+            onClick={() => { setActiveTab('internal_analytics'); setSearchTerm(''); setCurrentPage(1); }}
+            className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'internal_analytics' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          >
+            <Activity className="h-4 w-4" /> Internal Analytics
+          </button>
           <button
             onClick={() => { setActiveTab('ga4'); setSearchTerm(''); setCurrentPage(1); }}
             className={`px-4 py-2.5 font-serif text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${activeTab === 'ga4' ? 'border-primary text-primary' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
@@ -1148,6 +1274,455 @@ export default function DashboardPage() {
                 </div>
                   </>
                 )}
+              </div>
+            );
+          })()
+        ) : activeTab === 'internal_analytics' ? (
+          /* Internal Analytics Tab View */
+          (() => {
+            if (internalLoading) {
+              return (
+                <div className="flex flex-col items-center justify-center py-24 text-muted-foreground">
+                  <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary mb-4" />
+                  <p className="text-sm">Fetching real-time report from Internal Analytics Tracker...</p>
+                </div>
+              );
+            }
+
+            if (internalError) {
+              return (
+                <Card className="bg-red-50/50 border-red-200/60 p-6 text-center">
+                  <div className="max-w-md mx-auto py-8">
+                    <XCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
+                    <h3 className="font-serif text-lg font-bold text-slate-800 mb-2">Internal Integration Error</h3>
+                    <p className="text-sm text-slate-600 mb-6">{internalError}</p>
+                    <p className="text-xs text-slate-500 mb-4">
+                      Please check that your service account credentials and project configurations are correctly defined in your environment variables (`Internal_PROPERTY_ID`, `GCS_CLIENT_EMAIL`, and `GCS_PRIVATE_KEY_BASE64`).
+                    </p>
+                    <Button onClick={() => fetchInternalData()} variant="outline" className="border-red-200 text-red-700 hover:bg-red-50">
+                      <RefreshCw className="mr-2 h-4 w-4" /> Try Again
+                    </Button>
+                  </div>
+                </Card>
+              );
+            }
+
+            if (!internalData) {
+              return (
+                <div className="text-center py-16 text-muted-foreground">
+                  <BarChart2 className="h-10 w-10 mx-auto mb-3 opacity-40" />
+                  <p>No Google Analytics data retrieved.</p>
+                </div>
+              );
+            }
+
+            const calculateChange = (current: number, previous: number) => {
+              if (!previous) return { text: '--', up: true, val: 0 };
+              const diff = current - previous;
+              const pct = (diff / previous) * 100;
+              return {
+                text: `${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%`,
+                up: pct >= 0,
+                val: Math.abs(pct)
+              };
+            };
+
+            const formatDuration = (seconds: number) => {
+              const m = Math.floor(seconds / 60);
+              const s = Math.round(seconds % 60);
+              return `${m}m ${s}s`;
+            };
+
+            const userChange = calculateChange(internalData.current.activeUsers, internalData.previous.activeUsers);
+            const newUserChange = calculateChange(internalData.current.newUsers, internalData.previous.newUsers);
+            const viewChange = calculateChange(internalData.current.pageViews, internalData.previous.pageViews);
+            const sessionChange = calculateChange(internalData.current.sessions, internalData.previous.sessions);
+            const durationChange = calculateChange(internalData.current.avgSessionDuration, internalData.previous.avgSessionDuration);
+
+            // Device category helper
+            const totalDevices = internalData.devices.reduce((acc, d) => acc + d.users, 0);
+
+            // Filter Top Pages by search term if exists
+            const filteredPages = internalData.topPages.filter(p =>
+              p.path.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            return (
+              <div className="space-y-8 animate-in fade-in duration-300">
+                {/* Date range filter card */}
+                <Card className="bg-white border-slate-200">
+                  <CardContent className="px-6 py-4">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                      {/* Preset Select */}
+                      <div className="flex items-center gap-3">
+                        <Calendar className="h-4 w-4 text-slate-400" />
+                        <span className="text-sm font-medium text-slate-600">Period</span>
+                        <select
+                          value={internalPreset}
+                          onChange={(e) => setInternalPreset(e.target.value as any)}
+                          className="bg-white border border-slate-200 rounded-md px-3 py-1.5 text-sm text-slate-700 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                        >
+                          <option value="today">Today</option>
+                          <option value="yesterday">Yesterday</option>
+                          <option value="7daysAgo">Last 7 Days</option>
+                          <option value="30daysAgo">Last 30 Days</option>
+                          <option value="custom">Custom Date Range</option>
+                        </select>
+                      </div>
+
+                      {/* Custom inputs */}
+                      {internalPreset === 'custom' && (
+                        <div className="flex flex-wrap items-center gap-2 animate-in fade-in slide-in-from-left-2 duration-200">
+                          <input
+                            type="date"
+                            value={internalDateFrom}
+                            onChange={(e) => setInternalDateFrom(e.target.value)}
+                            className="bg-white border border-slate-200 rounded-md px-3 py-1.5 text-sm text-slate-700 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                          />
+                          <span className="text-slate-400 text-sm">to</span>
+                          <input
+                            type="date"
+                            value={internalDateTo}
+                            onChange={(e) => setInternalDateTo(e.target.value)}
+                            className="bg-white border border-slate-200 rounded-md px-3 py-1.5 text-sm text-slate-700 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
+                          />
+                          <Button
+                            size="sm"
+                            className="h-8"
+                            onClick={() => { fetchInternalData(); }}
+                          >
+                            Apply
+                          </Button>
+                        </div>
+                      )}
+                      
+                      {/* Tracking Toggle */}
+                      <div className="flex items-center space-x-2 md:ml-auto pt-4 md:pt-0">
+                        <Switch
+                          id="internal-tracking"
+                          checked={internalTrackingEnabled}
+                          onCheckedChange={handleToggleInternalTracking}
+                        />
+                        <Label htmlFor="internal-tracking" className="text-sm font-medium text-slate-600 cursor-pointer">
+                          {internalTrackingEnabled ? 'Tracking Active' : 'Tracking Paused'}
+                        </Label>
+                      </div>
+                    </div>
+
+                    {sheetStatus && (
+                      <div className={`mt-3 text-sm rounded-md px-3 py-2 flex items-start gap-2 ${
+                        sheetStatus.ok ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'
+                      }`}>
+                        {sheetStatus.ok
+                          ? <CheckCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                          : <XCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />}
+                        <span>{sheetStatus.message}</span>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+
+                {/* Metric Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {/* Users */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <Users className="h-3.5 w-3.5" /> Active Users
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${userChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {userChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {userChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{internalData.current.activeUsers.toLocaleString()}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {internalData.previous.activeUsers.toLocaleString()} last period</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* New Users */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <Users className="h-3.5 w-3.5" /> New Users
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${newUserChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {newUserChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {newUserChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{internalData.current.newUsers.toLocaleString()}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {internalData.previous.newUsers.toLocaleString()} last period</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Views */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <Eye className="h-3.5 w-3.5" /> Page Views
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${viewChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {viewChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {viewChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{internalData.current.pageViews.toLocaleString()}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {internalData.previous.pageViews.toLocaleString()} last period</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Sessions */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <BarChart2 className="h-3.5 w-3.5" /> Sessions
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${sessionChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {sessionChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {sessionChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{internalData.current.sessions.toLocaleString()}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {internalData.previous.sessions.toLocaleString()} last period</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Avg Session Duration */}
+                  <Card className="bg-white border-slate-200">
+                    <CardHeader className="pb-1 pt-4 px-4 flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-xs text-slate-500 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                        <Hourglass className="h-3.5 w-3.5" /> Session Duration
+                      </CardTitle>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center ${durationChange.up ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`}>
+                        {durationChange.up ? <ArrowUpRight className="h-3 w-3 mr-0.5" /> : <ArrowDownRight className="h-3 w-3 mr-0.5" />}
+                        {durationChange.text}
+                      </span>
+                    </CardHeader>
+                    <CardContent className="px-4 pb-4">
+                      <p className="text-3xl font-bold text-primary">{formatDuration(internalData.current.avgSessionDuration)}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">vs {formatDuration(internalData.previous.avgSessionDuration)} last period</p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Daily Trend Chart */}
+                <Card className="bg-white border-slate-200 shadow-sm overflow-hidden">
+                  <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100 flex flex-row items-center justify-between">
+                    <CardTitle className="text-sm font-semibold text-slate-800">Traffic Trend (Last 30 Days)</CardTitle>
+                    <div className="flex items-center gap-4 text-xs font-medium">
+                      <span className="flex items-center gap-1.5 text-[#3b82f6]"><span className="h-2.5 w-2.5 rounded-full bg-[#3b82f6] inline-block" /> Page Views</span>
+                      <span className="flex items-center gap-1.5 text-[#8b5cf6]"><span className="h-2.5 w-2.5 rounded-full bg-[#8b5cf6] inline-block" /> Active Users</span>
+                      <span className="flex items-center gap-1.5 text-[#10b981]"><span className="h-2.5 w-2.5 rounded-full bg-[#10b981] inline-block" /> New Users</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="px-6 py-6">
+                    <div className="h-[300px] w-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <AreaChart data={internalData.trend} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                          <defs>
+                            <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.2}/>
+                              <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                            </linearGradient>
+                            <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.2}/>
+                              <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0}/>
+                            </linearGradient>
+                            <linearGradient id="colorNewUsers" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#10b981" stopOpacity={0.2}/>
+                              <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                            </linearGradient>
+                          </defs>
+                          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                          <XAxis dataKey="date" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
+                          <YAxis stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
+                          <ChartTooltip contentStyle={{ borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+                          <Area type="monotone" dataKey="pageViews" name="Page Views" stroke="#3b82f6" strokeWidth={2.5} fillOpacity={1} fill="url(#colorViews)" />
+                          <Area type="monotone" dataKey="activeUsers" name="Active Users" stroke="#8b5cf6" strokeWidth={2.5} fillOpacity={1} fill="url(#colorUsers)" />
+                          <Area type="monotone" dataKey="newUsers" name="New Users" stroke="#10b981" strokeWidth={2.5} fillOpacity={1} fill="url(#colorNewUsers)" />
+                        </AreaChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Sub panels Row 1: Cities & Sources */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Top Cities */}
+                  <Card className="bg-white border-slate-200 shadow-sm lg:col-span-2">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800 flex items-center justify-between">
+                        <span>Top Visitor Locations (Cities)</span>
+                        <span className="text-xs font-normal text-slate-400">by active users</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <div className="max-h-[350px] overflow-y-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50 border-b border-slate-100 text-xs font-medium text-slate-400 uppercase tracking-wider sticky top-0">
+                            <tr>
+                              <th className="px-6 py-3 text-left">City</th>
+                              <th className="px-6 py-3 text-right">Active Users</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            {internalData.cities.map((city, idx) => (
+                              <tr key={city.city + idx} className="hover:bg-slate-50/50">
+                                <td className="px-6 py-3 font-medium text-slate-700 flex items-center gap-2">
+                                  <Globe className="h-3.5 w-3.5 text-slate-400" />
+                                  {city.city}
+                                </td>
+                                <td className="px-6 py-3 text-right font-semibold text-slate-800">
+                                  {city.users.toLocaleString()}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Traffic Sources */}
+                  <Card className="bg-white border-slate-200 shadow-sm lg:col-span-1">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800">Traffic Source / Medium</CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <div className="max-h-[350px] overflow-y-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50 border-b border-slate-100 text-xs font-medium text-slate-400 uppercase tracking-wider sticky top-0">
+                            <tr>
+                              <th className="px-4 py-3 text-left">Source / Medium</th>
+                              <th className="px-4 py-3 text-right">Users</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            {internalData.trafficSources.map((src, idx) => (
+                              <tr key={src.source + idx} className="hover:bg-slate-50/50">
+                                <td className="px-4 py-3 text-slate-600 truncate max-w-[150px]" title={src.source}>
+                                  {src.source}
+                                </td>
+                                <td className="px-4 py-3 text-right font-semibold text-slate-800">
+                                  {src.users.toLocaleString()}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Sub panels Row 2: Pages & Devices */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Top Pages */}
+                  <Card className="bg-white border-slate-200 shadow-sm lg:col-span-2">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800 flex items-center justify-between">
+                        <span>Top Visited Pages</span>
+                        <span className="text-xs font-normal text-slate-400">{filteredPages.length} active paths</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <div className="max-h-[350px] overflow-y-auto">
+                        <table className="w-full text-sm">
+                          <thead className="bg-slate-50 border-b border-slate-100 text-xs font-medium text-slate-400 uppercase tracking-wider sticky top-0">
+                            <tr>
+                              <th className="px-6 py-3 text-left">Page Path</th>
+                              <th className="px-6 py-3 text-right">Users</th>
+                              <th className="px-6 py-3 text-right">Views</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            {filteredPages.map((page, idx) => (
+                              <tr key={page.path + idx} className="hover:bg-slate-50/50">
+                                <td className="px-6 py-3 font-mono text-xs text-slate-600 truncate max-w-[200px]" title={page.path}>
+                                  {page.path}
+                                </td>
+                                <td className="px-6 py-3 text-right font-medium text-slate-800">
+                                  {page.users.toLocaleString()}
+                                </td>
+                                <td className="px-6 py-3 text-right font-semibold text-primary">
+                                  {page.views.toLocaleString()}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Device Breakdown */}
+                  <div className="lg:col-span-1 space-y-6">
+                  <Card className="bg-white border-slate-200 shadow-sm">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800">Device Share</CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-6 py-5">
+                      <div className="space-y-4">
+                        {internalData.devices.map((dev) => {
+                          const pct = totalDevices > 0 ? (dev.users / totalDevices) * 100 : 0;
+                          const isMobile = dev.device.toLowerCase() === 'mobile';
+                          const isTablet = dev.device.toLowerCase() === 'tablet';
+                          return (
+                            <div key={dev.device} className="space-y-1.5">
+                              <div className="flex items-center justify-between text-xs font-medium text-slate-700">
+                                <span className="flex items-center gap-1.5 capitalize">
+                                  {isMobile ? <Smartphone className="h-3.5 w-3.5 text-slate-400" /> : isTablet ? <Tablet className="h-3.5 w-3.5 text-slate-400" /> : <Monitor className="h-3.5 w-3.5 text-slate-400" />}
+                                  {dev.device}
+                                </span>
+                                <span>{pct.toFixed(1)}% ({dev.users.toLocaleString()})</span>
+                              </div>
+                              <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                <div className="h-full bg-primary rounded-full" style={{ width: `${pct}%` }} />
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Browser Breakdown */}
+                  <Card className="bg-white border-slate-200 shadow-sm">
+                    <CardHeader className="px-6 pt-4 pb-2 border-b border-slate-100">
+                      <CardTitle className="text-sm font-semibold text-slate-800">Browser Share</CardTitle>
+                    </CardHeader>
+                    <CardContent className="px-6 py-5">
+                      <div className="space-y-4">
+                        {internalData.browsers.map((brs) => {
+                          const pct = internalData.current.activeUsers > 0 ? (brs.users / internalData.current.activeUsers) * 100 : 0;
+                          return (
+                            <div key={brs.browser} className="space-y-1.5">
+                              <div className="flex items-center justify-between text-xs font-medium text-slate-700">
+                                <span className="flex items-center gap-1.5">
+                                  <Globe className="h-3.5 w-3.5 text-slate-400" />
+                                  {brs.browser}
+                                </span>
+                                <span>{pct.toFixed(1)}% ({brs.users.toLocaleString()})</span>
+                              </div>
+                              <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                <div className="h-full bg-[#8b5cf6] rounded-full" style={{ width: `${pct}%` }} />
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {internalData.browsers.length === 0 && (
+                          <p className="text-xs text-slate-400">No browser data for the selected period.</p>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                  </div>
+                </div>
               </div>
             );
           })()

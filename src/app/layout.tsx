@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 
 import type { Metadata } from 'next';
 import { Libre_Baskerville, Nunito_Sans } from 'next/font/google';
@@ -8,6 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 import JsonLd from '@/components/shared/JsonLd';
 import { testimonials } from '@/lib/data/testimonials';
 import { drOliviaCredentials } from '@/lib/data/dr-olivia';
+import AnalyticsTracker from '@/components/AnalyticsTracker';
 
 import Script from 'next/script';
 
@@ -261,6 +263,9 @@ export default function RootLayout({
           nunitoSans.variable
         )}
       >
+        <Suspense fallback={null}>
+          <AnalyticsTracker />
+        </Suspense>
         <JsonLd schema={[organizationSchema, clinicSchema, websiteSchema]} />
         <NextTopLoader
           color="hsl(var(--primary))"

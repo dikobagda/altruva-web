@@ -81,6 +81,24 @@ export async function initializeDatabase() {
       )
     `);
 
+    // 1d3. Create site_analytics table for internal tracking
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS site_analytics (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        session_id VARCHAR(100),
+        path VARCHAR(255) NOT NULL,
+        referrer VARCHAR(500),
+        source VARCHAR(100),
+        device VARCHAR(50),
+        browser VARCHAR(50),
+        ip_address VARCHAR(45),
+        visited_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_path (path),
+        INDEX idx_visited_at (visited_at),
+        INDEX idx_session (session_id)
+      )
+    `);
+
     // 1e. Add unique_view_count column to blogs if missing
     try {
       await pool.query(`ALTER TABLE blogs ADD COLUMN unique_view_count INT DEFAULT 0`);
@@ -153,7 +171,20 @@ export async function initializeDatabase() {
         last_synced_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
+    // 2f. Create settings table for global configuration (like toggling analytics)
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS settings (
+        setting_key VARCHAR(100) PRIMARY KEY,
+        setting_value VARCHAR(255) NOT NULL,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+      )
+    `);
 
+    // Insert default setting for internal analytics if it doesn't exist
+    await pool.query(`
+      INSERT IGNORE INTO settings (setting_key, setting_value)
+      VALUES ('internal_analytics_enabled', 'true')
+    `);
     // 3. Seed initial blog articles if empty
     const [blogRows]: any = await pool.query('SELECT COUNT(*) as count FROM blogs');
     const blogCount = blogRows[0]?.count || 0;

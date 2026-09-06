@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { services } from '@/lib/data/services';
 import { buildServiceSummary, buildServiceFaqs } from '@/lib/treatment-seo';
@@ -147,7 +148,9 @@ export default async function ServiceDetailPage({ params }: Props) {
   return (
     <>
       <JsonLd schema={schemas} />
-      <ServiceDetailClient slug={slug} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ServiceDetailClient slug={slug} />
+      </Suspense>
     </>
   );
 }
