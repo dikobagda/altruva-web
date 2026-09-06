@@ -97,12 +97,17 @@ export async function initializeDatabase() {
         device VARCHAR(50),
         browser VARCHAR(50),
         ip_address VARCHAR(45),
-        visited_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        visited_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         INDEX idx_path (path),
         INDEX idx_visited_at (visited_at),
         INDEX idx_session (session_id)
       )
     `);
+
+    // Ensure visited_at is DATETIME instead of TIMESTAMP to avoid timezone shifts
+    try {
+      await pool.query(`ALTER TABLE site_analytics MODIFY visited_at DATETIME DEFAULT CURRENT_TIMESTAMP`);
+    } catch (_) { /* ignore if already modified */ }
 
     // 1e. Add unique_view_count column to blogs if missing
     try {

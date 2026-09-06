@@ -51,8 +51,8 @@ export async function POST(req: NextRequest) {
     }
 
     await pool.query(
-      `INSERT INTO site_analytics (session_id, path, referrer, source, device, browser, ip_address) 
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO site_analytics (session_id, path, referrer, source, device, browser, ip_address, visited_at) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, DATE_ADD(UTC_TIMESTAMP(), INTERVAL 7 HOUR))`,
       [session_id || 'unknown', path, referrer || '', source, device, browser, ip]
     );
 

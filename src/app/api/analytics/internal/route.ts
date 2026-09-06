@@ -1,21 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 import pool from '@/lib/db';
 
+function getJakartaNow() {
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  return new Date(utc + (3600000 * 7));
+}
+
 function parseDate(val: string): Date {
-  if (val === 'today') return new Date();
+  if (val === 'today') return getJakartaNow();
   if (val === 'yesterday') {
-    const d = new Date();
+    const d = getJakartaNow();
     d.setDate(d.getDate() - 1);
     return d;
   }
   const match = val.match(/^(\d+)daysAgo$/);
   if (match) {
     const days = parseInt(match[1], 10);
-    const d = new Date();
+    const d = getJakartaNow();
     d.setDate(d.getDate() - days);
     return d;
   }
-  return new Date(val); // YYYY-MM-DD
+  
+  const [y, m, day] = val.split('-').map(Number);
+  const d = getJakartaNow();
+  d.setFullYear(y, m - 1, day);
+  return d;
 }
 
 function formatDateForSQL(d: Date, startOfDay = true) {
@@ -98,16 +108,22 @@ export async function GET(request: NextRequest) {
     const [trendRows]: any = await pool.query(trendQuery, [startDate, endDate]);
 
     const trend = trendRows.map((r: any) => {
-      const d = new Date(r.rawDate);
+      // r.rawDate is returned as literal UTC+7 string (e.g. '2026-09-07' or '2026-09-07 00:00:00')
+      const [datePart, timePart] = r.rawDate.split(' ');
+      const [y, m, day] = datePart.split('-').map(Number);
+      const h = timePart ? parseInt(timePart.split(':')[0], 10) : 0;
+      
       let rawDateStr = '';
       let formattedDate = '';
       
       if (isToday) {
-        rawDateStr = `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}${String(d.getHours()).padStart(2,'0')}00`;
-        formattedDate = `${String(d.getHours()).padStart(2,'0')}:00`;
+        rawDateStr = `${y}${String(m).padStart(2,'0')}${String(day).padStart(2,'0')}${String(h).padStart(2,'0')}00`;
+        formattedDate = `${String(h).padStart(2,'0')}:00`;
       } else {
-        rawDateStr = `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
-        formattedDate = d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+        rawDateStr = `${y}${String(m).padStart(2,'0')}${String(day).padStart(2,'0')}`;
+        // Create a strict local string for Indonesian formatting
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agt', 'Sep', 'Okt', 'Nov', 'Des'];
+        formattedDate = `${day} ${monthNames[m - 1]}`;
       }
 
       return {
