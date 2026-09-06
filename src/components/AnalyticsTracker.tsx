@@ -16,6 +16,10 @@ export default function AnalyticsTracker() {
     }
 
     const trackPageView = async () => {
+      if (pathname.startsWith('/cms') || pathname.startsWith('/dashboard')) {
+        return;
+      }
+
       try {
         const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
         
