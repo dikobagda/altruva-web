@@ -9,7 +9,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import { services } from '@/lib/data/services';
 import { testimonials } from '@/lib/data/testimonials';
-import { aiAnalysisFeatures } from '@/lib/data/ai-features';
 import type { Blog } from '@/lib/data/blog';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -20,7 +19,6 @@ import { useLanguage } from '@/context/LanguageContext';
 import dynamic from 'next/dynamic';
 
 // Dynamic imports for below-the-fold components to improve TBT and SI
-const GlowQuiz = dynamic(() => import('@/components/quiz/GlowQuiz'), { ssr: false });
 const Carousel = dynamic(() => import('@/components/ui/carousel').then(mod => mod.Carousel), { ssr: true });
 const CarouselContent = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselContent), { ssr: true });
 const CarouselItem = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselItem), { ssr: true });
@@ -28,12 +26,24 @@ const CarouselNext = dynamic(() => import('@/components/ui/carousel').then(mod =
 const CarouselPrevious = dynamic(() => import('@/components/ui/carousel').then(mod => mod.CarouselPrevious), { ssr: true });
 const TestimonialCard = dynamic(() => import('@/components/testimonials/TestimonialCard'), { ssr: true });
 const BlogCard = dynamic(() => import('@/components/blog/BlogCard'), { ssr: true });
+const VideoSection = dynamic(() => import('@/components/flyer/VideoSection'), { 
+  ssr: false,
+  loading: () => <div className="py-20 text-center">Loading videos...</div>
+});
+const ProvenResultsSection = dynamic(() => import('@/components/flyer/ProvenResultsSection'), { 
+  ssr: false,
+  loading: () => <div className="py-20 text-center">Loading results...</div>
+});
+const CertificatesSection = dynamic(() => import('@/components/flyer/CertificatesSection'), { 
+  ssr: false,
+  loading: () => <div className="py-20 text-center">Loading certificates...</div>
+});
 
 type TreatmentCategory = 'Prejuvenation' | 'Rejuvenation';
 
 export default function HomePage() {
   const { t } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<TreatmentCategory | null>('Rejuvenation');
+  const [activeCategory, setActiveCategory] = useState<TreatmentCategory | null>(null);
   const [dynamicBlogs, setDynamicBlogs] = useState<Blog[]>([]);
 
   // Fetch blogs from DB API on mount
@@ -55,6 +65,55 @@ export default function HomePage() {
   }, []);
 
   const filteredServices = activeCategory ? services.filter(service => service.category === activeCategory) : [];
+
+  const whatsappLink = "https://wa.me/6281216119392?text=Hai%20Altruva,%20saya%20tertarik%20booking%20konsultasi%20dengan%20dokter%20untuk%20tahu%20advanced%20treatment%20yang%20paling%20sesuai";
+
+  const agingConcerns = [
+    {
+      number: '01',
+      text: 'Kulit kendur di area pipi, rahang, & leher',
+      image: { src: '/images/flyer/aging/aging1.webp', hint: 'sagging skin' }
+    },
+    {
+      number: '02',
+      text: 'Garis halus & kerutan di sekitar mata dan dahi',
+      image: { src: '/images/flyer/aging/aging2.webp', hint: 'wrinkles forehead' }
+    },
+    {
+      number: '03',
+      text: 'Kulit kusam efek penuaan dini',
+      image: { src: '/images/flyer/aging/aging3.webp', hint: 'dull skin' }
+    },
+    {
+      number: '04',
+      text: 'Kontur wajah menurun',
+      image: { src: '/images/flyer/aging/aging4.webp', hint: 'drooping face' }
+    }
+  ];
+
+  const signatureTreatments = [
+    {
+      number: '01',
+      title: 'Altruva Cocktail Contouring',
+      description: 'Rasakan transformasi kulit dari dalam dengan menstimulasi kolagen dan meningkatkan struktur alami wajah untuk hasil natural, tanpa downtime, dan tahan lama.',
+      image: '/images/flyer/personalized/personalized4.webp',
+      hint: 'regenerative lifting'
+    },
+    {
+      number: '02',
+      title: 'A.R.T Lift by Sofwave ',
+      description: 'Lifting alami dengan meningkatkan kolagen & elastin secara signifikan untuk wajah kencang, tanpa downtime, dan lebih nyaman dari HIFU generasi lama.',
+      image: '/images/flyer/personalized/personalized3.webp',
+      hint: 'sofwave treatment'
+    },
+    {
+      number: '03',
+      title: 'Advanced Sofwave x Gorgeous Lyft (GOURI)',
+      description: 'Ultimate regenerative lifting 10x lebih efektif dalam menstimulasi kolagen untuk mengencangkan kulit dan memperbaiki struktur wajah untuk hasil lifting alami tanpa operasi',
+      image: '/images/flyer/personalized/personalized2.webp',
+      hint: 'facial contouring'
+    },
+  ];
 
   const categoryDetails = {
     Prejuvenation: {
@@ -135,17 +194,94 @@ export default function HomePage() {
         </div>
       </SectionWrapper>
 
-      {/* Intro Description Section */}
-      <SectionWrapper className="bg-secondary/30">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-lg md:text-xl text-foreground/80">
-            {t({ 
-              en: "Welcome to Altruva Aesthetic Clinic — an aesthetic and medical clinic in Jakarta offering an ever-updated range of minimal to non-invasive, FDA-approved, and CE-marked medical aesthetic treatments. The primary goal is to empower you to become the best version of yourself.",
-              id: "Selamat datang di Klinik Estetika Altruva — sebuah klinik estetika dan medis di Jakarta yang menawarkan rangkaian perawatan estetika medis minimal hingga non-invasif yang selalu diperbarui, disetujui FDA, dan bertanda CE. Tujuan utamanya adalah memberdayakan Anda untuk menjadi versi terbaik dari diri Anda."
-            })}
-          </p>
+      {/* Aging is Natural Section */}
+      <SectionWrapper
+        className="relative"
+      >
+        <div className="absolute inset-0 z-0 opacity-40">
+          <Image
+            src="/images/flyer/aging/bg-section.webp"
+            alt="background"
+            fill
+            sizes="(min-width: 1200px) 1400px, 100vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="container mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center relative">
+            <div className="space-y-4">
+              <h2 className="font-serif text-5xl md:text-6xl text-primary leading-tight">
+                Aging is natural,
+                <br />
+                but don't let it
+                <br />
+                <span className="italic">take away</span>
+                <br />
+                <span className="italic">your confidence</span>
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
+              {agingConcerns.map((item) => (
+                <div key={item.number} className="relative aspect-[3/4] rounded-2xl overflow-hidden group shadow-lg">
+                  <Image
+                    src={item.image.src}
+                    alt={item.text}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 300px"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={item.image.hint}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 flex flex-col justify-end">
+                    <p className="text-white font-bold text-4xl md:text-5xl drop-shadow-lg italic">{item.number}</p>
+                    <p className="text-white font-semibold text-sm md:text-base leading-tight drop-shadow-md">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </SectionWrapper>
+
+      {/* Jakarta's 1st Regenerative Clinic Section */}
+      <section className="relative w-full" style={{ minHeight: '700px' }}>
+        <Image
+          src="/images/flyer/landingpage_personalize_mobile.webp"
+          alt="Jakarta's 1st Regenerative Contouring Clinic"
+          fill
+          sizes="(min-width: 1200px) 1400px, 100vw"
+          className="object-cover object-top md:hidden"
+        />
+        <Image
+          src="/images/flyer/landingpage_banner_desktop.webp"
+          alt="Jakarta's 1st Regenerative Contouring Clinic"
+          fill
+          sizes="(min-width: 1200px) 1400px, 100vw"
+          className="object-cover object-top hidden md:block"
+        />
+        <div className="absolute inset-0 bg-black/10 z-10" />
+        <div className="relative z-20 h-full flex flex-col items-center md:items-start justify-start text-center md:text-left text-primary-foreground p-4 pt-12 md:p-12 md:justify-center" style={{ minHeight: '700px' }}>
+
+          <h2 className="font-serif text-3xl md:text-5xl text-white" style={{ color: '#4a301b' }}>
+            Jakarta's 1st Regenerative
+            <br />
+            Contouring Clinic
+          </h2>
+          <div className="mt-8 grid grid-cols-3 gap-4 md:gap-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 text-center" style={{ color: '#4a301b' }}>
+              <p className="text-3xl md:text-4xl font-bold">10+</p>
+              <p className="text-sm md:text-base">Dokter & Staff<br />Bersertifikasi</p>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 text-center" style={{ color: '#4a301b' }}>
+              <p className="text-3xl md:text-4xl font-bold">12+</p>
+              <p className="text-sm md:text-base">Tahun<br />Pengalaman</p>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 text-center" style={{ color: '#4a301b' }}>
+              <p className="text-3xl md:text-4xl font-bold">1000+</p>
+              <p className="text-sm md:text-base">Pasien<br />Ditangani</p>
+            </div>
+          </div>
+        </div>
+      </section>
       
       {/* Age-based Service Selector */}
       <SectionWrapper className="bg-background">
@@ -156,7 +292,7 @@ export default function HomePage() {
             {(Object.keys(categoryDetails) as TreatmentCategory[]).map(key => (
               <button
                 key={key}
-                onClick={() => setActiveCategory(key)}
+                onClick={() => setActiveCategory(activeCategory === key ? null : key)}
                 className={cn(
                   "flex-1 max-w-sm p-6 rounded-lg border-2 transition-all duration-300",
                   activeCategory === key ? 'bg-primary border-primary text-primary-foreground shadow-xl' : 'bg-card border-border hover:border-primary/50 hover:bg-card/90'
@@ -224,54 +360,52 @@ export default function HomePage() {
         </SectionWrapper>
       )}
 
-      {/* Glow Quiz Section */}
-      <SectionWrapper id="glow-quiz" className="bg-primary text-primary-foreground">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">{t({ en: 'Discover Your Perfect Harmony Plan', id: 'Temukan Paket Harmoni Sempurna Anda' })}</h2>
-          <p className="text-lg md:text-xl mb-8 opacity-90">
-            {t({ en: 'Take our short Glow Quiz to get a personalized aesthetic roadmap tailored to your age, skin needs, and goals.', id: 'Ikuti Kuis Cahaya singkat kami untuk mendapatkan peta jalan estetika yang dipersonalisasi yang disesuaikan dengan usia, kebutuhan kulit, dan tujuan Anda.' })}
-          </p>
-          <GlowQuiz />
+      {/* Personalized Signature Treatments Section */}
+      <SectionWrapper
+        className="relative"
+      >
+        <div className="absolute inset-0 z-0 opacity-40">
+          <Image
+            src="/images/flyer/aging/bg-section.webp"
+            alt="background"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
-      </SectionWrapper>
-
-      {/* AI Skin Analysis Teaser Section */}
-      <SectionWrapper id="ai-skin-analysis-teaser" className="bg-secondary/30">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-square max-w-md mx-auto">
-            <Image
-              src="/images/ai-skin.png"
-              alt="Promotional image for AI Skin Analysis showing a woman's profile with text overlay"
-              width={500}
-              height={500}
-              className="rounded-lg shadow-xl object-cover"
-            />
-             
+        <div
+          className="container mx-auto py-12 relative z-10"
+        >
+          <div className="text-center mb-8">
+            <h2 className="font-serif text-4xl md:text-5xl text-primary font-bold">Personalized Signature Treatments</h2>
+            <p className="font-serif text-3xl md:text-4xl text-primary/90 mt-2">for Timeless Beauty</p>
+            <div className="mt-4 inline-block">
+              <Button variant="default" className="rounded-full bg-[#4a301b] text-white">Altruva Lift Tightening & Contouring</Button>
+            </div>
           </div>
-          <div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-6">
-              {t({ en: 'Unlock Personalized Skincare with AI', id: 'Buka Perawatan Kulit Pribadi dengan AI' })}
-            </h2>
-            <p className="text-lg text-foreground/80 mb-8">
-              {t({ 
-                en: "Our advanced AI Skin Analysis tool helps you understand your skin better. Upload a photo, answer a few questions, and receive personalized recommendations.",
-                id: 'Alat Analisis Kulit AI canggih kami membantu Anda memahami kulit Anda lebih baik. Unggah foto, jawab beberapa pertanyaan, dan terima rekomendasi yang dipersonalisasi.'
-              })}
-            </p>
-            <ul className="space-y-4 mb-8">
-              {aiAnalysisFeatures.map((feature) => (
-                <li key={t(feature.title)} className="flex items-start">
-                  <feature.Icon className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-primary">{t(feature.title)}</h4>
-                    <p className="text-foreground/70">{t(feature.description)}</p>
+          <div className="grid md:grid-cols-3 gap-8 items-start">
+            {signatureTreatments.map((treatment) => (
+              <div key={treatment.number} className="relative group">
+                <div className="relative aspect-[3/4] bg-white rounded-3xl shadow-lg overflow-hidden p-6 flex flex-col justify-end">
+                  <div className="absolute inset-0">
+                    <Image src={treatment.image} alt={treatment.title} fill sizes="(max-width: 768px) 100vw, 400px" className="object-cover rounded-3xl" data-ai-hint={treatment.hint} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-3xl" />
                   </div>
-                </li>
-              ))}
-            </ul>
-            <Button asChild size="lg" className="font-semibold">
-              <Link href="/skin-analysis">{t({ en: 'Try AI Skin Analysis', id: 'Coba Analisis Kulit AI' })}</Link>
-            </Button>
+                  <div className="relative text-white z-10 text-left">
+                    <p className="font-serif text-8xl font-bold opacity-80">{treatment.number}</p>
+                    <h3 className="font-serif text-2xl font-bold">{treatment.title}</h3>
+                    <p className="text-sm mt-2">{treatment.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href={whatsappLink} target="_blank" className="inline-block" data-track="whatsapp-cta">
+              <Button asChild size="lg" className="rounded-full bg-[#4a301b] text-white hover:bg-[#5a402b] px-10 py-6 text-lg font-semibold">
+                <span>Get Your Personalized Assessment</span>
+              </Button>
+            </Link>
           </div>
         </div>
       </SectionWrapper>
@@ -308,46 +442,11 @@ export default function HomePage() {
         </div>
       </SectionWrapper>
 
-      {/* Dr. Aldisa in Action Section */}
-      <SectionWrapper className="bg-secondary/30">
-        <PageTitle title={t({ en: "Dr. Aldisa in Action", id: "Dr. Aldisa Beraksi" })} />
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-3xl mx-auto"
-        >
-          <CarouselContent>
-            <CarouselItem>
-              <div className="aspect-video w-full rounded-lg overflow-hidden">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/wBDINWzOPXM"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className="aspect-video w-full rounded-lg overflow-hidden">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/DrqIbRAHoYw"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </CarouselItem>
-          </CarouselContent>
-          <CarouselPrevious className="hidden lg:flex" />
-          <CarouselNext className="hidden lg:flex" />
-        </Carousel>
-      </SectionWrapper>
+      {/* A glimpse of Altruva treatments Section */}
+      <VideoSection whatsappLink={whatsappLink} />
+
+      {/* Proven results Section */}
+      <ProvenResultsSection whatsappLink={whatsappLink} />
 
       {/* Featured Blogs Section */}
       <SectionWrapper id="featured-blogs" className="bg-secondary/30">
@@ -380,6 +479,9 @@ export default function HomePage() {
           </Button>
         </div>
       </SectionWrapper>
+
+      {/* Certificates Section */}
+      <CertificatesSection />
 
       {/* Call to Action Section */}
       <SectionWrapper className="bg-primary text-primary-foreground">

@@ -95,11 +95,11 @@ export default function AboutUsContent() {
           </div>
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="/images/altruva-face.jpg"
-              alt="Aesthetic professional consulting with a client"
+              src="/images/frontclinic.webp"
+              alt="Altruva Clinic Front View"
               fill
               className="object-cover"
-              data-ai-hint="professional aesthetic consultation"
+              data-ai-hint="clinic front view"
             />
           </div>
         </div>

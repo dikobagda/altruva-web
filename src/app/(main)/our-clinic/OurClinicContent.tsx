@@ -104,13 +104,13 @@ export default function OurClinicContent() {
               </li>
             </ul>
           </div>
-          <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg">
              <Image
-                src="/images/atiqah-atclinic.jpeg"
-                alt="A detail shot of the clinic's calming decor"
+                src="/images/ourclinic.webp"
+                alt="Altruva Clinic Interior View"
                 fill
-                className="object-contain"
-                data-ai-hint="calm clinic decor"
+                className="object-cover rounded-2xl"
+                data-ai-hint="clinic interior view"
               />
           </div>
         </div>

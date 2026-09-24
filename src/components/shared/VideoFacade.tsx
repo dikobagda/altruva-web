@@ -49,6 +49,7 @@ export default function VideoFacade({ videoId, title, isShort = false }: VideoFa
         className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
         sizes="(max-width: 768px) 100vw, 33vw"
         onError={handleImageError}
+        unoptimized={true}
       />
       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
       <div className="relative z-20 bg-primary/90 text-white p-4 rounded-full shadow-xl transform group-hover:scale-110 transition-transform">
