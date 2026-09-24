@@ -235,7 +235,7 @@ export default function HomePage({ googleReviews = [] }: HomePageProps = {}) {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={item.image.hint}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 flex flex-col justify-end">
+                  <div className="absolute inset-0 p-4 flex flex-col justify-end">
                     <p className="text-white font-bold text-4xl md:text-5xl drop-shadow-lg italic">{item.number}</p>
                     <p className="text-white font-semibold text-sm md:text-base leading-tight drop-shadow-md">{item.text}</p>
                   </div>
@@ -265,7 +265,7 @@ export default function HomePage({ googleReviews = [] }: HomePageProps = {}) {
         <div className="absolute inset-0 bg-black/10 z-10" />
         <div className="relative z-20 h-full flex flex-col items-center md:items-start justify-start text-center md:text-left text-primary-foreground p-4 pt-12 md:p-12 md:justify-center" style={{ minHeight: '700px' }}>
 
-          <h2 className="font-serif text-3xl md:text-5xl text-white" style={{ color: '#4a301b' }}>
+          <h2 className="text-3xl sm:text-5xl md:text-5xl font-bold mb-8 leading-tight" style={{ color: '#4a301b' }}>
             Jakarta's 1st Regenerative
             <br />
             Contouring Clinic
