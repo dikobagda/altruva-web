@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Testimonial } from '@/lib/data/testimonials';
 import { Star } from 'lucide-react';
@@ -13,6 +13,11 @@ interface TestimonialCardProps {
 
 const TestimonialCard = React.memo(function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
   const { t } = useLanguage();
+  const [isExpanded, setIsExpanded] = useState(false);
+  
+  const text = t(testimonial.text);
+  const isLong = text.length > 150;
+  
   return (
     <Card className={cn("flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300", className)}>
       <CardHeader>
@@ -31,8 +36,18 @@ const TestimonialCard = React.memo(function TestimonialCard({ testimonial, class
             ))}
           </div>
       </CardHeader>
-      <CardContent className="flex-grow">
-        <p className="text-foreground/80 italic leading-relaxed">"{t(testimonial.text)}"</p>
+      <CardContent className="flex-grow flex flex-col justify-start">
+        <p className={cn("text-foreground/80 italic leading-relaxed", !isExpanded && "line-clamp-4")}>
+          "{text}"
+        </p>
+        {isLong && (
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-primary font-semibold text-sm mt-2 text-left hover:underline"
+          >
+            {isExpanded ? (t({ en: 'Read less', id: 'Lebih sedikit' })) : (t({ en: 'Read more', id: 'Selengkapnya' }))}
+          </button>
+        )}
       </CardContent>
     </Card>
   );

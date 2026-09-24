@@ -41,7 +41,11 @@ const CertificatesSection = dynamic(() => import('@/components/flyer/Certificate
 
 type TreatmentCategory = 'Prejuvenation' | 'Rejuvenation';
 
-export default function HomePage() {
+interface HomePageProps {
+  googleReviews?: any[];
+}
+
+export default function HomePage({ googleReviews = [] }: HomePageProps = {}) {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<TreatmentCategory | null>(null);
   const [dynamicBlogs, setDynamicBlogs] = useState<Blog[]>([]);
@@ -424,13 +428,27 @@ export default function HomePage() {
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent>
-            {testimonials.map((testimonial) => (
-              <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1 h-full">
-                  <TestimonialCard testimonial={testimonial} className="h-full" />
-                </div>
-              </CarouselItem>
-            ))}
+            {[...googleReviews, ...testimonials].slice(0, 10).map((testimonial: any, idx: number) => {
+              // Normalize data because Google Reviews have different keys
+              const id = testimonial.id ? `local-${testimonial.id}` : `google-${idx}`;
+              const name = testimonial.author_name || testimonial.name;
+              const rating = testimonial.rating || 5;
+              const text = typeof testimonial.text === 'string' 
+                ? { en: testimonial.text, id: testimonial.text } 
+                : testimonial.text;
+              const procedure = testimonial.procedure || (testimonial.relative_time_description ? 'Google Review' : '');
+
+              return (
+                <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1 h-full">
+                    <TestimonialCard 
+                      testimonial={{ id, name, procedure, rating, text }} 
+                      className="h-full" 
+                    />
+                  </div>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
           <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2 hidden lg:flex" />
           <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2 hidden lg:flex" />

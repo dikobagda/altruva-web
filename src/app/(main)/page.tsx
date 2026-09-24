@@ -54,11 +54,15 @@ const faqSchema = {
   ),
 };
 
-export default function Page() {
+import { getGoogleReviews } from '@/lib/google-reviews';
+
+export default async function Page() {
+  const googleReviews = await getGoogleReviews();
+
   return (
     <>
       <JsonLd schema={faqSchema} />
-      <HomePage />
+      <HomePage googleReviews={googleReviews} />
     </>
   );
 }
