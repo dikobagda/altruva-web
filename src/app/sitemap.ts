@@ -11,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 1. Static Routes
   const staticPaths = [
-    '',
+    '/',
     '/about',
     '/about/369-harmony',
     '/about/meet-dr-olivia-aldisa',
@@ -28,10 +28,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
-    url: `${baseUrl}${path}`,
+    url: path === '/' ? `${baseUrl}/` : `${baseUrl}${path}`,
     lastModified: new Date(),
-    changeFrequency: path === '' ? 'daily' : 'weekly',
-    priority: path === '' ? 1.0 : 0.8,
+    changeFrequency: path === '/' ? 'daily' : 'weekly',
+    priority: path === '/' ? 1.0 : 0.8,
   }));
 
   // 2. Dynamic Services Routes

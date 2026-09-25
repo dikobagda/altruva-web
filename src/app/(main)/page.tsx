@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     'Klinik estetika terbaik di Jakarta Selatan untuk wajah kencang alami tanpa operasi. Sofwave, EmSculpt Neo, Gouri, dan regenerative treatment dr. Olivia Aldisa.',
   alternates: {
-    canonical: '/',
+    canonical: `${siteUrl}/`,
   },
   openGraph: {
     title: 'Altruva Aesthetic Clinic - Regenerative Contouring in Jakarta',
