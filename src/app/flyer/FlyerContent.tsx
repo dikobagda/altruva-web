@@ -234,7 +234,7 @@ export default function FlyerContent() {
             <br />
             Contouring Clinic
           </h2>
-          <div className="mt-8 grid grid-cols-3 gap-4 md:gap-8">
+          <div className="mt-8 hidden md:grid grid-cols-3 gap-4 md:gap-8">
             <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 text-center" style={{ color: '#4a301b' }}>
               <p className="text-3xl md:text-4xl font-bold">10+</p>
               <p className="text-sm md:text-base">Dokter & Staff<br />Bersertifikasi</p>
