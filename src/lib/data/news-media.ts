@@ -5,6 +5,8 @@ export interface PressFeature {
   type: string;
   date?: string; // Optional date
   slug: string;
+  thumbnail?: string;
+  excerpt?: string;
 }
 
 export function slugify(text: string): string {
@@ -22,6 +24,15 @@ export function slugify(text: string): string {
 
 export const rawPressFeatures = [
   // 1. Articles with dates (newest first)
+  {
+    publication: 'SWA.co.id',
+    date: '2026-10-18',
+    title: 'Dari Overfilling ke Regenerasi, Estetika Medis Mengarah pada Proporsi Wajah Natural',
+    link: 'https://swa.co.id/read/478577/dari-overfilling-ke-regenerasi-estetika-medis-mengarah-pada-proporsi-wajah-natural',
+    type: 'article',
+    thumbnail: 'https://storage.googleapis.com/swafiles/images/2026/10/172222/1792250576_d09f08e77f0e3cfc7edf.jpg',
+    excerpt: 'Pendekatan estetika medis bergeser menuju perawatan yang mengutamakan regenerasi kulit dan proporsi wajah. Penggunaan filler pun semakin terukur, dengan evaluasi anatomi dan kebutuhan setiap pasien sebagai dasarnya.',
+  },
   {
     publication: 'Aestheticplusonline.com',
     date: '2026-08-31',

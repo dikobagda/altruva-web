@@ -22,8 +22,8 @@ export default async function NewsAndMediaPage() {
       const meta = await fetchLinkMetadata(feature.link);
       return {
         ...feature,
-        thumbnail: meta.image || null,
-        excerpt: meta.description || null,
+        thumbnail: meta.image || feature.thumbnail || null,
+        excerpt: meta.description || feature.excerpt || null,
       };
     })
   );

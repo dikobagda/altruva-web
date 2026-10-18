@@ -36,7 +36,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const meta = await fetchLinkMetadata(feature.link);
   const title = `${feature.publication} - ${feature.title}`;
-  const description = meta.description || `Read the press feature from ${feature.publication}: "${feature.title}"`;
+  const description =
+    meta.description ||
+    feature.excerpt ||
+    `Read the press feature from ${feature.publication}: "${feature.title}"`;
+  const image = meta.image || feature.thumbnail;
   
   return {
     title: `${title} | Altruva News & Media`,
@@ -48,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       url: `https://altruva.co.id/news-media/${slug}`,
-      images: meta.image ? [{ url: meta.image }] : [],
+      images: image ? [{ url: image }] : [],
       type: 'article',
     },
   };
@@ -62,6 +66,8 @@ export default async function NewsArticlePage({ params }: Props) {
   }
 
   const meta = await fetchLinkMetadata(feature.link);
+  const image = meta.image || feature.thumbnail;
+  const description = meta.description || feature.excerpt;
 
   const breadcrumbSchema = {
     "@type": "BreadcrumbList",
@@ -91,13 +97,13 @@ export default async function NewsArticlePage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": feature.title,
-    "image": meta.image ? [meta.image] : [],
-    "datePublished": new Date().toISOString(), // Fallback
+    "image": image ? [image] : [],
+    "datePublished": feature.date ? new Date(feature.date).toISOString() : new Date().toISOString(),
     "publisher": {
       "@type": "Organization",
       "name": feature.publication,
     },
-    "description": meta.description || feature.title,
+    "description": description || feature.title,
     "mainEntityOfPage": feature.link,
   };
 
@@ -130,19 +136,19 @@ export default async function NewsArticlePage({ params }: Props) {
           </div>
 
           <Card className="overflow-hidden shadow-xl border-secondary/20">
-            {meta.image && (
+            {image && (
                 <img
-                  src={meta.image}
+                  src={image}
                   alt={feature.title}
                   className="w-full aspect-video md:aspect-[21/9] object-cover"
                 />
             )}
             <CardContent className="p-6 md:p-8 space-y-6">
-              {meta.description && (
+              {description && (
                 <div className="space-y-4">
                   <h2 className="text-xl font-semibold text-primary">Article Excerpt</h2>
                   <p className="text-foreground/80 leading-relaxed text-lg italic">
-                    "{meta.description}"
+                    "{description}"
                   </p>
                 </div>
               )}
