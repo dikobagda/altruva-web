@@ -244,7 +244,10 @@ export async function appendTrafficSnapshot(
     existingColumnA.forEach((cellVal, idx) => {
       const rowNum = idx + 1;
       const trimmed = cellVal.trim();
-      if (!trimmed) return;
+      if (!trimmed) {
+        currentSection = '';
+        return;
+      }
 
       // Check if trimmed matches any section title
       const matchingSection = sections.find((s) => s.title.trim() === trimmed);
@@ -318,8 +321,26 @@ export async function appendTrafficSnapshot(
     sameDay = (dateCell.data.values?.[0]?.[0] ?? '') === dateLabel;
   }
 
-  // Build values for the new column
+  const isSameTimeSlot = sameDay && lastCol >= 2 && (timeRow[lastCol - 1] ?? '') === timeLabel;
+  const targetCol = isSameTimeSlot ? lastCol : nextCol;
+  const targetColLetter = columnLetter(targetCol);
+
+  // If writing to an existing slot, read existing values so we preserve already synced sections
   const rowMap: Record<number, (string | number)[]> = {};
+  if (isSameTimeSlot) {
+    const colRes = await client.spreadsheets.values.get({
+      spreadsheetId,
+      range: `${sheetName}!${targetColLetter}1:${targetColLetter}500`,
+    });
+    const existingTargetColValues = (colRes.data.values || []).map((r) => r[0] ?? '');
+    existingTargetColValues.forEach((val, idx) => {
+      if (val !== undefined && val !== '') {
+        rowMap[idx + 1] = [val];
+      }
+    });
+  }
+
+  // Build values for the target column
   if (!sameDay) rowMap[1] = [dateLabel];
   rowMap[2] = [timeLabel];
   for (const section of sections) {
@@ -329,7 +350,6 @@ export async function appendTrafficSnapshot(
     }
   }
 
-  const col = columnLetter(nextCol);
   const startRow = sameDay ? 2 : 1;
   const endRow = Math.max(2, ...Object.keys(rowMap).map(Number));
   const rows: (string | number)[][] = [];
@@ -339,73 +359,74 @@ export async function appendTrafficSnapshot(
 
   await client.spreadsheets.values.update({
     spreadsheetId,
-    range: `${sheetName}!${col}${startRow}:${col}${endRow}`,
+    range: `${sheetName}!${targetColLetter}${startRow}:${targetColLetter}${endRow}`,
     valueInputOption: 'USER_ENTERED',
     requestBody: { values: rows },
   });
 
-  // Grow the date merge when a new slot of the same day is added, and
-  // keep the parent date cells center-aligned.
-  const requests: any[] = [];
+  // Only perform date merges / formatting if this is a newly created column
+  if (!isSameTimeSlot) {
+    const requests: any[] = [];
 
-  const centerDateRange = (
-    startColumnIndex: number,
-    endColumnIndex: number
-  ) => ({
-    repeatCell: {
-      range: {
-        sheetId,
-        startRowIndex: 0,
-        endRowIndex: 1,
-        startColumnIndex,
-        endColumnIndex,
-      },
-      fields: 'userEnteredFormat.horizontalAlignment',
-      cell: { userEnteredFormat: { horizontalAlignment: 'CENTER' } },
-    },
-  });
-
-  if (sameDay) {
-    if (existingMerge) {
-      requests.push({
-        unmergeCells: {
-          range: {
-            sheetId,
-            startRowIndex: 0,
-            endRowIndex: 1,
-            startColumnIndex: existingMerge.startColumnIndex,
-            endColumnIndex: existingMerge.endColumnIndex,
-          },
-        },
-      });
-    }
-    requests.push({
-      mergeCells: {
+    const centerDateRange = (
+      startColumnIndex: number,
+      endColumnIndex: number
+    ) => ({
+      repeatCell: {
         range: {
           sheetId,
           startRowIndex: 0,
           endRowIndex: 1,
-          startColumnIndex: groupStartCol - 1,
-          endColumnIndex: nextCol,
+          startColumnIndex,
+          endColumnIndex,
         },
-        mergeType: 'MERGE_ALL',
+        fields: 'userEnteredFormat.horizontalAlignment',
+        cell: { userEnteredFormat: { horizontalAlignment: 'CENTER' } },
       },
     });
-    // Center the full (re-grown) date group
-    requests.push(centerDateRange(groupStartCol - 1, nextCol));
-  } else {
-    // New day: center existing date groups too (self-heals old columns),
-    // then center the new single-cell date.
-    for (const m of row1Merges) {
-      requests.push(centerDateRange(m.startColumnIndex, m.endColumnIndex));
-    }
-    requests.push(centerDateRange(nextCol - 1, nextCol));
-  }
 
-  await client.spreadsheets.batchUpdate({
-    spreadsheetId,
-    requestBody: { requests },
-  });
+    if (sameDay) {
+      if (existingMerge) {
+        requests.push({
+          unmergeCells: {
+            range: {
+              sheetId,
+              startRowIndex: 0,
+              endRowIndex: 1,
+              startColumnIndex: existingMerge.startColumnIndex,
+              endColumnIndex: existingMerge.endColumnIndex,
+            },
+          },
+        });
+      }
+      requests.push({
+        mergeCells: {
+          range: {
+            sheetId,
+            startRowIndex: 0,
+            endRowIndex: 1,
+            startColumnIndex: groupStartCol - 1,
+            endColumnIndex: nextCol,
+          },
+          mergeType: 'MERGE_ALL',
+        },
+      });
+      // Center the full (re-grown) date group
+      requests.push(centerDateRange(groupStartCol - 1, nextCol));
+    } else {
+      // New day: center existing date groups too (self-heals old columns),
+      // then center the new single-cell date.
+      for (const m of row1Merges) {
+        requests.push(centerDateRange(m.startColumnIndex, m.endColumnIndex));
+      }
+      requests.push(centerDateRange(nextCol - 1, nextCol));
+    }
+
+    await client.spreadsheets.batchUpdate({
+      spreadsheetId,
+      requestBody: { requests },
+    });
+  }
 
   return 1;
 }

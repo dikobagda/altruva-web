@@ -1,9 +1,9 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { verifySessionToken } from '@/lib/cms-auth';
-import { syncToSheets } from '@/lib/sheet-sync';
+import { syncToSheets, SyncOptions } from '@/lib/sheet-sync';
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   const cookieStore = await cookies();
   const token = cookieStore.get('cms_session')?.value;
   const authenticated = token && verifySessionToken(token);
@@ -13,7 +13,25 @@ export async function POST() {
   }
 
   try {
-    const result = await syncToSheets();
+    let target: SyncOptions['target'] = 'all';
+
+    // Check searchParams first
+    const searchTarget = request.nextUrl.searchParams.get('target');
+    if (searchTarget === 'internal' || searchTarget === 'ga4' || searchTarget === 'all') {
+      target = searchTarget;
+    } else {
+      // Try body
+      try {
+        const body = await request.json();
+        if (body?.target === 'internal' || body?.target === 'ga4' || body?.target === 'all') {
+          target = body.target;
+        }
+      } catch {
+        // Body is optional
+      }
+    }
+
+    const result = await syncToSheets({ target });
     return NextResponse.json({ success: true, ...result });
   } catch (error: any) {
     console.error('Google Sheets sync error:', error);

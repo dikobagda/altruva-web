@@ -359,18 +359,23 @@ export default function DashboardPage() {
     }
   };
 
-  const syncToSheets = async () => {
+  const syncToSheets = async (target: 'ga4' | 'internal' | 'all' = 'all') => {
     setSheetSyncing(true);
     setSheetStatus(null);
     try {
-      const res = await fetch('/api/sheets/sync', { method: 'POST' });
+      const res = await fetch('/api/sheets/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ target }),
+      });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
         const total = (data.worksheets || []).reduce((sum: number, w: any) => sum + (w.rowsAppended || 0), 0);
         const timeNote = data.syncedAt ? ` pada ${data.syncedAt} WIB` : '';
+        const targetLabel = target === 'internal' ? 'Internal Analytics' : target === 'ga4' ? 'GA4' : 'Analytics';
         setSheetStatus({
           ok: true,
-          message: `Data berhasil dikirim ke Google Sheets${timeNote} (${total} baris baru).${data.warning ? ` ${data.warning}` : ''}`,
+          message: `Data ${targetLabel} berhasil dikirim ke Google Sheets${timeNote} (${total} kolom diperbarui/ditambahkan).${data.warning ? ` ${data.warning}` : ''}`,
         });
       } else {
         setSheetStatus({ ok: false, message: data.error || 'Gagal mengirim data ke Google Sheets.' });
@@ -589,6 +594,21 @@ export default function DashboardPage() {
               {activeTab === 'internal_analytics' && (
                 <Button
                   variant="outline"
+                  onClick={() => syncToSheets('internal')}
+                  className="text-primary border-primary/30 hover:bg-primary/5"
+                  disabled={sheetSyncing}
+                >
+                  {sheetSyncing ? (
+                    <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
+                  ) : (
+                    <FileSpreadsheet className="mr-2 h-4 w-4" />
+                  )}
+                  {sheetSyncing ? 'Mengirim...' : 'Kirim ke Google Sheets'}
+                </Button>
+              )}
+              {activeTab === 'internal_analytics' && (
+                <Button
+                  variant="outline"
                   onClick={() => fetchInternalData()}
                   className="text-primary border-primary/30 hover:bg-primary/5"
                   disabled={internalLoading}
@@ -599,7 +619,7 @@ export default function DashboardPage() {
               {activeTab === 'ga4' && (
                 <Button
                   variant="outline"
-                  onClick={() => syncToSheets()}
+                  onClick={() => syncToSheets('ga4')}
                   className="text-primary border-primary/30 hover:bg-primary/5"
                   disabled={sheetSyncing}
                 >

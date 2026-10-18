@@ -61,20 +61,36 @@ export async function GET(request: NextRequest) {
 
     const [currentStatsRow]: any = await pool.query(`
       SELECT 
-        COUNT(DISTINCT session_id) as activeUsers,
-        COUNT(*) as pageViews,
-        COUNT(DISTINCT session_id) as sessions
-      FROM site_analytics 
-      WHERE visited_at BETWEEN ? AND ?
+        COUNT(session_id) as activeUsers,
+        COUNT(session_id) as sessions,
+        COALESCE(SUM(views), 0) as pageViews,
+        COALESCE(ROUND(AVG(session_duration), 1), 0) as avgSessionDuration
+      FROM (
+        SELECT 
+          session_id,
+          COUNT(*) as views,
+          LEAST(TIMESTAMPDIFF(SECOND, MIN(visited_at), MAX(visited_at)), 1800) as session_duration
+        FROM site_analytics 
+        WHERE visited_at BETWEEN ? AND ?
+        GROUP BY session_id
+      ) as s
     `, [startDate, endDate]);
 
     const [previousStatsRow]: any = await pool.query(`
       SELECT 
-        COUNT(DISTINCT session_id) as activeUsers,
-        COUNT(*) as pageViews,
-        COUNT(DISTINCT session_id) as sessions
-      FROM site_analytics 
-      WHERE visited_at BETWEEN ? AND ?
+        COUNT(session_id) as activeUsers,
+        COUNT(session_id) as sessions,
+        COALESCE(SUM(views), 0) as pageViews,
+        COALESCE(ROUND(AVG(session_duration), 1), 0) as avgSessionDuration
+      FROM (
+        SELECT 
+          session_id,
+          COUNT(*) as views,
+          LEAST(TIMESTAMPDIFF(SECOND, MIN(visited_at), MAX(visited_at)), 1800) as session_duration
+        FROM site_analytics 
+        WHERE visited_at BETWEEN ? AND ?
+        GROUP BY session_id
+      ) as s
     `, [prevStartDate, prevEndDate]);
 
     // Trend (Daily or Hourly if today)
@@ -205,18 +221,18 @@ export async function GET(request: NextRequest) {
 
     const data = {
       current: {
-        activeUsers: currentStatsRow[0].activeUsers,
-        newUsers: currentStatsRow[0].activeUsers,
-        pageViews: currentStatsRow[0].pageViews,
-        sessions: currentStatsRow[0].sessions,
-        avgSessionDuration: 0
+        activeUsers: Number(currentStatsRow[0]?.activeUsers || 0),
+        newUsers: Number(currentStatsRow[0]?.activeUsers || 0),
+        pageViews: Number(currentStatsRow[0]?.pageViews || 0),
+        sessions: Number(currentStatsRow[0]?.sessions || 0),
+        avgSessionDuration: Number(currentStatsRow[0]?.avgSessionDuration || 0)
       },
       previous: {
-        activeUsers: previousStatsRow[0].activeUsers,
-        newUsers: previousStatsRow[0].activeUsers,
-        pageViews: previousStatsRow[0].pageViews,
-        sessions: previousStatsRow[0].sessions,
-        avgSessionDuration: 0
+        activeUsers: Number(previousStatsRow[0]?.activeUsers || 0),
+        newUsers: Number(previousStatsRow[0]?.activeUsers || 0),
+        pageViews: Number(previousStatsRow[0]?.pageViews || 0),
+        sessions: Number(previousStatsRow[0]?.sessions || 0),
+        avgSessionDuration: Number(previousStatsRow[0]?.avgSessionDuration || 0)
       },
       trend,
       topPages: topPagesRows,

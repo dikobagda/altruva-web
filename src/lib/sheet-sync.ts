@@ -70,7 +70,117 @@ function hasGa4Activity(ga4: Awaited<ReturnType<typeof fetchGa4Snapshot>>): bool
   );
 }
 
-export async function syncToSheets(): Promise<SyncResult> {
+export interface SyncOptions {
+  target?: 'all' | 'internal' | 'ga4';
+}
+
+export interface InternalSnapshot {
+  activeUsers: number;
+  newUsers: number;
+  pageViews: number;
+  sessions: number;
+  avgSessionDuration: number;
+  devices: { device: string; users: number }[];
+  browserBuckets: Record<string, number>;
+  sourceBuckets: Record<string, number>;
+}
+
+export async function fetchInternalSnapshot(
+  conn: any,
+  reportDay: string
+): Promise<InternalSnapshot> {
+  const start = `${reportDay} 00:00:00`;
+  const end = `${nextDayKey(reportDay)} 00:00:00`;
+
+  // 1. Overview stats
+  const [statsRows]: any = await conn.query(
+    `SELECT 
+       COUNT(session_id) as activeUsers,
+       COUNT(session_id) as sessions,
+       COALESCE(SUM(views), 0) as pageViews,
+       COALESCE(ROUND(AVG(session_duration), 1), 0) as avgSessionDuration
+     FROM (
+       SELECT 
+         session_id,
+         COUNT(*) as views,
+         LEAST(TIMESTAMPDIFF(SECOND, MIN(visited_at), MAX(visited_at)), 1800) as session_duration
+       FROM site_analytics 
+       WHERE visited_at >= ? AND visited_at < ?
+       GROUP BY session_id
+     ) as s`,
+    [start, end]
+  );
+
+  const activeUsers = Number(statsRows[0]?.activeUsers || 0);
+  const pageViews = Number(statsRows[0]?.pageViews || 0);
+  const sessions = Number(statsRows[0]?.sessions || 0);
+  const avgSessionDuration = Number(statsRows[0]?.avgSessionDuration || 0);
+
+  // 2. Devices
+  const [deviceRows]: any = await conn.query(
+    `SELECT device, COUNT(DISTINCT session_id) as users
+     FROM site_analytics
+     WHERE visited_at >= ? AND visited_at < ?
+     GROUP BY device`,
+    [start, end]
+  );
+  const devices = (deviceRows || []).map((d: any) => ({
+    device: String(d.device || 'Others'),
+    users: Number(d.users || 0),
+  }));
+
+  // 3. Browsers
+  const [browserRows]: any = await conn.query(
+    `SELECT browser, COUNT(DISTINCT session_id) as users
+     FROM site_analytics
+     WHERE visited_at >= ? AND visited_at < ?
+     GROUP BY browser`,
+    [start, end]
+  );
+  const browserBuckets: Record<string, number> = {};
+  BROWSER_BUCKET_LABELS.forEach((l) => (browserBuckets[l] = 0));
+  (browserRows || []).forEach((r: any) => {
+    let b = r.browser;
+    if (!BROWSER_BUCKET_LABELS.includes(b as any)) b = 'Others';
+    browserBuckets[b] = (browserBuckets[b] || 0) + Number(r.users || 0);
+  });
+
+  // 4. Traffic Sources
+  const [sourceRows]: any = await conn.query(
+    `SELECT source, COUNT(DISTINCT session_id) as users
+     FROM site_analytics
+     WHERE visited_at >= ? AND visited_at < ?
+     GROUP BY source`,
+    [start, end]
+  );
+  const sourceBuckets: Record<string, number> = {};
+  TRAFFIC_BUCKET_LABELS.forEach((l) => (sourceBuckets[l] = 0));
+  (sourceRows || []).forEach((r: any) => {
+    let s = r.source;
+    if (s === 'Instagram') s = 'Instagram Paid';
+    else if (s === 'Threads') s = 'Threads Paid';
+    else if (s === 'Facebook') s = 'fb Paid';
+    else if (s === '(direct) / (none)') s = 'Direct';
+
+    if (!TRAFFIC_BUCKET_LABELS.includes(s as any)) s = 'unknown/others';
+    sourceBuckets[s] = (sourceBuckets[s] || 0) + Number(r.users || 0);
+  });
+
+  return {
+    activeUsers,
+    newUsers: activeUsers,
+    pageViews,
+    sessions,
+    avgSessionDuration,
+    devices,
+    browserBuckets,
+    sourceBuckets,
+  };
+}
+
+export async function syncToSheets(options?: SyncOptions): Promise<SyncResult> {
+  const target = options?.target || 'all';
+
   if (inFlight) return inFlight;
 
   inFlight = (async () => {
@@ -90,43 +200,62 @@ export async function syncToSheets(): Promise<SyncResult> {
       const results: WorksheetResult[] = [];
       let warning: string | undefined;
 
+      // WIB Date keys
+      const todayWib = wibDateKey(0);
+      let reportDay = todayWib;
+
       // --- 1. GA4 snapshot (prefer today; fall back to yesterday when GA4 has not processed today yet) ---
       let ga4: Awaited<ReturnType<typeof fetchGa4Snapshot>> | null = null;
-      let reportDay = wibDateKey(0);
-      try {
-        ga4 = await fetchGa4Snapshot('today', 'today');
-        if (!hasGa4Activity(ga4)) {
-          console.warn('[SheetSync] GA4 has no processed data for today yet. Falling back to yesterday.');
-          ga4 = await fetchGa4Snapshot('yesterday', 'yesterday');
-          reportDay = wibDateKey(-1);
-          warning = 'GA4 data hari ini belum diproses oleh Google, snapshot menggunakan data kemarin.';
+      if (target !== 'internal') {
+        try {
+          ga4 = await fetchGa4Snapshot('today', 'today');
+          if (!hasGa4Activity(ga4)) {
+            console.warn('[SheetSync] GA4 has no processed data for today yet. Falling back to yesterday.');
+            ga4 = await fetchGa4Snapshot('yesterday', 'yesterday');
+            reportDay = wibDateKey(-1);
+            warning = 'GA4 data hari ini belum diproses oleh Google, snapshot GA4 menggunakan data kemarin.';
+          }
+        } catch (e: any) {
+          warning = `GA4 snapshot dilewati: ${e.message || 'GA4 fetch failed'}. Data WhatsApp & Internal tetap dikirim.`;
+          console.error('[SheetSync] GA4 snapshot failed:', e);
         }
-      } catch (e: any) {
-        warning = `GA4 snapshot skipped: ${e.message || 'GA4 fetch failed'}. WhatsApp & page views were still exported.`;
-        console.error('[SheetSync] GA4 snapshot failed:', e);
       }
 
-      // Count unique WhatsApp visitors that fall in the snapshot day (WIB)
+      // --- 2. Count unique WhatsApp visitors for today (WIB) ---
       let waDayCount = 0;
       try {
         await conn.query(`SET time_zone = '+07:00'`);
         const [waDayRows]: any = await conn.query(
           `SELECT COUNT(DISTINCT ip_address) AS c FROM whatsapp_clicks
            WHERE clicked_at >= ? AND clicked_at < ?`,
-          [`${reportDay} 00:00:00`, `${nextDayKey(reportDay)} 00:00:00`]
+          [`${todayWib} 00:00:00`, `${nextDayKey(todayWib)} 00:00:00`]
         );
         waDayCount = Number(waDayRows[0]?.c || 0);
       } catch (e) {
         console.error('[SheetSync] Failed to count WhatsApp visitors for the day:', e);
       }
 
+      // --- 3. Internal Analytics snapshot for today (WIB) ---
+      let internal: InternalSnapshot | null = null;
+      if (target !== 'ga4') {
+        try {
+          internal = await fetchInternalSnapshot(conn, todayWib);
+        } catch (e: any) {
+          console.error('[SheetSync] Internal analytics snapshot failed:', e);
+          const intWarn = `Internal analytics snapshot dilewati: ${e.message || 'Fetch failed'}.`;
+          warning = warning ? `${warning} ${intWarn}` : intWarn;
+        }
+      }
+
+      // --- 4. Assemble Traffic Sections ---
+      const trafficSections: TrafficSection[] = [];
+
+      // A. GA4 Sections (if available)
       if (ga4) {
-        // Horizontal "Traffic" snapshot: metrics as rows (grouped into labeled
-        // sections), each run = new time column
-        const totalDeviceUsers =
+        const totalGaDeviceUsers =
           ga4.devices.reduce((sum, d) => sum + d.users, 0) || 1;
 
-        const trafficSections: TrafficSection[] = [
+        trafficSections.push(
           {
             title: 'GA Overview',
             metrics: [
@@ -157,20 +286,103 @@ export async function syncToSheets(): Promise<SyncResult> {
               label,
               value: ga4.browserBuckets[label] ?? 0,
             })),
+          }
+        );
+      }
+
+      // B. WhatsApp clicks
+      trafficSections.push({
+        title: 'WA Clicks',
+        metrics: [{ label: 'Unique Visitors', value: waDayCount }],
+      });
+
+      // C. GA Device Share (if GA4 available)
+      if (ga4) {
+        const totalGaDeviceUsers =
+          ga4.devices.reduce((sum, d) => sum + d.users, 0) || 1;
+
+        trafficSections.push({
+          title: 'GA Device Share',
+          metrics: ga4.devices.map((d) => ({
+            label: d.device,
+            value: Math.round((d.users / totalGaDeviceUsers) * 1000) / 10 + ' %',
+          })),
+        });
+      }
+
+      // D. Internal Analytics Sections
+      if (internal) {
+        const totalInternalDeviceUsers =
+          internal.devices.reduce((sum, d) => sum + d.users, 0) || 1;
+
+        trafficSections.push(
+          {
+            title: 'Internal Overview',
+            metrics: [
+              { label: 'Active Users', value: internal.activeUsers },
+              { label: 'New Users', value: internal.newUsers },
+              { label: 'Page Views', value: internal.pageViews },
+              { label: 'Sessions', value: internal.sessions },
+              { label: 'Avg Session Duration (s)', value: internal.avgSessionDuration },
+            ],
           },
           {
-            title: 'WA Clicks',
-            metrics: [{ label: 'Unique Visitors', value: waDayCount }],
-          },
-          {
-            title: 'GA Device Share',
-            metrics: ga4.devices.map((d) => ({
-              label: d.device,
-              value: Math.round((d.users / totalDeviceUsers) * 1000) / 10 + ' %',
+            title: 'Internal Sources',
+            metrics: TRAFFIC_BUCKET_LABELS.map((label) => ({
+              label,
+              value: internal.sourceBuckets[label] ?? 0,
             })),
           },
-        ];
+          {
+            title: 'Internal Browser',
+            metrics: BROWSER_BUCKET_LABELS.filter((l) => l !== 'Others').map((label) => ({
+              label,
+              value: internal.browserBuckets[label] ?? 0,
+            })),
+          },
+          {
+            title: 'Internal Device Share',
+            metrics: [
+              {
+                label: 'mobile',
+                value:
+                  Math.round(
+                    ((internal.devices.find((d) => d.device.toLowerCase() === 'mobile')?.users || 0) /
+                      totalInternalDeviceUsers) *
+                      1000
+                  ) /
+                    10 +
+                  ' %',
+              },
+              {
+                label: 'desktop',
+                value:
+                  Math.round(
+                    ((internal.devices.find((d) => d.device.toLowerCase() === 'desktop')?.users || 0) /
+                      totalInternalDeviceUsers) *
+                      1000
+                  ) /
+                    10 +
+                  ' %',
+              },
+              {
+                label: 'tablet',
+                value:
+                  Math.round(
+                    ((internal.devices.find((d) => d.device.toLowerCase() === 'tablet')?.users || 0) /
+                      totalInternalDeviceUsers) *
+                      1000
+                  ) /
+                    10 +
+                  ' %',
+              },
+            ],
+          }
+        );
+      }
 
+      // --- 5. Export to Worksheet ---
+      if (trafficSections.length > 0) {
         const trafficCols = await appendTrafficSnapshot(
           client,
           spreadsheetId,
