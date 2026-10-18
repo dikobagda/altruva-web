@@ -241,6 +241,8 @@ export async function appendTrafficSnapshot(
   } else {
     // Map existing rows dynamically so we match exact row indexes in the actual sheet
     let currentSection = '';
+    const normalizeSec = (t: string) => t.toLowerCase().replace(/^(ga|internal)\s+/, '').trim();
+
     existingColumnA.forEach((cellVal, idx) => {
       const rowNum = idx + 1;
       const trimmed = cellVal.trim();
@@ -250,25 +252,65 @@ export async function appendTrafficSnapshot(
       }
 
       // Check if trimmed matches any section title
-      const matchingSection = sections.find((s) => s.title.trim() === trimmed);
+      const isInternalCell = trimmed.toLowerCase().startsWith('internal');
+      const matchingSection =
+        sections.find((s) => s.title.trim().toLowerCase() === trimmed.toLowerCase()) ||
+        sections.find((s) => {
+          const sTitle = s.title.trim();
+          const isInternalSection = sTitle.toLowerCase().startsWith('internal');
+          if (isInternalCell === isInternalSection) {
+            return normalizeSec(sTitle) === normalizeSec(trimmed);
+          }
+          return false;
+        }) ||
+        // Fallback: match by normalized name if only one variant exists
+        sections.find((s) => normalizeSec(s.title) === normalizeSec(trimmed));
+
       if (matchingSection) {
         currentSection = matchingSection.title;
         labelRows[`SECTION_${currentSection}`] = rowNum;
+        labelRows[`SECTION_${trimmed}`] = rowNum;
       } else if (currentSection) {
-        labelRows[`${currentSection}__${trimmed}`] = rowNum;
+        const sec = sections.find((s) => s.title === currentSection);
+        const matchingMetric = sec?.metrics.find(
+          (m) => m.label.trim().toLowerCase() === trimmed.toLowerCase()
+        );
+        const metricKey = matchingMetric ? matchingMetric.label : trimmed;
+
+        // Register under both specific section and base aliases
+        labelRows[`${currentSection}__${metricKey}`] = rowNum;
+        labelRows[`${trimmed}__${metricKey}`] = rowNum;
+        if (!currentSection.toLowerCase().startsWith('internal')) {
+          labelRows[`GA Overview__${metricKey}`] = rowNum;
+          labelRows[`Overview__${metricKey}`] = rowNum;
+          if (!labelRows[metricKey]) labelRows[metricKey] = rowNum;
+        } else {
+          labelRows[`Internal Overview__${metricKey}`] = rowNum;
+        }
       }
     });
 
     // Also write any missing labels/sections dynamically to Column A if new metrics were added
     sections.forEach((section) => {
-      if (!labelRows[`SECTION_${section.title}`]) {
+      const secNormalized = section.title.replace(/^(ga|internal)\s+/i, '');
+      const hasSectionLabel =
+        labelRows[`SECTION_${section.title}`] ||
+        labelRows[`SECTION_${secNormalized}`] ||
+        (section.title.startsWith('GA ') && labelRows[`SECTION_${section.title.slice(3)}`]);
+
+      if (!hasSectionLabel) {
         const nextRow = existingColumnA.length + 1;
         existingColumnA.push('');
         existingColumnA.push(section.title);
         labelRows[`SECTION_${section.title}`] = nextRow + 1;
       }
       section.metrics.forEach((m) => {
-        if (!labelRows[`${section.title}__${m.label}`]) {
+        const hasMetric =
+          labelRows[`${section.title}__${m.label}`] ||
+          labelRows[`${secNormalized}__${m.label}`] ||
+          (!section.title.toLowerCase().startsWith('internal') && labelRows[m.label]);
+
+        if (!hasMetric) {
           const nextRow = existingColumnA.length + 1;
           existingColumnA.push(m.label);
           labelRows[`${section.title}__${m.label}`] = nextRow;
@@ -345,7 +387,12 @@ export async function appendTrafficSnapshot(
   rowMap[2] = [timeLabel];
   for (const section of sections) {
     for (const m of section.metrics) {
-      const r = labelRows[`${section.title}__${m.label}`];
+      const r =
+        labelRows[`${section.title}__${m.label}`] ??
+        labelRows[`${section.title.replace(/^(ga|internal)\s+/i, '')}__${m.label}`] ??
+        labelRows[`GA ${section.title}__${m.label}`] ??
+        (!section.title.toLowerCase().startsWith('internal') ? labelRows[m.label] : undefined) ??
+        labelRows[m.label];
       if (r) rowMap[r] = [m.value];
     }
   }

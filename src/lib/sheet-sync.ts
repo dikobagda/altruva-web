@@ -250,54 +250,106 @@ export async function syncToSheets(options?: SyncOptions): Promise<SyncResult> {
       // --- 4. Assemble Traffic Sections ---
       const trafficSections: TrafficSection[] = [];
 
-      // A. GA4 Sections (if available)
-      if (ga4) {
-        const totalGaDeviceUsers =
-          ga4.devices.reduce((sum, d) => sum + d.users, 0) || 1;
+      const hasGa4 = Boolean(ga4 && hasGa4Activity(ga4));
+      const useInternalForPrimary = target === 'internal' || (!hasGa4 && Boolean(internal));
 
-        trafficSections.push(
-          {
-            title: 'GA Overview',
-            metrics: [
-              { label: 'Active Users', value: ga4.current.activeUsers },
-              { label: 'New Users', value: ga4.current.newUsers },
-              { label: 'Page Views', value: ga4.current.pageViews },
-              { label: 'Sessions', value: ga4.current.sessions },
-              { label: 'Avg Session Duration (s)', value: Math.round(ga4.current.avgSessionDuration * 100) / 100 },
-            ],
-          },
-          {
-            title: 'GA Sources',
-            metrics: TRAFFIC_BUCKET_LABELS.map((label) => ({
-              label,
-              value: ga4.sourceBuckets[label] ?? 0,
-            })),
-          },
-          {
-            title: 'GA Cities',
-            metrics: CITY_BUCKET_LABELS.filter((l) => l !== 'Others').map((label) => ({
-              label,
-              value: ga4.cityBuckets[label] ?? 0,
-            })),
-          },
-          {
-            title: 'GA Browser',
-            metrics: BROWSER_BUCKET_LABELS.filter((l) => l !== 'Others').map((label) => ({
-              label,
-              value: ga4.browserBuckets[label] ?? 0,
-            })),
+      const primaryOverview = (useInternalForPrimary && internal)
+        ? {
+            activeUsers: internal.activeUsers,
+            newUsers: internal.newUsers,
+            pageViews: internal.pageViews,
+            sessions: internal.sessions,
+            avgSessionDuration: internal.avgSessionDuration,
           }
-        );
+        : ga4
+        ? {
+            activeUsers: ga4.current.activeUsers,
+            newUsers: ga4.current.newUsers,
+            pageViews: ga4.current.pageViews,
+            sessions: ga4.current.sessions,
+            avgSessionDuration: Math.round(ga4.current.avgSessionDuration * 100) / 100,
+          }
+        : internal
+        ? {
+            activeUsers: internal.activeUsers,
+            newUsers: internal.newUsers,
+            pageViews: internal.pageViews,
+            sessions: internal.sessions,
+            avgSessionDuration: internal.avgSessionDuration,
+          }
+        : null;
+
+      // Primary Overview: matches "GA Overview" or "Overview" at the top of the worksheet
+      if (primaryOverview) {
+        trafficSections.push({
+          title: 'GA Overview',
+          metrics: [
+            { label: 'Active Users', value: primaryOverview.activeUsers },
+            { label: 'New Users', value: primaryOverview.newUsers },
+            { label: 'Page Views', value: primaryOverview.pageViews },
+            { label: 'Sessions', value: primaryOverview.sessions },
+            { label: 'Avg Session Duration (s)', value: primaryOverview.avgSessionDuration },
+          ],
+        });
       }
 
-      // B. WhatsApp clicks
+      // Primary Sources
+      if (ga4 && !useInternalForPrimary) {
+        trafficSections.push({
+          title: 'GA Sources',
+          metrics: TRAFFIC_BUCKET_LABELS.map((label) => ({
+            label,
+            value: ga4.sourceBuckets[label] ?? 0,
+          })),
+        });
+      } else if (internal) {
+        trafficSections.push({
+          title: 'GA Sources',
+          metrics: TRAFFIC_BUCKET_LABELS.map((label) => ({
+            label,
+            value: internal.sourceBuckets[label] ?? 0,
+          })),
+        });
+      }
+
+      // Primary Cities (from GA4 if available)
+      if (ga4) {
+        trafficSections.push({
+          title: 'GA Cities',
+          metrics: CITY_BUCKET_LABELS.filter((l) => l !== 'Others').map((label) => ({
+            label,
+            value: ga4.cityBuckets[label] ?? 0,
+          })),
+        });
+      }
+
+      // Primary Browser
+      if (ga4 && !useInternalForPrimary) {
+        trafficSections.push({
+          title: 'GA Browser',
+          metrics: BROWSER_BUCKET_LABELS.filter((l) => l !== 'Others').map((label) => ({
+            label,
+            value: ga4.browserBuckets[label] ?? 0,
+          })),
+        });
+      } else if (internal) {
+        trafficSections.push({
+          title: 'GA Browser',
+          metrics: BROWSER_BUCKET_LABELS.filter((l) => l !== 'Others').map((label) => ({
+            label,
+            value: internal.browserBuckets[label] ?? 0,
+          })),
+        });
+      }
+
+      // WhatsApp clicks
       trafficSections.push({
         title: 'WA Clicks',
         metrics: [{ label: 'Unique Visitors', value: waDayCount }],
       });
 
-      // C. GA Device Share (if GA4 available)
-      if (ga4) {
+      // Primary Device Share
+      if (ga4 && !useInternalForPrimary) {
         const totalGaDeviceUsers =
           ga4.devices.reduce((sum, d) => sum + d.users, 0) || 1;
 
@@ -308,10 +360,52 @@ export async function syncToSheets(options?: SyncOptions): Promise<SyncResult> {
             value: Math.round((d.users / totalGaDeviceUsers) * 1000) / 10 + ' %',
           })),
         });
+      } else if (internal) {
+        const totalInternalDeviceUsers =
+          internal.devices.reduce((sum, d) => sum + d.users, 0) || 1;
+
+        trafficSections.push({
+          title: 'GA Device Share',
+          metrics: [
+            {
+              label: 'mobile',
+              value:
+                Math.round(
+                  ((internal.devices.find((d) => d.device.toLowerCase() === 'mobile')?.users || 0) /
+                    totalInternalDeviceUsers) *
+                    1000
+                ) /
+                  10 +
+                ' %',
+            },
+            {
+              label: 'desktop',
+              value:
+                Math.round(
+                  ((internal.devices.find((d) => d.device.toLowerCase() === 'desktop')?.users || 0) /
+                    totalInternalDeviceUsers) *
+                    1000
+                ) /
+                  10 +
+                ' %',
+            },
+            {
+              label: 'tablet',
+              value:
+                Math.round(
+                  ((internal.devices.find((d) => d.device.toLowerCase() === 'tablet')?.users || 0) /
+                    totalInternalDeviceUsers) *
+                    1000
+                ) /
+                  10 +
+                ' %',
+            },
+          ],
+        });
       }
 
-      // D. Internal Analytics Sections
-      if (internal) {
+      // Dedicated Internal Analytics Sections (when internal analytics is available)
+      if (internal && target !== 'ga4') {
         const totalInternalDeviceUsers =
           internal.devices.reduce((sum, d) => sum + d.users, 0) || 1;
 
