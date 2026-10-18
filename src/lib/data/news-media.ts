@@ -38,7 +38,9 @@ export const rawPressFeatures = [
     date: '2026-08-31',
     title: 'Gandeng JULÄINE™, Altruva Aesthetic Clinic Hadirkan The Art of Presence untuk Perempuan Eksekutif',
     link: 'https://www.aestheticplusonline.com/2026/08/31/gandeng-julaine-altruva-aesthetic-clinic-hadirkan-the-art-of-presence-untuk-perempuan-eksekutif/',
-    type: 'article'
+    type: 'article',
+    thumbnail: '/images/blog/presence-has-no-gender.png',
+    excerpt: 'Altruva Aesthetic Clinic menggandeng JULÄINE™ menghadirkan konsep The Art of Presence, merawat dan memperkuat kehadiran autentik perempuan eksekutif dengan pendekatan estetika regeneratif.',
   },
   {
     publication: 'Kompas.com',

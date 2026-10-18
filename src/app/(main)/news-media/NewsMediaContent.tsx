@@ -64,30 +64,39 @@ export default function NewsMediaContent({ initialFeatures }: NewsMediaContentPr
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {initialFeatures.slice(0, visibleItems).map((feature, index) => (
-            <Card key={feature.slug || index} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border-secondary/20 hover:-translate-y-1">
-              <div className="relative w-full aspect-video bg-muted flex items-center justify-center overflow-hidden">
+            <Card key={feature.slug || index} className="group flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-secondary/20 hover:-translate-y-1 bg-card">
+              <Link
+                href={`/news-media/${feature.slug}`}
+                className="relative w-full aspect-[4/3] bg-muted flex items-center justify-center overflow-hidden block"
+              >
                 {feature.thumbnail ? (
-                  <img
-                    src={feature.thumbnail}
-                    alt={feature.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    loading="lazy"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      target.style.display = 'none';
-                      const fallback = target.nextElementSibling as HTMLElement | null;
-                      if (fallback) fallback.style.display = 'flex';
-                    }}
-                  />
+                  <>
+                    <img
+                      src={feature.thumbnail}
+                      alt={feature.title}
+                      className="absolute inset-0 w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-500 ease-out"
+                      loading="lazy"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        target.style.display = 'none';
+                        const fallback = target.nextElementSibling?.nextElementSibling as HTMLElement | null;
+                        if (fallback) fallback.style.display = 'flex';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  </>
                 ) : null}
                 <div
-                  className="flex flex-col items-center justify-center text-muted-foreground p-4 w-full h-full"
+                  className="flex flex-col items-center justify-center text-center p-6 w-full h-full bg-gradient-to-br from-secondary/50 via-muted/60 to-secondary/30"
                   style={{ display: feature.thumbnail ? 'none' : 'flex' }}
                 >
-                  <Newspaper className="h-12 w-12 text-accent/40 mb-2" />
-                  <span className="text-xs uppercase tracking-wider font-semibold">{feature.publication}</span>
+                  <div className="w-14 h-14 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <Newspaper className="h-6 w-6 text-accent" />
+                  </div>
+                  <span className="font-serif text-sm font-semibold text-primary tracking-wide px-2 line-clamp-1">{feature.publication}</span>
+                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground/80 mt-1">Press Coverage</span>
                 </div>
-              </div>
+              </Link>
 
               <CardHeader className="flex-grow p-6 pb-4">
                 <div className="flex items-center justify-between gap-2 mb-3">

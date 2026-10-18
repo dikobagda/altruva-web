@@ -140,7 +140,7 @@ export default async function NewsArticlePage({ params }: Props) {
                 <img
                   src={image}
                   alt={feature.title}
-                  className="w-full aspect-video md:aspect-[21/9] object-cover"
+                  className="w-full aspect-[16/10] md:aspect-[21/9] object-cover object-[center_20%]"
                 />
             )}
             <CardContent className="p-6 md:p-8 space-y-6">
