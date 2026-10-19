@@ -98,7 +98,7 @@ export async function fetchInternalSnapshot(
        COUNT(session_id) as activeUsers,
        COUNT(session_id) as sessions,
        COALESCE(SUM(views), 0) as pageViews,
-       COALESCE(ROUND(AVG(session_duration), 1), 0) as avgSessionDuration
+       COALESCE(ROUND(AVG(CASE WHEN session_duration > 0 THEN session_duration END), 1), 0) as avgSessionDuration
      FROM (
        SELECT 
          session_id,
