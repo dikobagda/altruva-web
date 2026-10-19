@@ -105,6 +105,86 @@ export interface TrafficSection {
   metrics: TrafficMetricValue[];
 }
 
+export type CanonicalSectionKey =
+  | 'internal_overview'
+  | 'internal_sources'
+  | 'internal_browser'
+  | 'internal_devices'
+  | 'ga_overview'
+  | 'ga_sources'
+  | 'ga_cities'
+  | 'ga_browser'
+  | 'ga_devices'
+  | 'wa_clicks';
+
+export function normalizeMetric(label: string): string {
+  return label
+    .trim()
+    .toLowerCase()
+    .replace(/\s*\/\s*/g, '/')
+    .replace(/\s+/g, ' ');
+}
+
+export function getMetricAliases(metric: string): string[] {
+  const norm = normalizeMetric(metric);
+  const aliases = [norm];
+
+  if (norm === 'fb paid' || norm === 'facebook paid') {
+    aliases.push('fb paid', 'facebook paid', 'facebook');
+  } else if (norm === 'instagram paid' || norm === 'instagram') {
+    aliases.push('instagram paid', 'instagram');
+  } else if (norm === 'threads paid' || norm === 'threads') {
+    aliases.push('threads paid', 'threads');
+  } else if (norm === 'google organic' || norm === 'organic') {
+    aliases.push('google organic', 'organic search', 'organic');
+  } else if (norm.includes('unknown') || norm.includes('others')) {
+    aliases.push('unknown/others', 'unknown', 'others');
+  }
+
+  return aliases;
+}
+
+export function getCanonicalSectionKey(
+  title: string,
+  seenInternal: boolean
+): CanonicalSectionKey | null {
+  const t = title.trim().toLowerCase();
+  if (!t) return null;
+
+  const hasInternal = /internal/i.test(t);
+  const hasGa = /^(ga|google\s+analytics)\b/i.test(t);
+
+  if (hasInternal) {
+    if (/overview/i.test(t)) return 'internal_overview';
+    if (/source|traffic|medium/i.test(t)) return 'internal_sources';
+    if (/browser/i.test(t)) return 'internal_browser';
+    if (/device/i.test(t)) return 'internal_devices';
+  } else if (hasGa) {
+    if (/overview/i.test(t)) return 'ga_overview';
+    if (/source|traffic|medium/i.test(t)) return 'ga_sources';
+    if (/cit(y|ies)/i.test(t)) return 'ga_cities';
+    if (/browser/i.test(t)) return 'ga_browser';
+    if (/device/i.test(t)) return 'ga_devices';
+  } else {
+    // Unprefixed section titles
+    if (/cit(y|ies)/i.test(t)) return 'ga_cities';
+    if (/click|whatsapp/i.test(t)) return 'wa_clicks';
+    if (/device/i.test(t)) {
+      return seenInternal ? 'internal_devices' : 'ga_devices';
+    }
+    if (/source|traffic|medium/i.test(t)) {
+      return seenInternal ? 'internal_sources' : 'ga_sources';
+    }
+    if (/browser/i.test(t)) {
+      return seenInternal ? 'internal_browser' : 'ga_browser';
+    }
+    if (/overview/i.test(t)) {
+      return seenInternal ? 'internal_overview' : 'ga_overview';
+    }
+  }
+  return null;
+}
+
 function formatDateHeader(dayKey: string): string {
   const [y, m, d] = dayKey.split('-').map(Number);
   return new Intl.DateTimeFormat('en-GB', {
@@ -167,21 +247,11 @@ export async function appendTrafficSnapshot(
 
   // Target layout for column A (rows 3+): blank row before each section label
   const layoutRows: string[] = [];
-  const labelRows: Record<string, number> = {};
-
   sections.forEach((section) => {
-    // Blank separator row
     layoutRows.push('');
-    // Section Title row
-    const titleRowIndex = 3 + layoutRows.length;
     layoutRows.push(section.title);
-    labelRows[`SECTION_${section.title}`] = titleRowIndex;
-
-    // Metric rows
     section.metrics.forEach((m) => {
-      const metricRowIndex = 3 + layoutRows.length;
       layoutRows.push(m.label);
-      labelRows[`${section.title}__${m.label}`] = metricRowIndex;
     });
   });
 
@@ -224,103 +294,55 @@ export async function appendTrafficSnapshot(
       valueInputOption: 'USER_ENTERED',
       requestBody: { values: layoutRows.map((label) => [label]) },
     });
-    // Build labelRows index based on layoutRows
-    sections.forEach((section) => {
-      layoutRows.forEach((label, idx) => {
-        if (label === section.title) {
-          labelRows[`SECTION_${section.title}`] = 3 + idx;
-        }
-      });
-      section.metrics.forEach((m) => {
-        const idx = layoutRows.findIndex((l) => l === m.label);
-        if (idx !== -1) {
-          labelRows[`${section.title}__${m.label}`] = 3 + idx;
-        }
-      });
-    });
-  } else {
-    // Map existing rows dynamically so we match exact row indexes in the actual sheet
-    let currentSection = '';
-    const isInternal = (t: string) => /internal/i.test(t);
-    const normalizeSec = (t: string) =>
-      t.toLowerCase()
-       .replace(/^(google\s+analytics|internal\s+analytics|internal|ga)\s+/i, '')
-       .trim();
-
-    existingColumnA.forEach((cellVal, idx) => {
-      const rowNum = idx + 1;
-      const trimmed = cellVal.trim();
-      if (!trimmed) {
-        currentSection = '';
-        return;
-      }
-
-      const isInternalCell = isInternal(trimmed);
-      const cellNorm = normalizeSec(trimmed);
-
-      // Check if trimmed matches any section title
-      const matchingSection = sections.find((s) => {
-        const isInternalSection = isInternal(s.title);
-        if (isInternalCell !== isInternalSection) return false;
-        return (
-          s.title.trim().toLowerCase() === trimmed.toLowerCase() ||
-          normalizeSec(s.title) === cellNorm
-        );
-      });
-
-      const isKnownSection =
-        Boolean(matchingSection) ||
-        ['overview', 'sources', 'cities', 'browser', 'device share', 'clicks', 'wa clicks'].includes(cellNorm) ||
-        /^(ga|google\s+analytics|internal|internal\s+analytics)\b/i.test(trimmed);
-
-      if (matchingSection) {
-        currentSection = matchingSection.title;
-        labelRows[`SECTION_${currentSection}`] = rowNum;
-        labelRows[`SECTION_${trimmed}`] = rowNum;
-      } else if (isKnownSection) {
-        currentSection = trimmed;
-        labelRows[`SECTION_${trimmed}`] = rowNum;
-      } else if (currentSection) {
-        const secIsInternal = isInternal(currentSection);
-        const normSec = normalizeSec(currentSection);
-
-        const sec = sections.find(
-          (s) => isInternal(s.title) === secIsInternal && normalizeSec(s.title) === normSec
-        );
-        const matchingMetric = sec?.metrics.find(
-          (m) => m.label.trim().toLowerCase() === trimmed.toLowerCase()
-        );
-        const metricKey = matchingMetric ? matchingMetric.label : trimmed;
-
-        // Register under specific section and aliases
-        labelRows[`${currentSection}__${metricKey}`] = rowNum;
-        labelRows[`${trimmed}__${metricKey}`] = rowNum;
-
-        if (secIsInternal) {
-          // Strictly internal keys - NEVER set labelRows[metricKey] or GA keys!
-          labelRows[`Internal Overview__${metricKey}`] = rowNum;
-          labelRows[`Internal Analytics Overview__${metricKey}`] = rowNum;
-          labelRows[`Internal Sources__${metricKey}`] = rowNum;
-          labelRows[`Internal Analytics Sources__${metricKey}`] = rowNum;
-          labelRows[`Internal Browser__${metricKey}`] = rowNum;
-          labelRows[`Internal Analytics Browser__${metricKey}`] = rowNum;
-          labelRows[`Internal Device Share__${metricKey}`] = rowNum;
-          labelRows[`Internal Analytics Device Share__${metricKey}`] = rowNum;
-          labelRows[`INTERNAL__${metricKey}`] = rowNum;
-        } else {
-          // Strictly GA / external keys
-          labelRows[`GA Overview__${metricKey}`] = rowNum;
-          labelRows[`Overview__${metricKey}`] = rowNum;
-          labelRows[`GA Sources__${metricKey}`] = rowNum;
-          labelRows[`GA Cities__${metricKey}`] = rowNum;
-          labelRows[`GA Browser__${metricKey}`] = rowNum;
-          labelRows[`GA Device Share__${metricKey}`] = rowNum;
-          if (!labelRows[metricKey]) labelRows[metricKey] = rowNum;
-        }
-      }
-    });
-    // NOTE: Column A in an existing sheet is strictly preserved to avoid disrupting user layout!
+    existingColumnA = ['', '', ...layoutRows];
   }
+
+  // Map existing rows dynamically to canonical sections and metric labels
+  const sectionRowMap: Record<CanonicalSectionKey, Record<string, number>> = {
+    internal_overview: {},
+    internal_sources: {},
+    internal_browser: {},
+    internal_devices: {},
+    ga_overview: {},
+    ga_sources: {},
+    ga_cities: {},
+    ga_browser: {},
+    ga_devices: {},
+    wa_clicks: {},
+  };
+
+  let currentKey: CanonicalSectionKey | null = null;
+  let seenInternal = false;
+
+  existingColumnA.forEach((cellVal, idx) => {
+    const rowNum = idx + 1;
+    const trimmed = cellVal.trim();
+    if (!trimmed) {
+      currentKey = null;
+      return;
+    }
+
+    const detectedKey = getCanonicalSectionKey(trimmed, seenInternal);
+    if (detectedKey) {
+      currentKey = detectedKey;
+      if (currentKey.startsWith('internal_')) {
+        seenInternal = true;
+      } else if (currentKey.startsWith('ga_')) {
+        seenInternal = false;
+      }
+      return;
+    }
+
+    if (currentKey) {
+      const normMetric = normalizeMetric(trimmed);
+      sectionRowMap[currentKey][normMetric] = rowNum;
+      for (const alias of getMetricAliases(normMetric)) {
+        if (!sectionRowMap[currentKey][alias]) {
+          sectionRowMap[currentKey][alias] = rowNum;
+        }
+      }
+    }
+  });
 
   const sheetId = sheet.properties!.sheetId!;
   const row1Merges: any[] = (sheet.merges || []).filter(
@@ -382,32 +404,22 @@ export async function appendTrafficSnapshot(
   rowMap[2] = [timeLabel];
   for (const section of sections) {
     const isInternalSec = /internal/i.test(section.title);
+    const secKey = getCanonicalSectionKey(section.title, isInternalSec);
+    if (!secKey) continue;
+
     for (const m of section.metrics) {
+      const normMetric = normalizeMetric(m.label);
+      const aliases = getMetricAliases(normMetric);
       let r: number | undefined;
-      if (isInternalSec) {
-        // STRICT: Internal metrics MUST ONLY match internal rows! NEVER overwrite GA rows!
-        r =
-          labelRows[`${section.title}__${m.label}`] ??
-          labelRows[`Internal Overview__${m.label}`] ??
-          labelRows[`Internal Analytics Overview__${m.label}`] ??
-          labelRows[`Internal Sources__${m.label}`] ??
-          labelRows[`Internal Analytics Sources__${m.label}`] ??
-          labelRows[`Internal Browser__${m.label}`] ??
-          labelRows[`Internal Analytics Browser__${m.label}`] ??
-          labelRows[`Internal Device Share__${m.label}`] ??
-          labelRows[`Internal Analytics Device Share__${m.label}`] ??
-          labelRows[`INTERNAL__${m.label}`];
-      } else {
-        // STRICT: GA metrics MUST ONLY match GA / external rows!
-        const normTitle = section.title.toLowerCase().replace(/^(google\s+analytics|ga)\s+/i, '').trim();
-        r =
-          labelRows[`${section.title}__${m.label}`] ??
-          labelRows[`GA ${normTitle}__${m.label}`] ??
-          labelRows[`${normTitle}__${m.label}`] ??
-          labelRows[`GA Overview__${m.label}`] ??
-          labelRows[m.label];
+      for (const alias of aliases) {
+        if (sectionRowMap[secKey]?.[alias]) {
+          r = sectionRowMap[secKey][alias];
+          break;
+        }
       }
-      if (r) rowMap[r] = [m.value];
+      if (r) {
+        rowMap[r] = [m.value];
+      }
     }
   }
 
