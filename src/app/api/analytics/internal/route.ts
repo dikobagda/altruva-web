@@ -111,12 +111,12 @@ export async function GET(request: NextRequest) {
     } else {
       trendQuery = `
         SELECT 
-          DATE(visited_at) as rawDate,
+          DATE_FORMAT(visited_at, '%Y-%m-%d') as rawDate,
           COUNT(DISTINCT session_id) as activeUsers,
           COUNT(*) as pageViews
         FROM site_analytics
         WHERE visited_at BETWEEN ? AND ?
-        GROUP BY DATE(visited_at)
+        GROUP BY DATE_FORMAT(visited_at, '%Y-%m-%d')
         ORDER BY rawDate ASC
       `;
     }
@@ -124,30 +124,52 @@ export async function GET(request: NextRequest) {
     const [trendRows]: any = await pool.query(trendQuery, [startDate, endDate]);
 
     const trend = trendRows.map((r: any) => {
-      // r.rawDate is returned as literal UTC+7 string (e.g. '2026-09-07' or '2026-09-07 00:00:00')
-      const [datePart, timePart] = r.rawDate.split(' ');
+      let rawDateVal = '';
+      if (r.rawDate instanceof Date) {
+        const yr = r.rawDate.getFullYear();
+        const mo = String(r.rawDate.getMonth() + 1).padStart(2, '0');
+        const dy = String(r.rawDate.getDate()).padStart(2, '0');
+        const hr = String(r.rawDate.getHours()).padStart(2, '0');
+        rawDateVal = isToday ? `${yr}-${mo}-${dy} ${hr}:00:00` : `${yr}-${mo}-${dy}`;
+      } else if (typeof r.rawDate === 'string') {
+        rawDateVal = r.rawDate;
+      } else if (r.rawDate != null) {
+        rawDateVal = String(r.rawDate);
+      }
+
+      const [datePart = '', timePart = ''] = rawDateVal.split(' ');
       const [y, m, day] = datePart.split('-').map(Number);
       const h = timePart ? parseInt(timePart.split(':')[0], 10) : 0;
       
       let rawDateStr = '';
       let formattedDate = '';
       
+      if (!y || isNaN(m) || isNaN(day)) {
+        return {
+          date: rawDateVal || '-',
+          rawDate: rawDateVal || '',
+          activeUsers: Number(r.activeUsers || 0),
+          newUsers: Number(r.activeUsers || 0),
+          pageViews: Number(r.pageViews || 0)
+        };
+      }
+
       if (isToday) {
-        rawDateStr = `${y}${String(m).padStart(2,'0')}${String(day).padStart(2,'0')}${String(h).padStart(2,'0')}00`;
-        formattedDate = `${String(h).padStart(2,'0')}:00`;
+        rawDateStr = `${y}${String(m).padStart(2, '0')}${String(day).padStart(2, '0')}${String(h).padStart(2, '0')}00`;
+        formattedDate = `${String(h).padStart(2, '0')}:00`;
       } else {
-        rawDateStr = `${y}${String(m).padStart(2,'0')}${String(day).padStart(2,'0')}`;
+        rawDateStr = `${y}${String(m).padStart(2, '0')}${String(day).padStart(2, '0')}`;
         // Create a strict local string for Indonesian formatting
         const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agt', 'Sep', 'Okt', 'Nov', 'Des'];
-        formattedDate = `${day} ${monthNames[m - 1]}`;
+        formattedDate = (m >= 1 && m <= 12) ? `${day} ${monthNames[m - 1]}` : datePart;
       }
 
       return {
         date: formattedDate,
         rawDate: rawDateStr,
-        activeUsers: r.activeUsers,
-        newUsers: r.activeUsers, // simplified
-        pageViews: r.pageViews
+        activeUsers: Number(r.activeUsers || 0),
+        newUsers: Number(r.activeUsers || 0), // simplified
+        pageViews: Number(r.pageViews || 0)
       };
     });
 
