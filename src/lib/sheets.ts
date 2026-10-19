@@ -241,7 +241,11 @@ export async function appendTrafficSnapshot(
   } else {
     // Map existing rows dynamically so we match exact row indexes in the actual sheet
     let currentSection = '';
-    const normalizeSec = (t: string) => t.toLowerCase().replace(/^(ga|internal)\s+/, '').trim();
+    const isInternal = (t: string) => /internal/i.test(t);
+    const normalizeSec = (t: string) =>
+      t.toLowerCase()
+       .replace(/^(google\s+analytics|internal\s+analytics|internal|ga)\s+/i, '')
+       .trim();
 
     existingColumnA.forEach((cellVal, idx) => {
       const rowNum = idx + 1;
@@ -251,80 +255,71 @@ export async function appendTrafficSnapshot(
         return;
       }
 
+      const isInternalCell = isInternal(trimmed);
+      const cellNorm = normalizeSec(trimmed);
+
       // Check if trimmed matches any section title
-      const isInternalCell = trimmed.toLowerCase().startsWith('internal');
-      const matchingSection =
-        sections.find((s) => s.title.trim().toLowerCase() === trimmed.toLowerCase()) ||
-        sections.find((s) => {
-          const sTitle = s.title.trim();
-          const isInternalSection = sTitle.toLowerCase().startsWith('internal');
-          if (isInternalCell === isInternalSection) {
-            return normalizeSec(sTitle) === normalizeSec(trimmed);
-          }
-          return false;
-        }) ||
-        // Fallback: match by normalized name if only one variant exists
-        sections.find((s) => normalizeSec(s.title) === normalizeSec(trimmed));
+      const matchingSection = sections.find((s) => {
+        const isInternalSection = isInternal(s.title);
+        if (isInternalCell !== isInternalSection) return false;
+        return (
+          s.title.trim().toLowerCase() === trimmed.toLowerCase() ||
+          normalizeSec(s.title) === cellNorm
+        );
+      });
+
+      const isKnownSection =
+        Boolean(matchingSection) ||
+        ['overview', 'sources', 'cities', 'browser', 'device share', 'clicks', 'wa clicks'].includes(cellNorm) ||
+        /^(ga|google\s+analytics|internal|internal\s+analytics)\b/i.test(trimmed);
 
       if (matchingSection) {
         currentSection = matchingSection.title;
         labelRows[`SECTION_${currentSection}`] = rowNum;
         labelRows[`SECTION_${trimmed}`] = rowNum;
+      } else if (isKnownSection) {
+        currentSection = trimmed;
+        labelRows[`SECTION_${trimmed}`] = rowNum;
       } else if (currentSection) {
-        const sec = sections.find((s) => s.title === currentSection);
+        const secIsInternal = isInternal(currentSection);
+        const normSec = normalizeSec(currentSection);
+
+        const sec = sections.find(
+          (s) => isInternal(s.title) === secIsInternal && normalizeSec(s.title) === normSec
+        );
         const matchingMetric = sec?.metrics.find(
           (m) => m.label.trim().toLowerCase() === trimmed.toLowerCase()
         );
         const metricKey = matchingMetric ? matchingMetric.label : trimmed;
 
-        // Register under both specific section and base aliases
+        // Register under specific section and aliases
         labelRows[`${currentSection}__${metricKey}`] = rowNum;
         labelRows[`${trimmed}__${metricKey}`] = rowNum;
-        if (!currentSection.toLowerCase().startsWith('internal')) {
+
+        if (secIsInternal) {
+          // Strictly internal keys - NEVER set labelRows[metricKey] or GA keys!
+          labelRows[`Internal Overview__${metricKey}`] = rowNum;
+          labelRows[`Internal Analytics Overview__${metricKey}`] = rowNum;
+          labelRows[`Internal Sources__${metricKey}`] = rowNum;
+          labelRows[`Internal Analytics Sources__${metricKey}`] = rowNum;
+          labelRows[`Internal Browser__${metricKey}`] = rowNum;
+          labelRows[`Internal Analytics Browser__${metricKey}`] = rowNum;
+          labelRows[`Internal Device Share__${metricKey}`] = rowNum;
+          labelRows[`Internal Analytics Device Share__${metricKey}`] = rowNum;
+          labelRows[`INTERNAL__${metricKey}`] = rowNum;
+        } else {
+          // Strictly GA / external keys
           labelRows[`GA Overview__${metricKey}`] = rowNum;
           labelRows[`Overview__${metricKey}`] = rowNum;
+          labelRows[`GA Sources__${metricKey}`] = rowNum;
+          labelRows[`GA Cities__${metricKey}`] = rowNum;
+          labelRows[`GA Browser__${metricKey}`] = rowNum;
+          labelRows[`GA Device Share__${metricKey}`] = rowNum;
           if (!labelRows[metricKey]) labelRows[metricKey] = rowNum;
-        } else {
-          labelRows[`Internal Overview__${metricKey}`] = rowNum;
         }
       }
     });
-
-    // Also write any missing labels/sections dynamically to Column A if new metrics were added
-    sections.forEach((section) => {
-      const secNormalized = section.title.replace(/^(ga|internal)\s+/i, '');
-      const hasSectionLabel =
-        labelRows[`SECTION_${section.title}`] ||
-        labelRows[`SECTION_${secNormalized}`] ||
-        (section.title.startsWith('GA ') && labelRows[`SECTION_${section.title.slice(3)}`]);
-
-      if (!hasSectionLabel) {
-        const nextRow = existingColumnA.length + 1;
-        existingColumnA.push('');
-        existingColumnA.push(section.title);
-        labelRows[`SECTION_${section.title}`] = nextRow + 1;
-      }
-      section.metrics.forEach((m) => {
-        const hasMetric =
-          labelRows[`${section.title}__${m.label}`] ||
-          labelRows[`${secNormalized}__${m.label}`] ||
-          (!section.title.toLowerCase().startsWith('internal') && labelRows[m.label]);
-
-        if (!hasMetric) {
-          const nextRow = existingColumnA.length + 1;
-          existingColumnA.push(m.label);
-          labelRows[`${section.title}__${m.label}`] = nextRow;
-        }
-      });
-    });
-
-    // Update Column A to ensure all labels/sections are populated without deleting existing ones
-    await client.spreadsheets.values.update({
-      spreadsheetId,
-      range: `${sheetName}!A1:A${existingColumnA.length}`,
-      valueInputOption: 'USER_ENTERED',
-      requestBody: { values: existingColumnA.map((label) => [label]) },
-    });
+    // NOTE: Column A in an existing sheet is strictly preserved to avoid disrupting user layout!
   }
 
   const sheetId = sheet.properties!.sheetId!;
@@ -386,13 +381,32 @@ export async function appendTrafficSnapshot(
   if (!sameDay) rowMap[1] = [dateLabel];
   rowMap[2] = [timeLabel];
   for (const section of sections) {
+    const isInternalSec = /internal/i.test(section.title);
     for (const m of section.metrics) {
-      const r =
-        labelRows[`${section.title}__${m.label}`] ??
-        labelRows[`${section.title.replace(/^(ga|internal)\s+/i, '')}__${m.label}`] ??
-        labelRows[`GA ${section.title}__${m.label}`] ??
-        (!section.title.toLowerCase().startsWith('internal') ? labelRows[m.label] : undefined) ??
-        labelRows[m.label];
+      let r: number | undefined;
+      if (isInternalSec) {
+        // STRICT: Internal metrics MUST ONLY match internal rows! NEVER overwrite GA rows!
+        r =
+          labelRows[`${section.title}__${m.label}`] ??
+          labelRows[`Internal Overview__${m.label}`] ??
+          labelRows[`Internal Analytics Overview__${m.label}`] ??
+          labelRows[`Internal Sources__${m.label}`] ??
+          labelRows[`Internal Analytics Sources__${m.label}`] ??
+          labelRows[`Internal Browser__${m.label}`] ??
+          labelRows[`Internal Analytics Browser__${m.label}`] ??
+          labelRows[`Internal Device Share__${m.label}`] ??
+          labelRows[`Internal Analytics Device Share__${m.label}`] ??
+          labelRows[`INTERNAL__${m.label}`];
+      } else {
+        // STRICT: GA metrics MUST ONLY match GA / external rows!
+        const normTitle = section.title.toLowerCase().replace(/^(google\s+analytics|ga)\s+/i, '').trim();
+        r =
+          labelRows[`${section.title}__${m.label}`] ??
+          labelRows[`GA ${normTitle}__${m.label}`] ??
+          labelRows[`${normTitle}__${m.label}`] ??
+          labelRows[`GA Overview__${m.label}`] ??
+          labelRows[m.label];
+      }
       if (r) rowMap[r] = [m.value];
     }
   }
