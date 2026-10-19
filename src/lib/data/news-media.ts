@@ -133,6 +133,15 @@ export const rawPressFeatures = [
     link: 'https://www.antaranews.com/berita/5530737/pakar-estetika-sebut-pentingnya-presisi-energi-hindari-salah-perawatan?utm_source=antaranews&utm_medium=mobile&utm_campaign=latest_category',
     type: 'article'
   },
+  {
+    publication: 'Aestheticplusonline.com',
+    date: '2025-12-29',
+    title: 'dr. Olivia Aldisa, MSc. Aesth. Med (UK)',
+    link: 'https://www.aestheticplusonline.com/2025/12/29/dr-olivia-aldisa-msc-aesth-med-uk/',
+    type: 'article',
+    thumbnail: 'https://www.aestheticplusonline.com/wp-content/uploads/2025/12/CETAK-ANTI-AGING-EDISI-87-DESEMBER-2025-22FEAT-1000x600.jpg',
+    excerpt: 'Tak Selalu Dekat, tetapi Selalu Ada: Peran Ibu dalam Hidup Seorang Dokter. Profil dan dedikasi dr. Olivia Aldisa dalam rubrik Celebrating Motherhood+ Majalah aesthetic+ (Edisi 87, Desember 2025).',
+  },
 
   // 2. Old articles without specific exact dates
   {
