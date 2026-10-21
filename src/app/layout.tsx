@@ -228,6 +228,63 @@ const organizationSchema = {
   }
 };
 
+const siteNavigationSchema = {
+  "@type": "ItemList",
+  "@id": "https://altruva.co.id/#site-navigation",
+  "name": "Altruva Main Navigation",
+  "itemListElement": [
+    {
+      "@type": "SiteNavigationElement",
+      "position": 1,
+      "name": "Treatments",
+      "description": "Perawatan estetika dan regeneratif non-invasif premium di Altruva Clinic Jakarta.",
+      "url": "https://altruva.co.id/treatments"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 2,
+      "name": "Meet dr. Olivia Aldisa",
+      "description": "Profil dr. Olivia Aldisa, Founder dan Dokter Estetika Altruva Clinic Jakarta.",
+      "url": "https://altruva.co.id/about/meet-dr-olivia-aldisa"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 3,
+      "name": "369 Harmony™",
+      "description": "Filosofi perawatan regeneratif eksklusif 369 Harmony™ Altruva.",
+      "url": "https://altruva.co.id/about/369-harmony"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 4,
+      "name": "Book Appointment",
+      "description": "Reservasi konsultasi dan perawatan dokter di Altruva Aesthetic Clinic.",
+      "url": "https://altruva.co.id/book-appointment"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 5,
+      "name": "FAQ",
+      "description": "Pertanyaan yang sering diajukan mengenai perawatan dan kunjungan klinik.",
+      "url": "https://altruva.co.id/faq"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 6,
+      "name": "Contact Us",
+      "description": "Lokasi klinik di Kebayoran Baru Jakarta Selatan dan kontak reservasi.",
+      "url": "https://altruva.co.id/contact"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 7,
+      "name": "Blog & Insights",
+      "description": "Edukasi kesehatan kulit, anti-aging, dan perawatan estetika modern.",
+      "url": "https://altruva.co.id/blog"
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -266,7 +323,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <AnalyticsTracker />
         </Suspense>
-        <JsonLd schema={[organizationSchema, clinicSchema, websiteSchema]} />
+        <JsonLd schema={[organizationSchema, clinicSchema, websiteSchema, siteNavigationSchema]} />
         <NextTopLoader
           color="hsl(var(--primary))"
           initialPosition={0.08}

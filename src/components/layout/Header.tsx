@@ -373,11 +373,6 @@ export default function Header() {
   const { language, setLanguage, t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const selectedLanguage = languages.find(lang => lang.code === language) || languages[0];
 
@@ -394,7 +389,6 @@ export default function Header() {
     };
   }, []);
 
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -404,31 +398,6 @@ export default function Header() {
       setIsMobileMenuOpen(false);
     }
   };
-
-
-  if (!isMounted) {
-    return (
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background shadow-md">
-        <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-          <Link href="/" className="flex items-center space-x-2" prefetch={false}>
-            <Image
-              src="/images/logoaltruvanew.webp"
-              width={270}
-              height={270}
-              className="w-[90px] h-[90px]"
-              alt="Altruva Logo"
-              priority
-            />
-          </Link>
-          <div className="md:hidden">
-            <Button variant="ghost" size="icon" aria-label="Toggle mobile menu" className="text-primary">
-              <Menu className="h-6 w-6" />
-            </Button>
-          </div>
-        </div>
-      </header>
-    );
-  }
 
   const LanguageSelector = ({ inMobileMenu = false }: { inMobileMenu?: boolean }) => (
     <DropdownMenu>
@@ -489,6 +458,21 @@ export default function Header() {
           {navItems.map((item) => (
             <NavMenuItem key={t(item.label)} item={item} isMobile={false} />
           ))}
+        </nav>
+
+        {/* Semantic sitemap navigation for search engine bots and accessibility */}
+        <nav aria-label="Sitemap Navigation" className="sr-only">
+          <ul>
+            <li><Link href="/treatments">Treatments</Link></li>
+            <li><Link href="/about">About Altruva</Link></li>
+            <li><Link href="/about/meet-dr-olivia-aldisa">Meet dr. Olivia Aldisa</Link></li>
+            <li><Link href="/about/369-harmony">369 Harmony™</Link></li>
+            <li><Link href="/book-appointment">Book Appointment</Link></li>
+            <li><Link href="/faq">FAQ</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/our-clinic">Our Clinic</Link></li>
+          </ul>
         </nav>
 
         <div className="hidden md:flex items-center space-x-3">

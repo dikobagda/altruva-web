@@ -18,7 +18,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
         disallow: [
           '/api/',
-          '/_next/',
           '/cms/',
           '/downloads/',
         ],

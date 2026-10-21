@@ -30,7 +30,7 @@ export default function MainLayout({
       <div className="flex flex-col min-h-screen">
         <WhatsAppClickTracker />
         <Preloader isLoading={isLoading} />
-        <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
+        <div className="opacity-100">
           <Header />
           <main className="flex-grow pt-20">{children}</main>
           <Footer />
