@@ -2849,7 +2849,7 @@ export const services: Service[] = [
     price: 'Price on consultation',
     category: 'Rejuvenation',
     Icon: Zap,
-    imageSrc: 'https://placehold.co/600x400.png',
+    imageSrc: '/images/services/sculpt-lift-plus.jpg',
     imageHint: 'face sculpting',
     group: 'Altruva Lift',
     groupDescription: { en: 'Aging is an evolution. Let’s refine the process.', id: 'Penuaan adalah evolusi. Mari kita perbaiki prosesnya.' },
