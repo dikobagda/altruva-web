@@ -5,8 +5,27 @@ import Link from 'next/link';
 import { services } from '@/lib/data/services';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
-import { ArrowRight, Clock, Sparkles, ChevronRight, Search, X } from 'lucide-react';
+import {
+  ArrowRight,
+  Clock,
+  Sparkles,
+  ChevronRight,
+  Search,
+  X,
+  ShieldCheck,
+  UserCheck,
+  Award,
+  HelpCircle,
+  MessageCircle,
+  CheckCircle2,
+} from 'lucide-react';
 import SectionWrapper from '@/components/shared/SectionWrapper';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 type GroupName = 'All' | 'Altruva Glow' | 'Altruva Lift' | 'Body Contouring' | 'Hair Restoration' | 'Signature Facials';
 
@@ -18,13 +37,136 @@ const GROUP_ACCENT_COLORS: Record<string, { bg: string; text: string; border: st
   'Signature Facials': { bg: 'bg-violet-50',  text: 'text-violet-800',  border: 'border-violet-200',  badge: 'bg-violet-100 text-violet-700' },
 };
 
-const GROUP_ICONS: Record<string, string> = {
-  'Altruva Glow':      '✨',
-  'Altruva Lift':      '🌿',
-  'Body Contouring':   '💎',
-  'Hair Restoration':  '🌱',
-  'Signature Facials': '🌸',
-};
+const CLINICAL_STANDARDS = [
+  {
+    icon: UserCheck,
+    title: { en: '100% Doctor-Led', id: '100% Ditangani Dokter' },
+    desc: {
+      en: 'All invasive and energy procedures performed directly by licensed aesthetic doctors.',
+      id: 'Semua prosedur klinis ditangani langsung oleh dokter spesialis dan estetika berlisensi.',
+    },
+  },
+  {
+    icon: ShieldCheck,
+    title: { en: 'FDA & BPOM Approved', id: 'Sertifikasi FDA & BPOM' },
+    desc: {
+      en: 'Only gold-standard medical equipment, genuine injectables, and cleared devices.',
+      id: 'Menggunakan perangkat medis teruji, produk biostimulator asli, dan berstandar internasional.',
+    },
+  },
+  {
+    icon: Award,
+    title: { en: '369 Harmony Method', id: 'Metode Harmoni 369' },
+    desc: {
+      en: 'Deep facial architecture and cellular analysis tailored to your unique anatomical balance.',
+      id: 'Pemetaan proporsi wajah dan biologi seluler untuk hasil proporsional tanpa efek berlebihan.',
+    },
+  },
+  {
+    icon: Clock,
+    title: { en: 'Minimal to Zero Downtime', id: 'Waktu Pemulihan Minimal' },
+    desc: {
+      en: 'Non-surgical regenerative protocols allowing immediate resumption of social activities.',
+      id: 'Protokol regeneratif non-bedah modern yang memungkinkan Anda segera beraktivitas normal.',
+    },
+  },
+];
+
+const TREATMENT_PILLARS = [
+  {
+    group: 'Altruva Lift',
+    title: { en: 'Altruva Lift', id: 'Altruva Lift' },
+    subtitle: { en: 'Non-Surgical Lifting & Contouring', id: 'Pengencangan Wajah Tanpa Operasi' },
+    description: {
+      en: 'Targeted ultrasound and biostimulatory protocols that activate deep SMAS and dermal collagen for natural architectural lifting.',
+      id: 'Gelombang ultrasound dan biostimulasi terarah yang mengaktivasi kolagen SMAS dan dermis untuk pengencangan alami berdurasi panjang.',
+    },
+    technologies: 'Sofwave, GOURI Biostimulator, Vector Lift',
+  },
+  {
+    group: 'Altruva Glow',
+    title: { en: 'Altruva Glow', id: 'Altruva Glow' },
+    subtitle: { en: 'Cellular Skin Rejuvenation & Radiance', id: 'Pencerahan & Peremajaan Seluler' },
+    description: {
+      en: 'Polynucleotides (PDRN), exosomes, and micro-fractional RF therapies targeting hyperpigmentation, collagen synthesis, and glass-skin hydration.',
+      id: 'Polinukleotida (PDRN), eksosom, dan RF mikrofraksional untuk meredakan flek, memperkuat elastisitas kulit, dan mengembalikan kilau alami.',
+    },
+    technologies: 'Exion RF, Salmon DNA PDRN, Glutathione Infusion',
+  },
+  {
+    group: 'Body Contouring',
+    title: { en: 'Body Contouring', id: 'Body Contouring' },
+    subtitle: { en: 'Non-Invasive Muscle Sculpting & Fat Loss', id: 'Pembentukan Otot & Reduksi Lemak' },
+    description: {
+      en: 'Synchronized radiofrequency and high-intensity electromagnetic field therapies that build lean muscle while permanently burning stubborn fat.',
+      id: 'Teknologi radiofrekuensi sinkron dan gelombang elektromagnetik intensitas tinggi untuk mempertegas otot dan mereduksi lemak lokal.',
+    },
+    technologies: 'EmSculpt Neo, Medical Lymphatic Drainage',
+  },
+  {
+    group: 'Hair Restoration',
+    title: { en: 'Hair Restoration', id: 'Hair Restoration' },
+    subtitle: { en: 'Regenerative Follicle Revitalization', id: 'Revitalisasi Folikel Rambut' },
+    description: {
+      en: 'Cellular growth factors, scalp microneedling, and bio-peptides that nourish dormant follicles and stimulate dense, healthy hair growth.',
+      id: 'Faktor pertumbuhan seluler, mikronutrisi kulit kepala, dan bio-peptida untuk memperkuat akar serta merangsang pertumbuhan helai rambut baru.',
+    },
+    technologies: 'Exosome Scalp Therapy, Follicular Peptide Infusion',
+  },
+  {
+    group: 'Signature Facials',
+    title: { en: 'Signature Facials', id: 'Signature Facials' },
+    subtitle: { en: 'Medical-Grade Purity & Barrier Health', id: 'Perawatan Wajah Medis Mendalam' },
+    description: {
+      en: 'Clinical hydro-dermabrasion, deep pore vacuuming, and bespoke antioxidant infusions to restore barrier integrity with instant glow.',
+      id: 'Hidro-dermabrasi klinis, pembersihan komedo mendalam, dan infusi antioksidan medis untuk menjaga hidrasi dan ketahanan skin barrier.',
+    },
+    technologies: 'Altruva Pure Hydra, Medical Lymphatic Facial',
+  },
+];
+
+const TREATMENTS_FAQ = [
+  {
+    question: {
+      en: 'What makes Altruva’s regenerative aesthetic approach unique in Jakarta?',
+      id: 'Apa keunggulan pendekatan estetika regeneratif di Altruva Clinic Jakarta?',
+    },
+    answer: {
+      en: 'Altruva champions a cellular-first, regenerative philosophy that focuses on bio-stimulating your body’s own collagen and elastin rather than creating artificial volume. Led directly by dr. Olivia Aldisa, every protocol combines FDA & BPOM-cleared medical technologies with personalized biological mapping for natural, long-lasting harmony.',
+      id: 'Altruva mengedepankan pendekatan regeneratif yang berfokus pada stimulasi kolagen alami, pembaruan seluler, dan pemetaan anatomi wajah yang harmonis tanpa operasi berlebihan, dipimpin langsung oleh dr. Olivia Aldisa dengan teknologi bersertifikat FDA dan BPOM.',
+    },
+  },
+  {
+    question: {
+      en: 'How do I know which treatment is right for my unique skin biology?',
+      id: 'Bagaimana cara menentukan treatment yang paling tepat untuk kebutuhan saya?',
+    },
+    answer: {
+      en: 'Each patient receives an in-depth clinical skin assessment and 3D facial architecture consultation prior to any treatment. Our doctors customize an individualized roadmap matching your specific skin goals, anatomy, and lifestyle timeline.',
+      id: 'Setiap pasien menjalani penilaian kulit seluler dan pemetaan anatomi mendalam bersama dokter sebelum tindakan. Protokol dirancang secara terpersonalisasi sesuai biologi unik dan sasaran estetika Anda.',
+    },
+  },
+  {
+    question: {
+      en: 'Are all procedures performed directly by licensed aesthetic doctors?',
+      id: 'Apakah seluruh prosedur medis dilakukan langsung oleh dokter?',
+    },
+    answer: {
+      en: 'Yes. Every clinical procedure—including biostimulators, high-energy ultrasound, dermal contouring, and advanced lasers—is administered 100% by certified, experienced medical doctors.',
+      id: 'Ya, seluruh prosedur medis seperti injeksi, biostimulator, laser, dan teknologi energi tinggi dilakukan 100% langsung oleh dokter estetika bersertifikasi internasional.',
+    },
+  },
+  {
+    question: {
+      en: 'Do Altruva treatments require extended recovery or downtime?',
+      id: 'Apakah perawatan di Altruva memerlukan waktu pemulihan (downtime)?',
+    },
+    answer: {
+      en: 'The vast majority of our advanced protocols are completely non-invasive or minimally invasive with minimal to zero downtime. Most patients can immediately return to work, social engagements, or daily routines.',
+      id: 'Sebagian besar protokol Altruva bersifat non-invasif dengan downtime minimal hingga nol, memungkinkan pasien untuk segera kembali beraktivitas normal.',
+    },
+  },
+];
 
 const GROUPS: GroupName[] = [
   'All',
@@ -278,6 +420,158 @@ export default function TreatmentsClientList() {
               </button>
             </div>
           )}
+        </div>
+      </SectionWrapper>
+
+      {/* ── CLINICAL STANDARDS & 5 PILLARS EDITORIAL ── */}
+      <section className="py-16 md:py-24 bg-secondary/30 border-y border-border/60">
+        {/* Standards Row */}
+        <div className="container mx-auto px-4 md:px-6 mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {CLINICAL_STANDARDS.map((std, i) => {
+              const Icon = std.icon;
+              return (
+                <div
+                  key={i}
+                  className="p-5 rounded-2xl bg-card border border-border/80 shadow-2xs hover:shadow-md transition-shadow"
+                >
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-serif text-lg font-bold text-primary mb-1.5">
+                    {t(std.title)}
+                  </h3>
+                  <p className="text-xs text-foreground/70 leading-relaxed">
+                    {t(std.desc)}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 5 Treatment Pillars Editorial */}
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-accent/80 border border-accent/20 bg-accent/5 px-3.5 py-1 rounded-full mb-3">
+              {t({ en: 'Regenerative Philosophy', id: 'Filosofi Kedokteran Regeneratif' })}
+            </span>
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 leading-tight">
+              {t({
+                en: 'The 5 Pillars of Altruva Aesthetic Medicine',
+                id: '5 Pilar Kedokteran Estetika Regeneratif Altruva',
+              })}
+            </h2>
+            <p className="text-sm md:text-base text-foreground/75 leading-relaxed">
+              {t({
+                en: 'Every protocol at Altruva is calibrated to activate cellular repair pathways, stimulate natural neocollagenesis, and preserve individual facial architecture without unnatural exaggeration.',
+                id: 'Setiap protokol di Altruva dikalibrasi untuk mengaktivasi pembaruan seluler, merangsang neokolagenesis alami tubuh, dan mempertahankan harmoni proporsi wajah tanpa kesan berlebihan.',
+              })}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {TREATMENT_PILLARS.map((pillar) => {
+              const colors = GROUP_ACCENT_COLORS[pillar.group] ?? {
+                bg: 'bg-stone-50', text: 'text-stone-800', border: 'border-stone-200', badge: 'bg-stone-100 text-stone-700',
+              };
+              return (
+                <article
+                  key={pillar.group}
+                  className="flex flex-col p-6 rounded-2xl bg-card border border-border shadow-2xs hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${colors.badge}`}>
+                      {pillar.group}
+                    </span>
+                    <button
+                      onClick={() => {
+                        setActiveGroup(pillar.group as GroupName);
+                        window.scrollTo({ top: 400, behavior: 'smooth' });
+                      }}
+                      className="text-xs font-semibold text-accent hover:underline flex items-center gap-1 cursor-pointer"
+                    >
+                      {t({ en: 'View treatments', id: 'Lihat treatment' })}
+                      <ChevronRight className="h-3 w-3" />
+                    </button>
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-primary mb-1">
+                    {t(pillar.title)}
+                  </h3>
+                  <p className="text-xs font-medium text-accent mb-3">
+                    {t(pillar.subtitle)}
+                  </p>
+                  <p className="text-sm text-foreground/75 leading-relaxed flex-1 mb-4">
+                    {t(pillar.description)}
+                  </p>
+                  <div className="pt-3 border-t border-border/60 text-xs text-foreground/60">
+                    <span className="font-semibold text-foreground/80">
+                      {t({ en: 'Key Tech: ', id: 'Teknologi Utama: ' })}
+                    </span>
+                    {pillar.technologies}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FREQUENTLY ASKED QUESTIONS (FAQ) ── */}
+      <SectionWrapper className="py-16 md:py-24">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-accent/80 border border-accent/20 bg-accent/5 px-3.5 py-1 rounded-full mb-3">
+              {t({ en: 'Got Questions?', id: 'Pertanyaan Umum' })}
+            </span>
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3">
+              {t({
+                en: 'Frequently Asked Questions About Our Treatments',
+                id: 'Pertanyaan Seputar Perawatan di Altruva',
+              })}
+            </h2>
+            <p className="text-sm md:text-base text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+              {t({
+                en: 'Everything you need to know about our doctor consultations, protocols, and clinical standards in Jakarta.',
+                id: 'Segala hal yang perlu Anda ketahui mengenai konsultasi dokter, protokol tindakan, dan standar klinis kami di Jakarta.',
+              })}
+            </p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full space-y-3">
+            {TREATMENTS_FAQ.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`faq-${index}`}
+                className="rounded-2xl border border-border bg-card px-5 data-[state=open]:shadow-md transition-all"
+              >
+                <AccordionTrigger className="text-left text-base font-semibold text-primary hover:no-underline py-4">
+                  {t(faq.question)}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-foreground/80 leading-relaxed pb-4 pt-1">
+                  {t(faq.answer)}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          <div className="mt-10 p-6 rounded-2xl bg-secondary/50 border border-border text-center">
+            <p className="text-sm font-medium text-foreground/80 mb-3">
+              {t({
+                en: 'Have questions about a specific skin concern or treatment protocol?',
+                id: 'Punya pertanyaan khusus tentang kondisi kulit atau protokol perawatan Anda?',
+              })}
+            </p>
+            <a
+              href="https://wa.me/6281216119392?text=Halo%20Altruva,%20saya%20ingin%20konsultasi%20mengenai%20perawatan%20di%20Altruva."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-semibold px-5 py-2.5 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-sm"
+            >
+              <MessageCircle className="h-3.5 w-3.5" />
+              {t({ en: 'Chat with Medical Concierge', id: 'Konsultasi Tim Medis via WhatsApp' })}
+            </a>
+          </div>
         </div>
       </SectionWrapper>
 

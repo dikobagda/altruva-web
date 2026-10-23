@@ -3,12 +3,20 @@ import type { Service } from '@/lib/data/services';
 type LocText = Record<'en' | 'id', string>;
 
 function protocolValue(service: Service, label: string): LocText | undefined {
-  return service.protocol?.find((p) => p.label.en === label)?.value;
+  return service.protocol?.find((p) => p.label.en.toLowerCase() === label.toLowerCase())?.value;
 }
 
 export interface ServiceFaq {
   question: LocText;
   answer: LocText;
+}
+
+export function truncateMetaDescription(text: string, maxLength: number = 155): string {
+  if (!text) return '';
+  if (text.length <= maxLength) return text;
+  const trimmed = text.substring(0, maxLength);
+  const lastSpace = trimmed.lastIndexOf(' ');
+  return (lastSpace > 50 ? trimmed.substring(0, lastSpace) : trimmed).trim() + '...';
 }
 
 export function buildServiceSummary(service: Service): LocText {
@@ -18,7 +26,7 @@ export function buildServiceSummary(service: Service): LocText {
     protocolValue(service, 'Session Time');
   const sessions =
     protocolValue(service, 'Sessions') ?? protocolValue(service, 'Sessions Needed');
-  const downtime = protocolValue(service, 'Downtime');
+  const downtime = protocolValue(service, 'Downtime') ?? protocolValue(service, 'Recovery');
   const results =
     protocolValue(service, 'Results') ??
     protocolValue(service, 'Results Timeline') ??
@@ -57,7 +65,7 @@ export function buildServiceFaqs(service: Service): ServiceFaq[] {
     protocolValue(service, 'Session Time');
   const sessions =
     protocolValue(service, 'Sessions') ?? protocolValue(service, 'Sessions Needed');
-  const downtime = protocolValue(service, 'Downtime');
+  const downtime = protocolValue(service, 'Downtime') ?? protocolValue(service, 'Recovery');
   const results =
     protocolValue(service, 'Results') ??
     protocolValue(service, 'Results Timeline') ??
@@ -100,9 +108,18 @@ export function buildServiceFaqs(service: Service): ServiceFaq[] {
       answer: idealFor,
     });
   }
+
+  const isConsultationPrice = (service.price || '').toLowerCase().includes('consultation');
   faqs.push({
     question: { en: `How much does ${title} cost?`, id: `Berapa biaya perawatan ${title}?` },
-    answer: { en: service.price, id: service.price },
+    answer: {
+      en: isConsultationPrice
+        ? 'Pricing is customized based on individual skin assessment and doctor consultation.'
+        : service.price,
+      id: isConsultationPrice
+        ? 'Biaya perawatan disesuaikan berdasarkan hasil penilaian kulit personal dan konsultasi dokter.'
+        : service.price,
+    },
   });
 
   return faqs;

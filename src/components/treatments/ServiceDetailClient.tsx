@@ -67,12 +67,13 @@ function RelatedTreatmentCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/treatments/${service.id}`}
+      aria-label={`${t({ en: 'Learn more about', id: 'Pelajari lebih lanjut tentang' })} ${service.title}`}
       className="group relative flex flex-col overflow-hidden rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
     >
       <div className="relative h-48 overflow-hidden bg-secondary/30">
         <img
           src={service.imageSrc}
-          alt={service.title}
+          alt={`${service.title} - ${service.subgroup || service.group}`}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
@@ -293,14 +294,14 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
       <SectionWrapper id="clinical-overview" className="pt-12 md:pt-16 pb-16">
         <div className="grid lg:grid-cols-3 gap-10 items-start">
           
-          {/* LEFT 2 COLUMNS */}
-          <div className="lg:col-span-2 space-y-10">
+          {/* LEFT 2 COLUMNS (ARTICLE) */}
+          <article className="lg:col-span-2 space-y-10">
             {/* Visual Showcase & About Section */}
             <div className="rounded-3xl bg-card border border-border overflow-hidden shadow-sm">
               <div className="relative aspect-[16/10] overflow-hidden bg-secondary/30">
                 <img
                   src={service.imageSrc}
-                  alt={service.title}
+                  alt={`${service.title} - ${t({ en: 'Clinical Protocol at Altruva Jakarta', id: 'Prosedur Klinis di Altruva Jakarta' })}`}
                   className="w-full h-full object-cover"
                   data-ai-hint={service.imageHint}
                 />
@@ -347,7 +348,7 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
                     <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-primary/30 shadow-sm shrink-0 bg-secondary/60">
                       <img
                         src="/images/dr_aldisa.jpeg"
-                        alt="dr. Olivia Aldisa"
+                        alt="dr. Olivia Aldisa - Founder Altruva Aesthetic Clinic"
                         className="w-full h-full object-cover object-top"
                       />
                     </div>
@@ -373,9 +374,9 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
                     <span className="text-xs font-semibold uppercase tracking-wider text-accent block">
                       {t({ en: 'Clinical Science', id: 'Sains Klinis' })}
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-primary">
+                    <h2 className="font-serif text-2xl font-bold text-primary">
                       {t(service.whatIsIt.title)}
-                    </h3>
+                    </h2>
                   </div>
                 </div>
                 <div
@@ -396,9 +397,9 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
                     <span className="text-xs font-semibold uppercase tracking-wider text-accent block">
                       {t({ en: 'Biomedical Action', id: 'Aksi Biomedis' })}
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-primary">
+                    <h2 className="font-serif text-2xl font-bold text-primary">
                       {t({ en: 'Mechanism of Action', id: 'Mekanisme Aksi' })}
-                    </h3>
+                    </h2>
                   </div>
                 </div>
                 <div className="space-y-4">
@@ -411,9 +412,9 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
                         0{index + 1}
                       </div>
                       <div>
-                        <h4 className="font-serif text-lg font-bold text-primary mb-1">
+                        <h3 className="font-serif text-lg font-bold text-primary mb-1">
                           {t(item.title)}
-                        </h4>
+                        </h3>
                         <p className="text-sm text-foreground/75 leading-relaxed">
                           {t(item.description)}
                         </p>
@@ -435,9 +436,9 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
                     <span className="text-xs font-semibold uppercase tracking-wider text-accent block">
                       {t({ en: 'Key Advantages', id: 'Keunggulan Utama' })}
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-primary">
+                    <h2 className="font-serif text-2xl font-bold text-primary">
                       {t({ en: 'Key Clinical Benefits', id: 'Manfaat Klinis Utama' })}
-                    </h3>
+                    </h2>
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -469,9 +470,9 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
                     <span className="text-xs font-semibold uppercase tracking-wider text-accent block mb-1">
                       {t({ en: 'Distinctive Approach', id: 'Pendekatan Khas' })}
                     </span>
-                    <h3 className="font-serif text-xl md:text-2xl font-bold text-primary mb-3">
+                    <h2 className="font-serif text-xl md:text-2xl font-bold text-primary mb-3">
                       {t({ en: 'The Altruva Advantage', id: 'Keunggulan Altruva' })}
-                    </h3>
+                    </h2>
                     <p className="text-base text-foreground/80 leading-relaxed">
                       {t(service.howItDiffers)}
                     </p>
@@ -491,9 +492,9 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
                     <span className="text-xs font-semibold uppercase tracking-wider text-primary block mb-1">
                       {t({ en: 'Clinical Artistry', id: 'Keahlian Klinis' })}
                     </span>
-                    <h3 className="font-serif text-xl md:text-2xl font-bold text-primary mb-3">
+                    <h2 className="font-serif text-xl md:text-2xl font-bold text-primary mb-3">
                       {t({ en: 'Why Patients Choose This Protocol', id: 'Mengapa Pasien Memilih Protokol Ini' })}
-                    </h3>
+                    </h2>
                     <div className="space-y-3">
                       {service.whyLoveIt.map((item, index) => (
                         <div
@@ -507,7 +508,7 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
                 </div>
               </div>
             )}
-          </div>
+          </article>
 
           {/* RIGHT COLUMN (STICKY SIDEBAR) */}
           <aside className="lg:col-span-1 space-y-6">
