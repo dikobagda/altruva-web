@@ -1099,7 +1099,7 @@ export const services: Service[] = [
   {
     id: 'slim-contour-injection',
     title: 'Altruva Slim Contour Injection',
-    description: { en: 'Facial fat detox &amp; contouring.', id: 'Detoks lemak wajah &amp; pembentukan kontur.' },
+    description: { en: 'Facial fat detox & contouring.', id: 'Detoks lemak wajah & pembentukan kontur.' },
     price: 'Price on consultation',
     category: 'Prejuvenation',
     Icon: Droplets,
@@ -2564,7 +2564,7 @@ export const services: Service[] = [
     id: 'cocktail-contouring',
     title: 'Altruva Cocktail Contouring',
     description: {
-      en: 'Personalized bio-stimulator &amp; selected filler fusion.',
+      en: 'Personalized bio-stimulator & selected filler fusion.',
       id: 'Fusi bio-stimulator yang dipersonalisasi & pengisi yang dipilih.'
     },
     price: 'Price on consultation',
@@ -2845,7 +2845,7 @@ export const services: Service[] = [
   {
     id: 'sculpt-lift-plus',
     title: 'Sculpt Lift +',
-    description: { en: 'Facial contour sculpting &amp; detoxification.', id: 'Pahatan kontur wajah & detoksifikasi.' },
+    description: { en: 'Facial contour sculpting & detoxification.', id: 'Pahatan kontur wajah & detoksifikasi.' },
     price: 'Price on consultation',
     category: 'Rejuvenation',
     Icon: Zap,
@@ -2874,7 +2874,7 @@ export const services: Service[] = [
       en: 'Sculpt, tone, and refine your body with our advanced treatments.',
       id: 'Pahat, kencangkan, dan sempurnakan tubuh Anda dengan perawatan canggih kami.'
     },
-    subgroup: 'Muscle &amp; Fat',
+    subgroup: 'Muscle & Fat',
     subtitle: {
       en: 'Shape Redefined. Strength Amplified. Contour, Regenerate, Elevate.',
       id: 'Bentuk Didefinisikan Ulang. Kekuatan Diperkuat. Kontur, Regenerasi, Tingkatkan.'
