@@ -17,12 +17,14 @@ const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-libre-baskerville',
+  display: 'swap',
 });
 
 const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-nunito-sans',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -296,13 +298,27 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preload" href="/images/logoaltruvanew.webp" as="image" fetchPriority="high" />
-        {/* Google Analytics (gtag.js) */}
+        {/* Responsive LCP hero preloads */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/model1-face-mobile.webp"
+          media="(max-width: 767px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/herobackground-new.webp"
+          media="(min-width: 768px)"
+          fetchPriority="high"
+        />
+        {/* Google Analytics (gtag.js) - loaded on idle to reduce TBT */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

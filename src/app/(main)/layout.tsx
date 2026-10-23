@@ -1,14 +1,10 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 import { LanguageProvider } from '@/context/LanguageContext';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import Preloader from '@/components/layout/Preloader';
 import WhatsAppClickTracker from '@/components/analytics/WhatsAppClickTracker';
-
 import FloatingWhatsAppButton from '@/components/layout/FloatingWhatsAppButton';
 
 export default function MainLayout({
@@ -16,24 +12,14 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [isLoading, setIsLoading] = useState(true);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setIsLoading(false);
-  }, []);
-
   return (
     <LanguageProvider>
       <div className="flex flex-col min-h-screen">
         <WhatsAppClickTracker />
-        <Preloader isLoading={isLoading} />
-        <div className="opacity-100">
-          <Header />
-          <main className="flex-grow pt-20">{children}</main>
-          <Footer />
-          <FloatingWhatsAppButton />
-        </div>
+        <Header />
+        <main className="flex-grow pt-20">{children}</main>
+        <Footer />
+        <FloatingWhatsAppButton />
       </div>
     </LanguageProvider>
   );

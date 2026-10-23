@@ -157,24 +157,20 @@ export default function HomePage({ googleReviews = [] }: HomePageProps = {}) {
       {/* Hero Section */}
       <SectionWrapper className="!py-0 min-h-[70vh] md:min-h-[80vh] flex items-center relative overflow-hidden bg-secondary/30">
         <div className="absolute inset-0 z-0">
-           {/* Mobile Image */}
-          <Image
-            src="/images/model1-face.png"
-            alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
-            fill
-            className="object-cover object-top md:hidden"
-            data-ai-hint="elegant woman radiant skin"
-            priority
-          />
-          {/* Desktop Image */}
-          <Image
-            src="/images/herobackground-new.png"
-            alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
-            fill
-            className="object-cover hidden md:block"
-            data-ai-hint="elegant woman radiant skin"
-            priority
-          />
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcSet="/images/herobackground-new.webp"
+            />
+            <img
+              src="/images/model1-face-mobile.webp"
+              alt={t({ en: 'An elegant woman with radiant skin', id: 'Wanita elegan dengan kulit bercahaya' })}
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover object-top"
+              data-ai-hint="elegant woman radiant skin"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
