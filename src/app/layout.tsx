@@ -298,21 +298,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Responsive LCP hero preloads */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/model1-face-mobile.webp"
-          media="(max-width: 767px)"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/herobackground-new.webp"
-          media="(min-width: 768px)"
-          fetchPriority="high"
-        />
         {/* Google Analytics (gtag.js) - loaded on idle to reduce TBT */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
