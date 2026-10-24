@@ -1,271 +1,842 @@
-
 'use client';
 
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import PageTitle from '@/components/shared/PageTitle';
-import SectionWrapper from '@/components/shared/SectionWrapper';
+import { useLanguage } from '@/context/LanguageContext';
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, ShieldCheck, Zap, Diamond, Star, Clock, Target, Rocket, Gem } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { useLanguage } from '@/context/LanguageContext';
+import {
+  Sparkles,
+  ShieldCheck,
+  Zap,
+  CheckCircle2,
+  ChevronRight,
+  Clock,
+  Target,
+  Gem,
+  Diamond,
+  Star,
+  Layers,
+  ArrowRight,
+  HeartHandshake,
+  Award,
+  Calendar,
+  Check,
+  TrendingUp,
+  Microscope,
+} from 'lucide-react';
 
 export default function Harmony369Content() {
   const { t, language } = useLanguage();
+  const [activePhase, setActivePhase] = useState<string>('phase-3');
 
-  const keyPrinciples = [
-      { title: { en: 'Aging is 3M', id: 'Penuaan adalah 3M' }, description: { en: 'Multilayered, Multifactorial, and Multimodal, requiring a comprehensive strategy.', id: 'Berlapis, multifaktorial, dan multimodal, membutuhkan strategi yang komprehensif.' }, Icon: Diamond },
-      { title: { en: 'Regenerative Framework', id: 'Kerangka Regeneratif' }, description: { en: 'Honors biological rhythms and aging timelines for optimal results.', id: 'Menghormati ritme biologis dan garis waktu penuaan untuk hasil yang optimal.' }, Icon: ShieldCheck },
-      { title: { en: 'Harmonized Layering', id: 'Pelapisan yang Harmonis' }, description: { en: 'Enhances skin, structure, and cellular vitality in cycles of 3, 6, and 9-12 months.', id: 'Meningkatkan vitalitas kulit, struktur, dan sel dalam siklus 3, 6, dan 9-12 bulan.' }, Icon: Zap },
-      { title: { en: 'Respects Healing Phases', id: 'Menghormati Fase Penyembuhan' }, description: { en: 'Avoids overstimulation by respecting the skin\'s intrinsic regenerative phases.', id: 'Menghindari stimulasi berlebihan dengan menghormati fase regeneratif intrinsik kulit.' }, Icon: CheckCircle },
-      { title: { en: 'Clinically Proven', id: 'Terbukti Secara Klinis' }, description: { en: 'Tested and proven through over 12 years of Dr. Aldisa\'s practice.', id: 'Diuji dan dibuktikan melalui lebih dari 12 tahun praktik Dr. Aldisa.' }, Icon: Star },
-      { title: { en: 'Natural, Long-Term Results', id: 'Hasil Alami, Jangka Panjang' }, description: { en: 'Designed to deliver visible, natural, and lasting rejuvenation.', id: 'Dirancang untuk memberikan peremajaan yang terlihat, alami, dan tahan lama.' }, Icon: Gem },
-      { title: { en: 'Rooted in Reality', id: 'Berakar pada Kenyataan' }, description: { en: 'Acknowledges aging as a progressive process that requires a strategic, long-term plan.', id: 'Mengakui penuaan sebagai proses progresif yang membutuhkan rencana strategis jangka panjang.' }, Icon: Target },
-      { title: { en: 'Exponential Outcomes', id: 'Hasil Eksponensial' }, description: { en: 'Scientifically designed for synergistic treatments that generate exponential results over time.', id: 'Dirancang secara ilmiah untuk perawatan sinergis yang menghasilkan hasil eksponensial dari waktu ke waktu.' }, Icon: Rocket },
+  const principles3M = [
+    {
+      step: '01',
+      title: { en: 'Multilayered Aging', id: 'Penuaan Multilapis (Multilayered)' },
+      subtitle: { en: 'Bone • Fat Pads • Dermis • Epidermis', id: 'Tulang • Bantalan Lemak • Dermis • Epidermis' },
+      description: {
+        en: 'Facial aging is never superficial. It occurs simultaneously across bone resorption, deep fat compartment shifts, collagen thinning, and surface barrier loss. True rejuvenation requires treating each layer in its natural biological order.',
+        id: 'Penuaan wajah tidak hanya terjadi di permukaan. Terjadi degradasi tulang penyangga, pergeseran bantalan lemak dalam, penipisan kolagen, dan kerusakan barier kulit. Peremajaan sejati harus merawat setiap lapisan secara berurutan.',
+      },
+      icon: Layers,
+    },
+    {
+      step: '02',
+      title: { en: 'Multifactorial Drivers', id: 'Pemicu Multifaktor (Multifactorial)' },
+      subtitle: { en: 'Biology • Hormones • UV • Lifestyle', id: 'Biologi • Hormon • Paparan UV • Gaya Hidup' },
+      description: {
+        en: 'Cellular degradation is driven by chronological aging, UV photoaging, glycation, and oxidative stress. We address both internal cellular capacity and external environmental protection to secure lasting results.',
+        id: 'Degradasi seluler dipicu oleh penuaan kronologis, kerusakan sinar UV, proses glikasi, dan stres oksidatif. Kami memadukan aktivasi kapasitas sel internal dan perlindungan lingkungan luar agar hasil bertahan lama.',
+      },
+      icon: Microscope,
+    },
+    {
+      step: '03',
+      title: { en: 'Multimodal Strategy', id: 'Strategi Multimoda (Multimodal)' },
+      subtitle: { en: 'Energy • Biostimulation • Profiloplasty', id: 'Energi Medis • Biostimulasi • Profiloplasti' },
+      description: {
+        en: 'No single machine or syringe can reverse multilayered aging alone. We combine precision energy devices (Sofwave, Exion) with regenerative bio-stimulators (GOURI, polynucleotides) for compounded results.',
+        id: 'Tidak ada satu mesin atau satu spuit injeksi pun yang mampu mengatasi penuaan sendirian. Kami menyinergikan perangkat energi (Sofwave, Exion) dengan bio-stimulator kolagen (GOURI, polinukleotida) untuk hasil eksponensial.',
+      },
+      icon: Zap,
+    },
+  ];
+
+  const phases = [
+    {
+      id: 'phase-3',
+      number: '3',
+      name: { en: 'Phase 3: Foundation', id: 'Fase 3: Fondasi' },
+      cadence: { en: 'Quarterly (Month 1 – 3)', id: 'Triwulanan (Bulan 1 – 3)' },
+      theme: { en: 'Hydration • Texture • Cellular Vitality', id: 'Hidrasi • Tekstur • Vitalitas Sel' },
+      tagline: {
+        en: '“Build the biological foundation before structural intervention.”',
+        id: '“Bangun fondasi biologis kulit sebelum intervensi struktural.”',
+      },
+      description: {
+        en: 'Phase 3 focuses on strengthening the skin barrier, improving extracellular hydration, and kickstarting cellular turnover. Without a resilient foundation, deeper lifting treatments cannot reach their full regenerative potential.',
+        id: 'Fase 3 berfokus memperkuat skin barrier, meningkatkan hidrasi ekstraseluler, dan memicu regenerasi sel dasar. Tanpa fondasi kulit yang sehat, perawatan lifting di lapisan dalam tidak akan mencapai hasil optimal.',
+      },
+      treatments: [
+        { en: 'Signature Clinical Facial & Medical Infusion', id: 'Signature Clinical Facial & Medical Infusion' },
+        { en: 'Selective Laser Toning & Melanin Modulation', id: 'Selective Laser Toning & Melanin Modulation' },
+        { en: 'HA / PN / Amino Acid-Rich Skinbooster', id: 'Skinbooster Berbasis HA / PN / Asam Amino' },
+      ],
+      keyBenefit: {
+        en: 'Pores shrink, moisture barrier thickens, and skin radiates a healthy natural glow.',
+        id: 'Pori-pori tampak ringkas, barier hidrasi menguat, dan kulit memancarkan kilau sehat alami.',
+      },
+    },
+    {
+      id: 'phase-6',
+      number: '6',
+      name: { en: 'Phase 6: Harmonization', id: 'Fase 6: Harmonisasi' },
+      cadence: { en: 'Biannual (Every 6 Months)', id: 'Semesteran (Setiap 6 Bulan)' },
+      theme: { en: 'Collagen Banking • Biostimulation • Dynamic Balance', id: 'Bank Kolagen • Biostimulasi • Keseimbangan Dinamis' },
+      tagline: {
+        en: '“Reinforce structural matrices and preserve facial volume naturally.”',
+        id: '“Perkuat matriks struktural dan pertahankan volume wajah secara alami.”',
+      },
+      description: {
+        en: 'Phase 6 introduces deep collagen-banking biostimulators and subtle muscle modulation. It harmonizes the dynamic muscular forces that cause wrinkles while stimulating your fibroblasts to produce fresh Type I and Type III collagen.',
+        id: 'Fase 6 memperkenalkan bio-stimulator kolagen dalam dan modulasi otot halus. Fase ini menyelaraskan tarikan otot ekspresi sekaligus mengaktifkan fibroblas Anda untuk memproduksi kolagen Tipe I dan Tipe III baru.',
+      },
+      treatments: [
+        { en: 'Targeted Botulinum Toxin Modulation', id: 'Modulasi Presisi Botulinum Toxin' },
+        { en: 'Collagen Biostimulator (GOURI PCL / CaHA / PLLA)', id: 'Bio-stimulator Kolagen (GOURI PCL / CaHA / PLLA)' },
+        { en: 'Customized Peptide Delivery & Bio-Repair', id: 'Penghantaran Peptida Khusus & Bio-Repair' },
+      ],
+      keyBenefit: {
+        en: 'Prevents deepening expression lines and restores youthful elasticity without stiffness.',
+        id: 'Mencegah garis kerutan ekspresi bertambah dalam dan memulihkan elastisitas tanpa rasa kaku.',
+      },
+    },
+    {
+      id: 'phase-9',
+      number: '9-12',
+      name: { en: 'Phase 9–12: Elevation', id: 'Fase 9–12: Elevasi' },
+      cadence: { en: 'Annual (Every 9 – 12 Months)', id: 'Tahunan (Setiap 9 – 12 Bulan)' },
+      theme: { en: 'Structural Repositioning • Deep Contouring • Longevity Reset', id: 'Reposisi Struktural • Kontur Dalam • Reset Longevity' },
+      tagline: {
+        en: '“Reset the aging trajectory and refine facial architecture for the long term.”',
+        id: '“Atur ulang lintasan penuaan dan sempurnakan arsitektur wajah jangka panjang.”',
+      },
+      description: {
+        en: 'The pinnacle of the annual roadmap. Phase 9–12 delivers deep structural lifting using gold-standard energy devices (like Sofwave™ ultrasound), targeted fat pad contouring, and vector repositioning to lift sagging contours back to their youthful positions.',
+        id: 'Puncak dari peta jalan tahunan. Fase 9–12 menghadirkan pengencangan struktural mendalam menggunakan perangkat energi standar emas (seperti ultrasound Sofwave™), kontur bantalan lemak presisi, dan reposisi vektor agar kontur wajah terangkat kembali ke proporsi mudanya.',
+      },
+      treatments: [
+        { en: 'Energy-Based Device: Sofwave™ SUPERB Ultrasound', id: 'Perangkat Energi: Sofwave™ SUPERB Ultrasound' },
+        { en: 'SculptLift+ Lipolysis (Submental & Jawline Contouring)', id: 'SculptLift+ Lipolysis (Kontur Rahang & Double Chin)' },
+        { en: 'Cocktail Vector Profiloplasty & Restorative Contouring', id: 'Profiloplasti Vektor & Penyempurnaan Kontur Wajah' },
+      ],
+      keyBenefit: {
+        en: 'Visibly lifts jawline, neck, and brow; sharpens facial definition for up to 18 months.',
+        id: 'Mengangkat garis rahang, leher, dan alis; mempertajam definisi kontur wajah hingga 18 bulan.',
+      },
+    },
   ];
 
   const membershipTiers = [
     {
       name: 'LUMI PLAN',
-      tagline: { en: '“I want to preserve my glow and prevent future signs.”', id: '“Saya ingin menjaga kilau saya dan mencegah tanda-tanda masa depan.”' },
-      idealFor: { en: 'Ages 25–35, focusing on prevention and hydration.', id: 'Usia 25–35, berfokus pada pencegahan dan hidrasi.' },
-      focus: { en: 'Skin hydration, tone balancing, and early collagen activation. Entry-level program for regenerative consistency.', id: 'Hidrasi kulit, penyeimbangan warna, dan aktivasi kolagen dini. Program tingkat pemula untuk konsistensi regeneratif.' },
-      phasesCovered: { en: 'Phase 3 (once a month for 3 consecutive months, repeatable after 6 months)', id: 'Fase 3 (sebulan sekali selama 3 bulan berturut-turut, dapat diulang setelah 6 bulan)' },
-      totalSessions: { en: '3 sessions of skin foundation OR 1 session of Prejuvenation Lift.', id: '3 sesi fondasi kulit ATAU 1 sesi Prejuvenation Lift.' },
-      investment: '~IDR 24.500.000/year',
+      badge: { en: 'Prejuvenation & Glow', id: 'Prejuvenasi & Kilau' },
+      tagline: {
+        en: '“I want to preserve my natural glow and prevent premature signs of aging.”',
+        id: '“Saya ingin menjaga kilau alami saya dan mencegah tanda-tanda penuaan dini.”',
+      },
+      idealFor: {
+        en: 'Ages 25–35, focusing on early prevention, skin barrier hydration, and luminosity.',
+        id: 'Usia 25–35, berfokus pada pencegahan dini, hidrasi barier kulit, dan kilau alami.',
+      },
+      focus: {
+        en: 'Skin hydration, tone balancing, and early collagen activation. The foundational program for regenerative consistency.',
+        id: 'Hidrasi kulit, pemerataan warna, dan aktivasi kolagen dini. Program fondasi untuk konsistensi regeneratif.',
+      },
+      phasesCovered: {
+        en: 'Phase 3 (once a month for 3 consecutive months, repeatable)',
+        id: 'Fase 3 (sebulan sekali selama 3 bulan berturut-turut, dapat diulang)',
+      },
+      totalSessions: { en: '3 foundation sessions OR 1 Prejuvenation Lift', id: '3 sesi fondasi kulit ATAU 1 sesi Prejuvenation Lift' },
       prepayPrice: 'IDR 24,500,000',
       alaCartePrice: 'IDR 30,900,000',
-      savings: { en: 'IDR 6,400,000 (20%)', id: 'Rp 6.400.000 (20%)' },
+      savings: { en: 'Save IDR 6,400,000 (20%)', id: 'Hemat Rp 6.400.000 (20%)' },
+      monthlyBreakdown: '~IDR 1,991,000 / month',
       bonus: [
         { en: '1x Customized Oxy Infusion', id: '1x Customized Oxy Infusion' },
-        { en: '1x Lymphatic Massage', id: '1x Lymphatic Massage' },
+        { en: '1x Lymphatic Drainage Massage', id: '1x Pijat Drainase Limfatik' },
+        { en: 'Remee™ 3D Skin Analysis at every check-in', id: 'Analisis Kulit 3D Remee™ di setiap kontrol' },
       ],
-      monthlyBreakdown: '~1,991,000/month',
       featured: false,
     },
     {
       name: 'AURA PLAN',
-      tagline: { en: '“I want to restore balance and stay lifted without extremes.”', id: '“Saya ingin mengembalikan keseimbangan dan tetap terangkat tanpa ekstrem.”' },
-      idealFor: { en: 'Ages 35-45s with mild to moderate laxity, pigmentation, or early contour changes.', id: 'Usia 35-45 dengan kekenduran ringan hingga sedang, pigmentasi, atau perubahan kontur dini.' },
-      focus: { en: 'Targeting early signs of sagging and dullness. Soft lift, skin density support, toxin modulation & tone revival.', id: 'Menargetkan tanda-tanda awal kendur dan kusam. Pengangkatan lembut, dukungan kepadatan kulit, modulasi toksin & kebangkitan warna kulit.' },
-      phasesCovered: { en: 'Phase 3 (1 cycle), Phase 6', id: 'Fase 3 (1 siklus), Fase 6' },
-      totalSessions: { en: '4 sessions', id: '4 sesi' },
-      investment: '~IDR 54.5 M/year',
+      badge: { en: 'Most Popular • Balanced Harmony', id: 'Paling Populer • Harmonis Seimbang' },
+      tagline: {
+        en: '“I want to restore facial balance and stay naturally lifted without extremes.”',
+        id: '“Saya ingin mengembalikan keseimbangan wajah dan tetap kencang tanpa terlihat berlebihan.”',
+      },
+      idealFor: {
+        en: 'Ages 35–45 with mild to moderate skin laxity, expression lines, or early contour changes.',
+        id: 'Usia 35–45 dengan kekenduran ringan hingga sedang, garis ekspresi, atau perubahan kontur dini.',
+      },
+      focus: {
+        en: 'Targeting sagging, collagen banking, dynamic muscle modulation, and multi-plane skin density revival.',
+        id: 'Mengatasi kekenduran, pembentukan bank kolagen, modulasi otot ekspresi, dan kepadatan jaringan kulit.',
+      },
+      phasesCovered: {
+        en: 'Phase 3 (Full Foundation Cycle) + Phase 6 (Harmonization)',
+        id: 'Fase 3 (Siklus Fondasi Penuh) + Fase 6 (Harmonisasi Kolagen)',
+      },
+      totalSessions: { en: '4 Comprehensive Clinical Sessions', id: '4 Sesi Perawatan Komprehensif' },
       prepayPrice: 'IDR 54,500,000',
       alaCartePrice: 'IDR 72,900,000',
-      savings: { en: 'IDR 18,400,000 (25%)', id: 'Rp 18.400.000 (25%)' },
+      savings: { en: 'Save IDR 18,400,000 (25%)', id: 'Hemat Rp 18.400.000 (25%)' },
+      monthlyBreakdown: '~IDR 4,541,000 / month',
       bonus: [
-        { en: '1x RF LipoFirming', id: '1x RF LipoFirming' },
-        { en: 'Loyalty Voucher IDR 500,000', id: 'Voucher Loyalitas Rp 500.000' },
+        { en: '1x RF LipoFirming Session', id: '1x Sesi RF LipoFirming' },
+        { en: 'IDR 500,000 Loyalty Treatment Voucher', id: 'Voucher Perawatan Rp 500.000' },
+        { en: 'Priority WhatsApp Doctor Concierge', id: 'Layanan WhatsApp Dokter Prioritas' },
       ],
-      monthlyBreakdown: '~4,541,000/month',
       featured: true,
     },
     {
       name: 'ÉLEVÉ PLAN',
-      tagline: { en: '“I’m ready for deep support and visible rejuvenation.”', id: '“Saya siap untuk dukungan mendalam dan peremajaan yang terlihat.”' },
-      idealFor: { en: '45s and above clients seeking visible structure restoration and long-term collagen support.', id: 'Klien usia 45 ke atas yang mencari pemulihan struktur yang terlihat dan dukungan kolagen jangka panjang.' },
-      focus: { en: 'Full-spectrum regenerative protocol with structural intervention for transformational results.', id: 'Protokol regeneratif spektrum penuh dengan intervensi struktural untuk hasil transformasional.' },
-      phasesCovered: { en: 'Phase 3, Phase 6, Phase 9-12', id: 'Fase 3, Fase 6, Fase 9-12' },
-      totalSessions: { en: '5 sessions', id: '5 sesi' },
-      investment: 'IDR 69.500.000/year',
+      badge: { en: 'Full-Spectrum Elevation', id: 'Transformasi Penuh • Elevasi' },
+      tagline: {
+        en: '“I am ready for deep structural support and transformative longevity.”',
+        id: '“Saya siap untuk dukungan struktural mendalam dan peremajaan menyeluruh jangka panjang.”',
+      },
+      idealFor: {
+        en: 'Ages 45+ seeking deep structural restoration, jawline contouring, and long-term collagen remodeling.',
+        id: 'Usia 45+ yang menginginkan pemulihan struktur wajah, penegasan garis rahang, dan pengencangan kolagen jangka panjang.',
+      },
+      focus: {
+        en: 'Full-spectrum protocol combining Sofwave ultrasound, biostimulators, lipolysis, and vector repositioning.',
+        id: 'Protokol terlengkap memadukan ultrasound Sofwave, bio-stimulator, lipolisis, dan reposisi vektor.',
+      },
+      phasesCovered: {
+        en: 'Phase 3 (Foundation) + Phase 6 (Harmonization) + Phase 9–12 (Elevation)',
+        id: 'Fase 3 (Fondasi) + Fase 6 (Harmonisasi) + Fase 9–12 (Elevasi Struktural)',
+      },
+      totalSessions: { en: '5 Advanced Clinical Sessions', id: '5 Sesi Klinis Lanjutan' },
       prepayPrice: 'IDR 69,500,000',
       alaCartePrice: 'IDR 99,900,000',
-      savings: { en: 'IDR 30,400,000 (30%)', id: 'Rp 30.400.000 (30%)' },
+      savings: { en: 'Save IDR 30,400,000 (30%)', id: 'Hemat Rp 30.400.000 (30%)' },
+      monthlyBreakdown: '~IDR 5,791,000 / month',
       bonus: [
-        { en: '1x RF LipoFirming', id: '1x RF LipoFirming' },
-        { en: 'WhatsApp priority + exclusive invites + VIP room', id: 'Prioritas WhatsApp + undangan eksklusif + ruang VIP' },
-        { en: 'Loyalty Voucher IDR 1,000,000', id: 'Voucher Loyalitas Rp 1.000.000' },
+        { en: '1x RF LipoFirming Treatment', id: '1x Perawatan RF LipoFirming' },
+        { en: 'IDR 1,000,000 Loyalty Treatment Voucher', id: 'Voucher Perawatan Rp 1.000.000' },
+        { en: 'VIP Private Suite & Exclusive Event Invitations', id: 'Suite Privat VIP & Undangan Eksklusif' },
       ],
-      monthlyBreakdown: '~5,791,000/month',
       featured: false,
+    },
+  ];
+
+  const keyPrinciples = [
+    {
+      title: { en: 'Honors Biological Healing Cycles', id: 'Menghormati Siklus Regenerasi Alami' },
+      description: {
+        en: 'Avoids tissue overstimulation by pacing treatments according to the natural 90-day collagen turnover timeline.',
+        id: 'Menghindari stimulasi berlebihan dengan menyesuaikan jadwal tindakan sesuai siklus pembaruan kolagen 90 hari.',
+      },
+      Icon: Clock,
+    },
+    {
+      title: { en: 'Proven in Over 12+ Years of Practice', id: 'Teruji Selama Lebih dari 12 Tahun Praktik' },
+      description: {
+        en: 'Developed, clinically tested, and refined through thousands of successful patient cases by dr. Olivia Aldisa.',
+        id: 'Dikembangkan, diuji klinis, dan disempurnakan melalui ribuan kasus pasien sukses oleh dr. Olivia Aldisa.',
+      },
+      Icon: Award,
+    },
+    {
+      title: { en: 'Compounded Exponential Results', id: 'Hasil Eksponensial Sinergis' },
+      description: {
+        en: 'Each phase builds upon the previous one, creating synergistic clinical outcomes superior to sporadic one-off visits.',
+        id: 'Setiap fase memperkuat fase sebelumnya, menghasilkan sinergi klinis yang jauh lebih unggul dibanding perawatan acak.',
+      },
+      Icon: TrendingUp,
+    },
+    {
+      title: { en: 'Zero Frozen or Over-Filled Look', id: 'Bebas Efek Kaku atau Wajah Kepenuhan' },
+      description: {
+        en: 'Respects natural expressions and facial proportions, ensuring your friends see glowing freshness rather than obvious procedures.',
+        id: 'Menjaga keaslian ekspresi wajah dan proporsi alami, memastikan Anda tampak segar dan segar alami.',
+      },
+      Icon: Star,
+    },
+  ];
+
+  const faqs = [
+    {
+      question: {
+        en: 'Why is an annual roadmap better than booking one-off treatments when needed?',
+        id: 'Mengapa rencana tahunan lebih baik daripada memesan perawatan satuan saat dibutuhkan?',
+      },
+      answer: {
+        en: 'Cellular collagen production and extracellular matrix turnover follow biological cycles of 3, 6, and 9 to 12 months. When treatments are performed sporadically without a strategic framework, results plateau and patients often over-treat one area while neglecting foundation health. The 369 Harmony Approach paces interventions intelligently, maximizing longevity while reducing unnecessary spending.',
+        id: 'Produksi kolagen seluler dan pembaruan matriks ekstraseluler mengikuti siklus biologis 3, 6, dan 9 hingga 12 bulan. Ketika perawatan dilakukan secara acak tanpa rencana strategis, hasil cenderung tidak optimal dan pasien sering kali berlebihan merawat satu area namun mengabaikan fondasi kulit. Pendekatan 369 Harmony mengatur tindakan secara terukur, memaksimalkan hasil sekaligus mencegah biaya berlebih.',
+      },
+    },
+    {
+      question: {
+        en: 'Can the 369 Harmony plan be customized if I already had treatments elsewhere?',
+        id: 'Bisakah rencana 369 Harmony disesuaikan jika saya sudah pernah perawatan di klinik lain?',
+      },
+      answer: {
+        en: 'Yes, absolutely. Every patient begins with our Remee™ 3D Multi-Spectral Skin Scan and a comprehensive consultation with our doctor. If you have existing fillers, thread lifts, or recent laser sessions, we map your current tissue anatomy and tailor the 369 phases to harmoniously complement and safeguard your previous results.',
+        id: 'Tentu saja. Setiap pasien mengawali perjalanannya dengan pemindaian 3D Remee™ dan konsultasi dokter. Jika Anda sudah memiliki filler, tanam benang, atau riwayat laser, kami memetakan anatomi jaringan Anda dan menyesuaikan fase 369 agar selaras serta melindungi hasil perawatan sebelumnya.',
+      },
+    },
+    {
+      question: {
+        en: 'What happens if I need to travel or miss a scheduled month?',
+        id: 'Bagaimana jika saya harus bepergian ke luar kota atau melewatkan bulan yang dijadwalkan?',
+      },
+      answer: {
+        en: 'Our membership plans are built with patient flexibility in mind. Scheduled sessions within each phase can be adjusted across your annual calendar with your dedicated doctor concierge, ensuring you never forfeit sessions due to busy travel schedules.',
+        id: 'Paket keanggotaan kami dirancang fleksibel bagi pasien. Sesi yang dijadwalkan dalam setiap fase dapat disesuaikan sepanjang kalender tahunan Anda bersama tim dokter concierge kami, sehingga Anda tidak akan kehilangan sesi karena jadwal perjalanan.',
+      },
+    },
+    {
+      question: {
+        en: 'Are flexible payment options available for the annual membership plans?',
+        id: 'Apakah tersedia opsi pembayaran bertahap untuk paket keanggotaan tahunan?',
+      },
+      answer: {
+        en: 'Yes. We provide transparent upfront prepay options that offer up to 30% savings compared to à la carte pricing, as well as 0% installment plans via major credit card partners (BCA, Mandiri, CIMB) for up to 12 months.',
+        id: 'Ya. Kami menyediakan opsi pembayaran penuh di awal dengan penghematan hingga 30% dibanding tarif satuan, serta fasilitas cicilan 0% hingga 12 bulan melalui mitra kartu kredit terkemuka (BCA, Mandiri, CIMB).',
+      },
     },
   ];
 
   return (
     <>
-      {/* Hero Section */}
-      <SectionWrapper className="relative min-h-[80vh] flex items-center justify-center text-center !py-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent z-10"></div>
-        <div className="relative z-20 max-w-4xl mx-auto p-4 pb-16">
-          <PageTitle
-            as="h1"
-            className="pt-32"
-            title={t({ en: "The Altruva 369 Harmony Approach™", id: "Pendekatan Altruva 369 Harmony™" })}
-            subtitle={t({ en: "Your intelligent, year-round beauty roadmap for natural, long-term rejuvenation.", id: "Peta jalan kecantikan cerdas Anda sepanjang tahun untuk peremajaan alami dan jangka panjang." })}
-          />
-          <Button asChild size="lg" className="mt-4">
-            <Link href="#membership-tiers">{t({ en: "Discover Your Plan", id: "Temukan Rencana Anda" })}</Link>
-          </Button>
+      {/* ── HERO SECTION ── */}
+      <section className="relative overflow-hidden pt-[20px] pb-12 md:pb-16 bg-gradient-to-b from-secondary/40 via-background to-background">
+        <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-primary/10 rounded-full blur-3xl" />
         </div>
-      </SectionWrapper>
 
-      {/* Why Choose 369 Harmony Section */}
-      <SectionWrapper id="why-choose" className="bg-secondary/30">
-        <PageTitle
-          title={t({ en: "Why Choose 369 Harmony?", id: "Mengapa Memilih 369 Harmony?" })}
-          subtitle={t({ en: "A philosophy rooted in science, experience, and the art of natural beauty.", id: "Sebuah filosofi yang berakar pada ilmu pengetahuan, pengalaman, dan seni kecantikan alami." })}
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {keyPrinciples.map((principle, index) => (
-            <Card key={index} className="text-center shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <CardTitle className="font-serif text-xl text-primary">{t(principle.title)}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground/80">{t(principle.description)}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </SectionWrapper>
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          {/* Breadcrumb: 20px from navbar, 50px gap to title */}
+          <nav aria-label="Breadcrumb" className="mb-[50px]">
+            <ol className="flex items-center space-x-2 text-xs md:text-sm text-muted-foreground">
+              <li>
+                <Link href="/" className="hover:text-primary transition-colors">
+                  {t({ en: 'Home', id: 'Beranda' })}
+                </Link>
+              </li>
+              <li>
+                <ChevronRight className="h-3 w-3" />
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-primary transition-colors">
+                  {t({ en: 'About', id: 'Tentang' })}
+                </Link>
+              </li>
+              <li>
+                <ChevronRight className="h-3 w-3" />
+              </li>
+              <li className="text-foreground font-medium" aria-current="page">
+                {t({ en: '369 Harmony Approach™', id: 'Pendekatan 369 Harmony™' })}
+              </li>
+            </ol>
+          </nav>
 
-      {/* The 369 Harmony Approach Section */}
-      <SectionWrapper id="the-approach">
-        <PageTitle
-          title={t({ en: "Your Intelligent Beauty Roadmap", id: "Peta Jalan Kecantikan Cerdas Anda" })}
-          subtitle={t({ en: "The Altruva 369 Harmony Approach™ is your year-round guide to strategic rejuvenation.", id: "Pendekatan Altruva 369 Harmony™ adalah panduan sepanjang tahun Anda untuk peremajaan strategis." })}
-        />
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <div className="relative aspect-square">
-            <Image 
-              src="/images/369.jpg" 
-              alt="369 Harmony diagram"
-              fill
-              className="object-contain rounded-lg"
-            />
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <Accordion type="single" defaultValue="item-1" collapsible className="w-full">
-              <AccordionItem value="item-1">
-                <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
-                  <div className="flex items-center gap-4">
-                    <div>
-                      {t({ en: "Phase 3 (3 Months): Foundation", id: "Fase 3 (3 Bulan): Fondasi" })}
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
-                  <p className="text-base text-foreground/70">{t({ en: "Quarterly Foundation / Once a Month for 3 Months", id: "Fondasi Triwulanan / Sebulan Sekali selama 3 Bulan" })}</p>
-                  <br />
-                  <p className="font-semibold mb-2 text-primary">{t({ en: "Focus: Skin Health + Preventive", id: "Fokus: Kesehatan Kulit + Pencegahan" })}</p>
-                  <p className="mb-4">{t({ en: '"Skin health, glow, hydration—build the foundation." This phase improves texture, tone, and hydration, prevents dullness, and maintains baseline regenerative activity.', id: '"Kesehatan kulit, kilau, hidrasi—bangun fondasinya." Fase ini meningkatkan tekstur, warna, dan hidrasi, mencegah kekusaman, dan mempertahankan aktivitas regeneratif dasar.' })}</p>
-                  <p className="font-semibold text-primary">{t({ en: "Example Treatments:", id: "Contoh Perawatan:" })}</p>
-                  <ul className="list-disc list-inside mt-1">
-                    <li>{t({ en: "Signature Clinical Facial", id: "Signature Clinical Facial" })}</li>
-                    <li>{t({ en: "Selected Laser Toning", id: "Selected Laser Toning" })}</li>
-                    <li>{t({ en: "Selected Skinbooster (HA-based / PN-based / Amino Acid-rich)", id: "Selected Skinbooster (HA-based / PN-based / Amino Acid-rich)" })}</li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-2">
-                <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
-                   <div className="flex items-center gap-4">
-                   <div>
-                      {t({ en: "Phase 6 (6 Months): Harmonization", id: "Fase 6 (6 Bulan): Harmonisasi" })}
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
-                  <p className="text-base text-foreground/70">{t({ en: "Biannual Harmonization / Every 6 Months", id: "Harmonisasi Setengah Tahunan / Setiap 6 Bulan" })}</p>
-                  <br/>
-                  <p className="font-semibold mb-2 text-primary">{t({ en: "Focus: Volume Preservation + Rejuvenation", id: "Fokus: Pelestarian Volume + Peremajaan" })}</p>
-                  <p className="mb-4">{t({ en: '"Collagen banking, lifting, biostimulation." This phase reinforces skin architecture, balances muscle dynamics, and activates collagen deposition.', id: '"Bank kolagen, pengencangan, biostimulasi." Fase ini memperkuat arsitektur kulit, menyeimbangkan dinamika otot, dan mengaktifkan deposisi kolagen.' })}</p>
-                  <p className="font-semibold text-primary">{t({ en: "Example Treatments:", id: "Contoh Perawatan:" })}</p>
-                  <ul className="list-disc list-inside mt-1">
-                      <li>{t({ en: "Botulinum Toxin (targeted zones)", id: "Botulinum Toxin (targeted zones)" })}</li>
-                      <li>{t({ en: "Biostimulator (PLLA/CaHA / PCL)", id: "Biostimulator (PLLA/CaHA / PCL)" })}</li>
-                      <li>{t({ en: "Customized Peptides (Injectable or transdermal delivery)", id: "Customized Peptides (Injectable or transdermal delivery)" })}</li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-3">
-                <AccordionTrigger className="text-2xl font-serif text-primary hover:no-underline py-4">
-                   <div className="flex items-center gap-4">
-                    <div>
-                      {t({ en: "Phase 9-12 (Months): Elevation", id: "Fase 9-12 (Bulan): Elevasi" })}
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-foreground/80 pb-4 pt-2 leading-relaxed pl-16">
-                  <p className="text-base text-foreground/70">{t({ en: "Annual Elevation / Every 9-12 Months", id: "Elevasi Tahunan / Setiap 9-12 Bulan" })}</p>
-                  <br />
-                  <p className="font-semibold mb-2 text-primary">{t({ en: "Focus: Structural Refinement + Contouring", id: "Fokus: Penyempurnaan Struktural + Kontur" })}</p>
-                  <p className="mb-4">{t({ en: '"Structural repositioning, long-term support." This phase focuses on structural refinement, fat pad modulation, and collagen densification to reset the aging trajectory.', id: '"Reposisi struktural, dukungan jangka panjang." Fase ini berfokus pada penyempurnaan struktural, modulasi bantalan lemak, dan densifikasi kolagen untuk mengatur ulang lintasan penuaan.' })}</p>
-                  <p className="font-semibold text-primary">{t({ en: "Example Treatments:", id: "Contoh Perawatan:" })}</p>
-                  <ul className="list-disc list-inside mt-1">
-                      <li>{language === 'id' ? 'Energy-Based Device (' : 'Energy-Based Device ('}<a href="https://sofwave.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sofwave™</a>{')'}</li>
-                      <li>{t({ en: "SculptLift+ Lipolysis (targeted jaw/cheeks)", id: "SculptLift+ Lipolysis (targeted jaw/cheeks)" })}</li>
-                      <li>{t({ en: "Filler / Cocktail Contouring (restorative or repositioning)", id: "Filler / Cocktail Contouring (restorative or repositioning)" })}</li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+          {/* Header Content */}
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <Badge
+              variant="outline"
+              className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider border-primary/30 text-primary bg-primary/5 rounded-full inline-flex items-center gap-1.5 shadow-sm"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              {t({
+                en: 'Proprietary Clinical Framework • Trademarked Methodology',
+                id: 'Metodologi Klinis Orisinal • Hak Merek Terdaftar',
+              })}
+            </Badge>
+
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-primary">
+              {t({
+                en: 'The Altruva 369 Harmony Approach™',
+                id: 'Pendekatan Altruva 369 Harmony™',
+              })}
+            </h1>
+
+            <p className="text-base sm:text-lg text-foreground/80 leading-relaxed pt-2">
+              {t({
+                en: 'Your intelligent, year-round beauty roadmap designed to honor cellular regenerative cycles. Developed by dr. Olivia Aldisa, MSc (UK) through 12+ years of clinical practice to deliver compounding, natural, and lasting facial rejuvenation.',
+                id: 'Peta jalan kecantikan cerdas sepanjang tahun yang dirancang menghormati siklus biologis regenerasi sel. Dikembangkan oleh dr. Olivia Aldisa, MSc (Inggris) melalui 12+ tahun pengalaman klinis untuk memberikan peremajaan alami yang tahan lama dan berjangka panjang.',
+              })}
+            </p>
+
+            <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium">
+                <Link href="#membership-tiers">
+                  <span>{t({ en: 'Explore Annual Plans', id: 'Lihat Pilihan Paket Tahunan' })}</span>
+                  <ArrowRight className="h-4 w-4 ml-1.5" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-border hover:bg-secondary/50">
+                <Link href="#the-roadmap">
+                  {t({ en: 'Understand the 3-6-9 Timeline', id: 'Pelajari Siklus 3-6-9' })}
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
-      </SectionWrapper>
-      
-      {/* Membership Tiers Section */}
-      <SectionWrapper id="membership-tiers" className="bg-secondary/30">
-        <PageTitle title={t({ en: "Which Journey is Yours?", id: "Perjalanan Mana yang Menjadi Milik Anda?" })} />
-        <div className="grid lg:grid-cols-3 gap-8 items-stretch">
-          {membershipTiers.map((tier) => (
-            <Card key={tier.name} className={`flex flex-col shadow-lg hover:shadow-2xl transition-shadow duration-300 ${tier.featured ? 'border-primary border-2 scale-105' : ''}`}>
-              {tier.featured && (
-                <div className="text-center py-1 px-4 bg-primary text-primary-foreground font-semibold rounded-t-lg">
-                  {t({ en: "Most Popular", id: "Paling Populer" })}
-                </div>
-              )}
-              <CardHeader className="text-center">
-                <CardTitle className="font-serif text-3xl text-primary">{tier.name}</CardTitle>
-                <CardDescription className="italic text-base h-12">{t(tier.tagline)}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow space-y-4">
-                <div>
-                  <h4 className="font-semibold text-primary">{t({ en: "Ideal For:", id: "Ideal Untuk:" })}</h4>
-                  <p className="text-sm text-foreground/80">{t(tier.idealFor)}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary">{t({ en: "Focus:", id: "Fokus:" })}</h4>
-                  <p className="text-sm text-foreground/80">{t(tier.focus)}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary">{t({ en: "Phases Covered:", id: "Fase yang Dicakup:" })}</h4>
-                  <p className="text-sm text-foreground/80">{t(tier.phasesCovered)}</p>
-                </div>
-                 <div>
-                  <h4 className="font-semibold text-primary">{t({ en: "Total Sessions/Year:", id: "Total Sesi/Tahun:" })}</h4>
-                  <p className="text-sm text-foreground/80">{t(tier.totalSessions)}</p>
-                </div>
-                <div className="pt-2">
-                    <p className="text-2xl font-bold text-accent text-center">{tier.prepayPrice}</p>
-                    <p className="text-xs text-muted-foreground text-center">
-                        {t({ en: "Ala Carte:", id: "Ala Carte:" })} {tier.alaCartePrice} <span className="font-bold text-primary">| {t({ en: "Save", id: "Hemat" })} {t(tier.savings)}</span>
+      </section>
+
+      {/* ── SECTION 1: THE 3M PHILOSOPHY ── */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
+            <span className="text-xs uppercase tracking-wider font-semibold text-primary">
+              {t({ en: 'The Science of Facial Aging', id: 'Sains di Balik Penuaan Wajah' })}
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              {t({
+                en: 'Aging is 3M: Why One-Off Treatments Fall Short',
+                id: 'Penuaan adalah 3M: Mengapa Perawatan Acak Kurang Efektif',
+              })}
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              {t({
+                en: 'Dr. Aldisa identified that sporadic treatments fail because they overlook the multi-dimensional nature of aging. The 369 Harmony Approach addresses all three dimensions in cohesive synergy.',
+                id: 'Dr. Aldisa menemukan bahwa perawatan acak kerap tidak memuaskan karena mengabaikan sifat multidimensi penuaan. Pendekatan 369 Harmony menuntaskan ketiga dimensi tersebut secara selaras.',
+              })}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {principles3M.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-border/80 bg-card p-6 sm:p-7 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <span className="text-2xl font-serif font-bold text-primary/30">
+                        {item.step}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="font-serif text-xl font-bold text-foreground">
+                        {t(item.title)}
+                      </h3>
+                      <p className="text-xs font-semibold text-primary mt-0.5">
+                        {t(item.subtitle)}
+                      </p>
+                    </div>
+
+                    <p className="text-sm text-foreground/75 leading-relaxed">
+                      {t(item.description)}
                     </p>
-                    <p className="text-sm font-semibold text-center mt-1">{tier.monthlyBreakdown}</p>
+                  </div>
                 </div>
-                 <div>
-                  <h4 className="font-semibold text-primary">{t({ en: "Exclusive Bonus:", id: "Bonus Eksklusif:" })}</h4>
-                  <ul className="text-sm text-foreground/80 list-disc list-inside">
-                    {tier.bonus.map((b, index) => <li key={index}>{t(b)}</li>)}
-                  </ul>
-                </div>
-              </CardContent>
-              <div className="p-6 pt-0">
-                <Button asChild className="w-full font-semibold" variant={tier.featured ? 'default' : 'outline'}>
-                  <Link href="/book-appointment">{t({ en: "Choose Plan", id: "Pilih Paket" })}</Link>
-                </Button>
-              </div>
-            </Card>
-          ))}
+              );
+            })}
+          </div>
         </div>
-      </SectionWrapper>
+      </section>
+
+      {/* ── SECTION 2: THE 3-6-9 ROADMAP TIMELINE ── */}
+      <section id="the-roadmap" className="py-16 md:py-24 bg-secondary/30 border-y border-border/60">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
+            <span className="text-xs uppercase tracking-wider font-semibold text-primary">
+              {t({ en: 'Structured Rejuvenation', id: 'Peremajaan Terstruktur' })}
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              {t({
+                en: 'Your Year-Round 369 Harmony Roadmap',
+                id: 'Peta Jalan Siklus Tahunan 369 Harmony',
+              })}
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              {t({
+                en: 'Three synchronized clinical phases throughout the year, designed to build cellular foundations, bank collagen, and elevate structural facial vectors.',
+                id: 'Tiga fase klinis tersinkronisasi sepanjang tahun, dirancang untuk membangun fondasi seluler, menabung kolagen, dan mengangkat vektor struktural wajah.',
+              })}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Visual Diagram Side */}
+            <div className="lg:col-span-5 flex flex-col items-center">
+              <div className="relative w-full aspect-[4/5] max-w-md rounded-2xl overflow-hidden bg-card border border-border/80 shadow-md p-4 sm:p-6 flex items-center justify-center group">
+                <Image
+                  src="/images/369.webp"
+                  alt="Altruva 369 Harmony Roadmap Diagram"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 450px"
+                  className="object-contain p-2 group-hover:scale-102 transition-transform duration-500 ease-out"
+                  priority
+                />
+              </div>
+              <p className="text-xs text-muted-foreground text-center mt-3">
+                {t({
+                  en: 'Proprietary clinical diagram: Phase 3 Foundation, Phase 6 Harmonization, Phase 9-12 Elevation.',
+                  id: 'Diagram klinis paten: Fase 3 Fondasi, Fase 6 Harmonisasi, Fase 9-12 Elevasi.',
+                })}
+              </p>
+            </div>
+
+            {/* Interactive Phase Cards Side */}
+            <div className="lg:col-span-7 space-y-5">
+              {phases.map((phase) => {
+                const isSelected = activePhase === phase.id;
+                return (
+                  <div
+                    key={phase.id}
+                    onClick={() => setActivePhase(phase.id)}
+                    className={cn(
+                      'rounded-2xl border p-5 sm:p-6 transition-all duration-300 cursor-pointer bg-card',
+                      isSelected
+                        ? 'border-primary ring-1 ring-primary shadow-md'
+                        : 'border-border/80 hover:border-border hover:shadow-xs opacity-90'
+                    )}
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={cn(
+                            'w-10 h-10 rounded-xl flex items-center justify-center font-serif text-lg font-bold shrink-0',
+                            isSelected
+                              ? 'bg-primary text-primary-foreground'
+                              : 'bg-secondary text-foreground/80'
+                          )}
+                        >
+                          {phase.number}
+                        </div>
+                        <div>
+                          <h3 className="font-serif text-xl font-bold text-foreground">
+                            {t(phase.name)}
+                          </h3>
+                          <span className="text-xs font-semibold text-primary block">
+                            {t(phase.cadence)} • {t(phase.theme)}
+                          </span>
+                        </div>
+                      </div>
+                      <Badge variant={isSelected ? 'default' : 'outline'} className="text-[10px] shrink-0">
+                        {isSelected ? 'Active Phase' : 'Explore'}
+                      </Badge>
+                    </div>
+
+                    <p className="text-xs italic text-muted-foreground mt-3">
+                      {t(phase.tagline)}
+                    </p>
+
+                    <p className="text-sm text-foreground/80 leading-relaxed mt-2.5">
+                      {t(phase.description)}
+                    </p>
+
+                    <div className="mt-4 pt-3 border-t border-border/60">
+                      <span className="text-[11px] uppercase tracking-wider font-semibold text-primary block mb-2">
+                        {t({ en: 'Featured Protocol Treatments:', id: 'Perawatan Utama dalam Fase Ini:' })}
+                      </span>
+                      <ul className="grid sm:grid-cols-2 gap-2 text-xs text-foreground/80">
+                        {phase.treatments.map((item, tIdx) => (
+                          <li key={tIdx} className="flex items-start gap-1.5">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+                            <span>{t(item)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="mt-3.5 bg-secondary/30 rounded-lg p-2.5 text-xs text-foreground/75 border border-border/40 flex items-center gap-2">
+                      <Sparkles className="h-4 w-4 text-primary shrink-0" />
+                      <span><strong>{t({ en: 'Expected Outcome:', id: 'Hasil yang Dicapai:' })}</strong> {t(phase.keyBenefit)}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 3: MEMBERSHIP TIERS ── */}
+      <section id="membership-tiers" className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
+            <span className="text-xs uppercase tracking-wider font-semibold text-primary">
+              {t({ en: 'Select Your Annual Journey', id: 'Pilih Rencana Tahunan Anda' })}
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              {t({
+                en: 'Which Journey is Right for You?',
+                id: 'Program Mana yang Paling Tepat untuk Anda?',
+              })}
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              {t({
+                en: 'Personalized annual plans engineered for continuous, predictable beauty without unpredictable ad-hoc pricing.',
+                id: 'Program keanggotaan tahunan yang dirancang untuk kecantikan berkesinambungan tanpa ketidakpastian biaya perawatan lepas.',
+              })}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+            {membershipTiers.map((tier) => (
+              <div
+                key={tier.name}
+                className={cn(
+                  'rounded-2xl border bg-card flex flex-col justify-between shadow-xs transition-all duration-300 relative',
+                  tier.featured
+                    ? 'border-primary ring-2 ring-primary/20 shadow-xl lg:-translate-y-2'
+                    : 'border-border/80 hover:shadow-lg'
+                )}
+              >
+                {/* Popular Pill Badge */}
+                {tier.featured && (
+                  <div className="absolute -top-3.5 inset-x-0 flex justify-center">
+                    <span className="bg-primary text-primary-foreground text-xs font-semibold px-4 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
+                      <Star className="h-3 w-3 fill-current" />
+                      {t(tier.badge)}
+                    </span>
+                  </div>
+                )}
+
+                {/* Card Header & Content */}
+                <div className="p-6 sm:p-8 space-y-5">
+                  <div className={cn('text-center space-y-1', tier.featured && 'pt-2')}>
+                    {!tier.featured && (
+                      <span className="text-[11px] font-semibold text-primary uppercase tracking-wider block">
+                        {t(tier.badge)}
+                      </span>
+                    )}
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-primary">
+                      {tier.name}
+                    </h3>
+                    <p className="text-xs italic text-muted-foreground min-h-[36px] flex items-center justify-center">
+                      {t(tier.tagline)}
+                    </p>
+                  </div>
+
+                  {/* Pricing Block */}
+                  <div className="bg-secondary/30 rounded-xl p-4 border border-border/60 text-center space-y-1">
+                    <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold block">
+                      {t({ en: 'Annual Prepay Investment', id: 'Investasi Program Tahunan' })}
+                    </span>
+                    <p className="text-2xl sm:text-3xl font-serif font-bold text-foreground">
+                      {tier.prepayPrice}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {t({ en: 'À La Carte Value:', id: 'Nilai Tarif Satuan:' })} <span className="line-through">{tier.alaCartePrice}</span>
+                    </p>
+                    <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-2.5 py-0.5 rounded-full mt-1">
+                      {t(tier.savings)}
+                    </span>
+                    <p className="text-xs text-foreground/75 font-medium pt-1">
+                      {tier.monthlyBreakdown}
+                    </p>
+                  </div>
+
+                  {/* Criteria & Focus */}
+                  <div className="space-y-3 text-xs sm:text-sm">
+                    <div>
+                      <strong className="text-primary block text-[11px] uppercase tracking-wider mb-0.5">
+                        {t({ en: 'Ideal Candidate:', id: 'Profil Pasien Ideal:' })}
+                      </strong>
+                      <p className="text-foreground/80">{t(tier.idealFor)}</p>
+                    </div>
+
+                    <div>
+                      <strong className="text-primary block text-[11px] uppercase tracking-wider mb-0.5">
+                        {t({ en: 'Clinical Focus:', id: 'Fokus Tindakan:' })}
+                      </strong>
+                      <p className="text-foreground/80">{t(tier.focus)}</p>
+                    </div>
+
+                    <div>
+                      <strong className="text-primary block text-[11px] uppercase tracking-wider mb-0.5">
+                        {t({ en: 'Phases & Sessions Included:', id: 'Fase & Sesi yang Dicakup:' })}
+                      </strong>
+                      <p className="text-foreground/80">{t(tier.phasesCovered)} • <strong className="text-foreground">{t(tier.totalSessions)}</strong></p>
+                    </div>
+                  </div>
+
+                  {/* Exclusive Bonuses */}
+                  <div className="pt-2 border-t border-border/60 space-y-2">
+                    <strong className="text-[11px] uppercase tracking-wider font-semibold text-primary block">
+                      {t({ en: 'Exclusive Membership Privileges:', id: 'Keistimewaan Eksklusif Anggota:' })}
+                    </strong>
+                    <ul className="space-y-1.5 text-xs text-foreground/80">
+                      {tier.bonus.map((b, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-1.5">
+                          <Check className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+                          <span>{t(b)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Card Action */}
+                <div className="p-6 sm:p-8 pt-0">
+                  <Button
+                    asChild
+                    size="lg"
+                    className={cn(
+                      'w-full font-semibold rounded-lg',
+                      tier.featured
+                        ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                        : 'bg-secondary text-foreground hover:bg-secondary/80 border border-border'
+                    )}
+                  >
+                    <Link href="/book-appointment">
+                      {t({ en: 'Select Plan & Book', id: 'Pilih Paket & Konsultasi' })}
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 4: KEY PRINCIPLES ── */}
+      <section className="py-16 md:py-24 bg-secondary/30 border-y border-border/60">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
+            <span className="text-xs uppercase tracking-wider font-semibold text-primary">
+              {t({ en: 'Why 369 Harmony Succeeds', id: 'Mengapa 369 Harmony Berhasil' })}
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              {t({
+                en: 'Grounding Aesthetics in Biology & Long-Term Reality',
+                id: 'Berakar pada Biologi dan Realitas Jangka Panjang',
+              })}
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {keyPrinciples.map((principle, index) => {
+              const Icon = principle.Icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-card rounded-xl p-5 border border-border/80 shadow-xs flex flex-col justify-between"
+                >
+                  <div className="space-y-3">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-serif text-base font-bold text-foreground">
+                      {t(principle.title)}
+                    </h3>
+                    <p className="text-xs text-foreground/75 leading-relaxed">
+                      {t(principle.description)}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 5: FREQUENTLY ASKED QUESTIONS ── */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+          <div className="text-center space-y-2 mb-10">
+            <span className="text-xs uppercase tracking-wider font-semibold text-primary">
+              {t({ en: 'Clear Understanding', id: 'Pemahaman Jelas' })}
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
+              {t({
+                en: 'Frequently Asked Questions About 369 Harmony',
+                id: 'Pertanyaan Umum Seputar 369 Harmony',
+              })}
+            </h2>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full space-y-3">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`faq-${index}`}
+                className="border border-border/80 rounded-xl px-4 sm:px-5 bg-card/50 shadow-xs"
+              >
+                <AccordionTrigger className="text-left font-medium text-sm sm:text-base py-4 hover:no-underline hover:text-primary">
+                  {t(faq.question)}
+                </AccordionTrigger>
+                <AccordionContent className="text-xs sm:text-sm text-foreground/75 leading-relaxed pb-4 pt-1">
+                  {t(faq.answer)}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* ── SECTION 6: CONSULTATION CTA BANNER ── */}
+      <section className="py-16 md:py-24 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 bg-radial from-primary-foreground/10 via-transparent to-transparent opacity-30 pointer-events-none" />
+
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center relative z-10 space-y-6">
+          <span className="text-xs uppercase tracking-widest font-semibold text-primary-foreground/80 px-3 py-1 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 inline-block">
+            {t({ en: 'Your Year-Round Beauty Journey', id: 'Perjalanan Kecantikan Sepanjang Tahun Anda' })}
+          </span>
+
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            {t({
+              en: 'Map Your 369 Harmony Journey Today',
+              id: 'Rancang Perjalanan 369 Harmony Anda Hari Ini',
+            })}
+          </h2>
+
+          <p className="text-base sm:text-lg opacity-90 max-w-xl mx-auto leading-relaxed">
+            {t({
+              en: 'Start with a comprehensive Remee™ 3D Skin Scan and an in-depth consultation with our aesthetic physician to determine which 369 Harmony plan aligns with your facial architecture.',
+              id: 'Awali dengan pemindaian 3D Remee™ dan konsultasi mendalam dengan dokter estetika kami untuk menentukan paket 369 Harmony yang paling sesuai dengan arsitektur wajah Anda.',
+            })}
+          </p>
+
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+            <Button
+              asChild
+              size="lg"
+              variant="secondary"
+              className="font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full sm:w-auto shadow-md"
+            >
+              <Link href="/book-appointment">
+                {t({ en: 'Book Consultation & 3D Skin Scan', id: 'Jadwalkan Konsultasi & Pindai 3D' })}
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 w-full sm:w-auto"
+            >
+              <Link href="/about">
+                {t({ en: 'Learn More About Altruva', id: 'Pelajari Tentang Altruva' })}
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
