@@ -427,7 +427,7 @@ export default function Harmony369Content() {
                   {t({ en: 'Why Choose 369 Harmony', id: 'Mengapa 369 Harmony' })}
                 </Link>
               </Button>
-              <Button asChild variant="ghost" size="lg" className="text-muted-foreground hover:text-foreground">
+              <Button asChild variant="outline" size="lg" className="border-border hover:bg-secondary/50">
                 <Link href="#the-roadmap">
                   {t({ en: 'The 3-6-9 Roadmap', id: 'Peta Jalan 3-6-9' })}
                 </Link>
