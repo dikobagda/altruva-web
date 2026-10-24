@@ -416,18 +416,28 @@ export default function Harmony369Content() {
             </p>
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
-              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium shadow-xs">
                 <Link href="#membership-tiers">
                   <span>{t({ en: 'Explore Annual Plans', id: 'Lihat Pilihan Paket Tahunan' })}</span>
                   <ArrowRight className="h-4 w-4 ml-1.5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-border hover:bg-secondary/50">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-border text-foreground hover:text-foreground hover:bg-secondary font-medium transition-colors"
+              >
                 <Link href="#why-choose">
                   {t({ en: 'Why Choose 369 Harmony', id: 'Mengapa 369 Harmony' })}
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-border hover:bg-secondary/50">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-border text-foreground hover:text-foreground hover:bg-secondary font-medium transition-colors"
+              >
                 <Link href="#the-roadmap">
                   {t({ en: 'The 3-6-9 Roadmap', id: 'Peta Jalan 3-6-9' })}
                 </Link>
@@ -929,7 +939,7 @@ export default function Harmony369Content() {
                       'w-full font-semibold rounded-lg',
                       tier.featured
                         ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                        : 'bg-secondary text-foreground hover:bg-secondary/80 border border-border'
+                        : 'bg-secondary text-foreground hover:bg-secondary/80 hover:text-foreground border border-border'
                     )}
                   >
                     <Link href="/book-appointment">
