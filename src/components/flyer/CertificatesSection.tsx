@@ -22,19 +22,19 @@ import {
 } from '@/components/ui/dialog';
 
 const certificates = [
-  { image: { src: "/images/flyer/cert_new/1.jpeg" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/2.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/3.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/4.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/5.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/6.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/7.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/8.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/9.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/10.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/11.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/12.png" }, imageHint: "certificate" },
-  { image: { src: "/images/flyer/cert_new/13.png" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/1.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/2.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/3.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/4.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/5.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/6.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/7.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/8.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/9.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/10.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/11.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/12.webp" }, imageHint: "certificate" },
+  { image: { src: "/images/flyer/cert_new/13.webp" }, imageHint: "certificate" },
 ];
 
 export default function CertificatesSection() {
