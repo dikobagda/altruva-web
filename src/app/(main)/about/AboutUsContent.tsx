@@ -82,6 +82,10 @@ export default function AboutUsContent() {
                 <div>
                   <h4 className="font-semibold text-primary">{t({ en: 'Cutting-Edge Technology', id: 'Teknologi Mutakhir' })}</h4>
                   <p className="text-foreground/70">{t({ en: 'We invest in the latest, clinically-proven technologies to ensure effective and efficient treatments.', id: 'Kami berinvestasi pada teknologi terbaru yang teruji secara klinis untuk memastikan perawatan yang efektif dan efisien.' })}</p>
+                  <Link href="/about/our-devices" className="text-primary inline-flex items-center gap-1 text-xs font-semibold hover:underline mt-1.5 group">
+                    <span>{t({ en: 'Explore our medical devices', id: 'Lihat perangkat medis kami' })}</span>
+                    <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                  </Link>
                 </div>
               </li>
                <li className="flex items-start">
