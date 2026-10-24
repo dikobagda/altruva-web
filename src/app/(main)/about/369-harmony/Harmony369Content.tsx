@@ -461,7 +461,7 @@ export default function Harmony369Content() {
       {/* ── SECTION 2: THE 3-6-9 ROADMAP TIMELINE ── */}
       <section id="the-roadmap" className="py-16 md:py-24 bg-secondary/30 border-y border-border/60">
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-          <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
+          <div className="text-center max-w-2xl mx-auto space-y-3 mb-12 md:mb-16">
             <span className="text-xs uppercase tracking-wider font-semibold text-primary">
               {t({ en: 'Structured Rejuvenation', id: 'Peremajaan Terstruktur' })}
             </span>
@@ -479,29 +479,154 @@ export default function Harmony369Content() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Visual Diagram Side */}
-            <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="relative w-full aspect-[4/5] max-w-md rounded-2xl overflow-hidden bg-card border border-border/80 shadow-md p-4 sm:p-6 flex items-center justify-center group">
-                <Image
-                  src="/images/369.webp"
-                  alt="Altruva 369 Harmony Roadmap Diagram"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 450px"
-                  className="object-contain p-2 group-hover:scale-102 transition-transform duration-500 ease-out"
-                  priority
-                />
+          {/* ── Part 1: Balanced 2-Column Clinical Showcase (Matching Heights) ── */}
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch mb-14">
+            {/* Visual Diagram Card */}
+            <div className="lg:col-span-5 flex flex-col">
+              <div className="h-full rounded-2xl bg-card border border-border/80 p-5 sm:p-6 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between pb-3.5 border-b border-border/50 mb-4">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-primary flex items-center gap-1.5">
+                      <Sparkles className="h-3.5 w-3.5" />
+                      {t({ en: 'Clinical Framework Diagram', id: 'Diagram Kerangka Klinis' })}
+                    </span>
+                    <Badge variant="outline" className="text-[10px] font-mono border-primary/30 text-primary">
+                      369 HARMONY™
+                    </Badge>
+                  </div>
+
+                  <div className="relative w-full aspect-[4/5] max-w-[340px] sm:max-w-[380px] mx-auto rounded-xl overflow-hidden bg-background/50 border border-border/40 p-3 group">
+                    <Image
+                      src="/images/369.webp"
+                      alt="Altruva 369 Harmony Roadmap Diagram"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 380px"
+                      className="object-contain p-2 group-hover:scale-102 transition-transform duration-500 ease-out"
+                      priority
+                    />
+                  </div>
+                </div>
+
+                <div className="pt-4 mt-4 border-t border-border/50 text-center">
+                  <p className="text-xs text-muted-foreground">
+                    {t({
+                      en: 'Proprietary timeline methodology developed by dr. Olivia Aldisa, MSc (UK)',
+                      id: 'Metodologi lini masa orisinal yang dikembangkan oleh dr. Olivia Aldisa, MSc (UK)',
+                    })}
+                  </p>
+                </div>
               </div>
-              <p className="text-xs text-muted-foreground text-center mt-3">
-                {t({
-                  en: 'Proprietary clinical diagram: Phase 3 Foundation, Phase 6 Harmonization, Phase 9-12 Elevation.',
-                  id: 'Diagram klinis paten: Fase 3 Fondasi, Fase 6 Harmonisasi, Fase 9-12 Elevasi.',
-                })}
-              </p>
             </div>
 
-            {/* Interactive Phase Cards Side */}
-            <div className="lg:col-span-7 space-y-5">
+            {/* Biological Rationale Panel (Equal Height) */}
+            <div className="lg:col-span-7 flex flex-col">
+              <div className="h-full rounded-2xl bg-card border border-border/80 p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-primary flex items-center gap-1.5">
+                      <Clock className="h-3.5 w-3.5" />
+                      {t({ en: 'Biological Pacing Architecture', id: 'Arsitektur Waktu Biologis' })}
+                    </span>
+                    <span className="text-xs text-muted-foreground font-mono">365-Day Protocol</span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-serif text-2xl font-bold text-foreground">
+                      {t({
+                        en: 'Why Pacing Outperforms Sporadic Visits',
+                        id: 'Mengapa Perawatan Terpola Mengungguli Kunjungan Acak',
+                      })}
+                    </h3>
+                    <p className="text-sm text-foreground/80 leading-relaxed mt-2">
+                      {t({
+                        en: 'Human tissue turnover operates on strict biological timelines: epidermal renewal requires 28–90 days, while deep neocollagenesis and SMAS remodeling mature across 3 to 12 months. Treating randomly causes tissue fatigue and plateaued results. The 369 framework syncs each intervention with your cellular healing clock.',
+                        id: 'Regenerasi jaringan tubuh manusia bekerja dengan jadwal biologis pasti: pembaruan epidermis membutuhkan 28–90 hari, sedangkan pembentukan kolagen dalam dan remodeling SMAS matang dalam 3 hingga 12 bulan. Perawatan tanpa pola memicu kelelahan jaringan dan hasil mandek. Kerangka 369 menyelaraskan setiap tindakan dengan jam regenerasi seluler Anda.',
+                      })}
+                    </p>
+                  </div>
+
+                  {/* 3 Milestone summary pills */}
+                  <div className="grid sm:grid-cols-3 gap-3 pt-2">
+                    <div className="rounded-xl border border-border/70 bg-secondary/30 p-3.5 space-y-1">
+                      <div className="flex items-center gap-1.5 text-primary font-serif font-bold text-sm">
+                        <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-xs">3</span>
+                        <span>{t({ en: 'Month 1–3', id: 'Bulan 1–3' })}</span>
+                      </div>
+                      <p className="text-xs font-semibold text-foreground">
+                        {t({ en: 'Foundation & Hydration', id: 'Fondasi & Hidrasi' })}
+                      </p>
+                      <p className="text-[11px] text-muted-foreground leading-tight">
+                        {t({ en: 'Skin barrier repair, texture refinement & tone evening.', id: 'Perbaikan barier kulit, penghalusan tekstur & warna.' })}
+                      </p>
+                    </div>
+
+                    <div className="rounded-xl border border-border/70 bg-secondary/30 p-3.5 space-y-1">
+                      <div className="flex items-center gap-1.5 text-primary font-serif font-bold text-sm">
+                        <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-xs">6</span>
+                        <span>{t({ en: 'Month 6', id: 'Bulan 6' })}</span>
+                      </div>
+                      <p className="text-xs font-semibold text-foreground">
+                        {t({ en: 'Harmonization', id: 'Harmonisasi' })}
+                      </p>
+                      <p className="text-[11px] text-muted-foreground leading-tight">
+                        {t({ en: 'Collagen banking via biostimulators & muscle balance.', id: 'Tabungan kolagen via biostimulator & balans otot.' })}
+                      </p>
+                    </div>
+
+                    <div className="rounded-xl border border-border/70 bg-secondary/30 p-3.5 space-y-1">
+                      <div className="flex items-center gap-1.5 text-primary font-serif font-bold text-sm">
+                        <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-xs">9+</span>
+                        <span>{t({ en: 'Month 9–12', id: 'Bulan 9–12' })}</span>
+                      </div>
+                      <p className="text-xs font-semibold text-foreground">
+                        {t({ en: 'Vector Elevation', id: 'Elevasi Vektor' })}
+                      </p>
+                      <p className="text-[11px] text-muted-foreground leading-tight">
+                        {t({ en: 'Deep SMAS ultrasound lifting & jawline definition reset.', id: 'Lifting SMAS ultrasound dalam & reset garis rahang.' })}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Doctor's Quote Box */}
+                <div className="mt-5 pt-4 border-t border-border/60 bg-primary/5 rounded-xl p-4 border border-primary/15">
+                  <div className="flex items-start gap-3">
+                    <Award className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                      <p className="text-xs italic text-foreground/85 leading-relaxed">
+                        {t({
+                          en: '“True facial longevity is never created in one aggressive session. It is cultivated through disciplined milestones that keep you looking naturally radiant every month of the year.”',
+                          id: '“Ketahanan estetika wajah tidak pernah dicapai lewat satu kunjungan agresif. Hal ini dibangun melalui tahapan terukur yang menjaga Anda senantiasa segar alami sepanjang tahun.”',
+                        })}
+                      </p>
+                      <span className="text-[11px] font-semibold text-primary block">
+                        dr. Olivia Aldisa, Dipl. AAAM, MSc (UK) • Founder of Altruva
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Part 2: The 3 Chronological Phase Cards (Horizontal 3-Column Grid) ── */}
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                  {t({ en: 'Detailed Treatment Protocols', id: 'Protokol Perawatan Lengkap' })}
+                </span>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-foreground">
+                  {t({ en: 'The 3 Annual Phases in Detail', id: 'Tiga Fase Tahunan Secara Mendalam' })}
+                </h3>
+              </div>
+              <div className="hidden sm:flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Calendar className="h-3.5 w-3.5 text-primary" />
+                <span>{t({ en: 'Paced Across 12 Months', id: 'Berjalan Sepanjang 12 Bulan' })}</span>
+              </div>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-6 items-stretch">
               {phases.map((phase) => {
                 const isSelected = activePhase === phase.id;
                 return (
@@ -509,63 +634,79 @@ export default function Harmony369Content() {
                     key={phase.id}
                     onClick={() => setActivePhase(phase.id)}
                     className={cn(
-                      'rounded-2xl border p-5 sm:p-6 transition-all duration-300 cursor-pointer bg-card',
+                      'rounded-2xl border p-6 sm:p-7 transition-all duration-300 cursor-pointer bg-card flex flex-col justify-between group',
                       isSelected
-                        ? 'border-primary ring-1 ring-primary shadow-md'
-                        : 'border-border/80 hover:border-border hover:shadow-xs opacity-90'
+                        ? 'border-primary ring-2 ring-primary/40 shadow-md bg-card'
+                        : 'border-border/80 hover:border-primary/50 hover:shadow-xs'
                     )}
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className={cn(
-                            'w-10 h-10 rounded-xl flex items-center justify-center font-serif text-lg font-bold shrink-0',
-                            isSelected
-                              ? 'bg-primary text-primary-foreground'
-                              : 'bg-secondary text-foreground/80'
-                          )}
-                        >
-                          {phase.number}
-                        </div>
-                        <div>
-                          <h3 className="font-serif text-xl font-bold text-foreground">
-                            {t(phase.name)}
-                          </h3>
-                          <span className="text-xs font-semibold text-primary block">
-                            {t(phase.cadence)} • {t(phase.theme)}
-                          </span>
+                    <div className="space-y-4">
+                      {/* Top Header of Card */}
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={cn(
+                              'w-11 h-11 rounded-xl flex items-center justify-center font-serif text-lg font-bold shrink-0 transition-colors',
+                              isSelected
+                                ? 'bg-primary text-primary-foreground shadow-xs'
+                                : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground'
+                            )}
+                          >
+                            {phase.number}
+                          </div>
+                          <div>
+                            <h4 className="font-serif text-lg font-bold text-foreground leading-tight">
+                              {t(phase.name)}
+                            </h4>
+                            <span className="text-xs font-semibold text-primary block mt-0.5">
+                              {t(phase.cadence)}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <Badge variant={isSelected ? 'default' : 'outline'} className="text-[10px] shrink-0">
-                        {isSelected ? 'Active Phase' : 'Explore'}
-                      </Badge>
+
+                      {/* Theme pill */}
+                      <div className="bg-secondary/40 border border-border/50 rounded-lg px-2.5 py-1.5 text-xs font-medium text-foreground/85">
+                        {t(phase.theme)}
+                      </div>
+
+                      {/* Tagline */}
+                      <p className="text-xs italic text-muted-foreground">
+                        {t(phase.tagline)}
+                      </p>
+
+                      {/* Description */}
+                      <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed">
+                        {t(phase.description)}
+                      </p>
+
+                      {/* Protocol Treatments */}
+                      <div className="pt-3 border-t border-border/60 space-y-2">
+                        <span className="text-[11px] uppercase tracking-wider font-semibold text-primary block">
+                          {t({ en: 'Key Treatments:', id: 'Perawatan Utama:' })}
+                        </span>
+                        <ul className="space-y-2 text-xs text-foreground/85">
+                          {phase.treatments.map((item, tIdx) => (
+                            <li key={tIdx} className="flex items-start gap-2">
+                              <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+                              <span className="leading-tight">{t(item)}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
 
-                    <p className="text-xs italic text-muted-foreground mt-3">
-                      {t(phase.tagline)}
-                    </p>
-
-                    <p className="text-sm text-foreground/80 leading-relaxed mt-2.5">
-                      {t(phase.description)}
-                    </p>
-
-                    <div className="mt-4 pt-3 border-t border-border/60">
-                      <span className="text-[11px] uppercase tracking-wider font-semibold text-primary block mb-2">
-                        {t({ en: 'Featured Protocol Treatments:', id: 'Perawatan Utama dalam Fase Ini:' })}
-                      </span>
-                      <ul className="grid sm:grid-cols-2 gap-2 text-xs text-foreground/80">
-                        {phase.treatments.map((item, tIdx) => (
-                          <li key={tIdx} className="flex items-start gap-1.5">
-                            <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
-                            <span>{t(item)}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-3.5 bg-secondary/30 rounded-lg p-2.5 text-xs text-foreground/75 border border-border/40 flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-primary shrink-0" />
-                      <span><strong>{t({ en: 'Expected Outcome:', id: 'Hasil yang Dicapai:' })}</strong> {t(phase.keyBenefit)}</span>
+                    {/* Bottom Outcome Box */}
+                    <div className="mt-5 pt-3 border-t border-border/50">
+                      <div className="bg-secondary/30 rounded-xl p-3 text-xs text-foreground/80 border border-border/40 flex items-start gap-2">
+                        <Sparkles className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="text-foreground block mb-0.5">
+                            {t({ en: 'Expected Outcome:', id: 'Hasil yang Dicapai:' })}
+                          </strong>
+                          <span className="text-[11px] leading-relaxed">{t(phase.keyBenefit)}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
