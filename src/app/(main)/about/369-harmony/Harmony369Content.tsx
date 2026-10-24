@@ -33,6 +33,7 @@ import {
   Check,
   TrendingUp,
   Microscope,
+  Rocket,
 } from 'lucide-react';
 
 export default function Harmony369Content() {
@@ -243,38 +244,70 @@ export default function Harmony369Content() {
     },
   ];
 
-  const keyPrinciples = [
+  const whyChoosePrinciples = [
     {
-      title: { en: 'Honors Biological Healing Cycles', id: 'Menghormati Siklus Regenerasi Alami' },
+      title: { en: 'Aging is 3M', id: 'Penuaan adalah 3M' },
       description: {
-        en: 'Avoids tissue overstimulation by pacing treatments according to the natural 90-day collagen turnover timeline.',
-        id: 'Menghindari stimulasi berlebihan dengan menyesuaikan jadwal tindakan sesuai siklus pembaruan kolagen 90 hari.',
+        en: 'Multilayered, Multifactorial, and Multimodal, requiring a comprehensive clinical strategy.',
+        id: 'Berlapis, multifaktorial, dan multimodal, membutuhkan strategi yang komprehensif.',
+      },
+      Icon: Diamond,
+    },
+    {
+      title: { en: 'Regenerative Framework', id: 'Kerangka Regeneratif' },
+      description: {
+        en: 'Honors biological rhythms and aging timelines for optimal, natural tissue renewal.',
+        id: 'Menghormati ritme biologis dan garis waktu penuaan untuk hasil regenerasi alami yang optimal.',
+      },
+      Icon: ShieldCheck,
+    },
+    {
+      title: { en: 'Harmonized Layering', id: 'Pelapisan yang Harmonis' },
+      description: {
+        en: 'Enhances skin, structure, and cellular vitality in strategic cycles of 3, 6, and 9–12 months.',
+        id: 'Meningkatkan vitalitas kulit, struktur, dan sel dalam siklus strategis 3, 6, dan 9–12 bulan.',
+      },
+      Icon: Zap,
+    },
+    {
+      title: { en: 'Respects Healing Phases', id: 'Menghormati Fase Penyembuhan' },
+      description: {
+        en: 'Avoids overstimulation and filler fatigue by respecting intrinsic collagen renewal cycles.',
+        id: 'Menghindari stimulasi berlebihan dengan menghormati fase regeneratif intrinsik jaringan kulit.',
       },
       Icon: Clock,
     },
     {
-      title: { en: 'Proven in Over 12+ Years of Practice', id: 'Teruji Selama Lebih dari 12 Tahun Praktik' },
+      title: { en: 'Clinically Proven', id: 'Terbukti Secara Klinis' },
       description: {
-        en: 'Developed, clinically tested, and refined through thousands of successful patient cases by dr. Olivia Aldisa.',
-        id: 'Dikembangkan, diuji klinis, dan disempurnakan melalui ribuan kasus pasien sukses oleh dr. Olivia Aldisa.',
+        en: 'Tested, refined, and proven through over 12+ years of Dr. Aldisa’s dedicated clinical practice.',
+        id: 'Diuji, disempurnakan, dan dibuktikan melalui lebih dari 12 tahun praktik klinis dr. Olivia Aldisa.',
       },
       Icon: Award,
     },
     {
-      title: { en: 'Compounded Exponential Results', id: 'Hasil Eksponensial Sinergis' },
+      title: { en: 'Natural, Long-Term Results', id: 'Hasil Alami, Jangka Panjang' },
       description: {
-        en: 'Each phase builds upon the previous one, creating synergistic clinical outcomes superior to sporadic one-off visits.',
-        id: 'Setiap fase memperkuat fase sebelumnya, menghasilkan sinergi klinis yang jauh lebih unggul dibanding perawatan acak.',
+        en: 'Delivers visible, refined rejuvenation with zero frozen expressions or over-filled distortion.',
+        id: 'Memberikan peremajaan alami yang terlihat nyata tanpa efek wajah kaku atau kesan kepenuhan.',
       },
-      Icon: TrendingUp,
+      Icon: Gem,
     },
     {
-      title: { en: 'Zero Frozen or Over-Filled Look', id: 'Bebas Efek Kaku atau Wajah Kepenuhan' },
+      title: { en: 'Rooted in Reality', id: 'Berakar pada Realitas' },
       description: {
-        en: 'Respects natural expressions and facial proportions, ensuring your friends see glowing freshness rather than obvious procedures.',
-        id: 'Menjaga keaslian ekspresi wajah dan proporsi alami, memastikan Anda tampak segar dan segar alami.',
+        en: 'Acknowledges aging as an ongoing progressive process requiring a disciplined annual strategy.',
+        id: 'Memahami penuaan sebagai proses berkelanjutan yang membutuhkan strategi tahunan terdisiplin.',
       },
-      Icon: Star,
+      Icon: Target,
+    },
+    {
+      title: { en: 'Exponential Outcomes', id: 'Hasil Eksponensial Sinergis' },
+      description: {
+        en: 'Scientifically engineered for synergistic treatments that compound into superior longevity over time.',
+        id: 'Dirancang secara ilmiah agar setiap perawatan saling bersinergi menghasilkan efek peremajaan eksponensial.',
+      },
+      Icon: Rocket,
     },
   ];
 
@@ -390,11 +423,65 @@ export default function Harmony369Content() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-border hover:bg-secondary/50">
+                <Link href="#why-choose">
+                  {t({ en: 'Why Choose 369 Harmony', id: 'Mengapa 369 Harmony' })}
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" size="lg" className="text-muted-foreground hover:text-foreground">
                 <Link href="#the-roadmap">
-                  {t({ en: 'Understand the 3-6-9 Timeline', id: 'Pelajari Siklus 3-6-9' })}
+                  {t({ en: 'The 3-6-9 Roadmap', id: 'Peta Jalan 3-6-9' })}
                 </Link>
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 1: WHY CHOOSE 369 HARMONY (THE 8 CORE PRINCIPLES) ── */}
+      <section id="why-choose" className="py-16 md:py-24 bg-secondary/30 border-b border-border/60">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
+            <span className="text-xs uppercase tracking-wider font-semibold text-primary">
+              {t({ en: 'Proprietary Clinical Philosophy', id: 'Filosofi Klinis Orisinal' })}
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              {t({
+                en: 'Why Choose the 369 Harmony Approach™?',
+                id: 'Mengapa Memilih Pendekatan 369 Harmony™?',
+              })}
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              {t({
+                en: 'Rejuvenation based on science, respect for anatomy, and natural harmony.',
+                id: 'Peremajaan berdasarkan sains, penghormatan terhadap anatomi, dan harmoni alami.',
+              })}
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {whyChoosePrinciples.map((principle, index) => {
+              const Icon = principle.Icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-card rounded-2xl p-6 border border-border/80 shadow-xs hover:shadow-md hover:border-primary/40 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-lg font-bold text-foreground">
+                        {t(principle.title)}
+                      </h3>
+                      <p className="text-xs text-foreground/75 leading-relaxed mt-2">
+                        {t(principle.description)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -856,46 +943,7 @@ export default function Harmony369Content() {
         </div>
       </section>
 
-      {/* ── SECTION 4: KEY PRINCIPLES ── */}
-      <section className="py-16 md:py-24 bg-secondary/30 border-y border-border/60">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-          <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-            <span className="text-xs uppercase tracking-wider font-semibold text-primary">
-              {t({ en: 'Why 369 Harmony Succeeds', id: 'Mengapa 369 Harmony Berhasil' })}
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
-              {t({
-                en: 'Grounding Aesthetics in Biology & Long-Term Reality',
-                id: 'Berakar pada Biologi dan Realitas Jangka Panjang',
-              })}
-            </h2>
-          </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {keyPrinciples.map((principle, index) => {
-              const Icon = principle.Icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-card rounded-xl p-5 border border-border/80 shadow-xs flex flex-col justify-between"
-                >
-                  <div className="space-y-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="font-serif text-base font-bold text-foreground">
-                      {t(principle.title)}
-                    </h3>
-                    <p className="text-xs text-foreground/75 leading-relaxed">
-                      {t(principle.description)}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* ── SECTION 5: FREQUENTLY ASKED QUESTIONS ── */}
       <section className="py-16 md:py-20 bg-background">
