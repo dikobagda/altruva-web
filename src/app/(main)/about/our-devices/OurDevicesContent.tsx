@@ -405,14 +405,14 @@ export default function OurDevicesContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-b from-secondary/40 via-background to-background">
+      <section className="relative overflow-hidden pt-[20px] pb-12 md:pb-16 bg-gradient-to-b from-secondary/40 via-background to-background">
         <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-primary/10 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-          {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="mb-6">
+          {/* Breadcrumbs: 20px from navbar, 50px gap to title */}
+          <nav aria-label="Breadcrumb" className="mb-[50px]">
             <ol className="flex items-center space-x-2 text-xs md:text-sm text-muted-foreground">
               <li>
                 <Link href="/" className="hover:text-primary transition-colors">
